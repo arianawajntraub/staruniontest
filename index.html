@@ -80,11 +80,11 @@
         </div>
     </div>
 
-    <!-- NAVEGACIÓN PRINCIPAL (Anclajes dentro de la misma Home) -->
+    <!-- NAVEGACIÓN PRINCIPAL -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center" onclick="window.scrollTo(0,0); return false;">
-                <img src="logo-horizontal-1200x300.png" alt="Star Union Empresa de Limpieza" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=Star+Union+Logo';">
+                <img src="logo-star-union-srl.png" alt="Star Union Servicios SRL" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=Star+Union+Logo';">
             </a>
             <nav class="hidden lg:flex gap-8 items-center font-bold text-[15px] text-[#000000]">
                 <a href="#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
@@ -142,7 +142,7 @@
                             Desde 2001, Star Union evolucionó hasta convertirse en el socio operativo estratégico de las corporaciones y plantas industriales más exigentes de Argentina.
                         </p>
                         <p class="text-lg text-neutral-custom mb-8 font-light leading-relaxed">
-                            Conformamos un equipo de <strong>438 profesionales directos</strong> (auditados 2026). Nuestra misión es brindar servicios de limpieza integral con los más altos estándares, garantizando higiene segura y el cumplimiento de protocolos específicos (5S, Anti-hurto, etc.).
+                            Conformamos un equipo de <strong>438 profesionales directos</strong>. Nuestra misión es brindar servicios de limpieza integral con los más altos estándares, garantizando higiene segura y el cumplimiento de protocolos específicos (5S, Anti-hurto, etc.).
                         </p>
                         
                         <div class="grid grid-cols-2 gap-8 py-6 border-t border-gray-200">
@@ -183,7 +183,7 @@
             </div>
         </section>
 
-        <!-- DÓNDE LIMPIAMOS (Rutas conectadas a las carpetas) -->
+        <!-- DÓNDE LIMPIAMOS (Tarjetas Clickables calcadas de tu imagen) -->
         <section id="donde-limpiamos" class="py-24 bg-gray-50 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-12">
@@ -193,71 +193,102 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- PUERTA 1: LANDING INDUSTRIAL (Toda la tarjeta es un link <a> para el SEO) -->
-                    <a href="limpieza-industrial/" class="block bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-xl hover:border-brand transition-all duration-300">
-                        <div class="overflow-hidden h-48 w-full relative">
+                    <!-- TARJETA 1: LIMPIEZA INDUSTRIAL -->
+                    <a href="limpieza-industrial/" class="flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg hover:border-brand transition-all duration-300 group">
+                        <div class="h-48 w-full overflow-hidden border-b border-gray-100">
                             <!-- 📸 ESPACIO PARA FOTO REAL -->
-                            <img src="foto-industrial-portada.jpg" alt="Limpieza Industrial" class="h-full w-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop';">
+                            <img src="foto-fabricas-portada.jpg" alt="Fábricas y Zonas Industriales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop';">
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-brand mb-3 group-hover:text-brand-dark transition">Fábricas y Zonas Industriales</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light mb-4">Intervención en zonas productivas, uso de maquinaria LAV/LUT, gestión de residuos y ejecución de protocolos estrictos 5S.</p>
-                            <span class="inline-flex items-center text-brand font-bold text-sm uppercase tracking-wide group-hover:translate-x-2 transition-transform">Ver detalles <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-tight">Fábricas y Zonas Industriales</h3>
+                            <p class="text-neutral-custom font-light leading-relaxed mb-6 flex-grow">Intervención en zonas productivas, uso de maquinaria LAV/LUT, gestión de residuos y ejecución de protocolos estrictos 5S.</p>
+                            <span class="text-brand font-bold text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                VER DETALLES 
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </span>
                         </div>
                     </a>
 
-                    <!-- PUERTA 2: LANDING CONSORCIOS -->
-                    <a href="consorcios/" class="block bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-xl hover:border-brand transition-all duration-300">
-                        <div class="overflow-hidden h-48 w-full relative">
+                    <!-- TARJETA 2: CONSORCIOS -->
+                    <a href="consorcios/" class="flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg hover:border-brand transition-all duration-300 group">
+                        <div class="h-48 w-full overflow-hidden border-b border-gray-100">
                             <!-- 📸 ESPACIO PARA FOTO REAL -->
-                            <img src="foto-consorcio-portada.jpg" alt="Limpieza Corporativa" class="h-full w-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop';">
+                            <img src="foto-consorcios-portada.jpg" alt="Consorcios y Oficinas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop';">
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-brand mb-3 group-hover:text-brand-dark transition">Consorcios y Oficinas</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light mb-4">Limpieza corporativa integral para espacios de trabajo y consorcios residenciales. Abonos mensuales con dotaciones estables.</p>
-                            <span class="inline-flex items-center text-brand font-bold text-sm uppercase tracking-wide group-hover:translate-x-2 transition-transform">Ver detalles <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-tight">Consorcios y Oficinas</h3>
+                            <p class="text-neutral-custom font-light leading-relaxed mb-6 flex-grow">Limpieza corporativa integral para espacios de trabajo y consorcios residenciales. Abonos mensuales con dotaciones estables.</p>
+                            <span class="text-brand font-bold text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                VER DETALLES 
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </span>
                         </div>
                     </a>
 
-                    <!-- Clínicas (Próxima Landing - Por ahora estática) -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 cursor-default">
-                        <img src="foto-salud-portada.jpg" alt="Clínicas" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop';">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-brand mb-3">Clínicas y Hospitales</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Protocolos de desinfección y sanitización de áreas críticas. Personal capacitado en el manejo de ambientes de alta complejidad.</p>
+                    <!-- TARJETA 3: SALUD (Futura Landing, por ahora va al contacto) -->
+                    <a href="#contacto" class="flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg hover:border-brand transition-all duration-300 group">
+                        <div class="h-48 w-full overflow-hidden border-b border-gray-100">
+                            <!-- 📸 ESPACIO PARA FOTO REAL -->
+                            <img src="foto-salud-portada.jpg" alt="Clínicas y Hospitales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop';">
                         </div>
-                    </div>
-
-                    <!-- Educación -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 cursor-default">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop" alt="Educación" class="h-48 w-full object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-brand mb-3">Universidades y Colegios</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Mantenimiento de alto tránsito para aulas y patios. Ejecutamos protocolos Anti-hurto y nos adaptamos a los cronogramas académicos.</p>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-tight">Clínicas y Hospitales</h3>
+                            <p class="text-neutral-custom font-light leading-relaxed mb-6 flex-grow">Protocolos de desinfección y sanitización de áreas críticas. Personal capacitado en el manejo de ambientes de alta complejidad.</p>
+                            <span class="text-brand font-bold text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                SOLICITAR INFO
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </span>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- Deportes -->
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 cursor-default">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" alt="Clubes" class="h-48 w-full object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-brand mb-3">Clubes e Instituciones Deportivas</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Limpieza de vestuarios, salones, piletas y espacios comunes con insumos estratégicos para asegurar la máxima higiene deportiva.</p>
+                    <!-- TARJETA 4: UNIVERSIDADES -->
+                    <a href="#contacto" class="flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg hover:border-brand transition-all duration-300 group">
+                        <div class="h-48 w-full overflow-hidden border-b border-gray-100">
+                            <!-- 📸 ESPACIO PARA FOTO REAL -->
+                            <img src="foto-universidades-portada.jpg" alt="Universidades y Colegios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop';">
                         </div>
-                    </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-tight">Universidades y Colegios</h3>
+                            <p class="text-neutral-custom font-light leading-relaxed mb-6 flex-grow">Mantenimiento de alto tránsito para aulas y patios. Ejecutamos protocolos Anti-hurto y nos adaptamos a los cronogramas académicos.</p>
+                            <span class="text-brand font-bold text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                SOLICITAR INFO
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </span>
+                        </div>
+                    </a>
 
-                    <!-- Logística -->
-                    <div class="bg-brand rounded-xl overflow-hidden shadow-md p-8 flex flex-col justify-center cursor-default">
-                        <span class="bg-white text-[#000000] font-bold text-xs uppercase px-3 py-1 rounded-full w-max mb-4 tracking-wider">Logística B2B</span>
-                        <h3 class="text-3xl font-bold text-white mb-4">Centros Comerciales y Aeropuertos</h3>
-                        <p class="text-white leading-relaxed font-light opacity-90 mb-6">Operamos en áreas de tráfico masivo garantizando la continuidad operativa con soporte técnico interno.</p>
-                    </div>
+                    <!-- TARJETA 5: CLUBES -->
+                    <a href="#contacto" class="flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-lg hover:border-brand transition-all duration-300 group">
+                        <div class="h-48 w-full overflow-hidden border-b border-gray-100">
+                            <!-- 📸 ESPACIO PARA FOTO REAL -->
+                            <img src="foto-clubes-portada.jpg" alt="Clubes e Instituciones Deportivas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop';">
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-brand-dark mb-4 leading-tight">Clubes e Instituciones Deportivas</h3>
+                            <p class="text-neutral-custom font-light leading-relaxed mb-6 flex-grow">Limpieza de vestuarios, salones, piletas y espacios comunes con insumos estratégicos para asegurar la máxima higiene deportiva.</p>
+                            <span class="text-brand font-bold text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                SOLICITAR INFO
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- TARJETA 6: LOGÍSTICA B2B -->
+                    <a href="#contacto" class="flex flex-col bg-brand-dark rounded-xl overflow-hidden shadow-md p-8 group hover:bg-brand transition-colors duration-300">
+                        <span class="bg-white text-[#000000] font-bold text-xs uppercase px-3 py-1 rounded-full w-max mb-6 tracking-wider">Logística B2B</span>
+                        <h3 class="text-3xl font-bold text-white mb-4 leading-tight">Centros Comerciales y Aeropuertos</h3>
+                        <p class="text-white leading-relaxed font-light opacity-90 mb-8 flex-grow">Operamos en áreas de tráfico masivo garantizando la continuidad operativa con soporte técnico interno.</p>
+                        <span class="text-accent font-bold text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                            SOLICITAR INFO
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
+                    </a>
 
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN ISO (Conectada a la Landing Institucional ISO) -->
+        <!-- SECCIÓN ISO (Conectada a la nueva Landing) -->
         <section id="iso" class="py-24 bg-white border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row gap-12 items-center">
@@ -277,16 +308,17 @@
                             </li>
                         </ul>
 
-                        <!-- PUERTA 3: LANDING CERTIFICACIÓN ISO -->
-                        <a href="certificacion-iso/" class="inline-flex items-center gap-2 bg-brand text-white font-extrabold px-8 py-4 rounded hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-                            Conocé nuestro Sistema de Gestión <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        <!-- BOTÓN HACIA LA LANDING ISO -->
+                        <a href="certificacion-iso/" class="inline-flex items-center gap-3 bg-brand text-white font-bold px-8 py-4 rounded-lg hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                            Conocé nuestro Sistema de Gestión 
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
 
                     <div class="lg:w-1/2 flex justify-center mt-12 lg:mt-0">
                         <div class="relative max-w-sm w-full">
-                            <!-- Nombres limpios aplicados -->
-                            <img src="cleany-iso.png" alt="Cleany Mascota Oficial ISO 9001" class="w-full h-auto relative z-10" onerror="this.src='https://placehold.co/400x500/ffffff/03582d?text=Cleany';">
+                            <!-- Nombres limpios aplicados al sello de cera que enviaste -->
+                            <img src="cleany-sello-cera.png" alt="Sello Compromiso Calidad y Disciplina Star Union" class="w-full h-auto relative z-10 drop-shadow-xl hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/ffffff/03582d?text=Sello+Calidad';">
                             
                             <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl border border-gray-100 flex items-center gap-3 z-20">
                                 <img src="logo-tuv.png" alt="TUV Rheinland" class="h-10 w-auto object-contain" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/T%C3%9CV_Rheinland_Logo.svg/1200px-T%C3%9CV_Rheinland_Logo.svg.png';">
@@ -406,7 +438,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-10 border-b border-white/10 pb-10">
                 
                 <div class="md:col-span-2 flex flex-col gap-6">
-                    <img src="logo-horizontal-1200x300.png" alt="Star Union Logo" class="h-10 object-contain object-left filter brightness-0 invert" onerror="this.src='https://placehold.co/1200x300/133522/ffffff?text=Star+Union+Logo';">
+                    <img src="logo-star-union-srl.png" alt="Star Union Logo" class="h-10 object-contain object-left filter brightness-0 invert" onerror="this.src='https://placehold.co/1200x300/133522/ffffff?text=Star+Union+Logo';">
                     <p class="text-green-50 font-light text-lg">Empresa de limpieza profesional. Soluciones corporativas integrales certificadas ISO 9001:2015.</p>
                     <p class="text-sm font-bold text-accent">Contacto: comercial@starunion.com.ar | 0800-XXX-XXXX</p>
                     
