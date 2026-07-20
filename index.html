@@ -40,9 +40,9 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'], heading: ['"Open Sans"', 'sans-serif'], },
+                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'] },
                     colors: {
-                        brand: { DEFAULT: '#03582d', dark: '#024121', },
+                        brand: { DEFAULT: '#03582d', dark: '#024121' },
                         accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
                         neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
                     }
@@ -80,15 +80,13 @@
         </div>
     </div>
 
-    <!-- NAVEGACIÓN PRINCIPAL -->
+    <!-- NAVEGACIÓN PRINCIPAL (Anclajes dentro de la misma Home) -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-                <!-- 📸 REGLA APLICADA: Nombre de archivo limpio para el logo -->
-                <img src="logo-horizontal-1200x300.png" alt="Star Union Servicios" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=Star+Union+Logo';">
+            <a href="#" class="flex items-center" onclick="window.scrollTo(0,0); return false;">
+                <img src="logo-horizontal-1200x300.png" alt="Star Union Empresa de Limpieza" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=Star+Union+Logo';">
             </a>
             <nav class="hidden lg:flex gap-8 items-center font-bold text-[15px] text-[#000000]">
-                <!-- ACÁ NAVEGAMOS CON ANCLAS (#) PORQUE ESTAMOS EN LA HOME -->
                 <a href="#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
                 <a href="#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
                 <a href="#servicios-especiales" class="hover:text-brand transition">Servicios especiales</a>
@@ -116,14 +114,14 @@
             </div>
         </section>
         
-        <!-- CLIENTES / PRUEBA SOCIAL -->
+        <!-- PRUEBA SOCIAL / AUDITORÍA -->
         <div class="bg-white border-b border-gray-200 py-10">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Operaciones certificadas y procesos auditados en:</p>
                 <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 font-extrabold text-xl md:text-2xl text-gray-400">
                     <span class="hover:text-brand transition cursor-default">TOYOTA</span>
                     <span class="hover:text-brand transition cursor-default">DI TELLA</span>
-                    <!-- Dato duro de Ferroclor -->
+                    <!-- Dato duro Ferroclor -->
                     <div class="flex flex-col items-center group cursor-default">
                         <span class="hover:text-brand transition">FERROCLOR</span>
                         <span class="text-[10px] bg-brand text-white px-2 py-0.5 rounded-full mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Eval: 96/100</span>
@@ -185,10 +183,8 @@
             </div>
         </section>
 
-        <!-- DÓNDE LIMPIAMOS (ACCESO A LAS LANDINGS) -->
+        <!-- DÓNDE LIMPIAMOS (Rutas conectadas a las carpetas) -->
         <section id="donde-limpiamos" class="py-24 bg-gray-50 border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <section id="donde-limpiamos" class="py-24 bg-gray-50 border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mb-12">
                     <h2 class="text-4xl font-extrabold text-[#000000] mb-4 tracking-tight">Dónde limpiamos</h2>
@@ -197,10 +193,11 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Landing Industrial Link -->
+                    <!-- PUERTA 1: LANDING INDUSTRIAL (Toda la tarjeta es un link <a> para el SEO) -->
                     <a href="limpieza-industrial/" class="block bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-xl hover:border-brand transition-all duration-300">
                         <div class="overflow-hidden h-48 w-full relative">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="Limpieza Industrial" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                            <!-- 📸 ESPACIO PARA FOTO REAL -->
+                            <img src="foto-industrial-portada.jpg" alt="Limpieza Industrial" class="h-full w-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop';">
                         </div>
                         <div class="p-8">
                             <h3 class="text-2xl font-bold text-brand mb-3 group-hover:text-brand-dark transition">Fábricas y Zonas Industriales</h3>
@@ -209,10 +206,11 @@
                         </div>
                     </a>
 
-                    <!-- Landing Consorcios Link -->
+                    <!-- PUERTA 2: LANDING CONSORCIOS -->
                     <a href="consorcios/" class="block bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-xl hover:border-brand transition-all duration-300">
                         <div class="overflow-hidden h-48 w-full relative">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Limpieza Corporativa" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                            <!-- 📸 ESPACIO PARA FOTO REAL -->
+                            <img src="foto-consorcio-portada.jpg" alt="Limpieza Corporativa" class="h-full w-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop';">
                         </div>
                         <div class="p-8">
                             <h3 class="text-2xl font-bold text-brand mb-3 group-hover:text-brand-dark transition">Consorcios y Oficinas</h3>
@@ -221,16 +219,16 @@
                         </div>
                     </a>
 
-                    <!-- Bloque Clínicas (Informativo, sin enlace aún) -->
+                    <!-- Clínicas (Próxima Landing - Por ahora estática) -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 cursor-default">
-                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop" alt="Clínicas" class="h-48 w-full object-cover">
+                        <img src="foto-salud-portada.jpg" alt="Clínicas" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop';">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold text-brand mb-3">Clínicas y Hospitales</h3>
                             <p class="text-neutral-custom leading-relaxed font-light">Protocolos de desinfección y sanitización de áreas críticas. Personal capacitado en el manejo de ambientes de alta complejidad.</p>
                         </div>
                     </div>
 
-                    <!-- Bloque Educación (Informativo) -->
+                    <!-- Educación -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 cursor-default">
                         <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop" alt="Educación" class="h-48 w-full object-cover">
                         <div class="p-8">
@@ -239,7 +237,7 @@
                         </div>
                     </div>
 
-                    <!-- Bloque Deportes (Informativo) -->
+                    <!-- Deportes -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 cursor-default">
                         <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" alt="Clubes" class="h-48 w-full object-cover">
                         <div class="p-8">
@@ -248,18 +246,18 @@
                         </div>
                     </div>
 
-                    <!-- Bloque Logística (Informativo) -->
+                    <!-- Logística -->
                     <div class="bg-brand rounded-xl overflow-hidden shadow-md p-8 flex flex-col justify-center cursor-default">
                         <span class="bg-white text-[#000000] font-bold text-xs uppercase px-3 py-1 rounded-full w-max mb-4 tracking-wider">Logística B2B</span>
                         <h3 class="text-3xl font-bold text-white mb-4">Centros Comerciales y Aeropuertos</h3>
-                        <p class="text-white leading-relaxed font-light opacity-90 mb-6">Operamos en áreas de tráfico masivo (Shoppings, Aeropuertos) garantizando la continuidad operativa con soporte técnico interno.</p>
+                        <p class="text-white leading-relaxed font-light opacity-90 mb-6">Operamos en áreas de tráfico masivo garantizando la continuidad operativa con soporte técnico interno.</p>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN ISO (CONEXIÓN A LA LANDING INSTITUCIONAL) -->
+        <!-- SECCIÓN ISO (Conectada a la Landing Institucional ISO) -->
         <section id="iso" class="py-24 bg-white border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row gap-12 items-center">
@@ -279,15 +277,15 @@
                             </li>
                         </ul>
 
-                        <!-- UX: BOTÓN DE CONEXIÓN A LA LANDING ISO -->
-                        <a href="certificacion-iso/index.html" class="inline-flex items-center gap-2 bg-brand text-white font-extrabold px-8 py-4 rounded hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                        <!-- PUERTA 3: LANDING CERTIFICACIÓN ISO -->
+                        <a href="certificacion-iso/" class="inline-flex items-center gap-2 bg-brand text-white font-extrabold px-8 py-4 rounded hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                             Conocé nuestro Sistema de Gestión <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
                     </div>
 
                     <div class="lg:w-1/2 flex justify-center mt-12 lg:mt-0">
                         <div class="relative max-w-sm w-full">
-                            <!-- 📸 REGLA APLICADA: Nombre de archivo limpio -->
+                            <!-- Nombres limpios aplicados -->
                             <img src="cleany-iso.png" alt="Cleany Mascota Oficial ISO 9001" class="w-full h-auto relative z-10" onerror="this.src='https://placehold.co/400x500/ffffff/03582d?text=Cleany';">
                             
                             <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl border border-gray-100 flex items-center gap-3 z-20">
