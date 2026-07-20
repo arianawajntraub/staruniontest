@@ -254,20 +254,36 @@
 
     </main>
 
-    <!-- FOOTER INTEGRADO (Con rutas corregidas) -->
+<!-- FOOTER PREMIUM NUEVO DISEÑO (VERSIÓN LANDINGS CON "../") -->
     <footer class="bg-[#133522] text-white pt-16 pb-8 border-t-4 border-brand-dark"> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-10 border-b border-white/10 pb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-10 border-b border-white/10 pb-12">
                 
-                <div class="md:col-span-2 flex flex-col gap-6">
-                    <img src="../logo-horizontal-1200x300.png" alt="Star Union Logo" class="h-10 object-contain object-left filter brightness-0 invert" onerror="this.src='https://placehold.co/1200x300/133522/ffffff?text=Star+Union+Logo';">
-                    <p class="text-green-50 font-light text-lg">Empresa de limpieza profesional. Soluciones integrales certificadas ISO 9001:2015 para operaciones corporativas exigentes.</p>
+                <!-- Columna Izquierda: Logo, Empresa y Contacto -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <img src="../logo-footer-blanco.png" alt="Star Union Logo" class="h-14 w-auto object-contain object-left" onerror="this.src='https://placehold.co/600x150/133522/ffffff?text=LOGO+BLANCO';">
                     
-                    <p class="text-sm font-light text-green-100/80 leading-relaxed mt-2">
-                        <strong class="text-white">Cobertura Operativa:</strong> AMBA, GBA (Norte, Sur, Oeste), La Plata y alrededores, Bahía Blanca, Neuquén. <br>
-                        <strong class="text-white">Patagonia:</strong> Trelew, Rawson, Puerto Madryn, Comodoro Rivadavia, Hospital de Alta Complejidad.
-                    </p>
+                    <!-- Placa Institucional Enmarcada -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6 shadow-inner text-center md:text-left">
+                        <p class="text-green-50 font-semibold text-xs leading-loose tracking-widest uppercase">
+                            Empresa de limpieza profesional.<br>
+                            Soluciones corporativas integrales certificadas ISO 9001:2015.
+                        </p>
+                    </div>
+                    
+                    <!-- Contacto Clickable -->
+                    <div class="flex flex-col gap-3 mt-2 bg-[#0e2719] p-5 rounded-xl border border-white/5">
+                        <p class="text-sm text-green-100 flex items-center gap-3">
+                            <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Email:</span> 
+                            <a href="mailto:comercial@starunion.com.ar" class="hover:text-white hover:underline transition">comercial@starunion.com.ar</a>
+                        </p>
+                        <p class="text-sm text-green-100 flex items-center gap-3">
+                            <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Línea Directa:</span> 
+                            <a href="tel:08103338646" class="hover:text-white hover:underline transition font-bold text-lg">0810 . 333 . UNION (8646)</a>
+                        </p>
+                    </div>
 
+                    <!-- Redes -->
                     <div class="flex gap-3 mt-2">
                         <a href="https://ar.linkedin.com/company/starunion" target="_blank" class="w-10 h-10 border border-white/20 rounded flex items-center justify-center hover:bg-white/10 transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -278,21 +294,43 @@
                     </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-2xl mb-6 text-white">Navegación</h4>
-                    <ul class="space-y-4 font-light text-green-50">
-                        <li><a href="../index.html" class="hover:text-white transition">La empresa</a></li>
-                        <li><a href="../index.html#donde-limpiamos" class="hover:text-white transition">Dónde limpiamos</a></li>
-                        <li><a href="#contacto" class="hover:text-white transition">Contacto comercial</a></li>
-                    </ul>
+                <!-- Columna Centro: Navegación Enmarcada -->
+                <div class="lg:col-span-3">
+                    <div class="bg-[#0e2719] border border-[#1a4a2f] rounded-2xl p-8 shadow-xl h-full">
+                        <h4 class="font-extrabold text-xl mb-6 text-white uppercase tracking-wider flex items-center gap-3 border-b border-white/10 pb-4">
+                            Navegación
+                        </h4>
+                        <ul class="space-y-5 font-semibold text-green-50/90 text-sm">
+                            <li>
+                                <a href="../index.html#iso" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
+                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
+                                    Gestión certificada ISO
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../index.html#donde-limpiamos" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
+                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
+                                    Dónde limpiamos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contacto" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
+                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
+                                    Contacto comercial
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-2xl mb-6 text-white">Newsletter Corporativo</h4>
-                    <p class="text-green-50 mb-6 text-sm font-light">Novedades sobre Facility Management y mantenimiento edilicio.</p>
-                    <form class="flex flex-col xl:flex-row gap-3">
-                        <input type="email" placeholder="Tu email corporativo" class="w-full bg-white/10 border border-white/20 text-white placeholder-gray-300 rounded p-3 focus:outline-none focus:border-brand-light transition font-light">
-                        <button type="button" class="bg-white text-[#000000] font-bold px-6 py-3 rounded hover:bg-gray-100 transition">
+                <!-- Columna Derecha: Newsletter -->
+                <div class="lg:col-span-4 flex flex-col justify-center">
+                    <h4 class="font-extrabold text-3xl mb-3 text-white tracking-tight">Newsletter Corporativo</h4>
+                    <p class="text-green-50/80 mb-8 text-sm font-light leading-relaxed">Recibí novedades sobre certificaciones y tecnología de limpieza industrial.</p>
+                    
+                    <form class="flex flex-col gap-4">
+                        <input type="email" placeholder="Tu email corporativo..." class="w-full bg-white/10 border border-white/20 text-white placeholder-green-100/50 rounded-full px-6 py-4 focus:outline-none focus:border-accent transition font-light shadow-inner">
+                        <button type="button" class="w-full bg-white text-[#133522] font-extrabold px-6 py-4 rounded-full hover:bg-accent hover:text-[#000000] hover:shadow-[0_0_20px_rgba(255,204,41,0.4)] transition-all uppercase tracking-widest text-sm">
                             Suscribirme
                         </button>
                     </form>
