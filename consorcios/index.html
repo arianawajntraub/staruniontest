@@ -63,10 +63,11 @@
     <!-- TOP BAR -->
     <div class="bg-gray-100 border-b border-gray-200 text-neutral-custom py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm font-semibold">
         <div class="flex gap-4">
+            <!-- LINK A GOOGLE MAPS -->
             <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="hidden md:inline hover:text-brand transition">📍 Base operativa central: Guaminí 5657, CABA - Argentina</a>
         </div>
         <div class="flex gap-6 items-center">
-            <a href="/index.html#postularse" class="hover:text-brand transition font-bold">Trabajá con nosotros</a>
+            <a href="../#postularse" class="hover:text-brand transition font-bold">Trabajá con nosotros</a>
             <a href="https://browix.com" target="_blank" class="hover:text-brand transition font-bold">Portal de empleados</a>
         </div>
     </div>
@@ -74,13 +75,14 @@
     <!-- NAVEGACIÓN PRINCIPAL -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="../index.html" class="flex items-center">
+            <a href="../" class="flex items-center">
                 <img src="../logo-horizontal-1200x300.png" alt="Star Union Empresa de Limpieza" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=Star+Union+Logo';">
             </a>
             <nav class="hidden lg:flex gap-8 items-center font-bold text-[15px] text-[#000000]">
-                <a href="../index.html#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
-                <a href="../index.html#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
-                <a href="../index.html#servicios-especiales" class="hover:text-brand transition">Servicios especiales</a>
+                <!-- URLS LIMPIAS SIN INDEX.HTML -->
+                <a href="../#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
+                <a href="../#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
+                <a href="../#servicios-especiales" class="hover:text-brand transition">Servicios especiales</a>
                 <a href="#contacto" class="bg-brand text-white px-6 py-2.5 rounded hover:bg-brand-dark transition shadow-md">Cotizá hoy</a>
             </nav>
         </div>
@@ -90,8 +92,8 @@
         <!-- BREADCRUMB -->
         <div class="bg-white py-3 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm font-semibold text-neutral-custom flex gap-2">
-                <a href="../index.html" class="hover:text-brand">Inicio</a> <span>/</span>
-                <a href="../index.html#donde-limpiamos" class="hover:text-brand">Dónde limpiamos</a> <span>/</span>
+                <a href="../" class="hover:text-brand">Inicio</a> <span>/</span>
+                <a href="../#donde-limpiamos" class="hover:text-brand">Dónde limpiamos</a> <span>/</span>
                 <span class="text-[#000000]">Consorcios y Oficinas</span>
             </div>
         </div>
@@ -99,7 +101,6 @@
         <!-- HERO DE LANDING CORPORATIVA -->
         <section class="relative bg-brand-dark pt-20 pb-24 overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <!-- 📸 ESPACIO PARA TU FOTO REAL 1: FACHADA O HALL DE EDIFICIO CORPORATIVO -->
                 <img src="../consorcio-hall.jpg" alt="Limpieza de Consorcios y Oficinas" class="w-full h-full object-cover opacity-20 mix-blend-overlay" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop';">
                 <div class="absolute inset-0 bg-brand-dark/90"></div>
             </div>
@@ -118,7 +119,7 @@
             </div>
         </section>
 
-        <!-- PROBLEMA / SOLUCIÓN: POR QUÉ ELEGIR STAR UNION -->
+        <!-- PROBLEMA / SOLUCIÓN: CUBOS CON HOVER EFECTO -->
         <section class="py-20 bg-gray-50 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -127,20 +128,20 @@
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Tarjeta 1 -->
-                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-200 border-t-4 border-t-brand">
+                    <!-- Tarjeta 1 - Efecto Hover Borde Superior Verde -->
+                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-transparent hover:border-t-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
                         <div class="text-5xl mb-6">📱</div>
                         <h3 class="text-2xl font-extrabold text-[#000000] mb-3">Cobertura de ausentismo</h3>
                         <p class="text-neutral-custom font-light leading-relaxed">Control de presentismo tecnológico en tiempo real. Ante una ausencia, nuestra base logística envía una suplencia inmediata, garantizando que el edificio nunca quede sin servicio.</p>
                     </div>
-                    <!-- Tarjeta 2 -->
-                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-200">
+                    <!-- Tarjeta 2 - Efecto Hover Borde Superior Verde -->
+                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-transparent hover:border-t-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
                         <div class="text-5xl mb-6">⏱️</div>
                         <h3 class="text-2xl font-extrabold text-[#000000] mb-3">Limpieza sin interrupciones</h3>
                         <p class="text-neutral-custom font-light leading-relaxed">Nos adaptamos a la dinámica de su consorcio. Operamos en horarios extendidos y feriados, ejecutando las tareas de forma profesional sin interferir con la rutina de residentes o trabajadores.</p>
                     </div>
-                    <!-- Tarjeta 3 -->
-                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-200">
+                    <!-- Tarjeta 3 - Efecto Hover Borde Superior Verde -->
+                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-transparent hover:border-t-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
                         <div class="text-5xl mb-6">🧽</div>
                         <h3 class="text-2xl font-extrabold text-[#000000] mb-3">Insumos y tecnología</h3>
                         <p class="text-neutral-custom font-light leading-relaxed">El abono mensual integra la provisión de domisanitarios profesionales (Alquimia, Nilfisk) y el despliegue de maquinaria rotativa propia para el tratamiento de pasillos de alto tránsito.</p>
@@ -149,7 +150,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE PRUEBA SOCIAL / AUDITORÍA -->
         <section class="py-20 bg-white border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row gap-16 items-center">
@@ -168,9 +168,7 @@
                         </div>
                     </div>
                     <div class="lg:w-1/2 flex justify-center">
-                         <!-- 📸 ESPACIO PARA TU FOTO REAL 2: OPERARIO/A LIMPIANDO EN EDIFICIO -->
                         <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 w-full relative">
-                            <!-- Indicador de foto -->
                             <div class="absolute top-4 left-4 bg-white/90 text-xs font-bold px-2 py-1 rounded shadow text-[#000000] z-20">Foto de operario/a trabajando</div>
                             <img src="../operario-consorcio.jpg" alt="Operario Star Union trabajando en consorcio" class="w-full h-[400px] object-cover relative z-10" onerror="this.src='https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070&auto=format&fit=crop';">
                         </div>
@@ -179,7 +177,6 @@
             </div>
         </section>
 
-        <!-- FORMULARIO DE CONTACTO B2B -->
         <section id="contacto" class="py-24 bg-gray-50 border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-16 items-start">
@@ -189,6 +186,7 @@
                         <p class="text-xl text-neutral-custom mb-12 font-light leading-relaxed">Deje el mantenimiento de su consorcio u oficina en manos de una verdadera empresa de limpieza profesional. Coordinemos una visita técnica hoy mismo sin compromiso.</p>
                         
                         <div class="space-y-8 text-lg">
+                            <!-- LINK A GOOGLE MAPS -->
                             <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="flex items-center gap-6 group">
                                 <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 shrink-0 group-hover:scale-105 transition-transform">
                                     <span class="text-2xl">📍</span>
@@ -238,7 +236,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-[#000000] mb-2">Mensaje (Ej: Cantidad de pisos, metraje o turnos requeridos)</label>
+                                    <label class="block text-[#000000] mb-2">Mensaje</label>
                                     <textarea rows="4" class="w-full border border-gray-200 rounded-lg p-3 focus:ring-1 focus:ring-brand focus:border-brand outline-none transition bg-gray-50 text-gray-700 font-normal resize-none"></textarea>
                                 </div>
                                 <button type="button" class="w-full bg-brand text-white font-extrabold text-xl py-4 rounded-lg hover:bg-brand-dark transition-all shadow-md mt-4">
@@ -254,16 +252,14 @@
 
     </main>
 
-    <!-- FOOTER PREMIUM NUEVO DISEÑO (VERSIÓN LANDINGS CON "../") -->
+    <!-- FOOTER INTEGRADO -->
     <footer class="bg-[#133522] text-white pt-16 pb-8 border-t-4 border-brand-dark"> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-10 border-b border-white/10 pb-12">
                 
-                <!-- Columna Izquierda: Logo, Empresa y Contacto -->
                 <div class="lg:col-span-5 flex flex-col gap-6">
                     <img src="../logo-footer-blanco.png" alt="Star Union Logo" class="h-14 w-auto object-contain object-left" onerror="this.src='https://placehold.co/600x150/133522/ffffff?text=LOGO+BLANCO';">
                     
-                    <!-- Placa Institucional Enmarcada -->
                     <div class="bg-white/5 border border-white/10 rounded-xl p-6 shadow-inner text-center md:text-left">
                         <p class="text-green-50 font-semibold text-xs leading-loose tracking-widest uppercase">
                             Empresa de limpieza profesional.<br>
@@ -271,7 +267,6 @@
                         </p>
                     </div>
                     
-                    <!-- Contacto Clickable -->
                     <div class="flex flex-col gap-3 mt-2 bg-[#0e2719] p-5 rounded-xl border border-white/5">
                         <p class="text-sm text-green-100 flex items-center gap-3">
                             <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Email:</span> 
@@ -283,7 +278,6 @@
                         </p>
                     </div>
 
-                    <!-- Redes -->
                     <div class="flex gap-3 mt-2">
                         <a href="https://ar.linkedin.com/company/starunion" target="_blank" class="w-10 h-10 border border-white/20 rounded flex items-center justify-center hover:bg-white/10 transition">
                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -294,7 +288,6 @@
                     </div>
                 </div>
 
-                <!-- Columna Centro: Navegación Enmarcada -->
                 <div class="lg:col-span-3">
                     <div class="bg-[#0e2719] border border-[#1a4a2f] rounded-2xl p-8 shadow-xl h-full">
                         <h4 class="font-extrabold text-xl mb-6 text-white uppercase tracking-wider flex items-center gap-3 border-b border-white/10 pb-4">
@@ -302,13 +295,13 @@
                         </h4>
                         <ul class="space-y-5 font-semibold text-green-50/90 text-sm">
                             <li>
-                                <a href="../index.html#iso" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
+                                <a href="../" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
                                     <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Gestión certificada ISO
+                                    Inicio de Star Union
                                 </a>
                             </li>
                             <li>
-                                <a href="../index.html#donde-limpiamos" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
+                                <a href="../#donde-limpiamos" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
                                     <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
                                     Dónde limpiamos
                                 </a>
@@ -323,10 +316,9 @@
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Newsletter -->
                 <div class="lg:col-span-4 flex flex-col justify-center">
                     <h4 class="font-extrabold text-3xl mb-3 text-white tracking-tight">Newsletter Corporativo</h4>
-                    <p class="text-green-50/80 mb-8 text-sm font-light leading-relaxed">Recibí novedades sobre certificaciones y tecnología de limpieza industrial.</p>
+                    <p class="text-green-50/80 mb-8 text-sm font-light leading-relaxed">Novedades sobre Facility Management y mantenimiento edilicio.</p>
                     
                     <form class="flex flex-col gap-4">
                         <input type="email" placeholder="Tu email corporativo..." class="w-full bg-white/10 border border-white/20 text-white placeholder-green-100/50 rounded-full px-6 py-4 focus:outline-none focus:border-accent transition font-light shadow-inner">
