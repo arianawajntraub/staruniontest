@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Corporativo - Star Union</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        star: {
+                            green: '#006B3F',
+                            dark: '#004A2C',
+                            light: '#E6F0EC',
+                            yellow: '#FFD100',
+                            gray: '#F8FAFC',
+                            charcoal: '#1F2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F1F5F9;
+        }
+        .page-container {
+            min-height: 600px;
+        }
+    </style>
+</head>
+<body class="antialiased text-star-charcoal">
+
+    <!-- Chosen Palette: Star Green (#006B3F), Neutral Slate (#F1F5F9), Charcoal text (#1F2937), Functional Yellow (#FFD100) as highlight. -->
+    <!-- Application Structure Plan: 
+         The SPA represents a premium multi-page Corporate Dossier/Brochure. 
+         - Left Panel (Desktop): Slide index resembling a traditional PDF brochure table of contents, allowing direct jump or step-by-step progress tracking.
+         - Right Panel: Dynamic slide container holding structured pages (Cover, About, Infrastructure, HR, Services, Coverage, References, Contact) with interactive tools (simulator, map explorer, search filters).
+         This mimics the professional and structured nature of physical B2B presentation brochures, modernizing it for digital sales.
+    -->
+    <!-- Visualization & Content Choices:
+         - Clean modern typography with strict hierarchy mimicking editorial brochures.
+         - Interactive Timeline on HR page to demonstrate absent-reporting workflow.
+         - Quick filter catalog on References page to look up corporate clients.
+         - Clean CSS layout to render "Cleany" in the Contact page safely.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="min-h-screen flex flex-col">
+        <!-- Main Application Layout -->
+        <div class="flex-grow flex flex-col lg:flex-row max-w-7xl w-full mx-auto bg-white shadow-2xl overflow-hidden my-0 lg:my-6 rounded-none lg:rounded-2xl">
+            
+            <!-- Slide Index / Sidebar -->
+            <aside class="w-full lg:w-80 bg-star-dark text-white p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-star-green">
+                <div>
+                    <!-- UBICACIÓN DEL LOGO 1: BARRA LATERAL (Identidad de marca siempre visible) -->
+                    <div class="flex items-center gap-3 mb-8">
+                        <img src="98*98 logo fondo transparente.png" alt="Star Union Logo" class="w-12 h-12 object-contain" onerror="this.onerror=null; this.outerHTML='<div class=\'w-12 h-12 bg-white rounded flex items-center justify-center text-star-green font-bold text-lg border border-star-yellow shadow-inner\'>SU</div>';">
+                        <div>
+                            <h2 class="font-bold text-lg tracking-wide leading-tight">STAR UNION</h2>
+                            <p class="text-xs text-star-light">Servicios Profesionales</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-star-yellow font-semibold tracking-wider uppercase mb-4">Secciones del Dossier</p>
+                    <nav class="space-y-1">
+                        <button onclick="goToPage(0)" id="nav-btn-0" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors bg-star-green text-white flex items-center gap-2">
+                            <span>01.</span> Portada Institucional
+                        </button>
+                        <button onclick="goToPage(1)" id="nav-btn-1" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>02.</span> Quiénes Somos
+                        </button>
+                        <button onclick="goToPage(2)" id="nav-btn-2" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>03.</span> Base Operativa
+                        </button>
+                        <button onclick="goToPage(3)" id="nav-btn-3" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>04.</span> Control de Presentismo
+                        </button>
+                        <button onclick="goToPage(4)" id="nav-btn-4" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>05.</span> Servicios Especiales
+                        </button>
+                        <button onclick="goToPage(5)" id="nav-btn-5" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>06.</span> Cobertura Geográfica
+                        </button>
+                        <button onclick="goToPage(6)" id="nav-btn-6" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>07.</span> Referencias Comerciales
+                        </button>
+                        <button onclick="goToPage(7)" id="nav-btn-7" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2">
+                            <span>08.</span> Contacto y Cierre
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-star-green hidden lg:block">
+                    <p class="text-xs text-star-light">Certificación de Calidad</p>
+                    <p class="text-sm font-bold text-white mt-1">ISO 9001:2015</p>
+                    <p class="text-[10px] text-gray-400">Reg N° 01 10006 2529826</p>
+                </div>
+            </aside>
+
+            <!-- Slide Content Window -->
+            <section class="flex-grow p-6 lg:p-12 flex flex-col justify-between page-container bg-star-gray">
+                
+                <!-- Active Slide Box -->
+                <div id="slide-viewport" class="flex-grow">
+                    <!-- Page content is dynamically rendered here -->
+                </div>
+
+                <!-- Footer Navigation Buttons -->
+                <div class="mt-8 pt-6 border-t border-gray-200 flex justify-between items-center">
+                    <button id="prev-btn" onclick="prevPage()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-star-charcoal text-sm font-semibold rounded-lg transition-colors opacity-50 cursor-not-allowed" disabled>
+                        Anterior
+                    </button>
+                    <div class="text-xs text-gray-500 font-medium">
+                        Pág <span id="page-indicator">1</span> de 8
+                    </div>
+                    <button id="next-btn" onclick="nextPage()" class="px-5 py-2 bg-star-green hover:bg-star-dark text-white text-sm font-semibold rounded-lg transition-colors shadow">
+                        Siguiente
+                    </button>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+    <!-- Script holding presentation data and render logic -->
+    <script>
+        let currentPage = 0;
+        const totalPages = 8;
+
+        // Structured slide database following rules
+        const dossierPages = [
+            // Page 1: Portada
+            {
+                render: () => `
+                    <div class="h-full flex flex-col justify-center max-w-2xl">
+                        <!-- UBICACIÓN DEL LOGO 2: PORTADA (Acompañamiento del sello de calidad) -->
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="98*98 logo fondo transparente.png" alt="Star Union Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
+                            <div class="inline-flex items-center gap-2 bg-star-light text-star-green px-3 py-1 rounded-full text-xs font-bold self-center">
+                                <span>⭐</span> Certificación Internacional ISO 9001:2015
+                            </div>
+                        </div>
+                        <h1 class="text-4xl lg:text-5xl font-extrabold text-star-dark tracking-tight leading-tight">
+                            SABEMOS DE LIMPIEZA.
+                        </h1>
+                        <p class="text-xl lg:text-2xl font-semibold text-star-green mt-2">
+                            Servicios de limpieza profesional e integral.
+                        </p>
+                        <p class="text-gray-600 mt-6 text-base leading-relaxed">
+                            Proporcionamos soluciones corporativas B2B robustas para Facility Managers, Direcciones de Compras e Industrias de alta exigencia operativa. Garantizamos el soporte diario que tu negocio necesita.
+                        </p>
+                        <div class="mt-8 bg-white border border-gray-100 p-5 rounded-xl shadow-sm border-l-4 border-star-yellow">
+                            <p class="text-sm font-bold text-star-dark uppercase tracking-wide">Propuesta de Valor:</p>
+                            <p class="text-gray-600 mt-1 italic">"Cuidamos la operación de nuestros clientes como sello de garantía de nuestro servicio: limpiamos sin interrumpir tus procesos."</p>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 2: Quiénes Somos
+            {
+                render: () => `
+                    <div class="max-w-3xl">
+                        <h2 class="text-3xl font-extrabold text-star-dark tracking-tight mb-2">Sobre Nosotros</h2>
+                        <p class="text-gray-600 mb-8"> Trayectoria sólida, escala industrial y contacto directo con los decisores.</p>
+                        
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Desde el año 2001, Star Union ha consolidado una trayectoria ininterrumpida basada en la solidez operativa. Nacida como una empresa familiar, hoy ofrecemos una respuesta de escala industrial manteniendo la cercanía y el trato cordial con quienes toman las decisiones. Operamos para que puedas enfocarte en tu negocio principal.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center">
+                                <span class="text-3xl block mb-2">📅</span>
+                                <span class="text-2xl font-bold text-star-green block">2001</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Año de Fundación</span>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center">
+                                <span class="text-3xl block mb-2">👥</span>
+                                <span class="text-2xl font-bold text-star-green block">500+</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Empleados Directos</span>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center">
+                                <span class="text-3xl block mb-2">🎯</span>
+                                <span class="text-2xl font-bold text-star-green block">100%</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Mejora Continua</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 3: Base Operativa
+            {
+                render: () => `
+                    <div class="max-w-3xl">
+                        <h2 class="text-3xl font-extrabold text-star-dark tracking-tight mb-2">Infraestructura y Base Operativa</h2>
+                        <p class="text-gray-600 mb-6">El soporte logístico y técnico real detrás de nuestro servicio diario.</p>
+                        
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Contamos con más de 800 m² de infraestructura técnica propia en CABA diseñados para dar soporte ininterrumpido a todas nuestras locaciones. No improvisamos: respaldamos tu operación con recursos reales.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex gap-4 items-start">
+                                <div class="text-2xl p-2.5 bg-star-light text-star-green rounded-lg">⚙️</div>
+                                <div>
+                                    <h4 class="font-bold text-star-dark">Servicio Técnico Propio</h4>
+                                    <p class="text-xs text-gray-600 mt-1">Taller electromecánico interno para mantenimiento preventivo y correctivo de maquinarias.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex gap-4 items-start">
+                                <div class="text-2xl p-2.5 bg-star-light text-star-green rounded-lg">📦</div>
+                                <div>
+                                    <h4 class="font-bold text-star-dark">Depósito de Materiales</h4>
+                                    <p class="text-xs text-gray-600 mt-1">Stock permanente de insumos de primera calidad para cumplir con los más altos estándares exigidos.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex gap-4 items-start">
+                                <div class="text-2xl p-2.5 bg-star-light text-star-green rounded-lg">🚚</div>
+                                <div>
+                                    <h4 class="font-bold text-star-dark">Flota Logística Renovada</h4>
+                                    <p class="text-xs text-gray-600 mt-1">Moderna flota de utilitarios propios preparados para distribuir insumos y maquinarias las 24 hs.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex gap-4 items-start">
+                                <div class="text-2xl p-2.5 bg-star-light text-star-green rounded-lg">🏢</div>
+                                <div>
+                                    <h4 class="font-bold text-star-dark">Oficinas Centrales</h4>
+                                    <p class="text-xs text-gray-600 mt-1">Espacio de gestión corporativa, administración y centro de entrenamiento técnico.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 4: Control de Presentismo (Interactive Tool)
+            {
+                render: () => `
+                    <div class="max-w-3xl">
+                        <h2 class="text-3xl font-extrabold text-star-dark tracking-tight mb-2">Control de Presentismo y Cobertura</h2>
+                        <p class="text-gray-600 mb-6">Tu operación no puede frenarse por inasistencias. Te mostramos cómo garantizamos el relevo inmediato.</p>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                            <div>
+                                <h4 class="font-bold text-star-green mb-3">La Diferencia Operativa:</h4>
+                                <ul class="space-y-3 text-sm text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-star-green font-bold">✓</span> 
+                                        <strong>Detección Rápida:</strong> Monitoreo de asistencia ágil que emite alertas directas a nuestra línea de supervisión en los primeros minutos del turno.
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-star-green font-bold">✓</span> 
+                                        <strong>Activación y Relevo:</strong> Despliegue inmediato de personal de cobertura desde nuestras bases operativas.
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-star-green font-bold">✓</span> 
+                                        <strong>Tranquilidad B2B:</strong> Las vacantes se cubren en tiempo récord. El cliente se libera de la gestión del conflicto de personal.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Interactive Presenteeism Simulator with Cleany Backdrop -->
+                            <div class="bg-white border border-gray-200 p-5 rounded-xl shadow-sm relative overflow-hidden">
+                                <!-- UBICACIÓN DE CLEANY 1: FONDO DE SIMULACIÓN (Marca de agua sutil en esquina inferior derecha para dar presencia de asistencia técnica) -->
+                                <div class="absolute -right-2 -bottom-2 opacity-10 pointer-events-none w-24 h-24">
+                                    <img src="TRANSP BORLA CAPACITACIONES CERTIFICADO GORRITA EGRESO 2025 CLEANY .png" alt="Cleany Sello de Control" class="w-full h-full object-contain">
+                                </div>
+                                
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-gray-500 mb-3 z-10 relative">Simulador de Alerta y Relevo</h4>
+                                <div id="sim-display" class="bg-gray-50 p-4 rounded-lg min-h-[120px] text-xs flex flex-col justify-between mb-4 z-10 relative">
+                                    <p class="font-semibold text-gray-700">Listo para simular inasistencia en planta.</p>
+                                    <span class="text-gray-400">Paso 1: Iniciá el simulador comercial.</span>
+                                </div>
+                                <button onclick="triggerSimulator()" id="sim-btn" class="w-full py-2 bg-star-green text-white font-semibold text-xs rounded hover:bg-star-dark transition-colors uppercase tracking-wider z-10 relative shadow">
+                                    Simular Inasistencia de Oficial
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Page 5: Servicios Especiales (Interactive Selection List)
+            {
+                render: () => `
+                    <div class="max-w-3xl">
+                        <h2 class="text-3xl font-extrabold text-star-dark tracking-tight mb-2">Servicios Especiales</h2>
+                        <p class="text-gray-600 mb-6">Soluciones técnicas específicas con personal certificado. Hacé clic para conocer detalles.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6" id="services-grid">
+                            <button onclick="selectService(0)" id="srv-btn-0" class="p-3 bg-star-green text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+                                Vidrios en Altura
+                            </button>
+                            <button onclick="selectService(1)" id="srv-btn-1" class="p-3 bg-white text-star-charcoal hover:bg-gray-100 text-xs font-bold rounded-lg transition-all border border-gray-200 shadow-sm">
+                                Jardinería
+                            </button>
+                            <button onclick="selectService(2)" id="srv-btn-2" class="p-3 bg-white text-star-charcoal hover:bg-gray-100 text-xs font-bold rounded-lg transition-all border border-gray-200 shadow-sm">
+                                Control Plagas
+                            </button>
+                            <button onclick="selectService(3)" id="srv-btn-3" class="p-3 bg-white text-star-charcoal hover:bg-gray-100 text-xs font-bold rounded-lg transition-all border border-gray-200 shadow-sm">
+                                Final de Obra
+                            </button>
+                        </div>
+
+                        <div id="service-content" class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm min-h-[160px] flex flex-col justify-between">
+                            <!-- Populated dynamically via selectService -->
+                        </div>
+                    </div>
+                `
+            },
+            // Page 6: Cobertura Geográfica
+            {
+                render: () => `
+                    <div class="max-w-3xl">
+                        <h2 class="text-3xl font-extrabold text-star-dark tracking-tight mb-2">Cobertura Geográfica</h2>
+                        <p class="text-gray-600 mb-6">Operamos en los puntos más exigentes y estratégicos del país.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm border-t-4 border-star-green">
+                                <h4 class="font-bold text-star-green text-lg">AMBA</h4>
+                                <p class="text-xs text-gray-500 mt-1">Cobertura amplia en Ciudad Autónoma de Buenos Aires y Gran Buenos Aires (Zona Norte, Zona Oeste y Zona Sur).</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm border-t-4 border-star-green">
+                                <h4 class="font-bold text-star-green text-lg">Pcia. Buenos Aires</h4>
+                                <p class="text-xs text-gray-500 mt-1">Presencia sólida brindando soporte corporativo en centros urbanos como La Plata y Bahía Blanca.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm border-t-4 border-star-green">
+                                <h4 class="font-bold text-star-green text-lg">Patagonia</h4>
+                                <p class="text-xs text-gray-500 mt-1">Cobertura estratégica en Neuquén y operaciones de alta complejidad en Trelew (Chubut).</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-8 italic text-center">Nota comercial: Se ha consolidado el retiro definitivo de operaciones en Zárate, optimizando el rendimiento logístico en el resto del territorio.</p>
+                    </div>
+                `
+            },
+            // Page 7: Referencias Comerciales
+            {
+                render: () => `
+                    <div class="max-w-4xl">
+                        <h2 class="text-3xl font-extrabold text-star-dark tracking-tight mb-2">Referencias Comerciales</h2>
+                        <p class="text-gray-600 mb-6">Las empresas más exigentes avalan nuestro nivel de respuesta y compromiso diario.</p>
+
+                        <!-- Search and filter -->
+                        <div class="mb-4">
+                            <input type="text" id="client-search" onkeyup="filterClients()" placeholder="Buscar cliente por nombre (ej: Coca, Toyota...)" class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:border-star-green">
+                        </div>
+
+                        <div id="clients-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[220px] overflow-y-auto custom-scroll pr-2">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+                `
+            },
+            // Page 8: Contacto
+            {
+                render: () => `
+                    <div class="max-w-3xl flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-grow">
+                            <!-- UBICACIÓN DEL LOGO 3: CONTACTO (Firma final de institucionalidad) -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <img src="98*98 logo fondo transparente.png" alt="Star Union Logo" class="w-10 h-10 object-contain" onerror="this.style.display='none'">
+                                <h2 class="text-3xl font-extrabold text-star-dark tracking-tight">Contacto Comercial</h2>
+                            </div>
+                            <p class="text-gray-600 mb-6">Comencemos a trabajar juntos. Brindamos servicios a medida de cada necesidad corporativa.</p>
+
+                            <div class="space-y-3 text-sm text-gray-700">
+                                <p>📞 <strong>Teléfono Corporativo:</strong> 0810.333.UNION (8646)</p>
+                                <p>✉️ <strong>Email Comercial:</strong> contacto@starunion.com.ar</p>
+                                <p>🌐 <strong>Sitio Web Oficial:</strong> www.starunion.com.ar</p>
+                                <p>📍 <strong>Base Operativa:</strong> Guaminí 5667, C1439HAW, CABA, Argentina.</p>
+                            </div>
+                        </div>
+
+                        <!-- UBICACIÓN DE CLEANY 2: TARJETA DE RECONOCIMIENTO / GARANTÍA DE EXCELENCIA (Protagonista del cierre del brochure) -->
+                        <div class="w-56 bg-white border border-gray-200 rounded-xl p-5 shadow-lg flex flex-col items-center text-center relative overflow-hidden group hover:border-star-green transition-all">
+                            <div class="w-28 h-28 bg-star-light rounded-full flex items-center justify-center overflow-hidden relative shadow-inner border-2 border-star-green p-2 mb-3">
+                                <img src="TRANSP BORLA CAPACITACIONES CERTIFICADO GORRITA EGRESO 2025 CLEANY .png" alt="Cleany Mascota Oficial Star Union" class="w-full h-full object-contain" onerror="this.onerror=null; this.outerHTML='<span class=\'text-5xl\'>⭐</span>';">
+                            </div>
+                            <h4 class="font-bold text-sm text-star-dark">Garantía Star Union</h4>
+                            <p class="text-[11px] text-gray-500 mt-1.5 leading-relaxed">Cleany supervisa de cerca nuestra disciplina operativa: ¡siempre con guantes, botas de seguridad y gorra listos para la acción!</p>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        // --- Core Render & Navigation Controller ---
+        function renderPage() {
+            const viewport = document.getElementById('slide-viewport');
+            viewport.innerHTML = dossierPages[currentPage].render();
+            document.getElementById('page-indicator').textContent = currentPage + 1;
+
+            // Handle Nav indicators
+            for (let i = 0; i < totalPages; i++) {
+                const btn = document.getElementById(`nav-btn-${i}`);
+                if (btn) {
+                    if (i === currentPage) {
+                        btn.className = "w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors bg-star-green text-white flex items-center gap-2";
+                    } else {
+                        btn.className = "w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-star-light hover:bg-star-green hover:text-white flex items-center gap-2";
+                    }
+                }
+            }
+
+            // Handle Bottom buttons status
+            const prev = document.getElementById('prev-btn');
+            const next = document.getElementById('next-btn');
+
+            if (currentPage === 0) {
+                prev.disabled = true;
+                prev.className = "px-4 py-2 bg-gray-200 hover:bg-gray-300 text-star-charcoal text-sm font-semibold rounded-lg transition-colors opacity-50 cursor-not-allowed";
+            } else {
+                prev.disabled = false;
+                prev.className = "px-4 py-2 bg-gray-200 hover:bg-gray-300 text-star-charcoal text-sm font-semibold rounded-lg transition-colors cursor-pointer";
+            }
+
+            if (currentPage === totalPages - 1) {
+                next.textContent = "Finalizar";
+                next.className = "px-5 py-2 bg-star-yellow text-star-dark text-sm font-bold rounded-lg transition-colors shadow border border-yellow-500";
+            } else {
+                next.textContent = "Siguiente";
+                next.className = "px-5 py-2 bg-star-green hover:bg-star-dark text-white text-sm font-semibold rounded-lg transition-colors shadow";
+            }
+
+            // Trigger internal slide tool initializations
+            if (currentPage === 4) {
+                selectService(0); // init services tab
+            } else if (currentPage === 6) {
+                buildClientsList(); // init references tab
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                renderPage();
+            } else {
+                // Return to cover
+                currentPage = 0;
+                renderPage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                renderPage();
+            }
+        }
+
+        function goToPage(idx) {
+            currentPage = idx;
+            renderPage();
+        }
+
+        // --- Presenteeism Simulator Engine (Page 4) ---
+        let simInterval = null;
+        function triggerSimulator() {
+            const display = document.getElementById('sim-display');
+            const btn = document.getElementById('sim-btn');
+            
+            btn.disabled = true;
+            btn.className = "w-full py-2 bg-gray-300 text-gray-500 font-semibold text-xs rounded cursor-not-allowed uppercase tracking-wider z-10 relative";
+
+            let step = 0;
+            const timeline = [
+                { time: "06:00 hs", msg: "🚨 Alerta: Oficial de limpieza asignado no registró ingreso biométrico en planta." },
+                { time: "06:05 hs", msg: "⚙️ Sistema automatizado notifica a Supervisor de Zona Star Union." },
+                { time: "06:15 hs", msg: "🚚 Base Operativa activa Oficial de relevo con uniforme y EPP reglamentario." },
+                { time: "06:30 hs", msg: "✅ Relevo ingresa al puesto asignado. Continuidad de servicio garantizada." }
+            ];
+
+            display.innerHTML = `<p class="font-bold text-star-green">Procesando alerta en tiempo real...</p>`;
+
+            simInterval = setInterval(() => {
+                if (step < timeline.length) {
+                    display.innerHTML = `
+                        <p class="font-bold text-star-green">${timeline[step].time}</p>
+                        <p class="text-gray-700 font-medium mt-1">${timeline[step].msg}</p>
+                    `;
+                    step++;
+                } else {
+                    clearInterval(simInterval);
+                    btn.disabled = false;
+                    btn.className = "w-full py-2 bg-star-green text-white font-semibold text-xs rounded hover:bg-star-dark transition-colors uppercase tracking-wider z-10 relative shadow";
+                }
+            }, 1500);
+        }
+
+        // --- Services Selector Data (Page 5) ---
+        const servicesData = [
+            {
+                title: "Trabajos en Altura",
+                text: "Contamos con cuadrillas certificadas bajo estrictas normas ARAA para la limpieza exterior de vidrios, sellado de cristales de oficinas y finales de obra en altura. Seguridad total y pólizas al día."
+            },
+            {
+                title: "Jardinería y Paisajismo",
+                text: "Mantenimiento integral de espacios verdes corporativos, tratamiento de sanidad botánica, poda de árboles, fertilización sistemática y reposición garantizada de especies según contrato."
+            },
+            {
+                title: "Control de Plagas",
+                text: "Empresa plenamente habilitada por Resolución APRA. Prestamos servicios especializados de desratización, desinsectación de espacios, ahuyentamiento técnico de aves y tratamientos preventivos periódicos."
+            },
+            {
+                title: "Limpieza Técnica de Final de Obra",
+                text: "Puesta a punto meticulosa de instalaciones industriales o corporativas post-construcción o remodelación. Remoción de restos de pintura, selladores y suciedad pesada para entrega inmediata."
+            }
+        ];
+
+        function selectService(idx) {
+            const container = document.getElementById('service-content');
+            
+            // Set buttons active status
+            for(let i=0; i<4; i++) {
+                const btn = document.getElementById(`srv-btn-${i}`);
+                if (btn) {
+                    if (i === idx) {
+                        btn.className = "p-3 bg-star-green text-white text-xs font-bold rounded-lg transition-all shadow-sm";
+                    } else {
+                        btn.className = "p-3 bg-white text-star-charcoal hover:bg-gray-100 text-xs font-bold rounded-lg transition-all border border-gray-200 shadow-sm";
+                    }
+                }
+            }
+
+            container.innerHTML = `
+                <h4 class="font-bold text-star-dark text-base mb-2">${servicesData[idx].title}</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">${servicesData[idx].text}</p>
+            `;
+        }
+
+        // --- References & Clients Data (Page 7) ---
+        const clientList = [
+            { name: "Toyota Panamericana", feedback: "Cumplen con nuestra exigente política de proveedores B2B. Trato directo e insumos de primera calidad." },
+            { name: "Coca-Cola Argentina", feedback: "Destacamos su solidez en la gestión, flexibilidad comercial y servicios estables ininterrumpidos." },
+            { name: "Burger King / Alsea", feedback: "Es muy gratificante trabajar con una empresa flexible donde la honestidad comercial es el lema diario." },
+            { name: "Air Liquide", feedback: "Proveedor corporativo homologado cumpliendo estándares críticos de seguridad." },
+            { name: "Yaguar", feedback: "Limpieza integral en grandes superficies de distribución mayorista." },
+            { name: "Stihl", feedback: "Servicio técnico e infraestructura de limpieza en plantas corporativas." },
+            { name: "Makro", feedback: "Abono estable de limpieza en sucursales comerciales e hipermercados." },
+            { name: "Starbucks Coffee", feedback: "Soporte diario ágil en locales comerciales exigentes de alta circulación." },
+            { name: "Johnson & Johnson", feedback: "Servicio de limpieza técnica en depósitos de alta criticidad sanitaria." },
+            { name: "Aristocrat", feedback: "Mantenimiento estético y técnico de sus oficinas operativas centrales." },
+            { name: "TNT", feedback: "Cobertura sistemática de limpieza en terminales logísticas de distribución." },
+            { name: "Bioprocrearte", feedback: "Desinfección de alta seguridad en centros de salud y laboratorios biológicos." }
+        ];
+
+        function buildClientsList() {
+            const grid = document.getElementById('clients-grid');
+            grid.innerHTML = '';
+            
+            clientList.forEach((c, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-3 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between hover:border-star-green transition-colors cursor-help";
+                card.onclick = () => alertTestimonial(c.name, c.feedback);
+                card.innerHTML = `
+                    <span class="font-bold text-xs text-star-dark">${c.name}</span>
+                    <span class="text-[9px] text-star-green font-semibold mt-2 uppercase tracking-wider block">Ver Referencia →</span>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterClients() {
+            const query = document.getElementById('client-search').value.toLowerCase();
+            const grid = document.getElementById('clients-grid');
+            grid.innerHTML = '';
+
+            const filtered = clientList.filter(c => c.name.toLowerCase().includes(query));
+            
+            filtered.forEach(c => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-3 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between hover:border-star-green transition-colors cursor-help";
+                card.onclick = () => alertTestimonial(c.name, c.feedback);
+                card.innerHTML = `
+                    <span class="font-bold text-xs text-star-dark">${c.name}</span>
+                    <span class="text-[9px] text-star-green font-semibold mt-2 uppercase tracking-wider block">Ver Referencia →</span>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Custom notification to bypass browser alerts
+        function alertTestimonial(name, feedback) {
+            const existingModal = document.getElementById('custom-modal');
+            if (existingModal) existingModal.remove();
+
+            const modal = document.createElement('div');
+            modal.id = 'custom-modal';
+            modal.className = "fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50 transition-opacity duration-300";
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl shadow-2xl max-w-sm w-full p-6 border-t-4 border-star-green relative">
+                    <h4 class="font-bold text-lg text-star-dark">${name}</h4>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">Garantía de Cliente Satisfecho</p>
+                    <p class="text-sm text-gray-700 italic mt-4 bg-gray-50 p-3 rounded border border-gray-100">"${feedback}"</p>
+                    <button onclick="document.getElementById('custom-modal').remove()" class="mt-6 w-full py-2 bg-star-dark hover:bg-star-green text-white text-xs font-bold rounded transition-colors uppercase tracking-wider">
+                        Cerrar Referencia
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // --- Init App ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPage();
+        });
+    </script>
+</body>
+</html>
