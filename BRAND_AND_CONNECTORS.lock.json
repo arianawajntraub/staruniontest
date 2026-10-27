@@ -27,6 +27,11 @@
     "#000000"
   ],
   "connectors": {
+    "ga4_account_id": "88291393",
+    "ga4_property_id": "356146296",
+    "ga4_measurement_id": "G-YDDJQHK8VC",
+    "google_ads_customer_id": "4477242318",
+    "email_marketing_platform": "Perfit (perfit / email)",
     "email_comercial": "comercial@starunion.com.ar",
     "email_info": "info@starunion.com.ar",
     "email_direccion": "mrepetto@starunion.com.ar",
@@ -40,6 +45,8 @@
     "Fabricio Rivas",
     "rivas-2026",
     "399457913",
+    "536338759",
+    "552000200",
     "Entretelado",
     "entretelado.com.ar",
     "Zaguán",
