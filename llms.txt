@@ -51,3 +51,13 @@
 - **Provincia de Buenos Aires:** La Plata y **Bahía Blanca**.
 - **Neuquén:** Ciudad de Neuquén y corredor productivo/energético.
 - **Patagonia (Chubut):** **Trelew, Rawson, Puerto Madryn y Comodoro Rivadavia**.
+
+## Fichas Técnicas, Pliegos y Brochures Corporativos B2B (/brochures/)
+- URL Índice SEO de Brochures: https://www.starunion.com.ar/brochures/ (Preview: https://arianabaires-arch.github.io/star-union/brochures/)
+- Dossier Ejecutivo Interactivo (Simulador de Presentismo y Costo Oculto): https://arianabaires-arch.github.io/star-union/dossier/
+- Especificaciones Homologadas de Infraestructura (Guaminí 5657, CABA - 800 m²):
+  - Servicio Técnico y Taller Electromecánico Propio (desde 2010): Mantenimiento preventivo y correctivo propio de máquinas monofásicas, trifásicas, a batería y a explosión, con cabina de arenado y pintura propia.
+  - Centro de Capacitación Propio: Aula teórica y laboratorio práctico con 6 superficies reales de pisos (madera/parquet, granito, mosaico, cemento alisado, terrazo y porcelanato).
+  - Control Biométrico de Presentismo: Reloj biométrico conectado a red y 220V en el objetivo; alerta automática por email a los 15 minutos de una ausencia y reemplazo en sitio en menos de 2 horas.
+  - Indumentaria Corporativa: Telas ARCIEL (65% poliéster / 35% algodón) con tratamiento indanthren anticloro y antimanchas y doble costura.
+  - Homologaciones Técnicas Específicas: ISO 9001:2015 TÜV Rheinland (Certipedia ID 9000041847), Normas ARAA (Australian Rope Access Association) para Limpieza de Vidrios en Altura, y Resolución N° 360 APRA para Control Integrado de Plagas.

@@ -1,365 +1,516 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar Comercial B2B & Accionador de Mailing | Star Union S.R.L.</title>
-    <meta name="robots" content="noindex, nofollow">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'] },
-                    colors: {
-                        brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
-                        accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
-                        neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
-                    }
-                }
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Radar Comercial B2B & Activación Perfit | Star Union S.R.L. (Mauro Repetto & Ariana)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            suGreen: '#03582d',
+            suGreenDark: '#023d1f',
+            suYellow: '#ffcc29',
+            suYellowDark: '#e6b417',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          }
         }
-    </script>
-    <style>
-        body { font-family: 'Open Sans', sans-serif; color: #111827; background-color: #f9fafb; }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
 
-    <!-- HEADER INTERNO STAR UNION -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap justify-between items-center gap-4">
-            <div class="flex items-center gap-4">
-                <a href="../index.html">
-                    <img src="../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="h-11 w-auto object-contain">
-                </a>
-                <span class="bg-brand text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
-                    Consola Comercial B2B · Seguimiento de Mailing &amp; Prospección
-                </span>
-            </div>
-            <div class="flex items-center gap-3 text-xs font-bold">
-                <button id="btn-export-report" class="bg-accent text-[#000000] px-4 py-2.5 rounded hover:bg-accent-hover transition font-extrabold shadow-sm">
-                    📲 Enviar Parte Diario a Mauro y Ariana (WhatsApp)
+  <!-- TOP BAR INTERNA -->
+  <header class="bg-suGreenDark text-white border-b-4 border-suYellow sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="bg-white p-1.5 rounded-lg shadow-sm">
+          <img src="../assets/img/logo-star-union.png" alt="Star Union S.R.L." class="h-8 w-auto object-contain" />
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-suYellow text-suGreenDark text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded">Uso Interno · Dirección Comercial</span>
+            <span class="text-xs text-emerald-200">Base Operativa Guaminí 5657, CABA</span>
+          </div>
+          <h1 class="font-display font-extrabold text-lg sm:text-xl text-white">Radar Comercial B2B · Activación de Clics Perfit (ISO 9001:2015)</h1>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <button onclick="exportFollowUpCSV()" class="bg-emerald-800 hover:bg-emerald-700 text-white border border-emerald-500/40 text-xs font-semibold px-3.5 py-2 rounded-lg transition flex items-center gap-1.5">
+          <span>📥</span> Exportar Seguimiento (.CSV)
+        </button>
+        <a href="../dossier/index.html" target="_blank" class="bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition">
+          Ver Dossier Interactivo ↗
+        </a>
+        <a href="../brochures/index.html" target="_blank" class="bg-suYellow hover:bg-suYellowDark text-suGreenDark text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
+          Brochures Técnicos SEO ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- FLUJO DE TRABAJO ARIANA -> MAURO + IMPORTADOR CSV -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-emerald-50 text-suGreen text-xs font-bold px-3 py-1 rounded-full mb-3 border border-emerald-200">
+            <span>⚡</span> Circuito Comercial Ágil: Ariana (Growth) → Mauro Repetto (Cierre Consultivo)
+          </div>
+          <h2 class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 mb-2">
+            1.208 clics reales procesados · 143 contactos únicos listos para accionar
+          </h2>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Este tablero ya tiene precargada la base real exportada de <strong>Perfit</strong> (<code class="bg-slate-100 px-1.5 py-0.5 rounded text-xs">octubre-26-click-20261027-022931.csv</code>). Detectamos quiénes hicieron clic en el <strong>WhatsApp Comercial</strong>, quiénes validaron el certificado en <strong>TÜV Rheinland Certipedia</strong> y quiénes entraron a la web corporativa.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-slate-100">
+          <div class="bg-slate-50 rounded-xl p-3 border border-slate-200/70">
+            <div class="text-xs text-slate-500 font-medium">Contactos Únicos</div>
+            <div id="kpi-total" class="font-display font-extrabold text-2xl text-slate-900">143</div>
+            <div class="text-[11px] text-emerald-700 font-semibold">128 dominios corporativos</div>
+          </div>
+          <div class="bg-emerald-50/70 rounded-xl p-3 border border-emerald-200">
+            <div class="text-xs text-emerald-800 font-medium">Clic en WhatsApp</div>
+            <div id="kpi-wa" class="font-display font-extrabold text-2xl text-suGreen">--</div>
+            <div class="text-[11px] text-emerald-700 font-semibold">Intención directa</div>
+          </div>
+          <div class="bg-amber-50/80 rounded-xl p-3 border border-amber-200">
+            <div class="text-xs text-amber-900 font-medium">Validaron ISO (TÜV)</div>
+            <div id="kpi-iso" class="font-display font-extrabold text-2xl text-amber-700">--</div>
+            <div class="text-[11px] text-amber-800 font-semibold">Auditoría Certipedia</div>
+          </div>
+          <div class="bg-blue-50/70 rounded-xl p-3 border border-blue-200">
+            <div class="text-xs text-blue-900 font-medium">Gestionados por Mauro</div>
+            <div id="kpi-managed" class="font-display font-extrabold text-2xl text-blue-700">0</div>
+            <div class="text-[11px] text-blue-800 font-semibold">Guardado automático</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 1: SUBIR NUEVO CSV DE PERFIT -->
+      <div class="lg:col-span-5 bg-gradient-to-br from-suGreen to-suGreenDark text-white rounded-2xl p-6 shadow-md flex flex-col justify-between relative overflow-hidden">
+        <img src="../assets/img/cleany-transparente.png" alt="" class="
+          absolute -right-4 -bottom-4 w-28 h-28 object-contain opacity-15 pointer-events-none select-none
+        " />
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-suYellow text-suGreenDark text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full">
+              Paso 1 · Actualizador Perfit (.CSV)
+            </span>
+            <span id="csv-status-badge" class="text-xs text-emerald-200 font-medium">Base activa: Octubre 2026</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">
+            ¿Exportaste un nuevo reporte de clics desde Perfit?
+          </h3>
+          <p class="text-xs text-emerald-100 leading-relaxed mb-4">
+            Ariana puede arrastrar o seleccionar cualquier archivo <code class="bg-black/20 px-1 rounded">.csv</code> de Perfit (separado por <code class="bg-black/20 px-1 rounded">;</code> o <code class="bg-black/20 px-1 rounded">,</code>). El sistema agrupa automáticamente los clics por contacto, detecta qué links abrieron y preserva el estado comercial que Mauro ya haya cargado.
+          </p>
+        </div>
+
+        <label for="csv-file-input" id="drop-zone" class="border-2 border-dashed border-suYellow/70 hover:border-suYellow bg-white/10 hover:bg-white/15 transition rounded-xl p-4 text-center cursor-pointer block">
+          <div class="text-2xl mb-1">📂</div>
+          <div class="text-sm font-bold text-white">Arrastrá acá el archivo .CSV de Perfit o hacé clic para subirlo</div>
+          <div class="text-[11px] text-emerald-200 mt-0.5">Soporta reportes de clics de Perfit (Email;URL;Timestamp)</div>
+          <input type="file" id="csv-file-input" accept=".csv,text/csv" class="hidden" />
+        </label>
+      </div>
+    </section>
+
+    <!-- SELECTOR DE PLANTILLA DE MENSAJE CONSULTIVO (TONO MAURO REPETTO) -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+        <div>
+          <h3 class="font-display font-bold text-base text-slate-900 flex items-center gap-2">
+            <span>💬</span> Paso 2 · Guion Consultivo B2B de Mauro Repetto (1 Clic desde `mrepetto@starunion.com.ar` o WhatsApp)
+          </h3>
+          <p class="text-xs text-slate-500">
+            Elegí el enfoque del mensaje. Al hacer clic en <strong>Enviar Email Directo</strong> o <strong>WhatsApp</strong> en cualquier fila, el mensaje se personaliza automáticamente con el nombre y la empresa del contacto.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="setScriptMode('iso')" id="btn-script-iso" class="script-btn bg-suGreen text-white text-xs font-bold px-3.5 py-2 rounded-lg transition">
+            1. Seguimiento ISO 9001 + Dossier (Recomendado)
+          </button>
+          <button onclick="setScriptMode('relevamiento')" id="btn-script-relevamiento" class="script-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-lg transition">
+            2. Invitación a Relevamiento Técnico Sin Cargo
+          </button>
+          <button onclick="setScriptMode('altura')" id="btn-script-altura" class="script-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-lg transition">
+            3. Vidrios en Altura (Norma ARAA) & Grandes Superficies
+          </button>
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs text-slate-700 font-mono leading-relaxed" id="script-preview">
+        <!-- Preview populated by JS -->
+      </div>
+    </section>
+
+    <!-- FILTROS Y BUSCADOR -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+        <div class="md:col-span-4">
+          <input type="text" id="search-input" oninput="renderTable()" placeholder="Buscar por empresa, email, nombre o dominio (ej. Panasonic, Allianz, Swiss, Banco)..." class="w-full text-sm border border-slate-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-suGreen" />
+        </div>
+        <div class="md:col-span-3">
+          <select id="filter-category" onchange="renderTable()" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-suGreen">
+            <option value="ALL">Todas las Verticales (143)</option>
+            <option value="CORP_ONLY">Solo Dominios Corporativos (128)</option>
+            <option value="Industria & Logística">Industria, Plantas & Logística</option>
+            <option value="Salud & Clínicas">Salud, Clínicas & Laboratorios</option>
+            <option value="Grandes Superficies">Grandes Superficies & Retail</option>
+            <option value="Bancos & Finanzas">Bancos, Seguros & Finanzas</option>
+            <option value="Clubes & Educación">Universidades, Colegios & Clubes</option>
+            <option value="Corporativo B2B">Oficinas & Empresas B2B</option>
+            <option value="Consorcios & Edificios">Administraciones & Consorcios</option>
+          </select>
+        </div>
+        <div class="md:col-span-3">
+          <select id="filter-intent" onchange="renderTable()" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-suGreen">
+            <option value="ALL">Todos los Tipos de Clic</option>
+            <option value="WA">Hicieron clic en WhatsApp</option>
+            <option value="ISO">Validaron Certificado ISO (Certipedia)</option>
+            <option value="WEB">Visitaron Web starunion.com.ar</option>
+            <option value="HIGH">Alta Prioridad (5+ clics)</option>
+          </select>
+        </div>
+        <div class="md:col-span-2">
+          <select id="filter-status" onchange="renderTable()" class="w-full text-sm border border-slate-300 rounded-xl px-3 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-suGreen">
+            <option value="ALL">Todos los Estados</option>
+            <option value="Pendiente">⏳ Pendiente</option>
+            <option value="Contactado">📨 Contactado</option>
+            <option value="Relevamiento Agendado">📅 Relevamiento</option>
+            <option value="Cotizado">📄 Cotizado</option>
+            <option value="Descartado">✖ Descartado</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- TABLA EJECUTIVA DE CONTACTOS -->
+      <div class="overflow-x-auto rounded-xl border border-slate-200">
+        <table class="min-w-full divide-y divide-slate-200 text-sm">
+          <thead class="bg-slate-100 text-slate-700 text-xs uppercase font-bold tracking-wider">
+            <tr>
+              <th class="px-4 py-3 text-left">Empresa / Organización</th>
+              <th class="px-4 py-3 text-left">Contacto & Email</th>
+              <th class="px-4 py-3 text-center">Clics & Señales de Intención</th>
+              <th class="px-4 py-3 text-left">Estado Comercial (Mauro)</th>
+              <th class="px-4 py-3 text-right">Acción Directa (1 Clic)</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody" class="divide-y divide-slate-200 bg-white">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-between text-xs text-slate-500 pt-2">
+        <span id="showing-count">Mostrando contactos...</span>
+        <span>Los cambios de estado y notas se guardan automáticamente en este navegador.</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const INITIAL_LEADS = [{"email": "mantovano.cecilia@ar.panasonic.com", "name": "Mantovano Cecilia", "company": "Panasonic Argentina", "domain": "ar.panasonic.com", "is_corp": true, "vertical": "Corporativo / Electrónica & Planta", "category": "Corporativo B2B", "clicks": 68, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 103, "tier": "Alta Prioridad (Caliente)"}, {"email": "laura.segatta@allianz.com.ar", "name": "Laura Segatta", "company": "Allianz Argentina Seguros", "domain": "allianz.com.ar", "is_corp": true, "vertical": "Corporativo / Edificio & Sucursales", "category": "Corporativo B2B", "clicks": 22, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 57, "tier": "Alta Prioridad (Caliente)"}, {"email": "cinthia.scherliski@allianz.com.ar", "name": "Cinthia Scherliski", "company": "Allianz Argentina Seguros", "domain": "allianz.com.ar", "is_corp": true, "vertical": "Corporativo / Edificio & Sucursales", "category": "Corporativo B2B", "clicks": 21, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 56, "tier": "Alta Prioridad (Caliente)"}, {"email": "sanfernando@estacionlibro.com.ar", "name": "Sanfernando", "company": "Estación Libro San Fernando", "domain": "estacionlibro.com.ar", "is_corp": true, "vertical": "Comercial y Cultural", "category": "Corporativo B2B", "clicks": 21, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 56, "tier": "Alta Prioridad (Caliente)"}, {"email": "sac@mccain.com.ar", "name": "Sac", "company": "McCain Argentina S.A.", "domain": "mccain.com.ar", "is_corp": true, "vertical": "Industria Alimenticia & Oficinas", "category": "Industria & Logística", "clicks": 18, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 53, "tier": "Alta Prioridad (Caliente)"}, {"email": "responsablesatencionusuarios@bancosanjuan.com", "name": "Responsablesatencionusuarios", "company": "Banco San Juan (Grupo Petersen)", "domain": "bancosanjuan.com", "is_corp": true, "vertical": "Entidad Bancaria y Sucursales", "category": "Bancos & Finanzas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "facturasgrupobancosanjuan@bancosanjuan.com", "name": "Facturasgrupobancosanjuan", "company": "Banco San Juan (Grupo Petersen)", "domain": "bancosanjuan.com", "is_corp": true, "vertical": "Entidad Bancaria y Sucursales", "category": "Bancos & Finanzas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "proveedores@bancosanjuan.com", "name": "Proveedores", "company": "Banco San Juan (Grupo Petersen)", "domain": "bancosanjuan.com", "is_corp": true, "vertical": "Entidad Bancaria y Sucursales", "category": "Bancos & Finanzas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "mzunino@bancosanjuan.com", "name": "Mzunino", "company": "Banco San Juan (Grupo Petersen)", "domain": "bancosanjuan.com", "is_corp": true, "vertical": "Entidad Bancaria y Sucursales", "category": "Bancos & Finanzas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "acoraccio@bancosantacruz.com", "name": "Acoraccio", "company": "Banco Santa Cruz", "domain": "bancosantacruz.com", "is_corp": true, "vertical": "Entidad Bancaria y Sucursales", "category": "Bancos & Finanzas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "walter.avila@casino-club.com.ar", "name": "Walter Avila", "company": "Casino Club S.A.", "domain": "casino-club.com.ar", "is_corp": true, "vertical": "Salas de Entretenimiento y Grandes Superficies", "category": "Grandes Superficies", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "recursoshumanos@laslomas.com.ar", "name": "Recursoshumanos", "company": "Las Lomas", "domain": "laslomas.com.ar", "is_corp": true, "vertical": "Complejo / Institución Corporativa", "category": "Corporativo B2B", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "patricia.lezcano@sanlucassalud.com.ar", "name": "Patricia Lezcano", "company": "San Lucas Salud", "domain": "sanlucassalud.com.ar", "is_corp": true, "vertical": "Sanatorio e Institución Médica", "category": "Salud & Clínicas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "mariana.galli@smg.com.ar", "name": "Mariana Galli", "company": "Swiss Medical Group", "domain": "smg.com.ar", "is_corp": true, "vertical": "Clínicas, Sanatorios y Sedes Corporativas", "category": "Salud & Clínicas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "anahi.olmedorivero@swissmedical.com.ar", "name": "Anahi Olmedorivero", "company": "Swiss Medical Group", "domain": "swissmedical.com.ar", "is_corp": true, "vertical": "Clínicas, Sanatorios y Sedes Corporativas", "category": "Salud & Clínicas", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 50, "tier": "Alta Prioridad (Caliente)"}, {"email": "brm@microsoft.com", "name": "Brm", "company": "Microsoft (microsoft.com)", "domain": "microsoft.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 13, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 48, "tier": "Prioridad Media (Tibio)"}, {"email": "pedidos@eternacadencia.com.ar", "name": "Pedidos", "company": "Eterna Cadencia", "domain": "eternacadencia.com.ar", "is_corp": true, "vertical": "Editorial y Espacio Cultural", "category": "Corporativo B2B", "clicks": 12, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 47, "tier": "Prioridad Media (Tibio)"}, {"email": "virmadeo@provinciabursatil.com.ar", "name": "Virmadeo", "company": "Provincia Bursátil (Grupo Provincia)", "domain": "provinciabursatil.com.ar", "is_corp": true, "vertical": "Finanzas y Oficinas Corporativas", "category": "Bancos & Finanzas", "clicks": 10, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 45, "tier": "Prioridad Media (Tibio)"}, {"email": "debora.delgado@sunchemical.com", "name": "Debora Delgado", "company": "Sun Chemical Argentina", "domain": "sunchemical.com", "is_corp": true, "vertical": "Planta Química e Industrial", "category": "Industria & Logística", "clicks": 10, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 45, "tier": "Prioridad Media (Tibio)"}, {"email": "mario.sicari@sunchemical.com", "name": "Mario Sicari", "company": "Sun Chemical Argentina", "domain": "sunchemical.com", "is_corp": true, "vertical": "Planta Química e Industrial", "category": "Industria & Logística", "clicks": 10, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 45, "tier": "Prioridad Media (Tibio)"}, {"email": "fabiana.alaniz@sunchemical.com", "name": "Fabiana Alaniz", "company": "Sun Chemical Argentina", "domain": "sunchemical.com", "is_corp": true, "vertical": "Planta Química e Industrial", "category": "Industria & Logística", "clicks": 10, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 45, "tier": "Prioridad Media (Tibio)"}, {"email": "diego.bonino@sunchemical.com", "name": "Diego Bonino", "company": "Sun Chemical Argentina", "domain": "sunchemical.com", "is_corp": true, "vertical": "Planta Química e Industrial", "category": "Industria & Logística", "clicks": 10, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 45, "tier": "Prioridad Media (Tibio)"}, {"email": "veronica.jacquemain@sunchemical.com", "name": "Veronica Jacquemain", "company": "Sun Chemical Argentina", "domain": "sunchemical.com", "is_corp": true, "vertical": "Planta Química e Industrial", "category": "Industria & Logística", "clicks": 10, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 45, "tier": "Prioridad Media (Tibio)"}, {"email": "ruben.quilindro@crawfordargentina.com.ar", "name": "Ruben Quilindro", "company": "Crawford Argentina", "domain": "crawfordargentina.com.ar", "is_corp": true, "vertical": "Corporativo / Liquidación de Siniestros", "category": "Corporativo B2B", "clicks": 9, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 44, "tier": "Prioridad Media (Tibio)"}, {"email": "hernan.bonetti@ferro.com", "name": "Hernan Bonetti", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 9, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 44, "tier": "Prioridad Media (Tibio)"}, {"email": "tomas.ordonez@farmacity.com.ar", "name": "Tomas Ordonez", "company": "Farmacity S.A.", "domain": "farmacity.com.ar", "is_corp": true, "vertical": "Retail Farmacéutico, Centros de Distribución y Sede", "category": "Grandes Superficies", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "valeria.cabral@ferro.com", "name": "Valeria Cabral", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "lilia.holubek@ferro.com", "name": "Lilia Holubek", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "gustavo.iacomini@ferro.com", "name": "Gustavo Iacomini", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "horacio.caracoche@grupo-sanmartin.com", "name": "Horacio Caracoche", "company": "Grupo San Martín", "domain": "grupo-sanmartin.com", "is_corp": true, "vertical": "Industria y Logística", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "alberto.fort@styropek.com", "name": "Alberto Fort", "company": "Styropek Argentina", "domain": "styropek.com", "is_corp": true, "vertical": "Planta Petroquímica / Poliestireno", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "noelia.vallejos@styropek.com", "name": "Noelia Vallejos", "company": "Styropek Argentina", "domain": "styropek.com", "is_corp": true, "vertical": "Planta Petroquímica / Poliestireno", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "giuliana.cardarelli@styropek.com", "name": "Giuliana Cardarelli", "company": "Styropek Argentina", "domain": "styropek.com", "is_corp": true, "vertical": "Planta Petroquímica / Poliestireno", "category": "Industria & Logística", "clicks": 8, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 43, "tier": "Prioridad Media (Tibio)"}, {"email": "karina@aknestudio.com", "name": "Karina", "company": "Aknestudio (aknestudio.com)", "domain": "aknestudio.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "pedro_maidana@bactssa.com.ar", "name": "Pedro Maidana", "company": "Bactssa (bactssa.com.ar)", "domain": "bactssa.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "gracielacastro@bayton.com.ar", "name": "Gracielacastro", "company": "Bayton (bayton.com.ar)", "domain": "bayton.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "faoro@bayton.com.ar", "name": "Faoro", "company": "Bayton (bayton.com.ar)", "domain": "bayton.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "natalia@coscon.com", "name": "Natalia", "company": "Coscon (coscon.com)", "domain": "coscon.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "sanrafael@diarco.com.ar", "name": "Sanrafael", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "coronelsuarez@diarco.com.ar", "name": "Coronelsuarez", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "pico@diarco.com.ar", "name": "Pico", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "villamercedes@diarco.com.ar", "name": "Villamercedes", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "ushuaia@diarco.com.ar", "name": "Ushuaia", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "pilar@estacionlibro.com.ar", "name": "Pilar", "company": "Estación Libro San Fernando", "domain": "estacionlibro.com.ar", "is_corp": true, "vertical": "Comercial y Cultural", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "adrogue@estacionlibro.com.ar", "name": "Adrogue", "company": "Estación Libro San Fernando", "domain": "estacionlibro.com.ar", "is_corp": true, "vertical": "Comercial y Cultural", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "marcelo.barrio@estudiobarrio.com.ar", "name": "Marcelo Barrio", "company": "Estudiobarrio (estudiobarrio.com.ar)", "domain": "estudiobarrio.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "guido.luna@farmacity.com.ar", "name": "Guido Luna", "company": "Farmacity S.A.", "domain": "farmacity.com.ar", "is_corp": true, "vertical": "Retail Farmacéutico, Centros de Distribución y Sede", "category": "Grandes Superficies", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "marcela.sanguinetti@ferro.com", "name": "Marcela Sanguinetti", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "pablo.heuberger@ferro.com", "name": "Pablo Heuberger", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "lorena.maidana@ferro.com", "name": "Lorena Maidana", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "hlongo@garrahan.gov.ar", "name": "Hlongo", "company": "Garrahan (garrahan.gov.ar)", "domain": "garrahan.gov.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "pferrario@labolsa.com.ar", "name": "Pferrario", "company": "Labolsa (labolsa.com.ar)", "domain": "labolsa.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "info@temislostalo.com.ar", "name": "Info", "company": "Temislostalo (temislostalo.com.ar)", "domain": "temislostalo.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "rectora@uncuyo.edu.ar", "name": "Rectora", "company": "Uncuyo (uncuyo.edu.ar)", "domain": "uncuyo.edu.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 7, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 42, "tier": "Prioridad Media (Tibio)"}, {"email": "martincalvo@allinsa.com", "name": "Martincalvo", "company": "Allinsa (allinsa.com)", "domain": "allinsa.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "estela.velasco@almundo.com", "name": "Estela Velasco", "company": "Almundo (almundo.com)", "domain": "almundo.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "dmarsicano@aluar.com.ar", "name": "Dmarsicano", "company": "Aluar (aluar.com.ar)", "domain": "aluar.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "contacto@andromaco.com.ar", "name": "Contacto", "company": "Andromaco (andromaco.com.ar)", "domain": "andromaco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@automunich.com.ar", "name": "Info", "company": "Automunich (automunich.com.ar)", "domain": "automunich.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "coprec@bancopatagonia.com.ar", "name": "Coprec", "company": "Bancopatagonia (bancopatagonia.com.ar)", "domain": "bancopatagonia.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "lucasandres.delgado@bayer.com", "name": "Lucasandres Delgado", "company": "Bayer (bayer.com)", "domain": "bayer.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "daniel.mejia@bcra.gob.ar", "name": "Daniel Mejia", "company": "Bcra (bcra.gob.ar)", "domain": "bcra.gob.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "mpoveda@bcra.gob.ar", "name": "Mpoveda", "company": "Bcra (bcra.gob.ar)", "domain": "bcra.gob.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "marketingaac@bgh.com.ar", "name": "Marketingaac", "company": "Bgh (bgh.com.ar)", "domain": "bgh.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "jorgelina.silvestro@cinter.com.ar", "name": "Jorgelina Silvestro", "company": "Cinter (cinter.com.ar)", "domain": "cinter.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "9dejulio@diarco.com.ar", "name": "9dejulio", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "calafate@diarco.com.ar", "name": "Calafate", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "santarosa@diarco.com.ar", "name": "Santarosa", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "caletaolivia@diarco.com.ar", "name": "Caletaolivia", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "piedrabuena@diarco.com.ar", "name": "Piedrabuena", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "riogrande@diarco.com.ar", "name": "Riogrande", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "trelew@diarco.com.ar", "name": "Trelew", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "picotruncado@diarco.com.ar", "name": "Picotruncado", "company": "Diarco (diarco.com.ar)", "domain": "diarco.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@drogueria20dejunio.com.ar", "name": "Info", "company": "Drogueria20Dejunio (drogueria20dejunio.com.ar)", "domain": "drogueria20dejunio.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@edelflex.com", "name": "Info", "company": "Edelflex (edelflex.com)", "domain": "edelflex.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "tadeo.barrio@estudiobarrio.com.ar", "name": "Tadeo Barrio", "company": "Estudiobarrio (estudiobarrio.com.ar)", "domain": "estudiobarrio.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "jorge.barrio@estudiobarrio.com.ar", "name": "Jorge Barrio", "company": "Estudiobarrio (estudiobarrio.com.ar)", "domain": "estudiobarrio.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@faradaysa.com.ar", "name": "Info", "company": "Faradaysa (faradaysa.com.ar)", "domain": "faradaysa.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "green@gasnea.com.ar", "name": "Green", "company": "Gasnea (gasnea.com.ar)", "domain": "gasnea.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "hi@globant.com", "name": "Hi", "company": "Globant (globant.com)", "domain": "globant.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "guillermo.izquierdo@halliburton.com", "name": "Guillermo Izquierdo", "company": "Halliburton (halliburton.com)", "domain": "halliburton.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "pablo.borensztein@hhglobal.com", "name": "Pablo Borensztein", "company": "Hhglobal (hhglobal.com)", "domain": "hhglobal.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@interalmar.com", "name": "Info", "company": "Interalmar (interalmar.com)", "domain": "interalmar.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "infocenterlas@its.jnj.com", "name": "Infocenterlas", "company": "Its (its.jnj.com)", "domain": "its.jnj.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info-ar@itt.com", "name": "Info Ar", "company": "Itt (itt.com)", "domain": "itt.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "ventas@jayor.com.ar", "name": "Ventas", "company": "Jayor (jayor.com.ar)", "domain": "jayor.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "carina.garcia@jenck.com", "name": "Carina Garcia", "company": "Jenck (jenck.com)", "domain": "jenck.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "saiep@laanonima.com.ar", "name": "Saiep", "company": "Laanonima (laanonima.com.ar)", "domain": "laanonima.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "alejandro.estrada@mabe.com.ar", "name": "Alejandro Estrada", "company": "Mabe (mabe.com.ar)", "domain": "mabe.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "daniel.caviudo@mabe.com.ar", "name": "Daniel Caviudo", "company": "Mabe (mabe.com.ar)", "domain": "mabe.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "carlos.gamarra@mabe.com.ar", "name": "Carlos Gamarra", "company": "Mabe (mabe.com.ar)", "domain": "mabe.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "landia@manantialghumano.com.ar", "name": "Landia", "company": "Manantialghumano (manantialghumano.com.ar)", "domain": "manantialghumano.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "pellegrinog@mariva.com.ar", "name": "Pellegrinog", "company": "Mariva (mariva.com.ar)", "domain": "mariva.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "tomas.hartmann@mccain.com", "name": "Tomas Hartmann", "company": "Mccain (mccain.com)", "domain": "mccain.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "prevencion@medicus.com.ar", "name": "Prevencion", "company": "Medicus (medicus.com.ar)", "domain": "medicus.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "patricia.godoy@milicicmineria.com.ar", "name": "Patricia Godoy", "company": "Milicicmineria (milicicmineria.com.ar)", "domain": "milicicmineria.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "mariajose.baudonnet@milicicmineria.com.ar", "name": "Mariajose Baudonnet", "company": "Milicicmineria (milicicmineria.com.ar)", "domain": "milicicmineria.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@morph.com.ar", "name": "Info", "company": "Morph (morph.com.ar)", "domain": "morph.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "fernando.ilariucci@palletsjauregui.com.ar", "name": "Fernando Ilariucci", "company": "Palletsjauregui (palletsjauregui.com.ar)", "domain": "palletsjauregui.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "obras@peisa.com.ar", "name": "Obras", "company": "Peisa (peisa.com.ar)", "domain": "peisa.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "alicia.striker@pernod-ricard.com", "name": "Alicia Striker", "company": "Pernod Ricard (pernod-ricard.com)", "domain": "pernod-ricard.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "belen.mate@pernod-ricard.com", "name": "Belen Mate", "company": "Pernod Ricard (pernod-ricard.com)", "domain": "pernod-ricard.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "dleiva@pla.com.ar", "name": "Dleiva", "company": "Pla (pla.com.ar)", "domain": "pla.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "victoria.durand@prudential.com", "name": "Victoria Durand", "company": "Prudential (prudential.com)", "domain": "prudential.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "alexis@raghsa.com.ar", "name": "Alexis", "company": "Raghsa (raghsa.com.ar)", "domain": "raghsa.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "ryapur@rizobacter.com.ar", "name": "Ryapur", "company": "Rizobacter (rizobacter.com.ar)", "domain": "rizobacter.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "gestionhumanacv@roemmers.com.ar", "name": "Gestionhumanacv", "company": "Roemmers (roemmers.com.ar)", "domain": "roemmers.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "pedro.azcueta@sas.com", "name": "Pedro Azcueta", "company": "Sas (sas.com)", "domain": "sas.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "farmacovigilanciasidus@sidus.com.ar", "name": "Farmacovigilanciasidus", "company": "Sidus (sidus.com.ar)", "domain": "sidus.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "clientes@telecentro.net.ar", "name": "Clientes", "company": "Telecentro (telecentro.net.ar)", "domain": "telecentro.net.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "marketing@tmsa.ind.br", "name": "Marketing", "company": "Tmsa (tmsa.ind.br)", "domain": "tmsa.ind.br", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "info@vannier.com.ar", "name": "Info", "company": "Vannier (vannier.com.ar)", "domain": "vannier.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "rental.argentina@xyleminc.com", "name": "Rental Argentina", "company": "Xyleminc (xyleminc.com)", "domain": "xyleminc.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "proveedores_ypf@ypf.com", "name": "Proveedores Ypf", "company": "Ypf (ypf.com)", "domain": "ypf.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 6, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 41, "tier": "Prioridad Media (Tibio)"}, {"email": "boneschiu@ferro.com", "name": "Boneschiu", "company": "Ferro Argentina", "domain": "ferro.com", "is_corp": true, "vertical": "Planta Química & Materiales Industriales", "category": "Industria & Logística", "clicks": 3, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 38, "tier": "Prioridad Media (Tibio)"}, {"email": "obras@pyr.sa.com", "name": "Obras", "company": "Pyr (pyr.sa.com)", "domain": "pyr.sa.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 3, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 38, "tier": "Prioridad Media (Tibio)"}, {"email": "administracion@talardepacheco.com", "name": "Administracion", "company": "Talardepacheco (talardepacheco.com)", "domain": "talardepacheco.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 3, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 38, "tier": "Prioridad Media (Tibio)"}, {"email": "j.swiszcz@biosidus.com.ar", "name": "J Swiszcz", "company": "Biosidus (biosidus.com.ar)", "domain": "biosidus.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "m.alba@biosidus.com.ar", "name": "M Alba", "company": "Biosidus (biosidus.com.ar)", "domain": "biosidus.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "marcelo.bombau@bomchil.com", "name": "Marcelo Bombau", "company": "Bomchil (bomchil.com)", "domain": "bomchil.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "ventas@cinter.com.ar", "name": "Ventas", "company": "Cinter (cinter.com.ar)", "domain": "cinter.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "asomoza@gamasi.com.ar", "name": "Asomoza", "company": "Gamasi (gamasi.com.ar)", "domain": "gamasi.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "myanez@gasnatural.com", "name": "Myanez", "company": "Gasnatural (gasnatural.com)", "domain": "gasnatural.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "gustavo.lopez2@mdlz.com", "name": "Gustavo Lopez2", "company": "Mdlz (mdlz.com)", "domain": "mdlz.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "dcastro@mideacarrier.com", "name": "Dcastro", "company": "Mideacarrier (mideacarrier.com)", "domain": "mideacarrier.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "adriel.labbe@pernod-ricard.com", "name": "Adriel Labbe", "company": "Pernod Ricard (pernod-ricard.com)", "domain": "pernod-ricard.com", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "fguerra@softland.com.ar", "name": "Fguerra", "company": "Softland (softland.com.ar)", "domain": "softland.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "rgalarza@starunion.com.ar", "name": "Rgalarza", "company": "Starunion (starunion.com.ar)", "domain": "starunion.com.ar", "is_corp": true, "vertical": "Empresa / Dominio Corporativo", "category": "Corporativo B2B", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 36, "tier": "Prioridad Media (Tibio)"}, {"email": "admcoronel@hotmail.com", "name": "Admcoronel", "company": "Administración / Consorcio (admcoronel)", "domain": "hotmail.com", "is_corp": false, "vertical": "Administración de Consorcios y Edificios", "category": "Consorcios & Edificios", "clicks": 16, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 16, "tier": "Seguimiento Activo"}, {"email": "mariaetelvinamayer@hotmail.com", "name": "Mariaetelvinamayer", "company": "Contacto Directo (mariaetelvinamayer@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 16, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 16, "tier": "Seguimiento Activo"}, {"email": "n.24.yo@live.com.ar", "name": "N Yo", "company": "Contacto Directo (n.24.yo@live.com.ar)", "domain": "live.com.ar", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 16, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 16, "tier": "Seguimiento Activo"}, {"email": "diervasi-admbaraldo@hotmail.com", "name": "Diervasi Admbaraldo", "company": "Administración / Consorcio (diervasi-admbaraldo)", "domain": "hotmail.com", "is_corp": false, "vertical": "Administración de Consorcios y Edificios", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "anamariaromero52@hotmail.com", "name": "Anamariaromero52", "company": "Contacto Directo (anamariaromero52@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "arvizamarta@hotmail.com", "name": "Arvizamarta", "company": "Contacto Directo (arvizamarta@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "diarioselcolo@hotmail.com", "name": "Diarioselcolo", "company": "Contacto Directo (diarioselcolo@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "fopieczonek@hotmail.com", "name": "Fopieczonek", "company": "Contacto Directo (fopieczonek@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "gibanez84@hotmail.com", "name": "Gibanez84", "company": "Contacto Directo (gibanez84@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "griselda.vazquez@outlook.com", "name": "Griselda Vazquez", "company": "Contacto Directo (griselda.vazquez@outlook.com)", "domain": "outlook.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "jpiola@hotmail.com", "name": "Jpiola", "company": "Contacto Directo (jpiola@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "mairagonza@hotmail.com", "name": "Mairagonza", "company": "Contacto Directo (mairagonza@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "predkina@hotmail.com", "name": "Predkina", "company": "Contacto Directo (predkina@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "rubenriquelme@hotmail.com", "name": "Rubenriquelme", "company": "Contacto Directo (rubenriquelme@hotmail.com)", "domain": "hotmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 15, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 15, "tier": "Seguimiento Activo"}, {"email": "cdajuarez@gmail.com", "name": "Cdajuarez", "company": "Contacto Directo (cdajuarez@gmail.com)", "domain": "gmail.com", "is_corp": false, "vertical": "Contacto General / Administración", "category": "Consorcios & Edificios", "clicks": 1, "clicked_wa": false, "clicked_iso": false, "clicked_web": false, "clicked_ig": false, "clicked_li": false, "last_ts": "", "score": 1, "tier": "Seguimiento Activo"}];
+    let currentLeads = [...INITIAL_LEADS];
+    let currentScriptMode = 'iso';
+    const STORAGE_KEY = 'starunion_radar_perfit_v2';
+
+    function loadSavedStates() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveLeadState(email, status, note) {
+      const states = loadSavedStates();
+      states[email] = {
+        status: status || (states[email] ? states[email].status : 'Pendiente'),
+        note: note !== undefined ? note : (states[email] ? states[email].note : ''),
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(states));
+      updateKPIs();
+    }
+
+    function buildMessage(lead) {
+      const firstName = (lead.name || '').split(' ')[0] || 'Hola';
+      const greeting = firstName.length > 2 ? `Hola ${firstName}, ¿cómo estás?` : `Hola, ¿cómo estás?`;
+      const companyRef = lead.is_corp ? ` para ${lead.company}` : '';
+
+      if (currentScriptMode === 'iso') {
+        return {
+          subject: `Star Union S.R.L. (ISO 9001:2015 TÜV Rheinland) · Propuesta técnica y Dossier Corporativo${companyRef}`,
+          body: `${greeting}\n\nTe escribo personalmente porque vi que estuviste revisando nuestra comunicación sobre la certificación ISO 9001:2015 (auditada por TÜV Rheinland) en Star Union S.R.L.\n\nDesde nuestra Base Operativa propia de 800 m² en Guaminí 5657 (CABA) —con taller electromecánico propio, centro de capacitación con 6 superficies de prueba, flota de utilitarios y control biométrico con alerta a los 15 minutos— acompañamos a industrias, clínicas, consorcios, bancos y grandes superficies con reemplazo garantizado en menos de 2 horas.\n\nTe comparto nuestro Dossier Ejecutivo Interactivo para que puedas ver cómo trabajamos y simular el ahorro operativo:\nhttps://arianabaires-arch.github.io/star-union/dossier/\n\n¿Tenés 10 minutos esta semana para tomar un café o coordinar un relevamiento técnico sin cargo en sus instalaciones?\n\nUn cordial saludo,\n\nMauro Repetto\nSocio Gerente | Star Union S.R.L.\nGuaminí 5657, CABA | 0810-333-8646\nmrepetto@starunion.com.ar | www.starunion.com.ar`
+        };
+      } else if (currentScriptMode === 'relevamiento') {
+        return {
+          subject: `Relevamiento técnico sin cargo${companyRef} · Star Union S.R.L. (ISO 9001:2015)`,
+          body: `${greeting}\n\nSoy Mauro Repetto, Socio Gerente de Star Union S.R.L. Vi tu interés en nuestros servicios de limpieza corporativa e institucional certificada bajo Norma ISO 9001:2015 por TÜV Rheinland.\n\nMe gustaría ofrecerte un relevamiento técnico sin cargo en sus instalaciones para evaluar dotación óptima, maquinaria específica (fregadoras hombre a bordo/caminando, rotativas o hidroelevadores) y esquema de supervisión con control biométrico en tiempo real.\n\nAcá podés consultar nuestras fichas técnicas por rubro:\nhttps://arianabaires-arch.github.io/star-union/brochures/\n\n¿Qué día te queda cómodo que conversemos 10 minutos?\n\nUn cordial saludo,\n\nMauro Repetto\nSocio Gerente | Star Union S.R.L.\n0810-333-8646 | mrepetto@starunion.com.ar`
+        };
+      } else {
+        return {
+          subject: `Limpieza de Vidrios en Altura (Norma ARAA) y Grandes Superficies${companyRef} · Star Union S.R.L.`,
+          body: `${greeting}\n\nTe contacto desde Star Union S.R.L. Además de nuestro servicio integral certificado ISO 9001:2015, contamos con división propia de Limpieza de Vidrios en Altura bajo Normas ARAA (silletas, balancines, hidroelevadores y lavado con agua pura de ósmosis inversa hasta 20 metros) y mantenimiento de grandes superficies con maquinaria pesada propia.\n\nPodés ver el detalle técnico acá:\nhttps://arianabaires-arch.github.io/star-union/limpieza-en-altura/\n\nQuedo a tu disposición si están evaluando proveedores para una licitación o servicio puntual.\n\nSaludos cordiales,\n\nMauro Repetto\nSocio Gerente | Star Union S.R.L.\nGuaminí 5657, CABA | 0810-333-8646`
+        };
+      }
+    }
+
+    function setScriptMode(mode) {
+      currentScriptMode = mode;
+      document.querySelectorAll('.script-btn').forEach(btn => {
+        btn.className = 'script-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-lg transition';
+      });
+      const activeBtn = document.getElementById('btn-script-' + mode);
+      if (activeBtn) {
+        activeBtn.className = 'script-btn bg-suGreen text-white text-xs font-bold px-3.5 py-2 rounded-lg transition shadow-sm';
+      }
+      const sample = buildMessage({ name: 'Nombre', company: 'Su Empresa', is_corp: true });
+      document.getElementById('script-preview').innerHTML = `<strong>Asunto:</strong> ${sample.subject}<br><br>${sample.body.replace(/\n/g, '<br>')}`;
+      renderTable();
+    }
+
+    function updateKPIs() {
+      const states = loadSavedStates();
+      document.getElementById('kpi-total').textContent = currentLeads.length;
+      document.getElementById('kpi-wa').textContent = currentLeads.filter(l => l.clicked_wa).length;
+      document.getElementById('kpi-iso').textContent = currentLeads.filter(l => l.clicked_iso).length;
+      const managed = currentLeads.filter(l => states[l.email] && states[l.email].status && states[l.email].status !== 'Pendiente').length;
+      document.getElementById('kpi-managed').textContent = managed;
+    }
+
+    function renderTable() {
+      const search = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const cat = document.getElementById('filter-category').value;
+      const intent = document.getElementById('filter-intent').value;
+      const statusFilter = document.getElementById('filter-status').value;
+      const states = loadSavedStates();
+
+      const filtered = currentLeads.filter(l => {
+        const st = (states[l.email] && states[l.email].status) || 'Pendiente';
+        const note = (states[l.email] && states[l.email].note) || '';
+        if (search) {
+          const hay = `${l.company} ${l.email} ${l.name} ${l.domain} ${l.vertical} ${note}`.toLowerCase();
+          if (!hay.includes(search)) return false;
+        }
+        if (cat === 'CORP_ONLY' && !l.is_corp) return false;
+        if (cat !== 'ALL' && cat !== 'CORP_ONLY' && l.category !== cat) return false;
+        if (intent === 'WA' && !l.clicked_wa) return false;
+        if (intent === 'ISO' && !l.clicked_iso) return false;
+        if (intent === 'WEB' && !l.clicked_web) return false;
+        if (intent === 'HIGH' && l.clicks < 5) return false;
+        if (statusFilter !== 'ALL' && st !== statusFilter) return false;
+        return true;
+      });
+
+      const tbody = document.getElementById('leads-tbody');
+      tbody.innerHTML = filtered.map(l => {
+        const st = (states[l.email] && states[l.email].status) || 'Pendiente';
+        const note = (states[l.email] && states[l.email].note) || '';
+        const msg = buildMessage(l);
+        const mailtoHref = `mailto:${encodeURIComponent(l.email)}?subject=${encodeURIComponent(msg.subject)}&body=${encodeURIComponent(msg.body)}`;
+
+        const badges = [];
+        if (l.clicked_wa) badges.push('<span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-900 text-[11px] font-bold px-2 py-0.5 rounded-full">💬 Clic WhatsApp</span>');
+        if (l.clicked_iso) badges.push('<span class="inline-flex items-center gap-1 bg-amber-100 text-amber-900 text-[11px] font-bold px-2 py-0.5 rounded-full">🏅 Validó ISO TÜV</span>');
+        if (l.clicked_web) badges.push('<span class="inline-flex items-center gap-1 bg-blue-100 text-blue-900 text-[11px] font-bold px-2 py-0.5 rounded-full">🌐 Entró a Web</span>');
+        if (l.clicked_li) badges.push('<span class="inline-flex items-center gap-1 bg-sky-100 text-sky-900 text-[11px] font-bold px-2 py-0.5 rounded-full">in LinkedIn</span>');
+
+        const statusColor = st === 'Pendiente' ? 'bg-slate-100 text-slate-700 border-slate-300' :
+                            st === 'Contactado' ? 'bg-blue-50 text-blue-800 border-blue-300' :
+                            st === 'Relevamiento Agendado' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' :
+                            st === 'Cotizado' ? 'bg-amber-50 text-amber-900 border-amber-300' :
+                            'bg-rose-50 text-rose-800 border-rose-200';
+
+        return `
+          <tr class="hover:bg-slate-50/90 transition">
+            <td class="px-4 py-3.5 align-top">
+              <div class="font-display font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                ${l.company}
+                ${l.is_corp ? '<span class="bg-suGreen/10 text-suGreen text-[10px] font-extrabold px-1.5 py-0.5 rounded">CORP</span>' : ''}
+              </div>
+              <div class="text-xs text-slate-500 mt-0.5">${l.vertical}</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Último clic: ${l.last_ts || 'Oct 2026'}</div>
+            </td>
+            <td class="px-4 py-3.5 align-top">
+              <div class="font-semibold text-slate-800 text-sm">${l.name}</div>
+              <a href="${mailtoHref}" class="text-xs text-suGreen font-mono hover:underline break-all">${l.email}</a>
+            </td>
+            <td class="px-4 py-3.5 align-top text-center">
+              <div class="inline-flex items-center gap-1 bg-slate-900 text-suYellow font-display font-extrabold text-xs px-2.5 py-1 rounded-full mb-1.5">
+                🔥 ${l.clicks} ${l.clicks === 1 ? 'clic' : 'clics'}
+              </div>
+              <div class="flex flex-wrap justify-center gap-1">
+                ${badges.join('')}
+              </div>
+            </td>
+            <td class="px-4 py-3.5 align-top">
+              <select onchange="saveLeadState('${l.email}', this.value, undefined); renderTable();" class="text-xs font-bold border rounded-lg px-2.5 py-1.5 w-full mb-1.5 ${statusColor}">
+                <option value="Pendiente" ${st === 'Pendiente' ? 'selected' : ''}>⏳ Pendiente</option>
+                <option value="Contactado" ${st === 'Contactado' ? 'selected' : ''}>📨 Contactado por Mauro</option>
+                <option value="Relevamiento Agendado" ${st === 'Relevamiento Agendado' ? 'selected' : ''}>📅 Relevamiento Agendado</option>
+                <option value="Cotizado" ${st === 'Cotizado' ? 'selected' : ''}>📄 Cotizado</option>
+                <option value="Descartado" ${st === 'Descartado' ? 'selected' : ''}>✖ Descartado</option>
+              </select>
+              <input type="text" value="${note.replace(/"/g, '&quot;')}" placeholder="Nota de Mauro (ej. hablé con Compras)..." onchange="saveLeadState('${l.email}', undefined, this.value)" class="w-full text-[11px] border border-slate-200 rounded px-2 py-1 text-slate-700 focus:outline-none focus:border-suGreen" />
+            </td>
+            <td class="px-4 py-3.5 align-top text-right space-y-1.5">
+              <a href="${mailtoHref}" onclick="saveLeadState('${l.email}', 'Contactado', undefined); setTimeout(renderTable, 300);" class="inline-flex items-center justify-center gap-1.5 w-full bg-suGreen hover:bg-suGreenDark text-white text-xs font-bold px-3 py-2 rounded-lg transition shadow-sm">
+                <span>✉️</span> Enviar Email Personalizado
+              </a>
+              <div class="flex gap-1.5">
+                <button onclick="copyScriptFor('${l.email}')" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold px-2 py-1.5 rounded-lg transition">
+                  📋 Copiar Texto
                 </button>
-                <a href="../index.html" class="bg-gray-100 text-[#000000] px-4 py-2.5 rounded hover:bg-gray-200 transition">
-                    ← Ir al Sitio Web
+                <a href="https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(l.company.split('(')[0].trim())}" target="_blank" class="bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 text-[11px] font-bold px-2.5 py-1.5 rounded-lg transition">
+                  in Buscar
                 </a>
-            </div>
-        </div>
-    </header>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+      document.getElementById('showing-count').textContent = `Mostrando ${filtered.length} de ${currentLeads.length} contactos únicos`;
+      updateKPIs();
+    }
 
-        <!-- EXPLICACIÓN SIMPLE DE USO PARA LA PERSONA COMERCIAL -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm mb-8">
-            <div class="grid lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-8">
-                    <span class="text-xs font-extrabold uppercase tracking-wider text-brand bg-brand/10 px-3 py-1 rounded-full">Cómo convertir los clics del Mailing en Relevamientos Reales</span>
-                    <h1 class="text-2xl sm:text-3xl font-extrabold text-[#000000] mt-2 mb-2">
-                        Accionador de los "Top 100 Clics del Mailing" + Prospección en LinkedIn sin Pauta
-                    </h1>
-                    <p class="text-sm text-neutral-custom leading-relaxed">
-                        En lugar de dejar enfriar el listado de quienes hicieron clic en el mailing o usar planillas desordenadas: <strong>pegá acá abajo los correos que hicieron clic</strong>. El sistema identifica automáticamente <strong>qué empresa es por su dominio (`@empresa.com.ar`)</strong>, te abre los decisores en LinkedIn con 1 clic y te redacta el correo 1-a-1 desde <code>comercial@starunion.com.ar</code> o el mensaje de WhatsApp usando el argumento exacto.
-                    </p>
-                </div>
-                <div class="lg:col-span-4 bg-gray-50 border border-gray-200 rounded-xl p-5">
-                    <div class="text-xs font-extrabold uppercase text-brand mb-2">Ángulo Comercial Activo (Elegí el gancho de hoy):</div>
-                    <select id="angulo-selector" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm font-bold text-[#000000] bg-white focus:border-brand outline-none">
-                        <option value="relevamiento">1. Relevamiento Técnico sin Cargo y Propuesta a Medida</option>
-                        <option value="vidrios">2. División de Limpieza en Altura y Trabajos en Altura (Cuadrillas Propias)</option>
-                        <option value="iso">3. Homologación Industrial ISO 9001:2015 TÜV Rheinland (Zona Productiva)</option>
-                        <option value="multisede">4. Unificación Multi-Sede (AMBA + Bahía Blanca / Neuquén / Patagonia)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+    function copyScriptFor(email) {
+      const lead = currentLeads.find(x => x.email === email);
+      if (!lead) return;
+      const msg = buildMessage(lead);
+      navigator.clipboard.writeText(msg.body);
+      alert(`Texto copiado al portapapeles para ${lead.company} (${lead.email}). Podés pegarlo en WhatsApp o en tu correo.`);
+    }
 
-        <!-- CARGADOR RÁPIDO DE LOS 100 CLICS DEL MAILING -->
-        <div class="grid lg:grid-cols-12 gap-8 mb-8">
-            <div class="lg:col-span-5 bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <h2 class="text-lg font-extrabold text-[#000000] mb-1">1. Pegar Correos que Clickearon en el Mailing</h2>
-                <p class="text-xs text-neutral-custom mb-4">Pegá un correo por línea (o separados por coma) del reporte de clics que pasa Ariana.</p>
-                <textarea id="raw-emails-input" rows="7" class="w-full border border-gray-300 rounded-lg p-3 text-xs font-mono bg-gray-50 focus:border-brand outline-none" placeholder="compras@ferroclor.com.ar&#10;mantenimiento@laboratoriobago.com.ar&#10;intendencia@utdt.edu&#10;facility@torrepromenade.com.ar&#10;logistica@andreani.com"></textarea>
-                <div class="flex flex-wrap gap-2 mt-4">
-                    <button id="btn-process-emails" class="flex-1 bg-brand text-white font-extrabold text-sm py-3 px-4 rounded-lg hover:bg-brand-dark transition shadow">
-                        ⚡ Decodificar Dominios y Armar Acciones
-                    </button>
-                    <button id="btn-load-demo" class="bg-gray-100 text-[#000000] font-bold text-xs py-3 px-3 rounded-lg hover:bg-gray-200 transition">
-                        Cargar Ejemplo
-                    </button>
-                </div>
-            </div>
+    // CSV UPLOADER FOR ARIANA (Supports Perfit ; or , CSV exports)
+    document.getElementById('csv-file-input').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      parseUploadedPerfitCSV(file);
+    });
 
-            <!-- RESUMEN DE EMBUDO EN VIVO -->
-            <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4 content-start">
-                <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                    <span class="text-xs font-bold text-neutral-custom uppercase">Dominios Detectados</span>
-                    <strong id="kpi-total" class="block text-3xl font-extrabold text-[#000000] mt-1">0</strong>
-                    <span class="text-[11px] text-brand font-semibold">Empresas identificadas</span>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                    <span class="text-xs font-bold text-neutral-custom uppercase">Pendientes Hoy</span>
-                    <strong id="kpi-pendientes" class="block text-3xl font-extrabold text-[#000000] mt-1">0</strong>
-                    <span class="text-[11px] text-neutral-custom">Para accionar 1-a-1</span>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                    <span class="text-xs font-bold text-neutral-custom uppercase">Contactados</span>
-                    <strong id="kpi-contactados" class="block text-3xl font-extrabold text-brand mt-1">0</strong>
-                    <span class="text-[11px] text-brand font-semibold">Mail / LinkedIn / WA</span>
-                </div>
-                <div class="bg-brand text-white rounded-xl p-5 shadow-sm">
-                    <span class="text-xs font-bold text-green-100 uppercase">Relevamientos</span>
-                    <strong id="kpi-relevamientos" class="block text-3xl font-extrabold text-accent mt-1">0</strong>
-                    <span class="text-[11px] text-green-50 font-semibold">Visitas agendadas</span>
-                </div>
+    const dropZone = document.getElementById('drop-zone');
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('bg-white/25'); });
+    dropZone.addEventListener('dragleave', e => { e.preventDefault(); dropZone.classList.remove('bg-white/25'); });
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('bg-white/25');
+      if (e.dataTransfer.files.length) parseUploadedPerfitCSV(e.dataTransfer.files[0]);
+    });
 
-                <!-- GUÍA DE 3 PASOS PARA PROSPECCIÓN SIN GASTAR EN LINKEDIN ADS -->
-                <div class="col-span-2 sm:col-span-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-                    <h3 class="text-sm font-extrabold text-brand uppercase tracking-wider mb-2">Protocolo Diario de 20 Minutos (Sin gastar en LinkedIn Ads):</h3>
-                    <ol class="text-xs text-neutral-custom space-y-1.5 list-decimal list-inside font-medium">
-                        <li><strong>Mirar qué empresa es:</strong> Hacé clic en el dominio para ver su web y saber si es Planta Industrial, Edificio de Oficinas, Clínica o Institución.</li>
-                        <li><strong>Encontrar al decisor gratis en LinkedIn:</strong> Hacé clic en <code>🔍 Decisores en LinkedIn</code> (busca automáticamente al Jefe de Compras, Mantenimiento o Facility de esa empresa).</li>
-                        <li><strong>Accionar sin ser invasivo:</strong> Enviá el <code>✉️ Mail 1-a-1</code> desde <code>comercial@starunion.com.ar</code> o copiá el texto para LinkedIn/WhatsApp y cambiá el estado a <strong>Contactado</strong>.</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
+    function parseUploadedPerfitCSV(file) {
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const text = evt.target.result;
+        const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
+        if (lines.length < 2) return;
+        const delimiter = lines[0].includes(';') ? ';' : ',';
+        const headers = lines[0].split(delimiter).map(h => h.replace(/^"|"$/g, '').trim().toLowerCase());
+        const emailIdx = headers.findIndex(h => h.includes('email') || h.includes('correo'));
+        const urlIdx = headers.findIndex(h => h.includes('url') || h.includes('link'));
+        const tsIdx = headers.findIndex(h => h.includes('time') || h.includes('fecha'));
 
-        <!-- TABLA DE ACCIÓN POR DOMINIO / EMPRESA -->
-        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-            <div class="px-6 py-4 border-b border-gray-200 flex flex-wrap justify-between items-center gap-4">
-                <h2 class="text-lg font-extrabold text-[#000000]">2. Tablero de Acción sobre Empresas que Clickearon el Mailing</h2>
-                <div class="flex items-center gap-2 text-xs">
-                    <button id="btn-clear-list" class="text-gray-500 hover:text-red-700 font-bold">Limpiar tabla</button>
-                </div>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse text-sm">
-                    <thead>
-                        <tr class="bg-gray-50 border-b border-gray-200 text-xs uppercase text-neutral-custom font-extrabold">
-                            <th class="py-3.5 px-4">Empresa / Dominio</th>
-                            <th class="py-3.5 px-4">Correo que Hizo Clic</th>
-                            <th class="py-3.5 px-4">Vertical Sugerida</th>
-                            <th class="py-3.5 px-4">Investigar Empresa y Decisor</th>
-                            <th class="py-3.5 px-4">Acción Comercial en 1 Clic</th>
-                            <th class="py-3.5 px-4">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leads-tbody" class="divide-y divide-gray-200">
-                        <!-- Filas generadas dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </main>
-
-    <script>
-        const STORAGE_KEY = 'starunion_radar_leads_v1';
-        const FREE_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'yahoo.com.ar', 'live.com.ar', 'icloud.com', 'fibertel.com.ar', 'speedy.com.ar', 'arnet.com.ar'];
-
-        const DEMO_EMAILS = [
-            'compras@laboratoriobago.com.ar',
-            'mantenimiento@autopartistapacheco.com.ar',
-            'intendencia@colegiobilingue.edu.ar',
-            'administracion@torrecorporativacatalinas.com.ar',
-            'serviciosgenerales@clinicadelpilar.com.ar',
-            'operaciones@logisticapatagonia.com.ar'
-        ];
-
-        function guessVertical(domain, email) {
-            const full = (domain + ' ' + email).toLowerCase();
-            if (full.match(/lab|farma|quim|ind|planta|auto|metal|pack|plast|food|alimen|logis|puerto|petro|energ/)) {
-                return 'Industrial / Planta (ISO 9001)';
-            }
-            if (full.match(/clinic|sanat|hosp|medic|salud|diag/)) {
-                return 'Clínica / Hospital / Salud';
-            }
-            if (full.match(/edu|univ|coleg|school|club|deport|campus/)) {
-                return 'Universidad / Colegio / Club';
-            }
-            return 'Edificio Corporativo / Empresa';
+        if (emailIdx === -1) {
+          alert('No se encontró una columna "Email" en el CSV. Verificá que sea un reporte de Perfit.');
+          return;
         }
 
-        function formatCompanyName(domain) {
-            if (FREE_DOMAINS.includes(domain)) return 'Correo Personal (Identificar Empresa)';
-            const base = domain.split('.')[0].replace(/[-_]/g, ' ');
-            return base.charAt(0).toUpperCase() + base.slice(1);
+        const grouped = {};
+        let totalRows = 0;
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i].split(delimiter).map(c => c.replace(/^"|"$/g, '').trim());
+          const email = (cols[emailIdx] || '').toLowerCase();
+          if (!email || !email.includes('@')) continue;
+          totalRows++;
+          const url = urlIdx !== -1 ? (cols[urlIdx] || '') : '';
+          const ts = tsIdx !== -1 ? (cols[tsIdx] || '') : '';
+          if (!grouped[email]) grouped[email] = { clicks: 0, urls: [], last_ts: '' };
+          grouped[email].clicks++;
+          grouped[email].urls.push(url);
+          if (ts > grouped[email].last_ts) grouped[email].last_ts = ts;
         }
 
-        function buildPitch(company, vertical, angulo) {
-            const co = company.includes('Correo Personal') ? 'su organización' : company;
-            if (angulo === 'vidrios') {
-                return {
-                    subject: `Presupuesto de Limpieza de Vidrios en Altura / Final de Obra — ${co} | Star Union S.R.L.`,
-                    body: `Hola, ¿cómo estás?\n\nVimos que desde ${co} estuvieron revisando nuestra información técnica. Te escribo brevemente desde el área comercial de Star Union S.R.L. (+25 años, +450 empleados directos y Certificación ISO 9001:2015 por TÜV Rheinland).\n\nAdemás de nuestros abonos integrales de limpieza, muchas empresas y edificios corporativos nos contratan de forma puntual para:\n• Limpieza de Vidrios en Altura y Fachadas (cuadrillas propias certificadas SRT, silletas e hidrogrúas).\n• Limpieza profunda de Final de Obra, Espacios Verdes y Control de Plagas.\n\n¿Tienen previsto algún servicio de altura o relevamiento en los próximos meses para acercarles una cotización sin cargo?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.\nGuaminí 5657, CABA | 0810-333-8646 | www.starunion.com.ar`
-                };
-            }
-            if (angulo === 'iso') {
-                return {
-                    subject: `Homologación de Proveedor de Limpieza ISO 9001:2015 (TÜV Rheinland) para ${co}`,
-                    body: `Hola, ¿cómo estás?\n\nTe contacto desde Star Union S.R.L. al notar su interés en nuestras comunicaciones técnicas.\n\nContamos con Sistema de Gestión de Calidad certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (ID Certipedia 9000041847) con alcance auditado específicamente en Zonas Productivas y No Productivas de empresas industriales, además de taller electromecánico propio de maquinaria (LAV/LUT) y +450 empleados en nómina directa.\n\n¿Podríamos enviarles nuestra carpeta técnica o coordinar un breve relevamiento sin cargo en sus instalaciones para quedar homologados ante futuras licitaciones?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.\nGuaminí 5657, CABA | comercial@starunion.com.ar`
-                };
-            }
-            if (angulo === 'multisede') {
-                return {
-                    subject: `Servicio de Limpieza Corporativa e Industrial Multi-Sede para ${co} | Star Union S.R.L.`,
-                    body: `Hola, ¿cómo estás?\n\nTe escribo desde Star Union S.R.L. Sabemos lo complejo que resulta administrar distintos proveedores de limpieza cuando una organización opera en varias localidades.\n\nContamos con estructura propia auditada bajo ISO 9001:2015 (TÜV Rheinland) en CABA, GBA, La Plata, Bahía Blanca, Neuquén y Patagonia (Trelew, Puerto Madryn y Comodoro Rivadavia), permitiendo unificar facturación, supervisión y control documental Art. 30 LCT en un único proveedor.\n\n¿Te parece bien si coordinamos una breve llamada o relevamiento técnico sin cargo?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.`
-                };
-            }
-            // Default: Relevamiento Técnico Consultivo
-            return {
-                subject: `Relevamiento técnico sin cargo y propuesta operativa para ${co} | Star Union S.R.L.`,
-                body: `Hola, ¿cómo estás?\n\nVimos que desde ${co} abrieron nuestro último envío informativo y quería ponerme a disposición directamente desde Gerencia Comercial de Star Union S.R.L.\n\nEn Star Union operamos desde 2001 con +450 colaboradores en relación directa, base operativa y taller propio de maquinaria en CABA (Guaminí 5657), cobertura de ausencias en menos de 2 horas y Certificación ISO 9001:2015 por TÜV Rheinland.\n\n¿Les interesaría que coordinemos una visita técnica sin cargo para relevar sus instalaciones y presentarles una propuesta operativa a medida?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.\nGuaminí 5657, CABA | 0810-333-8646 | www.starunion.com.ar`
-            };
-        }
+        const genericDomains = new Set(['gmail.com','hotmail.com','yahoo.com.ar','yahoo.com','outlook.com','live.com.ar','live.com','fibertel.com.ar','speedy.com.ar','arnet.com.ar','icloud.com']);
+        const newLeads = Object.keys(grouped).map(email => {
+          const existing = INITIAL_LEADS.find(x => x.email === email);
+          const d = grouped[email];
+          const [user, domain] = email.split('@');
+          const is_corp = !genericDomains.has(domain);
+          const clicked_wa = d.urls.some(u => u.includes('wa.me') || u.includes('whatsapp'));
+          const clicked_iso = d.urls.some(u => u.includes('certipedia'));
+          const clicked_web = d.urls.some(u => u.includes('starunion.com.ar'));
+          const clicked_li = d.urls.some(u => u.includes('linkedin.com'));
 
-        function loadLeads() {
-            try {
-                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            } catch {
-                return [];
-            }
-        }
-
-        function saveLeads(leads) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
-            renderTable();
-        }
-
-        function parseRawEmails(rawText) {
-            const parts = rawText.split(/[\n,;]+/).map(s => s.trim().toLowerCase()).filter(s => s.includes('@'));
-            const existing = loadLeads();
-            const existingEmails = new Set(existing.map(item => item.email));
-
-            parts.forEach(email => {
-                if (!existingEmails.has(email)) {
-                    const domain = email.split('@')[1] || '';
-                    const company = formatCompanyName(domain);
-                    const vertical = guessVertical(domain, email);
-                    existing.push({
-                        email,
-                        domain,
-                        company,
-                        vertical,
-                        status: 'pendiente'
-                    });
-                    existingEmails.add(email);
-                }
-            });
-            saveLeads(existing);
-        }
-
-        function renderTable() {
-            const leads = loadLeads();
-            const tbody = document.getElementById('leads-tbody');
-            const angulo = document.getElementById('angulo-selector').value;
-
-            document.getElementById('kpi-total').textContent = leads.length;
-            document.getElementById('kpi-pendientes').textContent = leads.filter(l => l.status === 'pendiente').length;
-            document.getElementById('kpi-contactados').textContent = leads.filter(l => l.status === 'contactado').length;
-            document.getElementById('kpi-relevamientos').textContent = leads.filter(l => l.status === 'relevamiento').length;
-
-            if (leads.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="py-10 text-center text-neutral-custom">Pegá arriba los correos de los primeros 100 clics del mailing o tocá "Cargar Ejemplo" para ver cómo se accionan.</td></tr>`;
-                return;
-            }
-
-            tbody.innerHTML = leads.map((item, idx) => {
-                const isFree = FREE_DOMAINS.includes(item.domain);
-                const webUrl = isFree ? '#' : `https://${item.domain}`;
-                const linkedinSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:linkedin.com/in "${item.company}" (Compras OR Mantenimiento OR Facility OR Planta OR Administracion)`)}`;
-                const pitch = buildPitch(item.company, item.vertical, angulo);
-                const mailtoUrl = `mailto:${item.email}?cc=comercial@starunion.com.ar&subject=${encodeURIComponent(pitch.subject)}&body=${encodeURIComponent(pitch.body)}`;
-
-                return `
-                <tr class="hover:bg-gray-50 transition">
-                    <td class="py-3.5 px-4">
-                        <div class="font-extrabold text-[#000000]">${item.company}</div>
-                        <div class="text-xs text-brand font-semibold">${item.domain}</div>
-                    </td>
-                    <td class="py-3.5 px-4 font-mono text-xs text-neutral-custom">${item.email}</td>
-                    <td class="py-3.5 px-4">
-                        <span class="bg-brand/10 text-brand text-xs font-bold px-2.5 py-1 rounded-full">${item.vertical}</span>
-                    </td>
-                    <td class="py-3.5 px-4 space-x-1.5">
-                        ${!isFree ? `<a href="${webUrl}" target="_blank" class="inline-block bg-gray-100 hover:bg-gray-200 text-[#000000] font-bold text-xs px-2.5 py-1.5 rounded">🌐 Ver Web</a>` : ''}
-                        <a href="${linkedinSearchUrl}" target="_blank" class="inline-block bg-gray-100 hover:bg-gray-200 text-brand font-extrabold text-xs px-2.5 py-1.5 rounded">🔍 Decisores en LinkedIn</a>
-                    </td>
-                    <td class="py-3.5 px-4 space-x-1.5">
-                        <a href="${mailtoUrl}" onclick="updateLeadStatus(${idx}, 'contactado')" class="inline-block bg-brand hover:bg-brand-dark text-white font-extrabold text-xs px-3 py-1.5 rounded shadow-sm">
-                            ✉️ Enviar Mail 1-a-1
-                        </a>
-                        <button type="button" onclick="copyPitchText(${idx})" class="inline-block bg-accent hover:bg-accent-hover text-[#000000] font-extrabold text-xs px-2.5 py-1.5 rounded">
-                            📋 Copiar para LinkedIn/WA
-                        </button>
-                    </td>
-                    <td class="py-3.5 px-4">
-                        <select onchange="updateLeadStatus(${idx}, this.value)" class="border border-gray-300 rounded px-2 py-1 text-xs font-bold ${item.status === 'relevamiento' ? 'bg-green-100 text-brand' : item.status === 'contactado' ? 'bg-yellow-50 text-amber-800' : 'bg-white text-gray-700'}">
-                            <option value="pendiente" ${item.status === 'pendiente' ? 'selected' : ''}>⚪ Pendiente</option>
-                            <option value="contactado" ${item.status === 'contactado' ? 'selected' : ''}>🟡 Contactado 1-a-1</option>
-                            <option value="relevamiento" ${item.status === 'relevamiento' ? 'selected' : ''}>🟢 Relevamiento Agendado</option>
-                        </select>
-                    </td>
-                </tr>`;
-            }).join('');
-        }
-
-        window.updateLeadStatus = function(idx, newStatus) {
-            const leads = loadLeads();
-            if (leads[idx]) {
-                leads[idx].status = newStatus;
-                saveLeads(leads);
-            }
-        };
-
-        window.copyPitchText = function(idx) {
-            const leads = loadLeads();
-            const angulo = document.getElementById('angulo-selector').value;
-            if (leads[idx]) {
-                const pitch = buildPitch(leads[idx].company, leads[idx].vertical, angulo);
-                navigator.clipboard.writeText(pitch.body);
-                updateLeadStatus(idx, 'contactado');
-                alert('Mensaje copiado al portapapeles y cuenta marcada como Contactada.');
-            }
-        };
-
-        document.getElementById('btn-process-emails').addEventListener('click', () => {
-            const text = document.getElementById('raw-emails-input').value;
-            parseRawEmails(text);
+          return {
+            email,
+            name: existing ? existing.name : user.replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            company: existing ? existing.company : (is_corp ? domain.split('.')[0].toUpperCase() + ' (' + domain + ')' : 'Contacto (' + user + ')'),
+            domain,
+            is_corp,
+            vertical: existing ? existing.vertical : (is_corp ? 'Empresa / Dominio Corporativo' : 'Administración / Consorcio'),
+            category: existing ? existing.category : (is_corp ? 'Corporativo B2B' : 'Consorcios & Edificios'),
+            clicks: d.clicks,
+            clicked_wa,
+            clicked_iso,
+            clicked_web,
+            clicked_li,
+            last_ts: (d.last_ts || '').slice(0, 16).replace('T', ' '),
+            score: d.clicks + (is_corp ? 35 : 0) + (clicked_wa ? 20 : 0) + (clicked_iso ? 15 : 0)
+          };
         });
 
-        document.getElementById('btn-load-demo').addEventListener('click', () => {
-            document.getElementById('raw-emails-input').value = DEMO_EMAILS.join('\n');
-            parseRawEmails(DEMO_EMAILS.join('\n'));
-        });
+        newLeads.sort((a, b) => (b.is_corp - a.is_corp) || (b.score - a.score) || (b.clicks - a.clicks));
+        currentLeads = newLeads;
+        document.getElementById('csv-status-badge').textContent = `CSV cargado: ${file.name} (${totalRows} clics / ${newLeads.length} únicos)`;
+        renderTable();
+      };
+      reader.readAsText(file, 'ISO-8859-1');
+    }
 
-        document.getElementById('angulo-selector').addEventListener('change', renderTable);
+    function exportFollowUpCSV() {
+      const states = loadSavedStates();
+      const rows = [['Empresa', 'Contacto', 'Email', 'Categoria', 'Clics_Totales', 'Clic_WhatsApp', 'Clic_ISO_Certipedia', 'Estado_Mauro', 'Nota_Comercial']];
+      currentLeads.forEach(l => {
+        const st = (states[l.email] && states[l.email].status) || 'Pendiente';
+        const note = (states[l.email] && states[l.email].note) || '';
+        rows.push([
+          `"${l.company.replace(/"/g, '""')}"`,
+          `"${l.name.replace(/"/g, '""')}"`,
+          l.email,
+          `"${l.category}"`,
+          l.clicks,
+          l.clicked_wa ? 'SI' : 'NO',
+          l.clicked_iso ? 'SI' : 'NO',
+          st,
+          `"${note.replace(/"/g, '""')}"`
+        ]);
+      });
+      const csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + rows.map(r => r.join(';')).join('\n');
+      const link = document.createElement('a');
+      link.setAttribute('href', encodeURI(csvContent));
+      link.setAttribute('download', 'seguimiento-comercial-star-union.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
 
-        document.getElementById('btn-clear-list').addEventListener('click', () => {
-            localStorage.removeItem(STORAGE_KEY);
-            renderTable();
-        });
-
-        document.getElementById('btn-export-report').addEventListener('click', () => {
-            const leads = loadLeads();
-            const contactados = leads.filter(l => l.status === 'contactado');
-            const relevamientos = leads.filter(l => l.status === 'relevamiento');
-            const msg = [
-                `*Parte Comercial Star Union — Acción sobre Clics de Mailing*`,
-                `• Empresas en seguimiento: ${leads.length}`,
-                `• Contactadas hoy 1-a-1: ${contactados.length} (${contactados.map(c => c.company).join(', ') || 'ninguna aún'})`,
-                `• Relevamientos agendados: ${relevamientos.length} (${relevamientos.map(r => r.company).join(', ') || 'ninguno aún'})`
-            ].join('\n');
-            window.open(`https://api.whatsapp.com/send?phone=5491122759369&text=${encodeURIComponent(msg)}`, '_blank');
-        });
-
-        if (loadLeads().length === 0) {
-            parseRawEmails(DEMO_EMAILS.join('\n'));
-        } else {
-            renderTable();
-        }
-    </script>
+    // Initialize
+    setScriptMode('iso');
+  </script>
 </body>
 </html>
