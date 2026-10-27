@@ -1,550 +1,929 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Union | Empresa de Limpieza Profesional y Corporativa</title>
-    <meta name="description" content="Empresa de limpieza profesional y corporativa. Limpieza industrial, consorcios y hospitales en AMBA y Patagonia. Certificación ISO 9001:2015 por TÜV Rheinland.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Star Union S.R.L.",
-      "image": "https://tusitio.com.ar/logo-horizontal-1200x300.png",
-      "@id": "https://tusitio.com.ar",
-      "url": "https://tusitio.com.ar",
-      "telephone": "0800-XXX-XXXX",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Guaminí 5657",
-        "addressLocality": "CABA",
-        "addressCountry": "AR"
-      },
-      "knowsAbout": ["Empresa de Limpieza", "Limpieza Profesional", "Limpieza Corporativa", "ISO 9001:2015"],
-      "certification": {
-        "@type": "Certification",
-        "name": "ISO 9001:2015",
-        "issuedBy": "TÜV Rheinland",
-        "credentialId": "01 10006 2529826"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Union S.R.L. | Empresa de Limpieza Industrial, Corporativa e Institucional B2B (ISO 9001:2015 TÜV Rheinland)</title>
+  <meta name="description" content="Empresa líder en limpieza profesional B2B desde 2001. Certificación ISO 9001:2015 TÜV Rheinland en zonas productivas e instituciones. +450 empleados directos, taller y flota propia. Plantas industriales, edificios de oficinas, clínicas, universidades y vidrios en altura en CABA, GBA, Bahía Blanca, Neuquén y Patagonia.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.starunion.com.ar/">
+  <link rel="alternate" type="text/plain" title="LLMs Context" href="/llms.txt">
+
+  <!-- Open Graph B2B -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Star Union S.R.L. | Limpieza Industrial y Corporativa Certificada ISO 9001:2015 TÜV Rheinland">
+  <meta property="og:description" content="Exclusivo Empresas, Industrias, Edificios de Oficinas, Clínicas e Instituciones. +450 colaboradores en nómina directa, Base Operativa propia de +800 m² en CABA y cobertura en AMBA, Bahía Blanca, Neuquén y Patagonia.">
+  <meta property="og:image" content="https://www.starunion.com.ar/assets/img/vertical-industrial.png">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Principal B2B -->
+  <link rel="stylesheet" href="assets/css/starunion-b2b.css">
+
+  <!-- Schema JSON-LD B2B + Certificación ISO 9001:2015 TÜV Rheinland -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://www.starunion.com.ar/#organization",
+        "name": "Star Union S.R.L.",
+        "legalName": "Star Union S.R.L.",
+        "taxID": "30-70778428-9",
+        "foundingDate": "2001",
+        "url": "https://www.starunion.com.ar/",
+        "logo": "https://www.starunion.com.ar/assets/img/logo-star-union.png",
+        "image": "https://www.starunion.com.ar/assets/img/base-guamini-1.jpg",
+        "description": "Empresa argentina especializada exclusivamente en servicios B2B de limpieza industrial en zonas productivas y no productivas, mantenimiento de edificios corporativos de oficinas, higiene hospitalaria en clínicas y sanatorios, universidades y servicios especiales de limpieza de vidrios en altura y final de obra. Sistema de Gestión de Calidad Certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (Registro N° 01 10006 2529826).",
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "minValue": 450
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Dirección Star Union S.R.L."
+        },
+        "director": {
+          "@type": "Person",
+          "name": "Mauro Repetto",
+          "jobTitle": "Director General y Comercial",
+          "email": "mrepetto@starunion.com.ar"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Guaminí 5657",
+          "addressLocality": "Ciudad Autónoma de Buenos Aires",
+          "addressRegion": "CABA",
+          "postalCode": "C1440",
+          "addressCountry": "AR"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+54-9-11-2275-9369",
+            "contactType": "sales",
+            "areaServed": "AR",
+            "availableLanguage": ["es"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+54-11-4602-4906",
+            "contactType": "customer service",
+            "areaServed": "AR",
+            "availableLanguage": ["es"]
+          }
+        ],
+        "areaServed": [
+          {"@type": "City", "name": "Ciudad Autónoma de Buenos Aires"},
+          {"@type": "AdministrativeArea", "name": "Gran Buenos Aires (GBA Norte, Sur y Oeste)"},
+          {"@type": "City", "name": "La Plata"},
+          {"@type": "City", "name": "Bahía Blanca"},
+          {"@type": "City", "name": "Neuquén"},
+          {"@type": "City", "name": "Trelew"},
+          {"@type": "City", "name": "Rawson"},
+          {"@type": "City", "name": "Puerto Madryn"},
+          {"@type": "City", "name": "Comodoro Rivadavia"}
+        ],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Certification",
+          "name": "Certificación ISO 9001:2015 TÜV Rheinland — Registro N° 01 10006 2529826 (Certipedia ID 9000041847)",
+          "url": "https://www.certipedia.com/quality_marks/9000041847",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "TÜV Rheinland Cert GmbH"
+          }
+        }
       }
-    }
-    </script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'], heading: ['"Open Sans"', 'sans-serif'], },
-                    colors: {
-                        brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
-                        accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
-                        neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { font-size: 1.125rem; color: #676b67; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    ]
+  }
+  </script>
 </head>
-<body class="bg-gray-50 antialiased">
+<body>
 
-    <!-- BOTÓN WHATSAPP -->
-    <a href="https://api.whatsapp.com/send?phone=5491122759369&text=%C2%A1Hola!%20Quiero%20conocer%20los%20servicios%20de%20limpieza%20profesional%20B2B." 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-[60] bg-brand text-white p-4 rounded-full shadow-2xl hover:bg-brand-dark hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-
-    <!-- TOP BAR INTEGRADO DIRECTAMENTE -->
-    <div class="bg-gray-100 border-b border-gray-200 text-neutral-custom py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm font-semibold">
-        <div class="flex gap-4">
-            <!-- LINK A GOOGLE MAPS -->
-            <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="hidden md:inline hover:text-brand transition">📍 Base operativa central: Guaminí 5657, CABA - Argentina</a>
-        </div>
-        <div class="flex gap-6 items-center">
-            <a href="#postularse" class="hover:text-brand transition font-bold">Trabajá con nosotros</a>
-            <a href="https://browix.com" target="_blank" class="hover:text-brand transition font-bold">Portal de empleados</a>
-        </div>
+  <!-- 1. BARRA SUPERIOR CON FILTRO EXPLÍCITO B2B Y ACCESOS DIRECTOS -->
+  <div class="b2b-top-bar">
+    <div class="container b2b-top-bar-inner">
+      <div class="b2b-filter-pill">
+        <span>🛡️ EXCLUSIVO B2B:</span>
+        <span>Empresas, Industrias, Edificios de Oficinas e Instituciones (No realizamos casas particulares ni consorcios chicos)</span>
+      </div>
+      <div class="b2b-top-links">
+        <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" class="iso-verified-mini">
+          ✓ TÜV Rheinland ISO 9001:2015 · ID 9000041847
+        </a>
+        <a href="tel:+541146024906">📞 (011) 4602-4906 / 5263-0286</a>
+        <a href="https://browix.com" target="_blank" rel="noopener noreferrer">👤 Portal de Empleados</a>
+        <a href="#trabaja-con-nosotros">💼 Trabajá con Nosotros</a>
+      </div>
     </div>
+  </div>
 
-    <!-- HEADER INTEGRADO -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="logo-horizontal-1200x300.png" alt="Star Union Servicios" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=STAR+UNION+LOGO';">
+  <!-- 2. HEADER PRINCIPAL STICKY CON DOBLE CTA VISIBLE -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Star Union S.R.L. Inicio">
+        <img src="assets/img/logo-star-union.png" alt="Logo Star Union S.R.L. Limpieza Profesional B2B" class="logo-main">
+        <img src="assets/img/tuv-iso-9001-badge.png" alt="Sello TÜV Rheinland ISO 9001:2015 Certificado 9000041847" class="iso-header-badge">
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación Principal B2B">
+        <div class="nav-dropdown">
+          <a href="#donde-limpiamos" class="nav-link active">Dónde Limpiamos ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="limpieza-industrial/index.html" class="dropdown-item">
+              <strong>🏭 Limpieza Industrial y Fábricas</strong>
+              <span>Zonas productivas y no productivas (ISO 9001)</span>
             </a>
-            <nav class="hidden lg:flex gap-8 items-center font-bold text-[15px] text-[#000000]">
-                <!-- ANCLAJES (Scroll a la misma página) -->
-                <a href="#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
-                <a href="#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
-                <a href="#servicios-especiales" class="hover:text-brand transition">Servicios especiales</a>
-                <a href="#contacto" class="bg-brand text-white px-6 py-2.5 rounded hover:bg-brand-dark transition shadow-md">Cotizá hoy</a>
-            </nav>
+            <a href="consorcios/index.html" class="dropdown-item">
+              <strong>🏢 Edificios de Oficinas y Grandes Torres</strong>
+              <span>Corporativos AAA y grandes consorcios</span>
+            </a>
+            <a href="clinicas-y-hospitales/index.html" class="dropdown-item">
+              <strong>🏥 Clínicas, Sanatorios y Laboratorios</strong>
+              <span>Áreas críticas, quirófanos y bioseguridad</span>
+            </a>
+            <a href="universidades-y-clubes/index.html" class="dropdown-item">
+              <strong>🎓 Universidades, Colegios y Clubes</strong>
+              <span>Campus educativos y sedes de alto tránsito</span>
+            </a>
+            <a href="servicios-especiales/index.html" class="dropdown-item">
+              <strong>🧗 Vidrios en Altura y Final de Obra</strong>
+              <span>Contratación puntual o integrada + Espacios Verdes</span>
+            </a>
+          </div>
         </div>
-    </header>
+        <a href="servicios-especiales/index.html" class="nav-link">Vidrios en Altura</a>
+        <a href="certificacion-iso/index.html" class="nav-link">ISO 9001 TÜV</a>
+        <a href="#casos-de-exito" class="nav-link">Casos de Éxito</a>
+        <a href="la-empresa/index.html" class="nav-link">La Empresa</a>
+      </nav>
 
-    <main>
-        <section class="bg-brand pt-24 pb-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="max-w-4xl">
-                    <h1 class="text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight mb-8 leading-[1.05] text-white">
-                        Limpieza profesional sin<br>
-                        interrumpir tus procesos.
-                    </h1>
-                    <p class="text-xl md:text-2xl text-green-50 mb-12 leading-relaxed font-light max-w-3xl">
-                        Empresa de limpieza corporativa e industrial. Cuadrillas estables, insumos de primera línea y procesos validados bajo la norma ISO 9001:2015.
-                    </p>
-                    <a href="#contacto" class="text-center bg-white text-brand font-extrabold px-8 py-4 rounded hover:bg-gray-100 transition shadow-lg inline-block">
-                        Solicitar relevamiento
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <div class="bg-white border-b border-gray-200 py-10">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Operaciones certificadas y procesos auditados en:</p>
-                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 font-extrabold text-xl md:text-2xl text-gray-400">
-                    <span class="hover:text-brand transition cursor-default">TOYOTA</span>
-                    <span class="hover:text-brand transition cursor-default">DI TELLA</span>
-                    <div class="flex flex-col items-center group cursor-default">
-                        <span class="hover:text-brand transition">FERROCLOR</span>
-                        <span class="text-[10px] bg-brand text-white px-2 py-0.5 rounded-full mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Eval: 96/100</span>
-                    </div>
-                    <span class="hover:text-brand transition cursor-default">BELLACUP</span>
-                    <span class="hover:text-brand transition cursor-default leading-tight text-lg">CLUB DE<br>AMIGOS</span>
-                </div>
-            </div>
-        </div>
-
-        <section id="empresa" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row gap-16 items-start">
-                    <div class="lg:w-1/2">
-                        <h2 class="text-4xl font-extrabold text-[#000000] mb-6 tracking-tight">Sabemos de limpieza corporativa. Entendemos tu negocio.</h2>
-                        <p class="text-lg text-neutral-custom mb-6 font-light leading-relaxed">
-                            Desde 2001, Star Union evolucionó hasta convertirse en el socio operativo estratégico de las corporaciones y plantas industriales más exigentes de Argentina.
-                        </p>
-                        <p class="text-lg text-neutral-custom mb-8 font-light leading-relaxed">
-                            Conformamos un equipo de <strong>438 profesionales directos</strong> (auditados 2026). Nuestra misión es brindar servicios de limpieza integral con los más altos estándares, garantizando higiene segura y el cumplimiento de protocolos específicos (5S, Anti-hurto, etc.).
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-8 py-6 border-t border-gray-200">
-                            <div>
-                                <span class="block text-4xl font-extrabold text-brand mb-1">438</span>
-                                <span class="text-base text-gray-500 font-semibold">Empleados directos</span>
-                            </div>
-                            <div>
-                                <span class="block text-4xl font-extrabold text-brand mb-1">Desde 2001</span>
-                                <span class="text-base text-gray-500 font-semibold">Experiencia operativa</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:w-1/2 w-full">
-                        <div class="bg-white border border-gray-200 p-10 rounded-xl shadow-md">
-                            <div class="flex items-center gap-3 mb-6">
-                                <h3 class="text-3xl font-extrabold text-brand">Cobertura geográfica</h3>
-                            </div>
-                            <p class="text-lg text-neutral-custom mb-8 font-light leading-relaxed">Nuestra logística propia nos permite desplegar dotaciones estables y maquinaria industrial (LAV/LUT) en las siguientes regiones estratégicas:</p>
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2 text-base font-bold text-neutral-custom">
-                                <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-                                    <span class="text-brand">📍</span> AMBA y GBA
-                                </div>
-                                <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-                                    <span class="text-brand">📍</span> La Plata
-                                </div>
-                                <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-                                    <span class="text-brand">📍</span> Bahía Blanca
-                                </div>
-                                <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
-                                    <span class="text-brand">📍</span> Neuquén
-                                </div>
-                                <div class="flex items-start gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100 sm:col-span-2">
-                                    <span class="text-brand mt-1">📍</span> 
-                                    <span>
-                                        <strong class="text-brand-dark block mb-1">Región de la Patagonia</strong>
-                                        <span class="font-normal text-sm">Trelew (Chubut), Hospital de Alta Complejidad, Rawson, Puerto Madryn y Comodoro Rivadavia.</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="donde-limpiamos" class="py-24 bg-gray-50 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mb-12">
-                    <h2 class="text-4xl font-extrabold text-[#000000] mb-4 tracking-tight">Dónde limpiamos</h2>
-                    <p class="text-xl text-neutral-custom font-light">Diseñamos soluciones profesionales y protocolos a medida para cada instalación.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Landing Industrial Link (Convertido en Botón <a> real) -->
-                    <a href="limpieza-industrial/" class="block bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 group transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                        <div class="overflow-hidden h-48 w-full">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="Limpieza Industrial" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-[#024121] mb-3 group-hover:text-brand transition">Fábricas y Zonas Industriales</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Intervención en zonas productivas, uso de maquinaria LAV/LUT, gestión de residuos y ejecución de protocolos estrictos 5S.</p>
-                            <span class="mt-6 block font-bold text-brand text-sm uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">Ver detalles <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                        </div>
-                    </a>
-
-                    <!-- Landing Consorcios Link (Convertido en Botón <a> real) -->
-                    <a href="consorcios/" class="block bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 group transition duration-300 hover:shadow-xl hover:-translate-y-1">
-                        <div class="overflow-hidden h-48 w-full">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Limpieza Corporativa" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-[#024121] mb-3 group-hover:text-brand transition">Consorcios y Oficinas</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Limpieza corporativa integral para espacios de trabajo y consorcios residenciales. Abonos mensuales con dotaciones estables.</p>
-                            <span class="mt-6 block font-bold text-brand text-sm uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">Ver detalles <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
-                        </div>
-                    </a>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop" alt="Clínicas" class="h-48 w-full object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-[#024121] mb-3">Clínicas y Hospitales</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Protocolos de desinfección y sanitización de áreas críticas. Personal capacitado en el manejo de ambientes de alta complejidad.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086&auto=format&fit=crop" alt="Educación" class="h-48 w-full object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-[#024121] mb-3">Universidades y Colegios</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Mantenimiento de alto tránsito para aulas y patios. Ejecutamos protocolos Anti-hurto y nos adaptamos a los cronogramas académicos.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" alt="Clubes" class="h-48 w-full object-cover">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold text-[#024121] mb-3">Clubes e Instituciones Deportivas</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light">Limpieza de vestuarios, salones, piletas y espacios comunes con insumos estratégicos para asegurar la máxima higiene deportiva.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-brand rounded-xl overflow-hidden shadow-md p-8 flex flex-col justify-center">
-                        <span class="bg-white text-[#000000] font-bold text-xs uppercase px-3 py-1 rounded-full w-max mb-4 tracking-wider">Logística B2B</span>
-                        <h3 class="text-3xl font-bold text-white mb-4">Centros Comerciales y Aeropuertos</h3>
-                        <p class="text-white leading-relaxed font-light opacity-90 mb-6">Operamos en áreas de tráfico masivo (Shoppings, Aeropuertos) garantizando la continuidad operativa con soporte técnico interno.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="servicios-especiales" class="py-20 bg-gray-50 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 md:p-12">
-                    <h2 class="text-3xl font-extrabold text-brand mb-2 tracking-tight">Servicios especiales</h2>
-                    <p class="text-lg text-neutral-custom font-light mb-8">Soluciones técnicas específicas con personal certificado. Hacé clic para conocer detalles.</p>
-                    
-                    <div class="flex flex-wrap gap-3 mb-8 border-b border-gray-200 pb-6" id="tabs-nav">
-                        <button class="tab-btn font-bold text-base px-6 py-2 rounded-lg transition-all bg-brand text-white" data-target="tab-vidrios">
-                            Vidrios en altura
-                        </button>
-                        <button class="tab-btn font-bold text-base px-6 py-2 rounded-lg transition-all bg-white text-[#000000] border border-gray-300 hover:border-brand" data-target="tab-jardineria">
-                            Jardinería
-                        </button>
-                        <button class="tab-btn font-bold text-base px-6 py-2 rounded-lg transition-all bg-white text-[#000000] border border-gray-300 hover:border-brand" data-target="tab-plagas">
-                            Control de plagas
-                        </button>
-                        <button class="tab-btn font-bold text-base px-6 py-2 rounded-lg transition-all bg-white text-[#000000] border border-gray-300 hover:border-brand" data-target="tab-obra">
-                            Final de obra
-                        </button>
-                    </div>
-
-                    <div class="min-h-[120px]">
-                        <div id="tab-vidrios" class="tab-content active">
-                            <h4 class="text-xl font-extrabold text-[#000000] mb-3">Trabajos en altura</h4>
-                            <p class="text-lg leading-relaxed text-neutral-custom font-light">
-                                Contamos con cuadrillas certificadas para la limpieza exterior de vidrios, sellado de cristales de oficinas y finales de obra en altura. Personal asegurado, EPP auditados y pólizas al día para garantizar seguridad total.
-                            </p>
-                        </div>
-                        <div id="tab-jardineria" class="tab-content">
-                            <h4 class="text-xl font-extrabold text-[#000000] mb-3">Mantenimiento de espacios verdes</h4>
-                            <p class="text-lg leading-relaxed text-neutral-custom font-light">
-                                Diseño y mantenimiento integral de parques y predios industriales. Contamos con herramientas propias y personal técnico para parquización, poda estacional y cuidado constante del paisajismo institucional.
-                            </p>
-                        </div>
-                        <div id="tab-plagas" class="tab-content">
-                            <h4 class="text-xl font-extrabold text-[#000000] mb-3">Fumigación y control de plagas</h4>
-                            <p class="text-lg leading-relaxed text-neutral-custom font-light">
-                                Servicios certificados para industrias y consorcios. Tratamientos preventivos y correctivos utilizando productos autorizados, entregando los certificados exigidos por normativas vigentes.
-                            </p>
-                        </div>
-                        <div id="tab-obra" class="tab-content">
-                            <h4 class="text-xl font-extrabold text-[#000000] mb-3">Limpieza profunda: final de obra</h4>
-                            <p class="text-lg leading-relaxed text-neutral-custom font-light">
-                                Acondicionamos espacios recién construidos para su entrega llave en mano. Utilizamos maquinaria pesada y químicos específicos para remoción de cemento y polvo de construcción sin dañar superficies nuevas.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="iso" class="py-20 bg-white border-t border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row gap-12 items-center">
-                    <div class="lg:w-1/2">
-                        <span class="bg-brand/10 text-brand font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wider mb-4 inline-block">Compromiso, Calidad, Disciplina</span>
-                        <h2 class="text-4xl font-extrabold text-[#000000] mb-6 tracking-tight">Calidad de gestión auditada</h2>
-                        <p class="text-lg text-neutral-custom mb-6 font-light leading-relaxed">Nuestra operación está diseñada para garantizar la continuidad de tu negocio. El servicio de limpieza profesional de Star Union está avalado por la norma ISO 9001:2015.</p>
-                        
-                        <ul class="space-y-4 text-lg text-[#000000] mb-8 font-light">
-                            <li class="flex items-start gap-3">
-                                <span class="text-brand mt-1 font-bold">✔</span> 
-                                <span><strong class="font-bold">Formación Continua:</strong> Ejecución anual del programa de capacitación de encargados y coordinación de servicios.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brand mt-1 font-bold">✔</span> 
-                                <span><strong class="font-bold">Proveedores calificados:</strong> Trazabilidad en insumos (Alquimia, Nilfisk) y maquinaria propia auditada.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-brand mt-1 font-bold">✔</span> 
-                                <span><strong class="font-bold">Control de presentismo:</strong> Plataforma para medir la asistencia en tiempo real y garantizar suplencias en cada instalación.</span>
-                            </li>
-                        </ul>
-
-                        <!-- BOTÓN HACIA LA LANDING ISO -->
-                        <a href="certificacion-iso/" class="inline-flex items-center gap-3 bg-[#024121] text-white font-extrabold px-8 py-4 rounded hover:bg-brand transition-colors shadow-lg mt-4">
-                            Conocé nuestro Sistema de Gestión
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                    </div>
-
-                    <div class="lg:w-1/2 flex justify-center mt-10 lg:mt-0">
-                        <div class="relative max-w-sm w-full">
-                            <img src="cleany-iso.png" alt="Cleany Mascota Oficial ISO 9001" class="w-full h-auto relative z-10" onerror="this.src='https://placehold.co/600x600/ffffff/03582d?text=Cleany';">
-                            
-                            <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl border border-gray-100 flex items-center gap-3 z-20">
-                                <img src="logo-tuv.png" alt="TUV Rheinland" class="h-10 w-auto object-contain" onerror="this.src='https://placehold.co/100x40/ffffff/03582d?text=TUV';">
-                                <div class="text-sm">
-                                    <p class="font-extrabold text-[#000000] leading-none">Certificado TÜV</p>
-                                    <p class="text-gray-500 font-semibold text-xs">Nº 01 10006 2529826</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-24 bg-gray-50 border-t border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-16 items-start">
-                    
-                    <div>
-                        <h2 class="text-5xl lg:text-6xl font-extrabold mb-8 text-brand leading-tight tracking-tight">Coordinemos el relevamiento técnico.</h2>
-                        <p class="text-xl text-neutral-custom mb-12 font-light leading-relaxed">Completá los datos básicos de tu operación. Un asesor evaluará tu caso y se contactará para agendar una visita a la planta sin cargo.</p>
-                        
-                        <div class="space-y-10 text-lg">
-                            <!-- LINK A GOOGLE MAPS -->
-                            <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="flex items-center gap-6 group">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow border border-gray-100 shrink-0 group-hover:scale-105 transition-transform">
-                                    <span class="text-2xl">📍</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-extrabold text-xl text-brand mb-1 group-hover:underline">Base operativa central</h4>
-                                    <span class="text-neutral-custom font-light">Guaminí 5657, CABA, Argentina.</span>
-                                </div>
-                            </a>
-                            <div class="flex items-center gap-6">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow border border-gray-100 shrink-0">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-extrabold text-xl text-brand mb-1">Contacto comercial</h4>
-                                    <a href="mailto:comercial@starunion.com.ar" class="text-neutral-custom hover:text-brand transition font-light">comercial@starunion.com.ar</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-6">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow border border-gray-100 shrink-0">
-                                    <svg class="w-6 h-6 text-[#000000]" fill="currentColor" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-5-2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-extrabold text-xl text-brand mb-1">Línea directa</h4>
-                                    <a href="tel:08103338646" class="text-neutral-custom hover:text-brand transition font-light font-bold">0810 . 333 . UNION (8646)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="bg-white rounded-xl p-8 shadow-md border border-gray-200">
-                            <form class="space-y-6 text-base">
-                                <div>
-                                    <label class="block text-brand font-bold mb-2">Empresa / Razón social</label>
-                                    <input type="text" class="w-full border border-gray-300 rounded p-3 focus:border-brand outline-none transition bg-gray-50">
-                                </div>
-                                <div>
-                                    <label class="block text-brand font-bold mb-2">Nombre de contacto</label>
-                                    <input type="text" class="w-full border border-gray-300 rounded p-3 focus:border-brand outline-none transition bg-gray-50">
-                                </div>
-                                <div>
-                                    <label class="block text-brand font-bold mb-2">Email corporativo</label>
-                                    <input type="email" class="w-full border border-gray-300 rounded p-3 focus:border-brand outline-none transition bg-gray-50">
-                                </div>
-                                <div>
-                                    <label class="block text-brand font-bold mb-2">Teléfono</label>
-                                    <input type="tel" class="w-full border border-gray-300 rounded p-3 focus:border-brand outline-none transition bg-gray-50">
-                                </div>
-                                <div>
-                                    <label class="block text-brand font-bold mb-2">Mensaje / Necesidad (ej. Limpieza Industrial)</label>
-                                    <textarea rows="4" class="w-full border border-gray-300 rounded p-3 focus:border-brand outline-none transition bg-gray-50 resize-none"></textarea>
-                                </div>
-                                <button type="button" class="w-full bg-brand text-white font-extrabold text-xl py-4 rounded hover:bg-brand-dark transition-all">
-                                    Enviar solicitud
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-    
-    <div class="bg-gray-50 pb-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-2xl font-bold text-[#000000] mb-8">Empresas que confían en nuestro servicio</h3>
-            <!-- Elfsight Google Reviews -->
-            <script src="https://elfsightcdn.com/platform.js" async></script>
-            <div class="elfsight-app-99a721f4-67fb-47ad-a2d5-f6e27951b4a4" data-elfsight-app-lazy></div>
-        </div>
+      <div class="header-ctas">
+        <a href="#cotizar-ahora" class="btn btn-orange-cta">
+          📋 Cotizar Servicio B2B
+        </a>
+        <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20solicito%20relevamiento%20t%C3%A9cnico%20B2B%20para%20nuestra%20empresa/instituci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-cta">
+          💬 WhatsApp Directo
+        </a>
+      </div>
     </div>
+  </header>
 
-    <footer class="bg-[#133522] text-white pt-16 pb-8 border-t-4 border-brand-dark"> 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-10 border-b border-white/10 pb-12">
-                
-                <div class="lg:col-span-5 flex flex-col gap-6">
-                    <img src="logo-footer-blanco.png" alt="Star Union Logo" class="h-14 w-auto object-contain object-left" onerror="this.src='https://placehold.co/600x150/133522/ffffff?text=LOGO+BLANCO';">
-                    
-                    <div class="bg-white/5 border border-white/10 rounded-xl p-6 shadow-inner text-center md:text-left">
-                        <p class="text-green-50 font-semibold text-xs leading-loose tracking-widest uppercase">
-                            Empresa de limpieza profesional.<br>
-                            Soluciones corporativas integrales certificadas ISO 9001:2015.
-                        </p>
-                    </div>
-                    
-                    <div class="flex flex-col gap-3 mt-2 bg-[#0e2719] p-5 rounded-xl border border-white/5">
-                        <p class="text-sm text-green-100 flex items-center gap-3">
-                            <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Email:</span> 
-                            <a href="mailto:comercial@starunion.com.ar" class="hover:text-white hover:underline transition">comercial@starunion.com.ar</a>
-                        </p>
-                        <p class="text-sm text-green-100 flex items-center gap-3">
-                            <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Línea Directa:</span> 
-                            <a href="tel:08103338646" class="hover:text-white hover:underline transition font-bold text-lg">0810 . 333 . UNION (8646)</a>
-                        </p>
-                    </div>
-
-                    <div class="flex gap-3 mt-2">
-                        <a href="https://ar.linkedin.com/company/starunion" target="_blank" class="w-10 h-10 border border-white/20 rounded flex items-center justify-center hover:bg-white/10 transition">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/starunionservicios/" target="_blank" class="w-10 h-10 border border-white/20 rounded flex items-center justify-center hover:bg-white/10 transition">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-3">
-                    <div class="bg-[#0e2719] border border-[#1a4a2f] rounded-2xl p-8 shadow-xl h-full">
-                        <h4 class="font-extrabold text-xl mb-6 text-white uppercase tracking-wider flex items-center gap-3 border-b border-white/10 pb-4">
-                            Navegación
-                        </h4>
-                        <ul class="space-y-5 font-semibold text-green-50/90 text-sm">
-                            <li>
-                                <a href="#iso" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
-                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Gestión certificada ISO
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#donde-limpiamos" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
-                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Dónde limpiamos
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#contacto" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
-                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Contacto comercial
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-4 flex flex-col justify-center">
-                    <h4 class="font-extrabold text-3xl mb-3 text-white tracking-tight">Newsletter Corporativo</h4>
-                    <p class="text-green-50/80 mb-8 text-sm font-light leading-relaxed">Recibí novedades sobre certificaciones y tecnología de limpieza industrial.</p>
-                    
-                    <form class="flex flex-col gap-4">
-                        <input type="email" placeholder="Tu email corporativo..." class="w-full bg-white/10 border border-white/20 text-white placeholder-green-100/50 rounded-full px-6 py-4 focus:outline-none focus:border-accent transition font-light shadow-inner">
-                        <button type="button" class="w-full bg-white text-[#133522] font-extrabold px-6 py-4 rounded-full hover:bg-accent hover:text-[#000000] hover:shadow-[0_0_20px_rgba(255,204,41,0.4)] transition-all uppercase tracking-widest text-sm">
-                            Suscribirme
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm font-light text-green-50/70">
-                <p>&copy; 2026 Star Union S.R.L. Todos los derechos reservados.</p>
-                <div class="mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="hover:text-white transition">Términos comerciales</a>
-                    <a href="#" class="hover:text-white transition">Privacidad de datos</a>
-                </div>
-            </div>
+  <!-- 3. HERO B2B DE ALTO IMPACTO + FORMULARIO DE RELEVAMIENTO CON FILTRO ANTI-CHICOS -->
+  <section class="hero-b2b">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>★ DESDE 2001 · +450 COLABORADORES EN NÓMINA DIRECTA · FLOTA Y TALLER PROPIO</span>
         </div>
-    </footer>
+        <h1>
+          Limpieza Industrial, Corporativa y Sanitaria <span class="highlight-cyan">Certificada ISO 9001:2015</span>
+        </h1>
+        <p class="hero-lead">
+          Te damos la bienvenida a la ingeniería operativa de higiene B2B que respalda a plantas industriales, edificios de oficinas, clínicas de alta complejidad y universidades líderes en <strong>CABA, GBA, Bahía Blanca, Neuquén y Patagonia</strong>.
+        </p>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
+        <div class="hero-b2b-qualification">
+          <strong>🎯 Relevamiento Técnico Sin Cargo en 24 hs:</strong> Operamos con 100% de personal propio registrado (cero cooperativas, cero riesgo de solidaridad laboral Art. 30 LCT), taller electromecánico in-house para backup de maquinaria en el día y supervisión biométrica en tiempo real.
+        </div>
 
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    tabBtns.forEach(b => {
-                        b.classList.remove('bg-brand', 'text-white');
-                        b.classList.add('bg-white', 'text-[#000000]');
-                    });
-                    
-                    btn.classList.remove('bg-white', 'text-[#000000]');
-                    btn.classList.add('bg-brand', 'text-white');
+        <div class="hero-cta-group">
+          <a href="#cotizar-ahora" class="btn btn-orange-cta btn-lg">
+            🚀 Solicitar Relevamiento y Presupuesto B2B
+          </a>
+          <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20quiero%20cotizar%20un%20servicio%20corporativo/industrial%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-cta btn-lg">
+            💬 Hablar con Gerencia Comercial
+          </a>
+          <a href="servicios-especiales/index.html" class="btn btn-outline-white btn-lg">
+            🧗 Cotizar Vidrios en Altura / Final de Obra
+          </a>
+        </div>
 
-                    tabContents.forEach(c => c.classList.remove('active'));
+        <div class="hero-metrics-bar">
+          <div class="hero-metric">
+            <strong>+25 Años</strong>
+            <span>Trayectoria B2B desde 2001</span>
+          </div>
+          <div class="hero-metric">
+            <strong>+450</strong>
+            <span>Operarios en Relación Directa</span>
+          </div>
+          <div class="hero-metric">
+            <strong>+800 m²</strong>
+            <span>Base Propia en Guaminí 5657</span>
+          </div>
+          <div class="hero-metric">
+            <strong>ISO 9001</strong>
+            <span>TÜV Rheinland · Zonas Productivas</span>
+          </div>
+        </div>
+      </div>
 
-                    const targetId = btn.getAttribute('data-target');
-                    document.getElementById(targetId).classList.add('active');
-                });
-            });
-        });
-    </script>
+      <!-- TARJETA DERECHA: SELLO OFICIAL TÜV RHEINLAND QR + FORMULARIO DE CONVERSIÓN PURA -->
+      <div class="hero-visual-card" id="cotizar-ahora">
+        <div class="iso-spotlight-banner">
+          <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" title="Verificar Certificado Oficial en TÜV Rheinland Certipedia">
+            <img src="assets/img/tuv-iso-9001-qr.png" alt="QR Oficial TÜV Rheinland ISO 9001:2015 ID 9000041847 Star Union">
+          </a>
+          <div class="iso-spotlight-text">
+            <h3>Certificación ISO 9001:2015 TÜV Rheinland</h3>
+            <p>Alcance auditado en <strong>Zonas Productivas y No Productivas</strong> de industrias, oficinas, instituciones y grandes consorcios (Cert. N° 01 10006 2529826).</p>
+            <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer">
+              ↗ Verificar validez en línea en Certipedia (ID 9000041847)
+            </a>
+          </div>
+        </div>
+
+        <form class="quick-quote-form js-b2b-quote-form">
+          <h3>Solicitá tu Cotización o Visita Técnica Sin Cargo</h3>
+          <p class="form-sub">Respuesta directa de Dirección Comercial en menos de 2 horas hábiles.</p>
+
+          <div class="b2b-warning-alert">
+            ⚠️ <strong>Filtro de Calificación B2B:</strong> Star Union S.R.L. brinda servicios exclusivamente a empresas, plantas industriales, edificios de oficinas, clínicas, instituciones y grandes consorcios. <strong>No realizamos limpieza en casas particulares ni en consorcios pequeños.</strong>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="empresa-input">Empresa / Institución / Razón Social *</label>
+              <input type="text" id="empresa-input" name="empresa" class="form-control" placeholder="Ej: Planta Industrial / Edificio / Clínica" required>
+            </div>
+            <div class="form-group">
+              <label for="nombre-input">Nombre y Apellido *</label>
+              <input type="text" id="nombre-input" name="nombre" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="cargo-input">Área / Rol de Decisión *</label>
+              <input type="text" id="cargo-input" name="cargo" class="form-control" placeholder="Compras / Facility / Planta / Adm." required>
+            </div>
+            <div class="form-group">
+              <label for="ubicacion-input">Sede / Localidad *</label>
+              <select id="ubicacion-input" name="ubicacion" class="form-control" required>
+                <option value="CABA">CABA (Ciudad de Buenos Aires)</option>
+                <option value="GBA Norte / Sur / Oeste">GBA (Zona Norte, Oeste o Sur)</option>
+                <option value="La Plata">La Plata y Gran La Plata</option>
+                <option value="Bahía Blanca">Bahía Blanca (Polo Industrial / Corporativo)</option>
+                <option value="Neuquén">Neuquén / Cuenca Neuquina</option>
+                <option value="Patagonia (Trelew / Madryn / Comodoro)">Patagonia (Trelew, Rawson, Madryn, Comodoro)</option>
+                <option value="Multi-Sede (CABA + Interior)">Operación Multi-Sede (CABA + Interior)</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="tipo-org-input">Tipo de Instalación (Filtro Exclusivo B2B) *</label>
+              <select id="tipo-org-input" name="tipo_organizacion" class="form-control" required>
+                <option value="Planta Industrial / Laboratorio / Logística">🏭 Planta Industrial / Fábrica / Laboratorio / Centro Logístico</option>
+                <option value="Edificio Corporativo de Oficinas / Gran Torre">🏢 Edificio Corporativo de Oficinas / Gran Torre (+3.000 m²)</option>
+                <option value="Clínica / Sanatorio / Hospital / Centro Médico">🏥 Clínica / Sanatorio / Hospital / Centro de Diagnóstico</option>
+                <option value="Universidad / Colegio / Club Deportivo / Shopping">🎓 Universidad / Colegio / Club Deportivo / Gran Superficie</option>
+                <option value="Contratación Puntual: Vidrios en Altura / Final de Obra">🧗 Contratación Puntual: Limpieza de Vidrios en Altura / Final de Obra</option>
+                <option value="NO_CALIFICA_CONSORCIO_CHICO">❌ Consorcio residencial pequeño (menos de 15 unidades)</option>
+                <option value="NO_CALIFICA_PARTICULAR">❌ Casa particular / Vivienda familiar</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="servicio-input">Modalidad de Servicio *</label>
+              <select id="servicio-input" name="servicio_requerido" class="form-control" required>
+                <option value="Abono Mensual Integral con Dotación Fija">Abono Mensual Integral con Dotación Fija</option>
+                <option value="Limpieza de Vidrios en Altura / Silleta / Hidrogrúa">Limpieza de Vidrios en Altura / Fachadas</option>
+                <option value="Limpieza Profunda de Final de Obra">Limpieza Profunda de Final de Obra</option>
+                <option value="Mantenimiento de Espacios Verdes y Control de Plagas">Espacios Verdes / Parques + Control de Plagas</option>
+                <option value="Licitación / Pliego Técnico Multi-Sede">Licitación / Pliego Técnico Multi-Sede</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="escala-input">Superficie o Dotación Estimada</label>
+              <select id="escala-input" name="escala" class="form-control">
+                <option value="3 a 10 operarios / Planta o Edificio Mediano">3 a 10 operarios (Sede Mediana)</option>
+                <option value="10 a 30 operarios / Gran Planta o Edificio AAA">10 a 30 operarios (Gran Sede / Planta)</option>
+                <option value="+30 operarios / Operación Crítica o Multi-Sede">+30 operarios (Operación Crítica / Multi-Sede)</option>
+                <option value="Servicio Puntual Técnico (Altura / Obra)">Servicio Técnico Puntual (Altura / Final de Obra)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary-cta btn-lg" style="width: 100%; margin-top: 0.4rem;">
+            📲 Enviar Solicitud B2B y Recibir Propuesta Ahora
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FRANJA DE CLIENTES AUDITADOS QUE CONFÍAN EN STAR UNION -->
+  <section class="trust-clients-strip" aria-label="Organizaciones que confían en Star Union">
+    <div class="container">
+      <p class="trust-strip-header">
+        Respaldo comprobado en auditorías de calidad, higiene y seguridad de grandes organizaciones en Argentina
+      </p>
+      <div class="client-pills-row">
+        <div class="client-pill">Toyota Pacheco <span class="tag-v">Industrial Automotriz</span></div>
+        <div class="client-pill">Ferroclor <span class="tag-v">Química · Eval. 96/100</span></div>
+        <div class="client-pill">Torre Promenade <span class="tag-v">Torre AAA</span></div>
+        <div class="client-pill">Universidad Torcuato Di Tella (UTDT) <span class="tag-v">Campus Universitario</span></div>
+        <div class="client-pill">Colegio Lincoln <span class="tag-v">Educación Internacional</span></div>
+        <div class="client-pill">Club de Amigos <span class="tag-v">Deportes y Predios</span></div>
+        <div class="client-pill">Hospital de Alta Complejidad (Trelew) <span class="tag-v">Sanidad Crítica</span></div>
+        <div class="client-pill">Cliba <span class="tag-v">Infraestructura</span></div>
+        <div class="client-pill">Bella Cup <span class="tag-v">Planta Productiva</span></div>
+        <div class="client-pill">Belgrano Day School (BDS) <span class="tag-v">Institución Educativa</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DÓNDE LIMPIAMOS: LAS 6 VERTICALES ESTRATÉGICAS CON FUERZA DE IMÁGENES Y CTA -->
+  <section class="section" id="donde-limpiamos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Dónde Limpiamos · Ingeniería por Vertical</span>
+        <h2 class="section-title">Protocolos Específicos, Maquinaria Propia y Certificación ISO 9001 para cada Industria</h2>
+        <p class="section-desc">
+          Cada sector exige equipamiento, productos químicos, habilitaciones de seguridad e indicadores de auditoría distintos. Seleccioná tu vertical para ver el alcance técnico o cotizar directamente.
+        </p>
+      </div>
+
+      <div class="verticals-grid">
+        <!-- VERTICAL 1: LIMPIEZA INDUSTRIAL Y FÁBRICAS -->
+        <article class="vertical-card">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/vertical-industrial.png" alt="Limpieza profesional en fábricas y zonas productivas industriales certificada ISO 9001">
+            <span class="vertical-badge goldmine">★ Alcance ISO 9001 en Zona Productiva</span>
+          </div>
+          <div class="vertical-body">
+            <h3>1. Limpieza Industrial, Fábricas y Centros Logísticos</h3>
+            <p>
+              Auditados por <strong>TÜV Rheinland</strong> específicamente para operar dentro de <strong>zonas productivas y líneas de manufactura</strong>, además de depósitos y oficinas de planta.
+            </p>
+            <ul class="vertical-Check-list">
+              <li>Habilitación para licitaciones en industria Farmacéutica (GMP), Automotriz Tier-1, Alimenticia (SENASA) y Química.</li>
+              <li>Flota propia de lavadoras/lustradoras automáticas (LAV/LUT) y barredoras con <strong>taller electromecánico propio</strong> (reemplazo en el día).</li>
+              <li>Cumplimiento de metodologías 5S, Inocuidad, LOTO y auditorías de Higiene y Seguridad.</li>
+            </ul>
+            <div class="vertical-card-footer">
+              <a href="limpieza-industrial/index.html" class="btn btn-primary-cta">
+                Ver Solución para Plantas Industriales →
+              </a>
+              <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20solicito%20relevamiento%20para%20Planta%20Industrial%20/%20Centro%20Log%C3%ADstico." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+                💬 Cotizar Planta Industrial por WhatsApp
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VERTICAL 2: EDIFICIOS CORPORATIVOS DE OFICINAS Y GRANDES TORRES -->
+        <article class="vertical-card">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/vertical-corporativo.png" alt="Limpieza de edificios corporativos de oficinas y grandes torres en CABA y GBA">
+            <span class="vertical-badge">🏢 Corporativo AAA y Grandes Edificios</span>
+          </div>
+          <div class="vertical-body">
+            <h3>2. Edificios de Oficinas, Sedes Corporativas y Grandes Torres</h3>
+            <p>
+              Mantenimiento integral para edificios de oficinas, sedes bancarias, organismos y torres de gran envergadura. <em>(Exclusivo grandes superficies: no atendemos consorcios pequeños ni viviendas).</em>
+            </p>
+            <ul class="vertical-Check-list">
+              <li>Control biométrico y geolocalizado de presentismo en tiempo real con cobertura de ausencias en <strong>menos de 2 horas</strong>.</li>
+              <li>Cero riesgo de solidaridad laboral (Art. 30 LCT): entrega mensual de F931 pago, ART con no repetición y nómina 100% propia.</li>
+              <li>Supervisión ejecutiva dedicada y mantenimiento de halls, cocheras, salas de directorio y áreas comunes.</li>
+            </ul>
+            <div class="vertical-card-footer">
+              <a href="consorcios/index.html" class="btn btn-primary-cta">
+                Ver Solución para Edificios de Oficinas →
+              </a>
+              <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20solicito%20cotizaci%C3%B3n%20para%20Edificio%20de%20Oficinas%20/%20Sede%20Corporativa." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+                💬 Cotizar Edificio Corporativo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VERTICAL 3: CLÍNICAS, SANATORIOS, HOSPITALES Y LABORATORIOS -->
+        <article class="vertical-card">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/base-guamini-2.jpg" alt="Higiene hospitalaria para clínicas, sanatorios, hospitales de alta complejidad y laboratorios">
+            <span class="vertical-badge goldmine">🏥 Bioseguridad y Áreas Críticas</span>
+          </div>
+          <div class="vertical-body">
+            <h3>3. Clínicas, Sanatorios, Hospitales y Laboratorios</h3>
+            <p>
+              Sanidad ambiental e higiene hospitalaria auditada para áreas críticas (quirófanos, UTI, shockroom, esterilización), semicríticas e internación.
+            </p>
+            <ul class="vertical-Check-list">
+              <li>Experiencia comprobada en alta complejidad: <strong>Hospital de Alta Complejidad de Trelew</strong>, centros médicos y laboratorios.</li>
+              <li>Protocolos contra infecciones intrahospitalarias (IACS), técnica de doble balde y zonificación por código de colores.</li>
+              <li>Insumos desinfectantes aprobados por ANMAT y gestión segura de residuos biopatogénicos.</li>
+            </ul>
+            <div class="vertical-card-footer">
+              <a href="clinicas-y-hospitales/index.html" class="btn btn-primary-cta">
+                Ver Protocolo Clínicas y Hospitales →
+              </a>
+              <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20solicito%20relevamiento%20para%20Cl%C3%ADnica%20/%20Hospital%20/%20Laboratorio." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+                💬 Cotizar Institución de Salud
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VERTICAL 4: UNIVERSIDADES, COLEGIOS Y CLUBES DEPORTIVOS -->
+        <article class="vertical-card">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/vertical-educacion.png" alt="Limpieza profesional para universidades, colegios bilingües y clubes deportivos">
+            <span class="vertical-badge">🎓 Alto Tránsito y Grandes Predios</span>
+          </div>
+          <div class="vertical-body">
+            <h3>4. Universidades, Colegios, Clubes y Centros Comerciales</h3>
+            <p>
+              Operación sincronizada en ventanas horarias breves entre turnos para campus educativos, colegios internacionales, clubes deportivos, gimnasios y aeropuertos.
+            </p>
+            <ul class="vertical-Check-list">
+              <li>Casos auditados: <strong>UTDT (Universidad Torcuato Di Tella)</strong>, <strong>Colegio Lincoln</strong>, <strong>Belgrano Day School (BDS)</strong> y <strong>Club de Amigos</strong>.</li>
+              <li>Higiene intensiva de aulas, auditorios, laboratorios, comedores, vestuarios deportivos y gimnasios.</li>
+              <li>Personal con legajo verificado, antecedentes penales al día y estrictos protocolos de convivencia institucional.</li>
+            </ul>
+            <div class="vertical-card-footer">
+              <a href="universidades-y-clubes/index.html" class="btn btn-primary-cta">
+                Ver Solución Universidades y Clubes →
+              </a>
+              <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20solicito%20cotizaci%C3%B3n%20para%20Universidad%20/%20Colegio%20/%20Club." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+                💬 Cotizar Campus o Institución
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VERTICAL 5 (PUERTA DE ENTRADA RÁPIDA): VIDRIOS EN ALTURA + FINAL DE OBRA + PARQUES -->
+        <article class="vertical-card">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/vertical-altura.png" alt="Servicio de limpieza de vidrios en altura, final de obra y espacios verdes para empresas">
+            <span class="vertical-badge entry-door">⚡ Contratación Rápida / Puntual o Abono</span>
+          </div>
+          <div class="vertical-body">
+            <h3>5. Vidrios en Altura, Final de Obra, Parques y Plagas</h3>
+            <p>
+              <strong>¿Ya tenés proveedor de limpieza diaria pero no resuelve lo complejo?</strong> Contratá a Star Union para servicios técnicos especializados sin esperar al vencimiento de tu contrato actual.
+            </p>
+            <ul class="vertical-Check-list">
+              <li><strong>Limpieza de Vidrios en Altura y Fachadas:</strong> Silletas, balancines, hidrogrúas, certificación SRT de Trabajo en Altura y seguros al día.</li>
+              <li><strong>Finales de Obra B2B:</strong> Puesta a punto post-construcción de naves industriales, pisos de oficinas y clínicas.</li>
+              <li><strong>Espacios Verdes y Control de Plagas (MIP):</strong> Parques industriales, corte de césped en grandes predios y fumigación certificada.</li>
+            </ul>
+            <div class="vertical-card-footer">
+              <a href="servicios-especiales/index.html" class="btn btn-orange-cta">
+                Cotizar Vidrios en Altura o Final de Obra →
+              </a>
+              <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20quiero%20cotizar%20un%20servicio%20de%20Limpieza%20de%20Vidrios%20en%20Altura%20/%20Final%20de%20Obra." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+                💬 Presupuesto Rápido por WhatsApp
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VERTICAL 6: OPERACIÓN MULTI-SEDE (CABA + BAHÍA BLANCA + NEUQUÉN + PATAGONIA) -->
+        <article class="vertical-card">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/base-guamini-1.jpg" alt="Cobertura nacional de limpieza corporativa e industrial en CABA, Bahía Blanca, Neuquén y Patagonia">
+            <span class="vertical-badge goldmine">🇦🇷 Operación Multi-Sede Unificada</span>
+          </div>
+          <div class="vertical-body">
+            <h3>6. Corredor Multi-Sede: AMBA · Bahía Blanca · Neuquén · Patagonia</h3>
+            <p>
+              Unificá en un solo proveedor certificado ISO 9001 la higiene de tu Casa Central en CABA/GBA y tus plantas, sucursales o bases operativas en el Sur argentino.
+            </p>
+            <ul class="vertical-Check-list">
+              <li>Operación activa y consolidada en <strong>CABA, GBA, La Plata, Bahía Blanca, Neuquén, Trelew, Rawson, Puerto Madryn y Comodoro Rivadavia</strong>.</li>
+              <li>Un solo interlocutor gerencial, una sola facturación y un único estándar auditado por TÜV Rheinland en todas tus sedes.</li>
+              <li>Ideal para empresas de Energía, Oil &amp; Gas, Logística, Bancos, Salud y Consumo Masivo con sedes regionales.</li>
+            </ul>
+            <div class="vertical-card-footer">
+              <a href="la-empresa/index.html#cobertura-nacional" class="btn btn-primary-cta">
+                Ver Cobertura Multi-Sede Nacional →
+              </a>
+              <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20buscamos%20un%20proveedor%20Multi-Sede%20(AMBA%20/%20Bah%C3%ADa%20Blanca%20/%20Neuqu%C3%A9n%20/%20Patagonia)." target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+                💬 Consultar Operación Multi-Sede
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. BLOQUE DE ENTRADA RÁPIDA A NUEVAS CUENTAS: VIDRIOS EN ALTURA & FINAL DE OBRA -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="entry-door-banner">
+        <div>
+          <span class="hero-eyebrow" style="margin-bottom: 0.9rem;">⚡ PUERTA DE ENTRADA RÁPIDA PARA EMPRESAS Y EDIFICIOS CORPORATIVOS</span>
+          <h2 style="font-size: clamp(1.75rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.18; margin-bottom: 0.9rem;">
+            ¿Necesitás Limpieza de Vidrios en Altura, Final de Obra o Parques hoy mismo?
+          </h2>
+          <p style="color: #E2E8F0; font-size: 1.02rem; margin-bottom: 1.2rem;">
+            Muchos de nuestros clientes corporativos e industriales nos ponen a prueba primero con un servicio técnico de alta exigencia donde su proveedor actual no llega por falta de habilitación SRT, silletas, hidrogrúas o maquinaria pesada.
+          </p>
+
+          <div class="entry-services-chips">
+            <div class="entry-chip">
+              <strong>🧗 Vidrios en Altura y Muro Cortina</strong>
+              <span>Operarios certificados SRT, silletas, balancines, hidrogrúas y seguro de altura con cláusula de no repetición.</span>
+            </div>
+            <div class="entry-chip">
+              <strong>🏗️ Limpieza Profunda Final de Obra</strong>
+              <span>Entrega llave en mano post-obra para plantas industriales, edificios corporativos, oficinas y clínicas.</span>
+            </div>
+            <div class="entry-chip">
+              <strong>🌿 Espacios Verdes y Parques Industriales</strong>
+              <span>Desmalezado, poda en altura y mantenimiento de grandes predios industriales, campus y clubes.</span>
+            </div>
+            <div class="entry-chip">
+              <strong>🛡️ Fumigación y Control de Plagas (MIP)</strong>
+              <span>Desratización, desinsectación y desinfección ambiental con certificados oficiales para auditorías.</span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.5rem;">
+            <a href="servicios-especiales/index.html" class="btn btn-orange-cta btn-lg">
+              🧗 Solicitar Presupuesto de Vidrios en Altura / Final de Obra
+            </a>
+            <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20necesito%20cotizar%20Limpieza%20de%20Vidrios%20en%20Altura%20/%20Final%20de%20Obra%20para%20nuestra%20empresa." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-cta btn-lg">
+              💬 Cotizar por WhatsApp Ahora
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/img/vertical-altura.png" alt="Operarios de Star Union realizando limpieza de vidrios en altura en edificio corporativo" style="border-radius: 16px; border: 3px solid rgba(255,255,255,0.25); box-shadow: 0 20px 45px rgba(0,0,0,0.4);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SECCIÓN DESTACADA: CERTIFICACIÓN ISO 9001:2015 TÜV RHEINLAND (CON QR Y CERTIPEDIA) -->
+  <section class="section" id="certificacion-iso">
+    <div class="container">
+      <div class="iso-showcase-box">
+        <div class="iso-qr-panel">
+          <img src="assets/img/tuv-iso-9001-qr.png" alt="Sello y Código QR Oficial TÜV Rheinland ISO 9001:2015 ID 9000041847 Star Union">
+          <div style="font-size: 0.85rem; font-weight: 800; color: var(--su-navy-900); margin-bottom: 0.35rem;">
+            Certificado TÜV Rheinland N° 01 10006 2529826
+          </div>
+          <div style="font-size: 0.78rem; color: var(--su-slate-600); margin-bottom: 1rem;">
+            Vigencia Auditada: 26/03/2026 al 25/03/2029 · ID Certipedia: 9000041847
+          </div>
+          <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" class="btn btn-primary-cta" style="width: 100%;">
+            ↗ Verificar Certificado Oficial en TÜV Certipedia
+          </a>
+        </div>
+
+        <div>
+          <span class="section-eyebrow" style="background: #D1FAE5; color: #065F46;">Calidad Auditada Internacionalmente · IAF &amp; DAkkS</span>
+          <h2 class="section-title" style="margin-top: 0.5rem;">
+            ¿Por qué nuestra Certificación ISO 9001:2015 TÜV Rheinland destraba licitaciones donde otros quedan afuera?
+          </h2>
+          <p class="section-desc" style="margin-bottom: 1rem;">
+            La mayoría de las empresas de limpieza en Argentina no poseen certificación internacional o solo certifican procesos administrativos de oficina. Star Union S.R.L. auditó y certificó ante <strong>TÜV Rheinland</strong> la operación real dentro de planta e instituciones:
+          </p>
+
+          <blockquote class="iso-scope-quote">
+            “Alcance Certificado Oficial: Comercialización, planificación y prestación del servicio de limpieza en <strong>zonas productivas y no productivas de empresas industriales</strong>, y en áreas comunes, oficinas y espacios funcionales de instituciones y consorcios.”
+          </blockquote>
+
+          <ul class="vertical-Check-list" style="margin-bottom: 1.5rem;">
+            <li><strong>Prequalificación Inmediata en Compras Corporativas:</strong> Cumple con los requisitos de homologación de proveedores para plantas automotrices, laboratorios farmacéuticos, industria alimenticia y multinacionales.</li>
+            <li><strong>Trazabilidad de Supervisión y Mejora Continua:</strong> Evaluaciones periódicas de satisfacción del cliente (como el puntaje 96/100 otorgado por Ferroclor), auditorías internas y planes de acción correctiva documentados.</li>
+            <li><strong>Política de Calidad Activa:</strong> Liderada por la Dirección General (Mauro Repetto) y el Área de Calidad (Denise Rivero).</li>
+          </ul>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+            <a href="certificacion-iso/index.html" class="btn btn-outline-navy">
+              📄 Ver Alcance Completo y Política de Calidad ISO 9001
+            </a>
+            <a href="#cotizar-ahora" class="btn btn-orange-cta">
+              📋 Solicitar Legajo de Homologación de Proveedor
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. INFRAESTRUCTURA PROPIA: BASE OPERATIVA GUAMINÍ 5657 + TALLER + FLOTA + PRESENTISMO -->
+  <section class="section section-navy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" style="background: rgba(56, 189, 248, 0.2); color: #7DD3FC;">Respaldo Físico Real · Guaminí 5657, CABA</span>
+        <h2 class="section-title">No somos una oficina virtual: +800 m² de Base Operativa, Taller Electromecánico y Flota Propia</h2>
+        <p class="section-desc">
+          Cuando contratás un servicio crítico de higiene industrial o corporativa, necesitás la certeza de que las máquinas no van a quedar paradas semanas esperando un service externo y que el personal va a estar en su puesto a horario.
+        </p>
+      </div>
+
+      <div class="verticals-grid">
+        <div class="vertical-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); color: var(--su-white);">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/base-guamini-1.jpg" alt="Base Operativa Central Star Union en Guaminí 5657 CABA de más de 800 m2">
+            <span class="vertical-badge">📍 Guaminí 5657 · CABA</span>
+          </div>
+          <div class="vertical-body">
+            <h3 style="color: var(--su-white);">Base Operativa Propia (+800 m²) y Centro de Capacitación</h3>
+            <p style="color: #CBD5E1;">
+              Sede central estratégica en CABA que integra depósito logístico de insumos homologados, oficinas administrativas, RRHH y salón de capacitación práctica para nuestros más de 450 colaboradores.
+            </p>
+          </div>
+        </div>
+
+        <div class="vertical-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); color: var(--su-white);">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/base-guamini-3.jpg" alt="Taller propio de mantenimiento de maquinaria industrial y flota vehicular de Star Union">
+            <span class="vertical-badge goldmine">🔧 Continuidad Operativa 24/7</span>
+          </div>
+          <div class="vertical-body">
+            <h3 style="color: var(--su-white);">Taller Electromecánico Propio y Flota Vehicular Equipada</h3>
+            <p style="color: #CBD5E1;">
+              Mantenemos y reparamos nuestras lavadoras, lustradoras, barredoras e hidrolavadoras industriales en nuestro propio taller. Si un equipo falla en tu planta, nuestra flota lo reemplaza en el día.
+            </p>
+          </div>
+        </div>
+
+        <div class="vertical-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); color: var(--su-white);">
+          <div class="vertical-img-wrap">
+            <img src="assets/img/base-guamini-2.jpg" alt="Control de presentismo en tiempo real y supervisión activa de Star Union">
+            <span class="vertical-badge">⏱️ Cobertura en &lt; 2 Horas</span>
+          </div>
+          <div class="vertical-body">
+            <h3 style="color: var(--su-white);">Control de Presentismo en Tiempo Real y Dotación de Franqueros</h3>
+            <p style="color: #CBD5E1;">
+              Monitoreo digital de ingreso en cada objetivo y estructura de supervisores móviles con personal franquero propio para cubrir cualquier imprevisto en menos de 2 horas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CORREDOR MULTI-SEDE NACIONAL -->
+      <div style="margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15);">
+        <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--su-white);">
+          🗺️ Cobertura Geográfica Multi-Sede para Empresas con Presencia Regional
+        </h3>
+        <div class="corridor-grid">
+          <div class="corridor-card">
+            <h4>1. CABA y GBA (Norte, Sur, Oeste)</h4>
+            <p>Operación central desde Guaminí 5657 con respuesta inmediata en polos industriales de Pacheco, Pilar, Zárate, Munro, Avellaneda, Esteban Echeverría y Microcentro/Catalinas.</p>
+          </div>
+          <div class="corridor-card">
+            <h4>2. La Plata y Bahía Blanca</h4>
+            <p>Cobertura activa para plantas petroquímicas, cerealeras, nodos portuarios, bancos, clínicas y sedes corporativas en el sur bonaerense.</p>
+          </div>
+          <div class="corridor-card">
+            <h4>3. Neuquén y Corredor Energético</h4>
+            <p>Servicio B2B para bases operativas de energía, logística, centros médicos e instituciones en la ciudad de Neuquén y área de influencia.</p>
+          </div>
+          <div class="corridor-card">
+            <h4>4. Patagonia (Chubut)</h4>
+            <p>Estructura operativa consolidada en <strong>Trelew, Rawson, Puerto Madryn y Comodoro Rivadavia</strong> (incluyendo el Hospital de Alta Complejidad de Trelew).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CATÁLOGO FILTRABLE DE CASOS DE ÉXITO POR VERTICAL -->
+  <section class="section section-alt" id="casos-de-exito">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Casos de Éxito y Referencias Auditables</span>
+        <h2 class="section-title">Organizaciones Líderes que Operan todos los días con Star Union</h2>
+        <p class="section-desc">
+          Filtrá por vertical para conocer el alcance técnico que ejecutamos en plantas industriales, torres corporativas, campus universitarios y hospitales de alta complejidad.
+        </p>
+      </div>
+
+      <div class="filter-tabs" role="tablist">
+        <button type="button" class="filter-tab active" data-case-filter="all">Todas las Verticales</button>
+        <button type="button" class="filter-tab" data-case-filter="industrial">🏭 Industrial y Fábricas</button>
+        <button type="button" class="filter-tab" data-case-filter="corporativo">🏢 Edificios y Torres</button>
+        <button type="button" class="filter-tab" data-case-filter="salud">🏥 Clínicas y Hospitales</button>
+        <button type="button" class="filter-tab" data-case-filter="educacion">🎓 Universidades, Colegios y Clubes</button>
+      </div>
+
+      <div class="cases-grid">
+        <article class="case-card" data-case-category="industrial">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Industria Automotriz</span>
+            <span class="case-score-badge">✓ ISO 9001 Planta</span>
+          </div>
+          <h3>Toyota (Planta Pacheco)</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Operación bajo los más exigentes estándares internacionales de seguridad industrial, metodología 5S, puntualidad y cumplimiento normativo en planta automotriz.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="industrial">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Industria Química / Productiva</span>
+            <span class="case-score-badge">★ Evaluación 96/100</span>
+          </div>
+          <h3>Ferroclor S.A.</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Servicio integral en zonas productivas y no productivas auditado bajo ISO 9001:2015, alcanzando una calificación de desempeño de proveedor de <strong>96 sobre 100 puntos</strong>.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="salud">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Salud · Patagonia (Chubut)</span>
+            <span class="case-score-badge">✓ Alta Complejidad</span>
+          </div>
+          <h3>Hospital de Alta Complejidad (Trelew)</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Higiene hospitalaria de alta criticidad en quirófanos, terapia intensiva, internación y áreas comunes con protocolos de bioseguridad y dotación permanente en la Patagonia.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="educacion">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Educación Superior</span>
+            <span class="case-score-badge">✓ Campus de Alto Tránsito</span>
+          </div>
+          <h3>Universidad Torcuato Di Tella (UTDT)</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Mantenimiento integral de aulas, auditorios, biblioteca, áreas comunes y espacios exteriores con rotación rápida entre turnos académicos y eventos institucionales.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="educacion">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Educación Internacional</span>
+            <span class="case-score-badge">✓ Seguridad y Calidad</span>
+          </div>
+          <h3>Colegio Lincoln &amp; Belgrano Day School (BDS)</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Higiene institucional para campus educativos bilingües de primer nivel, comedores, laboratorios y polideportivos con personal rigurosamente seleccionado.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="corporativo">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Torres AAA y Corporativos</span>
+            <span class="case-score-badge">✓ Presencia Continua</span>
+          </div>
+          <h3>Torre Promenade, Cliba &amp; Consorcio Arenales</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Servicio integral para edificios corporativos y grandes torres, incluyendo halls de doble altura, vidrios, cocheras, áreas comunes y tratamiento técnico de pisos.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="educacion">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Clubes e Instituciones Deportivas</span>
+            <span class="case-score-badge">✓ Predios y Vestuarios</span>
+          </div>
+          <h3>Club de Amigos</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Sanitización continua de vestuarios de alto flujo, gimnasios, espacios verdes, salones y áreas recreativas en uno de los predios deportivos más importantes de CABA.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="industrial">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Manufactura y Packaging</span>
+            <span class="case-score-badge">✓ Inocuidad y 5S</span>
+          </div>
+          <h3>Bella Cup &amp; Tipem</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Limpieza técnica en naves productivas, depósitos logísticos y oficinas de planta con maquinaria lavadora/lustradora propia y supervisión permanente.
+          </p>
+        </article>
+
+        <article class="case-card" data-case-category="corporativo industrial salud educacion">
+          <div class="case-card-top">
+            <span class="case-sector-tag">Tu Próxima Licitación o Relevamiento</span>
+            <span class="case-score-badge">⚡ En 24 hs</span>
+          </div>
+          <h3>¿Querés comparar tu servicio actual con Star Union?</h3>
+          <p style="font-size: 0.9rem; color: var(--su-slate-600);">
+            Realizamos una visita técnica sin cargo a tu planta, edificio, clínica o institución y te entregamos una propuesta operativa detallada con certificaciones al día.
+          </p>
+          <a href="#cotizar-ahora" class="btn btn-orange-cta" style="margin-top: auto;">
+            📋 Pedir Relevamiento Sin Cargo
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. SECCIÓN TRABAJÁ CON NOSOTROS & PORTAL DE EMPLEADOS -->
+  <section class="section" id="trabaja-con-nosotros">
+    <div class="container">
+      <div style="background: var(--su-blue-50); border: 1.5px solid #BFDBFE; border-radius: var(--su-radius-lg); padding: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;">
+        <div style="max-width: 680px;">
+          <span class="section-eyebrow">Recursos Humanos y Comunidad Interna (+450 Colaboradores)</span>
+          <h3 style="font-size: 1.55rem; font-weight: 800; color: var(--su-navy-900); margin-bottom: 0.5rem;">
+            Portal de Empleados y Búsquedas Laborales Activas
+          </h3>
+          <p style="color: var(--su-slate-600); font-size: 0.95rem;">
+            Si ya formás parte del equipo de Star Union S.R.L., accedé directamente al portal de gestión. Si buscás sumarte a nuestros equipos operativos o de supervisión en AMBA, Bahía Blanca, Neuquén o Patagonia, envianos tu CV a Recursos Humanos.
+          </p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+          <a href="https://browix.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary-cta">
+            👤 Ingresar al Portal de Empleados (Browix)
+          </a>
+          <a href="mailto:rrhh@starunion.com.ar?subject=Postulaci%C3%B3n%20Laboral%20-%20Star%20Union%20S.R.L." class="btn btn-outline-navy">
+            📩 Enviar CV a Recursos Humanos
+          </a>
+        </div>
+      </div>
+
+      <!-- GUÍA INTERNA DE FOTOS REALES SUGERIDAS POR SECCIÓN (DE REUNIÓN CON MAURO REPETTO) -->
+      <details style="margin-top: 2rem; background: var(--su-slate-50); border: 1px dashed var(--su-slate-500); border-radius: var(--su-radius-md); padding: 1.1rem 1.4rem;">
+        <summary style="cursor: pointer; font-weight: 800; font-size: 0.88rem; color: var(--su-navy-900);">
+          📸 Ver Checklist Interno de Fotos Reales a Sumar por Sección (Acordado en reunión de Directorio y Calidad)
+        </summary>
+        <div style="margin-top: 0.9rem; font-size: 0.85rem; color: var(--su-slate-700); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+          <div>
+            <strong>1. Base Guaminí 5657 y Taller:</strong> Fotos actuales del frente renovado, taller electromecánico con máquinas LAV/LUT y sala de capacitación (sin elementos de pandemia).
+          </div>
+          <div>
+            <strong>2. Flota Propia:</strong> Foto grupal de las camionetas ploteadas de Star Union saliendo de Guaminí hacia los servicios.
+          </div>
+          <div>
+            <strong>3. Industrial y Altura:</strong> Operarios con EPP actualizados trabajando con máquina hombre a bordo en nave industrial y silleta/hidrogrúa en fachada vidriada.
+          </div>
+          <div>
+            <strong>4. Equipo de Dirección y Calidad:</strong> Foto institucional opcional de Mauro Repetto (Dirección), Denise Rivero (Calidad ISO 9001) y supervisores operativos.
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 11. FOOTER CORPORATIVO COMPLETO CON TODAS LAS VERTICALES Y SEDES -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/img/logo-star-union.png" alt="Star Union S.R.L." style="height: 46px; margin-bottom: 1rem; background: #fff; padding: 6px 12px; border-radius: 8px;">
+          <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 1rem;">
+            <strong>Star Union S.R.L.</strong> (CUIT 30-70778428-9). Más de 25 años liderando servicios B2B de limpieza industrial, corporativa, sanitaria e institucional en la República Argentina.
+          </p>
+          <p style="font-size: 0.82rem; color: #6EE7B7; font-weight: 700;">
+            ✓ Sistema de Gestión de Calidad Certificado ISO 9001:2015 por TÜV Rheinland (Cert. N° 01 10006 2529826 · ID 9000041847)
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Dónde Limpiamos (Verticales B2B)</h4>
+          <ul class="footer-links">
+            <li><a href="limpieza-industrial/index.html">🏭 Limpieza Industrial y Zonas Productivas</a></li>
+            <li><a href="consorcios/index.html">🏢 Edificios de Oficinas y Grandes Torres</a></li>
+            <li><a href="clinicas-y-hospitales/index.html">🏥 Clínicas, Sanatorios, Hospitales y Laboratorios</a></li>
+            <li><a href="universidades-y-clubes/index.html">🎓 Universidades, Colegios y Clubes Deportivos</a></li>
+            <li><a href="servicios-especiales/index.html">🧗 Limpieza de Vidrios en Altura y Final de Obra</a></li>
+            <li><a href="servicios-especiales/index.html#espacios-verdes">🌿 Mantenimiento de Espacios Verdes y Control de Plagas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Institucional y Calidad</h4>
+          <ul class="footer-links">
+            <li><a href="la-empresa/index.html">La Empresa y Base Guaminí 5657 (+800 m²)</a></li>
+            <li><a href="certificacion-iso/index.html">Certificación ISO 9001:2015 TÜV Rheinland</a></li>
+            <li><a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer">Verificar QR Oficial en TÜV Certipedia ↗</a></li>
+            <li><a href="#casos-de-exito">Catálogo de Casos de Éxito B2B</a></li>
+            <li><a href="https://browix.com" target="_blank" rel="noopener noreferrer">Portal de Empleados (Browix) ↗</a></li>
+            <li><a href="llms.txt">Documentación Técnica IA (/llms.txt)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto Comercial Directo</h4>
+          <ul class="footer-links">
+            <li>📍 <strong>Base Central:</strong> Guaminí 5657 (C1440), CABA, Argentina</li>
+            <li>📞 <strong>Teléfonos:</strong> <a href="tel:+541146024906">(011) 4602-4906</a> / <a href="tel:+541152630286">5263-0286</a></li>
+            <li>💬 <strong>WhatsApp B2B:</strong> <a href="https://wa.me/5491122759369" target="_blank" rel="noopener noreferrer">+54 9 11 2275-9369</a></li>
+            <li>✉️ <strong>Comercial:</strong> <a href="mailto:info@starunion.com.ar">info@starunion.com.ar</a></li>
+            <li>🗺️ <strong>Sedes Operativas:</strong> CABA · GBA · La Plata · Bahía Blanca · Neuquén · Trelew · Puerto Madryn · Comodoro Rivadavia</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2001–2026 Star Union S.R.L. Todos los derechos reservados. Servicio exclusivo para empresas, industrias e instituciones.</span>
+        <span>Certificación TÜV Rheinland ISO 9001:2015 N° 01 10006 2529826</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE STICKY DE CONVERSIÓN PURA -->
+  <div class="floating-cta-dock">
+    <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union,%20solicito%20cotizaci%C3%B3n%20B2B%20para%20nuestra%20empresa/instituci%C3%B3n." target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Cotizar por WhatsApp B2B">
+      <span>💬 Cotizar por WhatsApp B2B</span>
+    </a>
+  </div>
+
+  <script src="assets/js/starunion-b2b.js"></script>
 </body>
 </html>

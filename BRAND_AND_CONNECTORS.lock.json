@@ -1,0 +1,51 @@
+{
+  "projectId": "STAR_UNION_B2B",
+  "displayName": "4 - STAR UNION (Limpieza Profesional B2B)",
+  "businessType": "SERVICES_B2B_INDUSTRIAL_CORPORATE",
+  "country": "AR",
+  "allowedWorkspacePaths": [
+    "/Users/arianawajntraub/Documents/antigravity/star-union",
+    "/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/su para AG"
+  ],
+  "voiceAndLanguageLock": {
+    "primaryPronoun": "VOSEO_ARGENTINO_CORPORATIVO_SIN_MARCA_DE_GENERO",
+    "genderNeutralRule": "PROHIBIDO usar 'bienvenides/todes' (-e/-x) y PROHIBIDO usar masculino plural genérico evitable ('bienvenidos', 'estimados trabajadores'). OBLIGATORIO usar giros naturales sin género ('Te damos la bienvenida', 'nuestro equipo', 'cada persona que forma parte').",
+    "forbiddenGenderRegex": "\\b(bienvenides|todes|nosotros\\/as|trabajadores\\/as|bienvenidos a star union)\\b",
+    "forbiddenTerms": [
+      "barbijo",
+      "tapabocas",
+      "COVID-19",
+      "Fabricio Rivas",
+      "escribanofabriciorivas.com",
+      "Entretelado",
+      "Zaguán",
+      "PROXIMATEMP15"
+    ],
+    "supportedLanguages": ["es-AR"]
+  },
+  "designAndPaletteLock": {
+    "allowedHexColors": ["#03582d", "#024121", "#006B3F", "#004A2C", "#133522", "#ffcc29", "#FFD100", "#676b67", "#1F2937", "#F1F5F9", "#FFFFFF"],
+    "typography": ["Open Sans", "Inter", "Economica"],
+    "mascotAssetsPath": "/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/su para AG/C_A Material Gráfico SU/Cleany/PARTES CLEANY/ASSETS CLEANY 1/SVG"
+  },
+  "connectorsLock": {
+    "productionDomain": "starunion.com.ar",
+    "stagingUrl": "https://wajntraub.ar/staruniontest/",
+    "githubRepo": "arianawajntraub/staruniontest",
+    "whatsapp": "+5491122759369",
+    "phone": "0810-333-8646",
+    "commercialEmail": "comercial@starunion.com.ar",
+    "mascotSenderEmail": "cleany@starunion.com.ar",
+    "emailPlatform": "Perfit",
+    "internalHrPlatform": "Browix (Solo placas fijas 4:5 o 1:1 + copy breve, cero videos)",
+    "isoCertification": "ISO 9001:2015 TÜV Rheinland N° 01 10006 2529826",
+    "headquarters": "Guaminí 5657, CABA, Argentina",
+    "forbiddenExternalIds": [
+      "4943884874",
+      "536338759",
+      "escribanofabriciorivas.com",
+      "empty-morning-01858808",
+      "arianawajntraub/entretelado"
+    ]
+  }
+}

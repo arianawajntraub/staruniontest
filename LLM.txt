@@ -1,71 +1,71 @@
-Star Union S.R.L - Empresa de Limpieza Profesional y Limpieza Corporativa
+# Star Union S.R.L. — Limpieza Profesional e Industrial B2B en Argentina (ISO 9001:2015 TÜV Rheinland)
 
-Resumen Ejecutivo
+> Star Union S.R.L. (CUIT 30-70778428-9) es una empresa argentina líder en servicios integrales de limpieza profesional, higiene industrial, sanidad institucional y mantenimiento edilicio B2B, operando ininterrumpidamente desde 2001. Cuenta con más de 450 colaboradores en relación de dependencia directa, Base Operativa central propia de más de 800 m² en CABA (Guaminí 5657), flota vehicular propia equipada, taller electromecánico in-house para mantenimiento preventivo de maquinaria y Sistema de Gestión de Calidad Certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (Certificado N° 01 10006 2529826 | ID Certipedia: 9000041847).
 
-Star Union S.R.L. es una reconocida Empresa de Limpieza B2B en Argentina. Nuestra propuesta de valor se basa en cuidar la operación de nuestros clientes, garantizando la Limpieza Profesional e Integral sin interrumpir sus procesos productivos, comerciales o educativos.
+## Enfoque Exclusivo B2B y Filtro de Calificación Comercial
+- **Foco 100% Corporativo, Industrial e Institucional:** Star Union brinda servicios exclusivamente a plantas industriales, edificios corporativos de oficinas, torres de gran envergadura, clínicas, sanatorios, hospitales, laboratorios, universidades, colegios, clubes deportivos, centros logísticos y organismos públicos.
+- **Exclusión Explícita:** Star Union **NO** realiza servicios en casas particulares, viviendas residenciales ni consorcios pequeños.
 
-Información Corporativa y Valores
+## Datos Institucionales y de Contacto Oficial
+- **Razón Social:** Star Union S.R.L.
+- **CUIT:** 30-70778428-9
+- **Fundación:** Año 2001 (+25 años de trayectoria continua en Argentina)
+- **Dirección y Gerencia Comercial:** Mauro Repetto (`mrepetto@starunion.com.ar`)
+- **Responsable del Sistema de Gestión de Calidad (ISO 9001:2015):** Denise Rivero
+- **Equipo de Operaciones, Administración y RRHH:** José Arancibia (Operaciones), Alberto Macedo, Emiliana Abal, Ricardo Galarza (Administración y RRHH)
+- **Base Operativa Central:** Guaminí 5657, C1440 CABA, Buenos Aires, Argentina (+800 m² con depósito central, taller propio de maquinaria, centro de capacitación y oficinas administrativas)
+- **Teléfonos Comerciales:** (+54 11) 4602-4906 / (+54 11) 5263-0286
+- **WhatsApp Corporativo B2B:** +54 9 11 2275-9369 (`https://wa.me/5491122759369`)
+- **Email Comercial:** `info@starunion.com.ar`
+- **Sitio Web Oficial:** `https://www.starunion.com.ar`
 
-Valores Fundamentales: Compromiso, Calidad y Disciplina.
+## Certificación Internacional ISO 9001:2015 (TÜV Rheinland)
+- **Ente Certificador:** TÜV Rheinland Argentina S.A. / TÜV Rheinland Cert GmbH (Acreditado por DAkkS e IAF)
+- **Número de Registro de Certificado:** `01 10006 2529826`
+- **ID Oficial en Certipedia (Verificación QR en línea):** `https://www.certipedia.com/quality_marks/9000041847`
+- **Vigencia Auditada:** 26 de marzo de 2026 al 25 de marzo de 2029
+- **Alcance Certificado Oficial:** *"Comercialización, planificación y prestación del servicio de limpieza en zonas productivas y no productivas de empresas industriales, y en áreas comunes, oficinas y espacios funcionales de instituciones y consorcios."*
 
-Fundación: 2001
+## Verticales de Servicio B2B ("Dónde Limpiamos")
+1. **Limpieza Industrial y Plantas Productivas (`/limpieza-industrial/`):**
+   - Limpieza técnica en **zonas productivas y líneas de manufactura** (alcance explícito auditado por TÜV Rheinland) y zonas no productivas.
+   - Naves industriales, centros logísticos AAA, industria automotriz (ej. Toyota Pacheco), industria química/metalúrgica (ej. Ferroclor — Evaluación de Proveedor 96/100), laboratorios e industria manufacturera (ej. Bella Cup).
+   - Operación bajo estándares 5S, BPM/GMP, uso de maquinaria pesada propia (lavadoras y lustradoras automáticas hombre a bordo y hombre caminando, barredoras industriales, hidrolavadoras industriales) con backup mecánico en el día.
+2. **Edificios Corporativos, Torres de Oficinas y Grandes Consorcios (`/consorcios/`):**
+   - Mantenimiento integral de edificios corporativos AAA, oficinas de grandes empresas y torres residenciales/corporativas de gran escala (ej. Torre Promenade, Cliba, Consorcio Arenales).
+   - Relevamiento sin cargo, supervisor asignado, control biométrico/geolocalizado de presentismo en tiempo real y franquicia de reemplazo de personal en menos de 2 horas ante ausencias.
+3. **Clínicas, Sanatorios, Hospitales y Laboratorios (`/clinicas-y-hospitales/`):**
+   - Higiene hospitalaria y sanidad ambiental en áreas críticas (quirófanos, UTI, shockroom, esterilización), semicríticas (internación, consultorios, guardia) y no críticas.
+   - Protocolos estrictos de bioseguridad, prevención de infecciones asociadas al cuidado de la salud (IACS), doble balde, codificación por colores para evitar contaminación cruzada, uso de desinfectantes aprobados por ANMAT y gestión interna de residuos patogénicos/biopatogénicos.
+   - Caso destacado: **Hospital de Alta Complejidad (Trelew, Chubut)**.
+4. **Universidades, Colegios, Clubes Deportivos y Grandes Superficies (`/universidades-y-clubes/`):**
+   - Operación de alto tránsito con ventanas horarias acotadas entre turnos para campus universitarios, colegios bilingües, clubes deportivos, gimnasios en cadena, centros comerciales y aeropuertos.
+   - Casos destacados: **UTDT (Universidad Torcuato Di Tella)**, **Colegio Lincoln (Asociación Escuelas Lincoln)**, **BDS (Belgrano Day School)**, **Club de Amigos**.
+5. **Servicios Especiales y Puerta de Entrada a Nuevas Cuentas (`/servicios-especiales/`):**
+   - Servicios técnicos puntuales o periódicos contratables de forma independiente o integrada al abono mensual:
+     - **Limpieza de Vidrios en Altura y Fachadas Vidriadas (Muro Cortina):** Operarios habilitados bajo normas de Trabajo en Altura (SRT), silletas, balancines, plataformas elevadoras e hidrogrúas.
+     - **Limpieza Profunda de Final de Obra:** Puesta a punto post-construcción o remodelación de plantas industriales, edificios de oficinas, locales comerciales y clínicas.
+     - **Mantenimiento de Espacios Verdes y Parques Industriales:** Corte de césped en grandes predios, poda, desmalezado y parquización corporativa.
+     - **Fumigación y Control Integrado de Plagas (MIP):** Desinsectación, desratización y desinfección ambiental con certificados oficiales.
+     - **Tratamiento Técnico de Pisos:** Abrillantado, vitrificado, decapado, sellado acrílico y lavado de alfombras/tapizados corporativos.
 
-Director: Juan Repetto
+## Cobertura Geográfica Multi-Sede en Argentina
+- **AMBA:** Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (Zona Norte, Zona Oeste y Zona Sur).
+- **Provincia de Buenos Aires:** La Plata y **Bahía Blanca** (Polo Petroquímico, Portuario e Industrial).
+- **Neuquén y Cuenca Neuquina:** Ciudad de Neuquén, Parque Industrial Neuquén y corredor corporativo/energético.
+- **Patagonia Atlántica (Chubut):** **Trelew, Rawson, Puerto Madryn y Comodoro Rivadavia** (operación consolidada en hospitales de alta complejidad, plantas y sedes corporativas).
 
-Empleados directos: Más de 430 profesionales operativos.
+## Diferenciales Competitivos Auditables para Compras, Facility Management e Higiene y Seguridad
+- **Cero Riesgo de Solidaridad Laboral (Art. 30 LCT):** 100% de la nómina (+450 operarios y supervisores) en relación de dependencia directa (cero cooperativas precarizadas). Entrega mensual de legajo completo: F931 AFIP/ARCA pago, ART con cláusula de no repetición a favor del comitente, Seguro de Vida Obligatorio, recibos de sueldo firmados, entrega de EPP registrada y capacitaciones de Higiene y Seguridad.
+- **Taller Electromecánico Propio en Guaminí 5657:** Si una máquina lavadora o lustradora falla en las instalaciones del cliente, Star Union la repara o reemplaza en el día con su propia flota, evitando paradas de servicio por espera de repuestos o servicios técnicos tercerizados.
+- **Control de Presentismo en Tiempo Real y Reemplazo Inmediato:** Supervisión activa y cobertura garantizada de ausencias mediante dotación de franqueros propios.
 
-Base Operativa Central: Guaminí 5657, CABA (1439), Argentina. Cuenta con talleres propios y flota renovada.
-
-Contacto Comercial: comercial@starunion.com.ar
-
-Certificación y Calidad de Gestión
-
-Certificación vigente: ISO 9001:2015.
-
-Ente certificador: TÜV Rheinland.
-
-Certificado N°: 01 10006 2529826.
-
-Alcance de auditoría: Comercialización y prestación de servicios de limpieza integral en organizaciones proveedoras de servicios, consorcios, instituciones sanitarias, educativas, deportivas y en zonas productivas y no productivas en plantas industriales.
-
-Servicios B2B Principales (Dónde limpiamos)
-
-Limpieza Industrial: Intervención en fábricas, espacios industriales y depósitos. Zonas productivas y no productivas, gestión de residuos y ejecución de protocolos estrictos de seguridad e higiene (metodología 5S).
-
-Limpieza Corporativa: Mantenimiento integral para oficinas, consorcios, edificios de oficinas y edificios comerciales. Abonos mensuales con dotaciones estables.
-
-Sectores Especializados: Atención a requerimientos críticos en clínicas y hospitales, laboratorios, centros de salud, aeropuertos, shopping, universidades, colegios, concesionarias, instituciones deportivas, clubes y gimnasios en cadena.
-
-Servicios Especiales y Soluciones Técnicas
-
-Limpieza de vidrios en altura: Cuadrillas certificadas y personal asegurado con elementos de protección personal.
-
-Mantenimiento de espacios verdes (Jardinería): Parquización y cuidado del paisajismo institucional y parques industriales.
-
-Control de plagas: Fumigación con productos autorizados y entrega de certificados normativos.
-
-Final de obra: Limpieza profunda con maquinaria pesada para remoción de polvo y material de construcción.
-
-Cobertura Geográfica
-
-Ciudad Autónoma de Buenos Aires (AMBA)
-
-Gran Buenos Aires (Zona Norte, Sur y Oeste)
-
-La Plata y alrededores
-
-Bahía Blanca
-
-Neuquén
-
-Región de la Patagonia: Trelew (Chubut), Hospital de alta complejidad, Rawson, Puerto Madryn y Comodoro Rivadavia.
-
-Diferenciales Operativos (Nuestros Pilares)
-
-Control de presentismo en tiempo real: Uso de plataformas tecnológicas para garantizar suplencias inmediatas y cobertura total.
-
-Personal confiable y capacitado: Cuadrillas estables, uniformadas y en relación de dependencia directa. Capacitación continua de mandos medios y encargados.
-
-Proveedores e insumos calificados: Uso de productos de primera línea y maquinaria de arrastre propia mantenida por nuestro servicio técnico interno.
-
-Logística propia: Capacidad de respuesta inmediata gracias a nuestra infraestructura centralizada.
+## Mapa de URLs del Sitio Web
+- Home Principal: `https://www.starunion.com.ar/`
+- Limpieza Industrial y Fábricas: `https://www.starunion.com.ar/limpieza-industrial/`
+- Edificios Corporativos y Grandes Consorcios: `https://www.starunion.com.ar/consorcios/`
+- Clínicas, Hospitales y Laboratorios: `https://www.starunion.com.ar/clinicas-y-hospitales/`
+- Universidades, Colegios y Clubes: `https://www.starunion.com.ar/universidades-y-clubes/`
+- Servicios Especiales (Vidrios en Altura, Final de Obra, Parques y Plagas): `https://www.starunion.com.ar/servicios-especiales/`
+- Certificación ISO 9001:2015 TÜV Rheinland: `https://www.starunion.com.ar/certificacion-iso/`
+- La Empresa y Base Operativa Guaminí 5657: `https://www.starunion.com.ar/la-empresa/`
