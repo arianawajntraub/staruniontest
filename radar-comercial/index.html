@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Comercial B2B & Accionador de Mailing | Star Union S.R.L.</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'] },
+                    colors: {
+                        brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
+                        accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
+                        neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Open Sans', sans-serif; color: #111827; background-color: #f9fafb; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- HEADER INTERNO STAR UNION -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <a href="../index.html">
+                    <img src="../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="h-11 w-auto object-contain">
+                </a>
+                <span class="bg-brand text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full tracking-wider">
+                    Consola Comercial B2B · Post-Paritarias &amp; Mailing
+                </span>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-bold">
+                <button id="btn-export-report" class="bg-accent text-[#000000] px-4 py-2.5 rounded hover:bg-accent-hover transition font-extrabold shadow-sm">
+                    📲 Enviar Parte Diario a Mauro y Ariana (WhatsApp)
+                </button>
+                <a href="../index.html" class="bg-gray-100 text-[#000000] px-4 py-2.5 rounded hover:bg-gray-200 transition">
+                    ← Ir al Sitio Web
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- EXPLICACIÓN SIMPLE DE USO PARA LA PERSONA COMERCIAL -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm mb-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-brand bg-brand/10 px-3 py-1 rounded-full">Cómo convertir los clics del Mailing en Relevamientos Reales</span>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-[#000000] mt-2 mb-2">
+                        Accionador de los "Top 100 Clics del Mailing" + Prospección en LinkedIn sin Pauta
+                    </h1>
+                    <p class="text-sm text-neutral-custom leading-relaxed">
+                        En lugar de dejar enfriar el listado de quienes hicieron clic en el mailing o usar planillas desordenadas: <strong>pegá acá abajo los correos que hicieron clic</strong>. El sistema identifica automáticamente <strong>qué empresa es por su dominio (`@empresa.com.ar`)</strong>, te abre los decisores en LinkedIn con 1 clic y te redacta el correo 1-a-1 desde <code>comercial@starunion.com.ar</code> o el mensaje de WhatsApp usando el argumento exacto.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 bg-gray-50 border border-gray-200 rounded-xl p-5">
+                    <div class="text-xs font-extrabold uppercase text-brand mb-2">Ángulo Comercial Activo (Elegí el gancho de hoy):</div>
+                    <select id="angulo-selector" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm font-bold text-[#000000] bg-white focus:border-brand outline-none">
+                        <option value="paritaria">1. Relevamiento de Valores Post-Paritaria (Comparar costo actual)</option>
+                        <option value="vidrios">2. Puerta de Entrada: Limpieza de Vidrios en Altura / Final de Obra</option>
+                        <option value="iso">3. Homologación Industrial ISO 9001:2015 TÜV Rheinland (Zona Productiva)</option>
+                        <option value="multisede">4. Unificación Multi-Sede (AMBA + Bahía Blanca / Neuquén / Patagonia)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARGADOR RÁPIDO DE LOS 100 CLICS DEL MAILING -->
+        <div class="grid lg:grid-cols-12 gap-8 mb-8">
+            <div class="lg:col-span-5 bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-lg font-extrabold text-[#000000] mb-1">1. Pegar Correos que Clickearon en el Mailing</h2>
+                <p class="text-xs text-neutral-custom mb-4">Pegá un correo por línea (o separados por coma) del reporte de clics que pasa Ariana.</p>
+                <textarea id="raw-emails-input" rows="7" class="w-full border border-gray-300 rounded-lg p-3 text-xs font-mono bg-gray-50 focus:border-brand outline-none" placeholder="compras@ferroclor.com.ar&#10;mantenimiento@laboratoriobago.com.ar&#10;intendencia@utdt.edu&#10;facility@torrepromenade.com.ar&#10;logistica@andreani.com"></textarea>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <button id="btn-process-emails" class="flex-1 bg-brand text-white font-extrabold text-sm py-3 px-4 rounded-lg hover:bg-brand-dark transition shadow">
+                        ⚡ Decodificar Dominios y Armar Acciones
+                    </button>
+                    <button id="btn-load-demo" class="bg-gray-100 text-[#000000] font-bold text-xs py-3 px-3 rounded-lg hover:bg-gray-200 transition">
+                        Cargar Ejemplo
+                    </button>
+                </div>
+            </div>
+
+            <!-- RESUMEN DE EMBUDO EN VIVO -->
+            <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4 content-start">
+                <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+                    <span class="text-xs font-bold text-neutral-custom uppercase">Dominios Detectados</span>
+                    <strong id="kpi-total" class="block text-3xl font-extrabold text-[#000000] mt-1">0</strong>
+                    <span class="text-[11px] text-brand font-semibold">Empresas identificadas</span>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+                    <span class="text-xs font-bold text-neutral-custom uppercase">Pendientes Hoy</span>
+                    <strong id="kpi-pendientes" class="block text-3xl font-extrabold text-[#000000] mt-1">0</strong>
+                    <span class="text-[11px] text-neutral-custom">Para accionar 1-a-1</span>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+                    <span class="text-xs font-bold text-neutral-custom uppercase">Contactados</span>
+                    <strong id="kpi-contactados" class="block text-3xl font-extrabold text-brand mt-1">0</strong>
+                    <span class="text-[11px] text-brand font-semibold">Mail / LinkedIn / WA</span>
+                </div>
+                <div class="bg-brand text-white rounded-xl p-5 shadow-sm">
+                    <span class="text-xs font-bold text-green-100 uppercase">Relevamientos</span>
+                    <strong id="kpi-relevamientos" class="block text-3xl font-extrabold text-accent mt-1">0</strong>
+                    <span class="text-[11px] text-green-50 font-semibold">Visitas agendadas</span>
+                </div>
+
+                <!-- GUÍA DE 3 PASOS PARA PROSPECCIÓN SIN GASTAR EN LINKEDIN ADS -->
+                <div class="col-span-2 sm:col-span-4 bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+                    <h3 class="text-sm font-extrabold text-brand uppercase tracking-wider mb-2">Protocolo Diario de 20 Minutos (Sin gastar en LinkedIn Ads):</h3>
+                    <ol class="text-xs text-neutral-custom space-y-1.5 list-decimal list-inside font-medium">
+                        <li><strong>Mirar qué empresa es:</strong> Hacé clic en el dominio para ver su web y saber si es Planta Industrial, Edificio de Oficinas, Clínica o Institución.</li>
+                        <li><strong>Encontrar al decisor gratis en LinkedIn:</strong> Hacé clic en <code>🔍 Decisores en LinkedIn</code> (busca automáticamente al Jefe de Compras, Mantenimiento o Facility de esa empresa).</li>
+                        <li><strong>Accionar sin ser invasivo:</strong> Enviá el <code>✉️ Mail 1-a-1</code> desde <code>comercial@starunion.com.ar</code> o copiá el texto para LinkedIn/WhatsApp y cambiá el estado a <strong>Contactado</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLA DE ACCIÓN POR DOMINIO / EMPRESA -->
+        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 flex flex-wrap justify-between items-center gap-4">
+                <h2 class="text-lg font-extrabold text-[#000000]">2. Tablero de Acción sobre Empresas que Clickearon el Mailing</h2>
+                <div class="flex items-center gap-2 text-xs">
+                    <button id="btn-clear-list" class="text-gray-500 hover:text-red-700 font-bold">Limpiar tabla</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-xs uppercase text-neutral-custom font-extrabold">
+                            <th class="py-3.5 px-4">Empresa / Dominio</th>
+                            <th class="py-3.5 px-4">Correo que Hizo Clic</th>
+                            <th class="py-3.5 px-4">Vertical Sugerida</th>
+                            <th class="py-3.5 px-4">Investigar Empresa y Decisor</th>
+                            <th class="py-3.5 px-4">Acción Comercial en 1 Clic</th>
+                            <th class="py-3.5 px-4">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-tbody" class="divide-y divide-gray-200">
+                        <!-- Filas generadas dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const STORAGE_KEY = 'starunion_radar_leads_v1';
+        const FREE_DOMAINS = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'yahoo.com.ar', 'live.com.ar', 'icloud.com', 'fibertel.com.ar', 'speedy.com.ar', 'arnet.com.ar'];
+
+        const DEMO_EMAILS = [
+            'compras@laboratoriobago.com.ar',
+            'mantenimiento@autopartistapacheco.com.ar',
+            'intendencia@colegiobilingue.edu.ar',
+            'administracion@torrecorporativacatalinas.com.ar',
+            'serviciosgenerales@clinicadelpilar.com.ar',
+            'operaciones@logisticapatagonia.com.ar'
+        ];
+
+        function guessVertical(domain, email) {
+            const full = (domain + ' ' + email).toLowerCase();
+            if (full.match(/lab|farma|quim|ind|planta|auto|metal|pack|plast|food|alimen|logis|puerto|petro|energ/)) {
+                return 'Industrial / Planta (ISO 9001)';
+            }
+            if (full.match(/clinic|sanat|hosp|medic|salud|diag/)) {
+                return 'Clínica / Hospital / Salud';
+            }
+            if (full.match(/edu|univ|coleg|school|club|deport|campus/)) {
+                return 'Universidad / Colegio / Club';
+            }
+            return 'Edificio Corporativo / Empresa';
+        }
+
+        function formatCompanyName(domain) {
+            if (FREE_DOMAINS.includes(domain)) return 'Correo Personal (Identificar Empresa)';
+            const base = domain.split('.')[0].replace(/[-_]/g, ' ');
+            return base.charAt(0).toUpperCase() + base.slice(1);
+        }
+
+        function buildPitch(company, vertical, angulo) {
+            const co = company.includes('Correo Personal') ? 'su organización' : company;
+            if (angulo === 'vidrios') {
+                return {
+                    subject: `Presupuesto de Limpieza de Vidrios en Altura / Final de Obra — ${co} | Star Union S.R.L.`,
+                    body: `Hola, ¿cómo estás?\n\nVimos que desde ${co} estuvieron revisando nuestra información técnica. Te escribo brevemente desde el área comercial de Star Union S.R.L. (+25 años, +450 empleados directos y Certificación ISO 9001:2015 por TÜV Rheinland).\n\nAdemás de nuestros abonos integrales de limpieza, muchas empresas y edificios corporativos nos contratan de forma puntual para:\n• Limpieza de Vidrios en Altura y Fachadas (cuadrillas propias certificadas SRT, silletas e hidrogrúas).\n• Limpieza profunda de Final de Obra, Espacios Verdes y Control de Plagas.\n\n¿Tienen previsto algún servicio de altura o relevamiento en los próximos meses para acercarles una cotización sin cargo?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.\nGuaminí 5657, CABA | 0810-333-8646 | www.starunion.com.ar`
+                };
+            }
+            if (angulo === 'iso') {
+                return {
+                    subject: `Homologación de Proveedor de Limpieza ISO 9001:2015 (TÜV Rheinland) para ${co}`,
+                    body: `Hola, ¿cómo estás?\n\nTe contacto desde Star Union S.R.L. al notar su interés en nuestras comunicaciones técnicas.\n\nContamos con Sistema de Gestión de Calidad certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (ID Certipedia 9000041847) con alcance auditado específicamente en Zonas Productivas y No Productivas de empresas industriales, además de taller electromecánico propio de maquinaria (LAV/LUT) y +450 empleados en nómina directa.\n\n¿Podríamos enviarles nuestra carpeta técnica o coordinar un breve relevamiento sin cargo en sus instalaciones para quedar homologados ante futuras licitaciones?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.\nGuaminí 5657, CABA | comercial@starunion.com.ar`
+                };
+            }
+            if (angulo === 'multisede') {
+                return {
+                    subject: `Servicio de Limpieza Corporativa e Industrial Multi-Sede para ${co} | Star Union S.R.L.`,
+                    body: `Hola, ¿cómo estás?\n\nTe escribo desde Star Union S.R.L. Sabemos lo complejo que resulta administrar distintos proveedores de limpieza cuando una organización opera en varias localidades.\n\nContamos con estructura propia auditada bajo ISO 9001:2015 (TÜV Rheinland) en CABA, GBA, La Plata, Bahía Blanca, Neuquén y Patagonia (Trelew, Puerto Madryn y Comodoro Rivadavia), permitiendo unificar facturación, supervisión y control documental Art. 30 LCT en un único proveedor.\n\n¿Te parece bien si coordinamos una breve llamada o relevamiento técnico sin cargo?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.`
+                };
+            }
+            // Default: Relevamiento Post-Paritaria
+            return {
+                subject: `Relevamiento técnico y comparativa de costos de limpieza 2026 para ${co} | Star Union S.R.L.`,
+                body: `Hola, ¿cómo estás?\n\nVimos que desde ${co} abrieron nuestro último envío informativo y quería ponerme a disposición directamente desde Gerencia Comercial de Star Union S.R.L.\n\nTras las recientes actualizaciones paritarias de la actividad, muchas empresas, plantas e instituciones están realizando relevamientos técnicos para comparar costos y calidad operativa frente a su proveedor actual.\n\nEn Star Union operamos desde 2001 con +450 colaboradores en relación directa, taller propio de maquinaria en CABA (Guaminí 5657), reemplazo de ausencias en menos de 2 horas y Certificación ISO 9001:2015 por TÜV Rheinland.\n\n¿Les interesaría que realicemos una visita técnica sin cargo esta semana para presentarles una propuesta comparativa?\n\nSaludos cordiales,\nGerencia Comercial — Star Union S.R.L.\nGuaminí 5657, CABA | 0810-333-8646 | www.starunion.com.ar`
+            };
+        }
+
+        function loadLeads() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            } catch {
+                return [];
+            }
+        }
+
+        function saveLeads(leads) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+            renderTable();
+        }
+
+        function parseRawEmails(rawText) {
+            const parts = rawText.split(/[\n,;]+/).map(s => s.trim().toLowerCase()).filter(s => s.includes('@'));
+            const existing = loadLeads();
+            const existingEmails = new Set(existing.map(item => item.email));
+
+            parts.forEach(email => {
+                if (!existingEmails.has(email)) {
+                    const domain = email.split('@')[1] || '';
+                    const company = formatCompanyName(domain);
+                    const vertical = guessVertical(domain, email);
+                    existing.push({
+                        email,
+                        domain,
+                        company,
+                        vertical,
+                        status: 'pendiente'
+                    });
+                    existingEmails.add(email);
+                }
+            });
+            saveLeads(existing);
+        }
+
+        function renderTable() {
+            const leads = loadLeads();
+            const tbody = document.getElementById('leads-tbody');
+            const angulo = document.getElementById('angulo-selector').value;
+
+            document.getElementById('kpi-total').textContent = leads.length;
+            document.getElementById('kpi-pendientes').textContent = leads.filter(l => l.status === 'pendiente').length;
+            document.getElementById('kpi-contactados').textContent = leads.filter(l => l.status === 'contactado').length;
+            document.getElementById('kpi-relevamientos').textContent = leads.filter(l => l.status === 'relevamiento').length;
+
+            if (leads.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-10 text-center text-neutral-custom">Pegá arriba los correos de los primeros 100 clics del mailing o tocá "Cargar Ejemplo" para ver cómo se accionan.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = leads.map((item, idx) => {
+                const isFree = FREE_DOMAINS.includes(item.domain);
+                const webUrl = isFree ? '#' : `https://${item.domain}`;
+                const linkedinSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:linkedin.com/in "${item.company}" (Compras OR Mantenimiento OR Facility OR Planta OR Administracion)`)}`;
+                const pitch = buildPitch(item.company, item.vertical, angulo);
+                const mailtoUrl = `mailto:${item.email}?cc=comercial@starunion.com.ar&subject=${encodeURIComponent(pitch.subject)}&body=${encodeURIComponent(pitch.body)}`;
+
+                return `
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="py-3.5 px-4">
+                        <div class="font-extrabold text-[#000000]">${item.company}</div>
+                        <div class="text-xs text-brand font-semibold">${item.domain}</div>
+                    </td>
+                    <td class="py-3.5 px-4 font-mono text-xs text-neutral-custom">${item.email}</td>
+                    <td class="py-3.5 px-4">
+                        <span class="bg-brand/10 text-brand text-xs font-bold px-2.5 py-1 rounded-full">${item.vertical}</span>
+                    </td>
+                    <td class="py-3.5 px-4 space-x-1.5">
+                        ${!isFree ? `<a href="${webUrl}" target="_blank" class="inline-block bg-gray-100 hover:bg-gray-200 text-[#000000] font-bold text-xs px-2.5 py-1.5 rounded">🌐 Ver Web</a>` : ''}
+                        <a href="${linkedinSearchUrl}" target="_blank" class="inline-block bg-gray-100 hover:bg-gray-200 text-brand font-extrabold text-xs px-2.5 py-1.5 rounded">🔍 Decisores en LinkedIn</a>
+                    </td>
+                    <td class="py-3.5 px-4 space-x-1.5">
+                        <a href="${mailtoUrl}" onclick="updateLeadStatus(${idx}, 'contactado')" class="inline-block bg-brand hover:bg-brand-dark text-white font-extrabold text-xs px-3 py-1.5 rounded shadow-sm">
+                            ✉️ Enviar Mail 1-a-1
+                        </a>
+                        <button type="button" onclick="copyPitchText(${idx})" class="inline-block bg-accent hover:bg-accent-hover text-[#000000] font-extrabold text-xs px-2.5 py-1.5 rounded">
+                            📋 Copiar para LinkedIn/WA
+                        </button>
+                    </td>
+                    <td class="py-3.5 px-4">
+                        <select onchange="updateLeadStatus(${idx}, this.value)" class="border border-gray-300 rounded px-2 py-1 text-xs font-bold ${item.status === 'relevamiento' ? 'bg-green-100 text-brand' : item.status === 'contactado' ? 'bg-yellow-50 text-amber-800' : 'bg-white text-gray-700'}">
+                            <option value="pendiente" ${item.status === 'pendiente' ? 'selected' : ''}>⚪ Pendiente</option>
+                            <option value="contactado" ${item.status === 'contactado' ? 'selected' : ''}>🟡 Contactado 1-a-1</option>
+                            <option value="relevamiento" ${item.status === 'relevamiento' ? 'selected' : ''}>🟢 Relevamiento Agendado</option>
+                        </select>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        window.updateLeadStatus = function(idx, newStatus) {
+            const leads = loadLeads();
+            if (leads[idx]) {
+                leads[idx].status = newStatus;
+                saveLeads(leads);
+            }
+        };
+
+        window.copyPitchText = function(idx) {
+            const leads = loadLeads();
+            const angulo = document.getElementById('angulo-selector').value;
+            if (leads[idx]) {
+                const pitch = buildPitch(leads[idx].company, leads[idx].vertical, angulo);
+                navigator.clipboard.writeText(pitch.body);
+                updateLeadStatus(idx, 'contactado');
+                alert('Mensaje copiado al portapapeles y cuenta marcada como Contactada.');
+            }
+        };
+
+        document.getElementById('btn-process-emails').addEventListener('click', () => {
+            const text = document.getElementById('raw-emails-input').value;
+            parseRawEmails(text);
+        });
+
+        document.getElementById('btn-load-demo').addEventListener('click', () => {
+            document.getElementById('raw-emails-input').value = DEMO_EMAILS.join('\n');
+            parseRawEmails(DEMO_EMAILS.join('\n'));
+        });
+
+        document.getElementById('angulo-selector').addEventListener('change', renderTable);
+
+        document.getElementById('btn-clear-list').addEventListener('click', () => {
+            localStorage.removeItem(STORAGE_KEY);
+            renderTable();
+        });
+
+        document.getElementById('btn-export-report').addEventListener('click', () => {
+            const leads = loadLeads();
+            const contactados = leads.filter(l => l.status === 'contactado');
+            const relevamientos = leads.filter(l => l.status === 'relevamiento');
+            const msg = [
+                `*Parte Comercial Star Union — Acción sobre Clics de Mailing*`,
+                `• Empresas en seguimiento: ${leads.length}`,
+                `• Contactadas hoy 1-a-1: ${contactados.length} (${contactados.map(c => c.company).join(', ') || 'ninguna aún'})`,
+                `• Relevamientos agendados: ${relevamientos.length} (${relevamientos.map(r => r.company).join(', ') || 'ninguno aún'})`
+            ].join('\n');
+            window.open(`https://api.whatsapp.com/send?phone=5491122759369&text=${encodeURIComponent(msg)}`, '_blank');
+        });
+
+        if (loadLeads().length === 0) {
+            parseRawEmails(DEMO_EMAILS.join('\n'));
+        } else {
+            renderTable();
+        }
+    </script>
+</body>
+</html>
