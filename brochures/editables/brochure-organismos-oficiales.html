@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<title>Limpieza de Organismos Oficiales, Dependencias Públicas y Entidades | Star Union S.R.L.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #4b5563;
+    background: #e5e7eb;
+    width: 210mm;
+    margin: 0 auto;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    color: #000000;
+  }
+  /* BARRA DE EDICIÓN DE TEXTOS (SOLO EN PANTALLA - SE OCULTA AL EXPORTAR PDF) */
+  .editor-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #133522;
+    color: #ffffff;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 3px solid #03582d;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    width: 210mm;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .editor-toolbar .toolbar-title {
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .editor-toolbar .toolbar-badge {
+    background: #ffcc29;
+    color: #000000;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 99px;
+    text-transform: uppercase;
+  }
+  .editor-toolbar .toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .editor-toolbar .btn-tool {
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 11px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .editor-toolbar .btn-tool:hover {
+    background: rgba(255,255,255,0.22);
+  }
+  .editor-toolbar .btn-export {
+    background: #ffcc29;
+    color: #000000;
+    border: none;
+    padding: 7px 13px;
+    border-radius: 7px;
+    font-size: 11.5px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .editor-toolbar .btn-export:hover {
+    background: #e5b622;
+  }
+  body.editable-mode [contenteditable="true"]:hover {
+    outline: 1.5px dashed #03582d;
+    outline-offset: 2px;
+    cursor: text;
+  }
+  body.editable-mode [contenteditable="true"]:focus {
+    outline: 2px solid #03582d;
+    background: #f0fdf4;
+    border-radius: 3px;
+  }
+  body.preview-clean [contenteditable="true"]:hover,
+  body.preview-clean [contenteditable="true"]:focus {
+    outline: none !important;
+    background: transparent !important;
+  }
+  @media print {
+    body {
+      background: #ffffff;
+    }
+    .no-print {
+      display: none !important;
+    }
+    .page {
+      margin: 0 !important;
+      box-shadow: none !important;
+    }
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 14px auto;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+  }
+  /* HEADER BLANCO LIMPIO */
+  .top-header {
+    background: #ffffff;
+    padding: 14px 28px 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .top-header .logo-main {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+  .top-header .iso-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 6px 14px;
+  }
+  .top-header .iso-pill img.tuv-qr {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  .top-header .iso-pill img.cleany-top {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+  }
+  .top-header .iso-text {
+    font-size: 9.5px;
+    line-height: 1.35;
+    color: #4b5563;
+  }
+  .top-header .iso-text strong {
+    color: #03582d;
+    display: block;
+    font-size: 10.5px;
+    font-weight: 800;
+  }
+
+  /* HERO AIREADO EN BLANCO */
+  .hero-band {
+    background: #ffffff;
+    padding: 16px 28px 14px 28px;
+    border-top: 4px solid #03582d;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #03582d;
+    font-size: 9.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 7px;
+  }
+  .hero-band h1 {
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.16;
+    color: #000000;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .hero-band p.subtitle {
+    font-size: 11.2px;
+    line-height: 1.48;
+    color: #4b5563;
+    max-width: 96%;
+  }
+
+  /* KPI ROW */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px 28px;
+    background: #ffffff;
+  }
+  .kpi-item {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-top: 3px solid #03582d;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  .kpi-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #03582d;
+    line-height: 1.15;
+  }
+  .kpi-lbl {
+    font-size: 9px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-top: 2px;
+  }
+
+  /* GALERÍA 3 FOTOS PÁGINA 1 */
+  .photo-trio {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 12px;
+    padding: 8px 28px 12px 28px;
+  }
+  .photo-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+  }
+  .photo-card img {
+    width: 100%;
+    height: 156px;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-caption {
+    padding: 7px 10px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #111827;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    line-height: 1.35;
+  }
+
+  /* SECCIÓN 6 PILARES PÁGINA 1 */
+  .section-box {
+    padding: 8px 28px 12px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .section-eyebrow {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #03582d;
+    margin-bottom: 2px;
+  }
+  .section-title {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .bullets-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 11px;
+    flex: 1;
+  }
+  .bullet-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-left: 3.5px solid #03582d;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bullet-card h3 {
+    font-size: 11.4px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+  .bullet-card p {
+    font-size: 9.8px;
+    line-height: 1.45;
+    color: #4b5563;
+  }
+
+  .clients-strip {
+    margin: 0 28px 12px 28px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-left: 3.5px solid #03582d;
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 9.5px;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+  .clients-strip strong {
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    margin-right: 4px;
+  }
+
+  /* PÁGINA 2: DESAPELMAZADA, 4 TARJETAS GRANDES 2x2 + FILA INFERIOR AMPLIA */
+  .guamini-grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .guamini-card-lg {
+    border: 1px solid #e5e7eb;
+    border-top: 3px solid #03582d;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+  }
+  .guamini-card-lg img {
+    width: 100%;
+    height: 148px;
+    object-fit: cover;
+    display: block;
+  }
+  .guamini-card-lg .gc-body {
+    padding: 12px 15px;
+  }
+  .guamini-card-lg h4 {
+    font-size: 12.2px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 4px;
+  }
+  .guamini-card-lg p {
+    font-size: 10.4px;
+    line-height: 1.46;
+    color: #4b5563;
+  }
+
+  .compliance-row {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 14px;
+    padding: 4px 28px 14px 28px;
+    flex: 1;
+  }
+  .comp-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-top: 3.5px solid #03582d;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .comp-box h3 {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .comp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 8px;
+  }
+  .comp-list li {
+    font-size: 10.6px;
+    line-height: 1.48;
+    color: #374151;
+    position: relative;
+    padding-left: 16px;
+  }
+  .comp-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #03582d;
+    font-weight: 900;
+  }
+  .comp-list li strong {
+    color: #000000;
+  }
+
+  .cta-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-top: 3.5px solid #03582d;
+    color: #4b5563;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cta-box .cta-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .cta-box h3 {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 4px;
+    line-height: 1.25;
+  }
+  .cta-box p {
+    font-size: 10.4px;
+    line-height: 1.46;
+    color: #4b5563;
+  }
+  .cta-contact-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 10.6px;
+    line-height: 1.65;
+    color: #374151;
+  }
+  .cta-contact-item strong {
+    color: #000000;
+  }
+
+  /* FOOTER OFICIAL (#133522 - CERO AZUL) */
+  .footer-bar {
+    background: #133522;
+    color: #e5e7eb;
+    padding: 10px 28px;
+    font-size: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #03582d;
+    margin-top: auto;
+  }
+  .footer-bar strong {
+    color: #ffffff;
+  }
+</style>
+</head>
+<body class="editable-mode">
+
+<!-- BARRA INTERACTIVA DE EDICIÓN DE TEXTOS (SE OCULTA AUTOMÁTICAMENTE AL IMPRIMIR/GUARDAR PDF) -->
+<div class="editor-toolbar no-print">
+  <div class="toolbar-title">
+    <span class="toolbar-badge">Editor de Textos</span>
+    <span>Hacé clic sobre cualquier título o párrafo para editarlo</span>
+  </div>
+  <div class="toolbar-actions">
+    <button class="btn-tool" onclick="undoLastChange()" title="Deshacer el último cambio de texto">↩️ Deshacer</button>
+    <button class="btn-tool" onclick="resetOriginalContent()" title="Volver al texto original de fábrica">🔄 Reiniciar Original</button>
+    <button class="btn-tool" id="btn-preview-toggle" onclick="toggleCleanPreview()">👁️ Vista Previa Limpia</button>
+    <button class="btn-export" onclick="window.print()">🖨️ Guardar como PDF A4</button>
+  </div>
+</div>
+
+<div id="brochure-canvas">
+<!-- PÁGINA 1: VERTICAL ESPECÍFICA -->
+<div class="page">
+  <div class="top-header">
+    <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
+    <div class="iso-pill">
+      <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
+      <div class="iso-text">
+        <strong>SISTEMA DE GESTIÓN CERTIFICADO ISO 9001:2015</strong>
+        TÜV Rheinland · Certipedia ID 9000041847 · Reg. 01 100 062529826
+      </div>
+      <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
+    </div>
+  </div>
+
+  <div class="hero-band">
+    <div class="hero-badge">Sector Público, Entes y Licitaciones · ISO 9001:2015</div>
+    <h1>Limpieza de Organismos Oficiales, Dependencias Públicas y Entidades</h1>
+    <p class="subtitle">Solvencia técnica, fiscal y previsional para licitaciones públicas y contrataciones de organismos estatales, bancos oficiales, sedes judiciales, ministerios, entes reguladores y centros de atención al ciudadano.</p>
+  </div>
+
+  <div class="kpi-strip">
+    <div class="kpi-item">
+      <div class="kpi-val">Base 800 m²</div>
+      <div class="kpi-lbl">Calle Guaminí, CABA</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-val">Alerta 15 Min</div>
+      <div class="kpi-lbl">Reloj Biométrico en Sitio</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-val">&lt; 2 Horas</div>
+      <div class="kpi-lbl">Cobertura de Franqueros</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-val">100% Propio</div>
+      <div class="kpi-lbl">Nómina Directa y Maquinaria</div>
+    </div>
+  </div>
+
+  <div class="photo-trio">
+    <div class="photo-card">
+      <img src="../img/organismos-oficiales-1.jpg" alt="Mantenimiento de salones de atención al público y puestos administrativos">
+      <div class="photo-caption">Mantenimiento de salones de atención al público y puestos administrativos</div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/organismos-oficiales-2.jpg" alt="Acondicionamiento de despachos, salas de audiencias y directorios">
+      <div class="photo-caption">Acondicionamiento de despachos, salas de audiencias y directorios</div>
+    </div>
+    <div class="photo-card">
+      <img src="../img/organismos-oficiales-3.jpg" alt="Personal propio uniformado con credencial e identificación visible">
+      <div class="photo-caption">Personal propio uniformado con credencial e identificación visible</div>
+    </div>
+  </div>
+
+  <div class="section-box">
+    <div class="section-eyebrow">Ingeniería de Procesos · Calidad Auditada ISO 9001:2015</div>
+    <div class="section-title">Cumplimiento Estricto de Pliegos de Especificaciones Técnicas</div>
+    <div class="bullets-grid">
+      <div class="bullet-card"><h3>Certificación TÜV Rheinland ISO 9001:2015 Vigente</h3><p>Acreditación internacional de calidad de gestión exigida en los pliegos licitatorios de alta envergadura tanto a nivel nacional como provincial y municipal.</p></div>
+<div class="bullet-card"><h3>Atención de Edificios con Alto Flujo de Ciudadanos</h3><p>Guardia activa en sectores de mesa de entradas, cajas, salones de trámites, circulaciones, ascensores y sanitarios públicos.</p></div>
+<div class="bullet-card"><h3>Preservación de Edificios Históricos y Patrimonio Arquitectónico</h3><p>Protocolos de limpieza no abrasiva para pisos de pinotea, parquet, escalinatas de mármol de Carrara, vitrales, boiseries y broncería artística.</p></div>
+<div class="bullet-card"><h3>Solvencia Fiscal, Previsional y Bancaria Comprobable</h3><p>25 años de trayectoria ininterrumpida (desde 2001), libre deuda previsional, F931 al día, garantías de mantenimiento de oferta y cumplimiento de contrato.</p></div>
+<div class="bullet-card"><h3>Provisión Integral de Insumos Higiénicos y Maquinaria Nueva</h3><p>Abastecimiento garantizado de papel higiénico, toallas intercaladas, jabón líquido y bolsas desde nuestro centro logístico propio de 800 m² en Guaminí 5657.</p></div>
+<div class="bullet-card"><h3>Control Biométrico de Dotaciones y Horas-Hombre Pliego</h3><p>Auditoría transparente del cumplimiento exacto de la dotación exigida por pliego mediante relojes biométricos de huella dactilar.</p></div>
+
+    </div>
+  </div>
+
+  <div class="clients-strip">
+    <strong>Referencias y Trayectoria Comprobable:</strong> Organismos Públicos · Entidades Bancarias · Sedes Ministeriales · Entes Reguladores y Dependencias en AMBA, La Plata, Bahía Blanca, Neuquén y Trelew
+  </div>
+
+  <div class="footer-bar">
+    <div><strong>Star Union S.R.L.</strong> · Base Operativa Propia: <strong>Guaminí 5052 / 5657 (C1439HAW), CABA</strong></div>
+    <div><strong>0810-333-UNION (8646)</strong> · comercial@starunion.com.ar · www.starunion.com.ar</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2: INFRAESTRUCTURA PROPIA EN GUAMINÍ 5657 (DESAPELMAZADA Y LEGIBLE) -->
+<div class="page">
+  <div class="top-header">
+    <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
+    <div class="iso-pill">
+      <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
+      <div class="iso-text">
+        <strong>RESPALDO FÍSICO, LOGÍSTICO Y LEGAL EN CABA</strong>
+        Base Operativa Propia en Calle Guaminí (800 m²) · Dirección: Juan A. Repetto y Mauro Repetto
+      </div>
+    </div>
+  </div>
+
+  <div class="section-box" style="padding-top: 14px; flex: 0 0 auto;">
+    <div class="section-eyebrow">Transparencia Operativa · Infraestructura 100% Verificable</div>
+    <div class="section-title">Por Dentro de Nuestra Base Operativa de 800 m² en Calle Guaminí (CABA)</div>
+
+    <div class="guamini-grid-2x2">
+      <div class="guamini-card-lg">
+        <img src="../../assets/img/base-guamini-fachada.jpg" alt="Base Operativa Calle Guaminí CABA">
+        <div class="gc-body">
+          <h4>1. Edificio Propio de 800 m² y Flota en Calle Guaminí</h4>
+          <p>Sede central propia de 3 plantas en CABA con depósito mayorista de insumos ANMAT y flota de utilitarios equipados.</p>
+        </div>
+      </div>
+      <div class="guamini-card-lg">
+        <img src="../../assets/img/base-guamini-lab-maquinas.jpg" alt="Parque de Maquinaria Propia Star Union">
+        <div class="gc-body">
+          <h4>2. Parque Propio de Maquinaria Pesada (LAV / LUT)</h4>
+          <p>Fregadoras automáticas hombre a bordo y de empuje, rotativas, aspiradoras inox y cestos por código de color.</p>
+        </div>
+      </div>
+      <div class="guamini-card-lg">
+        <img src="../../assets/img/base-guamini-2.jpg" alt="Taller Electromecánico y Escuela de Capacitación">
+        <div class="gc-body">
+          <h4>3. Taller con Arenado y Pintura + Escuela de 6 Pisos</h4>
+          <p>Mantenimiento propio en el día desde 2010 y auditorio de capacitación con 6 superficies reales de pisos instaladas.</p>
+        </div>
+      </div>
+      <div class="guamini-card-lg">
+        <img src="../../assets/img/uniforme-arciel-1.jpg" alt="Reloj Biométrico y Uniformes ARCIEL">
+        <div class="gc-body">
+          <h4>4. Biometría (Alerta 15 Min) y Uniformes ARCIEL</h4>
+          <p>Reloj dactilar en el cliente con relevo en menos de 2 horas y uniformes reglamentarios ARCIEL anticloro por industria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compliance-row">
+    <div class="comp-box">
+      <h3>Blindaje Legal (Art. 30 LCT) y Seguridad</h3>
+      <ul class="comp-list">
+        <li><strong>100% Nómina Directa:</strong> Entrega mensual de F931 AFIP, pagos bancarios, recibos firmados y altas tempranas (cero subcontratación).</li>
+        <li><strong>ART con Cláusula de No Repetición y SVO:</strong> Endosados a favor del comitente antes del inicio de actividades.</li>
+        <li><strong>Higiene y Seguridad Propia (M.P. CPQ 6999):</strong> Programas de seguridad SRT, capacitación auditada y entrega de EPP.</li>
+        <li><strong>Insumos ANMAT + Código de 4 Colores:</strong> Hojas de Seguridad (MSDS) en pañol y segregación contra contaminación cruzada.</li>
+      </ul>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-top">
+        <div>
+          <div style="font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #03582d; margin-bottom: 3px;">
+            Relevamiento Técnico Sin Cargo
+          </div>
+          <h3>Solicite una Visita de Diagnóstico</h3>
+          <p>Relevamos sus instalaciones para dimensionar dotación, frecuencias y maquinaria óptima en 24/48 hs.</p>
+        </div>
+        <img src="../../assets/img/cleany-hd.png" alt="Cleany" style="height: 52px; width: auto; object-fit: contain; flex-shrink: 0;">
+      </div>
+
+      <div class="cta-contact-item">
+        <div><strong>Base Propia:</strong> Guaminí 5052 / 5657, CABA</div>
+        <div><strong>Atención 0810:</strong> 0810-333-UNION (8646)</div>
+        <div><strong>Rotativas:</strong> (011) 4637-8146 / 8079</div>
+        <div><strong>WhatsApp B2B:</strong> +54 9 11 2275-9369</div>
+        <div><strong>Gerencia:</strong> mrepetto@starunion.com.ar</div>
+        <div><strong>Comercial:</strong> comercial@starunion.com.ar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div>© 2001–2026 <strong>Star Union S.R.L.</strong> · Todos los derechos reservados · Base Operativa Calle Guaminí, CABA</div>
+    <div><strong>Edición Técnica 2026</strong> · TÜV Rheinland ISO 9001:2015 (ID 9000041847)</div>
+  </div>
+</div>
+</div>
+
+<script class="no-print">
+  let initialSnapshot = "";
+  window.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.getElementById("brochure-canvas");
+    const editables = canvas.querySelectorAll("h1, h2, h3, h4, p, li, .hero-badge, .kpi-val, .kpi-lbl, .photo-caption, .section-eyebrow, .section-title, .clients-strip, .cta-contact-item div, .iso-text");
+    editables.forEach(el => {
+      el.setAttribute("contenteditable", "true");
+      el.setAttribute("spellcheck", "false");
+    });
+    initialSnapshot = canvas.innerHTML;
+  });
+
+  function undoLastChange() {
+    document.execCommand("undo", false, null);
+  }
+
+  function resetOriginalContent() {
+    if (confirm("¿Querés restaurar todo el texto original de este brochure?")) {
+      document.getElementById("brochure-canvas").innerHTML = initialSnapshot;
+    }
+  }
+
+  function toggleCleanPreview() {
+    const body = document.body;
+    const btn = document.getElementById("btn-preview-toggle");
+    body.classList.toggle("preview-clean");
+    if (body.classList.contains("preview-clean")) {
+      btn.textContent = "✏️ Volver a Modo Edición";
+      btn.style.background = "#03582d";
+    } else {
+      btn.textContent = "👁️ Vista Previa Limpia";
+      btn.style.background = "rgba(255,255,255,0.12)";
+    }
+  }
+</script>
+
+</body>
+</html>

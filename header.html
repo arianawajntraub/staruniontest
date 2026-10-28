@@ -1,25 +1,78 @@
-<!-- TOP BAR -->
-<div class="bg-gray-100 border-b border-gray-200 text-neutral-custom py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm font-semibold">
-    <div class="flex gap-4">
-        <span class="hidden md:inline">📍 Guaminí 5657, CABA - Argentina</span>
+    <!-- TOP BAR UNIFICADA EN 1 SOLA LÍNEA LIMPIA -->
+    <div class="bg-gray-50 border-b border-gray-200 text-[#676b67] py-2 px-4 sm:px-6 lg:px-8 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="hover:text-brand transition font-medium">
+                    📍 Base Operativa Central: <strong class="text-[#000000]">Guaminí 5657, CABA (800 m²)</strong>
+                </a>
+                <span class="hidden md:inline text-gray-300">|</span>
+                <span class="hidden md:inline text-[#03582d] font-semibold">Exclusivo Empresas, Industrias e Instituciones</span>
+            </div>
+            <div class="flex items-center gap-4 font-semibold">
+                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" class="text-brand hover:underline hidden sm:inline">
+                    ✔ TÜV Rheinland ISO 9001 (ID 9000041847)
+                </a>
+                <span class="hidden sm:inline text-gray-300">|</span>
+                <a href="../index.html#postularse" class="hover:text-brand transition">Trabajá con nosotros</a>
+                <a href="https://browix.com" target="_blank" class="hover:text-brand transition">Portal de empleados</a>
+            </div>
+        </div>
     </div>
-    <div class="flex gap-6 items-center">
-        <a href="/#postularse" class="hover:text-brand transition font-bold">Trabajá con nosotros</a>
-        <a href="https://browix.com" target="_blank" class="hover:text-brand transition font-bold">Portal de empleados</a>
-    </div>
-</div>
 
-<!-- NAVEGACIÓN PRINCIPAL -->
-<header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-        <a href="/" class="flex items-center">
-            <img src="/logo-horizontal-1200x300.png" alt="Star Union Servicios" class="h-14 w-auto object-contain" onerror="this.src='/LOGO TRANSPARENTE .png'; this.onerror=null;">
-        </a>
-        <nav class="hidden lg:flex gap-8 items-center font-bold text-[15px] text-[#000000]">
-            <a href="/#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
-            <a href="/#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
-            <a href="/#servicios-especiales" class="hover:text-brand transition">Servicios especiales</a>
-            <a href="/#contacto" class="bg-brand text-white px-6 py-2.5 rounded hover:bg-brand-dark transition shadow-md">Cotizá hoy</a>
-        </nav>
-    </div>
-</header>
+    <!-- HEADER PRINCIPAL UNIFICADO EN TODAS LAS PÁGINAS DEL SITIO -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 shrink-0" aria-label="Star Union S.R.L. - Inicio">
+                <img src="../logo-horizontal-1200x300.png" alt="Star Union Servicios Integrales de Limpieza" class="h-11 sm:h-12 w-auto object-contain">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-6 text-sm">
+                <a href="../index.html" class="text-[#000000] hover:text-brand font-semibold transition">Inicio</a>
+
+                <!-- DESPLEGABLE DÓNDE LIMPIAMOS (LAS 7 VERTICALES) -->
+                <div class="relative group py-2">
+                    <button type="button" class="flex items-center gap-1 text-[#000000] group-hover:text-brand font-semibold transition cursor-pointer">
+                        <span>Dónde limpiamos</span>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-brand transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-gray-200 py-2 text-xs font-semibold text-[#000000]">
+                            <a href="../limpieza-industrial/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🏭 Industrias, Fábricas y Logística
+                            </a>
+                            <a href="../limpieza-en-altura/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🧗‍♂️ Vidrios y Trabajos en Altura (Norma ARAA)
+                            </a>
+                            <a href="../consorcios/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🏢 Edificios Corporativos y Consorcios
+                            </a>
+                            <a href="../clinicas-y-hospitales/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🏥 Clínicas, Hospitales y Laboratorios
+                            </a>
+                            <a href="../universidades-y-clubes/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🎓 Universidades, Colegios y Clubes
+                            </a>
+                            <a href="../grandes-superficies/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                ✈️ Aeropuertos, Shoppings y Concesionarios
+                            </a>
+                            <a href="../servicios-especiales/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🚜 Final de Obra, Parques y Plagas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../limpieza-en-altura/index.html" class="bg-brand/10 text-brand hover:bg-brand hover:text-white px-3.5 py-1.5 rounded-full font-bold text-xs transition flex items-center gap-1">
+                    <span>★</span> Limpieza en Altura
+                </a>
+                <a href="../certificacion-iso/index.html" class="text-[#000000] hover:text-brand font-semibold transition">Calidad ISO 9001</a>
+                <a href="../la-empresa/index.html" class="text-[#000000] hover:text-brand font-semibold transition">La Empresa (Base 800 m²)</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#contacto" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg shadow-sm transition">
+                    Cotizá hoy
+                </a>
+            </div>
+        </div>
+    </header>

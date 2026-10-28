@@ -1,48 +1,25 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-AR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limpieza Industrial y de Fábricas | Star Union Empresa de Limpieza Profesional</title>
-    <meta name="description" content="Empresa de limpieza profesional para industrias y fábricas. Certificación ISO 9001:2015. Ejecución de protocolos 5S, maquinaria pesada y personal capacitado.">
-    
-    <!-- Tailwind CSS -->
+    <title>Limpieza Industrial, Fábricas y Centros Logísticos (ISO 9001) | Star Union S.R.L.</title>
+    <meta name="description" content="Operamos dentro de líneas de producción continua, laboratorios y naves logísticas sin interrumpir el ritmo de planta. Contamos con parque propio de fregadoras hombre a bordo, taller electromecánico in-house en calle Guaminí (CABA) y protocolos 5S / BPM.">
+    <link rel="canonical" href="https://www.starunion.com.ar/limpieza-industrial/">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
-    <!-- SCHEMA JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Star Union S.R.L.",
-      "image": "https://tusitio.com.ar/logo-horizontal-1200x300.png",
-      "@id": "https://tusitio.com.ar",
-      "url": "https://tusitio.com.ar",
-      "telephone": "0800-XXX-XXXX",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Guaminí 5657",
-        "addressLocality": "CABA",
-        "addressCountry": "AR"
-      },
-      "knowsAbout": ["Limpieza Industrial", "Limpieza Corporativa", "ISO 9001:2015"],
-      "certification": {
-        "@type": "Certification",
-        "name": "ISO 9001:2015",
-        "issuedBy": "TÜV Rheinland",
-        "credentialId": "01 10006 2529826"
-      }
-    }
-    </script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
                     colors: {
-                        brand: { DEFAULT: '#03582d', dark: '#024121' },
+                        brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
                         accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
                         neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
                     }
@@ -50,311 +27,345 @@
             }
         }
     </script>
-    <style>body { font-size: 1.125rem; color: #676b67; }</style>
+    <style>
+        body { font-family: 'Inter', sans-serif; color: #676b67; background-color: #ffffff; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: #000000; }
+    </style>
 </head>
-<body class="bg-gray-50 antialiased selection:bg-brand selection:text-white">
+<body class="bg-white antialiased selection:bg-brand selection:text-white">
 
-    <!-- BOTÓN WHATSAPP -->
-    <a href="https://api.whatsapp.com/send?phone=5491122759369&text=%C2%A1Hola%20Star%20Union!%20Necesito%20presupuesto%20para%20limpieza%20industrial." target="_blank" class="fixed bottom-6 right-6 z-[60] bg-brand text-white p-4 rounded-full shadow-2xl hover:bg-brand-dark hover:scale-110 transition-transform duration-300">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://api.whatsapp.com/send?phone=5491122759369&text=Hola%20Star%20Union,%20solicito%20cotizaci%C3%B3n%20de%20limpieza%20profesional%20B2B." target="_blank" class="fixed bottom-6 right-6 z-[60] bg-brand text-white px-5 py-3.5 rounded-full shadow-2xl hover:bg-brand-dark hover:scale-105 transition-all flex items-center gap-2.5 font-bold text-xs sm:text-sm border-2 border-white">
+        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="hidden sm:inline">Cotizar por WhatsApp B2B</span>
     </a>
 
-    <!-- TOP BAR (Rutas Relativas Limpias y MAPA) -->
-    <div class="bg-gray-100 border-b border-gray-200 text-neutral-custom py-2 px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm font-semibold">
-        <div class="flex gap-4">
-            <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="hidden md:inline hover:text-brand transition">📍 Base operativa central: Guaminí 5657, CABA - Argentina</a>
-        </div>
-        <div class="flex gap-6 items-center">
-            <a href="../#postularse" class="hover:text-brand transition font-bold">Trabajá con nosotros</a>
-            <a href="https://browix.com" target="_blank" class="hover:text-brand transition font-bold">Portal de empleados</a>
+    <!-- TOP BAR UNIFICADA EN 1 SOLA LÍNEA LIMPIA -->
+    <div class="bg-gray-50 border-b border-gray-200 text-[#676b67] py-2 px-4 sm:px-6 lg:px-8 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="hover:text-brand transition font-medium">
+                    📍 Base Operativa Central: <strong class="text-[#000000]">Guaminí 5657, CABA (800 m²)</strong>
+                </a>
+                <span class="hidden md:inline text-gray-300">|</span>
+                <span class="hidden md:inline text-[#03582d] font-semibold">Exclusivo Empresas, Industrias e Instituciones</span>
+            </div>
+            <div class="flex items-center gap-4 font-semibold">
+                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" class="text-brand hover:underline hidden sm:inline">
+                    ✔ TÜV Rheinland ISO 9001 (ID 9000041847)
+                </a>
+                <span class="hidden sm:inline text-gray-300">|</span>
+                <a href="../index.html#postularse" class="hover:text-brand transition">Trabajá con nosotros</a>
+                <a href="https://browix.com" target="_blank" class="hover:text-brand transition">Portal de empleados</a>
+            </div>
         </div>
     </div>
 
-    <!-- NAVEGACIÓN (Rutas Relativas Limpias) -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="../" class="flex items-center">
-                <img src="../logo-horizontal-1200x300.png" alt="Star Union Empresa de Limpieza" class="h-14 w-auto object-contain" onerror="this.src='https://placehold.co/1200x300/ffffff/03582d?text=Star+Union+Logo';">
+    <!-- HEADER PRINCIPAL UNIFICADO EN TODAS LAS PÁGINAS DEL SITIO -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 shrink-0" aria-label="Star Union S.R.L. - Inicio">
+                <img src="../logo-horizontal-1200x300.png" alt="Star Union Servicios Integrales de Limpieza" class="h-11 sm:h-12 w-auto object-contain">
             </a>
-            <nav class="hidden lg:flex gap-8 items-center font-bold text-[15px] text-[#000000]">
-                <a href="../#iso" class="hover:text-brand transition">Gestión certificada ISO</a>
-                <a href="../#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
-                <a href="../#servicios-especiales" class="hover:text-brand transition">Servicios especiales</a>
-                <a href="#contacto" class="bg-brand text-white px-6 py-2.5 rounded hover:bg-brand-dark transition shadow-md">Cotizá hoy</a>
+
+            <nav class="hidden lg:flex items-center gap-6 text-sm">
+                <a href="../index.html" class="text-[#000000] hover:text-brand font-semibold transition">Inicio</a>
+
+                <!-- DESPLEGABLE DÓNDE LIMPIAMOS (LAS 7 VERTICALES) -->
+                <div class="relative group py-2">
+                    <button type="button" class="flex items-center gap-1 text-[#000000] group-hover:text-brand font-semibold transition cursor-pointer">
+                        <span>Dónde limpiamos</span>
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-brand transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-gray-200 py-2 text-xs font-semibold text-[#000000]">
+                            <a href="../limpieza-industrial/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🏭 Industrias, Fábricas y Logística
+                            </a>
+                            <a href="../limpieza-en-altura/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🧗‍♂️ Vidrios y Trabajos en Altura (Norma ARAA)
+                            </a>
+                            <a href="../consorcios/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🏢 Edificios Corporativos y Consorcios
+                            </a>
+                            <a href="../clinicas-y-hospitales/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🏥 Clínicas, Hospitales y Laboratorios
+                            </a>
+                            <a href="../universidades-y-clubes/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🎓 Universidades, Colegios y Clubes
+                            </a>
+                            <a href="../grandes-superficies/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                ✈️ Aeropuertos, Shoppings y Concesionarios
+                            </a>
+                            <a href="../servicios-especiales/index.html" class="block px-4 py-2.5 hover:bg-gray-50 hover:text-brand transition">
+                                🚜 Final de Obra, Parques y Plagas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../limpieza-en-altura/index.html" class="bg-brand/10 text-brand hover:bg-brand hover:text-white px-3.5 py-1.5 rounded-full font-bold text-xs transition flex items-center gap-1">
+                    <span>★</span> Limpieza en Altura
+                </a>
+                <a href="../certificacion-iso/index.html" class="text-[#000000] hover:text-brand font-semibold transition">Calidad ISO 9001</a>
+                <a href="../la-empresa/index.html" class="text-[#000000] hover:text-brand font-semibold transition">La Empresa (Base 800 m²)</a>
             </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#contacto" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg shadow-sm transition">
+                    Cotizá hoy
+                </a>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- BREADCRUMB (Rutas Relativas Limpias) -->
-        <div class="bg-white py-3 border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm font-semibold text-neutral-custom flex gap-2">
-                <a href="../" class="hover:text-brand">Inicio</a> <span>/</span>
-                <a href="../#donde-limpiamos" class="hover:text-brand">Dónde limpiamos</a> <span>/</span>
-                <span class="text-[#000000]">Limpieza industrial y fábricas</span>
+        <!-- BREADCRUMB -->
+        <div class="bg-gray-50/70 py-2.5 border-b border-gray-100 text-xs font-medium text-[#676b67]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2">
+                <a href="../index.html" class="hover:text-brand transition">Inicio</a>
+                <span>/</span>
+                <a href="../index.html#donde-limpiamos" class="hover:text-brand transition">Dónde limpiamos</a>
+                <span>/</span>
+                <span class="text-[#000000] font-semibold">Limpieza Industrial para Fábricas, Plantas y Centros Logísticos</span>
             </div>
         </div>
 
-        <!-- HERO DE LANDING -->
-        <section class="relative bg-brand-dark pt-20 pb-24 overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Fábrica y Limpieza Industrial" class="w-full h-full object-cover opacity-20 mix-blend-overlay">
-                <div class="absolute inset-0 bg-brand-dark/90"></div>
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="max-w-3xl">
-                    <span class="text-white font-extrabold tracking-widest uppercase text-sm mb-4 block">Operaciones Exigentes</span>
-                    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">Limpieza profesional para industrias y fábricas.</h1>
-                    <p class="text-xl md:text-2xl text-green-50 mb-10 font-light leading-relaxed">
-                        Garantizamos la continuidad operativa en zonas productivas y no productivas. Ejecución de metodología 5S y protocolos estrictos de seguridad e higiene, auditados bajo normas internacionales.
-                    </p>
-                    <a href="#contacto" class="inline-block bg-white text-brand font-extrabold px-8 py-4 rounded hover:bg-gray-100 transition shadow-lg">
-                        Coordinar relevamiento en planta
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN DE DATOS DUROS (¡CUBOS ARREGLADOS CON HOVER EFECTO!) -->
-        <section class="py-20 bg-gray-50 border-b border-gray-200">
+        <!-- HERO AIREADO EN BLANCO PURO (MISMA ESTRUCTURA QUE LIMPIEZA EN ALTURA E ISO) -->
+        <section class="bg-white py-12 lg:py-16 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#000000] mb-4">Calidad validada en el terreno</h2>
-                    <p class="text-xl text-neutral-custom font-light max-w-3xl mx-auto">Nuestros procesos de limpieza industrial son auditados por <strong>TÜV Rheinland</strong> en las plantas productivas más exigentes de la Argentina, asegurando trazabilidad y cumplimiento normativo.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Tarjeta 1 - Efecto Hover Borde Superior Verde -->
-                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-transparent hover:border-t-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
-                        <div class="text-5xl mb-6">🏭</div>
-                        <h3 class="text-2xl font-extrabold text-[#000000] mb-3">Evaluación 96/100</h3>
-                        <p class="text-neutral-custom font-light leading-relaxed">Auditorías superadas con calificación de excelencia. Operamos activamente en sectores automotrices y químicos de alta complejidad (ej: <strong>Toyota</strong>, <strong>Ferroclor</strong>, <strong>Bellacup</strong>).</p>
-                    </div>
-                    <!-- Tarjeta 2 - Efecto Hover Borde Superior Verde -->
-                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-transparent hover:border-t-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
-                        <div class="text-5xl mb-6">⚙️</div>
-                        <h3 class="text-2xl font-extrabold text-[#000000] mb-3">Maquinaria Pesada Propia</h3>
-                        <p class="text-neutral-custom font-light leading-relaxed">Despliegue de parque de máquinas industriales (Lavadoras automáticas LAV y Rotativas LUT) mantenidas por nuestro <strong>Servicio Técnico Interno</strong>, asegurando respuesta sin demoras.</p>
-                    </div>
-                    <!-- Tarjeta 3 - Efecto Hover Borde Superior Verde -->
-                    <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100 border-t-4 border-t-transparent hover:border-t-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
-                        <div class="text-5xl mb-6">📋</div>
-                        <h3 class="text-2xl font-extrabold text-[#000000] mb-3">Protocolos 5S y Sanitarios</h3>
-                        <p class="text-neutral-custom font-light leading-relaxed">Alineación total con las políticas de cada planta. Gestión integral de pasillos productivos, depósitos y vestuarios, aplicando insumos de grado industrial (Alquimia, Nilfisk) con trazabilidad de lotes.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CAPACITACIÓN E INSUMOS -->
-        <section class="py-20 bg-white border-b border-gray-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row gap-16 items-center">
-                    <div class="lg:w-1/2">
-                        <h2 class="text-4xl font-extrabold text-[#000000] mb-6 tracking-tight">Compromiso, Calidad y Disciplina.</h2>
-                        <p class="text-lg text-neutral-custom mb-6 font-light leading-relaxed">
-                            No tercerizamos nuestra responsabilidad. Star Union S.R.L. cuenta con más de 430 profesionales operativos directos. Nuestro Programa de Capacitación Anual asegura que los encargados y mandos medios dominen la gestión de servicios industriales.
+                <div class="grid lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/5 border border-brand/15 text-brand text-xs font-semibold uppercase tracking-wider mb-5">
+                            <span>★ Zonas Productivas y No Productivas Auditadas · ISO 9001:2015</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#000000] tracking-tight leading-[1.14] mb-5">
+                            Limpieza Industrial para Fábricas, Plantas y Centros Logísticos
+                        </h1>
+                        <p class="text-base sm:text-lg text-[#676b67] leading-relaxed mb-7">
+                            Operamos dentro de líneas de producción continua, laboratorios y naves logísticas sin interrumpir el ritmo de planta. Contamos con parque propio de fregadoras hombre a bordo, taller electromecánico in-house en calle Guaminí (CABA) y protocolos 5S / BPM.
                         </p>
-                        
-                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-8">
-                            <h4 class="font-extrabold text-brand mb-3">Gestión de insumos auditada</h4>
-                            <p class="text-neutral-custom font-light">
-                                Utilizamos productos e insumos de primera línea, con trazabilidad, fechas de vencimiento controladas y hojas de seguridad (ej: Alquimia, Nilfisk), garantizando cumplimiento total ante inspecciones.
-                            </p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-7">
+                            
+                            <div class="bg-gray-50 rounded-xl p-3.5 border border-gray-200/80">
+                                <div class="text-xl font-extrabold text-brand">ISO 9001</div>
+                                <div class="text-[11px] font-medium text-[#676b67]">Zonas Productivas</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3.5 border border-gray-200/80">
+                                <div class="text-xl font-extrabold text-brand">100% Propio</div>
+                                <div class="text-[11px] font-medium text-[#676b67]">Parque LAV / LUT</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3.5 border border-gray-200/80">
+                                <div class="text-xl font-extrabold text-brand">Alerta 15m</div>
+                                <div class="text-[11px] font-medium text-[#676b67]">Control Biométrico</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-3.5 border border-gray-200/80">
+                                <div class="text-xl font-extrabold text-brand">< 2 Horas</div>
+                                <div class="text-[11px] font-medium text-[#676b67]">Reemplazo Equipos</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <a href="#contacto" class="bg-brand hover:bg-brand-dark text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-lg shadow-sm transition">
+                                Solicitar Relevamiento Técnico Sin Cargo
+                            </a>
+                            <a href="../la-empresa/index.html" class="bg-gray-50 hover:bg-gray-100 text-[#000000] border border-gray-200 font-semibold text-xs sm:text-sm px-5 py-3.5 rounded-lg transition">
+                                Ver Base Propia Guaminí (800 m²) →
+                            </a>
                         </div>
                     </div>
-                    <div class="lg:w-1/2 flex justify-center">
-                        <div class="bg-brand rounded-full w-72 h-72 flex flex-col items-center justify-center text-white shadow-2xl relative">
-                            <div class="absolute -top-4 -right-4 bg-white text-[#000000] font-extrabold p-3 rounded-lg shadow-md border border-gray-100 transform rotate-6">
-                                Certificación 2026
+
+                    <div class="lg:col-span-5 space-y-3">
+                        <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
+                            <img src="../brochures/img/carpeta-industria.jpg" alt="Limpieza Industrial para Fábricas, Plantas y Centros Logísticos" class="w-full h-56 sm:h-64 object-cover">
+                            <div class="px-4 py-2.5 bg-white text-xs font-medium text-[#676b67] border-t border-gray-100">
+                                Operación en naves industriales, plantas automotrices, alimenticias y químicas
                             </div>
-                            <span class="text-6xl mb-2">🎓</span>
-                            <span class="text-2xl font-extrabold text-center leading-none">Formación<br>Continua</span>
-                            <span class="text-sm font-bold mt-2 opacity-90 tracking-widest uppercase">Mandos Medios</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <img src="../brochures/img/fabricas-industrias-2.jpg" alt="Operación Star Union" class="w-full h-32 object-cover rounded-xl border border-gray-200">
+                            <div class="bg-gray-50 rounded-xl p-3 border border-gray-200 flex items-center justify-between gap-2">
+                                <img src="../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001" class="h-14 w-auto object-contain">
+                                <img src="../assets/img/cleany-hd.png" alt="Cleany Star Union" class="h-16 w-auto object-contain">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FORMULARIO DE CONTACTO (Con enlace directo a MAPS) -->
-        <section id="contacto" class="py-24 bg-gray-50 border-t border-gray-200">
+        <!-- GRILLA DE 6 PROTOCOLOS TÉCNICOS -->
+        <section class="py-16 bg-gray-50 border-b border-gray-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="max-w-3xl mb-10">
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand">Ingeniería de Procesos · ISO 9001:2015</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000] mt-1 mb-2">
+                        Alcance Técnico y Diferenciales Operativos
+                    </h2>
+                    <p class="text-sm sm:text-base text-[#676b67]">
+                        Protocolos estandarizados con supervisión activa, maquinaria propia mantenida en nuestro taller de calle Guaminí y cobertura inmediata de ausencias.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
-                    <div>
-                        <h2 class="text-5xl font-extrabold mb-8 text-[#000000] leading-tight tracking-tight">Coordinemos el relevamiento en su planta.</h2>
-                        <p class="text-xl text-neutral-custom mb-12 font-light leading-relaxed">Completá los datos básicos de su industria. Un asesor especializado evaluará el caso y se contactará para agendar una visita técnica sin cargo.</p>
-                        
-                        <div class="space-y-8 text-lg">
-                            <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" class="flex items-center gap-6 group">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 shrink-0 group-hover:scale-105 transition-transform">
-                                    <span class="text-2xl">📍</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-extrabold text-xl text-[#000000] mb-1 group-hover:text-brand transition">Base operativa central</h4>
-                                    <span class="text-neutral-custom font-light">Guaminí 5657, CABA, Argentina.</span>
-                                </div>
-                            </a>
-                            <div class="flex items-center gap-6">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 shrink-0">
-                                    <svg class="w-6 h-6 text-brand" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-extrabold text-xl text-[#000000] mb-1">Contacto comercial</h4>
-                                    <a href="mailto:comercial@starunion.com.ar" class="text-neutral-custom hover:text-brand transition font-light">comercial@starunion.com.ar</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-6">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100 shrink-0">
-                                    <svg class="w-6 h-6 text-brand" fill="currentColor" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-5-2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-extrabold text-xl text-[#000000] mb-1">Línea directa</h4>
-                                    <a href="tel:08103338646" class="text-neutral-custom hover:text-brand transition font-light font-bold">0810 . 333 . UNION (8646)</a>
-                                </div>
-                            </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
+                        <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">01</div>
+                        <h3 class="text-lg font-extrabold text-[#000000] mb-2">Fregado y Desengrase Mecanizado de Naves</h3>
+                        <p class="text-sm text-[#676b67] leading-relaxed">Lavado profundo de pisos industriales (epoxi, hormigón alisado y poliuretánico) con fregadoras automáticas hombre a bordo y de empuje, eliminando aceites, grasas y huellas de autoelevadores.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
+                        <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">02</div>
+                        <h3 class="text-lg font-extrabold text-[#000000] mb-2">Líneas de Producción y Zonas Productivas</h3>
+                        <p class="text-sm text-[#676b67] leading-relaxed">Higiene técnica programada en ventanas de parada o en marcha sin interferir con el flujo productivo, cumpliendo estándares 5S, BPM, HACCP y auditorías internacionales.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
+                        <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">03</div>
+                        <h3 class="text-lg font-extrabold text-[#000000] mb-2">Centros de Distribución y Racks Logísticos</h3>
+                        <p class="text-sm text-[#676b67] leading-relaxed">Aspirado industrial de polvo en pasillos de picking, entrepisos, dársenas de carga/descarga, playas de maniobras y compactación/segregación de scrap, film y cartón.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
+                        <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">04</div>
+                        <h3 class="text-lg font-extrabold text-[#000000] mb-2">Limpieza de Estructura Aérea y Cabriadas</h3>
+                        <p class="text-sm text-[#676b67] leading-relaxed">Desempolvado técnico en altura de cabriadas, bandejas portacables, conductos de ventilación, luminarias industriales y claraboyas con plataformas elevadoras y arneses certificados.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
+                        <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">05</div>
+                        <h3 class="text-lg font-extrabold text-[#000000] mb-2">Vestuarios Masivos, Comedores y Oficinas de Planta</h3>
+                        <p class="text-sm text-[#676b67] leading-relaxed">Sanitización intensiva en cambios de turno para vestuarios de planta, duchas, comedores industriales, consultorios médicos internos y oficinas de ingeniería.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
+                        <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">06</div>
+                        <h3 class="text-lg font-extrabold text-[#000000] mb-2">Taller Electromecánico Propio en Guaminí (CABA)</h3>
+                        <p class="text-sm text-[#676b67] leading-relaxed">Todas nuestras máquinas reciben mantenimiento preventivo en nuestro propio taller con cabina de arenado y pintura. Si un equipo falla en planta, se reemplaza en el día.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-white rounded-xl p-4 border border-gray-200 border-l-4 border-l-brand text-xs text-[#676b67]">
+                    <strong class="text-[#000000]">Referencias y Trayectoria Comprobable:</strong> Toyota Panamericana · Coca-Cola (Reginald Lee) · Mondelez · Air Liquide · Stihl · Biosidus · Glencore · Ferroclor
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO Y RELEVAMIENTO SIN CARGO -->
+        <section id="contacto" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-6 space-y-5">
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand">Atención Exclusiva Empresas e Instituciones</span>
+                        <h2 class="text-3xl font-extrabold text-[#000000] leading-tight">
+                            Coordinemos un relevamiento técnico sin cargo en sus instalaciones
+                        </h2>
+                        <p class="text-base text-[#676b67] leading-relaxed">
+                            Nuestro Departamento Comercial y de Operaciones visita su planta, edificio o institución para dimensionar dotación, frecuencias horarias y maquinaria específica en 24/48 hs.
+                        </p>
+                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 space-y-3 text-sm">
+                            <div><strong class="text-[#000000]">📍 Base Operativa Central:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA (800 m²)</div>
+                            <div><strong class="text-[#000000]">📞 Atención Comercial:</strong> <a href="tel:08103338646" class="text-brand font-bold hover:underline">0810-333-UNION (8646)</a> · (011) 4637-8146</div>
+                            <div><strong class="text-[#000000]">✉️ Email Corporativo:</strong> <a href="mailto:comercial@starunion.com.ar" class="text-brand font-bold hover:underline">comercial@starunion.com.ar</a></div>
                         </div>
                     </div>
 
-                    <div>
-                        <div class="bg-white rounded-xl p-8 md:p-10 shadow-xl border border-gray-100 border-t-4 border-t-brand">
-                            <h3 class="text-2xl font-extrabold mb-8 border-b border-gray-100 pb-4 text-[#000000]">Datos de la instalación</h3>
-                            
-                            <form class="space-y-6 text-base font-semibold">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="lg:col-span-6">
+                        <div class="bg-gray-50 rounded-2xl p-7 border border-gray-200 border-t-4 border-t-brand shadow-sm">
+                            <h3 class="text-xl font-extrabold text-[#000000] mb-4">Solicitar Propuesta Técnica B2B</h3>
+                            <form class="space-y-4 text-sm js-b2b-quote-form">
+                                <div class="grid sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-[#000000] mb-2">Empresa / Razón social</label>
-                                        <input type="text" class="w-full border border-gray-200 rounded-lg p-3 focus:ring-1 focus:ring-brand focus:border-brand outline-none transition bg-gray-50 text-gray-700 font-normal">
+                                        <label class="block text-[#000000] font-semibold mb-1">Empresa / Razón Social *</label>
+                                        <input type="text" name="empresa" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2.5 focus:border-brand outline-none">
                                     </div>
                                     <div>
-                                        <label class="block text-[#000000] mb-2">Nombre de contacto</label>
-                                        <input type="text" class="w-full border border-gray-200 rounded-lg p-3 focus:ring-1 focus:ring-brand focus:border-brand outline-none transition bg-gray-50 text-gray-700 font-normal">
-                                    </div>
-                                </div>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label class="block text-[#000000] mb-2">Email corporativo</label>
-                                        <input type="email" class="w-full border border-gray-200 rounded-lg p-3 focus:ring-1 focus:ring-brand focus:border-brand outline-none transition bg-gray-50 text-gray-700 font-normal">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] mb-2">Teléfono</label>
-                                        <input type="tel" class="w-full border border-gray-200 rounded-lg p-3 focus:ring-1 focus:ring-brand focus:border-brand outline-none transition bg-gray-50 text-gray-700 font-normal">
+                                        <label class="block text-[#000000] font-semibold mb-1">Nombre y Apellido *</label>
+                                        <input type="text" name="nombre" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2.5 focus:border-brand outline-none">
                                     </div>
                                 </div>
-
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[#000000] font-semibold mb-1">Email Corporativo *</label>
+                                        <input type="email" name="email" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2.5 focus:border-brand outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[#000000] font-semibold mb-1">Teléfono / Celular *</label>
+                                        <input type="tel" name="telefono" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2.5 focus:border-brand outline-none">
+                                    </div>
+                                </div>
                                 <div>
-                                    <label class="block text-[#000000] mb-2">Mensaje / Necesidad operativa (m²)</label>
-                                    <textarea rows="4" class="w-full border border-gray-200 rounded-lg p-3 focus:ring-1 focus:ring-brand focus:border-brand outline-none transition bg-gray-50 text-gray-700 font-normal resize-none"></textarea>
+                                    <label class="block text-[#000000] font-semibold mb-1">Detalle del servicio o superficie aproximada</label>
+                                    <textarea name="mensaje" rows="3" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2.5 focus:border-brand outline-none resize-none"></textarea>
                                 </div>
-                                <button type="button" class="w-full bg-brand text-white font-extrabold text-xl py-4 rounded-lg hover:bg-brand-dark transition-all shadow-md mt-4">
-                                    Enviar solicitud
+                                <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-3.5 rounded-lg shadow transition">
+                                    Enviar Solicitud a Comercial
                                 </button>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- FOOTER PREMIUM NUEVO DISEÑO (VERSIÓN LANDINGS CON "../") -->
-    <footer class="bg-[#133522] text-white pt-16 pb-8 border-t-4 border-brand-dark"> 
+    <!-- FOOTER OFICIAL UNIFICADO (#133522 CON LOGO BLANCO REAL) -->
+    <footer class="bg-[#133522] text-white pt-14 pb-10 border-t-4 border-[#024121] text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-10 border-b border-white/10 pb-12">
-                
-                <!-- Columna Izquierda: Logo, Empresa y Contacto -->
-                <div class="lg:col-span-5 flex flex-col gap-6">
-                    <img src="../logo-footer-blanco.png" alt="Star Union Logo" class="h-14 w-auto object-contain object-left" onerror="this.src='https://placehold.co/600x150/133522/ffffff?text=LOGO+BLANCO';">
-                    
-                    <!-- Placa Institucional Enmarcada -->
-                    <div class="bg-white/5 border border-white/10 rounded-xl p-6 shadow-inner text-center md:text-left">
-                        <p class="text-green-50 font-semibold text-xs leading-loose tracking-widest uppercase">
-                            Empresa de limpieza profesional.<br>
-                            Soluciones corporativas integrales certificadas ISO 9001:2015.
-                        </p>
-                    </div>
-                    
-                    <!-- Contacto Clickable -->
-                    <div class="flex flex-col gap-3 mt-2 bg-[#0e2719] p-5 rounded-xl border border-white/5">
-                        <p class="text-sm text-green-100 flex items-center gap-3">
-                            <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Email:</span> 
-                            <a href="mailto:comercial@starunion.com.ar" class="hover:text-white hover:underline transition">comercial@starunion.com.ar</a>
-                        </p>
-                        <p class="text-sm text-green-100 flex items-center gap-3">
-                            <span class="font-extrabold text-accent uppercase tracking-wider text-xs">Línea Directa:</span> 
-                            <a href="tel:08103338646" class="hover:text-white hover:underline transition font-bold text-lg">0810 . 333 . UNION (8646)</a>
-                        </p>
-                    </div>
-
-                    <!-- Redes -->
-                    <div class="flex gap-3 mt-2">
-                        <a href="https://ar.linkedin.com/company/starunion" target="_blank" class="w-10 h-10 border border-white/20 rounded flex items-center justify-center hover:bg-white/10 transition">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/starunionservicios/" target="_blank" class="w-10 h-10 border border-white/20 rounded flex items-center justify-center hover:bg-white/10 transition">
-                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+                <div class="lg:col-span-5 space-y-4">
+                    <a href="../index.html" class="inline-block">
+                        <img src="../logo-footer-blanco.png" alt="Star Union S.R.L." class="h-12 w-auto object-contain">
+                    </a>
+                    <p class="text-white/80 text-xs leading-relaxed max-w-md">
+                        <strong class="text-white">Star Union S.R.L.</strong> · Empresa de limpieza profesional corporativa, industrial e institucional certificada bajo Norma <strong class="text-white">ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong>.
+                    </p>
+                    <div class="bg-[#0e2719] p-4 rounded-xl border border-white/10 text-xs space-y-1.5">
+                        <div><strong class="text-[#ffcc29] uppercase">Base Operativa Propia:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA (800 m²)</div>
+                        <div><strong class="text-[#ffcc29] uppercase">Atención Comercial:</strong> <a href="tel:08103338646" class="hover:underline font-bold">0810-333-UNION (8646)</a> · (011) 4637-8146</div>
+                        <div><strong class="text-[#ffcc29] uppercase">Email:</strong> <a href="mailto:comercial@starunion.com.ar" class="hover:underline">comercial@starunion.com.ar</a></div>
                     </div>
                 </div>
 
-                <!-- Columna Centro: Navegación Enmarcada -->
-                <div class="lg:col-span-3">
-                    <div class="bg-[#0e2719] border border-[#1a4a2f] rounded-2xl p-8 shadow-xl h-full">
-                        <h4 class="font-extrabold text-xl mb-6 text-white uppercase tracking-wider flex items-center gap-3 border-b border-white/10 pb-4">
-                            Navegación
+                <div class="lg:col-span-4">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4 border-b border-white/10 pb-2">
+                        Dónde Limpiamos (Verticales B2B)
+                    </h4>
+                    <ul class="space-y-2 text-xs text-white/85">
+                        <li><a href="../limpieza-industrial/index.html" class="hover:text-[#ffcc29] transition">▶ Industrias, Fábricas y Centros Logísticos</a></li>
+                        <li><a href="../limpieza-en-altura/index.html" class="hover:text-[#ffcc29] transition">▶ Limpieza de Vidrios en Altura (Normas ARAA)</a></li>
+                        <li><a href="../consorcios/index.html" class="hover:text-[#ffcc29] transition">▶ Edificios Corporativos de Oficinas y Consorcios</a></li>
+                        <li><a href="../clinicas-y-hospitales/index.html" class="hover:text-[#ffcc29] transition">▶ Clínicas, Sanatorios, Hospitales y Laboratorios</a></li>
+                        <li><a href="../universidades-y-clubes/index.html" class="hover:text-[#ffcc29] transition">▶ Universidades, Colegios y Clubes Deportivos</a></li>
+                        <li><a href="../grandes-superficies/index.html" class="hover:text-[#ffcc29] transition">▶ Aeropuertos, Shoppings y Concesionarios</a></li>
+                        <li><a href="../servicios-especiales/index.html" class="hover:text-[#ffcc29] transition">▶ Final de Obra, Espacios Verdes y Plagas</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-4 border-b border-white/10 pb-2">
+                            Institucional y Calidad
                         </h4>
-                        <ul class="space-y-5 font-semibold text-green-50/90 text-sm">
-                            <li>
-                                <a href="../" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
-                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Inicio de Star Union
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../#iso" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
-                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Gestión certificada ISO
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#contacto" class="flex items-center gap-3 hover:text-accent hover:translate-x-2 transition-all group">
-                                    <span class="text-[10px] text-brand-light group-hover:text-accent transition-colors">▶</span> 
-                                    Contacto comercial
-                                </a>
-                            </li>
+                        <ul class="space-y-2 text-xs text-white/85 mb-6">
+                            <li><a href="../la-empresa/index.html" class="hover:text-[#ffcc29] transition">▶ Base Operativa Calle Guaminí (800 m²)</a></li>
+                            <li><a href="../certificacion-iso/index.html" class="hover:text-[#ffcc29] transition">▶ Certificación ISO 9001:2015 TÜV Rheinland</a></li>
+                            <li><a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" class="hover:text-[#ffcc29] transition">▶ Validar Certificado en TÜV Certipedia ↗</a></li>
+                            <li><a href="../index.html#postularse" class="hover:text-[#ffcc29] transition">▶ Trabajá con Nosotros (RRHH)</a></li>
                         </ul>
+                        <a href="#contacto" class="block text-center bg-[#ffcc29] hover:bg-[#e5b622] text-[#000000] font-extrabold text-xs uppercase tracking-wider py-3 px-4 rounded-lg transition shadow">
+                            Solicitar Relevamiento Sin Cargo
+                        </a>
                     </div>
                 </div>
-
-                <!-- Columna Derecha: Newsletter -->
-                <div class="lg:col-span-4 flex flex-col justify-center">
-                    <h4 class="font-extrabold text-3xl mb-3 text-white tracking-tight">Newsletter Corporativo</h4>
-                    <p class="text-green-50/80 mb-8 text-sm font-light leading-relaxed">Recibí novedades sobre certificaciones y tecnología de limpieza industrial.</p>
-                    
-                    <form class="flex flex-col gap-4">
-                        <input type="email" placeholder="Tu email corporativo..." class="w-full bg-white/10 border border-white/20 text-white placeholder-green-100/50 rounded-full px-6 py-4 focus:outline-none focus:border-accent transition font-light shadow-inner">
-                        <button type="button" class="w-full bg-white text-[#133522] font-extrabold px-6 py-4 rounded-full hover:bg-accent hover:text-[#000000] hover:shadow-[0_0_20px_rgba(255,204,41,0.4)] transition-all uppercase tracking-widest text-sm">
-                            Suscribirme
-                        </button>
-                    </form>
-                </div>
-
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm font-light text-green-50/70">
-                <p>&copy; 2026 Star Union S.R.L. Todos los derechos reservados.</p>
-                <div class="mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="hover:text-white transition">Términos comerciales</a>
-                    <a href="#" class="hover:text-white transition">Privacidad de datos</a>
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-white/60 gap-4">
+                <p>© 2001–2026 Star Union S.R.L. · Todos los derechos reservados · Cobertura en AMBA, La Plata, Bahía Blanca, Neuquén y Trelew.</p>
+                <div class="flex gap-4">
+                    <a href="https://ar.linkedin.com/company/starunion" target="_blank" class="hover:text-white transition">LinkedIn</a>
+                    <a href="https://www.instagram.com/starunionservicios/" target="_blank" class="hover:text-white transition">Instagram</a>
                 </div>
             </div>
         </div>
     </footer>
-
+    <script src="../assets/js/starunion-b2b.js"></script>
 </body>
 </html>
