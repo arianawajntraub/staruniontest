@@ -7,26 +7,40 @@
     <meta name="description" content="Presentación ejecutiva interactiva de Star Union S.R.L.: Base Operativa propia de 800 m² en calle Guaminí (CABA), control biométrico con alerta a los 15 minutos, parque de maquinaria propia, cuadrillas de altura ARAA y referencias corporativas 2026.">
     <link rel="canonical" href="https://www.starunion.com.ar/dossier/">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TIPOGRAFÍA OFICIAL STAR UNION: OPEN SANS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        heading: ['"Open Sans"', 'sans-serif'],
+                        display: ['"Open Sans"', 'sans-serif']
+                    },
                     colors: {
-                        brand: { light: '#057a3f', DEFAULT: '#03582d', dark: '#023d1f' },
+                        brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
                         accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
-                        neutral: { custom: '#676b67' }
+                        neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; color: #676b67; background-color: #f9fafb; }
-        h1, h2, h3, h4 { color: #000000; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #676b67;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .font-heading, .font-display {
+            font-family: 'Open Sans', sans-serif;
+            color: #000000;
+        }
         .slide-panel { display: none; animation: fadeSlide 0.32s cubic-bezier(0.16, 1, 0.3, 1); }
         .slide-panel.active { display: block; }
         @keyframes fadeSlide {
@@ -698,5 +712,6 @@
             btnEl.className = "px-3 py-1.5 rounded text-xs font-bold bg-brand text-white transition";
         }
     </script>
+    <script src="../assets/js/starunion-b2b.js"></script>
 </body>
 </html>

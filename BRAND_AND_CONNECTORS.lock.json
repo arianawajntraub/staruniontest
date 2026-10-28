@@ -1,4 +1,6 @@
 {
+  "brandId": "4 - STAR UNION (Limpieza B2B)",
+  "version": "2.0.0",
   "project_number": 4,
   "project_id": "4 - STAR UNION (Limpieza B2B)",
   "brand_name": "Star Union S.R.L.",
@@ -9,6 +11,105 @@
   "language_mode": "VOSEO_ARGENTINO_CORPORATIVO_SIN_MARCA_DE_GENERO",
   "gender_neutral_rule": "PROHIBIDO usar 'Bienvenidos', 'Bienvenides' o 'Bienvenidos/as'. Usar SIEMPRE fórmulas neutras elegantes sin marca de género ni '-e' (ej. 'Te damos la bienvenida a Star Union', 'Equipo profesional', 'Personal capacitado', 'Quienes integran la empresa').",
   "visual_hygiene_rule": "PROHIBIDO usar fotos o menciones de barbijos, tapabocas o estética pandemia/COVID-19. PROHIBIDO usar azul o naranja ajenos a la marca: respetar 100% el Verde Star Union (#03582d / #024121), el Amarillo Estrella/Cleany (#ffcc29) y el Blanco Puro (#ffffff).",
+  "voiceAndLanguageLock": {
+    "pronoun": "voseo",
+    "genderFree": true,
+    "tone": "corporativo B2B institucional",
+    "forbiddenWords": [
+      "barbijo",
+      "covid",
+      "chicos",
+      "empleaditas",
+      "mucamas",
+      "barato",
+      "low cost"
+    ],
+    "forbiddenTerms": [
+      "Fabricio Rivas",
+      "rivas-2026",
+      "399457913",
+      "536338759",
+      "552000200",
+      "Entretelado",
+      "entretelado.com.ar",
+      "Zaguán",
+      "zaguan",
+      "Bienvenides",
+      "bienvenides",
+      "todes",
+      "Todes",
+      "Bienvenidos a Star Union",
+      "barbijo",
+      "barbijos",
+      "tapabocas",
+      "COVID-19",
+      "paritaria",
+      "paritarias",
+      "post-paritaria",
+      "postparitaria",
+      "comparar tu servicio actual"
+    ],
+    "forbiddenGenderRegex": "\\b(?:bienvenidos a star union|bienvenides|todes|bienvenidos/as)\\b"
+  },
+  "designAndPaletteLock": {
+    "dominantColor": "#ffffff",
+    "dominantColorPercentage": "80-85%",
+    "institutionalGreen": "#03582d",
+    "institutionalGreenDark": "#133522",
+    "institutionalGreenPercentage": "12-15%",
+    "accentYellow": "#ffcc29",
+    "accentYellowPercentage": "<=5%",
+    "typography": "Open Sans"
+  },
+  "connectorsLock": {
+    "whatsappB2B": "+5491168019958",
+    "emailB2B": "contacto@starunion.com.ar",
+    "crmUrl": "https://script.google.com/macros/s/AKfycbyfP_L-p3_C0R_p5q_wA3zK/exec",
+    "forbiddenExternalIds": [
+      "399457913",
+      "536338759",
+      "552000200"
+    ]
+  },
+  "allowedColors": [
+    "#03582d",
+    "#133522",
+    "#0e2719",
+    "#ffcc29",
+    "#ffffff",
+    "#f9fafb",
+    "#f3f4f6",
+    "#e5e7eb",
+    "#111827",
+    "#374151",
+    "#4b5563"
+  ],
+  "forbiddenClasses": [
+    "bg-blue-",
+    "text-blue-",
+    "border-blue-",
+    "bg-red-",
+    "text-red-",
+    "border-red-",
+    "bg-orange-",
+    "text-orange-",
+    "border-orange-",
+    "bg-purple-",
+    "text-purple-",
+    "border-purple-",
+    "bg-pink-",
+    "text-pink-",
+    "border-pink-"
+  ],
+  "forbiddenTerms": [
+    "barbijo",
+    "covid",
+    "chicos",
+    "empleaditas",
+    "mucamas",
+    "barato",
+    "low cost"
+  ],
   "allowed_palette": [
     "#03582D",
     "#024121",

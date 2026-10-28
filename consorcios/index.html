@@ -7,16 +7,18 @@
     <meta name="description" content="Resolvemos el principal dolor de cabeza de Administradores de Consorcios y Facility Managers: garantizamos reemplazo inmediato en vacaciones o licencias en menos de 2 horas, control biométrico a los 15 minutos y legajo laboral/previsional completo todos los meses.">
     <link rel="canonical" href="https://www.starunion.com.ar/consorcios/">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TIPOGRAFÍA OFICIAL STAR UNION: OPEN SANS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'],
-                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        heading: ['"Open Sans"', 'sans-serif'],
+                        display: ['"Open Sans"', 'sans-serif']
                     },
                     colors: {
                         brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
@@ -28,8 +30,17 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; color: #676b67; background-color: #ffffff; }
-        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: #000000; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #676b67;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .font-heading, .font-display {
+            font-family: 'Open Sans', sans-serif;
+            color: #000000;
+        }
     </style>
 </head>
 <body class="bg-white antialiased selection:bg-brand selection:text-white">
@@ -318,9 +329,9 @@
                         <strong class="text-white">Star Union S.R.L.</strong> · Empresa de limpieza profesional corporativa, industrial e institucional certificada bajo Norma <strong class="text-white">ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong>.
                     </p>
                     <div class="bg-[#0e2719] p-4 rounded-xl border border-white/10 text-xs space-y-1.5">
-                        <div><strong class="text-[#ffcc29] uppercase">Base Operativa Propia:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA (800 m²)</div>
-                        <div><strong class="text-[#ffcc29] uppercase">Atención Comercial:</strong> <a href="tel:08103338646" class="hover:underline font-bold">0810-333-UNION (8646)</a> · (011) 4637-8146</div>
-                        <div><strong class="text-[#ffcc29] uppercase">Email:</strong> <a href="mailto:comercial@starunion.com.ar" class="hover:underline">comercial@starunion.com.ar</a></div>
+                        <div><strong class="text-white/95 uppercase font-semibold">Base Operativa Propia:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA (800 m²)</div>
+                        <div><strong class="text-white/95 uppercase font-semibold">Atención Comercial:</strong> <a href="tel:08103338646" class="hover:underline font-bold">0810-333-UNION (8646)</a> · (011) 4637-8146</div>
+                        <div><strong class="text-white/95 uppercase font-semibold">Email:</strong> <a href="mailto:comercial@starunion.com.ar" class="hover:underline">comercial@starunion.com.ar</a></div>
                     </div>
                 </div>
 
@@ -329,13 +340,13 @@
                         Dónde Limpiamos (Verticales B2B)
                     </h4>
                     <ul class="space-y-2 text-xs text-white/85">
-                        <li><a href="../limpieza-industrial/index.html" class="hover:text-[#ffcc29] transition">▶ Industrias, Fábricas y Centros Logísticos</a></li>
-                        <li><a href="../limpieza-en-altura/index.html" class="hover:text-[#ffcc29] transition">▶ Limpieza de Vidrios en Altura (Normas ARAA)</a></li>
-                        <li><a href="../consorcios/index.html" class="hover:text-[#ffcc29] transition">▶ Edificios Corporativos de Oficinas y Consorcios</a></li>
-                        <li><a href="../clinicas-y-hospitales/index.html" class="hover:text-[#ffcc29] transition">▶ Clínicas, Sanatorios, Hospitales y Laboratorios</a></li>
-                        <li><a href="../universidades-y-clubes/index.html" class="hover:text-[#ffcc29] transition">▶ Universidades, Colegios y Clubes Deportivos</a></li>
-                        <li><a href="../grandes-superficies/index.html" class="hover:text-[#ffcc29] transition">▶ Aeropuertos, Shoppings y Concesionarios</a></li>
-                        <li><a href="../servicios-especiales/index.html" class="hover:text-[#ffcc29] transition">▶ Final de Obra, Espacios Verdes y Plagas</a></li>
+                        <li><a href="../limpieza-industrial/index.html" class="hover:text-white transition duration-150">▶ Industrias, Fábricas y Centros Logísticos</a></li>
+                        <li><a href="../limpieza-en-altura/index.html" class="hover:text-white transition duration-150">▶ Limpieza de Vidrios en Altura (Normas ARAA)</a></li>
+                        <li><a href="../consorcios/index.html" class="hover:text-white transition duration-150">▶ Edificios Corporativos de Oficinas y Consorcios</a></li>
+                        <li><a href="../clinicas-y-hospitales/index.html" class="hover:text-white transition duration-150">▶ Clínicas, Sanatorios, Hospitales y Laboratorios</a></li>
+                        <li><a href="../universidades-y-clubes/index.html" class="hover:text-white transition duration-150">▶ Universidades, Colegios y Clubes Deportivos</a></li>
+                        <li><a href="../grandes-superficies/index.html" class="hover:text-white transition duration-150">▶ Aeropuertos, Shoppings y Concesionarios</a></li>
+                        <li><a href="../servicios-especiales/index.html" class="hover:text-white transition duration-150">▶ Final de Obra, Espacios Verdes y Plagas</a></li>
                     </ul>
                 </div>
 
@@ -345,12 +356,12 @@
                             Institucional y Calidad
                         </h4>
                         <ul class="space-y-2 text-xs text-white/85 mb-6">
-                            <li><a href="../la-empresa/index.html" class="hover:text-[#ffcc29] transition">▶ Base Operativa Calle Guaminí (800 m²)</a></li>
-                            <li><a href="../certificacion-iso/index.html" class="hover:text-[#ffcc29] transition">▶ Certificación ISO 9001:2015 TÜV Rheinland</a></li>
-                            <li><a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" class="hover:text-[#ffcc29] transition">▶ Validar Certificado en TÜV Certipedia ↗</a></li>
-                            <li><a href="../index.html#postularse" class="hover:text-[#ffcc29] transition">▶ Trabajá con Nosotros (RRHH)</a></li>
+                            <li><a href="../la-empresa/index.html" class="hover:text-white transition duration-150">▶ Base Operativa Calle Guaminí (800 m²)</a></li>
+                            <li><a href="../certificacion-iso/index.html" class="hover:text-white transition duration-150">▶ Certificación ISO 9001:2015 TÜV Rheinland</a></li>
+                            <li><a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" class="hover:text-white transition duration-150">▶ Validar Certificado en TÜV Certipedia ↗</a></li>
+                            <li><a href="../index.html#postularse" class="hover:text-white transition duration-150">▶ Trabajá con Nosotros (RRHH)</a></li>
                         </ul>
-                        <a href="#contacto" class="block text-center bg-[#ffcc29] hover:bg-[#e5b622] text-[#000000] font-extrabold text-xs uppercase tracking-wider py-3 px-4 rounded-lg transition shadow">
+                        <a href="#contacto" class="block text-center bg-white hover:bg-gray-100 text-brand font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-lg transition shadow-sm">
                             Solicitar Relevamiento Sin Cargo
                         </a>
                     </div>
