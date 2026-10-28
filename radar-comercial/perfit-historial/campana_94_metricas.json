@@ -1,0 +1,81 @@
+{
+  "id": 94,
+  "name": "Noviembre 2025 (reenvío)",
+  "description": "El servicio que respalda tu operación crítica º Star ⭐ Union",
+  "tags": [
+    "Noticias genéricas",
+    "Novedades con CTAS"
+  ],
+  "type": "SIMPLE",
+  "state": "SENT",
+  "launchMode": "NOW",
+  "launchDate": "2025-11-25T13:22:00Z",
+  "archived": null,
+  "created": "2025-11-20T02:22:50Z",
+  "lastModified": "2025-11-25T13:22:19Z",
+  "recipients": 597,
+  "thumbnail": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmgiiol8x25t40776fpmsjyeh_kzRCFh.png",
+  "metrics": {
+    "sent": 593,
+    "sentP": 99.0,
+    "bounced": 0,
+    "bouncedP": 0.0,
+    "opened": 211,
+    "openedP": 36.0,
+    "clicked": 1,
+    "clickedP": 0.17,
+    "conversions": 0,
+    "conversionsAmount": 0
+  },
+  "options": {
+    "GOOGLE_ANALYTICS": "0",
+    "RESEND_SUBJECT": "Servicios pensados para entornos que no pueden parar º Star ⭐ Union",
+    "LINK_VIEW_ONLINE": "https://online-versions-prod.s3.amazonaws.com/starunionsrl/starunionsrl_bulk_94/qrwttr_2e26a6",
+    "TRACK_LINKS": "1",
+    "SENDER_ID": "sen_cktp6v0fx056z0774k4jak5lh",
+    "UNLAYER_TPL_VALID": "1",
+    "VIEW_ONLINE": "1",
+    "PREHEADER": "",
+    "EXCLUDE_INACTIVE": "1",
+    "UNLAYER_THUMB": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmgiiol8x25t40776fpmsjyeh_kzRCFh.png",
+    "RESEND_RECIPIENTS": "NOT_OPENED",
+    "SHARE_TWITTER": "0",
+    "SHARE": "1",
+    "RESEND_ENABLED": "1",
+    "SHARE_FACEBOOK": "0",
+    "GA_CAMPAIGN_NAME": "Noviembre 2025 (reenvío)",
+    "RESEND_DELAY": "120",
+    "SHARE_LINKEDIN": "0",
+    "USE_FOOTER": "1",
+    "UNLAYER_TPL_ID": "tpl_cmi6t3p9k0gof09914qoh7mpo",
+    "SHARE_FORWARD": "0",
+    "USE_HEADER": "1"
+  },
+  "include": {
+    "campaigns": [
+      {
+        "id": 92,
+        "action": "NOT_OPENED",
+        "linkName": "",
+        "name": "Noviembre 2025"
+      }
+    ]
+  },
+  "exclude": {},
+  "ignoreLastMailedDays": 0,
+  "composerVersion": 2,
+  "contents": [
+    {
+      "id": 94,
+      "type": "HTML",
+      "subject": "Servicios pensados para entornos que no pueden parar º Star ⭐ Union",
+      "from": "cleany@starunion.com.ar",
+      "fromName": "Cleany | StarUnion",
+      "replyTo": "ventas@starunion.com.ar",
+      "replyToName": "",
+      "unsubscribeText": "Para dejar de recibir estos mensajes, haz click en el siguiente enlace:",
+      "preview": "https://api.myperfit.com/v2/shares/starunionsrl/campaigns/cd1c5a05706dcf8bc36a4ea83a00b0929dd38932c8ca5be05d260497a570aa04/94/contents/94/preview",
+      "thumbnail": "https://thmb.myperfit.com/15442/_cpg/94/thumb-94"
+    }
+  ]
+}

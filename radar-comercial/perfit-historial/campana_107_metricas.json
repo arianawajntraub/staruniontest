@@ -1,0 +1,76 @@
+{
+  "id": 107,
+  "name": "ISO",
+  "description": "ISO LANZAMIENTO",
+  "tags": [],
+  "type": "SMART",
+  "state": "SENT",
+  "launchMode": "NOW",
+  "launchDate": "2026-06-25T20:00:00Z",
+  "archived": null,
+  "created": "2026-04-06T21:38:13Z",
+  "lastModified": "2026-06-26T23:05:44Z",
+  "recipients": 1277,
+  "thumbnail": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmnnpp9403dxi09782ty9ducg_DHU20n.png",
+  "metrics": {
+    "sent": 1278,
+    "sentP": 100.0,
+    "bounced": 0,
+    "bouncedP": 0.0,
+    "opened": 805,
+    "openedP": 63.0,
+    "clicked": 8,
+    "clickedP": 0.63,
+    "conversions": 0,
+    "conversionsAmount": 0
+  },
+  "options": {
+    "GOOGLE_ANALYTICS": "0",
+    "LINK_VIEW_ONLINE": "https://online-versions-prod.s3.amazonaws.com/starunionsrl/starunionsrl_bulk_107/rwaoac_ea7924",
+    "TRACK_LINKS": "1",
+    "SENDER_ID": "sen_cktp6v0fx056z0774k4jak5lh",
+    "UNLAYER_TPL_VALID": "1",
+    "VIEW_ONLINE": "1",
+    "PREHEADER": "",
+    "EXCLUDE_INACTIVE": "1",
+    "JSON": "{\"from\":\"2026-06-25T17:00:00-03:00\",\"to\":\"2026-06-26T21:00:00-03:00\",\"fromTime\":\"17:00\",\"toTime\":\"21:00\",\"plusTime\":1}",
+    "UNLAYER_THUMB": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmnnpp9403dxi09782ty9ducg_DHU20n.png",
+    "SHARE_TWITTER": "0",
+    "SHARE": "1",
+    "SHARE_FACEBOOK": "0",
+    "GA_CAMPAIGN_NAME": "ISO",
+    "SHARE_LINKEDIN": "0",
+    "USE_FOOTER": "1",
+    "UNLAYER_TPL_ID": "tpl_cmnnpp9403dxi09782ty9ducg",
+    "SHARE_FORWARD": "0",
+    "USE_HEADER": "1"
+  },
+  "include": {
+    "lists": [
+      0
+    ],
+    "detailedLists": [
+      {
+        "id": 0,
+        "name": "i18n_masterlist"
+      }
+    ]
+  },
+  "exclude": {},
+  "ignoreLastMailedDays": 0,
+  "composerVersion": 2,
+  "contents": [
+    {
+      "id": 107,
+      "type": "HTML",
+      "subject": "Elevamos el estándar de tu servicio: Star Union certifica ISO 9001:2015",
+      "from": "cleany@starunion.com.ar",
+      "fromName": "Cleany | StarUnion",
+      "replyTo": "ventas@starunion.com.ar",
+      "replyToName": "",
+      "unsubscribeText": "Para dejar de recibir estos mensajes, haz click en el siguiente enlace:",
+      "preview": "https://api.myperfit.com/v2/shares/starunionsrl/campaigns/f34b795c70b4540bb10ed452bbb557940306592307256b70cd550d7f01f487d6/107/contents/107/preview",
+      "thumbnail": "https://thmb.myperfit.com/15442/_cpg/107/thumb-107"
+    }
+  ]
+}

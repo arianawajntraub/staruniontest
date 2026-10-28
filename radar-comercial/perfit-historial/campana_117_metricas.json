@@ -1,0 +1,81 @@
+{
+  "id": 117,
+  "name": "Septiembre 26 (reenvío)",
+  "description": "Soluciones técnicas y continuidad operativa para infraestructuras exigentes º Star ⭐ Union",
+  "tags": [
+    "Noticias genéricas",
+    "Novedades con CTAS"
+  ],
+  "type": "SIMPLE",
+  "state": "SENT",
+  "launchMode": "NOW",
+  "launchDate": "2026-09-23T16:56:59Z",
+  "archived": null,
+  "created": "2026-09-18T16:56:59Z",
+  "lastModified": "2026-09-23T16:57:05Z",
+  "recipients": 446,
+  "thumbnail": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmt0apljmbu710996eptw1aux_JPXhmB.png",
+  "metrics": {
+    "sent": 446,
+    "sentP": 100.0,
+    "bounced": 0,
+    "bouncedP": 0.0,
+    "opened": 237,
+    "openedP": 53.0,
+    "clicked": 109,
+    "clickedP": 24.0,
+    "conversions": 0,
+    "conversionsAmount": 0
+  },
+  "options": {
+    "GOOGLE_ANALYTICS": "0",
+    "RESEND_SUBJECT": "Empresa de Limpieza Profesional. Continuidad operativa para infraestructuras exigentes",
+    "LINK_VIEW_ONLINE": "https://online-versions-prod.s3.amazonaws.com/starunionsrl/starunionsrl_bulk_117/8jynky_12fa3e",
+    "TRACK_LINKS": "1",
+    "SENDER_ID": "sen_cktp6v0fx056z0774k4jak5lh",
+    "UNLAYER_TPL_VALID": "1",
+    "VIEW_ONLINE": "1",
+    "PREHEADER": "",
+    "EXCLUDE_INACTIVE": "1",
+    "UNLAYER_THUMB": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmt0apljmbu710996eptw1aux_JPXhmB.png",
+    "RESEND_RECIPIENTS": "NOT_OPENED",
+    "SHARE_TWITTER": "0",
+    "SHARE": "1",
+    "RESEND_ENABLED": "1",
+    "SHARE_FACEBOOK": "0",
+    "GA_CAMPAIGN_NAME": "Septiembre 26 (reenvío)",
+    "RESEND_DELAY": "120",
+    "SHARE_LINKEDIN": "0",
+    "USE_FOOTER": "1",
+    "UNLAYER_TPL_ID": "tpl_cmu77b4qpdqo60a043rix56aw",
+    "SHARE_FORWARD": "0",
+    "USE_HEADER": "1"
+  },
+  "include": {
+    "campaigns": [
+      {
+        "id": 114,
+        "action": "NOT_OPENED",
+        "linkName": "",
+        "name": "Septiembre 26"
+      }
+    ]
+  },
+  "exclude": {},
+  "ignoreLastMailedDays": 0,
+  "composerVersion": 2,
+  "contents": [
+    {
+      "id": 117,
+      "type": "HTML",
+      "subject": "Empresa de Limpieza Profesional. Continuidad operativa para infraestructuras exigentes",
+      "from": "cleany@starunion.com.ar",
+      "fromName": "Cleany | StarUnion",
+      "replyTo": "ventas@starunion.com.ar",
+      "replyToName": "",
+      "unsubscribeText": "Para dejar de recibir estos mensajes, haz click en el siguiente enlace:",
+      "preview": "https://api.myperfit.com/v2/shares/starunionsrl/campaigns/54fc18e1578740d1de14fe48ab49d673a9f3abe802d7e51ff6810fbc08aea82f/117/contents/117/preview",
+      "thumbnail": "https://thmb.myperfit.com/15442/_cpg/117/thumb-117"
+    }
+  ]
+}

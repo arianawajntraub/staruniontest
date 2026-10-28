@@ -1,0 +1,81 @@
+{
+  "id": 96,
+  "name": "Fiestas felices 2025-2026",
+  "description": "Felices Fiestas . El deseo y el compromiso de Star ⭐ Union.",
+  "tags": [
+    "Noticias genéricas",
+    "Novedades con CTAS"
+  ],
+  "type": "SIMPLE",
+  "state": "SENT",
+  "launchMode": "NOW",
+  "launchDate": "2025-12-23T18:09:00Z",
+  "archived": null,
+  "created": "2025-12-11T20:14:59Z",
+  "lastModified": "2025-12-23T18:09:10Z",
+  "recipients": 533,
+  "thumbnail": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmj1vndo01wcv0991jk728y28_qhEEyC.png",
+  "metrics": {
+    "sent": 527,
+    "sentP": 99.0,
+    "bounced": 7,
+    "bouncedP": 1.3,
+    "opened": 200,
+    "openedP": 38.0,
+    "clicked": 3,
+    "clickedP": 0.58,
+    "conversions": 0,
+    "conversionsAmount": 0
+  },
+  "options": {
+    "GOOGLE_ANALYTICS": "0",
+    "RESEND_SUBJECT": "Servicios pensados para entornos que no pueden parar º Star ⭐ Union",
+    "LINK_VIEW_ONLINE": "https://online-versions-prod.s3.amazonaws.com/starunionsrl/starunionsrl_bulk_96/eza4di_4e0fef",
+    "TRACK_LINKS": "1",
+    "SENDER_ID": "sen_cktp6v0fx056z0774k4jak5lh",
+    "UNLAYER_TPL_VALID": "1",
+    "VIEW_ONLINE": "1",
+    "PREHEADER": "",
+    "EXCLUDE_INACTIVE": "1",
+    "UNLAYER_THUMB": "https://thumbs.myperfit.net/starunionsrl/tpl/tpl_cmj1vndo01wcv0991jk728y28_qhEEyC.png",
+    "RESEND_RECIPIENTS": "NOT_OPENED",
+    "SHARE_TWITTER": "0",
+    "SHARE": "1",
+    "RESEND_ENABLED": "0",
+    "SHARE_FACEBOOK": "0",
+    "GA_CAMPAIGN_NAME": "Fiestas felices 2025-2026 TEST",
+    "RESEND_DELAY": "120",
+    "SHARE_LINKEDIN": "0",
+    "USE_FOOTER": "1",
+    "UNLAYER_TPL_ID": "tpl_cmj1vndo01wcv0991jk728y28",
+    "SHARE_FORWARD": "0",
+    "USE_HEADER": "1"
+  },
+  "include": {
+    "campaigns": [
+      {
+        "id": 92,
+        "action": "NOT_OPENED",
+        "linkName": "",
+        "name": "Noviembre 2025"
+      }
+    ]
+  },
+  "exclude": {},
+  "ignoreLastMailedDays": 0,
+  "composerVersion": 2,
+  "contents": [
+    {
+      "id": 96,
+      "type": "HTML",
+      "subject": "Felices Fiestas! Otro año impecable, juntos!",
+      "from": "cleany@starunion.com.ar",
+      "fromName": "Cleany | StarUnion",
+      "replyTo": "ventas@starunion.com.ar",
+      "replyToName": "",
+      "unsubscribeText": "Para dejar de recibir estos mensajes, haz click en el siguiente enlace:",
+      "preview": "https://api.myperfit.com/v2/shares/starunionsrl/campaigns/942add8bc0315e2d4e30d3e427ceb76241158285b08b23a961e4d01e092e22c0/96/contents/96/preview",
+      "thumbnail": "https://thmb.myperfit.com/15442/_cpg/96/thumb-96"
+    }
+  ]
+}

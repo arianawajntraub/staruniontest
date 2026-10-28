@@ -54,3 +54,35 @@ Todo el contexto estratégico y operativo rescatado del trabajo de Ariana para *
 - **Cómo se maneja:**
   1. **Bifurcador / Filtro antes del WhatsApp:** Separar en el clic del sitio a quien **solicita cotización para su Empresa** (único flujo comercial) de quien **busca empleo / quiere dejar CV** (desviado a RRHH sin disparar jamás conversión en Ads).
   2. **Higiene en Google Ads (para Mariel):** No inflar eventos clave falsos en una cuenta chica. Mantener tabla viva comparando **Negativas Actuales vs. Nuevas Negativas a Agregar** y optimizar únicamente por contactos corporativos verificables.
+
+## 6. 📱 Máquina de Redes Sociales B2B (Meta + LinkedIn + YouTube Shorts + Estados WhatsApp + Kit Canva/Adobe)
+- **Diagnóstico actual:** La cuenta venía saliendo "flat" (plana/institucional genérica) y hacerla a mano lleva horas.
+- **Prototipo previo obligatorio:** Antes de generar un lote de 10 o 15 publicaciones, **maquetar y mostrar primero 1 pack completo de muestra** (o las primeras 3 piezas de urgencia para mañana/esta semana) para validar estética antes de fabricar en lote.
+- **Qué debe entregar siempre el sistema de Redes en una Cabina HTML de 1 Clic (`/redes/` dentro del Linktree de Star Union):**
+  1. **Piezas Gráficas Listas para Subir + Kit Editables (Canva Pro / Adobe):**
+     - **Feed (`1080x1350` `.jpg`/`.png`)** para Instagram, Facebook y LinkedIn (estética Mauro: blanco dominante, fotos reales bien encuadradas de `su para AG` o del CDN de Perfit sin doble logo, cero azul/naranja).
+     - **Story y Estado de WhatsApp (`1080x1920` `.jpg`/`.png`)** listo para guardar en el teléfono o subir desde WhatsApp Web.
+     - **Video Vertical para YouTube Shorts / Reels (`1080x1920` `.mp4`)** generado con `imageio_ffmpeg` + `Pillow` (con movimiento suave, placas técnicas limpias y ritmo B2B) **+ CSV de "Crear en Lote" y SVG editable para Canva Pro / Adobe** por si Ariana quiere darle un toque final en 1 minuto.
+  2. **Copys Separados con Botón `📋 Copiar en 1 Clic` para cada Red (Cero arrastrar con el mouse):**
+     - **Copy Meta (Instagram + Facebook):** Tono corporativo ágil, foco en continuidad operativa y llamado a cotizar para empresas.
+     - **Copy LinkedIn (B2B Decisores / Gerentes de Planta y Compras):** Enfoque técnico en mitigación de riesgo, auditoría ISO 9001:2015 TÜV Rheinland, cuadrillas propias y maquinaria.
+     - **Bloque Completo de YouTube Shorts (4 cajitas separadas de 1 clic):**
+       1. `Título SEO del Short` (máx. 100 caracteres, gancho técnico + `#Shorts`).
+       2. `Descripción completa` (con palabras clave B2B, verticales, dirección Guaminí y link).
+       3. `Etiquetas / Tags separadas por coma` (listas para pegar de una sola vez en la casilla de etiquetas de YouTube Studio).
+       4. `Comentario Fijado` con link a cotización corporativa.
+  3. **Integración Directa con el Planificador de Contenido de Canva Pro / Programador de Adobe (y YouTube Studio para Shorts):**
+     - Ariana tiene **Canva Pro y Adobe pagos**, que incluyen sus propios **Calendarios / Planificadores oficiales conectados por API a Instagram, Facebook y LinkedIn**.
+     - Por eso, cada entrega de redes debe darle **los dos formatos listos a la vez**:
+       1. **Las piezas ya renderizadas (`.jpg` `1080x1350`, `.jpg` `1080x1920` y video `.mp4` `1080x1920`)** listas para subir directo al Calendario Programador de Canva/Adobe o a YouTube Studio (Shorts) y Estados de WhatsApp.
+       2. **El archivo `.CSV` de "Crear en lote" + `.SVG` editable** por si quiere generarlas o editarlas nativamente adentro de Canva Pro y programarlas desde el botón *"Planificar"* de Canva.
+
+## 7. 📧 Inteligencia Histórica de Perfit (Nov 2025 – Oct 2026) y Banco de Fotos Curadas (`assets/img/perfit-curadas/`)
+- **Historial Completo de 21 Campañas:** Guardado en `PERFIT_LINKS_HISTORICOS.md` y procesado en `radar-comercial/perfit-historial/RESUMEN_HISTORICO_PERFIT.md`.
+- **Qué tracciona más clics en los decisores B2B de Star Union:**
+  1. **Logística, Depósitos y Plantas Industriales:** Es el vertical #1 todo el año (#92 Nov con 220 clics, #110 Jul con 184 clics, #116/#119 Oct con 197 clics).
+  2. **Educación y Clubes en ventana estacional (Enero/Febrero y Septiembre):** #102 Febrero logró 208 clics únicos (15% CTR) con inicio del ciclo lectivo y temporada deportiva.
+  3. **Infraestructura física en Base Operativa (Taller Propio + Stock ANMAT) y Laboratorios/Salud:** #103 Marzo logró 172 clics en Taller Propio y 169 clics en Salud/Laboratorios.
+  4. **Validación TÜV Rheinland ISO 9001:2015 + Uniforme Oficial Bordado:** #110 Julio sumó 183 clics al compromiso de calidad y 182 clics al sello de Certipedia (`9000041847`).
+  5. **CTA Directo a WhatsApp (`📩 Hablemos hoy si querés una propuesta adaptada!`):** Generó 116 clics en el reenvío de Septiembre (#117) y 179 clics en Octubre (#116 + #119).
+- **Regla Visual del Banco Curado (`assets/img/perfit-curadas/`):** Usar siempre las 21 fotos limpias extraídas de Perfit (`perfit-industria-fregadora.jpg`, `perfit-logistica-pallets.jpg`, `perfit-planta-industrial.jpg`, `perfit-corporativo-oficinas.jpg`, `perfit-consorcios-cocheras.jpg`, `perfit-salud-laboratorio.jpg`, `perfit-salud-mesada.jpg`, `perfit-educacion-aula.jpg`, `perfit-educacion-lockers.jpg`, `perfit-clubes-parquet.jpg`, `perfit-altura-cuadrilla.jpg`, `perfit-shopping-escaleras.jpg`, `perfit-aeropuerto-hall.jpg`, `perfit-flota-utilitario.jpg`, `perfit-final-de-obra.jpg`, `perfit-espacios-verdes.jpg`, `perfit-taller-propio.jpg`, `perfit-uniforme-oficial.jpg`, `perfit-base-maquinas.jpg`, `perfit-base-insumos.jpg`), que no tienen doble logo ni zócalos de texto pegados ni cabezas cortadas.
