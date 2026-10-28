@@ -93,17 +93,6 @@
                         </div>
                     </label>
                 </div>
-
-                <div class="p-4 rounded-xl bg-gray-50 border border-gray-200 space-y-2">
-                    <div class="text-xs font-extrabold text-black">¿Qué pedidos querés que la web descarte o advierta automáticamente que NO cotizamos?</div>
-                    <div class="grid sm:grid-cols-2 gap-2 text-xs">
-                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Casas particulares / departamentos de vivienda" checked class="accent-[#03582d]"> Casas particulares / viviendas</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Limpieza por pocas horas sueltas (1 o 2 veces por semana)" checked class="accent-[#03582d]"> Pocas horas sueltas (1 o 2 veces por semana)</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Consorcios chicos (solo tomamos Torres Grandes / Edificios de Oficinas)" checked class="accent-[#03582d]"> Consorcios chicos de pocos pisos</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Limpieza de sillones, alfombras o eventos particulares" checked class="accent-[#03582d]"> Sillones, alfombras sueltas o fiestas/eventos</label>
-                    </div>
-                    <input type="text" name="corte_otro" placeholder="Si querés aclarar otra regla de filtro para el formulario web, escribila acá..." class="w-full border border-gray-300 bg-white rounded-lg px-3 py-2 text-xs focus:border-[#03582d] outline-none mt-2">
-                </div>
             </section>
 
             <!-- PREGUNTA 3: PLAZAS DEL INTERIOR Y CONTACTOS MÁS A MANO -->
@@ -278,8 +267,6 @@
                 "",
                 "2️⃣ *FILTRO UX EN EL FORMULARIO DE LA WEB:*",
                 "• Formato elegido para medir tamaño: " + (fd.get('ux_filtro_modo') || '-'),
-                "• Pedidos que descartamos/filtramos en la web: " + getChecked('ux_descarte'),
-                "• Aclaración adicional: " + (fd.get('corte_otro') || '-'),
                 "",
                 "3️⃣ *FOCO POR ZONA EN EL INTERIOR:*",
                 "• Bahía Blanca: " + getChecked('zona_bahia'),

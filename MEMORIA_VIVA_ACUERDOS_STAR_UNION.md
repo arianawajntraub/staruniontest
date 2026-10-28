@@ -45,7 +45,16 @@
 
 ---
 
-## 3. COLA DE EJECUCIÓN PASO A PASO (LO QUE VIENE APENAS LLEGUE LO DE MAURO Y TUS MAILINGS)
+## 3. CONDICIÓN OBLIGATORIA PREVIA PARA USAR EL "RADAR COMERCIAL B2B" (`/radar-comercial/index.html`) — EN ESPERA (NO ACTIVAR HASTA CUMPLIR LOS 3 PRERREQUISITOS)
+
+> **Directiva de Ariana (28/10/2026):** El módulo `/radar-comercial/index.html` queda reservado para revisarle los contenidos y activarlo **únicamente cuando estén cerrados estos 3 requisitos previos**:
+> 1. **Sitio Web 100% Cerrado y Publicado con URLs definitivas:** Para tener las URLs reales donde invitar a las personas que reciben los contactos.
+> 2. **Brochures 100% Listos y Corregidos (Online y en PDF):** Para que Comercial pueda enviarlos sin errores tanto en versión link online como en archivo PDF.
+> 3. **Lista de Clientes Actuales e Históricos Procesada y Cruzada ANTES:** Es obligatorio haber recibido y cruzado primero la lista de clientes de Star Union contra la base de clics de Perfit para **excluir a los clientes actuales** y jamás pasar el papelón de mandarle un mensaje de prospección en frío a una empresa que ya es cliente activa de Star Union.
+
+---
+
+## 4. COLA DE EJECUCIÓN PASO A PASO (LO QUE VIENE APENAS LLEGUE LO DE MAURO Y TUS MAILINGS)
 
 1. **Paso En Espera Inmediata:**
    - **Respuestas de Mauro en `/relevamiento-gerencia/`** (1. Ranking único 1° a 6°, 2. Corte mínimo de cuenta, 3. Rubros más fuertes en Bahía Blanca / Neuquén / Trelew, 4. **Lista de Clientes actuales e históricos**).

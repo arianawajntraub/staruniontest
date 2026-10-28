@@ -23,3 +23,4 @@
 
 ## 6. Memoria Viva de Acuerdos (Lectura Obligatoria)
 - Antes de tocar diseño, copy, Ads, Perfit o `llms.txt`, leer siempre `/Users/arianawajntraub/Documents/antigravity/star-union/MEMORIA_VIVA_ACUERDOS_STAR_UNION.md`.
+- **Bloqueo Operativo del Radar Comercial (`/radar-comercial/index.html`):** NO activar ni entregar para uso comercial hasta que estén cumplidos sus 3 prerrequisitos obligatorios: 1) Sitio Web 100% cerrado con URLs definitivas, 2) Brochures listos y corregidos (online y PDF), y 3) **Lista de Clientes actuales/históricos procesada y cruzada contra la base de clics de Perfit** para jamás enviar prospección en frío a clientes activos.
