@@ -37,9 +37,17 @@ Todo el contexto estratégico y operativo rescatado del trabajo de Ariana para *
 ## 4. 🤝 ICP B2B, Ventas, Mailing (Perfit) y Radar Comercial
 - **Regla Anti-Chicos:** **NO se buscan cuentas chicas, NO se hacen casas particulares ni consorcios pequeños.** Foco 100% en empresas, industrias, instituciones y edificios corporativos.
 - **Prohibiciones en Copy Público:** Jamás nombrar "post-paritaria" en público ni usar tono agresivo contra el proveedor actual del prospecto.
-- **Sistema de Mailing + Radar CSV:**
-  - Cadencia probada: Envío principal + **reenvío a los 5 días** a quienes tienen correo activo y no abrieron.
-  - Exportación del `.csv` de los primeros 100 clics (ej. `octubre-26-click.csv`) e ingesta directa en el **Radar Comercial** agrupando por **dominio de empresa** para accionar comercialmente sobre las empresas que estuvieron leyendo.
+- **Sistema de Mailing (Perfit) + Circuito Comercial "De Atrás hacia Adelante" (REGLA OBLIGATORIA):**
+  - **Cadencia probada:** Envío mensual principal + **reenvío a los 5 días** a quienes tienen correo activo y no abrieron (ej. Campaña #116 $\rightarrow$ Reenvío #119).
+  - **Por qué mirar siempre primero el historial de Perfit (links `/shares/...`):**
+    1. **Creatividad y Copy Real por Vertical:** En los mailings de Perfit están contenidas todas las verticales históricas (*Centros logísticos y depósitos, Plantas Industriales, Higiene en Salud y Laboratorios, Espacios Corporativos*) y la forma probada en que Star Union habla de cada una.
+    2. **Fotos Ya Editadas y Recortadas a Medida (`https://cdn.myperfit.net/...`):** Las fotos subidas a Perfit ya están seleccionadas, encuadradas y adaptadas a formato limpio (mientras que tirar fotos crudas de carpeta al sitio generó recortes malos o logos duplicados). **Siempre priorizar las fotos curadas de Perfit y Auditar cada recorte en el sitio para que jamás se vea un logo dos veces ni encuadres rotos.**
+    3. **Lectura de Métricas Reales:** Analizar qué botones y verticales traccionan más clics (ej. en Campaña #119: *Logística* 49 clics, *WhatsApp directo* 43 clics, *Sitio web* 42 clics) para entender qué funciona y qué falla.
+  - **Orden Estricto "De Atrás hacia Adelante" para Accionar Comercialmente los Clics:**
+    1. **Paso 1 — Formulario de Relevamiento Comercial/Gerencial a Mauro + Pedido de Excel de Clientes Actuales:** Antes de activar el contacto comercial sobre la lista de clics, Mauro debe recibir el formulario comercial donde se le pide el **Excel con el listado actual de Clientes Reales de Star Union**.
+    2. **Paso 2 — Extracción de `@dominios` de Clientes Reales:** Del Excel de Mauro se extraen todos los dominios corporativos (`@empresa.com`) que **ya son clientes activos**.
+    3. **Paso 3 — Cruce contra los CSV de Clics de Perfit (Últimos Envíos):** Como el link público `/shares/...` de Perfit muestra métricas y creatividad pero oculta las casillas individuales, se cruzan los **CSVs de contactos que hicieron clic** en las últimas campañas contra los dominios del Excel de Mauro.
+    4. **Paso 4 — Exclusión Automática de Clientes Actuales y Redefinición Comercial:** Se **excluyen obligatoriamente todos los dominios que ya son clientes de Star Union** (para jamás enviarle un correo de "queremos ser tu proveedor" a alguien que ya es cliente) y recién con la lista depurada se revisa a quién escribirle, qué vertical ofrecerle según dónde hizo clic y cómo encarar la actividad comercial.
 
 ## 5. 📈 Google Ads, GA4 y Solución al Dilema del WhatsApp Contaminado
 - **El problema real:** En crisis entran postulantes buscando empleo de limpieza y ensucian el WhatsApp Business y las redes.
