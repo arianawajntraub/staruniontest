@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Alineación Comercial Rápida (2 Minutos) | Dirección Star Union S.R.L.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #111827; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .check-card:has(input:checked) {
+            border-color: #03582d;
+            background-color: #f0fdf4;
+            box-shadow: 0 0 0 1px #03582d;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto space-y-6">
+
+        <!-- CABECERA -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 border-t-4 border-t-[#03582d] shadow-sm flex items-center justify-between gap-4">
+            <div>
+                <span class="inline-block bg-[#03582d]/10 text-[#03582d] text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                    Check Ejecutivo · 2 Minutos
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-black">Prioridades Comerciales Star Union 2026</h1>
+                <p class="text-sm text-gray-600 mt-1">
+                    Mauro: elegí los puestos de prioridad, las opciones del formulario web y las zonas. Al tocar el botón verde final, tus respuestas se envían directo a Ariana.
+                </p>
+            </div>
+            <img src="../assets/img/cleany-hd.png" alt="Cleany" class="h-20 w-auto object-contain hidden sm:block shrink-0">
+        </div>
+
+        <form id="mauro-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+
+            <!-- PREGUNTA 1: SELECTORES 1° A N° CON INTERCAMBIO AUTOMÁTICO (IMPOSIBLE REPETIR) + AGREGAR VERTICAL -->
+            <section class="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-sm space-y-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase text-[#03582d]">Punto 1 · Ranking Comercial (Sin números repetidos + Sumar Vertical)</span>
+                    <h2 class="text-lg font-extrabold text-black mt-0.5">1. ¿En qué orden de prioridad querés que entren presupuestos hoy?</h2>
+                    <p class="text-xs text-gray-500 mt-0.5">
+                        Elegí el número de prioridad en cada desplegable. <strong>Si elegís un número que ya estaba usado, el sistema intercambia el puesto automáticamente para que nunca queden dos iguales.</strong> Abajo podés agregar otra vertical si falta alguna.
+                    </p>
+                </div>
+
+                <div id="ranking-rows" class="space-y-2.5 text-sm"></div>
+
+                <!-- AGREGAR NUEVA VERTICAL -->
+                <div class="pt-3 border-t border-gray-100">
+                    <label class="block text-xs font-bold text-gray-800 mb-1.5">➕ ¿Querés agregar otra vertical o rubro que no esté arriba?</label>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="text" id="new-vertical-input" placeholder="Ej: Supermercados / Centros Logísticos / Laboratorios..." class="flex-1 border border-gray-300 rounded-xl px-3.5 py-2.5 text-sm focus:border-[#03582d] outline-none">
+                        <button type="button" onclick="addCustomVertical()" class="bg-[#133522] hover:bg-[#03582d] text-white font-bold text-xs px-4 py-2.5 rounded-xl transition cursor-pointer shrink-0">
+                            + Agregar al Ranking
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREGUNTA 2: TRADUCIDO DIRECTO A UX DEL FORMULARIO WEB -->
+            <section class="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-sm space-y-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase text-[#03582d]">Punto 2 · Desplegable del Formulario Web (Para filtrar cuentas chicas)</span>
+                    <h2 class="text-lg font-extrabold text-black mt-0.5">2. En el formulario de cotización de la web, ¿qué opciones ponemos para saber el tamaño del cliente antes de llamarlo?</h2>
+                    <p class="text-xs text-gray-500 mt-0.5">Elegí cómo preferís que le preguntemos el tamaño en la pantalla de cotización:</p>
+                </div>
+
+                <div class="space-y-2.5 text-sm">
+                    <label class="check-card flex items-start gap-3 p-4 rounded-xl border border-gray-200 cursor-pointer transition">
+                        <input type="radio" name="ux_filtro_modo" value="Por Cantidad Estimada de Operarios / Frecuencia (Opción recomendada)" checked class="mt-1 accent-[#03582d]">
+                        <div>
+                            <div class="font-bold text-black">Opción A: Preguntar "Dotación / Frecuencia estimada" en un desplegable</div>
+                            <p class="text-xs text-gray-600 mt-0.5">El cliente elige entre: <code>1 a 2 operarios fijos</code> · <code>3 a 5 operarios</code> · <code>Más de 5 operarios / Planta completa</code> · <code>Servicio puntual (Vidrios en Altura / Final de Obra)</code>.</p>
+                        </div>
+                    </label>
+
+                    <label class="check-card flex items-start gap-3 p-4 rounded-xl border border-gray-200 cursor-pointer transition">
+                        <input type="radio" name="ux_filtro_modo" value="Por Superficie aproximada en m² del lugar" class="mt-1 accent-[#03582d]">
+                        <div>
+                            <div class="font-bold text-black">Opción B: Preguntar "Superficie aproximada a limpiar (m²)"</div>
+                            <p class="text-xs text-gray-600 mt-0.5">El cliente elige entre: <code>Hasta 500 m²</code> · <code>500 a 2.000 m²</code> · <code>Más de 2.000 m² / Gran Superficie</code>.</p>
+                        </div>
+                    </label>
+
+                    <label class="check-card flex items-start gap-3 p-4 rounded-xl border border-gray-200 cursor-pointer transition">
+                        <input type="radio" name="ux_filtro_modo" value="Ambas preguntas (Superficie m² + Frecuencia/Operarios)" class="mt-1 accent-[#03582d]">
+                        <div>
+                            <div class="font-bold text-black">Opción C: Poner los dos desplegables en el formulario (Superficie m² + Cantidad de días/operarios)</div>
+                            <p class="text-xs text-gray-600 mt-0.5">Nos da la ficha técnica completa antes de que Comercial levante el teléfono.</p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="p-4 rounded-xl bg-gray-50 border border-gray-200 space-y-2">
+                    <div class="text-xs font-extrabold text-black">¿Qué pedidos querés que la web descarte o advierta automáticamente que NO cotizamos?</div>
+                    <div class="grid sm:grid-cols-2 gap-2 text-xs">
+                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Casas particulares / departamentos de vivienda" checked class="accent-[#03582d]"> Casas particulares / viviendas</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Limpieza por pocas horas sueltas (1 o 2 veces por semana)" checked class="accent-[#03582d]"> Pocas horas sueltas (1 o 2 veces por semana)</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Consorcios chicos (solo tomamos Torres Grandes / Edificios de Oficinas)" checked class="accent-[#03582d]"> Consorcios chicos de pocos pisos</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="ux_descarte" value="Limpieza de sillones, alfombras o eventos particulares" checked class="accent-[#03582d]"> Sillones, alfombras sueltas o fiestas/eventos</label>
+                    </div>
+                    <input type="text" name="corte_otro" placeholder="Si querés aclarar otra regla de filtro para el formulario web, escribila acá..." class="w-full border border-gray-300 bg-white rounded-lg px-3 py-2 text-xs focus:border-[#03582d] outline-none mt-2">
+                </div>
+            </section>
+
+            <!-- PREGUNTA 3: PLAZAS DEL INTERIOR Y CONTACTOS MÁS A MANO -->
+            <section class="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-sm space-y-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase text-[#03582d]">Punto 3 · Plazas del Interior (Bahía Blanca, Neuquén, Trelew)</span>
+                    <h2 class="text-lg font-extrabold text-black mt-0.5">3. En las sedes del interior: ¿qué rubros tenemos más a mano o con mejores referencias para salir a buscar hoy?</h2>
+                </div>
+
+                <div class="space-y-3 text-sm">
+                    <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-200 space-y-2">
+                        <div class="font-bold text-black">📍 Bahía Blanca:</div>
+                        <div class="flex flex-wrap gap-3 text-xs">
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_bahia" value="Polo Petroquímico / Plantas" checked class="accent-[#03582d]"> Polo Petroquímico / Industrias</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_bahia" value="Logística / Puerto / Depósitos" checked class="accent-[#03582d]"> Logística / Puerto / Depósitos</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_bahia" value="Bancos / Oficinas / Sucursales" class="accent-[#03582d]"> Bancos / Sucursales</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_bahia" value="Clínicas / Salud" class="accent-[#03582d]"> Clínicas / Salud</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_bahia" value="Supermercados / Concesionarios" class="accent-[#03582d]"> Grandes Superficies / Concesionarios</label>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-200 space-y-2">
+                        <div class="font-bold text-black">📍 Neuquén:</div>
+                        <div class="flex flex-wrap gap-3 text-xs">
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_neuquen" value="Bases Petroleras / Oil & Gas" checked class="accent-[#03582d]"> Bases Petroleras / Oil & Gas</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_neuquen" value="Parque Industrial / Logística" checked class="accent-[#03582d]"> Parque Industrial / Logística</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_neuquen" value="Clínicas y Sanatorios" class="accent-[#03582d]"> Clínicas y Sanatorios</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_neuquen" value="Bancos y Oficinas" class="accent-[#03582d]"> Bancos y Oficinas</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_neuquen" value="Concesionarios / Retail" class="accent-[#03582d]"> Concesionarios / Centros Comerciales</label>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-200 space-y-2">
+                        <div class="font-bold text-black">📍 Trelew / Patagonia:</div>
+                        <div class="flex flex-wrap gap-3 text-xs">
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_trelew" value="Hospitales / Clínicas / Salud" checked class="accent-[#03582d]"> Hospitales / Clínicas (Ref. Hospital Trelew)</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_trelew" value="Plantas Industriales / Logística" checked class="accent-[#03582d]"> Plantas Industriales / Logística</label>
+                            <label class="flex items-center gap-1.5"><input type="checkbox" name="zona_trelew" value="Organismos Oficiales y Bancos" class="accent-[#03582d]"> Organismos Oficiales y Bancos</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">¿Alguna otra zona o empresa puntual que tengan en la mira?</label>
+                        <input type="text" name="zona_notas" placeholder="Escribí acá si querés sumar alguna ciudad o cuenta..." class="w-full border border-gray-300 rounded-lg px-3.5 py-2 text-sm focus:border-[#03582d] outline-none">
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREGUNTA 4: LISTADO DE CLIENTES ACTUALES E HISTÓRICOS -->
+            <section class="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-sm space-y-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase text-[#03582d]">Punto 4 · Lista de Clientes (Para cruzar con Mailing Perfit)</span>
+                    <h2 class="text-lg font-extrabold text-black mt-0.5">4. Listado de Clientes Actuales e Históricos Relevantes</h2>
+                    <p class="text-xs text-gray-500 mt-0.5">
+                        Pegá acá la lista de clientes (o el link al Excel/Drive), o adjuntáselo a Ariana por WhatsApp al tocar el botón de abajo:
+                    </p>
+                </div>
+
+                <textarea name="lista_clientes" rows="3" placeholder="Pegá acá los clientes / link de Drive, o mandale el Excel por WhatsApp a Ariana..." class="w-full border border-gray-300 rounded-xl p-3.5 text-sm focus:border-[#03582d] outline-none"></textarea>
+            </section>
+
+            <!-- BOTONES DE ENVÍO DIRECTO (WHATSAPP + EMAIL) -->
+            <div class="bg-white rounded-2xl p-6 border-2 border-[#03582d] shadow-md space-y-3">
+                <div class="text-xs font-bold uppercase text-[#03582d]">Enviar respuestas a Ariana</div>
+                <p class="text-xs text-gray-600">Al tocar cualquiera de los dos botones, se envía el resumen completo directo a Ariana:</p>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <button type="submit" data-mode="whatsapp" class="w-full bg-[#03582d] hover:bg-[#024121] text-white font-extrabold text-sm py-4 px-5 rounded-xl shadow transition cursor-pointer flex items-center justify-center gap-2">
+                        <span>📲 Enviar Respuestas por WhatsApp a Ariana</span>
+                    </button>
+                    <button type="submit" data-mode="email" class="w-full bg-gray-900 hover:bg-black text-white font-extrabold text-sm py-4 px-5 rounded-xl shadow transition cursor-pointer flex items-center justify-center gap-2">
+                        <span>✉️ Enviar Respuestas por Email a Ariana</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- CAJA DE RESULTADO COPIABLE -->
+        <div id="result-box" class="hidden bg-emerald-50 border-2 border-[#03582d] rounded-2xl p-6 space-y-3">
+            <h3 class="font-extrabold text-base text-[#03582d]">¡Listo! También quedó copiado en tu portapapeles:</h3>
+            <pre id="result-text" class="bg-white p-4 rounded-xl border border-gray-200 text-xs whitespace-pre-wrap font-mono text-gray-800"></pre>
+        </div>
+
+    </div>
+
+    <script>
+        let verticals = [
+            { name: "🏭 Plantas Industriales, Fábricas y Centros Logísticos", rank: 1 },
+            { name: "🏢 Edificios Corporativos de Oficinas, Bancos y Sedes", rank: 2 },
+            { name: "🏥 Clínicas, Sanatorios, Hospitales y Laboratorios", rank: 3 },
+            { name: "🧗‍♂️ Servicios Especiales (Vidrios en Altura / Final de Obra / Parques)", rank: 4 },
+            { name: "🎓 Universidades, Colegios Bilingües y Clubes Deportivos", rank: 5 },
+            { name: "🏙️ Consorcios de Vivienda / Torres Grandes", rank: 6 }
+        ];
+
+        function renderRankingRows() {
+            // Ordenamos visualmente por rank 1..N para que siempre se vea limpio y lógico
+            verticals.sort((a, b) => a.rank - b.rank);
+            const total = verticals.length;
+            const container = document.getElementById('ranking-rows');
+
+            container.innerHTML = verticals.map((item, idx) => {
+                let optionsHtml = '';
+                for (let r = 1; r <= total; r++) {
+                    const selected = (r === item.rank) ? 'selected' : '';
+                    optionsHtml += `<option value="${r}" ${selected}>Prioridad ${r}°</option>`;
+                }
+                return `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3.5 rounded-xl bg-gray-50 border border-gray-200">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-[#03582d] text-white font-extrabold text-sm flex items-center justify-center shrink-0">
+                                ${item.rank}°
+                            </span>
+                            <span class="font-semibold text-gray-900">${item.name}</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <select onchange="changeRank(${idx}, this.value)" class="border-2 border-[#03582d] bg-white text-black font-bold text-xs rounded-lg px-3 py-2 cursor-pointer outline-none">
+                                ${optionsHtml}
+                            </select>
+                            ${idx >= 6 ? `<button type="button" onclick="removeVertical(${idx})" class="text-xs text-red-600 font-bold px-2 py-1 hover:underline">Quitar</button>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function changeRank(itemIndex, newRankValue) {
+            const newRank = parseInt(newRankValue, 10);
+            const oldRank = verticals[itemIndex].rank;
+            if (newRank === oldRank) return;
+
+            // Si otra vertical tenía ese número, intercambian lugares automáticamente (nunca hay repetidos)
+            const otherItem = verticals.find((v, i) => i !== itemIndex && v.rank === newRank);
+            if (otherItem) {
+                otherItem.rank = oldRank;
+            }
+            verticals[itemIndex].rank = newRank;
+            renderRankingRows();
+        }
+
+        function addCustomVertical() {
+            const input = document.getElementById('new-vertical-input');
+            const val = input.value.trim();
+            if (!val) return;
+            const nextRank = verticals.length + 1;
+            verticals.push({ name: "➕ " + val, rank: nextRank });
+            input.value = '';
+            renderRankingRows();
+        }
+
+        function removeVertical(idx) {
+            verticals.splice(idx, 1);
+            verticals.forEach((v, i) => { v.rank = i + 1; });
+            renderRankingRows();
+        }
+
+        renderRankingRows();
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const mode = e.submitter ? e.submitter.getAttribute('data-mode') : 'whatsapp';
+            const fd = new FormData(e.target);
+            const getChecked = (name) => fd.getAll(name).join(', ') || 'Sin marcar';
+
+            const sorted = [...verticals].sort((a, b) => a.rank - b.rank);
+            const rankingLines = sorted.map(it => `${it.rank}° ${it.name}`).join('\n');
+
+            const summary = [
+                "📋 *RESPUESTAS DE ALINEACIÓN COMERCIAL — STAR UNION*",
+                "",
+                "1️⃣ *RANKING DE PRIORIDAD COMERCIAL:*",
+                rankingLines,
+                "",
+                "2️⃣ *FILTRO UX EN EL FORMULARIO DE LA WEB:*",
+                "• Formato elegido para medir tamaño: " + (fd.get('ux_filtro_modo') || '-'),
+                "• Pedidos que descartamos/filtramos en la web: " + getChecked('ux_descarte'),
+                "• Aclaración adicional: " + (fd.get('corte_otro') || '-'),
+                "",
+                "3️⃣ *FOCO POR ZONA EN EL INTERIOR:*",
+                "• Bahía Blanca: " + getChecked('zona_bahia'),
+                "• Neuquén: " + getChecked('zona_neuquen'),
+                "• Trelew / Patagonia: " + getChecked('zona_trelew'),
+                "• Notas de zona/contactos: " + (fd.get('zona_notas') || '-'),
+                "",
+                "4️⃣ *LISTA DE CLIENTES:*",
+                fd.get('lista_clientes') || 'Se envía archivo por separado'
+            ].join('\n');
+
+            document.getElementById('result-text').textContent = summary;
+            document.getElementById('result-box').classList.remove('hidden');
+            navigator.clipboard.writeText(summary).catch(() => {});
+
+            if (mode === 'email') {
+                window.location.href = `mailto:ariana@starunionservicios.com.ar?subject=${encodeURIComponent('Respuestas Prioridades Comerciales Star Union')}&body=${encodeURIComponent(summary)}`;
+            } else {
+                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(summary)}`, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>

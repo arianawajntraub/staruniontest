@@ -19,3 +19,7 @@
 ## 3. CANDADO VISUAL Y DE MASCOTA (`CLEANY`)
 - **Paleta Oficial:** Verde Star Union `#03582d` / `#006B3F`, Verde Oscuro `#024121` / `#133522`, Amarillo Acento `#ffcc29` / `#FFD100`, Gris Neutro `#676b67`.
 - **Cleany Original en SVG por Partes:** Usar siempre los vectores originales de la ilustradora en `C_A Material Gráfico SU/Cleany/PARTES CLEANY/ASSETS CLEANY 1/SVG/` (`cara.svg`, `gorra.svg`, `CUERPO.svg`, `brazo1.svg`, `brazo2.svg`, `guantes.svg`, `borcegos1.svg`) y `CLEANY CORAZON/SVG/Asset 1.svg` antes que deformaciones por IA genérica.
+
+
+## 6. Memoria Viva de Acuerdos (Lectura Obligatoria)
+- Antes de tocar diseño, copy, Ads, Perfit o `llms.txt`, leer siempre `/Users/arianawajntraub/Documents/antigravity/star-union/MEMORIA_VIVA_ACUERDOS_STAR_UNION.md`.
