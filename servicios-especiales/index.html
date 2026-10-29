@@ -119,10 +119,10 @@
     <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
             <a href="../index.html" class="flex items-center gap-3 shrink-0" aria-label="Star Union S.R.L. - Inicio">
-                <img src="../logo-horizontal-1200x300.png" alt="Star Union Servicios Integrales de Limpieza" class="h-11 sm:h-12 w-auto object-contain">
+                <img src="../assets/img/logo-star-union.png?v=20261028" alt="Star Union Servicios Integrales de Limpieza" class="h-11 sm:h-12 w-auto object-contain">
             </a>
 
-            <nav class="hidden lg:flex items-center gap-6 text-sm">
+            <nav class="hidden xl:flex items-center gap-6 text-sm whitespace-nowrap">
                 <a href="../index.html" class="text-[#000000] hover:text-brand font-semibold transition">Inicio</a>
 
                 <!-- DESPLEGABLE DÓNDE LIMPIAMOS (LAS 7 VERTICALES) -->
@@ -165,10 +165,37 @@
                 <a href="../la-empresa/index.html" class="text-[#000000] hover:text-brand font-semibold transition">La Empresa (Base 800 m²)</a>
             </nav>
 
-            <div class="flex items-center gap-3">
-                <a href="#contacto" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg shadow-sm transition">
+            <div class="flex items-center gap-2.5 shrink-0">
+                <a href="#contacto" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm transition whitespace-nowrap">
                     Cotizá hoy
                 </a>
+                <button type="button" onclick="var d=document.getElementById('mobile-nav-drawer');if(d){d.classList.toggle('hidden');}" aria-label="Abrir menú de navegación" class="xl:hidden inline-flex items-center justify-center p-2.5 rounded-lg border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- MENÚ DESPLEGABLE MOBILE / TABLET (< 1280px) -->
+        <div id="mobile-nav-drawer" class="hidden xl:hidden border-t border-gray-200 bg-white px-4 sm:px-6 py-5 shadow-xl">
+            <div class="max-w-7xl mx-auto space-y-4">
+                <div class="flex flex-wrap gap-2 pb-3 border-b border-gray-100">
+                    <a href="../index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Inicio</a>
+                    <a href="../limpieza-en-altura/index.html" class="px-3.5 py-2 rounded-lg bg-brand/10 text-sm font-bold text-brand transition">★ Limpieza en Altura</a>
+                    <a href="../certificacion-iso/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Calidad ISO 9001</a>
+                    <a href="../la-empresa/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">La Empresa (Base 800 m²)</a>
+                    <a href="../dossier/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Dossier Ejecutivo</a>
+                </div>
+                <div>
+                    <div class="text-[11px] font-extrabold uppercase tracking-wider text-brand mb-2.5">Dónde Limpiamos (Verticales B2B)</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-[#000000]">
+                        <a href="../limpieza-industrial/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition">🏭 Industrias, Fábricas y Logística</a>
+                        <a href="../limpieza-en-altura/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition">🧗‍♂️ Vidrios y Trabajos en Altura (ARAA)</a>
+                        <a href="../consorcios/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition">🏢 Edificios de Oficinas y Consorcios</a>
+                        <a href="../clinicas-y-hospitales/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition">🏥 Clínicas, Hospitales y Laboratorios</a>
+                        <a href="../universidades-y-clubes/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition">🎓 Universidades, Colegios y Clubes</a>
+                        <a href="../grandes-superficies/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition">✈️ Aeropuertos, Shoppings y Concesionarios</a>
+                        <a href="../servicios-especiales/index.html" class="p-2.5 rounded-lg border border-gray-200 hover:border-brand hover:text-brand bg-gray-50/70 transition sm:col-span-2">🚜 Final de Obra, Espacios Verdes y Plagas</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -188,8 +215,8 @@
         <!-- HERO AIREADO EN BLANCO PURO (MISMA ESTRUCTURA QUE LIMPIEZA EN ALTURA E ISO) -->
         <section class="bg-white py-12 lg:py-16 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7">
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-center">
+                    <div class="xl:col-span-7">
                         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/5 border border-brand/15 text-brand text-xs font-semibold uppercase tracking-wider mb-5">
                             <span>★ Cuadrillas Móviles · Maquinaria Pesada · Entrega Llave en Mano</span>
                         </div>
@@ -230,9 +257,9 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-5 space-y-3">
+                    <div class="xl:col-span-5 space-y-3">
                         <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
-                            <div class="aspect-[1200/628] w-full overflow-hidden bg-gray-100"><img src="../assets/img/vertical-servicios-especiales.png" alt="Limpieza de Final de Obra, Espacios Verdes y Predios Star Union" class="w-full h-full object-cover"></div>
+                            <div class="aspect-[1200/628] w-full overflow-hidden bg-gray-100"><img src="../assets/img/vertical-servicios-especiales.png?v=20261028" alt="Limpieza de Final de Obra, Espacios Verdes y Predios Star Union" class="w-full h-full object-cover"></div>
                             <div class="px-4 py-2.5 bg-white text-xs font-medium text-[#676b67] border-t border-gray-100">
                                 Acondicionamiento intensivo post-construcción y mantenimiento de predios industriales
                             </div>
@@ -268,7 +295,7 @@
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                     
                     <div class="bg-white rounded-2xl p-7 border border-gray-200/80 border-t-4 border-t-brand shadow-sm hover:shadow-md transition">
                         <div class="w-9 h-9 rounded-lg bg-brand/10 text-brand font-extrabold text-sm flex items-center justify-center mb-4">01</div>
@@ -372,7 +399,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
                 <div class="lg:col-span-5 space-y-4">
                     <a href="../index.html" class="inline-block">
-                        <img src="../logo-footer-blanco.png" alt="Star Union S.R.L." class="h-12 w-auto object-contain">
+                        <img src="../assets/img/logo-footer-blanco.png?v=20261028" alt="Star Union S.R.L." class="h-12 w-auto object-contain">
                     </a>
                     <p class="text-white/80 text-xs leading-relaxed max-w-md">
                         <strong class="text-white">Star Union S.R.L.</strong> · Empresa de limpieza profesional corporativa, industrial e institucional certificada bajo Norma <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=starunion_web&utm_medium=footer_iso_link&utm_campaign=servicios_especiales" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','click_iso_certipedia',{source_page:'servicios-especiales_footer'});}" class="text-white font-bold underline decoration-white/60 hover:decoration-white transition">ISO 9001:2015 por TÜV Rheinland (ID 9000041847) ↗</a>.
