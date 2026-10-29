@@ -186,9 +186,30 @@
   }
   .top-header .iso-text strong {
     color: #03582d;
-    display: block;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
     font-size: 10.2px;
+    font-weight: 700;
+  }
+  .iso-highlight {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.2px;
     font-weight: 800;
+    color: #03582d;
+    letter-spacing: 0.02em;
+    background: #e8f5ee;
+    border: 1px solid #86efac;
+    padding: 0.5px 6px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .iso-inline-em {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.14em;
+    font-weight: 800;
+    color: #03582d;
+    letter-spacing: 0.015em;
   }
   .top-header .iso-text .verify-link {
     color: #03582d;
@@ -199,20 +220,29 @@
   /* HERO AIREADO EN BLANCO */
   .hero-band {
     background: #ffffff;
-    padding: 13px 26px 11px 26px;
+    padding: 12px 26px 11px 26px;
     border-top: 4px solid #03582d;
     border-bottom: 1px solid #e5e7eb;
   }
   .hero-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: #f0fdf4;
     border: 1px solid #bbf7d0;
-    color: #03582d;
+    color: #1f2937;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 600;
     padding: 3.5px 10px;
     border-radius: 6px;
     margin-bottom: 6px;
+  }
+  .hero-badge .iso-badge-strong {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #03582d;
+    letter-spacing: 0.02em;
   }
   .hero-band h1 {
     font-size: 22px;
@@ -283,13 +313,16 @@
     display: block;
   }
   .photo-caption {
-    padding: 6px 10px;
-    font-size: 9.6px;
+    padding: 7.5px 9px;
+    font-size: 10.9px;
     font-weight: 600;
     color: #111827;
     background: #f9fafb;
     border-top: 1px solid #e5e7eb;
-    line-height: 1.32;
+    line-height: 1.38;
+    flex: 1;
+    display: flex;
+    align-items: center;
   }
 
   /* SECCIÓN 6 PILARES PÁGINA 1 (CERO AIRE VACÍO, TIPOGRAFÍA GRANDE Y ESPECIFICACIÓN TÉCNICA) */
@@ -582,18 +615,21 @@
 </head>
 <body class="editable-mode">
 
-<!-- BARRA INTERACTIVA DE EDICIÓN DE TEXTOS (SE OCULTA AUTOMÁTICAMENTE AL IMPRIMIR/GUARDAR PDF) -->
+<!-- BARRA INTERACTIVA DE EDICIÓN DE TEXTOS Y FORMA (SE OCULTA AUTOMÁTICAMENTE AL IMPRIMIR/GUARDAR PDF) -->
 <div class="editor-toolbar no-print">
   <div class="toolbar-title">
-    <span class="toolbar-badge">Muestra maestra validada</span>
-    <span>Hacé clic sobre cualquier texto para editarlo</span>
-    <span class="toolbar-utm" title="Todos los links del PDF llevan parámetros UTM y código de referencia en WhatsApp">🔗 Huella UTM activa: brochure_fabricas_industrias</span>
+    <span class="toolbar-badge">Muestra maestra</span>
+    <span>Clic en cualquier texto para editar letra o forma:</span>
   </div>
   <div class="toolbar-actions">
-    <button class="btn-tool" onclick="undoLastChange()" title="Deshacer el último cambio de texto">↩️ Deshacer</button>
-    <button class="btn-tool" onclick="resetOriginalContent()" title="Volver al texto original">🔄 Reiniciar original</button>
-    <button class="btn-tool" id="btn-preview-toggle" onclick="toggleCleanPreview()">👁️ Vista previa limpia</button>
-    <button class="btn-export" onclick="window.print()">🖨️ Guardar como PDF A4</button>
+    <button class="btn-tool" onmousedown="event.preventDefault(); adjustFontSize(0.4)" title="Agrandar letra del bloque seleccionado">A+</button>
+    <button class="btn-tool" onmousedown="event.preventDefault(); adjustFontSize(-0.4)" title="Achicar letra del bloque seleccionado">A-</button>
+    <button class="btn-tool" onmousedown="event.preventDefault(); adjustTracking(0.008)" title="Abrir interletrado (tracking) para ocupar más ancho">↔+ Interletrado</button>
+    <button class="btn-tool" onmousedown="event.preventDefault(); adjustTracking(-0.008)" title="Cerrar interletrado">↔-</button>
+    <button class="btn-tool" onclick="undoLastChange()" title="Deshacer el último cambio">↩️</button>
+    <button class="btn-tool" onclick="resetOriginalContent()" title="Volver al original">🔄</button>
+    <button class="btn-tool" id="btn-copy-changes" onclick="copyChangesForAgent()" title="Copia tus cambios de texto y forma para pegarlos en el chat y que queden grabados fijo">📋 Copiar mis cambios</button>
+    <button class="btn-export" onclick="window.print()">🖨️ Guardar PDF A4</button>
   </div>
 </div>
 
@@ -609,17 +645,17 @@
         <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
       </a>
       <div class="iso-text">
-        <strong>Sistema de gestión certificado ISO 9001:2015</strong>
-        TÜV Rheinland · Certipedia ID <a class="verify-link" href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=qr_tuv&utm_campaign=brochure_fabricas_industrias" target="_blank">9000041847 ↗</a> · Reg. 01 100 062529826
+        <strong>Certificación de calidad <span class="iso-highlight">ISO 9001:2015</span></strong>
+        Auditada por TÜV Rheinland · ID <a class="verify-link" href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=qr_tuv&utm_campaign=brochure_fabricas_industrias" target="_blank">9000041847 ↗</a> · Reg. 01 100 062529826
       </div>
       <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
     </div>
   </div>
 
   <div class="hero-band">
-    <div class="hero-badge">Higiene industrial certificada · ISO 9001:2015 TÜV Rheinland · desde 2001</div>
+    <div class="hero-badge">Higiene industrial certificada · <span class="iso-badge-strong">ISO 9001:2015</span> · trayectoria desde 2001</div>
     <h1>Limpieza de fábricas, plantas industriales y centros logísticos</h1>
-    <p class="subtitle">Protocolos auditados por TÜV Rheinland para zonas productivas y no productivas. Desengrase mecanizado de pisos industriales, líneas de manufactura, depósitos de gran altura, vestuarios masivos y comedores de planta sin interrumpir el ritmo productivo.</p>
+    <p class="subtitle">Protocolos certificados bajo norma <strong class="iso-inline-em">ISO 9001:2015</strong> para zonas productivas y no productivas. Desengrase mecanizado de pisos industriales, líneas de manufactura, depósitos de gran altura, vestuarios masivos y comedores de planta sin interrumpir el ritmo productivo.</p>
   </div>
 
   <div class="kpi-strip">
@@ -644,27 +680,27 @@
   <div class="photo-trio">
     <div class="photo-card">
       <img src="../img/p1-industria-playa-hd.jpg" alt="Barrido mecanizado con barredora aspiradora en playa logística">
-      <div class="photo-caption">Barrido aspirado en playas de maniobras, dársenas de carga y acopio de pallets</div>
+      <div class="photo-caption" style="font-size: 10.6px; letter-spacing: 0.032em; word-spacing: 0.02em;">Barrido aspirado en playas de maniobras, dársenas de carga y sectores de pallets</div>
     </div>
     <div class="photo-card">
       <img src="../img/p1-industria-fregadora-20b-hd.jpg" alt="Fregadora automática a batería Convertamatic 20B en depósito industrial">
-      <div class="photo-caption">Fregado mecanizado con lavadora a batería Convertamatic 20B en pasillos de racks</div>
+      <div class="photo-caption" style="font-size: 10.9px; letter-spacing: 0.048em; word-spacing: 0.035em;">Fregado con Convertamatic 20B a batería en pasillos entre racks</div>
     </div>
     <div class="photo-card">
       <img src="../img/p1-industria-hombre-a-bordo-hd.jpg" alt="Fregadora hombre a bordo Electrolux Euroclean Star Union para grandes naves">
-      <div class="photo-caption">Flota propia de fregadoras hombre a bordo para grandes superficies industriales</div>
+      <div class="photo-caption" style="font-size: 11.15px; letter-spacing: 0.056em; word-spacing: 0.04em;">Flota propia de fregadoras hombre a bordo en grandes naves industriales</div>
     </div>
   </div>
 
   <div class="section-box">
-    <div class="section-eyebrow">Ingeniería de procesos · Calidad auditada ISO 9001:2015</div>
+    <div class="section-eyebrow">Ingeniería de procesos · Calidad certificada <span class="iso-inline-em">ISO 9001:2015</span></div>
     <div class="section-title">Protocolo técnico para zonas productivas, depósitos y áreas de soporte</div>
     <div class="bullets-grid">
       <div class="bullet-card">
         <div>
           <div class="bullet-card-head">
             <span class="bullet-num">01</span>
-            <h3>Alcance certificado ISO 9001:2015 en zonas productivas</h3>
+            <h3>Alcance certificado <span class="iso-inline-em">ISO 9001:2015</span> en planta</h3>
           </div>
           <p>Procedimientos operativos estandarizados que se sincronizan con los turnos de manufactura, cambios de lote y paradas técnicas programadas de planta.</p>
         </div>
@@ -838,37 +874,105 @@
 </div>
 
 <script class="no-print">
+  const STORAGE_KEY = "starunion_brochure_ind_v4";
   let initialSnapshot = "";
-  window.addEventListener("DOMContentLoaded", () => {
+  let initialElementsMap = [];
+  let activeEditable = null;
+
+  function bindEditables() {
     const canvas = document.getElementById("brochure-canvas");
     const editables = canvas.querySelectorAll("h1, h2, h3, h4, p, li, .hero-badge, .kpi-val, .kpi-lbl, .photo-caption, .section-eyebrow, .section-title, .bullet-spec, .clients-strip, .cta-eyebrow, .cta-contact-item div, .iso-text");
-    editables.forEach(el => {
+    editables.forEach((el, idx) => {
       el.setAttribute("contenteditable", "true");
       el.setAttribute("spellcheck", "false");
+      el.dataset.editIdx = idx;
+      el.addEventListener("focus", () => { activeEditable = el; });
+      el.addEventListener("click", () => { activeEditable = el; });
+      el.addEventListener("input", () => { saveDraftToBrowser(); });
     });
+  }
+
+  function saveDraftToBrowser() {
+    try {
+      const canvas = document.getElementById("brochure-canvas");
+      localStorage.setItem(STORAGE_KEY, canvas.innerHTML);
+    } catch (e) {}
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.getElementById("brochure-canvas");
     initialSnapshot = canvas.innerHTML;
+    bindEditables();
+    initialElementsMap = Array.from(canvas.querySelectorAll("[contenteditable='true']")).map(el => ({
+      text: el.innerText.trim(),
+      style: el.getAttribute("style") || ""
+    }));
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && saved !== initialSnapshot) {
+      canvas.innerHTML = saved;
+      bindEditables();
+    }
   });
+
+  function adjustFontSize(deltaPx) {
+    if (!activeEditable) {
+      alert("Primero hacé clic sobre el texto o bajada de foto que querés agrandar o achicar.");
+      return;
+    }
+    const currentPx = parseFloat(window.getComputedStyle(activeEditable).fontSize) || 10.9;
+    activeEditable.style.fontSize = (currentPx + deltaPx).toFixed(2) + "px";
+    saveDraftToBrowser();
+  }
+
+  function adjustTracking(deltaEm) {
+    if (!activeEditable) {
+      alert("Primero hacé clic sobre el texto o bajada de foto donde querés abrir o cerrar el interletrado.");
+      return;
+    }
+    const currentStyle = activeEditable.style.letterSpacing;
+    let currentEm = 0;
+    if (currentStyle && currentStyle.endsWith("em")) {
+      currentEm = parseFloat(currentStyle) || 0;
+    }
+    const nextEm = Math.max(-0.03, Math.min(0.18, currentEm + deltaEm));
+    activeEditable.style.letterSpacing = nextEm.toFixed(3) + "em";
+    saveDraftToBrowser();
+  }
+
+  function copyChangesForAgent() {
+    const canvas = document.getElementById("brochure-canvas");
+    const currentEls = Array.from(canvas.querySelectorAll("[contenteditable='true']"));
+    const diffs = [];
+    currentEls.forEach((el, idx) => {
+      const orig = initialElementsMap[idx];
+      const curText = el.innerText.trim();
+      const curStyle = el.getAttribute("style") || "";
+      if (!orig || orig.text !== curText || orig.style !== curStyle) {
+        const styleNote = curStyle ? ` [estilo: ${curStyle}]` : "";
+        diffs.push(`- (${el.tagName.toLowerCase()}.${el.className || 'texto'}): "${curText}"${styleNote}`);
+      }
+    });
+    const payload = diffs.length > 0
+      ? "Cambios realizados en el brochure editable:\n" + diffs.join("\n")
+      : "Cambios realizados en el brochure editable (todo el bloque actual):\n" + Array.from(canvas.querySelectorAll(".photo-caption, h1, .hero-badge, .subtitle")).map(el => `- "${el.innerText.trim()}" [${el.getAttribute("style") || ""}]`).join("\n");
+    navigator.clipboard.writeText(payload).then(() => {
+      const btn = document.getElementById("btn-copy-changes");
+      btn.textContent = "✅ Copiado (pegá en el chat)";
+      setTimeout(() => { btn.textContent = "📋 Copiar mis cambios"; }, 3000);
+    });
+  }
 
   function undoLastChange() {
     document.execCommand("undo", false, null);
+    saveDraftToBrowser();
   }
 
   function resetOriginalContent() {
-    if (confirm("¿Querés restaurar todo el texto original de este brochure?")) {
-      document.getElementById("brochure-canvas").innerHTML = initialSnapshot;
-    }
-  }
-
-  function toggleCleanPreview() {
-    const body = document.body;
-    const btn = document.getElementById("btn-preview-toggle");
-    body.classList.toggle("preview-clean");
-    if (body.classList.contains("preview-clean")) {
-      btn.textContent = "✏️ Volver a modo edición";
-      btn.style.background = "#03582d";
-    } else {
-      btn.textContent = "👁️ Vista previa limpia";
-      btn.style.background = "rgba(255,255,255,0.12)";
+    if (confirm("¿Querés restaurar todo el diseño y texto original de esta versión?")) {
+      localStorage.removeItem(STORAGE_KEY);
+      const canvas = document.getElementById("brochure-canvas");
+      canvas.innerHTML = initialSnapshot;
+      bindEditables();
     }
   }
 </script>
