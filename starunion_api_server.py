@@ -376,7 +376,7 @@ def publish_gmb(keys, img_rel_path, caption, public_url):
 def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv):
     token = keys.get("youtube_token")
     if not token:
-        return {"ok": False, "error": "Falta conectar el Token de YouTube Data API v3 (@StarUnionSRL)."}
+        return {"ok": False, "error": "Falta conectar el Token de YouTube Data API v3 (@starunionservicios)."}
 
     local_mp4 = os.path.join(WEB_ROOT, "redes-sociales", reel_rel_path.lstrip("/").split("?")[0])
     if not os.path.exists(local_mp4):
@@ -610,7 +610,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             if "gmb" in channels:
                 results["Google My Business (Maps)"] = publish_gmb(keys, feed_file, caption_ig, public_url)
             if "youtube" in channels:
-                results["YouTube Shorts (@StarUnionSRL)"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
+                results["YouTube Shorts (@starunionservicios)"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
             if "tiktok" in channels:
                 results["TikTok Video"] = publish_tiktok(keys, reel_file, caption_ig)
 
