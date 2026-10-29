@@ -417,16 +417,16 @@ def main():
           <!-- OPCION C (GROOVE + FIRMA FINAL CON VOZ DE VARÓN) -->
           <div class="bg-white p-3.5 rounded-xl border-2 border-[#03582d] shadow-sm flex flex-col justify-between space-y-3">
             <div>
-              <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">✅ Opción 1 Aprobada · Voz de Varón (0 dB Fuerte)</span>
-              <h3 class="font-extrabold text-xs text-gray-900">Funk Groove Arriba + Firma Hablada con Voz de Varón ("Star Union. Sabemos de limpieza")</h3>
-              <p class="text-[11px] text-gray-600 mt-1">15 seg exactos: entra la voz de varón fuerte en el seg 0, explota el Funk Groove en el medio y cierra la voz de varón al final (0 dB estéreo).</p>
+              <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">✅ Opción 1 Aprobada · Voz de Varón al Inicio (0 dB)</span>
+              <h3 class="font-extrabold text-xs text-gray-900">Firma Hablada con Voz de Varón al Inicio ("Star Union. Sabemos de limpieza") + Funk Groove Arriba</h3>
+              <p class="text-[11px] text-gray-600 mt-1">15 seg exactos: la voz de varón entra una sola vez al inicio con ecualización 0 dB y luego corre el Funk Groove a pleno hasta el final.</p>
             </div>
-            <video id="vid_hub_op1" src="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4?v=varon_fuerte_15s" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="auto" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
+            <video id="vid_hub_op1" src="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4?v=varon_inicio_15s" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="auto" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
             <button onclick="const v=document.getElementById('vid_hub_op1'); v.muted=false; v.volume=1.0; v.currentTime=0; v.play();" class="w-full block text-center bg-amber-500 hover:bg-amber-600 text-gray-950 text-[11px] font-extrabold py-2 px-3 rounded-lg transition shadow-sm">
               🔊 Tocar Play con Sonido al 100%
             </button>
-            <a href="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4?v=varon_fuerte_15s" download="REEL_STAR_UNION_FUNK_VOZ_VARON.mp4" class="block text-center bg-[#03582d] hover:bg-[#133522] text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
-              ⬇ Bajar MP4 Oficial (Voz Varón)
+            <a href="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4?v=varon_inicio_15s" download="REEL_STAR_UNION_FUNK_VOZ_VARON.mp4" class="block text-center bg-[#03582d] hover:bg-[#133522] text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+              ⬇ Bajar MP4 Oficial (Voz Varón al Inicio)
             </a>
           </div>
 
@@ -474,11 +474,11 @@ def main():
       <div class="grid md:grid-cols-2 gap-6">
         <!-- SHORT #1 -->
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex flex-col sm:flex-row items-center gap-4">
-          <video src="piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4?v=varon_fuerte_15s" poster="piezas/01_story_logistica_industria_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
+          <video src="piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4?v=varon_inicio_15s" poster="piezas/01_story_logistica_industria_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
           <div class="space-y-2">
-            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Jueves 29 Oct 2026 · Funk Groove + Firma Voz Varón</span>
+            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Jueves 29 Oct 2026 · Voz Varón al Inicio (0 dB) + Funk Groove</span>
             <h3 class="font-extrabold text-sm text-gray-900">Short #1: Infraestructura 800 m² Guaminí + Taller Propio + Presentismo Biométrico</h3>
-            <a href="piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4?v=varon_fuerte_15s" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
+            <a href="piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4?v=varon_inicio_15s" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
               ⬇ Descargar Video Short #1 (.MP4)
             </a>
           </div>
@@ -486,11 +486,11 @@ def main():
 
         <!-- SHORT #2 -->
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex flex-col sm:flex-row items-center gap-4">
-          <video src="piezas/short_02_verticales_iso9001_1080x1920.mp4?v=varon_fuerte_15s" poster="piezas/04_story_salud_laboratorios_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
+          <video src="piezas/short_02_verticales_iso9001_1080x1920.mp4?v=varon_inicio_15s" poster="piezas/04_story_salud_laboratorios_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
           <div class="space-y-2">
-            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Viernes 06 Nov 2026 · Funk Groove + Firma Voz Varón</span>
+            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Viernes 06 Nov 2026 · Voz Varón al Inicio (0 dB) + Funk Groove</span>
             <h3 class="font-extrabold text-sm text-gray-900">Short #2: Verticales de Alta Exigencia (Logística, Salud ANMAT y Educación) · ISO 9001</h3>
-            <a href="piezas/short_02_verticales_iso9001_1080x1920.mp4?v=varon_fuerte_15s" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
+            <a href="piezas/short_02_verticales_iso9001_1080x1920.mp4?v=varon_inicio_15s" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
               ⬇ Descargar Video Short #2 (.MP4)
             </a>
           </div>
