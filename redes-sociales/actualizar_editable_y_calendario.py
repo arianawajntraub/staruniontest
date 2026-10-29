@@ -63,67 +63,74 @@ def create_editable_svg(post, width, height, out_svg):
     tuv_uri = img_to_data_uri("../../assets/img/tuv-iso-9001-badge.png")
     photo_uri = img_to_data_uri(post["photo"])
 
-    title_lines = wrap_lines(post["title"], 34)
-    sub_lines = wrap_lines(post["subtitle"], 58)
+    is_story = (height == 1920)
+    left_x = 76 if is_story else 72
+    right_margin = 140 if is_story else 72
+    content_w = width - left_x - right_margin
+    top_y = 250 if is_story else 145
+    bottom_margin = 420 if is_story else 145
+
+    title_lines = wrap_lines(post["title"], 32 if is_story else 34)
+    sub_lines = wrap_lines(post["subtitle"], 52 if is_story else 56)
 
     title_tspans = "".join([
-        f'<tspan x="60" dy="{0 if i==0 else 52}">{line}</tspan>'
+        f'<tspan x="{left_x}" dy="{0 if i==0 else 44}">{line}</tspan>'
         for i, line in enumerate(title_lines)
     ])
     sub_tspans = "".join([
-        f'<tspan x="60" dy="{0 if i==0 else 32}">{line}</tspan>'
+        f'<tspan x="{left_x}" dy="{0 if i==0 else 28}">{line}</tspan>'
         for i, line in enumerate(sub_lines)
     ])
 
-    photo_y = 540 if height == 1350 else 720
-    photo_h = 580 if height == 1350 else 760
-    footer_y = height - 110
+    photo_y = top_y + 390
+    photo_h = 460 if is_story else 450
+    footer_y = height - bottom_margin - 55
 
     svg_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {width} {height}" width="{width}" height="{height}">
   <!-- FONDO BLANCO EDITABLE -->
   <rect id="Fondo_Blanco" x="0" y="0" width="{width}" height="{height}" fill="#FFFFFF"/>
-  <rect id="Franja_Superior_Verde" x="0" y="0" width="{width}" height="16" fill="#03582D"/>
 
-  <!-- LOGO Y SELLO ISO (CAPAS SEPARADAS) -->
-  <image id="Logo_Star_Union" x="60" y="54" width="240" height="72" preserveAspectRatio="xMinYMid meet" href="{logo_uri}"/>
+  <!-- LOGO Y SELLO ISO (DENTRO DE ZONA SEGURA) -->
+  <image id="Logo_Star_Union" x="{left_x}" y="{top_y}" width="210" height="62" preserveAspectRatio="xMinYMid meet" href="{logo_uri}"/>
   <g id="Sello_ISO_9001">
-    <rect x="690" y="50" width="330" height="76" rx="14" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
-    <image x="706" y="64" width="60" height="48" preserveAspectRatio="xMidYMid meet" href="{tuv_uri}"/>
-    <text x="778" y="84" font-family="Open Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#03582D">ISO 9001:2015</text>
-    <text x="778" y="104" font-family="Open Sans, Arial, sans-serif" font-size="13" font-weight="600" fill="#4B5563">TÜV Rheinland · ID 9000041847</text>
+    <rect x="{left_x + content_w - 300}" y="{top_y}" width="300" height="66" rx="12" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <image x="{left_x + content_w - 286}" y="{top_y + 11}" width="52" height="44" preserveAspectRatio="xMidYMid meet" href="{tuv_uri}"/>
+    <text x="{left_x + content_w - 222}" y="{top_y + 29}" font-family="Open Sans, Arial, sans-serif" font-size="14" font-weight="800" fill="#03582D">ISO 9001:2015</text>
+    <text x="{left_x + content_w - 222}" y="{top_y + 47}" font-family="Open Sans, Arial, sans-serif" font-size="12" font-weight="600" fill="#4B5563">TÜV Rheinland · ID 9000041847</text>
   </g>
+  <line x1="{left_x}" y1="{top_y + 78}" x2="{left_x + content_w}" y2="{top_y + 78}" stroke="#03582D" stroke-width="4"/>
 
   <!-- ETIQUETA SUPERIOR EDITABLE -->
   <g id="Etiqueta_Rubro">
-    <rect x="60" y="152" width="460" height="40" rx="20" fill="#E6EFEA"/>
-    <text x="80" y="178" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#03582D">{post["tag"]}</text>
+    <rect x="{left_x}" y="{top_y + 96}" width="440" height="36" rx="18" fill="#E6EFEA"/>
+    <text x="{left_x + 18}" y="{top_y + 120}" font-family="Open Sans, Arial, sans-serif" font-size="14" font-weight="800" fill="#03582D">{post["tag"]}</text>
   </g>
 
   <!-- TITULAR PRINCIPAL EDITABLE -->
-  <text id="Titular_Editable" x="60" y="246" font-family="Open Sans, Arial, sans-serif" font-size="44" font-weight="800" fill="#111827">
+  <text id="Titular_Editable" x="{left_x}" y="{top_y + 178}" font-family="Open Sans, Arial, sans-serif" font-size="38" font-weight="800" fill="#111827">
     {title_tspans}
   </text>
 
   <!-- BAJADA EDITABLE -->
-  <text id="Bajada_Editable" x="60" y="388" font-family="Open Sans, Arial, sans-serif" font-size="23" font-weight="600" fill="#374151">
+  <text id="Bajada_Editable" x="{left_x}" y="{top_y + 305}" font-family="Open Sans, Arial, sans-serif" font-size="20" font-weight="600" fill="#374151">
     {sub_tspans}
   </text>
 
-  <!-- FOTOGRAFÍA REAL ENMARCADA -->
+  <!-- FOTOGRAFÍA REAL ENMARCADA DENTRO DE ZONA SEGURA -->
   <clipPath id="clip_foto_{post['id']}_{height}">
-    <rect x="60" y="{photo_y}" width="960" height="{photo_h}" rx="26"/>
+    <rect x="{left_x}" y="{photo_y}" width="{content_w}" height="{photo_h}" rx="22"/>
   </clipPath>
-  <image id="Fotografia_Operativa" x="60" y="{photo_y}" width="960" height="{photo_h}" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip_foto_{post['id']}_{height})" href="{photo_uri}"/>
-  <rect x="60" y="{photo_y}" width="960" height="{photo_h}" rx="26" fill="none" stroke="#E5E7EB" stroke-width="3"/>
+  <image id="Fotografia_Operativa" x="{left_x}" y="{photo_y}" width="{content_w}" height="{photo_h}" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip_foto_{post['id']}_{height})" href="{photo_uri}"/>
+  <rect x="{left_x}" y="{photo_y}" width="{content_w}" height="{photo_h}" rx="22" fill="none" stroke="#03582D" stroke-width="3"/>
 
-  <!-- PIE DE CONTACTO Y BOTÓN CTA EDITABLE -->
+  <!-- PIE DE CONTACTO Y BOTÓN CTA EDITABLE DENTRO DE ZONA SEGURA -->
   <g id="Pie_Institucional">
-    <line x1="60" y1="{footer_y - 24}" x2="1020" y2="{footer_y - 24}" stroke="#E5E7EB" stroke-width="2"/>
-    <text x="60" y="{footer_y + 12}" font-family="Open Sans, Arial, sans-serif" font-size="18" font-weight="800" fill="#111827">Star Union S.R.L. · Base Operativa Guaminí 5657, CABA</text>
-    <text x="60" y="{footer_y + 38}" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="600" fill="#4B5563">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</text>
-    <rect x="650" y="{footer_y - 8}" width="370" height="54" rx="27" fill="#03582D"/>
-    <text x="835" y="{footer_y + 26}" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">{post["cta_pill"]}</text>
+    <line x1="{left_x}" y1="{footer_y - 16}" x2="{left_x + content_w}" y2="{footer_y - 16}" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="{left_x}" y="{footer_y + 14}" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">Star Union S.R.L. · Base Operativa Guaminí 5657, CABA</text>
+    <text x="{left_x}" y="{footer_y + 36}" font-family="Open Sans, Arial, sans-serif" font-size="14" font-weight="600" fill="#4B5563">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</text>
+    <rect x="{left_x + content_w - 280}" y="{footer_y - 4}" width="280" height="46" rx="23" fill="#03582D"/>
+    <text x="{left_x + content_w - 140}" y="{footer_y + 25}" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">{post["cta_pill"]}</text>
   </g>
 </svg>"""
     with open(out_svg, "w", encoding="utf-8") as f:
@@ -335,8 +342,8 @@ def main():
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
           <div class="text-xs font-extrabold text-[#03582d] uppercase">1. Base Reel / Short / Story (1080×1920)</div>
           <p class="text-[11px] text-gray-600">Margen seguro: <strong>250px arriba</strong>, <strong>420px abajo</strong> (copy y música) y <strong>140px a la derecha</strong> (botonera ❤️💬✈️ de Reels).</p>
-          <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920_CON_GUIA_MARGENES.jpg" target="_blank">
-            <img src="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920_CON_GUIA_MARGENES.jpg" class="w-full h-56 object-contain bg-white rounded-lg border border-gray-200" alt="Base 1">
+          <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920.jpg" target="_blank">
+            <img src="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920.jpg" class="w-full h-56 object-contain bg-white rounded-lg border border-gray-200" alt="Base 1">
           </a>
           <div class="flex flex-col gap-2">
             <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920_EDITABLE_CANVA.pptx" download class="bg-[#03582d] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">✏️ Bajar Base 1 Editable (.PPTX con Fotos para Canva)</a>
@@ -345,9 +352,9 @@ def main():
         </div>
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
           <div class="text-xs font-extrabold text-[#03582d] uppercase">2. Base Facebook / IG Feed (1080×1350)</div>
-          <p class="text-[11px] text-gray-600">Margen seguro: <strong>145px arriba y 145px abajo</strong> para que la <strong>grilla cuadrada 1:1 del perfil de IG</strong> jamás corte el logo ni el pie.</p>
-          <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350_CON_GUIA_MARGENES.jpg" target="_blank">
-            <img src="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350_CON_GUIA_MARGENES.jpg" class="w-full h-56 object-contain bg-white rounded-lg border border-gray-200" alt="Base 2">
+          <p class="text-[11px] text-gray-600">Margen seguro aplicado: <strong>145px arriba y 145px abajo</strong> para que la <strong>grilla cuadrada 1:1 del perfil de IG</strong> jamás corte el logo ni el pie.</p>
+          <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350.jpg" target="_blank">
+            <img src="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350.jpg" class="w-full h-56 object-contain bg-white rounded-lg border border-gray-200" alt="Base 2">
           </a>
           <div class="flex flex-col gap-2">
             <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350_EDITABLE_CANVA.pptx" download class="bg-[#03582d] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">✏️ Bajar Base 2 Editable (.PPTX con Fotos para Canva)</a>
@@ -356,9 +363,9 @@ def main():
         </div>
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
           <div class="text-xs font-extrabold text-[#03582d] uppercase">3. Base LinkedIn Corporativo (1200×1200)</div>
-          <p class="text-[11px] text-gray-600">Margen seguro: <strong>90px libres en los 4 lados</strong> para feed de escritorio y móvil de LinkedIn sin recortes laterales.</p>
-          <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200_CON_GUIA_MARGENES.jpg" target="_blank">
-            <img src="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200_CON_GUIA_MARGENES.jpg" class="w-full h-56 object-contain bg-white rounded-lg border border-gray-200" alt="Base 3">
+          <p class="text-[11px] text-gray-600">Margen seguro aplicado: <strong>90px libres en los 4 lados</strong> para feed de escritorio y móvil de LinkedIn sin recortes laterales.</p>
+          <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200.jpg" target="_blank">
+            <img src="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200.jpg" class="w-full h-56 object-contain bg-white rounded-lg border border-gray-200" alt="Base 3">
           </a>
           <div class="flex flex-col gap-2">
             <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200_EDITABLE_CANVA.pptx" download class="bg-[#03582d] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">✏️ Bajar Base 3 Editable (.PPTX con Fotos para Canva)</a>

@@ -241,16 +241,16 @@ def build_feed_html(post):
     cleany_block = ""
     if post["use_cleany"]:
         cleany_block = f"""
-        <div style="margin-top:16px;background:#f9fafb;border:2px solid #03582d;border-radius:18px;padding:14px 20px;display:flex;align-items:center;gap:16px;">
-            <img src="../../assets/img/cleany-hd.png" style="width:58px;height:58px;object-fit:contain;flex-shrink:0;" alt="Cleany">
-            <div style="font-size:19px;line-height:1.35;color:#111827;font-weight:700;">
+        <div style="margin-top:10px;background:#f9fafb;border:2px solid #03582d;border-radius:16px;padding:10px 16px;display:flex;align-items:center;gap:14px;">
+            <img src="../../assets/img/cleany-hd.png" style="width:48px;height:48px;object-fit:contain;flex-shrink:0;" alt="Cleany">
+            <div style="font-size:16px;line-height:1.32;color:#111827;font-weight:700;">
                 {post["cleany_tip"]}
             </div>
         </div>
         """
 
     kpis_html = "".join([
-        f'<span style="background:#f3f4f6;border:1px solid #e5e7eb;color:#133522;font-weight:800;font-size:18px;padding:10px 18px;border-radius:999px;">✓ {k}</span>'
+        f'<span style="background:#f3f4f6;border:1px solid #e5e7eb;color:#133522;font-weight:800;font-size:16px;padding:8px 15px;border-radius:999px;">✓ {k}</span>'
         for k in post["kpis"]
     ])
 
@@ -271,55 +271,54 @@ def build_feed_html(post):
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 54px 60px;
-    border-top: 16px solid #03582d;
+    padding: 145px 72px 145px 72px; /* Safe Zone 4:5 Feed (145px arriba y 145px abajo para que la grilla 1:1 de IG jamás corte logo ni pie) */
   }}
 </style>
 </head>
 <body>
-  <!-- TOP HEADER (WHITE DOMINANT) -->
+  <!-- TOP HEADER (WHITE DOMINANT, INSIDE 1:1 GRID SAFE ZONE) -->
   <div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
-      <img src="../../assets/img/logo-star-union.png" style="height:72px;width:auto;object-fit:contain;" alt="Star Union">
-      <div style="display:flex;align-items:center;gap:12px;background:#f9fafb;border:1px solid #e5e7eb;padding:10px 18px;border-radius:14px;">
-        <img src="../../assets/img/tuv-iso-9001-badge.png" style="height:44px;width:auto;object-fit:contain;" alt="ISO 9001">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:12px;border-bottom:4px solid #03582d;">
+      <img src="../../assets/img/logo-star-union.png" style="height:60px;width:auto;object-fit:contain;" alt="Star Union">
+      <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:8px 14px;border-radius:12px;">
+        <img src="../../assets/img/tuv-iso-9001-badge.png" style="height:36px;width:auto;object-fit:contain;" alt="ISO 9001">
         <div style="text-align:left;">
-          <div style="font-size:13px;font-weight:800;color:#03582d;letter-spacing:0.06em;">ISO 9001:2015</div>
-          <div style="font-size:12px;color:#4b5563;font-weight:600;">TÜV Rheinland · ID 9000041847</div>
+          <div style="font-size:12px;font-weight:800;color:#03582d;letter-spacing:0.05em;">ISO 9001:2015</div>
+          <div style="font-size:11px;color:#4b5563;font-weight:600;">TÜV Rheinland · ID 9000041847</div>
         </div>
       </div>
     </div>
 
-    <div style="display:inline-block;background:rgba(3,88,45,0.09);color:#03582d;font-weight:800;font-size:16px;letter-spacing:0.08em;padding:8px 18px;border-radius:999px;margin-bottom:18px;">
+    <div style="display:inline-block;background:rgba(3,88,45,0.09);color:#03582d;font-weight:800;font-size:14px;letter-spacing:0.07em;padding:6px 16px;border-radius:999px;margin-bottom:12px;">
       {post["tag"]}
     </div>
 
-    <h1 style="font-size:46px;line-height:1.14;font-weight:800;color:#111827;letter-spacing:-0.02em;margin-bottom:16px;">
+    <h1 style="font-size:38px;line-height:1.15;font-weight:800;color:#111827;letter-spacing:-0.02em;margin-bottom:12px;">
       {post["title"]}
     </h1>
 
-    <p style="font-size:23px;line-height:1.42;color:#374151;font-weight:600;margin-bottom:22px;">
+    <p style="font-size:20px;line-height:1.38;color:#374151;font-weight:600;margin-bottom:14px;">
       {post["subtitle"]}
     </p>
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
       {kpis_html}
     </div>
     {cleany_block}
   </div>
 
   <!-- PHOTO FRAME (CLEAN, ZERO OVERLAY ON FACES/MACHINES) -->
-  <div style="width:100%;height:{'470px' if post['use_cleany'] else '560px'};border-radius:26px;overflow:hidden;border:3px solid #e5e7eb;background:#f9fafb;position:relative;box-shadow:0 16px 36px rgba(0,0,0,0.06);">
-    <img src="{post['photo']}" style="width:100%;height:100%;object-fit:cover;object-position:{post.get('obj_pos', 'center 15%')};" alt="">
+  <div style="width:100%;height:{'380px' if post['use_cleany'] else '450px'};border-radius:22px;overflow:hidden;border:3px solid #03582d;background:#f9fafb;position:relative;box-shadow:0 12px 28px rgba(3,88,45,0.10);">
+    <img src="{post['photo']}" style="width:100%;height:100%;object-fit:cover;object-position:{post.get('obj_pos', 'center 20%')};" alt="">
   </div>
 
-  <!-- FOOTER BAR -->
-  <div style="display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:2px solid #f3f4f6;">
+  <!-- FOOTER BAR INSIDE 1:1 GRID SAFE ZONE -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:2px solid #e5e7eb;">
     <div>
-      <div style="font-size:18px;font-weight:800;color:#111827;">Star Union S.R.L. · Base Operativa Guaminí 5657, CABA</div>
-      <div style="font-size:16px;font-weight:600;color:#4b5563;">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</div>
+      <div style="font-size:16px;font-weight:800;color:#111827;">Star Union S.R.L. · Base Operativa Guaminí 5657, CABA</div>
+      <div style="font-size:14px;font-weight:600;color:#4b5563;">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</div>
     </div>
-    <div style="background:#03582d;color:#ffffff;font-weight:800;font-size:18px;padding:14px 26px;border-radius:999px;border-bottom:3px solid #ffcc29;">
+    <div style="background:#03582d;color:#ffffff;font-weight:800;font-size:16px;padding:11px 22px;border-radius:999px;border-bottom:3px solid #ffcc29;">
       {post["cta_pill"]}
     </div>
   </div>
@@ -329,7 +328,7 @@ def build_feed_html(post):
 
 def build_story_html(post):
     kpis_html = "".join([
-        f'<div style="background:#f9fafb;border:1px solid #e5e7eb;color:#133522;font-weight:800;font-size:22px;padding:14px 22px;border-radius:16px;display:flex;align-items:center;gap:12px;"><span style="color:#03582d;font-size:24px;">✓</span> {k}</div>'
+        f'<div style="background:#f9fafb;border:1px solid #e5e7eb;color:#133522;font-weight:800;font-size:17px;padding:10px 14px;border-radius:12px;display:flex;align-items:center;gap:8px;"><span style="color:#03582d;font-size:19px;">✓</span> {k}</div>'
         for k in post["kpis"]
     ])
 
@@ -350,54 +349,52 @@ def build_story_html(post):
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 180px 68px 220px 68px; /* Safe zones for IG Stories & WhatsApp Status */
-    border-top: 20px solid #03582d;
-    border-bottom: 20px solid #03582d;
+    padding: 250px 140px 420px 76px; /* Safe Zone Universal Reels/Shorts/Stories: 250px arriba, 420px abajo, 140px derecha, 76px izquierda */
   }}
 </style>
 </head>
 <body>
   <div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
-      <img src="../../assets/img/logo-star-union.png" style="height:82px;width:auto;object-fit:contain;" alt="Star Union">
-      <div style="display:flex;align-items:center;gap:12px;background:#f9fafb;border:1px solid #e5e7eb;padding:12px 20px;border-radius:16px;">
-        <img src="../../assets/img/tuv-iso-9001-badge.png" style="height:50px;width:auto;object-fit:contain;" alt="ISO 9001">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:4px solid #03582d;">
+      <img src="../../assets/img/logo-star-union.png" style="height:60px;width:auto;object-fit:contain;" alt="Star Union">
+      <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:8px 14px;border-radius:12px;">
+        <img src="../../assets/img/tuv-iso-9001-badge.png" style="height:36px;width:auto;object-fit:contain;" alt="ISO 9001">
         <div>
-          <div style="font-size:15px;font-weight:800;color:#03582d;">ISO 9001:2015</div>
-          <div style="font-size:13px;color:#4b5563;font-weight:700;">TÜV Rheinland</div>
+          <div style="font-size:12px;font-weight:800;color:#03582d;">ISO 9001:2015</div>
+          <div style="font-size:11px;color:#4b5563;font-weight:700;">TÜV Rheinland</div>
         </div>
       </div>
     </div>
 
-    <div style="display:inline-block;background:rgba(3,88,45,0.1);color:#03582d;font-weight:800;font-size:19px;letter-spacing:0.08em;padding:10px 22px;border-radius:999px;margin-bottom:22px;">
+    <div style="display:inline-block;background:rgba(3,88,45,0.1);color:#03582d;font-weight:800;font-size:15px;letter-spacing:0.06em;padding:7px 16px;border-radius:999px;margin-bottom:14px;">
       {post["tag"]}
     </div>
 
-    <h1 style="font-size:52px;line-height:1.14;font-weight:800;color:#111827;letter-spacing:-0.02em;margin-bottom:20px;">
+    <h1 style="font-size:38px;line-height:1.15;font-weight:800;color:#111827;letter-spacing:-0.02em;margin-bottom:12px;">
       {post["title"]}
     </h1>
 
-    <p style="font-size:27px;line-height:1.42;color:#374151;font-weight:600;margin-bottom:28px;">
+    <p style="font-size:21px;line-height:1.38;color:#374151;font-weight:600;margin-bottom:18px;">
       {post["subtitle"]}
     </p>
   </div>
 
-  <!-- CLEAN PHOTO -->
-  <div style="width:100%;height:640px;border-radius:30px;overflow:hidden;border:3px solid #e5e7eb;background:#f9fafb;box-shadow:0 18px 40px rgba(0,0,0,0.07);">
-    <img src="{post['photo']}" style="width:100%;height:100%;object-fit:cover;object-position:{post.get('obj_pos', 'center 15%')};" alt="">
+  <!-- CLEAN PHOTO INSIDE SAFE ZONE -->
+  <div style="width:100%;height:460px;border-radius:24px;overflow:hidden;border:3px solid #03582d;background:#f9fafb;box-shadow:0 14px 32px rgba(3,88,45,0.10);">
+    <img src="{post['photo']}" style="width:100%;height:100%;object-fit:cover;object-position:{post.get('obj_pos', 'center 20%')};" alt="">
   </div>
 
-  <!-- BOTTOM KPI & CTA -->
-  <div style="margin-top:26px;">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;">
+  <!-- BOTTOM KPI & CTA INSIDE SAFE ZONE -->
+  <div style="margin-top:16px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
       {kpis_html}
     </div>
-    <div style="background:#03582d;color:#ffffff;padding:24px 32px;border-radius:24px;display:flex;align-items:center;justify-content:space-between;border-bottom:5px solid #ffcc29;">
+    <div style="background:#03582d;color:#ffffff;padding:18px 24px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid #ffcc29;">
       <div>
-        <div style="font-size:24px;font-weight:800;">Solicitá relevamiento técnico B2B</div>
-        <div style="font-size:19px;color:#f3f4f6;font-weight:600;">WhatsApp: +54 9 11 2275-9369 · Guaminí 5657, CABA</div>
+        <div style="font-size:19px;font-weight:800;">Solicitá relevamiento técnico B2B</div>
+        <div style="font-size:15px;color:#f3f4f6;font-weight:600;">WhatsApp: +54 9 11 2275-9369 · Guaminí 5657</div>
       </div>
-      <div style="background:#ffffff;color:#03582d;font-weight:800;font-size:20px;padding:14px 24px;border-radius:999px;">
+      <div style="background:#ffffff;color:#03582d;font-weight:800;font-size:16px;padding:10px 18px;border-radius:999px;">
         {post["cta_pill"]}
       </div>
     </div>
@@ -420,8 +417,8 @@ def render_screenshot(html_path, png_path, width, height):
 
 
 def make_video_from_slides(slide_jpgs, out_mp4):
-    # Create a 12-second 1080x1920 MP4 (4 seconds per slide) at 25fps WITH institutional audio track
-    audio_path = os.path.join(BASE_DIR, "audio", "starunion_musica_original_sin_canva_15s.mp3")
+    # Create a 12-second 1080x1920 MP4 (4 seconds per slide) at 25fps WITH institutional audio track (male voice at start + Funk Groove)
+    audio_path = os.path.join(BASE_DIR, "audio", "starunion_funk_firma_varon_12s.mp3")
     inputs = []
     filter_parts = []
     for i, jpg in enumerate(slide_jpgs):
