@@ -27,7 +27,7 @@ POSTS = [
         "kpis": ["+800 m² Base Propia CABA", "Taller Propio In-House", "ISO 9001:2015 TÜV"],
         "photo": "../../assets/img/perfit-curadas/perfit-logistica-pallets.jpg",
         "use_cleany": False,
-        "cta_pill": "starunion.com.ar/limpieza-industrial",
+        "cta_pill": "www.starunion.com.ar",
         "copy_ig_fb": """Continuidad operativa real para centros logísticos, depósitos y plantas industriales en CABA y GBA.
 
 En operaciones de alto tránsito de autoelevadores y despacho 24/7, la limpieza técnica no puede improvisarse ni frenar el ritmo de planta:
@@ -39,7 +39,7 @@ En operaciones de alto tránsito de autoelevadores y despacho 24/7, la limpieza 
 Solicitá un relevamiento técnico para tu planta o centro logístico en www.starunion.com.ar o por WhatsApp Comercial al +54 9 11 2275-9369.
 
 #StarUnion #LimpiezaIndustrial #LogisticaArgentina #FacilityManagement #ISO9001 #MantenimientoIndustrial""",
-        "copy_linkedin": """En logística e industria manufacturera, el proveedor de limpieza e higiene técnica impacta directamente en la seguridad operativa y en las auditorías de calidad.
+        "copy_linkedin": """En logística e industria manufacturera, el proveedor de limpieza e higiene técnica impacta de forma directa en la seguridad operativa y en las auditorías de calidad.
 
 Por eso en Star Union S.R.L. estructuramos nuestro servicio industrial sobre tres pilares verificables:
 
@@ -47,7 +47,7 @@ Por eso en Star Union S.R.L. estructuramos nuestro servicio industrial sobre tre
 2. Cero paradas por maquinaria: contamos con taller electromecánico propio in-house activo desde fines de 2010 para mantenimiento preventivo y reemplazo inmediato de equipos en planta.
 3. Calidad certificada: procesos auditados bajo Norma ISO 9001:2015 por TÜV Rheinland (Certipedia ID 9000041847).
 
-👉 Conocé nuestro protocolo para plantas y centros logísticos en: https://www.starunion.com.ar/limpieza-industrial/
+👉 Conocé nuestro protocolo para plantas y centros logísticos en: https://www.starunion.com.ar
 
 #FacilityManagement #Logistica #IndustriaArgentina #ISO9001 #HigieneIndustrial #OperacionesB2B #StarUnion""",
         "yt_title": "Limpieza Técnica en Centros Logísticos y Plantas | Star Union ISO 9001",
@@ -57,10 +57,10 @@ Por eso en Star Union S.R.L. estructuramos nuestro servicio industrial sobre tre
 00:04 Base Operativa Propia de 800 m² en calle Guaminí (CABA) y Taller Propio
 00:08 Certificación ISO 9001:2015 por TÜV Rheinland (ID 9000041847)
 
-Solicitá una visita técnica para tu empresa en: https://www.starunion.com.ar/limpieza-industrial/
+Solicitá una visita técnica para tu empresa en: https://www.starunion.com.ar
 WhatsApp Comercial B2B: +54 9 11 2275-9369""",
         "yt_tags": "limpieza industrial, centros logisticos, limpieza de depositos, star union, iso 9001 tuv rheinland, facility management argentina, autolavadoras industriales, mantenimiento de plantas",
-        "copy_wa": "Operación continua en centros logísticos y plantas industriales con maquinaria propia y certificación ISO 9001:2015 (TÜV Rheinland). Conocé más en https://www.starunion.com.ar/limpieza-industrial/"
+        "copy_wa": "Operación continua en centros logísticos y plantas industriales con maquinaria propia y certificación ISO 9001:2015 (TÜV Rheinland). Conocé más en https://www.starunion.com.ar"
     },
     {
         "id": "02",
@@ -72,7 +72,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369""",
         "kpis": ["Taller Propio desde 2010", "Flota Ford Transit", "Respuesta en el Día"],
         "photo": "../../assets/img/perfit-curadas/perfit-base-maquinas.jpg",
         "use_cleany": False,
-        "cta_pill": "starunion.com.ar/la-empresa",
+        "cta_pill": "www.starunion.com.ar",
         "copy_ig_fb": """¿Qué pasa cuando una máquina lavadora se detiene en medio de tu operación diaria?
 
 En Star Union no dependemos de talleres externos ni de alquileres improvisados. Contamos con Taller Electromecánico Propio dentro de nuestra Base Operativa Central de 800 m² en calle Guaminí (CABA).
@@ -81,7 +81,7 @@ En Star Union no dependemos de talleres externos ni de alquileres improvisados. 
 ✔️ Cabina de arenado, pintura y banco de pruebas propio.
 ✔️ Flota de unidades móviles Ford Transit para reemplazo inmediato en tu objetivo.
 
-Conocé nuestra infraestructura operativa en www.starunion.com.ar/la-empresa/
+Conocé nuestra infraestructura operativa en www.starunion.com.ar
 
 #StarUnion #InfraestructuraPropia #FacilityServices #LimpiezaProfesional #OperacionesB2B #CABA""",
         "copy_linkedin": """Uno de los mayores costos ocultos al contratar servicios de limpieza B2B es la caída del servicio cuando se avería una máquina crítica en el objetivo.
@@ -93,7 +93,7 @@ Fundada en 2001 (con sede histórica inicial en calle Pergamino), Star Union S.R
 • Stock propio de repuestos y equipos de back-up listos para salir con nuestra flota de unidades Ford Transit.
 • Trazabilidad completa bajo Norma ISO 9001:2015 (TÜV Rheinland).
 
-👉 Recorré nuestra Base Operativa en: https://www.starunion.com.ar/la-empresa/
+👉 Recorré nuestra Base Operativa en: https://www.starunion.com.ar
 
 #InfraestructuraB2B #ComprasCorporativas #FacilityManagement #MantenimientoOperativo #ISO9001 #StarUnion""",
         "yt_title": "Taller Electromecánico Propio y Base de 800 m² | Star Union S.R.L.",
@@ -103,9 +103,9 @@ Fundada en 2001 (con sede histórica inicial en calle Pergamino), Star Union S.R
 00:04 Stock permanente de insumos ANMAT y repuestos en 800 m²
 00:08 Soporte logístico con flota propia Ford Transit en CABA y GBA
 
-Conocé nuestra infraestructura en: https://www.starunion.com.ar/la-empresa/""",
+Conocé nuestra infraestructura en: https://www.starunion.com.ar""",
         "yt_tags": "star union, base operativa guamini, taller electromecanico limpieza, empresa de limpieza b2b, maquinaria de limpieza industrial, iso 9001 limpieza",
-        "copy_wa": "Taller electromecánico propio en nuestra Base Operativa de 800 m² (Guaminí 5657, CABA): respaldo real para que las máquinas en tu empresa nunca se detengan. 👉 https://www.starunion.com.ar/la-empresa/"
+        "copy_wa": "Taller electromecánico propio en nuestra Base Operativa de 800 m² (Guaminí 5657, CABA): respaldo real para que las máquinas en tu empresa nunca se detengan. 👉 https://www.starunion.com.ar"
     },
     {
         "id": "03",
@@ -119,7 +119,7 @@ Conocé nuestra infraestructura en: https://www.starunion.com.ar/la-empresa/""",
         "obj_pos": "center 65%",
         "use_cleany": True,
         "cleany_tip": "EL DATO TÉCNICO DE CLEANY: El sistema biométrico emite alerta a los 15 min y activa la guardia móvil antes de que afecte tu turno.",
-        "cta_pill": "starunion.com.ar/consorcios",
+        "cta_pill": "www.starunion.com.ar",
         "copy_ig_fb": """El Dato Técnico de Cleany: ¿Cómo aseguramos el 100% de los puestos cubiertos en cada turno?
 
 En edificios corporativos, grandes consorcios, clínicas e industrias, una ausencia sin cubrir resiente toda la jornada. Por eso implementamos control biométrico conectado en tiempo real con nuestra mesa operativa:
@@ -162,14 +162,14 @@ Solicitá una propuesta técnica en: https://www.starunion.com.ar/""",
         "kpis": ["Insumos ANMAT + MSDS", "Cero Contaminación Cruzada", "ISO 9001:2015 TÜV"],
         "photo": "../../assets/img/perfit-curadas/perfit-salud-laboratorio.jpg",
         "use_cleany": False,
-        "cta_pill": "starunion.com.ar/clinicas-y-hospitales",
+        "cta_pill": "www.starunion.com.ar",
         "copy_ig_fb": """En clínicas, centros de diagnóstico y laboratorios, la limpieza e higiene institucional exige rigor técnico verificable y trazabilidad documental.
 
 ✔️ Protocolos estrictos de zonificación por áreas críticas, semicríticas y comunes para evitar contaminación cruzada.
 ✔️ Insumos desinfectantes de grado profesional aprobados por ANMAT, con fichas técnicas y hojas de seguridad (MSDS) disponibles en el objetivo.
 ✔️ Procesos auditados bajo Norma ISO 9001:2015 por TÜV Rheinland.
 
-Conocé nuestra división de Salud y Laboratorios en www.starunion.com.ar/clinicas-y-hospitales/
+Conocé nuestra división de Salud y Laboratorios en www.starunion.com.ar
 
 #StarUnion #Salud #ClinicasYHospitales #Laboratorios #HigieneHospitalaria #ISO9001 #ANMAT""",
         "copy_linkedin": """La gestión de higiene en instituciones de salud, centros médicos y laboratorios farmacéuticos requiere estándares auditables en cada turno.
@@ -179,7 +179,7 @@ Desde nuestra división especializada en Salud y Laboratorios, en Star Union S.R
 • Utilización exclusiva de productos aprobados por ANMAT con documentación técnica y hojas de seguridad (MSDS) en carpeta de planta.
 • Supervisión técnica periódica y auditoría de procesos certificada bajo Norma ISO 9001:2015 por TÜV Rheinland (Certipedia ID 9000041847).
 
-👉 Consultá el protocolo técnico para instituciones médicas en: https://www.starunion.com.ar/clinicas-y-hospitales/
+👉 Consultá el protocolo técnico para instituciones médicas en: https://www.starunion.com.ar
 
 #SaludArgentina #GestionHospitalaria #Laboratorios #Bioseguridad #ISO9001 #StarUnion""",
         "yt_title": "Higiene Técnica en Clínicas, Sanatorios y Laboratorios | Star Union",
@@ -189,9 +189,9 @@ Desde nuestra división especializada en Salud y Laboratorios, en Star Union S.R
 00:04 Insumos aprobados por ANMAT con hojas de seguridad (MSDS)
 00:08 Supervisión auditada bajo ISO 9001:2015 (TÜV Rheinland)
 
-Conocé más en: https://www.starunion.com.ar/clinicas-y-hospitales/""",
+Conocé más en: https://www.starunion.com.ar""",
         "yt_tags": "limpieza de clinicas, limpieza hospitalaria, limpieza de laboratorios, insumos anmat, iso 9001 salud, star union",
-        "copy_wa": "Higiene técnica certificada ISO 9001:2015 para clínicas, sanatorios y laboratorios con insumos aprobados por ANMAT. 👉 https://www.starunion.com.ar/clinicas-y-hospitales/"
+        "copy_wa": "Higiene técnica certificada ISO 9001:2015 para clínicas, sanatorios y laboratorios con insumos aprobados por ANMAT. 👉 https://www.starunion.com.ar"
     },
     {
         "id": "05",
@@ -203,14 +203,14 @@ Conocé más en: https://www.starunion.com.ar/clinicas-y-hospitales/""",
         "kpis": ["Operación en Contraturno", "Cuidado de Parquet y Pisos", "Personal Identificado"],
         "photo": "../../assets/img/perfit-curadas/perfit-clubes-parquet.jpg",
         "use_cleany": False,
-        "cta_pill": "starunion.com.ar/universidades-y-clubes",
+        "cta_pill": "www.starunion.com.ar",
         "copy_ig_fb": """Miles de personas circulan cada día por campus universitarios, colegios bilingües y clubes deportivos. Mantener cada espacio impecable sin interferir con las actividades académicas o deportivas requiere planificación milimétrica.
 
 ✔️ Operación en contraturno nocturno y guardias activas durante los cambios de turno.
 ✔️ Tratamiento específico para pisos deportivos de madera/parquet, gimnasios, vestuarios, comedores y aulas.
 ✔️ Personal capacitado en nuestra aula propia de formación, uniformado e identificado.
 
-Conocé nuestras referencias en educación y deporte en www.starunion.com.ar/universidades-y-clubes/
+Conocé nuestras referencias en educación y deporte en www.starunion.com.ar
 
 #StarUnion #Universidades #Colegios #ClubesDeportivos #InfraestructuraEducativa #LimpiezaProfesional""",
         "copy_linkedin": """¿Cómo se gestiona la higiene diaria de un campus universitario o un club deportivo donde circulan miles de personas por jornada?
@@ -220,7 +220,7 @@ En Star Union S.R.L. acompañamos a instituciones educativas y deportivas líder
 1. Guardia diurna de mantenimiento continuo en sanitarios, áreas comunes, comedores y vestuarios durante los picos de circulación.
 2. Operativo intensivo en contraturno con maquinaria silenciosa para el tratamiento de pisos deportivos, aulas magnas, laboratorios y gimnasios.
 
-👉 Conocé nuestras soluciones para instituciones educativas y clubes en: https://www.starunion.com.ar/universidades-y-clubes/
+👉 Conocé nuestras soluciones para instituciones educativas y clubes en: https://www.starunion.com.ar
 
 #Educacion #Universidades #GestionDeportiva #FacilityManagement #ISO9001 #StarUnion""",
         "yt_title": "Limpieza Profesional en Universidades, Colegios y Clubes | Star Union",
@@ -230,9 +230,9 @@ En Star Union S.R.L. acompañamos a instituciones educativas y deportivas líder
 00:04 Operación sincronizada en aulas, laboratorios y vestuarios
 00:08 Personal capacitado y procesos certificados ISO 9001:2015
 
-Conocé más en: https://www.starunion.com.ar/universidades-y-clubes/""",
+Conocé más en: https://www.starunion.com.ar""",
         "yt_tags": "limpieza de universidades, limpieza de colegios, limpieza de clubes deportivos, mantenimiento de campus, star union",
-        "copy_wa": "Mantenimiento integral en contraturno para universidades, colegios y clubes deportivos con certificación ISO 9001:2015. 👉 https://www.starunion.com.ar/universidades-y-clubes/"
+        "copy_wa": "Mantenimiento integral en contraturno para universidades, colegios y clubes deportivos con certificación ISO 9001:2015. 👉 https://www.starunion.com.ar"
     }
 ]
 
@@ -420,7 +420,8 @@ def render_screenshot(html_path, png_path, width, height):
 
 
 def make_video_from_slides(slide_jpgs, out_mp4):
-    # Create a 12-second 1080x1920 MP4 (4 seconds per slide) at 25fps
+    # Create a 12-second 1080x1920 MP4 (4 seconds per slide) at 25fps WITH institutional audio track
+    audio_path = os.path.join(BASE_DIR, "audio", "starunion_musica_original_sin_canva_15s.mp3")
     inputs = []
     filter_parts = []
     for i, jpg in enumerate(slide_jpgs):
@@ -429,16 +430,34 @@ def make_video_from_slides(slide_jpgs, out_mp4):
     concat_inputs = "".join([f"[v{i}]" for i in range(len(slide_jpgs))])
     filter_complex = "".join(filter_parts) + f"{concat_inputs}concat=n={len(slide_jpgs)}:v=1:a=0[outv]"
 
-    cmd = [
-        FFMPEG, "-y",
-        *inputs,
-        "-filter_complex", filter_complex,
-        "-map", "[outv]",
-        "-c:v", "libx264",
-        "-pix_fmt", "yuv420p",
-        "-movflags", "+faststart",
-        out_mp4
-    ]
+    if os.path.exists(audio_path):
+        inputs.extend(["-i", audio_path])
+        audio_idx = len(slide_jpgs)
+        cmd = [
+            FFMPEG, "-y",
+            *inputs,
+            "-filter_complex", filter_complex,
+            "-map", "[outv]",
+            "-map", f"{audio_idx}:a",
+            "-c:v", "libx264",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-shortest",
+            "-pix_fmt", "yuv420p",
+            "-movflags", "+faststart",
+            out_mp4
+        ]
+    else:
+        cmd = [
+            FFMPEG, "-y",
+            *inputs,
+            "-filter_complex", filter_complex,
+            "-map", "[outv]",
+            "-c:v", "libx264",
+            "-pix_fmt", "yuv420p",
+            "-movflags", "+faststart",
+            out_mp4
+        ]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
