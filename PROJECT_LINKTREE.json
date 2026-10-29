@@ -1,36 +1,51 @@
 {
   "project_id": "4 - STAR UNION (Limpieza B2B)",
   "brand_name": "Star Union S.R.L.",
-  "local_linktree_url": "https://wajntraub.ar/star-union/linktree.html",
+  "local_linktree_url": "https://wajntraub.ar/staruniontest/accesos/",
   "links": [
     {
       "title": "⭐ Muestra Maestra Brochure (Fábricas e industrias · Editor + PDF A4)",
-      "url": "https://wajntraub.ar/star-union/brochures/editables/brochure-fabricas-e-industrias.html",
+      "url": "https://wajntraub.ar/staruniontest/brochures/editables/brochure-fabricas-e-industrias.html",
       "category": "Brochures B2B"
     },
     {
       "title": "📄 PDF A4 Directo — Muestra Maestra (Fábricas e industrias)",
-      "url": "https://wajntraub.ar/star-union/brochures/pdf/brochure-fabricas-e-industrias.pdf",
+      "url": "https://wajntraub.ar/staruniontest/brochures/pdf/brochure-fabricas-e-industrias.pdf",
       "category": "Brochures B2B"
     },
     {
       "title": "📋 Linktree General de Star Union (Todos los Accesos)",
-      "url": "https://wajntraub.ar/star-union/linktree.html",
+      "url": "https://wajntraub.ar/staruniontest/accesos/",
       "category": "Panel Central"
     },
     {
       "title": "🏠 Sitio Web Público Unificado (10 Páginas con Fotos Perfit Curadas)",
-      "url": "https://wajntraub.ar/star-union/",
+      "url": "https://wajntraub.ar/staruniontest/",
       "category": "Sitio Público"
     },
     {
+      "title": "📧 Inteligencia Histórica Perfit (21 Campañas + 21 Fotos Curadas HD)",
+      "url": "https://wajntraub.ar/staruniontest/radar-comercial/perfit-historial/",
+      "category": "Perfit & Fotos"
+    },
+    {
+      "title": "✅ Formulario de Relevamiento para Mauro (Ranking 1° a 6°)",
+      "url": "https://wajntraub.ar/staruniontest/relevamiento-gerencia/",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "📊 Orden de Trabajo Completa para Mariel (Google Ads + Negativas)",
+      "url": "https://wajntraub.ar/staruniontest/acuerdos/",
+      "category": "Google Ads"
+    },
+    {
       "title": "📚 Centro de 16 Brochures PDF + Editor en Vivo",
-      "url": "https://wajntraub.ar/star-union/brochures/",
+      "url": "https://wajntraub.ar/staruniontest/brochures/",
       "category": "Comercial"
     },
     {
       "title": "📊 Dossier Ejecutivo Interactivo B2B",
-      "url": "https://wajntraub.ar/star-union/dossier/",
+      "url": "https://wajntraub.ar/staruniontest/dossier/",
       "category": "Comercial"
     }
   ],
