@@ -114,9 +114,22 @@
 1. **Regla del 2° Envío (+5 días a No-Abridores con Asunto Nuevo):**
    - El reenvío a los 5 días aporta un **+21,8% promedio de aperturas únicas extra** (subiendo el alcance acumulado del 63,5% al 77,2%–84,5% en la base histórica).
    - **Prohibido repetir el mismo asunto en el reenvío:** En los meses donde se repitió el mismo asunto, el reenvío aportó solo 2 a 5 clics. En **Septiembre (#117)**, al cambiar el asunto del reenvío a *"Empresa de Limpieza Profesional. Continuidad operativa para infraestructuras exigentes"*, la apertura del reenvío saltó al **53%** y los clics únicos del reenvío subieron a **109 clics (+136,2% extra sobre los 80 del 1° envío)**.
-2. **Separación de Listas e Higiene de Rebotes:**
-   - Mantener separadas la **Lista Histórica Fidelizada (~1.160 contactos, 63% apertura, <1% rebote)** de la **Lista de Prospección Nueva de Octubre (~9.100 contactos activos tras depurar los 767 rebotes de #116/#119)**.
-   - Activar siempre `GOOGLE_ANALYTICS = 1` y completar el `PREHEADER` en todas las campañas de Perfit.
+2. **Unificación en 1 Sola Campaña Mensual + 1 Reenvío y Checklist de Configuración/Diseño en Perfit (Punto 2 y Punto 3 Guardados como Regla Operativa):**
+   - **No dividir en dos campañas:** Se envía **1 sola campaña mensual + 1 único reenvío (+5 días)** con todas las listas activas juntas (`ventas. 22oct26` + listas históricas). **¿Por qué no hace falta separar?** Porque el envío de octubre (`#116` y `#119`) ya filtró la lista `ventas. 22oct26` y Perfit (`EXCLUDE_INACTIVE = 1`) **ya bloqueó automáticamente los 767 correos rebotados** para siempre. Solo hay que destildar en *Destinatarios* la lista vieja `Escuelas 2021-rebotados` (que había quedado marcada por error).
+   - **PUNTO 2 — Qué configurar en el Paso 1 ("Configuración") de Perfit antes de cada envío:**
+     1. **Texto de vista previa (`Preheader`):** Completar siempre ese renglón debajo del asunto (estaba vacío en las campañas anteriores) con: *"Más de 450 colaboradores en nómina directa, base propia de 800 m² en CABA y certificación ISO 9001:2015 por TÜV Rheinland."*
+     2. **Casilla `"Seguimiento con Google Analytics"`:** Tildar el tilde (`GOOGLE_ANALYTICS = 1`). Al tildarlo, **Perfit agrega solo los códigos UTM a todos los botones** sin escribir nada a mano.
+     3. **Reenvío automático (+5 días a no abiertos):** Cambiar siempre el asunto del reenvío empezando con **"Empresa de Limpieza Profesional · ..."** para que el destinatario sepa de inmediato el rubro (en septiembre `#117` esto subió el reenvío a 53% de apertura y +136% de clics).
+   - **PUNTO 3 — Qué pegar en el Paso "Diseño" de Perfit (Cero códigos UTM manuales):**
+     - **Jamás escribir `?utm_source=...` a mano.** En cada foto y en cada botón amarillo del editor de Perfit, **reemplazar los links viejos a posteos de LinkedIn** pegando únicamente las **8 direcciones limpias** del sitio web nuevo:
+       1. Bloque Fábricas e Industria $\rightarrow$ `https://www.starunion.com.ar/limpieza-industrial/`
+       2. Bloque Limpieza de Vidrios en Altura $\rightarrow$ `https://www.starunion.com.ar/limpieza-en-altura/`
+       3. Bloque Oficinas, Edificios y Consorcios $\rightarrow$ `https://www.starunion.com.ar/consorcios/`
+       4. Bloque Clínicas, Hospitales y Laboratorios $\rightarrow$ `https://www.starunion.com.ar/clinicas-y-hospitales/`
+       5. Bloque Universidades, Colegios y Clubes $\rightarrow$ `https://www.starunion.com.ar/universidades-y-clubes/`
+       6. Bloque Grandes Superficies y Centros Comerciales $\rightarrow$ `https://www.starunion.com.ar/grandes-superficies/`
+       7. Bloque Base Operativa y Taller Propio (`800 m²`) $\rightarrow$ `https://www.starunion.com.ar/la-empresa/`
+       8. Bloque Calidad Certificada ISO 9001 (`Cleany`) $\rightarrow$ `https://www.starunion.com.ar/certificacion-iso/` (y el sello/QR de TÜV a `https://www.certipedia.com/quality_marks/9000041847`).
 3. **Embudo Comercial de 3 Carriles (De atrás hacia adelante con Filtro de Clientes de Mauro):**
    - **Paso 0 Innegociable:** Antes de contactar a cualquier clic de Perfit, cruzar contra el Excel de Clientes Actuales e Históricos de Mauro por `@dominio` corporativo y correo para etiquetar como `CLIENTE_ACTIVO_FIDELIZACION` y excluir 100% de llamados de prospección en frío.
    - **Carril A (Día 1 + Día 6 Reenvío):** Newsletter mensual rotando siempre el Bloque #1 según estacionalidad (el Bloque #1 concentra el 74% de los clics) + Reenvío al Día 6 con asunto distinto.
