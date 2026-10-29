@@ -523,6 +523,60 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        if self.path.startswith("/api/tiktok/login"):
+            parsed = urllib.parse.urlparse(self.path)
+            qs = urllib.parse.parse_qs(parsed.query)
+            keys = load_keys()
+            ck = (qs.get("client_key", [""])[0] or keys.get("tiktok_client_key", "")).strip()
+            cs = (qs.get("client_secret", [""])[0] or keys.get("tiktok_client_secret", "")).strip()
+            if ck or cs:
+                save_keys({"tiktok_client_key": ck, "tiktok_client_secret": cs})
+            redirect_uri = "http://127.0.0.1:8894/api/tiktok/callback"
+            auth_url = (
+                "https://www.tiktok.com/v2/auth/authorize/?"
+                + urllib.parse.urlencode(
+                    {
+                        "client_key": ck,
+                        "scope": "user.info.basic,video.upload,video.publish",
+                        "response_type": "code",
+                        "redirect_uri": redirect_uri,
+                        "state": "starunion_tt",
+                    }
+                )
+            )
+            self.send_response(302)
+            self.send_header("Location", auth_url)
+            self.end_headers()
+            return
+
+        if self.path.startswith("/api/tiktok/callback"):
+            parsed = urllib.parse.urlparse(self.path)
+            qs = urllib.parse.parse_qs(parsed.query)
+            code = qs.get("code", [""])[0]
+            keys = load_keys()
+            ck = keys.get("tiktok_client_key", "")
+            cs = keys.get("tiktok_client_secret", "")
+            redirect_uri = "http://127.0.0.1:8894/api/tiktok/callback"
+            if code and ck and cs:
+                st, res = http_json(
+                    "POST",
+                    "https://open.tiktokapis.com/v2/oauth/token/",
+                    form_data={
+                        "client_key": ck,
+                        "client_secret": cs,
+                        "code": code,
+                        "grant_type": "authorization_code",
+                        "redirect_uri": redirect_uri,
+                    },
+                )
+                tok = res.get("access_token") or res.get("data", {}).get("access_token", "")
+                if tok:
+                    save_keys({"tiktok_token": tok})
+            self.send_response(302)
+            self.send_header("Location", "/redes-sociales/index.html")
+            self.end_headers()
+            return
+
         if self.path.startswith("/api/status"):
             keys = load_keys()
             self._send_json(
@@ -542,6 +596,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     "youtube_channel_name": keys.get("youtube_channel_name", ""),
                     "youtube_channel_id": keys.get("youtube_channel_id", ""),
                     "tiktok_connected": bool(keys.get("tiktok_token")),
+                    "tiktok_client_key": keys.get("tiktok_client_key", ""),
                 },
             )
             return
@@ -609,6 +664,15 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             if tt_token:
                 updates["tiktok_token"] = tt_token
                 messages.append("✅ Token de TikTok Content Posting API guardado.")
+
+            tt_ck = (body.get("tiktok_client_key") or "").strip()
+            tt_cs = (body.get("tiktok_client_secret") or "").strip()
+            if tt_ck or tt_cs:
+                if tt_ck:
+                    updates["tiktok_client_key"] = tt_ck
+                if tt_cs:
+                    updates["tiktok_client_secret"] = tt_cs
+                messages.append("✅ Credenciales Client Key / Secret de TikTok guardadas.")
 
             saved = save_keys(updates)
             self._send_json(

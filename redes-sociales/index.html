@@ -97,13 +97,15 @@
             <p class="text-gray-300 leading-relaxed">
               1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
               2) En Step 1 pegá el permiso: <code>https://www.googleapis.com/auth/business.manage</code> y tocá <strong>Authorize APIs</strong>.<br>
-              3) En Step 2 tocá <strong>Exchange authorization code</strong> y pegá acá <strong>SOLO el Token</strong> (el sistema detecta solo el ID de ubicación):
+              3) En Step 2 tocá <strong>Exchange authorization code</strong> y pegá acá <strong>SOLO el Token</strong> (el sistema ya detectó solo el ID de ubicación):
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <div id="status-box-gmb" class="hidden bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs"></div>
-            <input id="inp-gmb-token" type="password" placeholder="Pegar solo el Token Google Business (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar Google My Business (1 solo Token)</button>
+            <div id="status-box-gmb" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
+              ✅ CONECTADO: Empresa de Limpieza - Star Union (locations/8938663810475756647)
+            </div>
+            <input id="inp-gmb-token" type="password" placeholder="Pegar nuevo Token Google Business si querés renovar (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ Google Maps Conectado (Tocar para actualizar)</button>
           </div>
         </div>
 
@@ -131,14 +133,17 @@
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">5. TikTok Business (Content Posting API v2)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.tiktok.com/" target="_blank" class="text-amber-300 underline font-bold">TikTok for Developers ↗</a><br>
-              2) Habilitá el producto <strong>Content Posting API</strong> (scope <code>video.publish</code>).<br>
-              3) Pegá el <code>Access Token</code> de la cuenta de TikTok de Star Union:
+              1) En <a href="https://developers.tiktok.com/" target="_blank" class="text-amber-300 underline font-bold">TikTok for Developers ↗</a> (modo <strong>Sandbox</strong> o <strong>Production</strong>), copiá arriba el <code>Client Key</code> y <code>Client Secret</code>.<br>
+              2) En <strong>Login Kit → Redirect URI</strong> poné: <code>http://127.0.0.1:8894/api/tiktok/callback</code><br>
+              3) <a href="assets/starunion_tiktok_icon_1024.png" download class="text-emerald-300 underline font-bold">⬇ Bajar Ícono 1024×1024 PNG de Star Union</a> (para subir en App Icon):
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <input id="inp-tt-token" type="password" placeholder="Access Token de TikTok (act...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar TikTok</button>
+            <input id="inp-tt-ck" type="text" placeholder="Client Key de TikTok (ej. aw123456...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-tt-cs" type="password" placeholder="Client Secret de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="connectTikTokOAuth()" class="w-full bg-amber-500 hover:bg-amber-600 text-gray-950 font-extrabold py-2 px-3 rounded-lg transition">🔗 1 Clic: Autorizar Cuenta de TikTok (OAuth)</button>
+            <input id="inp-tt-token" type="password" placeholder="(Opcional) Access Token directo (act...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Guardar Credenciales TikTok</button>
           </div>
         </div>
 
@@ -1133,6 +1138,16 @@ Conocé más en: https://www.starunion.com.ar</pre>
       }
     }
 
+    function connectTikTokOAuth() {
+      const ck = document.getElementById('inp-tt-ck').value.trim();
+      const cs = document.getElementById('inp-tt-cs').value.trim();
+      if (!ck || !cs) {
+        alert('Pegá primero el Client Key y el Client Secret que figuran arriba en la página de tu App de TikTok.');
+        return;
+      }
+      window.location.href = API_BASE + '/api/tiktok/login?client_key=' + encodeURIComponent(ck) + '&client_secret=' + encodeURIComponent(cs);
+    }
+
     async function saveApiTokens(btnEl) {
       const logEl = document.getElementById('api-connect-log');
       const oldBtn = btnEl ? btnEl.innerHTML : '';
@@ -1144,7 +1159,9 @@ Conocé más en: https://www.starunion.com.ar</pre>
         linkedin_urn: document.getElementById('inp-li-urn').value,
         gmb_token: document.getElementById('inp-gmb-token').value,
         youtube_token: document.getElementById('inp-yt-token').value,
-        tiktok_token: document.getElementById('inp-tt-token').value
+        tiktok_token: document.getElementById('inp-tt-token').value,
+        tiktok_client_key: document.getElementById('inp-tt-ck') ? document.getElementById('inp-tt-ck').value : '',
+        tiktok_client_secret: document.getElementById('inp-tt-cs') ? document.getElementById('inp-tt-cs').value : ''
       };
       try {
         const r = await fetch(API_BASE + '/api/connect', {
