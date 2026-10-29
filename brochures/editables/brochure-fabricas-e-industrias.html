@@ -149,7 +149,7 @@
   /* HEADER BLANCO LIMPIO */
   .top-header {
     background: #ffffff;
-    padding: 12px 26px 10px 26px;
+    padding: 10px 24px 9px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -164,49 +164,67 @@
     display: flex;
     align-items: center;
     gap: 11px;
-    background: #f9fafb;
-    border: 1px solid #d1d5db;
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
     border-radius: 10px;
-    padding: 5px 12px;
+    padding: 5px 13px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    text-decoration: none;
+  }
+  .top-header .iso-pill:hover {
+    background: #dcfce7;
+    border-color: #03582d;
   }
   .top-header .iso-pill img.tuv-qr {
-    height: 38px;
-    width: auto;
-    object-fit: contain;
-  }
-  .top-header .iso-pill img.cleany-top {
     height: 40px;
     width: auto;
     object-fit: contain;
   }
+  .top-header .iso-pill img.cleany-top {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+  }
   .top-header .iso-text {
-    font-size: 9.5px;
+    font-size: 10.5px;
     line-height: 1.35;
-    color: #374151;
+    color: #1f2937;
+    font-weight: 500;
   }
   .top-header .iso-text strong {
     color: #03582d;
     display: flex;
     align-items: baseline;
-    gap: 5px;
-    font-size: 10.2px;
-    font-weight: 700;
+    gap: 6px;
+    font-size: 11.2px;
+    font-weight: 800;
   }
   .iso-highlight {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13.2px;
+    font-size: 13.8px;
     font-weight: 800;
     color: #03582d;
     letter-spacing: 0.02em;
-    background: #e8f5ee;
-    border: 1px solid #86efac;
-    padding: 0.5px 6px;
-    border-radius: 4px;
+    background: #ffffff;
+    border: 1.5px solid #03582d;
+    padding: 0.5px 7px;
+    border-radius: 5px;
     display: inline-block;
+  }
+  .iso-download-tag {
+    display: inline-block;
+    background: #03582d;
+    color: #ffffff;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
   }
   .iso-inline-em {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.14em;
+    font-size: 1.12em;
     font-weight: 800;
     color: #03582d;
     letter-spacing: 0.015em;
@@ -220,7 +238,7 @@
   /* HERO AIREADO EN BLANCO */
   .hero-band {
     background: #ffffff;
-    padding: 12px 26px 11px 26px;
+    padding: 10px 24px 9px 24px;
     border-top: 4px solid #03582d;
     border-bottom: 1px solid #e5e7eb;
   }
@@ -231,15 +249,15 @@
     background: #f0fdf4;
     border: 1px solid #bbf7d0;
     color: #1f2937;
-    font-size: 10px;
+    font-size: 10.8px;
     font-weight: 600;
-    padding: 3.5px 10px;
+    padding: 3px 10px;
     border-radius: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .hero-badge .iso-badge-strong {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 12px;
+    font-size: 12.6px;
     font-weight: 800;
     color: #03582d;
     letter-spacing: 0.02em;
@@ -247,16 +265,17 @@
   .hero-band h1 {
     font-size: 22px;
     font-weight: 800;
-    line-height: 1.18;
+    line-height: 1.16;
     color: #111827;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     letter-spacing: -0.02em;
   }
   .hero-band p.subtitle {
-    font-size: 11.4px;
-    line-height: 1.46;
-    color: #374151;
-    max-width: 98%;
+    font-size: 11.9px;
+    line-height: 1.42;
+    color: #1f2937;
+    font-weight: 500;
+    max-width: 100%;
   }
 
   /* KPI ROW */
@@ -264,7 +283,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    padding: 9px 26px;
+    padding: 8px 24px;
     background: #ffffff;
   }
   .kpi-item {
@@ -272,20 +291,20 @@
     border: 1px solid #d1d5db;
     border-top: 3px solid #03582d;
     border-radius: 8px;
-    padding: 7px 11px;
+    padding: 6.5px 11px;
   }
   .kpi-val {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13.8px;
+    font-size: 14.8px;
     font-weight: 800;
     color: #03582d;
     line-height: 1.15;
     white-space: nowrap;
   }
   .kpi-lbl {
-    font-size: 9.4px;
+    font-size: 10.4px;
     font-weight: 600;
-    color: #374151;
+    color: #1f2937;
     margin-top: 2px;
     white-space: nowrap;
   }
@@ -294,8 +313,8 @@
   .photo-trio {
     display: grid;
     grid-template-columns: 1.06fr 0.90fr 1.04fr;
-    gap: 11px;
-    padding: 4px 26px 10px 26px;
+    gap: 10px;
+    padding: 3px 24px 8px 24px;
   }
   .photo-card {
     border-radius: 9px;
@@ -307,19 +326,19 @@
   }
   .photo-card img {
     width: 100%;
-    height: 184px;
+    height: 164px;
     object-fit: cover;
     object-position: center center;
     display: block;
   }
   .photo-caption {
-    padding: 7.5px 9px;
+    padding: 7px 9px;
     font-size: 10.9px;
     font-weight: 600;
     color: #111827;
     background: #f9fafb;
     border-top: 1px solid #e5e7eb;
-    line-height: 1.38;
+    line-height: 1.35;
     flex: 1;
     display: flex;
     align-items: center;
@@ -327,35 +346,35 @@
 
   /* SECCIÓN 6 PILARES PÁGINA 1 (CERO AIRE VACÍO, TIPOGRAFÍA GRANDE Y ESPECIFICACIÓN TÉCNICA) */
   .section-box {
-    padding: 4px 26px 8px 26px;
+    padding: 3px 24px 7px 24px;
     display: flex;
     flex-direction: column;
   }
   .section-eyebrow {
-    font-size: 10px;
+    font-size: 10.8px;
     font-weight: 700;
     color: #03582d;
     margin-bottom: 2px;
   }
   .section-title {
-    font-size: 15.5px;
+    font-size: 16px;
     font-weight: 800;
     color: #111827;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     padding-bottom: 4px;
     border-bottom: 1.5px solid #e5e7eb;
   }
   .bullets-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 9px 11px;
+    gap: 8px 11px;
   }
   .bullet-card {
     background: #f9fafb;
     border: 1px solid #d1d5db;
     border-left: 4px solid #03582d;
     border-radius: 8px;
-    padding: 9px 12px;
+    padding: 8.5px 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -370,43 +389,45 @@
     background: #e8f5ee;
     color: #03582d;
     border: 1px solid #bbf7d0;
-    font-size: 9.5px;
+    font-size: 10.5px;
     font-weight: 800;
     padding: 1.5px 6px;
     border-radius: 5px;
     flex-shrink: 0;
   }
   .bullet-card h3 {
-    font-size: 12.2px;
+    font-size: 13.2px;
     font-weight: 800;
     color: #111827;
-    line-height: 1.22;
+    line-height: 1.2;
   }
   .bullet-card p {
-    font-size: 10.5px;
-    line-height: 1.42;
-    color: #374151;
+    font-size: 11.9px;
+    line-height: 1.41;
+    color: #1f2937;
+    font-weight: 500;
     margin-bottom: 5px;
   }
   .bullet-spec {
-    font-size: 9.5px;
+    font-size: 10.7px;
     font-weight: 700;
     color: #03582d;
     border-top: 1px dashed #d1d5db;
-    padding-top: 4px;
-    line-height: 1.25;
+    padding-top: 4.5px;
+    line-height: 1.24;
   }
 
   .clients-strip {
-    margin: 2px 26px 8px 26px;
+    margin: 2px 24px 6px 24px;
     background: #f0fdf4;
     border: 1px solid #bbf7d0;
     border-left: 4px solid #03582d;
     border-radius: 8px;
-    padding: 8px 13px;
-    font-size: 10.3px;
-    color: #1f2937;
-    line-height: 1.38;
+    padding: 7.5px 13px;
+    font-size: 11.1px;
+    color: #111827;
+    font-weight: 500;
+    line-height: 1.35;
   }
   .clients-strip strong {
     color: #03582d;
@@ -418,7 +439,7 @@
   .guamini-grid-2x2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 11px;
+    gap: 10px;
     margin-top: 4px;
   }
   .guamini-card-lg {
@@ -432,31 +453,34 @@
   }
   .guamini-card-lg img {
     width: 100%;
-    height: 140px;
+    height: 132px;
     object-fit: cover;
     display: block;
   }
   .guamini-card-lg .gc-body {
-    padding: 9px 13px;
+    padding: 8.5px 12px;
   }
   .guamini-card-lg h4 {
-    font-size: 12.2px;
+    font-size: 12.5px;
     font-weight: 800;
     color: #111827;
     margin-bottom: 3px;
-    line-height: 1.25;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
   }
   .guamini-card-lg p {
-    font-size: 10.5px;
-    line-height: 1.42;
-    color: #374151;
+    font-size: 11.6px;
+    line-height: 1.38;
+    color: #1f2937;
+    font-weight: 500;
   }
 
   .compliance-row {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 12px;
-    padding: 6px 26px 10px 26px;
+    padding: 4px 24px 8px 24px;
     flex: 1;
   }
   .comp-box {
@@ -464,18 +488,18 @@
     border: 1px solid #d1d5db;
     border-top: 3.5px solid #03582d;
     border-radius: 10px;
-    padding: 13px 16px;
+    padding: 12px 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   .comp-box h3 {
-    font-size: 13.5px;
+    font-size: 15.2px;
     font-weight: 800;
     color: #111827;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1.5px solid #e5e7eb;
   }
   .comp-list {
     list-style: none;
@@ -483,24 +507,25 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    gap: 6px;
+    gap: 4px;
   }
   .comp-list li {
-    font-size: 10.4px;
-    line-height: 1.4;
-    color: #374151;
+    font-size: 12.3px;
+    line-height: 1.45;
+    color: #1f2937;
+    font-weight: 500;
     position: relative;
-    padding-left: 15px;
+    padding-left: 16px;
   }
   .comp-badge-bottom {
-    margin-top: 8px;
+    margin-top: 6px;
     background: #f0fdf4;
     border: 1px solid #bbf7d0;
-    border-left: 3.5px solid #03582d;
+    border-left: 4px solid #03582d;
     border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 9.8px;
-    font-weight: 700;
+    padding: 8px 12px;
+    font-size: 11.5px;
+    font-weight: 800;
     color: #03582d;
   }
   .comp-list li::before {
@@ -513,55 +538,59 @@
   }
   .comp-list li strong {
     color: #111827;
+    font-weight: 800;
   }
 
   .cta-box {
     background: #f9fafb;
     border: 1px solid #d1d5db;
     border-top: 3.5px solid #03582d;
-    color: #374151;
+    color: #1f2937;
     border-radius: 10px;
-    padding: 13px 16px;
+    padding: 12px 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
   }
   .cta-box .cta-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
   }
   .cta-box .cta-eyebrow {
-    font-size: 9.8px;
-    font-weight: 700;
+    font-size: 11.4px;
+    font-weight: 800;
     color: #03582d;
     margin-bottom: 2px;
   }
   .cta-box h3 {
-    font-size: 13.5px;
+    font-size: 15.4px;
     font-weight: 800;
     color: #111827;
     margin-bottom: 4px;
-    line-height: 1.22;
+    line-height: 1.2;
   }
   .cta-box p {
-    font-size: 10.5px;
-    line-height: 1.42;
-    color: #374151;
+    font-size: 12px;
+    line-height: 1.43;
+    color: #1f2937;
+    font-weight: 500;
   }
   .cta-contact-item {
     background: #ffffff;
     border: 1px solid #d1d5db;
     border-radius: 8px;
-    padding: 9px 12px;
-    font-size: 10.4px;
-    line-height: 1.55;
-    color: #374151;
+    padding: 10.5px 13px;
+    font-size: 11.6px;
+    line-height: 1.56;
+    color: #1f2937;
+    font-weight: 500;
   }
   .cta-contact-item strong {
     color: #111827;
+    font-weight: 800;
   }
   .cta-buttons-stack {
     display: flex;
@@ -573,9 +602,9 @@
     background: #03582d;
     color: #ffffff !important;
     text-align: center;
-    padding: 7px 10px;
+    padding: 9px 10px;
     border-radius: 7px;
-    font-size: 10.5px;
+    font-size: 11.8px;
     font-weight: 800;
     letter-spacing: -0.01em;
   }
@@ -584,31 +613,34 @@
     background: #ffcc29;
     color: #111827 !important;
     text-align: center;
-    padding: 6.5px 10px;
+    padding: 8.5px 10px;
     border-radius: 7px;
-    font-size: 10.2px;
+    font-size: 11.4px;
     font-weight: 800;
   }
 
-  /* FOOTER OFICIAL (#133522 - CERO AZUL) */
+  /* FOOTER OFICIAL (#133522 - CERO AZUL - TIPOGRAFÍA GRANDE Y LEGIBLE) */
   .footer-bar {
     background: #133522;
-    color: #e5e7eb;
-    padding: 8.5px 26px;
-    font-size: 8.7px;
+    color: #f3f4f6;
+    padding: 8.5px 20px;
+    font-size: 9.7px;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     border-top: 3px solid #03582d;
     margin-top: auto;
     white-space: nowrap;
   }
   .footer-bar strong {
     color: #ffffff;
+    font-weight: 800;
   }
   .footer-bar a {
     color: #ffcc29;
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: underline;
   }
 </style>
@@ -640,16 +672,14 @@
     <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=logo_header&utm_campaign=brochure_fabricas_industrias" target="_blank">
       <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
     </a>
-    <div class="iso-pill">
-      <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=qr_tuv&utm_campaign=brochure_fabricas_industrias" target="_blank" title="Verificar certificado ISO 9001:2015 en TÜV Rheinland Certipedia">
-        <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
-      </a>
+    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf?utm_source=brochure_pdf&utm_medium=header_iso_pill&utm_campaign=brochure_fabricas_industrias" download="Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf" target="_blank" rel="noopener" onclick="return downloadIsoWithoutLeaving(event)" title="Clic en cualquier parte de esta etiqueta para descargar el certificado oficial ISO 9001:2015 en PDF sin salir de esta pantalla">
+      <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
       <div class="iso-text">
-        <strong>Certificación de calidad <span class="iso-highlight">ISO 9001:2015</span></strong>
-        Auditada por TÜV Rheinland · ID <a class="verify-link" href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=qr_tuv&utm_campaign=brochure_fabricas_industrias" target="_blank">9000041847 ↗</a> · Reg. 01 100 062529826
+        <strong>Certificación de calidad <span class="iso-highlight">ISO 9001:2015</span> <span class="iso-download-tag">⬇ PDF certificado</span></strong>
+        Auditada por TÜV Rheinland · ID <span class="verify-link">9000041847</span> · Reg. 01 100 062529826
       </div>
       <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
-    </div>
+    </a>
   </div>
 
   <div class="hero-band">
@@ -769,7 +799,7 @@
   </div>
 
   <div class="footer-bar">
-    <div><strong>Star Union S.R.L.</strong> · Base Operativa propia: <strong>Guaminí 5052 / 5657, CABA</strong></div>
+    <div><strong>Star Union S.R.L.</strong> · Base Operativa: <strong>Guaminí 5052 / 5657, CABA</strong></div>
     <div><strong>0810-333-UNION (8646)</strong> · comercial@starunion.com.ar · <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=footer_p1&utm_campaign=brochure_fabricas_industrias" target="_blank">starunion.com.ar/limpieza-industrial ↗</a></div>
   </div>
 </div>
@@ -780,13 +810,14 @@
     <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=logo_header_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">
       <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
     </a>
-    <div class="iso-pill">
-      <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
+    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf?utm_source=brochure_pdf&utm_medium=header_iso_pill_p2&utm_campaign=brochure_fabricas_industrias" download="Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf" target="_blank" rel="noopener" onclick="return downloadIsoWithoutLeaving(event)" title="Clic en cualquier parte de esta etiqueta para descargar el certificado oficial ISO 9001:2015 en PDF sin salir de esta pantalla">
+      <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
       <div class="iso-text">
-        <strong>Respaldo físico, logístico y legal verificable en CABA</strong>
-        Base Operativa propia en calle Guaminí (800 m²) · Dirección: Juan A. Repetto y Mauro Repetto
+        <strong>Respaldo físico, logístico y legal · <span class="iso-highlight">ISO 9001:2015</span> <span class="iso-download-tag">⬇ PDF certificado</span></strong>
+        Base Operativa propia en Guaminí (800 m²) · Dir.: Juan A. Repetto y Mauro Repetto
       </div>
-    </div>
+      <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
+    </a>
   </div>
 
   <div class="section-box" style="padding-top: 12px; flex: 0 0 auto;">
@@ -849,10 +880,11 @@
       </div>
 
       <div class="cta-contact-item">
-        <div><strong>Base Operativa:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA</div>
-        <div><strong>Atención telefónica:</strong> 0810-333-UNION (8646) · (011) 4637-8146</div>
+        <div><strong>Base Operativa:</strong> Guaminí 5052 / 5657, CABA (800 m² propios)</div>
+        <div><strong>Teléfonos:</strong> 0810-333-UNION (8646) · 4637-8146</div>
         <div><strong>WhatsApp comercial:</strong> <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20le%C3%AD%20el%20brochure%20t%C3%A9cnico%20de%20f%C3%A1bricas%20e%20industrias%20(ref.%20PDF-IND-2026)%20y%20quiero%20solicitar%20una%20visita%20de%20diagn%C3%B3stico." target="_blank" style="color:#03582d; font-weight:700; text-decoration:underline;">+54 9 11 2275-9369</a></div>
-        <div><strong>Dirección y comercial:</strong> mrepetto@starunion.com.ar · comercial@starunion.com.ar</div>
+        <div><strong>Dirección:</strong> mrepetto@starunion.com.ar</div>
+        <div><strong>Comercial:</strong> comercial@starunion.com.ar</div>
       </div>
 
       <div class="cta-buttons-stack">
@@ -867,21 +899,32 @@
   </div>
 
   <div class="footer-bar">
-    <div>© 2001–2026 <strong>Star Union S.R.L.</strong> · Base Operativa Guaminí, CABA · Ref.: <strong>SU-BRO-IND-2026</strong></div>
-    <div><strong>Edición técnica 2026</strong> · <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=footer_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">TÜV Rheinland ISO 9001:2015 (ID 9000041847) ↗</a></div>
+    <div>© 2001–2026 <strong>Star Union S.R.L.</strong> · Guaminí 5052 / 5657, CABA · Ref.: <strong>SU-BRO-IND-2026</strong></div>
+    <div><strong>Edición 2026</strong> · <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=footer_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">TÜV Rheinland ISO 9001:2015 (ID 9000041847) ↗</a></div>
   </div>
 </div>
 </div>
 
 <script class="no-print">
-  const STORAGE_KEY = "starunion_brochure_ind_v4";
+  const STORAGE_KEY = "starunion_brochure_ind_v6";
   let initialSnapshot = "";
   let initialElementsMap = [];
   let activeEditable = null;
 
+  function downloadIsoWithoutLeaving(e) {
+    e.preventDefault();
+    const a = document.createElement("a");
+    a.href = "../../certificado-iso-starunion.pdf";
+    a.setAttribute("download", "Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    return false;
+  }
+
   function bindEditables() {
     const canvas = document.getElementById("brochure-canvas");
-    const editables = canvas.querySelectorAll("h1, h2, h3, h4, p, li, .hero-badge, .kpi-val, .kpi-lbl, .photo-caption, .section-eyebrow, .section-title, .bullet-spec, .clients-strip, .cta-eyebrow, .cta-contact-item div, .iso-text");
+    const editables = canvas.querySelectorAll("h1, h2, h3, h4, p, li, .hero-badge, .kpi-val, .kpi-lbl, .photo-caption, .section-eyebrow, .section-title, .bullet-spec, .clients-strip, .cta-eyebrow, .cta-contact-item div");
     editables.forEach((el, idx) => {
       el.setAttribute("contenteditable", "true");
       el.setAttribute("spellcheck", "false");
@@ -919,7 +962,7 @@
       alert("Primero hacé clic sobre el texto o bajada de foto que querés agrandar o achicar.");
       return;
     }
-    const currentPx = parseFloat(window.getComputedStyle(activeEditable).fontSize) || 10.9;
+    const currentPx = parseFloat(window.getComputedStyle(activeEditable).fontSize) || 11.4;
     activeEditable.style.fontSize = (currentPx + deltaPx).toFixed(2) + "px";
     saveDraftToBrowser();
   }
@@ -952,9 +995,11 @@
         diffs.push(`- (${el.tagName.toLowerCase()}.${el.className || 'texto'}): "${curText}"${styleNote}`);
       }
     });
-    const payload = diffs.length > 0
-      ? "Cambios realizados en el brochure editable:\n" + diffs.join("\n")
-      : "Cambios realizados en el brochure editable (todo el bloque actual):\n" + Array.from(canvas.querySelectorAll(".photo-caption, h1, .hero-badge, .subtitle")).map(el => `- "${el.innerText.trim()}" [${el.getAttribute("style") || ""}]`).join("\n");
+    if (diffs.length === 0) {
+      alert("Tus comentarios (Add Comment) ya se envían solos al chat cuando tocás Enviar. Este botón solo hace falta si además borraste o escribiste palabras directo sobre la hoja.");
+      return;
+    }
+    const payload = "Palabras o estilos editados directo sobre la hoja:\n" + diffs.join("\n");
     navigator.clipboard.writeText(payload).then(() => {
       const btn = document.getElementById("btn-copy-changes");
       btn.textContent = "✅ Copiado (pegá en el chat)";

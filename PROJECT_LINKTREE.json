@@ -4,13 +4,18 @@
   "local_linktree_url": "https://wajntraub.ar/staruniontest/accesos/",
   "links": [
     {
-      "title": "⭐ Muestra Maestra Brochure (Fábricas e industrias · Editor + PDF A4)",
+      "title": "⭐ Muestra Maestra Brochure (Fábricas e industrias · Editor A+ / Interletrado + Descarga ISO sin salir)",
       "url": "https://wajntraub.ar/staruniontest/brochures/editables/brochure-fabricas-e-industrias.html",
       "category": "Brochures B2B"
     },
     {
-      "title": "📄 PDF A4 Directo — Muestra Maestra (Fábricas e industrias)",
+      "title": "📄 PDF A4 Directo — Muestra Maestra (Fábricas e industrias · Letra Grande Cero Aire)",
       "url": "https://wajntraub.ar/staruniontest/brochures/pdf/brochure-fabricas-e-industrias.pdf",
+      "category": "Brochures B2B"
+    },
+    {
+      "title": "🏅 Certificado Oficial ISO 9001:2015 TÜV Rheinland (PDF Descargable)",
+      "url": "https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf",
       "category": "Brochures B2B"
     },
     {
