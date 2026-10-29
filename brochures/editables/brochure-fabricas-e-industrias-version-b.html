@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Star Union S.R.L. — Brochure Técnico (Versión B · Diseño Gráfico Impreso + Medallones): Limpieza de Fábricas, Plantas Industriales y Centros Logísticos</title>
+<title>Star Union S.R.L. — Brochure Impreso (Versión B · Carátula Diseñada + Editorial Abierto): Limpieza de Fábricas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <style>
   @page {
     size: A4 portrait;
@@ -22,50 +22,47 @@
   }
   html, body {
     width: 210mm;
-    background: #dfe5e1;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #111827;
-    font-size: 9.5pt;
-    line-height: 1.35;
-  }
-  h1, h2, h3, h4, .brand-font {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #d6dcd8;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a1a;
+    font-size: 10pt;
+    line-height: 1.48;
   }
   a {
     color: inherit;
     text-decoration: none;
   }
 
-  /* BARRA SUPERIOR DE EDICIÓN INTERACTIVA (SOLO EN PANTALLA, SE OCULTA EN PDF) */
+  /* BARRA SUPERIOR DE EDICIÓN INTERACTIVA (SOLO EN PANTALLA, SE OCULTA EN PDF/IMPRESIÓN) */
   .editor-toolbar {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background: #07351b;
+    background: #084d27;
     color: #ffffff;
     padding: 8px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    border-bottom: 3px solid #95c11f;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.28);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11.5px;
+    border-bottom: 2px solid #8ab33e;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
   }
   .editor-toolbar .toolbar-title {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 700;
+    font-weight: 600;
   }
   .editor-toolbar .toolbar-badge {
-    background: #95c11f;
-    color: #07351b;
-    font-weight: 800;
+    background: #8ab33e;
+    color: #ffffff;
+    font-weight: 700;
     padding: 2.5px 8px;
     border-radius: 999px;
-    font-size: 10.5px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
@@ -78,36 +75,34 @@
   .btn-tool {
     background: rgba(255,255,255,0.12);
     color: #ffffff;
-    border: 1px solid rgba(255,255,255,0.26);
+    border: 1px solid rgba(255,255,255,0.28);
     padding: 4.5px 8.5px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
+    border-radius: 5px;
+    font-size: 10.5px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s ease;
   }
   .btn-tool:hover {
-    background: rgba(255,255,255,0.24);
+    background: rgba(255,255,255,0.22);
   }
   .btn-switch-version {
     background: #ffffff;
-    color: #0b6636 !important;
-    border: 1.5px solid #95c11f;
+    color: #0b6535 !important;
+    border: 1px solid #8ab33e;
     padding: 4.5px 9px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 800;
+    border-radius: 5px;
+    font-size: 10.5px;
+    font-weight: 700;
     cursor: pointer;
-    text-decoration: none;
   }
   .btn-export {
-    background: #ffcc29;
+    background: #e5b524;
     color: #111827;
     border: none;
     padding: 5px 11px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 800;
+    border-radius: 5px;
+    font-size: 10.5px;
+    font-weight: 700;
     cursor: pointer;
   }
 
@@ -117,1278 +112,845 @@
     border-radius: 3px;
   }
   .editable-mode [contenteditable="true"]:hover {
-    outline: 1px dashed #95c11f;
-    background: rgba(149, 193, 31, 0.08);
-    cursor: text;
+    outline: 1px dashed #1d8366;
   }
   .editable-mode [contenteditable="true"]:focus {
-    outline: 2px solid #95c11f;
-    background: rgba(255, 255, 255, 0.14);
+    outline: 2px solid #e5b524;
+  }
+  .img-editable {
+    cursor: pointer;
+  }
+
+  /* LIENZO A4 EXACTO */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: #ffffff;
+    margin: 0 auto 8mm auto;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.18);
+  }
+  .page:last-of-type {
+    page-break-after: auto;
+    margin-bottom: 0;
   }
 
   @media print {
     html, body {
       background: #ffffff;
     }
-    .no-print {
+    .editor-toolbar, .toast-saved {
       display: none !important;
     }
     .page {
-      margin: 0 !important;
-      box-shadow: none !important;
+      margin: 0;
+      box-shadow: none;
     }
   }
 
-  .page {
+  /* ==========================================================================
+     PÁGINA 1 — TAPA / CARÁTULA DISEÑADA FULL-BLEED (ADN BROCHURE 2022 + CARPETA)
+     ========================================================================== */
+  .cover-page {
+    position: relative;
     width: 210mm;
     height: 297mm;
-    position: relative;
-    overflow: hidden;
-    background: #ffffff;
-    page-break-after: always;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto 14px auto;
-    box-shadow: 0 10px 32px rgba(0,0,0,0.18);
+    background: #0b6535;
   }
 
-  /* MARCA DE AGUA DE ESTRELLA DE 5 PUNTAS (ADN PAPELERÍA COMERCIAL A4 STAR UNION) */
-  .star-watermark {
-    position: absolute;
-    right: -40px;
-    top: 410px;
-    width: 430px;
-    height: 430px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.13;
-  }
-
-  /* CABECERA MEMBRETE IMPRESO + CINTA DIAGONAL LIMA (ADN BROCHURE 2022 + CARPETA SU) */
-  .print-top-header {
-    position: relative;
-    z-index: 5;
-    background: #ffffff;
-    padding: 8px 18px 7px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 4px solid #95c11f;
-  }
-  .brand-card-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-  .brand-card-left .logo-main {
-    height: 38px;
-    width: auto;
-    object-fit: contain;
-  }
-  .brand-card-motto {
-    border-left: 2.5px solid #95c11f;
-    padding-left: 9px;
-    line-height: 1.15;
-    white-space: nowrap;
-  }
-  .brand-card-motto .sabemos {
-    font-family: 'Economica', 'Plus Jakarta Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #4b5563;
-    text-transform: uppercase;
-  }
-  .brand-card-motto .phone-classic {
-    font-family: 'Economica', 'Plus Jakarta Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #d99b00;
-    letter-spacing: 0.02em;
-  }
-  .brand-card-motto .phone-classic strong {
-    color: #0b6636;
-    font-weight: 800;
-  }
-  .brand-card-motto .web-spaced {
-    font-size: 8.5px;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    color: #374151;
-    text-transform: lowercase;
-  }
-
-  /* ETIQUETA ISO 9001:2015 COMPLETA (DESCARGA PDF DIRECTA SIN SALIR) */
-  .iso-pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #f8fdf9;
-    border: 2px solid #0b6636;
-    border-left: 5px solid #95c11f;
-    border-radius: 10px;
-    padding: 4px 9px;
-    cursor: pointer;
-    box-shadow: 0 3px 10px rgba(11,102,54,0.12);
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .iso-pill img.tuv-qr {
-    height: 35px;
-    width: auto;
-    object-fit: contain;
-  }
-  .iso-pill img.cleany-top {
-    height: 37px;
-    width: auto;
-    object-fit: contain;
-  }
-  .iso-text {
-    font-size: 9.6px;
-    line-height: 1.28;
-    color: #1f2937;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .iso-text strong {
-    color: #0b6636;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 10.2px;
-    font-weight: 800;
-  }
-  .iso-highlight {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11.8px;
-    font-weight: 800;
-    color: #ffffff;
-    background: #0b6636;
-    border: 1.5px solid #95c11f;
-    padding: 0.5px 5.5px;
-    border-radius: 4px;
-    display: inline-block;
-  }
-  .iso-download-tag {
-    display: inline-block;
-    background: #ffcc29;
-    color: #111827;
-    font-size: 8.8px;
-    font-weight: 800;
-    padding: 1px 5px;
-    border-radius: 4px;
-  }
-  .verify-link {
-    color: #0b6636;
-    font-weight: 800;
-    text-decoration: underline;
-  }
-  .iso-inline-em {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.08em;
-    font-weight: 800;
-    color: #0b6636;
-  }
-  .iso-inline-em-light {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.08em;
-    font-weight: 800;
-    color: #ffcc29;
-  }
-
-  /* ==========================================================================
-     PÁGINA 1: PORTADA GRÁFICA IMPRESA CON ONDAS DIAGONALES Y 3 MEDALLONES CIRCULARES
-     (ADN EXACTO DE brochure-su-fabricas-2022.pdf + Carpeta SU imágenes grandes.pdf)
-     ========================================================================== */
-  .p1-graphic-stage {
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(122deg, #074724 0%, #0b6636 48%, #158062 82%, #1b9968 100%);
-    color: #ffffff;
-    padding: 12px 20px 14px 20px;
-    overflow: hidden;
-    border-bottom: 5px solid #95c11f;
-  }
-  .p1-waves-svg {
+  .cover-svg-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
     pointer-events: none;
-    z-index: 0;
-  }
-  .p1-hero-content {
-    position: relative;
-    z-index: 2;
-  }
-  .hero-badge-print {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(7, 45, 22, 0.72);
-    border: 1.5px solid #95c11f;
-    color: #ffffff;
-    font-size: 10.5px;
-    font-weight: 700;
-    padding: 2.5px 11px;
-    border-radius: 999px;
-    margin-bottom: 5px;
-  }
-  .hero-badge-print .iso-badge-strong {
-    color: #ffcc29;
-    font-weight: 800;
-  }
-  .p1-hero-content h1 {
-    font-size: 21.5px;
-    font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.015em;
-    color: #ffffff;
-    margin-bottom: 5px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.22);
-  }
-  .p1-hero-content .subtitle {
-    font-size: 11px;
-    line-height: 1.38;
-    color: #f0fdf4;
-    font-weight: 500;
-    max-width: 98%;
-    margin-bottom: 11px;
   }
 
-  /* 3 MEDALLONES CIRCULARES AUTÉNTICOS SOBRE LAS ONDAS VERDES/LIMA */
-  .medallions-trio-stage {
-    position: relative;
-    z-index: 3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    align-items: stretch;
-    padding: 2px 2px 0 2px;
+  /* ESQUINA SUPERIOR IZQUIERDA BLANCA DE MARCA */
+  .cover-brand-corner {
+    position: absolute;
+    top: 9mm;
+    left: 12mm;
+    width: 88mm;
+    z-index: 5;
   }
-  .medallion-unit {
-    display: flex;
-    flex-direction: column;
+  .cover-logo {
+    width: 74mm;
+    height: auto;
+    display: block;
+    margin-bottom: 2.5mm;
+  }
+  .cover-tagline {
+    font-family: 'Economica', sans-serif;
+    font-size: 20.5pt;
+    font-weight: 400;
+    color: #808285;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-left: 3mm;
+    margin-bottom: 2mm;
+  }
+  .cover-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15.5pt;
+    font-weight: 500;
+    color: #e2a814;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    margin-bottom: 1.5mm;
+  }
+  .cover-phone strong {
+    color: #0b6535;
+    font-weight: 600;
+  }
+  .cover-web {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    font-weight: 400;
+    color: #1d8366;
+    letter-spacing: 0.24em;
+    margin-left: 2mm;
+    margin-bottom: 3mm;
+  }
+
+  /* SELLO TÜV RHEINLAND DISCRETO Y EDITORIAL EN CARÁTULA */
+  .cover-iso-discrete {
+    display: inline-flex;
     align-items: center;
-    text-align: center;
+    gap: 7px;
+    padding: 4px 8px;
+    background: #f5f7f6;
+    border-left: 3px solid #0b6535;
+    border-radius: 3px;
+    margin-left: 1mm;
   }
-  .medallion-circle-ring {
-    width: 156px;
-    height: 156px;
-    border-radius: 50%;
-    padding: 5px;
-    background: linear-gradient(135deg, #95c11f 0%, #ffcc29 50%, #1b9968 100%);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.38);
-    margin-bottom: 8px;
-    flex-shrink: 0;
+  .cover-iso-discrete img {
+    height: 28px;
+    width: auto;
+    display: block;
   }
-  .medallion-circle-inner {
-    width: 100%;
-    height: 100%;
+  .cover-iso-text {
+    font-size: 7.4pt;
+    line-height: 1.25;
+    color: #374151;
+    font-weight: 500;
+  }
+  .cover-iso-text strong {
+    color: #0b6535;
+    font-weight: 700;
+    display: block;
+  }
+
+  /* 3 GRANDES MEDALLONES CIRCULARES DE TAPA */
+  .cover-medallion {
+    position: absolute;
     border-radius: 50%;
     overflow: hidden;
-    border: 3.5px solid #ffffff;
-    background: #0b6636;
+    background: #ffffff;
+    z-index: 4;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
   }
-  .medallion-circle-inner img {
+  .cover-medallion img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-  .photo-caption-print {
-    background: rgba(6, 46, 24, 0.92);
-    border: 1.5px solid #95c11f;
-    border-radius: 9px;
-    padding: 5.5px 9px;
-    color: #ffffff;
-    font-size: 10.2px;
-    font-weight: 700;
-    line-height: 1.26;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.22);
-  }
-
-  /* CINTA DE 4 INDICADORES CON CÁPSULAS CURVAS ESTILO IMPRESO */
-  .kpi-ribbon-print {
-    position: relative;
-    z-index: 3;
-    background: #eef7ea;
-    border-bottom: 2.5px solid #95c11f;
-    padding: 7.5px 18px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 9px;
-  }
-  .kpi-pill-print {
-    background: #ffffff;
-    border-left: 5px solid #0b6636;
-    border-right: 2.5px solid #95c11f;
-    border-top: 1px solid #cde4c4;
-    border-bottom: 1px solid #cde4c4;
-    border-radius: 999px;
-    padding: 5px 10px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(11,102,54,0.08);
-  }
-  .kpi-val {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 12.6px;
-    font-weight: 800;
-    color: #0b6636;
-    line-height: 1.15;
-  }
-  .kpi-lbl {
-    font-size: 9.1px;
-    font-weight: 700;
-    color: #374151;
-    line-height: 1.18;
-  }
-
-  /* SECCIÓN EDITORIAL DE PROTOCOLO TÉCNICO (SIN CAJAS DE DASHBOARD WEB) */
-  .editorial-section-print {
-    position: relative;
-    z-index: 2;
-    padding: 9px 18px 6px 18px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .ribbon-header-print {
-    background: linear-gradient(90deg, #0b6636 0%, #158062 68%, #95c11f 100%);
-    color: #ffffff;
-    padding: 6px 14px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    box-shadow: 0 3px 8px rgba(11,102,54,0.16);
-  }
-  .section-title-print {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 12.5px;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: -0.01em;
-  }
-  .section-eyebrow-print {
-    font-size: 9.8px;
-    font-weight: 800;
-    color: #07351b;
-    background: #ffcc29;
-    padding: 2px 9px;
-    border-radius: 999px;
-    text-transform: uppercase;
-  }
-
-  /* GRILLA EDITORIAL IMPRESA DE 6 PILARES (DISEÑO DE FOLLETO GRÁFICO, NO CAJAS WEB) */
-  .editorial-pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    column-gap: 14px;
-    row-gap: 9px;
-    flex: 1;
-  }
-  .editorial-pillar-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8.5px 11px;
-    background: linear-gradient(95deg, rgba(235,246,230,0.92) 0%, rgba(255,255,255,0.96) 100%);
-    border-left: 4.5px solid #95c11f;
-    border-bottom: 2px solid #cbe2c0;
-    border-radius: 0 12px 12px 0;
-  }
-  .pillar-medallion-num {
-    width: 31px;
-    height: 31px;
-    border-radius: 50%;
-    background: #0b6636;
-    border: 2.5px solid #95c11f;
-    color: #ffcc29;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11.5px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-    box-shadow: 0 2px 6px rgba(11,102,54,0.22);
-  }
-  .pillar-body {
-    flex: 1;
-    min-width: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .pillar-body h3 {
-    font-size: 12px;
-    font-weight: 800;
-    color: #073b1e;
-    line-height: 1.2;
-    margin-bottom: 3px;
-  }
-  .pillar-body p {
-    font-size: 10.2px;
-    line-height: 1.35;
-    color: #1f2937;
-    margin-bottom: 4px;
-  }
-  .bullet-spec-print {
-    font-size: 9.3px;
-    font-weight: 800;
-    color: #073b1e;
-    background: rgba(149, 193, 31, 0.24);
-    border-left: 3px solid #0b6636;
-    padding: 2.5px 8px;
-    border-radius: 4px;
     display: block;
   }
 
-  /* BANDA DE REFERENCIAS CLIENTES ESTILO CARPETA IMPRESA */
-  .clients-strip-print {
-    position: relative;
-    z-index: 2;
-    margin: 4px 18px 7px 18px;
-    background: linear-gradient(90deg, #084c27 0%, #0b6636 100%);
-    border: 2px solid #95c11f;
-    border-radius: 999px;
-    padding: 5.5px 14px;
+  /* Medallón 1: Superior Derecho (Operario con aspiradora industrial en Grupo Simpa) */
+  .med-top-right {
+    width: 82mm;
+    height: 82mm;
+    top: 20mm;
+    right: 20mm;
+    border: 5.5mm solid #1d8366;
+    z-index: 4;
+  }
+  .med-top-right img {
+    object-position: center 78%;
+  }
+
+  /* Medallón 2: Central Izquierdo Gigante (Fregadora hombre a bordo en nave industrial) */
+  .med-center-left {
+    width: 110mm;
+    height: 110mm;
+    top: 84mm;
+    left: 6mm;
+    border: 6.5mm solid #8ab33e;
+    z-index: 6;
+  }
+  .med-center-left img {
+    object-position: center center;
+  }
+
+  /* Medallón 3: Medio Derecho (Fregadora Convertamatic 20B entre racks) */
+  .med-mid-right {
+    width: 82mm;
+    height: 82mm;
+    top: 114mm;
+    right: 8mm;
+    border: 5.5mm solid #1d8366;
+    z-index: 5;
+  }
+  .med-mid-right img {
+    object-position: center 45%;
+  }
+
+  /* TÍTULO DE TAPA ULTRA-LIGHT / THIN EN PARTE INFERIOR DERECHA (CERO BOLD EMPASTADO) */
+  .cover-title-block {
+    position: absolute;
+    bottom: 16mm;
+    right: 16mm;
+    left: 20mm;
+    z-index: 7;
+    text-align: right;
     color: #ffffff;
-    font-size: 9.5px;
+  }
+  .cover-title-line1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45pt;
+    font-weight: 200;
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    display: block;
+  }
+  .cover-title-line2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80pt;
+    font-weight: 200;
+    line-height: 0.94;
+    letter-spacing: -0.015em;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 4mm;
+  }
+  .cover-subtitle-gold {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14.5pt;
+    font-weight: 400;
+    color: #e5b524;
+    letter-spacing: 0.01em;
     line-height: 1.3;
-    text-align: center;
+    margin-bottom: 2mm;
   }
-  .clients-strip-print strong {
-    color: #ffcc29;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+  .cover-lead-white {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.6pt;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.42;
+    letter-spacing: 0.015em;
   }
 
   /* ==========================================================================
-     PÁGINA 2: REVERSO IMPRESO CON ONDA TRICOLOR, 4 MEDALLONES CIRCULARES DE
-     BASE OPERATIVA GUAMINÍ, BANDA GRIS PIEDRA #EBEBEB Y TARJETA PERSONAL / CARPETA
+     PÁGINA 2 — REVERSO EDITORIAL ABIERTO IMPRESO (CERO CAJAS, 100% LEGIBLE)
      ========================================================================== */
-  .p2-wave-banner {
+  .back-page {
     position: relative;
-    z-index: 2;
-    background: linear-gradient(115deg, #074724 0%, #0b6636 55%, #178265 100%);
-    padding: 9px 18px;
-    border-bottom: 4px solid #95c11f;
-    color: #ffffff;
+    width: 210mm;
+    height: 297mm;
+    background: #ffffff;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
-    overflow: hidden;
-  }
-  .p2-wave-banner .section-title-print {
-    font-size: 13.5px;
-    font-weight: 800;
-    color: #ffffff;
-  }
-  .p2-wave-banner .section-eyebrow-print {
-    font-size: 9.4px;
-    background: #ffcc29;
-    color: #07351b;
-    padding: 2.5px 9px;
-    border-radius: 999px;
-    font-weight: 800;
-    white-space: nowrap;
   }
 
-  /* 4 MEDALLONES CIRCULARES CON BANDAS EDITORIALES PARA BASE OPERATIVA GUAMINÍ */
-  .guamini-medallions-grid {
+  /* CABECERA CON CURVA ORGÁNICA Y MEDALLONES DE BASE OPERATIVA GUAMINÍ */
+  .back-header {
     position: relative;
-    z-index: 2;
-    padding: 10px 18px 8px 18px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 11px 14px;
-  }
-  .guamini-medallion-row {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    background: linear-gradient(105deg, #f1f8ed 0%, #ffffff 65%, #eaf5e4 100%);
-    border-left: 5px solid #0b6636;
-    border-right: 3.5px solid #95c11f;
-    border-top: 1px solid #c2ddb2;
-    border-bottom: 1.5px solid #c2ddb2;
-    border-radius: 64px 14px 14px 64px;
-    padding: 6.5px 11px 6.5px 6.5px;
-    box-shadow: 0 4px 12px rgba(11,102,54,0.09);
-  }
-  .guamini-circle-frame {
-    width: 106px;
-    height: 106px;
-    border-radius: 50%;
-    padding: 3.5px;
-    background: linear-gradient(135deg, #95c11f 0%, #ffcc29 50%, #0b6636 100%);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+    width: 210mm;
+    height: 55mm;
     flex-shrink: 0;
+    overflow: hidden;
   }
-  .guamini-circle-inner {
+  .back-header-svg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .back-brand-left {
+    position: relative;
+    z-index: 4;
+    padding: 6mm 0 0 14mm;
+    width: 82mm;
+  }
+  .back-brand-left .back-logo {
+    width: 58mm;
+    height: auto;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .back-brand-left .back-phone {
+    font-size: 12.8pt;
+    font-weight: 500;
+    color: #e2a814;
+    line-height: 1.15;
+    margin-bottom: 1.2mm;
+  }
+  .back-brand-left .back-phone strong {
+    color: #0b6535;
+    font-weight: 600;
+  }
+  .back-brand-left .back-web {
+    display: block;
+    font-size: 8.8pt;
+    color: #1d8366;
+    letter-spacing: 0.22em;
+  }
+
+  /* Medallones circulares de la cabecera de Página 2 */
+  .back-medallion {
+    position: absolute;
     border-radius: 50%;
     overflow: hidden;
-    border: 2.5px solid #ffffff;
     background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.16);
   }
-  .guamini-circle-inner img {
+  .back-medallion img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
     display: block;
   }
-  .guamini-row-body {
-    flex: 1;
-    min-width: 0;
+  .back-med-main {
+    width: 49mm;
+    height: 49mm;
+    top: 3mm;
+    left: 84mm;
+    border: 3.3mm solid #1d8366;
+    z-index: 5;
   }
-  .guamini-row-body h4 {
-    font-size: 11.7px;
-    font-weight: 800;
-    color: #0b6636;
-    line-height: 1.2;
-    margin-bottom: 3.5px;
+  .back-med-sec {
+    width: 42mm;
+    height: 42mm;
+    top: 2.5mm;
+    right: 12mm;
+    border: 3mm solid #8ab33e;
+    z-index: 4;
   }
-  .guamini-row-body p {
-    font-size: 10px;
-    line-height: 1.35;
-    color: #1f2937;
+  .back-med-third {
+    width: 33mm;
+    height: 33mm;
+    top: 19.5mm;
+    left: 129mm;
+    border: 2.6mm solid #0b6535;
+    z-index: 6;
   }
 
-  /* BANDA GRIS PIEDRA (#EBEBEB DEL BROCHURE 2022) + TARJETA PERSONAL / CARPETA STAR UNION */
-  .compliance-print-band {
-    position: relative;
-    z-index: 2;
-    margin: 2px 18px 8px 18px;
-    display: grid;
-    grid-template-columns: 1.24fr 0.96fr;
-    gap: 12px;
-    flex: 1;
-    align-items: stretch;
-  }
-  .comp-box-print {
-    background: #ebebeb;
-    border-top: 5px solid #0b6636;
-    border-left: 5px solid #95c11f;
-    border-radius: 12px;
-    padding: 12px 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: inset 0 0 0 1px #d4d4d8;
-  }
-  .comp-box-print h3 {
-    font-size: 12.8px;
-    font-weight: 800;
-    color: #0b6636;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    padding-bottom: 5px;
-    border-bottom: 2.5px solid #95c11f;
-    margin-bottom: 6px;
-  }
-  .comp-list-print {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    flex: 1;
-    justify-content: space-around;
-  }
-  .comp-list-print li {
-    position: relative;
-    padding-left: 16px;
-    font-size: 10.2px;
-    line-height: 1.37;
-    color: #111827;
-  }
-  .comp-list-print li::before {
-    content: "★";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #d99b00;
-    font-size: 10.8px;
-    font-weight: 800;
-  }
-  .comp-list-print li strong {
-    color: #073b1e;
-    font-weight: 800;
-  }
-  .comp-badge-bottom-print {
-    margin-top: 7px;
+  /* CUERPO EDITORIAL ABIERTO SOBRE BLANCO PURO (SIN CAJAS) */
+  .editorial-section {
+    padding: 0.5mm 16mm 1.5mm 16mm;
     background: #ffffff;
-    border: 1.5px solid #0b6636;
-    border-left: 5px solid #95c11f;
-    border-radius: 999px;
-    padding: 5px 10px;
-    font-size: 9.6px;
-    font-weight: 800;
-    color: #0b6636;
+  }
+  .editorial-main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 27pt;
+    font-weight: 200;
+    color: #0b6535;
     text-align: center;
+    letter-spacing: 0.01em;
+    line-height: 1.06;
+    margin-bottom: 2.8mm;
   }
-
-  /* TARJETA PERSONAL / SOLAPA DE CARPETA COMERCIAL STAR UNION */
-  .business-card-box {
-    background: linear-gradient(142deg, #073b1e 0%, #0b6636 58%, #158062 100%);
-    border: 2.5px solid #95c11f;
-    border-radius: 14px;
-    padding: 12px 13px;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 7px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(8,76,39,0.22);
+  .editorial-p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9.1pt;
+    font-weight: 400;
+    line-height: 1.44;
+    color: #1f2937;
+    margin-bottom: 2.3mm;
+    text-align: left;
   }
-  .business-card-box::before {
-    content: "";
-    position: absolute;
-    right: -28px;
-    top: -28px;
-    width: 105px;
-    height: 105px;
-    background: rgba(149, 193, 31, 0.18);
-    border: 3px solid #95c11f;
-    border-radius: 50%;
-    pointer-events: none;
+  .editorial-p:last-child {
+    margin-bottom: 0;
   }
-  .bcard-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    border-bottom: 1.5px solid rgba(149, 193, 31, 0.55);
-    padding-bottom: 6px;
-  }
-  .bcard-top .proveedor-estrella {
-    font-size: 9.3px;
-    font-weight: 800;
-    color: #ffcc29;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-  .bcard-top h3 {
-    font-size: 13.8px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.18;
-  }
-  .bcard-pitch {
-    font-size: 10.6px;
-    line-height: 1.36;
-    color: #ecfdf5;
-    font-weight: 500;
-  }
-  .bcard-highlights {
-    background: rgba(255, 255, 255, 0.1);
-    border-left: 3.5px solid #95c11f;
-    border-radius: 0 8px 8px 0;
-    padding: 6px 9px;
-    font-size: 9.6px;
-    line-height: 1.42;
-    color: #ffffff;
+  .editorial-p strong {
+    color: #0b6535;
     font-weight: 600;
   }
-  .bcard-highlights div strong {
-    color: #ffcc29;
-    font-weight: 800;
+  .editorial-p .star-gold {
+    color: #e2a814;
   }
-  .personal-card-inner {
+
+  /* FRANJA GRIS PIEDRA (#EBEBEB) DE ANCHO COMPLETO (ADN EXACTO PÁG. 2 BROCHURE 2022) */
+  .responsible-band {
+    background: #ebebeb;
+    padding: 3.8mm 16mm;
+    display: grid;
+    grid-template-columns: 42mm 1fr;
+    gap: 6.5mm;
+    align-items: center;
+  }
+  .resp-medallion-wrap {
+    position: relative;
+    width: 40mm;
+    height: 40mm;
+  }
+  .resp-medallion-crescent {
+    position: absolute;
+    inset: -1.6mm -1.6mm -2.8mm -1.6mm;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #1d8366 0%, #8ab33e 100%);
+    z-index: 1;
+  }
+  .resp-medallion {
+    position: relative;
+    width: 40mm;
+    height: 40mm;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2.6mm solid #1d8366;
     background: #ffffff;
-    color: #111827;
-    border-radius: 10px;
-    border-left: 5px solid #ffcc29;
-    border-right: 4px solid #95c11f;
-    padding: 9px 11px;
-    font-size: 10px;
-    line-height: 1.48;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+    z-index: 2;
   }
-  .personal-card-inner .pcard-logo-row {
+  .resp-medallion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .resp-copy {
+    text-align: center;
+  }
+  .resp-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.8pt;
+    font-weight: 700;
+    font-style: italic;
+    color: #0b6535;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.4mm;
+    text-transform: uppercase;
+  }
+  .resp-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.9pt;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+    color: #0b6535;
+  }
+  .resp-text strong {
+    font-weight: 700;
+  }
+
+  /* SECCIÓN INFERIOR BLANCA: CALIDAD Y GARANTÍA DE SERVICIO + SELLO TÜV / CONTACTO */
+  .quality-section {
+    padding: 2.5mm 16mm 2.5mm 16mm;
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 1.32fr 0.88fr;
+    gap: 6.5mm;
+    align-items: center;
+  }
+  .quality-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9.2pt;
+    font-weight: 700;
+    color: #0b6535;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.2mm;
+    text-transform: uppercase;
+  }
+  .quality-p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.6pt;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1f2937;
+    margin-bottom: 1.6mm;
+  }
+  .quality-p:last-child {
+    margin-bottom: 0;
+  }
+  .quality-p strong {
+    color: #0b6535;
+    font-weight: 600;
+  }
+
+  /* BLOQUE EDITORIAL DE CERTIFICADO + CLEANY (ESPÍRITU SOLAPA DE CARPETA, SIN CAJA CHILLONA) */
+  .folder-signature {
+    border-left: 2px solid #d1d5db;
+    padding-left: 5mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+  }
+  .sig-tuv-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 1.5px solid #e5e7eb;
-    padding-bottom: 4.5px;
-    margin-bottom: 4.5px;
+    gap: 7px;
   }
-  .personal-card-inner .pcard-logo-row img {
-    height: 24px;
+  .sig-tuv-row img.tuv-qr {
+    height: 31px;
     width: auto;
   }
-  .personal-card-inner .pcard-tag {
-    font-family: 'Economica', 'Plus Jakarta Sans', sans-serif;
-    font-size: 10.5px;
-    font-weight: 700;
-    color: #0b6636;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  .sig-tuv-row img.cleany-mini {
+    height: 34px;
+    width: auto;
+    margin-left: auto;
   }
-  .personal-card-inner .pcard-phone {
-    font-family: 'Economica', 'Plus Jakarta Sans', sans-serif;
-    font-size: 14.5px;
-    font-weight: 700;
-    color: #d99b00;
-    letter-spacing: 0.02em;
-    margin-bottom: 2px;
+  .sig-tuv-meta {
+    font-size: 7.5pt;
+    line-height: 1.24;
+    color: #374151;
   }
-  .personal-card-inner .pcard-phone strong {
-    color: #0b6636;
-    font-weight: 800;
-  }
-  .personal-card-inner strong {
-    color: #0b6636;
-    font-weight: 800;
-  }
-  .cta-buttons-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .btn-pdf-wa-print {
+  .sig-tuv-meta strong {
+    color: #0b6535;
     display: block;
-    background: #95c11f;
-    color: #07351b !important;
-    text-align: center;
-    padding: 7px 8px;
-    border-radius: 999px;
-    font-size: 10.9px;
-    font-weight: 800;
-    border: 1.5px solid #ffffff;
+    font-size: 7.9pt;
   }
-  .btn-pdf-web-print {
-    display: block;
-    background: #ffcc29;
-    color: #111827 !important;
-    text-align: center;
-    padding: 6.5px 8px;
-    border-radius: 999px;
-    font-size: 10.3px;
-    font-weight: 800;
+  .sig-contact-lines {
+    font-size: 8pt;
+    line-height: 1.38;
+    color: #1f2937;
+  }
+  .sig-contact-lines strong {
+    color: #0b6535;
+    font-weight: 600;
   }
 
-  /* ZÓCALO VERDE INSTITUCIONAL CLÁSICO (#0B6636 CON FILETE LIMA #95C11F) */
-  .footer-bar-print {
-    position: relative;
-    z-index: 2;
-    background: #0b6636;
+  /* PIE DE PÁGINA VERDE BOSQUE INSTITUCIONAL (#0B6535) */
+  .back-footer-bar {
+    width: 210mm;
+    height: 9mm;
+    background: #0b6535;
     color: #ffffff;
-    padding: 7.5px 18px;
-    font-size: 9.3px;
-    font-weight: 600;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    border-top: 3.5px solid #95c11f;
-    margin-top: auto;
-    white-space: nowrap;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.8pt;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    flex-shrink: 0;
   }
-  .footer-bar-print strong {
-    color: #ffcc29;
-    font-weight: 800;
+  .back-footer-bar a {
+    color: #ffffff;
   }
-  .footer-bar-print a {
-    color: #ffcc29;
-    font-weight: 800;
-    text-decoration: underline;
+
+  .toast-saved {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    background: #0b6535;
+    color: #ffffff;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    display: none;
+    z-index: 10000;
   }
 </style>
 </head>
 <body class="editable-mode">
 
-<!-- BARRA INTERACTIVA DE EDICIÓN DE TEXTOS Y FORMA (SE OCULTA AUTOMÁTICAMENTE AL IMPRIMIR/GUARDAR PDF) -->
-<div class="editor-toolbar no-print">
+<!-- BARRA DE HERRAMIENTAS INTERACTIVA (SE OCULTA AL IMPRIMIR / EXPORTAR PDF) -->
+<div class="editor-toolbar">
   <div class="toolbar-title">
-    <span class="toolbar-badge">VERSIÓN B · Diseño Impreso + Medallones + Tarjeta</span>
-    <a class="btn-switch-version" href="brochure-fabricas-e-industrias.html">↔ Ver Versión A (Blanca Sobria)</a>
+    <span class="toolbar-badge">VERSIÓN B · CARÁTULA IMPRESA + EDITORIAL ABIERTO</span>
+    <span>Fábricas, Plantas Industriales y Centros Logísticos — Clic en textos o fotos para editar</span>
   </div>
   <div class="toolbar-actions">
-    <button class="btn-tool" onmousedown="event.preventDefault(); adjustFontSize(0.4)" title="Agrandar letra del bloque seleccionado">A+</button>
-    <button class="btn-tool" onmousedown="event.preventDefault(); adjustFontSize(-0.4)" title="Achicar letra del bloque seleccionado">A-</button>
-    <button class="btn-tool" onmousedown="event.preventDefault(); adjustTracking(0.008)" title="Abrir interletrado (tracking) para ocupar más ancho">↔+ Interletrado</button>
-    <button class="btn-tool" onmousedown="event.preventDefault(); adjustTracking(-0.008)" title="Cerrar interletrado">↔-</button>
-    <button class="btn-tool" onclick="undoLastChange()" title="Deshacer el último cambio">↩️</button>
-    <button class="btn-tool" onclick="resetOriginalContent()" title="Volver al original">🔄</button>
-    <button class="btn-tool" id="btn-copy-changes" onclick="copyChangesForAgent()" title="Copia tus cambios de texto y forma para pegarlos en el chat y que queden grabados fijo">📋 Copiar mis cambios</button>
-    <button class="btn-export" onclick="window.print()">🖨️ Guardar PDF A4</button>
+    <a class="btn-switch-version" href="brochure-fabricas-e-industrias.html">⇄ Ver Versión A</a>
+    <button class="btn-tool" id="btnToggleEdit" onclick="toggleEditMode()">🔒 Bloquear vista</button>
+    <button class="btn-tool" onclick="resetChanges()">↺ Restaurar original</button>
+    <a class="btn-tool" href="../pdf/brochure-fabricas-e-industrias-version-b.pdf" target="_blank">⬇ PDF Compilado</a>
+    <button class="btn-export" onclick="window.print()">🖨 Imprimir / Guardar PDF A4</button>
   </div>
 </div>
 
-<div id="brochure-canvas">
+<input type="file" id="imageInputPicker" accept="image/*" style="display:none">
+<div class="toast-saved" id="toastSaved">✓ Cambio guardado automáticamente</div>
+
 <!-- ==========================================================================
-     PÁGINA 1: PORTADA GRÁFICA IMPRESA CON ONDAS VERDES/LIMA Y 3 MEDALLONES CIRCULARES
+     PÁGINA 1 — TAPA / CARÁTULA DISEÑADA (ADN EXACTO BROCHURE 2022 + CARPETA)
      ========================================================================== -->
-<div class="page">
-  <svg class="star-watermark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="100,8 126,72 195,76 141,119 159,186 100,148 41,186 59,119 5,76 74,72" fill="#f5b800"/>
+<section class="page cover-page" id="page1">
+
+  <!-- FONDO VECTORIAL DE CURVAS ORGÁNICAS INSTITUCIONALES (VERDE BOSQUE, ESMERALDA Y OLIVA SUAVE) -->
+  <svg class="cover-svg-bg" viewBox="0 0 794 1123" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fondo base verde bosque profundo -->
+    <rect width="794" height="1123" fill="#0b6535"/>
+
+    <!-- Sombra orgánica verde pino profundo superior derecha -->
+    <path d="M440,0 L794,0 L794,540 C660,510 530,420 460,260 C410,150 420,55 440,0 Z" fill="#084d27"/>
+
+    <!-- Curva envolvente verde esmeralda institucional (#1d8366) derecha -->
+    <path d="M585,0 L794,0 L794,820 C675,790 545,700 470,545 C395,390 465,160 585,0 Z" fill="#1d8366"/>
+
+    <!-- Cinta diagonal verde oliva institucional (#8ab33e) que cruza de arriba a la derecha hacia abajo a la izquierda -->
+    <path d="M745,0 L794,0 L794,75 C590,340 330,680 0,1045 L0,965 C305,625 555,300 745,0 Z" fill="#8ab33e"/>
+
+    <!-- Onda orgánica verde oliva (#8ab33e) de apoyo en el borde izquierdo medio -->
+    <path d="M0,335 C120,390 245,380 355,315 L385,375 C255,445 120,455 0,395 Z" fill="#8ab33e"/>
+
+    <!-- Esquina superior izquierda blanca pura para el logo y teléfonos -->
+    <path d="M0,0 L610,0 C575,165 455,310 265,348 C135,372 45,348 0,315 Z" fill="#ffffff"/>
   </svg>
 
-  <div class="print-top-header">
-    <div class="brand-card-left">
-      <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf_vb&utm_medium=logo_header&utm_campaign=brochure_fabricas_industrias" target="_blank">
-        <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
+  <!-- ESQUINA SUPERIOR IZQUIERDA BLANCA: LOGO + SABEMOS DE LIMPIEZA + 0810 + WEB + SELLO ISO -->
+  <div class="cover-brand-corner">
+    <img src="../../assets/img/logo-star-union.png" alt="Star Union Servicios S.R.L." class="cover-logo img-editable">
+    <div class="cover-tagline" contenteditable="true">SABEMOS DE LIMPIEZA</div>
+    <div class="cover-phone" contenteditable="true">
+      0810 . 333 . <strong>UNION</strong> (8646)
+    </div>
+    <a href="https://www.starunion.com.ar" target="_blank" class="cover-web" contenteditable="true">www.starunion.com.ar</a>
+
+    <div class="cover-iso-discrete">
+      <a href="../../assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" title="Descargar Certificado Oficial ISO 9001:2015">
+        <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015">
       </a>
-      <div class="brand-card-motto">
-        <div class="sabemos">Sabemos de limpieza</div>
-        <div class="phone-classic">0810 . 333 . <strong>UNION</strong> (8646)</div>
-        <div class="web-spaced">www.starunion.com.ar</div>
+      <div class="cover-iso-text" contenteditable="true">
+        <strong>Certificación ISO 9001:2015</strong>
+        TÜV Rheinland · ID 9000041847 · Desde 2001
       </div>
     </div>
-
-    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf?utm_source=brochure_pdf_vb&utm_medium=header_iso_pill&utm_campaign=brochure_fabricas_industrias" download="Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf" target="_blank" rel="noopener" onclick="return downloadIsoWithoutLeaving(event)" title="Clic en cualquier parte de esta etiqueta para descargar el certificado oficial ISO 9001:2015 en PDF sin salir de esta pantalla">
-      <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
-      <div class="iso-text">
-        <strong>Certificación de calidad <span class="iso-highlight">ISO 9001:2015</span> <span class="iso-download-tag">⬇ PDF certificado</span></strong>
-        Auditada por TÜV Rheinland · ID <span class="verify-link">9000041847</span> · Reg. 01 100 062529826
-      </div>
-      <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
-    </a>
   </div>
 
-  <!-- ESCENARIO GRÁFICO DE PORTADA CON ONDAS DIAGONALES VERDE BOSQUE, ESMERALDA Y LIMA + 3 MEDALLONES CIRCULARES -->
-  <div class="p1-graphic-stage">
-    <svg class="p1-waves-svg" viewBox="0 0 800 330" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M-20,210 C220,120 470,290 820,130 L820,340 L-20,340 Z" fill="#178265" opacity="0.55"/>
-      <path d="M-20,245 C260,165 510,295 820,175 L820,200 C510,315 260,185 -20,265 Z" fill="#95c11f" opacity="0.88"/>
-      <path d="M520,-20 L615,-20 L385,340 L315,340 Z" fill="#95c11f" opacity="0.14"/>
-      <circle cx="750" cy="45" r="95" fill="none" stroke="#95c11f" stroke-width="6" opacity="0.28"/>
+  <!-- 3 GRANDES MEDALLONES CIRCULARES DE TAPA -->
+  <div class="cover-medallion med-top-right" title="Clic para cambiar fotografía">
+    <img src="../img/fabricas-industrias-1.jpg" alt="Operario Star Union con aspiradora industrial en playa logística" class="img-editable">
+  </div>
+
+  <div class="cover-medallion med-center-left" title="Clic para cambiar fotografía">
+    <img src="../img/p1-industria-hombre-a-bordo-hd.jpg" alt="Fregadora hombre a bordo Star Union en nave industrial" class="img-editable">
+  </div>
+
+  <div class="cover-medallion med-mid-right" title="Clic para cambiar fotografía">
+    <img src="../img/fabricas-industrias-3.jpg" alt="Lavadora automática Convertamatic 20B en planta industrial" class="img-editable">
+  </div>
+
+  <!-- TÍTULO PRINCIPAL EN TIPOGRAFÍA ULTRA-LIGHT / THIN (IDÉNTICO AL BROCHURE ORIGINAL) -->
+  <div class="cover-title-block">
+    <span class="cover-title-line1" contenteditable="true">Limpieza de</span>
+    <span class="cover-title-line2" contenteditable="true">Fábricas</span>
+    <div class="cover-subtitle-gold" contenteditable="true">
+      Brindamos un servicio a medida de cada planta industrial y centro logístico
+    </div>
+    <div class="cover-lead-white" contenteditable="true">
+      Provisión de mano de obra propia, materiales ANMAT, herramientas y maquinaria pesada<br>
+      las 24 hs, los 365 días del año · Base Operativa propia de 800 m² en CABA.
+    </div>
+  </div>
+
+</section>
+
+<!-- ==========================================================================
+     PÁGINA 2 — REVERSO EDITORIAL ABIERTO IMPRESO (CERO CAJAS, 100% LEGIBLE)
+     ========================================================================== -->
+<section class="page back-page" id="page2">
+
+  <!-- CABECERA CON CURVA ORGÁNICA Y MEDALLONES DE BASE OPERATIVA GUAMINÍ -->
+  <div class="back-header">
+    <svg class="back-header-svg" viewBox="0 0 794 235" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sombra verde oliva superior -->
+      <path d="M0,155 C180,190 340,165 495,88 C610,30 700,0 794,0 L794,175 C635,222 450,226 265,202 C140,186 55,184 0,192 Z" fill="#8ab33e"/>
+      <!-- Curva verde esmeralda intermedia -->
+      <path d="M0,168 C185,198 355,175 525,88 C635,30 715,0 794,0 L794,155 C625,202 435,214 245,192 C125,178 50,178 0,185 Z" fill="#1d8366"/>
+      <!-- Curva verde bosque principal -->
+      <path d="M0,182 C195,208 375,182 555,88 C655,35 730,0 794,0 L794,132 C620,186 430,204 235,186 C115,174 45,180 0,194 Z" fill="#0b6535"/>
     </svg>
 
-    <div class="p1-hero-content">
-      <div class="hero-badge-print">★ Higiene industrial certificada · <span class="iso-badge-strong">ISO 9001:2015</span> · trayectoria desde 2001</div>
-      <h1>Limpieza de fábricas, plantas industriales y centros logísticos</h1>
-      <p class="subtitle">Protocolos certificados bajo norma <strong class="iso-inline-em-light">ISO 9001:2015</strong> para zonas productivas y no productivas. Desengrase mecanizado de pisos industriales, líneas de manufactura, depósitos de gran altura, vestuarios masivos y comedores de planta sin interrumpir el ritmo productivo.</p>
+    <div class="back-brand-left">
+      <img src="../../assets/img/logo-star-union.png" alt="Star Union Servicios S.R.L." class="back-logo img-editable">
+      <div class="back-phone" contenteditable="true">
+        0810 . 333 . <strong>UNION</strong> (8646)
+      </div>
+      <a href="https://www.starunion.com.ar" target="_blank" class="back-web" contenteditable="true">www.starunion.com.ar</a>
     </div>
 
-    <div class="medallions-trio-stage">
-      <div class="medallion-unit">
-        <div class="medallion-circle-ring">
-          <div class="medallion-circle-inner">
-            <img src="../img/p1-industria-playa-hd.jpg" alt="Barrido mecanizado con barredora aspiradora en playa logística">
-          </div>
-        </div>
-        <div class="photo-caption-print">Barrido aspirado en playas de maniobras, dársenas de carga y sectores de pallets</div>
-      </div>
-
-      <div class="medallion-unit">
-        <div class="medallion-circle-ring">
-          <div class="medallion-circle-inner">
-            <img src="../img/p1-industria-fregadora-20b-hd.jpg" alt="Fregadora automática a batería Convertamatic 20B en depósito industrial">
-          </div>
-        </div>
-        <div class="photo-caption-print">Fregado con Convertamatic 20B a batería en pasillos entre racks</div>
-      </div>
-
-      <div class="medallion-unit">
-        <div class="medallion-circle-ring">
-          <div class="medallion-circle-inner">
-            <img src="../img/p1-industria-hombre-a-bordo-hd.jpg" alt="Fregadora hombre a bordo Electrolux Euroclean Star Union para grandes naves">
-          </div>
-        </div>
-        <div class="photo-caption-print">Flota propia de fregadoras hombre a bordo en grandes naves industriales</div>
-      </div>
+    <!-- Medallones de respaldo físico real en calle Guaminí -->
+    <div class="back-medallion back-med-main" title="Edificio propio de 800 m² y flota en calle Guaminí (clic para cambiar foto)">
+      <img src="../img/p2-guamini-fachada-flota-hd.jpg" alt="Base Operativa propia en calle Guaminí y flota Star Union" class="img-editable">
+    </div>
+    <div class="back-medallion back-med-sec" title="Parque propio de maquinaria pesada en Guaminí (clic para cambiar foto)">
+      <img src="../img/p2-guamini-parque-maquinas-hd.jpg" alt="Parque de maquinaria industrial en Guaminí" class="img-editable">
+    </div>
+    <div class="back-medallion back-med-third" title="Control biométrico en planta y uniforme ARCIEL (clic para cambiar foto)">
+      <img src="../img/p2-guamini-uniforme-arciel-hd.jpg" alt="Control biométrico en planta y uniforme ARCIEL" class="img-editable">
     </div>
   </div>
 
-  <!-- CINTA DE 4 INDICADORES EN CÁPSULAS IMPRESAS -->
-  <div class="kpi-ribbon-print">
-    <div class="kpi-pill-print">
-      <div class="kpi-val">800 m² propios</div>
-      <div class="kpi-lbl">Base Operativa en Guaminí, CABA</div>
+  <!-- CUERPO EDITORIAL ABIERTO SOBRE FONDO BLANCO (TIPOGRAFÍA IMPRESA CÓMODA, CERO CAJAS) -->
+  <div class="editorial-section">
+    <h1 class="editorial-main-title" contenteditable="true">Limpieza de Fábricas</h1>
+
+    <p class="editorial-p" contenteditable="true">
+      <strong>STAR<span class="star-gold">★</span>UNION</strong> es reconocida por su sólida trayectoria desde el año 2001 dentro del sector industrial —desde nuestros inicios en calle Pergamino hasta nuestra actual <strong>Base Operativa propia de 800 m² en calle Guaminí 5052 / 5657 (CABA)</strong>—, siendo proveedor principal de industrias automotrices, siderúrgicas, metalúrgicas, químicas, farmacéuticas, alimenticias y centros logísticos (Coca-Cola Reginald Lee, Mondelez, Air Liquide, Toyota Panamericana, Ferroclor, Grupo Simpa, Glencore, Viterra, Styropek, Motoimplementos Stihl, Evonik, Ball, Silgan y Atanor).
+    </p>
+
+    <p class="editorial-p" contenteditable="true">
+      Fruto de esta experiencia y bajo alcance certificado <strong>ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong>, adaptamos nuestros planes de trabajo a los turnos de manufactura, cambios de lote y paradas técnicas programadas de cada establecimiento, sin interrumpir el ritmo productivo. Operamos con flota propia de <strong>fregadoras hombre a bordo, lavadoras automáticas Convertamatic 20B a batería e hidrolavadoras industriales de 150 bar</strong> para el desengrase mecanizado de pisos de hormigón alisado y epoxi, removiendo caucho de autoelevadores, aceites e hidrocarburos sin dejar humedad residual en pasillos de circulación.
+    </p>
+
+    <p class="editorial-p" contenteditable="true">
+      Queremos ser su mejor colaborador ofreciéndole unificar en un solo proveedor integral la higiene de naves productivas y depósitos de gran altura, la <strong>limpieza técnica aérea de cabriadas, lucernarios, bandejas portacables y conductos</strong> mediante cuadrillas habilitadas (normas ARAA), la sanitización intensiva entre turnos de vestuarios masivos, duchas y comedores de planta, la gestión interna clasificada de residuos y el mantenimiento de predios verdes fabriles con tractores cortacésped y equipos Stihl propios.
+    </p>
+
+    <p class="editorial-p" contenteditable="true">
+      Nuestra división industrial garantiza continuidad operativa real en cada turno: instalamos <strong>reloj de control biométrico en planta con alerta automática a los 15 minutos</strong>, cobertura de ausencias en menos de 2 horas con dotación propia de franqueros, flota propia de utilitarios identificados y taller electromecánico en nuestra sede de Guaminí para recambio de maquinaria en el día.
+    </p>
+  </div>
+
+  <!-- FRANJA GRIS PIEDRA (#EBEBEB) DE ANCHO COMPLETO: SERVICIO RESPONSABLE Y BLINDAJE ART. 30 LCT -->
+  <div class="responsible-band">
+    <div class="resp-medallion-wrap">
+      <div class="resp-medallion-crescent"></div>
+      <div class="resp-medallion" title="Flota propia y respaldo operativo (clic para cambiar foto)">
+        <img src="../img/p2-guamini-utilitario-transit-hd.jpg" alt="Flota propia de utilitarios Star Union" class="img-editable">
+      </div>
     </div>
-    <div class="kpi-pill-print">
-      <div class="kpi-val">Alerta en 15 min</div>
-      <div class="kpi-lbl">Control biométrico en planta</div>
-    </div>
-    <div class="kpi-pill-print">
-      <div class="kpi-val">Relevo &lt; 2 horas</div>
-      <div class="kpi-lbl">Dotación propia de franqueros</div>
-    </div>
-    <div class="kpi-pill-print">
-      <div class="kpi-val">100% equipo propio</div>
-      <div class="kpi-lbl">Nómina directa y maquinaria</div>
+    <div class="resp-copy">
+      <div class="resp-title" contenteditable="true">BRINDAMOS UN SERVICIO RESPONSABLE Y SIN RIESGO SOLIDARIO</div>
+      <p class="resp-text" contenteditable="true">
+        <strong>Como empresa líder del mercado, garantizamos indemnidad solidaria total (Art. 30 LCT) con el 100% del personal en nómina directa y preservación del medio ambiente.</strong> Entregamos del 1 al 10 de cada mes F931 AFIP, recibos de sueldo, acreditaciones bancarias y ART con cláusula de no repetición. Realizamos capacitación continua con nuestro Licenciado en Seguridad e Higiene propio (Mat. CPQ 6999), utilizando insumos biodegradables aprobados por ANMAT con hojas MSDS en pañol y código de 4 colores.
+      </p>
     </div>
   </div>
 
-  <!-- DESARROLLO EDITORIAL DE LOS 6 PILARES TÉCNICOS (DISEÑO IMPRESO CON MEDALLONES NUMERADOS) -->
-  <div class="editorial-section-print">
-    <div class="ribbon-header-print">
-      <div class="section-title-print">Protocolo técnico para zonas productivas, depósitos y áreas de soporte</div>
-      <div class="section-eyebrow-print">★ Ingeniería de procesos · ISO 9001:2015</div>
+  <!-- SECCIÓN INFERIOR BLANCA: CALIDAD Y GARANTÍA DE SERVICIO + FIRMA DE CARPETA / CONTACTO -->
+  <div class="quality-section">
+    <div>
+      <div class="quality-heading" contenteditable="true">CALIDAD Y GARANTÍA DE SERVICIO</div>
+      <p class="quality-p" contenteditable="true">
+        En <strong>STAR<span style="color:#e2a814">★</span>UNION</strong> es prioritario brindar máxima calidad y trazabilidad en cada servicio para que nuestros clientes operen con total tranquilidad en todas las áreas donde desplegamos nuestro conocimiento técnico.
+      </p>
+      <p class="quality-p" contenteditable="true">
+        Nuestros métodos combinan sistemas innovadores de higiene industrial, controles exhaustivos de calidad auditados bajo norma <strong>ISO 9001:2015</strong>, maquinaria propia de última generación y supervisión ejecutiva directa de sus socios gerentes, única entre nuestros competidores.
+      </p>
     </div>
 
-    <div class="editorial-pillars-grid">
-      <div class="editorial-pillar-item">
-        <div class="pillar-medallion-num">01</div>
-        <div class="pillar-body">
-          <h3>Alcance certificado <span class="iso-inline-em">ISO 9001:2015</span> en planta</h3>
-          <p>Procedimientos operativos estandarizados que se sincronizan con los turnos de manufactura, cambios de lote y paradas técnicas programadas de planta.</p>
-          <div class="bullet-spec-print">✓ Certificación: alcance auditado en zonas productivas y no productivas</div>
-        </div>
-      </div>
-
-      <div class="editorial-pillar-item">
-        <div class="pillar-medallion-num">02</div>
-        <div class="pillar-body">
-          <h3>Fregado y desengrase mecanizado de grandes naves</h3>
-          <p>Remoción profunda de caucho de autoelevadores, aceites e hidrocarburos en pisos de hormigón alisado y epoxi sin dejar humedad residual en circulación.</p>
-          <div class="bullet-spec-print">✓ Equipamiento: fregadoras hombre a bordo, 20B a batería e hidrolavadoras 150 bar</div>
-        </div>
-      </div>
-
-      <div class="editorial-pillar-item">
-        <div class="pillar-medallion-num">03</div>
-        <div class="pillar-body">
-          <h3>Limpieza técnica de altura en cabriadas y conductos</h3>
-          <p>Aspirado y despolvoreo aéreo de estructuras reticuladas, bandejas portacables, luminarias industriales, tuberías de servicios y lucernarios.</p>
-          <div class="bullet-spec-print">✓ Seguridad: cuadrillas habilitadas bajo normas ARAA y plataformas elevadoras</div>
-        </div>
-      </div>
-
-      <div class="editorial-pillar-item">
-        <div class="pillar-medallion-num">04</div>
-        <div class="pillar-body">
-          <h3>Higiene intensiva de vestuarios, duchas y comedores</h3>
-          <p>Sanitización entre turnos de vestuarios masivos de planta, baterías sanitarias, comedores industriales, consultorios médicos y oficinas técnicas.</p>
-          <div class="bullet-spec-print">✓ Insumos: desinfectantes aprobados por ANMAT con planillas de control horario</div>
-        </div>
-      </div>
-
-      <div class="editorial-pillar-item">
-        <div class="pillar-medallion-num">05</div>
-        <div class="pillar-body">
-          <h3>Gestión de residuos en planta y parquización exterior</h3>
-          <p>Recolección interna clasificada hacia puntos de acopio (cartón, film stretch, residuos húmedos) y mantenimiento integral de espacios verdes fabriles.</p>
-          <div class="bullet-spec-print">✓ Predios: tractores cortacésped, desmalezadoras y sopladoras Stihl propias</div>
-        </div>
-      </div>
-
-      <div class="editorial-pillar-item">
-        <div class="pillar-medallion-num">06</div>
-        <div class="pillar-body">
-          <h3>Supervisión de higiene y seguridad e indumentaria ARCIEL</h3>
-          <p>Cumplimiento de normas de buenas prácticas de manufactura, entrega registrada de elementos de protección personal y hojas de seguridad en pañol.</p>
-          <div class="bullet-spec-print">✓ Respaldo: licenciado propio (mat. CPQ 6999), hojas MSDS y botines con puntera</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="clients-strip-print">
-    <strong>★ Referencias y trayectoria comprobable:</strong> Coca-Cola (Reginald Lee) · Mondelez · Air Liquide · Toyota Panamericana · Ferroclor · Grupo Simpa · Glencore · Viterra · Styropek · Motoimplementos Stihl · Evonik · Ball · Silgan · Atanor
-  </div>
-
-  <div class="footer-bar-print">
-    <div><strong>Star Union S.R.L.</strong> · Base Operativa: <strong>Guaminí 5052 / 5657, CABA</strong></div>
-    <div><strong>0810-333-UNION (8646)</strong> · comercial@starunion.com.ar · <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf_vb&utm_medium=footer_p1&utm_campaign=brochure_fabricas_industrias" target="_blank">starunion.com.ar/limpieza-industrial ↗</a></div>
-  </div>
-</div>
-
-<!-- ==========================================================================
-     PÁGINA 2: REVERSO IMPRESO CON 4 MEDALLONES CIRCULARES DE BASE OPERATIVA GUAMINÍ
-     + BANDA GRIS PIEDRA #EBEBEB + TARJETA PERSONAL / CARPETA STAR UNION
-     ========================================================================== -->
-<div class="page">
-  <svg class="star-watermark" style="top: 130px; left: -50px; right: auto;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="100,8 126,72 195,76 141,119 159,186 100,148 41,186 59,119 5,76 74,72" fill="#f5b800"/>
-  </svg>
-
-  <div class="print-top-header">
-    <div class="brand-card-left">
-      <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf_vb&utm_medium=logo_header_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">
-        <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
-      </a>
-      <div class="brand-card-motto">
-        <div class="sabemos">Sabemos de limpieza</div>
-        <div class="phone-classic">0810 . 333 . <strong>UNION</strong> (8646)</div>
-        <div class="web-spaced">www.starunion.com.ar</div>
-      </div>
-    </div>
-
-    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf?utm_source=brochure_pdf_vb&utm_medium=header_iso_pill_p2&utm_campaign=brochure_fabricas_industrias" download="Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf" target="_blank" rel="noopener" onclick="return downloadIsoWithoutLeaving(event)" title="Clic en cualquier parte de esta etiqueta para descargar el certificado oficial ISO 9001:2015 en PDF sin salir de esta pantalla">
-      <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
-      <div class="iso-text">
-        <strong>Respaldo físico y legal · <span class="iso-highlight">ISO 9001:2015</span> <span class="iso-download-tag">⬇ PDF certificado</span></strong>
-        Base Operativa Guaminí (800 m²) · Dir.: Juan A. Repetto y Mauro Repetto
-      </div>
-      <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" class="cleany-top">
-    </a>
-  </div>
-
-  <div class="p2-wave-banner">
-    <div class="section-title-print">Por dentro de nuestra Base Operativa propia de 800 m² en calle Guaminí (CABA)</div>
-    <div class="section-eyebrow-print">★ Trayectoria desde 2001 (calle Pergamino) · Sede actual Guaminí</div>
-  </div>
-
-  <!-- 4 MEDALLONES CIRCULARES AUTÉNTICOS PARA LA BASE OPERATIVA EN CALLE GUAMINÍ -->
-  <div class="guamini-medallions-grid">
-    <div class="guamini-medallion-row">
-      <div class="guamini-circle-frame">
-        <div class="guamini-circle-inner">
-          <img src="../img/p2-guamini-fachada-flota-hd.jpg" alt="Frente de Base Operativa propia en calle Guaminí 5052 CABA y vehículos oficiales">
-        </div>
-      </div>
-      <div class="guamini-row-body">
-        <h4>1. Edificio propio de 800 m² en calle Guaminí (CABA)</h4>
-        <p>Inmueble corporativo propio de 3 plantas en Guaminí 5052 / 5657 con centro de operaciones, administración y acopio mayorista de insumos registrados en ANMAT.</p>
-      </div>
-    </div>
-
-    <div class="guamini-medallion-row">
-      <div class="guamini-circle-frame">
-        <div class="guamini-circle-inner">
-          <img src="../img/p2-guamini-parque-maquinas-hd.jpg" alt="Parque propio de maquinaria pesada y taller electromecánico en Base Operativa">
-        </div>
-      </div>
-      <div class="guamini-row-body">
-        <h4>2. Parque propio de maquinaria pesada y taller en el día</h4>
-        <p>Stock permanente de fregadoras automáticas, lustradoras rotativas, aspiradoras industriales y taller electromecánico propio desde 2010 para recambio inmediato.</p>
-      </div>
-    </div>
-
-    <div class="guamini-medallion-row">
-      <div class="guamini-circle-frame">
-        <div class="guamini-circle-inner">
-          <img src="../img/p2-guamini-utilitario-transit-hd.jpg" alt="Flota propia de utilitarios identificados de Star Union S.R.L.">
-        </div>
-      </div>
-      <div class="guamini-row-body">
-        <h4>3. Flota propia de utilitarios identificados y auxilio móvil</h4>
-        <p>Vehículos utilitarios propios ploteados para distribución programada de insumos, traslado de maquinaria pesada y asistencia técnica en CABA y GBA.</p>
-      </div>
-    </div>
-
-    <div class="guamini-medallion-row">
-      <div class="guamini-circle-frame">
-        <div class="guamini-circle-inner">
-          <img src="../img/p2-guamini-uniforme-arciel-hd.jpg" alt="Personal propio con uniforme reglamentario ARCIEL y control biométrico">
-        </div>
-      </div>
-      <div class="guamini-row-body">
-        <h4>4. Control biométrico en planta y uniformes ARCIEL</h4>
-        <p>Reloj de fichada dactilar en el cliente con alerta a los 15 minutos, cobertura de ausencias en menos de 2 horas y uniformes reglamentarios ARCIEL anticloro.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- BANDA GRIS PIEDRA (#EBEBEB DEL BROCHURE 2022) + TARJETA PERSONAL FÍSICA STAR UNION -->
-  <div class="compliance-print-band">
-    <div class="comp-box-print">
-      <h3>Blindaje legal (art. 30 LCT) y servicio responsable</h3>
-      <ul class="comp-list-print">
-        <li><strong>100% nómina directa:</strong> entrega mensual de formulario F931 de AFIP, acreditación bancaria, recibos de sueldo firmados y altas tempranas sin subcontratación ni cooperativas.</li>
-        <li><strong>Cobertura de ART y seguros vigentes:</strong> certificados de ART con cláusula de no repetición y seguro de vida obligatorio endosados a favor del comitente antes del inicio del servicio.</li>
-        <li><strong>Higiene y seguridad propia (matrícula CPQ 6999):</strong> programas de seguridad ante SRT, matriz de riesgos por puesto, capacitación auditada y entrega registrada de elementos de protección.</li>
-        <li><strong>Insumos aprobados por ANMAT y código de 4 colores:</strong> hojas de seguridad (MSDS) disponibles en el pañol de planta y segregación estricta de paños y mopas contra la contaminación cruzada.</li>
-        <li><strong>Supervisión presencial y auditoría trazable:</strong> visitas periódicas de supervisores de zona en vehículos identificados y reportes de conformidad firmados en planta.</li>
-      </ul>
-      <div class="comp-badge-bottom-print">★ Legajo art. 30 LCT actualizado del 1 al 10 de cada mes (digital y físico)</div>
-    </div>
-
-    <div class="business-card-box">
-      <div class="bcard-top">
-        <div>
-          <div class="proveedor-estrella">★ Somos tu proveedor estrella · Relevamiento sin cargo</div>
-          <h3>Solicitá una visita de diagnóstico en planta</h3>
-        </div>
-        <img src="../../assets/img/cleany-hd.png" alt="Cleany Star Union" style="height: 50px; width: auto; object-fit: contain; flex-shrink: 0;">
-      </div>
-
-      <p class="bcard-pitch">Relevamos tus instalaciones para dimensionar dotación, frecuencias y maquinaria óptima con propuesta técnica y económica en 24 a 48 horas.</p>
-
-      <div class="bcard-highlights">
-        <div><strong>✓ Diagnóstico en planta:</strong> relevamiento técnico sin cargo en CABA y GBA</div>
-        <div><strong>✓ Respaldo certificado:</strong> alcance auditado bajo norma <strong>ISO 9001:2015</strong></div>
-        <div><strong>✓ Continuidad operativa:</strong> relevo de ausencias en menos de 2 horas</div>
-      </div>
-
-      <div class="personal-card-inner">
-        <div class="pcard-logo-row">
-          <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L.">
-          <span class="pcard-tag">Sabemos de limpieza</span>
-        </div>
-        <div class="pcard-phone">0810 . 333 . <strong>UNION</strong> (8646) · (011) 4637-8146</div>
-        <div><strong>Base Operativa:</strong> Guaminí 5052 / 5657, CABA (800 m²)</div>
-        <div><strong>WhatsApp comercial:</strong> <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20le%C3%AD%20el%20brochure%20t%C3%A9cnico%20de%20f%C3%A1bricas%20e%20industrias%20(Versi%C3%B3n%20B)%20y%20quiero%20solicitar%20una%20visita%20de%20diagn%C3%B3stico." target="_blank" style="color:#0b6636; font-weight:800; text-decoration:underline;">+54 9 11 2275-9369</a></div>
-        <div><strong>Dirección:</strong> mrepetto@starunion.com.ar</div>
-        <div><strong>Comercial:</strong> comercial@starunion.com.ar</div>
-        <div><strong>Web oficial:</strong> www.starunion.com.ar</div>
-      </div>
-
-      <div class="cta-buttons-stack">
-        <a class="btn-pdf-wa-print" href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20le%C3%AD%20el%20brochure%20t%C3%A9cnico%20de%20f%C3%A1bricas%20e%20industrias%20(Versi%C3%B3n%20B)%20y%20quiero%20solicitar%20una%20visita%20de%20diagn%C3%B3stico." target="_blank">
-          Solicitar visita técnica por WhatsApp →
+    <div class="folder-signature">
+      <div class="sig-tuv-row">
+        <a href="../../assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" title="Descargar Certificado Oficial ISO 9001:2015">
+          <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
         </a>
-        <a class="btn-pdf-web-print" href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf_vb&utm_medium=boton_cta_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">
-          Ficha online: starunion.com.ar/limpieza-industrial ↗
-        </a>
+        <div class="sig-tuv-meta" contenteditable="true">
+          <strong>TÜV Rheinland · ISO 9001:2015</strong>
+          ID <a href="../../assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" style="text-decoration:underline; color:#0b6535; font-weight:700;">9000041847</a> · Reg. 01 100 062529826
+        </div>
+        <img src="../../assets/img/cleany-transparente.png" alt="Cleany Star Union" class="cleany-mini img-editable">
+      </div>
+      <div class="sig-contact-lines" contenteditable="true">
+        <strong>Relevamiento técnico en planta sin cargo (CABA y GBA)</strong><br>
+        Tel.: <strong>0810-333-UNION (8646)</strong> · (011) 4637-8146<br>
+        WhatsApp Comercial: <strong>+54 9 11 2275-9369</strong><br>
+        <strong>mrepetto@starunion.com.ar</strong> · comercial@starunion.com.ar
       </div>
     </div>
   </div>
 
-  <div class="footer-bar-print">
-    <div>© 2001–2026 <strong>Star Union S.R.L.</strong> · Guaminí 5052 / 5657, CABA · Ref.: <strong>SU-BRO-IND-2026-B</strong></div>
-    <div><strong>Edición 2026</strong> · <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf_vb&utm_medium=footer_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">TÜV Rheinland ISO 9001:2015 (ID 9000041847) ↗</a></div>
-  </div>
-</div>
-</div>
+  <!-- PIE DE PÁGINA VERDE BOSQUE INSTITUCIONAL -->
+  <footer class="back-footer-bar" contenteditable="true">
+    Guaminí 5052 / 5657 (C1439HAW) - CABA – comercial@starunion.com.ar – <a href="https://www.starunion.com.ar" target="_blank">www.starunion.com.ar</a>
+  </footer>
 
-<script class="no-print">
-  const STORAGE_KEY = "starunion_brochure_ind_vb_v2";
-  let initialSnapshot = "";
-  let initialElementsMap = [];
-  let activeEditable = null;
+</section>
 
-  function downloadIsoWithoutLeaving(e) {
-    e.preventDefault();
-    const a = document.createElement("a");
-    a.href = "../../certificado-iso-starunion.pdf";
-    a.download = "Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    return false;
+<script>
+  const STORAGE_KEY = 'star_union_brochure_fabricas_version_b_v4_caratula_print';
+  let activeImgElement = null;
+  const imgInput = document.getElementById('imageInputPicker');
+  const toast = document.getElementById('toastSaved');
+
+  function showToast(msg) {
+    toast.textContent = msg || '✓ Cambio guardado automáticamente';
+    toast.style.display = 'block';
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => { toast.style.display = 'none'; }, 2000);
   }
 
-  function getEditableNodes() {
-    return document.querySelectorAll(
-      "#brochure-canvas h1, #brochure-canvas h3, #brochure-canvas h4, #brochure-canvas p, #brochure-canvas li, #brochure-canvas .hero-badge-print, #brochure-canvas .kpi-val, #brochure-canvas .kpi-lbl, #brochure-canvas .photo-caption-print, #brochure-canvas .section-eyebrow-print, #brochure-canvas .section-title-print, #brochure-canvas .bullet-spec-print, #brochure-canvas .clients-strip-print, #brochure-canvas .comp-badge-bottom-print, #brochure-canvas .proveedor-estrella"
-    );
+  function saveState() {
+    const data = {
+      p1: document.getElementById('page1').innerHTML,
+      p2: document.getElementById('page2').innerHTML
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      showToast('✓ Cambio guardado automáticamente');
+    } catch (e) {
+      console.warn('No se pudo guardar en localStorage:', e);
+    }
   }
 
-  function enableEditableFields() {
-    const editableSelectors = getEditableNodes();
-    editableSelectors.forEach((el, idx) => {
-      el.setAttribute("contenteditable", "true");
-      el.setAttribute("data-edit-idx", idx);
-      el.addEventListener("focus", () => { activeEditable = el; });
-      el.addEventListener("click", () => { activeEditable = el; });
-      el.addEventListener("input", () => {
-        localStorage.setItem(STORAGE_KEY, document.getElementById("brochure-canvas").innerHTML);
-      });
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      if (data.p1) document.getElementById('page1').innerHTML = data.p1;
+      if (data.p2) document.getElementById('page2').innerHTML = data.p2;
+      bindEvents();
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  function resetChanges() {
+    if (confirm('¿Restaurar el diseño original de la Versión B (Carátula Impresa + Editorial Abierto)?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+  }
+
+  function toggleEditMode() {
+    const body = document.body;
+    const btn = document.getElementById('btnToggleEdit');
+    const isEditable = body.classList.toggle('editable-mode');
+    document.querySelectorAll('#page1 [contenteditable], #page2 [contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', isEditable ? 'true' : 'false');
+    });
+    btn.textContent = isEditable ? '🔒 Bloquear vista' : '✏️ Activar edición';
+  }
+
+  function bindEvents() {
+    document.querySelectorAll('#page1 [contenteditable="true"], #page2 [contenteditable="true"]').forEach(el => {
+      el.oninput = () => {
+        clearTimeout(window._saveTimer);
+        window._saveTimer = setTimeout(saveState, 500);
+      };
+    });
+
+    document.querySelectorAll('.img-editable').forEach(img => {
+      img.onclick = (e) => {
+        if (!document.body.classList.contains('editable-mode')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        activeImgElement = img;
+        imgInput.click();
+      };
     });
   }
 
-  function captureInitialMap() {
-    initialElementsMap = [];
-    getEditableNodes().forEach(el => {
-      initialElementsMap.push({
-        text: el.innerText.trim(),
-        style: el.getAttribute("style") || ""
-      });
-    });
-  }
-
-  function saveCurrentState() {
-    localStorage.setItem(STORAGE_KEY, document.getElementById("brochure-canvas").innerHTML);
-  }
-
-  function getTargetElement() {
-    if (activeEditable && document.body.contains(activeEditable)) return activeEditable;
-    const sel = window.getSelection();
-    if (sel && sel.anchorNode) {
-      const el = sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement;
-      if (el && el.closest("[contenteditable='true']")) {
-        activeEditable = el.closest("[contenteditable='true']");
-        return activeEditable;
-      }
-    }
-    alert("Hacé clic primero sobre el texto o epígrafe que quieras ajustar.");
-    return null;
-  }
-
-  function adjustFontSize(deltaPx) {
-    const el = getTargetElement();
-    if (!el) return;
-    const currentPx = parseFloat(window.getComputedStyle(el).fontSize) || 11;
-    const nextPx = Math.max(8, Math.min(28, +(currentPx + deltaPx).toFixed(2)));
-    el.style.fontSize = nextPx + "px";
-    saveCurrentState();
-  }
-
-  function adjustTracking(deltaEm) {
-    const el = getTargetElement();
-    if (!el) return;
-    const currentStyle = el.style.letterSpacing;
-    let currentEm = 0;
-    if (currentStyle && currentStyle.endsWith("em")) {
-      currentEm = parseFloat(currentStyle) || 0;
-    }
-    const nextEm = Math.max(-0.04, Math.min(0.25, +(currentEm + deltaEm).toFixed(3)));
-    el.style.letterSpacing = nextEm + "em";
-    saveCurrentState();
-  }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("brochure-canvas");
-    initialSnapshot = canvas.innerHTML;
-    captureInitialMap();
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      canvas.innerHTML = saved;
-    }
-    enableEditableFields();
+  imgInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file || !activeImgElement) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      activeImgElement.src = ev.target.result;
+      saveState();
+    };
+    reader.readAsDataURL(file);
+    imgInput.value = '';
   });
 
-  function undoLastChange() {
-    document.execCommand("undo", false, null);
-    saveCurrentState();
-  }
-
-  function resetOriginalContent() {
-    if (confirm("¿Querés restaurar el brochure a la versión original?")) {
-      localStorage.removeItem(STORAGE_KEY);
-      document.getElementById("brochure-canvas").innerHTML = initialSnapshot;
-      enableEditableFields();
-    }
-  }
-
-  function copyChangesForAgent() {
-    const currentNodes = getEditableNodes();
-    const diffs = [];
-    currentNodes.forEach((el, i) => {
-      const nowText = el.innerText.trim();
-      const nowStyle = el.getAttribute("style") || "";
-      const orig = initialElementsMap[i] || { text: "", style: "" };
-      if (nowText !== orig.text || nowStyle !== orig.style) {
-        diffs.push(`- "${nowText}" ${nowStyle ? `[style: ${nowStyle}]` : ""}`);
-      }
-    });
-
-    if (diffs.length === 0) {
-      alert("Todavía no editaste ningún texto directamente adentro de la página ni tocaste A+ / Interletrado.\n\n💡 OJO: Si dejaste comentarios con el botón nativo de Antigravity (Add Comment), esos comentarios ya se envían solos al chat sin tocar este botón.");
-      return;
-    }
-
-    const payload = "Cambios realizados en el brochure editable Versión B (para grabar fijo en HTML y PDF):\n" + diffs.join("\n");
-    navigator.clipboard.writeText(payload).then(() => {
-      const btn = document.getElementById("btn-copy-changes");
-      btn.textContent = "✅ ¡Copiado! Pegalo en el chat";
-      setTimeout(() => { btn.textContent = "📋 Copiar mis cambios"; }, 3500);
-    });
-  }
+  window.addEventListener('DOMContentLoaded', () => {
+    loadState();
+    bindEvents();
+  });
 </script>
 </body>
 </html>
