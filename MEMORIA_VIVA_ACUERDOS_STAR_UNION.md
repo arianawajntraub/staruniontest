@@ -109,3 +109,16 @@
    - La redacción exacta obligatoria es: **fundada en 2001**, operó inicialmente en su **sede operativa histórica de calle Pergamino** previo a su expansión y mudanza, y **actualmente centraliza su operación en su Base Operativa Propia de 800 m² (3 niveles) sobre calle Guaminí 5052 / 5657 (CABA)**, con taller electromecánico in-house (cabina de arenado y pintura) activo desde fines de 2010.
 5. **Clickabilidad y Tracking Obligatorio en Todas las Cajas ISO 9001:2015 / QR TÜV y en el Footer:**
    - Todo recuadro donde aparezca `"Procesos Auditados bajo Norma ISO 9001:2015 (TÜV Rheinland)"` o el QR de TÜV Rheinland (`ID 9000041847`), así como la mención a `ISO 9001:2015 por TÜV Rheinland (ID 9000041847)` en el Footer de las 10 páginas, el Dossier y el Centro de Brochures, debe ser un **enlace `<a>` clickable y traqueado** con parámetros UTM (`utm_source=starunion_web&utm_medium=...&utm_campaign=...`) y evento GA4 (`click_iso_certipedia`) apuntando a la validación oficial en Certipedia (`https://www.certipedia.com/quality_marks/9000041847`).
+
+## 11. Sistema Operativo de Mailing B2B Perfit: Lift del Reenvío, Embudo de 3 Carriles y Calendario (Directiva Ariana 28-Oct-2026)
+1. **Regla del 2° Envío (+5 días a No-Abridores con Asunto Nuevo):**
+   - El reenvío a los 5 días aporta un **+21,8% promedio de aperturas únicas extra** (subiendo el alcance acumulado del 63,5% al 77,2%–84,5% en la base histórica).
+   - **Prohibido repetir el mismo asunto en el reenvío:** En los meses donde se repitió el mismo asunto, el reenvío aportó solo 2 a 5 clics. En **Septiembre (#117)**, al cambiar el asunto del reenvío a *"Empresa de Limpieza Profesional. Continuidad operativa para infraestructuras exigentes"*, la apertura del reenvío saltó al **53%** y los clics únicos del reenvío subieron a **109 clics (+136,2% extra sobre los 80 del 1° envío)**.
+2. **Separación de Listas e Higiene de Rebotes:**
+   - Mantener separadas la **Lista Histórica Fidelizada (~1.160 contactos, 63% apertura, <1% rebote)** de la **Lista de Prospección Nueva de Octubre (~9.100 contactos activos tras depurar los 767 rebotes de #116/#119)**.
+   - Activar siempre `GOOGLE_ANALYTICS = 1` y completar el `PREHEADER` en todas las campañas de Perfit.
+3. **Embudo Comercial de 3 Carriles (De atrás hacia adelante con Filtro de Clientes de Mauro):**
+   - **Paso 0 Innegociable:** Antes de contactar a cualquier clic de Perfit, cruzar contra el Excel de Clientes Actuales e Históricos de Mauro por `@dominio` corporativo y correo para etiquetar como `CLIENTE_ACTIVO_FIDELIZACION` y excluir 100% de llamados de prospección en frío.
+   - **Carril A (Día 1 + Día 6 Reenvío):** Newsletter mensual rotando siempre el Bloque #1 según estacionalidad (el Bloque #1 concentra el 74% de los clics) + Reenvío al Día 6 con asunto distinto.
+   - **Carril B (Día 14 — Abridores sin Clic, ~2.500/mes):** Pieza corta ejecutiva de 1 solo bloque (Caso Auditado 96/100 + Taller y Base Guaminí 800 m² + 1 botón directo al Dossier/Brochure PDF).
+   - **Carril C (24–48 hs post-clic — Clics Únicos filtrados):** Accionamiento comercial según el botón clickeado (Nivel 1: Clic en WhatsApp -> contacto directo para relevamiento; Nivel 2: Clic en Vertical -> envío 1-a-1 del Brochure PDF de ese rubro; Nivel 3: Clic en ISO/Base -> envío del Dossier Ejecutivo de 6 láminas).
