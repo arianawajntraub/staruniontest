@@ -4,197 +4,261 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Informe Estratégico + Plan de Acción de Mailing B2B Perfit (5 Puntos) | Star Union S.R.L.</title>
+    <title>Informe estratégico y plan de acción de mailing B2B | Star Union S.R.L.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Open Sans', sans-serif; background-color: #f9fafb; color: #111827; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        [contenteditable="true"] {
+            outline: 2px dashed rgba(3, 88, 45, 0.35);
+            outline-offset: 4px;
+            border-radius: 6px;
+            background-color: rgba(3, 88, 45, 0.015);
+            transition: outline 0.15s ease;
+        }
+        [contenteditable="true"]:focus {
+            outline: 2px solid #03582d;
+            background-color: #ffffff;
+        }
+        @page {
+            size: A4;
+            margin: 12mm 14mm;
+        }
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .report-container {
+                max-width: 100% !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+            .report-section {
+                break-inside: avoid;
+                box-shadow: none !important;
+                margin-bottom: 18px !important;
+            }
+            [contenteditable="true"] {
+                outline: none !important;
+                background-color: transparent !important;
+            }
+        }
     </style>
 </head>
-<body class="min-h-screen py-10 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto space-y-8">
+<body class="min-h-screen py-8 px-4 sm:px-6">
 
-        <!-- CABECERA -->
-        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 border-t-4 border-t-[#03582d] shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-                <img src="../../assets/img/logo-star-union.png?v=20261028" alt="Star Union" class="h-12 w-auto object-contain">
-                <div>
-                    <span class="inline-block bg-[#03582d]/10 text-[#03582d] text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-1">
-                        Auditoría Histórica Perfit (21 Campañas: Nov 2025 – Oct 2026) · Plan de Acción B2B
-                    </span>
-                    <h1 class="text-xl sm:text-2xl font-extrabold text-black">Informe Estratégico + Plan de Acción de Mailing B2B (5 Puntos)</h1>
-                    <p class="text-xs text-gray-500 mt-0.5">1) Evolución, Estacionalidad y Lift del Reenvío · 2) Fuga de Conversión · 3) Embudo Comercial 3 Carriles · 4) Calendario e Implementación · 5) Fotos Curadas</p>
-                </div>
-            </div>
-            <div class="flex flex-wrap gap-2">
-                <a href="../index.html" class="bg-gray-100 hover:bg-gray-200 text-black text-xs font-bold px-4 py-2.5 rounded-lg transition">
-                    📡 Ir al Radar Comercial
-                </a>
-                <a href="../../accesos/index.html" class="bg-[#03582d] hover:bg-[#024121] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition">
-                    ← Volver al Linktree
-                </a>
-            </div>
+    <!-- BARRA DE HERRAMIENTAS PRIVADA (OCULTA AL EXPORTAR / IMPRIMIR EN PDF) -->
+    <div class="no-print max-w-5xl mx-auto mb-6 bg-[#133522] text-white px-5 py-3.5 rounded-xl shadow-lg flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-2.5">
+            <span id="edit-status-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span id="edit-status-text" class="font-semibold">Modo edición activo: hacé clic sobre cualquier texto, título o celda de tabla para modificarlo. Los cambios se guardan solos.</span>
         </div>
+        <div class="flex items-center gap-2.5">
+            <button type="button" id="btn-toggle-edit" onclick="toggleEditMode()" class="bg-white/15 hover:bg-white/25 text-white font-semibold px-3.5 py-2 rounded-lg transition">
+                🔒 Ver vista previa sin bordes
+            </button>
+            <button type="button" onclick="resetReportContent()" class="bg-white/10 hover:bg-red-500/80 text-white/90 hover:text-white font-semibold px-3 py-2 rounded-lg transition">
+                ↺ Restaurar original
+            </button>
+            <button type="button" onclick="exportCleanPDF()" class="bg-[#ffcc29] hover:bg-[#f5c018] text-[#133522] font-extrabold px-4 py-2 rounded-lg shadow transition">
+                📄 Guardar como PDF limpio
+            </button>
+        </div>
+    </div>
+
+    <!-- DOCUMENTO DE INFORME EJECUTIVO (100% EDITABLE Y LIMPIO PARA PDF) -->
+    <div id="editable-report-root" contenteditable="true" spellcheck="false" class="report-container max-w-5xl mx-auto bg-white rounded-2xl border border-gray-200 shadow-sm p-7 sm:p-12 space-y-10">
+
+        <!-- ENCABEZADO DEL INFORME -->
+        <header class="border-b-2 border-[#03582d] pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="space-y-1.5">
+                <div class="text-[11px] font-bold uppercase tracking-wider text-[#03582d]">
+                    Documento de trabajo interno · Auditoría de campañas Perfit (noviembre de 2025 – octubre de 2026)
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-black leading-tight">
+                    Informe estratégico y plan de acción de mailing B2B
+                </h1>
+                <p class="text-xs sm:text-sm text-gray-600">
+                    Análisis de las 21 campañas enviadas, medición del aporte del reenvío, corrección de fugas de conversión, embudo comercial y calendario operativo para Star Union S.R.L.
+                </p>
+            </div>
+            <img src="../../assets/img/logo-star-union.png?v=20261028" alt="Star Union S.R.L." class="h-12 w-auto object-contain shrink-0">
+        </header>
 
         <!-- =========================================================================
-             PUNTO 1: CONCLUSIONES HISTÓRICAS (MESES, TEMPORADA, CRECIMIENTO Y REENVÍO)
+             PUNTO 1: CONCLUSIONES HISTÓRICAS
              ========================================================================= -->
-        <section class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
+        <section class="report-section space-y-5">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 1 · Auditoría Cuantitativa de las 21 Campañas</span>
-                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-1">1) Conclusiones Históricas: Evolución de Base, Estacionalidad, Impacto del Reenvío y Fatiga de Bloques</h2>
+                <div class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 1 · Auditoría cuantitativa de las 21 campañas</div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-0.5">
+                    1) Conclusiones históricas: evolución de la base, estacionalidad, impacto del reenvío y fatiga de bloques
+                </h2>
             </div>
 
-            <!-- 4 KPI CARDS DE DESCUBRIMIENTOS CLAVE -->
-            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d]">
-                    <span class="text-[11px] font-extrabold text-[#03582d] uppercase">A. Evolución y Alerta de Rebotes</span>
-                    <h3 class="text-base font-extrabold text-black mt-1">De 1.561 a 1.167 (Histórica) y Salto a 10.500 en Octubre</h3>
-                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
-                        La base histórica fiel bajó un <strong>-25,2%</strong> en 10 meses (de 1.561 en Nov 25 a 1.167 en Sep 26 por bajas naturales sin reposición), pero sostuvo un extraordinario <strong>63,5% de apertura promedio</strong>. En <strong>Octubre (#116)</strong> entraron ~9.333 contactos fríos de golpe: sumó <strong>2.724 aperturas totales</strong> pero disparó <strong>767 rebotes (5,2% en #116 + 2,9% en #119)</strong> que deben depurarse ya para proteger el dominio.
+            <div class="grid md:grid-cols-2 gap-4 text-xs">
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-l-4 border-l-[#03582d]">
+                    <h3 class="text-sm font-extrabold text-black mb-1.5">A. Evolución de la base y cómo separar la lista nueva en Perfit</h3>
+                    <p class="text-gray-700 leading-relaxed mb-2">
+                        Entre noviembre de 2025 (1.561 enviados) y septiembre de 2026 (1.167 enviados), la base histórica bajó un <strong>25,2%</strong> (-394 contactos por bajas naturales sin reposición), pero mantuvo un extraordinario <strong>63,5% de apertura promedio</strong> y menos de 1% de rebote. En octubre de 2026 (#116) se sumó la lista nueva llamada en Perfit <strong><code>ventas. 22oct26</code></strong> (~9.333 contactos): logró <strong>2.724 aperturas acumuladas</strong>, pero generó <strong>767 rebotes (5,2% en #116 y 2,9% en #119)</strong>.
+                    </p>
+                    <p class="text-gray-800 leading-relaxed bg-white p-3 rounded-lg border border-gray-200">
+                        <strong>¿Cómo se separan en Perfit haciendo qué?</strong> En Perfit la lista nueva ya está separada bajo el nombre <strong><code>ventas. 22oct26</code></strong>. Al crear una campaña e ir al paso <strong>"Destinatarios"</strong>: 1) destildar para siempre la lista <strong><code>Escuelas 2021-rebotados</code></strong> (que estaba tildada por error en los envíos), 2) destildar <strong><code>ventas. 22oct26</code></strong> cuando quieras enviar solo a la base histórica fiel (1.160 contactos), y 3) duplicar la campaña tildando únicamente <strong><code>ventas. 22oct26</code></strong> (con la casilla <em>"Excluir contactos inactivos"</em> activada, que ya descarta sola los 767 rebotes de octubre) para medir la lista nueva sin distorsionar el porcentaje de la histórica.
                     </p>
                 </div>
 
-                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d]">
-                    <span class="text-[11px] font-extrabold text-[#03582d] uppercase">B. Aporte Exacto del 2° Envío (+5 Días)</span>
-                    <h3 class="text-base font-extrabold text-black mt-1">+21,8% Aperturas Extra (Sube el Alcance de 63% a 78%)</h3>
-                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
-                        El reenvío a los 5 días a no-abridores rescata entre <strong>155 y 315 empresas adicionales por mes</strong>, elevando el alcance mensual acumulado del <strong>63,5% al 77,2%–84,5%</strong> de la base. <strong>Dato clave:</strong> cuando el reenvío repite el mismo asunto, aporta solo +2% a +5% de clics; pero en <strong>Septiembre (#117)</strong>, al cambiar el asunto a <em>"Empresa de Limpieza Profesional..."</em>, la apertura del reenvío saltó al <strong>53%</strong> y aportó <strong>+136,2% más clics únicos (+109 clics vs. 80 del 1° envío)</strong>.
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-l-4 border-l-[#03582d]">
+                    <h3 class="text-sm font-extrabold text-black mb-1.5">B. Aporte exacto del reenvío a los 5 días (y el hallazgo de septiembre)</h3>
+                    <p class="text-gray-700 leading-relaxed mb-2">
+                        El segundo envío a los 5 días a quienes no abrieron el primero rescata entre <strong>155 y 315 empresas adicionales por mes</strong>, aportando un <strong>+21,8% promedio de aperturas extra</strong> sobre el primer envío y elevando el alcance mensual acumulado del <strong>63,5% al 77,2%–84,5%</strong> de toda la base.
+                    </p>
+                    <p class="text-gray-800 leading-relaxed bg-white p-3 rounded-lg border border-gray-200">
+                        <strong>Por qué el reenvío de septiembre (#117) multiplicó los clics por 22:</strong> En enero, febrero, marzo, mayo, julio, agosto y octubre, el reenvío salió con el mismo asunto del primer envío (o quedó pegado por error en la configuración el asunto de meses anteriores), sumando apenas entre 1 y 5 clics. En cambio, en <strong>septiembre (#117)</strong>, cuando se cambió el asunto del reenvío a <em>"Empresa de Limpieza Profesional. Continuidad operativa para infraestructuras exigentes"</em>, la apertura del reenvío subió al <strong>53,0% (+237 aperturas)</strong> y aportó <strong>+109 clics únicos (+136,2% más que los 80 clics del primer envío, con 116 clics directos a WhatsApp)</strong>.
                     </p>
                 </div>
 
-                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d]">
-                    <span class="text-[11px] font-extrabold text-[#03582d] uppercase">C. Mapa de Estacionalidad B2B</span>
-                    <h3 class="text-base font-extrabold text-black mt-1">3 Picos Comprobados en el Año</h3>
-                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
-                        <strong>1) Ene–Feb (#100/#102, 15% CTR):</strong> Puesta a punto pre-clases en <em>Universidades, Colegios y Clubes</em> (216 clics).<br>
-                        <strong>2) Mar y Jul (#103/#110, 72% apertura y 14% CTR):</strong> Pico industrial post-receso en <em>Centros Logísticos, Plantas, Laboratorios y Taller Propio Guaminí</em> (184 clics).<br>
-                        <strong>3) Sep–Nov (#92/#114/#116):</strong> Recambio anual de proveedores y presupuesto en <em>Industria, Logística y Grandes Consorcios</em> (220 clics).
-                    </p>
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-l-4 border-l-[#03582d]">
+                    <h3 class="text-sm font-extrabold text-black mb-1.5">C. Estacionalidad B2B comprobada en tres momentos del año</h3>
+                    <ul class="space-y-1.5 text-gray-700 leading-relaxed list-disc pl-4">
+                        <li><strong>Enero y febrero (#100 y #102, récord de 15,0% de clics):</strong> Tracciona la puesta a punto previa al ciclo lectivo en <strong>universidades, colegios (216 clics) y clubes deportivos (215 clics)</strong>.</li>
+                        <li><strong>Marzo y julio (#103 con 12,0% de clics y #110 con 72,0% de apertura y 14,0% de clics):</strong> Pico industrial post-receso en <strong>centros logísticos (184 clics), certificación ISO 9001 en Certipedia (183 clics), taller propio en calle Guaminí (172 clics) y laboratorios/salud (169 clics)</strong>.</li>
+                        <li><strong>Septiembre a noviembre (#92, #114/#117 y #116/#119):</strong> Etapa de licitaciones y recambio de proveedores en <strong>plantas industriales y logística (220 clics en noviembre y 197 en octubre)</strong> y pedidos directos de propuesta por <strong>WhatsApp (116 clics en septiembre y 179 en octubre)</strong>.</li>
+                    </ul>
                 </div>
 
-                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d]">
-                    <span class="text-[11px] font-extrabold text-[#03582d] uppercase">D. Ley de Fatiga por Orden de Bloques</span>
-                    <h3 class="text-base font-extrabold text-black mt-1">El Bloque #1 se lleva el 74% de los Clics</h3>
-                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
-                        En las 21 campañas, la primera foto y el primer botón tras el saludo concentran entre el <strong>68% y el 82% de los clics</strong> (170 a 220 clics), mientras que el 3° y 4° bloque caen a <strong>3–9 clics</strong> (excepto el botón final de WhatsApp y el QR de ISO 9001). Además, en los meses donde se repitió el mismo asunto de Mayo en Julio y Agosto, el CTR cayó del <strong>14,0% al 3,8%</strong> en Agosto (#113).
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-l-4 border-l-[#03582d]">
+                    <h3 class="text-sm font-extrabold text-black mb-1.5">D. Fatiga por orden fijo de bloques y repetición de asuntos</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        En las 21 campañas se verifica una regla constante: <strong>el primer bloque debajo del encabezado concentra entre el 68% y el 82% de todos los clics del correo</strong> (170 a 220 clics), mientras que el tercer y cuarto bloque caen a 3–9 clics (con excepción del botón final de WhatsApp y el sello de ISO 9001). Por eso, dejar siempre el mismo rubro en el primer bloque agota la respuesta. Asimismo, repetir el mismo asunto de mayo en julio y agosto hizo caer la tasa de clics al <strong>3,8% en agosto (#113)</strong>, y usar un asunto interno como <em>"ISO LANZAMIENTO"</em> en junio (#107) redujo los clics únicos al <strong>0,63% (8 clics)</strong>.
                     </p>
                 </div>
             </div>
 
-            <!-- TABLA COMPARATIVA 1° ENVÍO VS 2° ENVÍO (LIFT EXACTO MES A MES) -->
+            <!-- TABLA HISTÓRICA COMPLETA MES A MES -->
             <div class="overflow-x-auto border border-gray-200 rounded-xl">
-                <table class="w-full text-left text-xs">
-                    <thead class="bg-gray-100 text-gray-700 uppercase font-extrabold border-b border-gray-200">
+                <table class="w-full text-left text-[11px]">
+                    <thead class="bg-gray-100 text-gray-800 font-extrabold border-b border-gray-200">
                         <tr>
-                            <th class="p-3">Mes</th>
-                            <th class="p-3 text-center">1° Envío (ID / Entregados / Rebote)</th>
-                            <th class="p-3 text-center">Aperturas y Clics 1° Envío</th>
-                            <th class="p-3 text-center">2° Envío +5d (ID / Entregados)</th>
-                            <th class="p-3 text-center">Aperturas y Clics 2° Envío</th>
-                            <th class="p-3 text-center bg-[#03582d]/10 text-[#03582d]">Lift del Reenvío (% Extra y Alcance Acumulado)</th>
-                            <th class="p-3">Vertical Ganador del Mes</th>
+                            <th class="p-2.5">Mes</th>
+                            <th class="p-2.5 text-center">1° envío (entregados y rebotes)</th>
+                            <th class="p-2.5 text-center">Aperturas y clics (1° envío)</th>
+                            <th class="p-2.5 text-center">2° envío a los 5 días</th>
+                            <th class="p-2.5 text-center">Aperturas y clics (2° envío)</th>
+                            <th class="p-2.5 text-center bg-[#03582d]/10 text-[#03582d]">Aporte del reenvío y alcance mensual</th>
+                            <th class="p-2.5">Bloque ganador del mes</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         <tr>
-                            <td class="p-3 font-bold">Nov 2025</td>
-                            <td class="p-3 text-center">#92 · 1.552 entreg. (9 reb / 0,58%)</td>
-                            <td class="p-3 text-center"><strong>987</strong> (64,0%) · <strong>203 clics</strong> (13,0%)</td>
-                            <td class="p-3 text-center">#94 · 593 entreg.</td>
-                            <td class="p-3 text-center"><strong>+211</strong> (36,0%) · <strong>+1 clic</strong></td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+21,4% aperturas extra → 77,2% alcance total (1.198 empresas)</td>
-                            <td class="p-3">Sectores Industriales y Logística (220 clics)</td>
+                            <td class="p-2.5 font-bold">Nov 2025</td>
+                            <td class="p-2.5 text-center">#92 · 1.552 entreg. (9 reb / 0,58%)</td>
+                            <td class="p-2.5 text-center"><strong>987</strong> (64,0%) · <strong>203 clics</strong> (13,0%)</td>
+                            <td class="p-2.5 text-center">#94 · 593 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+211</strong> (36,0%) · <strong>+1 clic</strong></td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+21,4% aperturas extra → 77,2% alcance (1.198 emp.)</td>
+                            <td class="p-2.5">Sectores industriales y logística (220 clics)</td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">Dic 2025 (Fiestas)</td>
-                            <td class="p-3 text-center">#96 · 520 entreg. (Lote A)</td>
-                            <td class="p-3 text-center"><strong>200</strong> (38,0%) · <strong>3 clics</strong></td>
-                            <td class="p-3 text-center">#98 · 980 entreg. (Lote B el 24/12)</td>
-                            <td class="p-3 text-center"><strong>+754</strong> (77,0%) · <strong>+172 clics</strong> (18,0%)</td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">Envío partido en 2 lotes: 954 aperturas totales y 175 clics</td>
-                            <td class="p-3">Saludo Fin de Año con Cleany (77% apertura en Nochebuena)</td>
+                            <td class="p-2.5 font-bold">Dic 2025</td>
+                            <td class="p-2.5 text-center">#96 · 520 entreg. (lote 23/12)</td>
+                            <td class="p-2.5 text-center"><strong>200</strong> (38,0%) · <strong>3 clics</strong></td>
+                            <td class="p-2.5 text-center">#98 · 980 entreg. (lote 24/12)</td>
+                            <td class="p-2.5 text-center"><strong>+754</strong> (77,0%) · <strong>+172 clics</strong> (18,0%)</td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">Envío en 2 lotes: 954 aperturas y 175 clics</td>
+                            <td class="p-2.5">Saludo de fin de año con Cleany (77% apertura)</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">Ene 2026</td>
-                            <td class="p-3 text-center">#100 · 1.475 entreg. (5 reb / 0,34%)</td>
-                            <td class="p-3 text-center"><strong>890</strong> (60,0%) · <strong>78 clics</strong> (5,3%)</td>
-                            <td class="p-3 text-center">#101 · 612 entreg.</td>
-                            <td class="p-3 text-center"><strong>+179</strong> (29,0%) · <strong>+4 clics</strong></td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+20,1% aperturas extra (+5,1% clics) → 72,5% alcance total</td>
-                            <td class="p-3">Inicio del Año / Puesta a Punto Edilicia (85 clics)</td>
+                            <td class="p-2.5 font-bold">Ene 2026</td>
+                            <td class="p-2.5 text-center">#100 · 1.475 entreg. (5 reb / 0,34%)</td>
+                            <td class="p-2.5 text-center"><strong>890</strong> (60,0%) · <strong>78 clics</strong> (5,3%)</td>
+                            <td class="p-2.5 text-center">#101 · 612 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+179</strong> (29,0%) · <strong>+4 clics</strong></td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+20,1% aperturas (+5,1% clics) → 72,5% alcance</td>
+                            <td class="p-2.5">Puesta a punto de inicio de año (85 clics)</td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">Feb 2026</td>
-                            <td class="p-3 text-center">#102 · 1.430 entreg. (10 reb / 0,69%)</td>
-                            <td class="p-3 text-center"><strong>926</strong> (65,0%) · <strong>208 clics</strong> (15,0%)</td>
-                            <td class="p-3 text-center">#104 · 516 entreg.</td>
-                            <td class="p-3 text-center"><strong>+175</strong> (34,0%) · <strong>+4 clics</strong></td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+18,9% aperturas extra (+1,9% clics) → 77,0% alcance total</td>
-                            <td class="p-3">Inicio de Clases / Colegios (216 clics) + Deporte (215 clics)</td>
+                            <td class="p-2.5 font-bold">Feb 2026</td>
+                            <td class="p-2.5 text-center">#102 · 1.430 entreg. (10 reb / 0,69%)</td>
+                            <td class="p-2.5 text-center"><strong>926</strong> (65,0%) · <strong>208 clics</strong> (15,0%)</td>
+                            <td class="p-2.5 text-center">#104 · 516 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+175</strong> (34,0%) · <strong>+4 clics</strong></td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+18,9% aperturas (+1,9% clics) → 77,0% alcance</td>
+                            <td class="p-2.5">Inicio de clases (216 clics) y clubes (215 clics)</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">Mar 2026</td>
-                            <td class="p-3 text-center">#103 · 1.394 entreg. (9 reb / 0,64%)</td>
-                            <td class="p-3 text-center"><strong>866</strong> (62,0%) · <strong>163 clics</strong> (12,0%)</td>
-                            <td class="p-3 text-center">#106 · 542 entreg.</td>
-                            <td class="p-3 text-center"><strong>+180</strong> (33,0%) · <strong>+5 clics</strong></td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+20,8% aperturas extra (+3,1% clics) → 75,0% alcance total</td>
-                            <td class="p-3">Taller Propio Guaminí (172 clics) + Salud y Laboratorios (169)</td>
+                            <td class="p-2.5 font-bold">Mar 2026</td>
+                            <td class="p-2.5 text-center">#103 · 1.394 entreg. (9 reb / 0,64%)</td>
+                            <td class="p-2.5 text-center"><strong>866</strong> (62,0%) · <strong>163 clics</strong> (12,0%)</td>
+                            <td class="p-2.5 text-center">#106 · 542 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+180</strong> (33,0%) · <strong>+5 clics</strong></td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+20,8% aperturas (+3,1% clics) → 75,0% alcance</td>
+                            <td class="p-2.5">Taller propio Guaminí (172) y laboratorios (169)</td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">May 2026</td>
-                            <td class="p-3 text-center">#108 · 1.297 entreg. (15 reb / 1,1%)</td>
-                            <td class="p-3 text-center"><strong>821</strong> (63,0%) · <strong>75 clics</strong> (5,8%)</td>
-                            <td class="p-3 text-center">#109 · 488 entreg.</td>
-                            <td class="p-3 text-center"><strong>+162</strong> (33,0%) · <strong>+2 clics</strong></td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+19,7% aperturas extra (+2,7% clics) → 75,8% alcance total</td>
-                            <td class="p-3">Consorcios y Oficinas (41 clics) + Servicios Especiales</td>
+                            <td class="p-2.5 font-bold">May 2026</td>
+                            <td class="p-2.5 text-center">#108 · 1.297 entreg. (15 reb / 1,1%)</td>
+                            <td class="p-2.5 text-center"><strong>821</strong> (63,0%) · <strong>75 clics</strong> (5,8%)</td>
+                            <td class="p-2.5 text-center">#109 · 488 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+162</strong> (33,0%) · <strong>+2 clics</strong></td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+19,7% aperturas (+2,7% clics) → 75,8% alcance</td>
+                            <td class="p-2.5">Consorcios y oficinas (41 clics) y serv. especiales</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">Jun 2026 (Hito ISO)</td>
-                            <td class="p-3 text-center">#107 · 1.278 entreg. (Envío único)</td>
-                            <td class="p-3 text-center"><strong>805</strong> (63,0%) · <strong>8 clics únicos</strong> (27 totales)</td>
-                            <td class="p-3 text-center">Sin reenvío</td>
-                            <td class="p-3 text-center">—</td>
-                            <td class="p-3 text-center text-gray-500">Asunto interno <em>"ISO LANZAMIENTO"</em> penalizó el CTR</td>
-                            <td class="p-3">Validación QR TÜV Certipedia ID 9000041847 (27 clics totales)</td>
+                            <td class="p-2.5 font-bold">Jun 2026</td>
+                            <td class="p-2.5 text-center">#107 · 1.278 entreg. (envío único ISO)</td>
+                            <td class="p-2.5 text-center"><strong>805</strong> (63,0%) · <strong>8 clics únicos</strong> (27 tot.)</td>
+                            <td class="p-2.5 text-center">Sin reenvío</td>
+                            <td class="p-2.5 text-center">—</td>
+                            <td class="p-2.5 text-center text-gray-500">Asunto <em>"ISO LANZAMIENTO"</em> frenó los clics</td>
+                            <td class="p-2.5">Validación QR TÜV en Certipedia (27 clics totales)</td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">Jul 2026</td>
-                            <td class="p-3 text-center">#110 · 1.218 entreg. (30 reb / 2,4%)</td>
-                            <td class="p-3 text-center"><strong>874</strong> (72,0%) · <strong>175 clics</strong> (14,0%)</td>
-                            <td class="p-3 text-center">#112 · 388 entreg.</td>
-                            <td class="p-3 text-center"><strong>+155</strong> (40,0%) · <strong>+21 clics</strong> (5,4%)</td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+17,7% aperturas y +12,0% clics extra → 84,5% alcance récord</td>
-                            <td class="p-3">Centros Logísticos (184 clics) + Certipedia ISO 9001 (183 clics)</td>
+                            <td class="p-2.5 font-bold">Jul 2026</td>
+                            <td class="p-2.5 text-center">#110 · 1.218 entreg. (30 reb / 2,4%)</td>
+                            <td class="p-2.5 text-center"><strong>874</strong> (72,0%) · <strong>175 clics</strong> (14,0%)</td>
+                            <td class="p-2.5 text-center">#112 · 388 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+155</strong> (40,0%) · <strong>+21 clics</strong> (5,4%)</td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+17,7% aperturas y +12,0% clics → 84,5% alcance</td>
+                            <td class="p-2.5">Centros logísticos (184) e ISO 9001 TÜV (183)</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">Ago 2026</td>
-                            <td class="p-3 text-center">#113 · 1.199 entreg. (2 reb / 0,17%)</td>
-                            <td class="p-3 text-center"><strong>707</strong> (59,0%) · <strong>46 clics</strong> (3,8%)</td>
-                            <td class="p-3 text-center">#115 · 504 entreg.</td>
-                            <td class="p-3 text-center"><strong>+162</strong> (32,0%) · <strong>+3 clics</strong></td>
-                            <td class="p-3 text-center font-bold text-[#03582d] bg-[#03582d]/5">+22,9% aperturas extra (+6,5% clics) → 72,5% alcance total</td>
-                            <td class="p-3">Fatiga por repetir esquema: Concesionarias y Administraciones</td>
+                            <td class="p-2.5 font-bold">Ago 2026</td>
+                            <td class="p-2.5 text-center">#113 · 1.199 entreg. (2 reb / 0,17%)</td>
+                            <td class="p-2.5 text-center"><strong>707</strong> (59,0%) · <strong>46 clics</strong> (3,8%)</td>
+                            <td class="p-2.5 text-center">#115 · 504 entreg.</td>
+                            <td class="p-2.5 text-center"><strong>+162</strong> (32,0%) · <strong>+3 clics</strong></td>
+                            <td class="p-2.5 text-center font-bold text-[#03582d] bg-[#03582d]/5">+22,9% aperturas (+6,5% clics) → 72,5% alcance</td>
+                            <td class="p-2.5">Concesionarias, espacios verdes y consorcios</td>
                         </tr>
                         <tr class="bg-emerald-50/70">
-                            <td class="p-3 font-bold">Sep 2026 ⭐</td>
-                            <td class="p-3 text-center">#114 · 1.160 entreg. (7 reb / 0,6%)</td>
-                            <td class="p-3 text-center"><strong>727</strong> (63,0%) · <strong>80 clics</strong> (6,9%)</td>
-                            <td class="p-3 text-center">#117 · 446 entreg. (Con Asunto Nuevo)</td>
-                            <td class="p-3 text-center"><strong>+237</strong> (53,0%) · <strong>+109 clics</strong> (24,0%)</td>
-                            <td class="p-3 text-center font-extrabold text-[#03582d] bg-[#03582d]/15">+32,6% aperturas y +136,2% clics extra → 83,1% alcance total</td>
-                            <td class="p-3">📩 WhatsApp Propuesta Adaptada (116 clics en reenvío) + Clubes</td>
+                            <td class="p-2.5 font-bold">Sep 2026 ⭐</td>
+                            <td class="p-2.5 text-center">#114 · 1.160 entreg. (7 reb / 0,6%)</td>
+                            <td class="p-2.5 text-center"><strong>727</strong> (63,0%) · <strong>80 clics</strong> (6,9%)</td>
+                            <td class="p-2.5 text-center">#117 · 446 entreg. (asunto nuevo)</td>
+                            <td class="p-2.5 text-center"><strong>+237</strong> (53,0%) · <strong>+109 clics</strong> (24,0%)</td>
+                            <td class="p-2.5 text-center font-extrabold text-[#03582d] bg-[#03582d]/15">+32,6% aperturas y +136,2% clics → 83,1% alcance</td>
+                            <td class="p-2.5">WhatsApp directo (116 clics en reenvío) y clubes</td>
                         </tr>
                         <tr class="bg-amber-50/70">
-                            <td class="p-3 font-bold">Oct 2026 (Base 10.5k)</td>
-                            <td class="p-3 text-center">#116 · 9.954 entreg. (546 reb / 5,2%)</td>
-                            <td class="p-3 text-center"><strong>2.409</strong> (24,0%) · <strong>143 clics</strong> (1,4%)</td>
-                            <td class="p-3 text-center">#119 · 7.356 entreg. (221 reb / 2,9%)</td>
-                            <td class="p-3 text-center"><strong>+315</strong> (4,3%) · <strong>+43 clics</strong> (0,58%)</td>
-                            <td class="p-3 text-center font-bold text-amber-900 bg-amber-100/60">+13,1% aperturas (+315) y +30,1% clics extra (+43) → 2.724 aperturas</td>
-                            <td class="p-3">Logística (197 clics acum.) + Plantas (150) + 📩 WhatsApp (179)</td>
+                            <td class="p-2.5 font-bold">Oct 2026</td>
+                            <td class="p-2.5 text-center">#116 · 9.954 entreg. (546 reb / 5,2%)</td>
+                            <td class="p-2.5 text-center"><strong>2.409</strong> (24,0%) · <strong>143 clics</strong> (1,4%)</td>
+                            <td class="p-2.5 text-center">#119 · 7.356 entreg. (221 reb / 2,9%)</td>
+                            <td class="p-2.5 text-center"><strong>+315</strong> (4,3%) · <strong>+43 clics</strong> (0,58%)</td>
+                            <td class="p-2.5 text-center font-bold text-amber-900 bg-amber-100/60">+13,1% aperturas (+315) y +30,1% clics (+43)</td>
+                            <td class="p-2.5">Logística (197 acum.), plantas (150) y WhatsApp (179)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -202,88 +266,91 @@
         </section>
 
         <!-- =========================================================================
-             PUNTO 2: DIAGNÓSTICO DE FUGA DE CONVERSIÓN Y TABLA DE REDIRECCIÓN
+             PUNTO 2: DIAGNÓSTICO DE FUGA DE CONVERSIÓN
              ========================================================================= -->
-        <section class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
+        <section class="report-section space-y-5 pt-4 border-t border-gray-200">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-red-700">Punto 2 · Auditoría de Destinos de Clics</span>
-                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-1">2) Diagnóstico de Fuga de Conversión: Por qué se perdían los clics en LinkedIn y cómo los capturamos hoy</h2>
-                <p class="text-xs text-gray-600 mt-1 leading-relaxed">
-                    Al auditar los JSON de links de las 21 campañas (<code>campana_*_links.json</code>), detectamos tres fugas críticas que impedían convertir los más de <strong>1.500 clics anuales</strong> en cotizaciones reales:
-                </p>
+                <div class="text-xs font-extrabold uppercase tracking-wider text-red-700">Punto 2 · Auditoría de destinos de clics y configuración de Perfit</div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-0.5">
+                    2) Diagnóstico de fuga de conversión: por qué se perdían los clics en LinkedIn y qué se tilda en Perfit sin cargar códigos a mano
+                </h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-4 text-xs">
                 <div class="p-4 rounded-xl bg-red-50/70 border border-red-200">
-                    <strong class="text-red-900 block text-sm mb-1">❌ Fuga #1: Botones Amarillos hacia Posteos de LinkedIn (78% de pérdida)</strong>
+                    <strong class="text-red-900 block text-sm mb-1">1. El 78% de los botones amarillos mandaba el tráfico a posteos de LinkedIn</strong>
                     <p class="text-gray-700 leading-relaxed">
-                        En Nov (#92), Ene (#100), Feb (#102), Jul (#110), Sep (#114/#117) y Oct (#116/#119), los botones amarillos principales (<em>"🔗 Conocé nuestras soluciones"</em>, <em>"🔗 Nuestros trabajos en plantas"</em>, <em>"🔗 Contá con profesionales para el inicio de clases"</em>) llevaban a <code>linkedin.com/feed/update/...</code>. En celular o PC sin sesión iniciada, LinkedIn bloquea con pantalla de login o distrae al gerente en el feed sin formulario ni brochure PDF.
+                        En noviembre (220 clics), enero (85 clics), febrero (216 clics), julio (184 clics) y octubre (148 clics), los botones amarillos principales (<em>"🔗 Conocé nuestras soluciones"</em>, <em>"🔗 Nuestros trabajos en plantas"</em>, <em>"🔗 Contá con profesionales para el inicio de clases"</em>) llevaban a publicaciones sueltas de LinkedIn. Quien hace clic desde el celular o sin sesión iniciada choca con la pantalla de inicio de sesión de LinkedIn o se distrae en el muro de noticias sin ver formulario ni brochure en PDF.
                     </p>
                 </div>
+
                 <div class="p-4 rounded-xl bg-amber-50/70 border border-amber-200">
-                    <strong class="text-amber-900 block text-sm mb-1">⚠️ Fuga #2: Links cruzados a URLs viejas equivocadas</strong>
+                    <strong class="text-amber-900 block text-sm mb-1">2. Qué son el texto de vista previa (preheader) y la casilla de Google Analytics en Perfit</strong>
                     <p class="text-gray-700 leading-relaxed">
-                        En Julio (#110), el botón <em>"🔗 Conocé nuestra Base Operativa"</em> apuntaba por error a <code>/empresa/servicios-especiales.html</code> en lugar de mostrar la Base Guaminí de 800 m². Y en Mayo/Julio, el botón de Grandes Superficies abría WhatsApp genérico sin pasar antes por la ficha técnica del rubro.
+                        En el paso 1 de Perfit (<strong>"Configuración"</strong>) hay dos opciones que en las 21 campañas quedaron vacías:
+                        <br>• <strong>Texto de vista previa (preheader):</strong> es el renglón que está justo debajo del asunto. Es la frase gris que muestra Gmail al lado del asunto antes de abrir el correo. Si se deja en blanco, Gmail muestra <em>"Si no podés visualizar este correo..."</em>.
+                        <br>• <strong>Casilla "Seguimiento con Google Analytics":</strong> es un tilde en el paso 1 de Perfit que estaba apagado. Al tildarlo una sola vez, <strong>Perfit le agrega solo el código de seguimiento a todos los links</strong> sin que tengas que escribir ningún <code>?utm_source=...</code> a mano.
                     </p>
                 </div>
+
                 <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200">
-                    <strong class="text-[#03582d] block text-sm mb-1">✅ Solución Activada: Landings por Vertical + Brochures PDF + UTMs</strong>
+                    <strong class="text-[#03582d] block text-sm mb-1">3. ¿Hay que poner los links manualmente? Solo la dirección limpia de la página</strong>
                     <p class="text-gray-700 leading-relaxed">
-                        Cada bloque del mailing lleva ahora: 1) La imagen y el botón principal directo a la <strong>Landing Específica de esa Vertical en nuestro sitio nuevo</strong> con <code>?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=...</code>, 2) Link directo al <strong>Brochure PDF A4 de ese rubro</strong>, y 3) El cierre con el botón de <strong>WhatsApp pre-armado por vertical</strong>.
+                        <strong>No tenés que escribir ningún código largo a mano.</strong> En el editor visual de Perfit, cuando tocás la foto o el botón amarillo de cada bloque (exactamente en el mismo casillero de enlace donde antes pegaban el link de LinkedIn), solo se pega la URL limpia de ese rubro en el sitio web nuevo (abajo tenés las 8 direcciones limpias para copiar y pegar).
                     </p>
                 </div>
             </div>
 
-            <!-- TABLA DE REEMPLAZO DE DESTINOS EN PERFIT -->
+            <!-- TABLA DE DIRECCIONES LIMPIAS PARA PEGAR EN LOS BOTONES DE PERFIT -->
             <div class="overflow-x-auto border border-gray-200 rounded-xl">
                 <table class="w-full text-left text-xs">
-                    <thead class="bg-gray-100 text-gray-700 uppercase font-extrabold border-b border-gray-200">
+                    <thead class="bg-gray-100 text-gray-800 font-extrabold border-b border-gray-200">
                         <tr>
-                            <th class="p-3">Bloque / Botón en Perfit</th>
-                            <th class="p-3">Destino Viejo (Fuga Detectada)</th>
-                            <th class="p-3">Nuevo Destino de Alta Conversión (Sitio + Brochure PDF con UTM)</th>
+                            <th class="p-3">Bloque o rubro dentro del correo</th>
+                            <th class="p-3">Adónde mandaba antes (fuga detectada)</th>
+                            <th class="p-3">Dirección limpia para pegar en la foto y botón de Perfit</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         <tr>
-                            <td class="p-3 font-bold">🏭 Fábricas, Plantas y Logística</td>
-                            <td class="p-3 text-red-700"><code>linkedin.com/feed/update/urn:li:activity:7467922577...</code></td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/limpieza-industrial/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_industrial</code> + PDF <code>/brochures/pdf/brochure-fabricas-e-industrias.pdf</code></td>
+                            <td class="p-3 font-bold">Fábricas, plantas industriales y logística</td>
+                            <td class="p-3 text-red-700">Posteo de LinkedIn (<code>linkedin.com/feed/update/...</code>)</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/limpieza-industrial/</code></td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">🧗‍♂️ Limpieza de Vidrios en Altura (ARAA)</td>
-                            <td class="p-3 text-red-700"><code>linkedin.com/feed/update/urn:li:activity:7460289789...</code></td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/limpieza-en-altura/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_altura</code> + PDF <code>/brochures/pdf/brochure-vidrios-en-altura.pdf</code></td>
+                            <td class="p-3 font-bold">Limpieza de vidrios y trabajos en altura (ARAA)</td>
+                            <td class="p-3 text-red-700">Posteo de LinkedIn (<code>linkedin.com/feed/update/...</code>)</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/limpieza-en-altura/</code></td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">🏢 Edificios de Oficinas y Grandes Consorcios</td>
-                            <td class="p-3 text-red-700"><code>linkedin.com/feed/update/urn:li:activity:7416078960...</code></td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/consorcios/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_corporativo</code> + PDF <code>/brochures/pdf/brochure-oficinas-corporativas.pdf</code></td>
+                            <td class="p-3 font-bold">Edificios corporativos de oficinas y grandes consorcios</td>
+                            <td class="p-3 text-red-700">Posteo de LinkedIn (<code>linkedin.com/feed/update/...</code>)</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/consorcios/</code></td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">🏥 Clínicas, Hospitales y Laboratorios</td>
-                            <td class="p-3 text-red-700"><code>starunion.com.ar/donde-limpiamos/laboratorios.html</code> (URL vieja)</td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/clinicas-y-hospitales/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_salud</code> + PDF <code>/brochures/pdf/brochure-laboratorios-y-farma.pdf</code></td>
+                            <td class="p-3 font-bold">Clínicas, sanatorios, hospitales y laboratorios</td>
+                            <td class="p-3 text-red-700">URL vieja (<code>/donde-limpiamos/laboratorios.html</code>)</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/clinicas-y-hospitales/</code></td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">🎓 Universidades, Colegios y Clubes</td>
-                            <td class="p-3 text-red-700"><code>linkedin.com/feed/update/urn:li:activity:7419699081...</code></td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/universidades-y-clubes/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_educacion</code> + PDF <code>/brochures/pdf/brochure-universidades-y-colegios.pdf</code></td>
+                            <td class="p-3 font-bold">Universidades, colegios y clubes deportivos</td>
+                            <td class="p-3 text-red-700">Posteo de LinkedIn (<code>linkedin.com/feed/update/...</code>)</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/universidades-y-clubes/</code></td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">✈️ Grandes Superficies, Shoppings y Concesionarias</td>
-                            <td class="p-3 text-red-700"><code>linkedin.com/feed/update/urn:li:activity:7490391900...</code></td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/grandes-superficies/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_superficies</code> + PDF <code>/brochures/pdf/brochure-centros-comerciales.pdf</code></td>
+                            <td class="p-3 font-bold">Aeropuertos, shoppings y concesionarios</td>
+                            <td class="p-3 text-red-700">Posteo de LinkedIn (<code>linkedin.com/feed/update/...</code>)</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/grandes-superficies/</code></td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">🏛️ Base Operativa Guaminí (800 m²) y Taller Propio</td>
-                            <td class="p-3 text-red-700"><code>starunion.com.ar/empresa/servicios-especiales.html</code> (Mal linkeado)</td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/la-empresa/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_base_guamini</code> + Dossier <code>/dossier/</code></td>
+                            <td class="p-3 font-bold">Base operativa propia en calle Guaminí (800 m²) y taller</td>
+                            <td class="p-3 text-red-700">Mal linkeado a <code>/empresa/servicios-especiales.html</code></td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/la-empresa/</code></td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">🏅 Sello y QR ISO 9001:2015 TÜV Rheinland</td>
-                            <td class="p-3 text-amber-800">Link directo sin UTM ni página intermedia de alcance</td>
-                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/certificacion-iso/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=mensual&amp;utm_content=bloque_iso_tuv</code> (con validación Certipedia ID 9000041847 traqueada)</td>
+                            <td class="p-3 font-bold">Certificación ISO 9001:2015 TÜV Rheinland</td>
+                            <td class="p-3 text-amber-800">Certipedia externo sin página de alcance técnico</td>
+                            <td class="p-3 font-semibold text-[#03582d]"><code>https://www.starunion.com.ar/certificacion-iso/</code></td>
                         </tr>
                     </tbody>
                 </table>
@@ -291,238 +358,298 @@
         </section>
 
         <!-- =========================================================================
-             PUNTO 3: EMBUDO COMERCIAL Y CÓMO SEGUIR (LOS 3 CARRILES + FILTRO MAURO)
+             PUNTO 3: EMBUDO COMERCIAL Y CÓMO SEGUIR CON LAS CAMPAÑAS
              ========================================================================= -->
-        <section class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
+        <section class="report-section space-y-5 pt-4 border-t border-gray-200">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 3 · Ingeniería del Embudo B2B (De Atrás Hacia Adelante)</span>
-                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-1">3) Embudo Comercial y Cómo Seguir con las Campañas (Qué se hace, Cuándo y Para Qué)</h2>
+                <div class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 3 · Circuito comercial de atrás hacia adelante</div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-0.5">
+                    3) Embudo comercial y cómo seguir con las campañas (qué se hace, cuándo y para qué)
+                </h2>
             </div>
 
-            <!-- REGLA CERO: EXCLUSIÓN DE CLIENTES ACTUALES DE MAURO -->
-            <div class="p-5 rounded-xl bg-amber-50 border-2 border-amber-300 text-xs space-y-2">
-                <div class="font-extrabold text-amber-950 text-sm uppercase tracking-wide flex items-center gap-2">
-                    <span>🔒 PASO 0 INNEGOCIABLE (DE ATRÁS HACIA ADELANTE ANTES DE CUALQUIER ACCIÓN COMERCIAL):</span>
+            <!-- PASO 0: EXCLUSIÓN DE CLIENTES ACTUALES DE MAURO -->
+            <div class="p-5 rounded-xl bg-amber-50 border border-amber-300 text-xs space-y-1.5">
+                <div class="font-extrabold text-amber-950 text-sm">
+                    Paso 0 obligatorio (de atrás hacia adelante antes de contactar a nadie): cruce contra la lista de clientes de Mauro
                 </div>
                 <p class="text-amber-900 leading-relaxed">
-                    Antes de que ventas contacte a un solo clic de Perfit, <strong>cruzamos el Excel de Clientes Actuales e Históricos de Mauro contra la base de Perfit por <code>@dominio</code> corporativo y casilla exacta</strong>. Todo contacto que pertenezca a una empresa que ya es cliente activo (ej. <code>@toyota...</code>, <code>@ferroclor...</code>, <code>@utdt.edu</code>, <code>@lincoln.edu.ar</code>, etc.) recibe en Perfit la etiqueta <strong><code>CLIENTE_ACTIVO_FIDELIZACION</code></strong>: sigue recibiendo el newsletter institucional mensual para ver la mejora continua (ISO 9001, maquinaria nueva, Cleany), pero <strong>queda 100% excluido de llamados o WhatsApps de prospección en frío</strong>.
+                    Antes de que el equipo comercial llame o escriba a quienes hicieron clic en el mailing, se cruza el listado de clientes actuales e históricos de Mauro contra los contactos de Perfit por <strong><code>@dominio</code> corporativo y dirección de correo</strong>. Quienes pertenecen a empresas que ya son clientes siguen recibiendo el envío mensual como acción de fidelización y presencia de marca, pero quedan <strong>100% excluidos de los llamados o mensajes de prospección comercial</strong>.
                 </p>
             </div>
 
-            <!-- LOS 3 CARRILES DEL EMBUDO -->
+            <!-- LOS 3 GRUPOS DE ACCIÓN -->
             <div class="grid lg:grid-cols-3 gap-5 text-xs">
-                <!-- CARRIL A -->
-                <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d] flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded">Carril A · Día 1 y Día 6 (+5 Días)</span>
-                        <h3 class="text-base font-extrabold text-black">Base General Segmentada + Reenvío con Nuevo Asunto</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            <strong>1) Separación de Listas en Perfit:</strong> Separamos la <strong>Lista 1: Base Histórica Fidelizada (~1.160 contactos, 63% apertura)</strong> de la <strong>Lista 2: Base Prospección Nueva (~9.100 contactos válidos tras limpiar los 767 rebotes de Octubre)</strong>.
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d] flex flex-col justify-between space-y-4">
+                    <div class="space-y-2.5">
+                        <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded">a) Día 1 y día 6 (+5 días)</span>
+                        <h3 class="text-sm font-extrabold text-black">Qué hacemos con la base general y el reenvío</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            <strong>Día 1 (jueves 09:30 hs):</strong> sale el envío mensual separando la base histórica (sin tildar <code>ventas. 22oct26</code> ni <code>Escuelas 2021-rebotados</code>) de la base nueva (envío duplicado solo a <code>ventas. 22oct26</code>). Cada mes se rota el rubro que va en el primer bloque para evitar la fatiga visual.
                         </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            <strong>2) Día 1 (Martes o Jueves 09:30 hs):</strong> Sale el 1° Envío con el <strong>Bloque #1 rotado según la estacionalidad del mes</strong> (nunca repetir la misma foto ni el mismo orden del mes anterior) y con el <strong>Preheader completado</strong> (hoy estaba vacío).
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            <strong>3) Día 6 (+5 días, a No-Abridores con casilla activa):</strong> Sale el Reenvío automático, pero <strong>SIEMPRE cambiando el Asunto</strong> (fórmula ganadora de Septiembre #117: empezar con <em>"Empresa de Limpieza Profesional · [Beneficio Técnico / ISO 9001]"</em>). Esto aporta un <strong>+22% a +32% de aperturas extra</strong> y duplica los clics.
+                        <p class="text-gray-700 leading-relaxed">
+                            <strong>Día 6 (+5 días a quienes no abrieron):</strong> se programa el reenvío automático en Perfit (120 horas), pero <strong>cambiando siempre el asunto del reenvío</strong> con la estructura ganadora de septiembre (#117): poner adelante <em>"Empresa de Limpieza Profesional · [beneficio concreto]"</em>.
                         </p>
                     </div>
                     <div class="pt-3 border-t border-gray-200 text-[11px] font-bold text-[#03582d]">
-                        🎯 Objetivo: Alcanzar al 80% de la base histórica y al 30%+ de la base nueva sin quemar el dominio.
+                        Para qué: pasar del 63% al 80% de alcance en la base histórica y rescatar +200 a +300 aperturas extra por mes.
                     </div>
                 </div>
 
-                <!-- CARRIL B -->
-                <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d] flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded">Carril B · Día 14 (Lectores Silenciosos)</span>
-                        <h3 class="text-base font-extrabold text-black">Secuencia para los que ABREN pero NO CLICKEAN (~2.500 empresas/mes)</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            <strong>Quiénes son:</strong> En cada campaña hay ~750 contactos de la base histórica y ~2.250 de la base nueva que <strong>abren el correo, leen, pero no tocan ningún botón</strong>. No hay que llamarlos en frío diciendo <em>"vi que abriste mi mail"</em> (genera rechazo), sino convertirlos con una <strong>pieza corta de 1 solo impacto a los 14 días</strong>.
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            <strong>Qué reciben el Día 14:</strong> Un correo ultra-breve (formato carta ejecutiva + 1 sola credencial visual, cero catálogo largo) enfocado en <strong>Autoridad e Infraestructura Comprobable</strong>:
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d] flex flex-col justify-between space-y-4">
+                    <div class="space-y-2.5">
+                        <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded">b) Día 14 (dos semanas después)</span>
+                        <h3 class="text-sm font-extrabold text-black">Qué secuencia reciben los que abren pero no hacen clic (~2.500 por mes)</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            En cada campaña hay cerca de 750 contactos de la base histórica y 1.800 de la base nueva que abren el correo y lo miran, pero no tocan ningún botón. No se los llama en frío diciendo <em>"vi que abriste el correo"</em>, sino que al <strong>día 14</strong> reciben en Perfit un <strong>correo corto de un solo bloque</strong> enfocado en solvencia técnica e infraestructura:
                         </p>
                         <ul class="list-disc pl-4 space-y-1 text-gray-700">
-                            <li><strong>Asunto:</strong> <em>¿Cómo auditamos la continuidad operativa en planta? (Caso 96/100 + Base 800 m²)</em></li>
-                            <li><strong>Contenido único:</strong> El hito de calificación 96/100 en industria química + foto del Taller Propio y Parque 2026 en calle Guaminí + <strong>1 solo botón directo al Dossier Interactivo / Brochure PDF</strong>.</li>
+                            <li><strong>Asunto:</strong> <em>¿Cómo garantizamos continuidad operativa sin ausencias? (Base propia de 800 m² e ISO 9001)</em></li>
+                            <li><strong>Contenido único:</strong> cómo funciona el control biométrico con alerta a los 15 minutos, el taller propio en calle Guaminí y la calificación 96/100 en auditoría industrial, con <strong>un solo botón hacia el dossier ejecutivo y los brochures en PDF</strong>.</li>
                         </ul>
                     </div>
                     <div class="pt-3 border-t border-gray-200 text-[11px] font-bold text-[#03582d]">
-                        🎯 Objetivo: Convertir entre el 8% y el 12% de los abridores silenciosos en clics identificados por rubro.
+                        Para qué: lograr que entre el 8% y el 12% de esos lectores silenciosos hagan clic y declaren qué rubro les interesa.
                     </div>
                 </div>
 
-                <!-- CARRIL C -->
-                <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d] flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded">Carril C · Dentro de las 24 a 48 hs del Clic</span>
-                        <h3 class="text-base font-extrabold text-black">Accionamiento Comercial sobre los que SÍ HACEN CLIC (150–210/mes)</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Exportamos el reporte de Clics de Perfit, lo pasamos por el <strong>Filtro de Exclusión de Clientes de Mauro (Paso 0)</strong> y accionamos en 3 niveles según <strong>qué botón tocaron</strong>:
+                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 border-t-4 border-t-[#03582d] flex flex-col justify-between space-y-4">
+                    <div class="space-y-2.5">
+                        <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded">c) Dentro de las 24 a 48 horas del clic</span>
+                        <h3 class="text-sm font-extrabold text-black">Cómo accionamos comercialmente sobre los que sí hacen clic (150 a 210 por mes)</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Una vez excluidos los clientes actuales de Mauro (paso 0), se descarga de Perfit la lista de quienes hicieron clic y se actúa según <strong>qué botón tocaron</strong>:
                         </p>
-                        <ul class="space-y-2 text-gray-700">
-                            <li><strong>🔥 Nivel 1 (Clic en WhatsApp / Solicitar Propuesta):</strong> Contacto humano directo en el día por Mauro / Comercial con coordinación de visita de relevamiento técnico sin cargo.</li>
-                            <li><strong>⚡ Nivel 2 (Clic en un Vertical específico: Industria, Altura, Salud, Educación, Oficinas):</strong> Ya sabemos qué le duele. A las 24–48 hs recibe un correo 1-a-1 / mensaje de LinkedIn o llamado corto adjuntando el <strong>Brochure PDF A4 específico de ese vertical</strong> (ej. <em>"Te comparto nuestro protocolo ISO 9001 para naves industriales y logística..."</em>).</li>
-                            <li><strong>🛡️ Nivel 3 (Clic en Certipedia ISO 9001 / Base Guaminí / Web general):</strong> Está validando solvencia de proveedor para una licitación. Recibe el <strong>Dossier Ejecutivo de 6 Láminas + Certificado TÜV Rheinland PDF</strong> ofreciendo sumarse al registro de proveedores.</li>
+                        <ul class="space-y-1.5 text-gray-700">
+                            <li><strong>1. Hicieron clic en el botón de WhatsApp:</strong> contacto directo en el día para coordinar una visita de relevamiento técnico sin cargo.</li>
+                            <li><strong>2. Hicieron clic en un rubro específico (fábricas, altura, oficinas, salud, educación):</strong> ya sabemos qué tipo de instalación manejan. A las 24–48 hs se les envía un correo personalizado o mensaje directo adjuntando el <strong>brochure PDF A4 de ese rubro específico</strong>.</li>
+                            <li><strong>3. Hicieron clic en el sello ISO 9001 o en la base operativa:</strong> están evaluando carpetas de proveedores. Se les envía el <strong>dossier ejecutivo de 6 láminas y el certificado de TÜV Rheinland</strong> para sumarse a su registro de licitaciones.</li>
                         </ul>
                     </div>
                     <div class="pt-3 border-t border-gray-200 text-[11px] font-bold text-[#03582d]">
-                        🎯 Objetivo: Transformar clics anónimos en reuniones de relevamiento técnico calificadas.
+                        Para qué: transformar clics con nombre y apellido en visitas de relevamiento técnico y cotizaciones reales.
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- =========================================================================
-             PUNTO 4: CALENDARIO EDITORIAL E IMPLEMENTACIÓN PASO A PASO EN PERFIT
+             PUNTO 4: CALENDARIO E IMPLEMENTACIÓN CONCRETA
              ========================================================================= -->
-        <section class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
+        <section class="report-section space-y-5 pt-4 border-t border-gray-200">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 4 · Ejecución Inmediata (Nov 2026 – Mar 2027)</span>
-                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-1">4) Calendario de Próximos Envíos + Guía Paso a Paso en Perfit</h2>
+                <div class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 4 · Hoja de ruta de noviembre de 2026 a marzo de 2027</div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-0.5">
+                    4) Calendario de próximos envíos e implementación paso a paso en Perfit
+                </h2>
             </div>
 
             <div class="overflow-x-auto border border-gray-200 rounded-xl">
-                <table class="w-full text-left text-xs">
-                    <thead class="bg-gray-100 text-gray-700 uppercase font-extrabold border-b border-gray-200">
+                <table class="w-full text-left text-[11px]">
+                    <thead class="bg-gray-100 text-gray-800 font-extrabold border-b border-gray-200">
                         <tr>
-                            <th class="p-3">Fecha / Ciclo</th>
+                            <th class="p-3">Mes y fechas</th>
                             <th class="p-3">Segmento en Perfit</th>
-                            <th class="p-3">Asunto 1° Envío + Asunto Nuevo de Reenvío (+5d)</th>
-                            <th class="p-3">Bloque #1 Protagonista (Rotación Anti-Fatiga)</th>
-                            <th class="p-3">Destino Botón #1 y Botón #2 (Sitio Nuevo + PDF)</th>
+                            <th class="p-3">Asunto del 1° envío y asunto nuevo del reenvío (+5 días)</th>
+                            <th class="p-3">Rubro protagonista en el bloque #1</th>
+                            <th class="p-3">Páginas y brochures de destino</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         <tr>
-                            <td class="p-3 font-bold">Noviembre 2026<br><span class="text-gray-500 font-normal">1°: Jue 19/11<br>2°: Mar 24/11<br>Seg: Jue 03/12</span></td>
-                            <td class="p-3">Lista Histórica (1.160) + Lista Nueva Depurada Sin Rebotes (9.100)</td>
+                            <td class="p-3 font-bold">Noviembre 2026<br><span class="text-gray-500 font-normal">1°: jue 19/11<br>2°: mar 24/11<br>Abrieron s/clic: jue 03/12</span></td>
+                            <td class="p-3">Envío A: listas históricas (sin <code>ventas. 22oct26</code>)<br>Envío B: solo <code>ventas. 22oct26</code></td>
                             <td class="p-3">
-                                <strong>1°:</strong> <em>Planificación operativa 2027: limpieza industrial y corporativa certificada ISO 9001 º Star ⭐ Union</em><br>
-                                <strong>2° (+5d):</strong> <em>Empresa de Limpieza Profesional · Relevamiento técnico para licitaciones y abonos 2027</em>
+                                <strong>1° envío:</strong> <em>Planificación operativa 2027: limpieza industrial y corporativa certificada ISO 9001 º Star ⭐ Union</em><br>
+                                <strong>2° envío (+5d):</strong> <em>Empresa de Limpieza Profesional · Relevamiento técnico para licitaciones y abonos 2027</em>
                             </td>
-                            <td class="p-3"><strong>1° Edificios Corporativos y Grandes Torres + Limpieza en Altura (ARAA)</strong><br><span class="text-gray-500">(Rotamos Logística que salió en Oct para evitar fatiga)</span></td>
+                            <td class="p-3"><strong>1° Edificios corporativos y grandes consorcios + 2° Limpieza de vidrios en altura (ARAA)</strong><br><span class="text-gray-500">(Rotamos logística que fue primera en octubre)</span></td>
                             <td class="p-3">
-                                1) <code>/consorcios/?utm_source=perfit&amp;utm_campaign=nov2026</code><br>
-                                2) <code>/limpieza-en-altura/?utm_source=perfit&amp;utm_campaign=nov2026</code><br>
-                                3) <code>/la-empresa/?utm_source=perfit&amp;utm_campaign=nov2026</code>
-                            </td>
-                        </tr>
-                        <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">Diciembre 2026<br><span class="text-gray-500 font-normal">1°: Jue 17/12<br>2°: Mar 22/12</span></td>
-                            <td class="p-3">Base Completa Activa + Clientes Actuales (Fidelización Fin de Año)</td>
-                            <td class="p-3">
-                                <strong>1°:</strong> <em>Balance 2026 y continuidad operativa los 365 días · El compromiso de Star ⭐ Union</em><br>
-                                <strong>2° (+5d):</strong> <em>Felices Fiestas · Nuestro equipo y Base Operativa listos para acompañarte en 2027 º Star ⭐ Union</em>
-                            </td>
-                            <td class="p-3"><strong>Hito Anual ISO 9001:2015 TÜV + Paradas Técnicas de Planta en Verano + Saludo con Cleany</strong></td>
-                            <td class="p-3">
-                                1) <code>/dossier/?utm_source=perfit&amp;utm_campaign=dic2026</code><br>
-                                2) <code>/limpieza-industrial/?utm_source=perfit&amp;utm_campaign=dic2026</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold">Enero 2027<br><span class="text-gray-500 font-normal">1°: Jue 21/01<br>2°: Mar 26/01<br>Seg: Jue 04/02</span></td>
-                            <td class="p-3">Base General + Foco Especial en Colegios, Universidades, Clubes y Obras</td>
-                            <td class="p-3">
-                                <strong>1°:</strong> <em>Puesta a punto pre-ciclo lectivo y limpieza de final de obra º Star ⭐ Union</em><br>
-                                <strong>2° (+5d):</strong> <em>Empresa de Limpieza Profesional para Universidades, Colegios, Clubes y Finales de Obra</em>
-                            </td>
-                            <td class="p-3"><strong>1° Universidades y Colegios (Puesta a punto de verano) + 2° Final de Obra y Vidrios en Altura</strong></td>
-                            <td class="p-3">
-                                1) <code>/universidades-y-clubes/?utm_source=perfit&amp;utm_campaign=ene2027</code><br>
-                                2) <code>/servicios-especiales/?utm_source=perfit&amp;utm_campaign=ene2027</code>
+                                • <code>/consorcios/</code> (brochure oficinas)<br>
+                                • <code>/limpieza-en-altura/</code> (brochure altura)<br>
+                                • <code>/la-empresa/</code> (base 800 m²)
                             </td>
                         </tr>
                         <tr class="bg-gray-50/60">
-                            <td class="p-3 font-bold">Febrero 2027<br><span class="text-gray-500 font-normal">1°: Jue 18/02<br>2°: Mar 23/02<br>Seg: Jue 04/03</span></td>
-                            <td class="p-3">Base General (Mes récord histórico de 15% CTR)</td>
+                            <td class="p-3 font-bold">Diciembre 2026<br><span class="text-gray-500 font-normal">1°: jue 17/12<br>2°: mar 22/12</span></td>
+                            <td class="p-3">Base completa activa y clientes actuales (fidelización de fin de año)</td>
                             <td class="p-3">
-                                <strong>1°:</strong> <em>Preparados para el alto rendimiento: Campus, Clubes y Clínicas al 100% 🏆 º Star ⭐ Union</em><br>
-                                <strong>2° (+5d):</strong> <em>Empresa de Limpieza Certificada ISO 9001 · Dotaciones listas para el inicio de actividad</em>
+                                <strong>1° envío:</strong> <em>Balance 2026 y continuidad operativa los 365 días · El compromiso de Star ⭐ Union</em><br>
+                                <strong>2° envío (+5d):</strong> <em>Felices Fiestas · Nuestro equipo y base operativa listos para acompañarte en 2027 º Star ⭐ Union</em>
                             </td>
-                            <td class="p-3"><strong>1° Instituciones Educativas y Deportivas + 2° Clínicas, Sanatorios y Laboratorios</strong></td>
+                            <td class="p-3"><strong>Hito anual certificación ISO 9001:2015 TÜV + paradas técnicas de planta en verano + saludo con Cleany</strong></td>
                             <td class="p-3">
-                                1) <code>/universidades-y-clubes/?utm_source=perfit&amp;utm_campaign=feb2027</code><br>
-                                2) <code>/clinicas-y-hospitales/?utm_source=perfit&amp;utm_campaign=feb2027</code>
+                                • <code>/dossier/</code> (dossier 6 láminas)<br>
+                                • <code>/limpieza-industrial/</code><br>
+                                • <code>/certificacion-iso/</code>
                             </td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold">Marzo 2027<br><span class="text-gray-500 font-normal">1°: Jue 18/03<br>2°: Mar 23/03<br>Seg: Jue 01/04</span></td>
-                            <td class="p-3">Base General + Foco Industrial, Automotriz, Químico y Farmacéutico</td>
+                            <td class="p-3 font-bold">Enero 2027<br><span class="text-gray-500 font-normal">1°: jue 21/01<br>2°: mar 26/01<br>Abrieron s/clic: jue 04/02</span></td>
+                            <td class="p-3">Base general con foco en colegios, universidades, clubes y constructoras</td>
                             <td class="p-3">
-                                <strong>1°:</strong> <em>Tu planta al 100%: Higiene industrial ISO 9001 y taller propio de maquinaria º Star ⭐ Union</em><br>
-                                <strong>2° (+5d):</strong> <em>Empresa de Limpieza Industrial · Parque propio de fregadoras y cobertura en menos de 2 hs</em>
+                                <strong>1° envío:</strong> <em>Puesta a punto previa al ciclo lectivo y limpieza de final de obra º Star ⭐ Union</em><br>
+                                <strong>2° envío (+5d):</strong> <em>Empresa de Limpieza Profesional para universidades, colegios, clubes y finales de obra</em>
                             </td>
-                            <td class="p-3"><strong>1° Plantas Industriales y Logística + 2° Taller Propio y Base Guaminí 800 m²</strong></td>
+                            <td class="p-3"><strong>1° Universidades y colegios (puesta a punto de verano) + 2° Final de obra y vidrios en altura</strong></td>
                             <td class="p-3">
-                                1) <code>/limpieza-industrial/?utm_source=perfit&amp;utm_campaign=mar2027</code><br>
-                                2) <code>/la-empresa/?utm_source=perfit&amp;utm_campaign=mar2027</code>
+                                • <code>/universidades-y-clubes/</code><br>
+                                • <code>/servicios-especiales/</code> (brochure final de obra)
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-50/60">
+                            <td class="p-3 font-bold">Febrero 2027<br><span class="text-gray-500 font-normal">1°: jue 18/02<br>2°: mar 23/02<br>Abrieron s/clic: jue 04/03</span></td>
+                            <td class="p-3">Base general (mes récord histórico de 15% de clics)</td>
+                            <td class="p-3">
+                                <strong>1° envío:</strong> <em>Preparados para el alto rendimiento: campus, clubes y clínicas al 100% 🏆 º Star ⭐ Union</em><br>
+                                <strong>2° envío (+5d):</strong> <em>Empresa de Limpieza Certificada ISO 9001 · Dotaciones listas para el inicio de actividad</em>
+                            </td>
+                            <td class="p-3"><strong>1° Instituciones educativas y deportivas + 2° Clínicas, sanatorios y laboratorios</strong></td>
+                            <td class="p-3">
+                                • <code>/universidades-y-clubes/</code><br>
+                                • <code>/clinicas-y-hospitales/</code> (brochure salud y laboratorios)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold">Marzo 2027<br><span class="text-gray-500 font-normal">1°: jue 18/03<br>2°: mar 23/03<br>Abrieron s/clic: jue 01/04</span></td>
+                            <td class="p-3">Base general con foco industrial, automotriz, químico y farmacéutico</td>
+                            <td class="p-3">
+                                <strong>1° envío:</strong> <em>Tu planta al 100%: higiene industrial ISO 9001 y taller propio de maquinaria º Star ⭐ Union</em><br>
+                                <strong>2° envío (+5d):</strong> <em>Empresa de Limpieza Industrial · Parque propio de fregadoras y cobertura en menos de 2 hs</em>
+                            </td>
+                            <td class="p-3"><strong>1° Plantas industriales y centros logísticos + 2° Taller propio y base Guaminí (800 m²)</strong></td>
+                            <td class="p-3">
+                                • <code>/limpieza-industrial/</code><br>
+                                • <code>/la-empresa/</code>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- CHECKLIST DE CONFIGURACIÓN TÉCNICA EN PERFIT -->
             <div class="p-5 rounded-xl bg-gray-50 border border-gray-200 text-xs space-y-2">
-                <strong class="text-black block text-sm">⚙️ Checklist de Implementación Técnica en Perfit (5 ajustes en cada armado):</strong>
-                <ol class="list-decimal pl-5 space-y-1.5 text-gray-700">
-                    <li><strong>Activar Google Analytics en Perfit:</strong> En el Paso de Configuración de cada campaña, pasar <code>GOOGLE_ANALYTICS</code> de <code>0</code> a <code>1</code> para que Perfit inyecte UTMs automáticos en todos los enlaces.</li>
-                    <li><strong>Completar siempre el Preheader (Texto de vista previa):</strong> Nunca dejar <code>PREHEADER</code> vacío. Usar: <em>"Dotación 100% en nómina directa, Base Propia de 800 m² en CABA y procesos certificados ISO 9001:2015 por TÜV Rheinland."</em></li>
-                    <li><strong>Configurar el Reenvío Automático (+120 horas / 5 días) con Asunto Distinto:</strong> En <code>RESEND_SUBJECT</code>, escribir siempre el asunto alternativo que empieza con <em>"Empresa de Limpieza Profesional..."</em> (nunca dejar el asunto de meses anteriores pegado en la configuración).</li>
-                    <li><strong>Vincular foto + botón amarillo al mismo destino del sitio web:</strong> Tanto la imagen de cada bloque como su botón deben apuntar a la landing del vertical en <code>starunion.com.ar/[vertical]/</code> (jamás a posteos de LinkedIn).</li>
-                    <li><strong>Exportar Clics al Día +7 y cruzar con el Filtro de Clientes de Mauro en el Radar Comercial:</strong> Subir el CSV de clics al <a href="../index.html" class="text-[#03582d] font-bold underline">Radar Comercial B2B</a> una vez cargado el listado de clientes activos.</li>
+                <strong class="text-black block text-sm">Pasos concretos al armar cada campaña en Perfit (5 minutos):</strong>
+                <ol class="list-decimal pl-5 space-y-1 text-gray-700">
+                    <li>En el paso <strong>"Configuración"</strong>, escribir siempre una frase en el campo <strong>"Texto de vista previa (preheader)"</strong>: <em>"Más de 450 colaboradores en nómina directa, base propia de 800 m² en CABA y certificación ISO 9001:2015 por TÜV Rheinland."</em></li>
+                    <li>En el mismo paso <strong>"Configuración"</strong>, tildar la casilla <strong>"Seguimiento con Google Analytics"</strong> (para que Perfit agregue solo el rastreo a todos los enlaces) y en <strong>"Reenvío automático a no abiertos"</strong> poner el asunto nuevo del segundo envío.</li>
+                    <li>En el paso <strong>"Destinatarios"</strong>, verificar que esté destildada la lista <code>Escuelas 2021-rebotados</code> y separar el envío de las listas históricas del envío a la lista <code>ventas. 22oct26</code>.</li>
+                    <li>En el paso <strong>"Diseño"</strong>, pegar en cada foto y en su botón amarillo la dirección limpia de esa página del sitio web nuevo (tabla del punto 2), eliminando cualquier link a posteos de LinkedIn.</li>
                 </ol>
             </div>
         </section>
 
         <!-- =========================================================================
-             PUNTO 5: BANCO DE 21 FOTOS CURADAS DE PERFIT YA APLICADAS EN EL SITIO
+             PUNTO 5: FOTOS RECORTADAS Y TARJETAS ENMARCADAS APLICADAS AL SITIO
              ========================================================================= -->
-        <section class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
+        <section class="report-section space-y-5 pt-4 border-t border-gray-200">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 5 · Reemplazo Fotográfico Completado en las 12 Páginas, Brochures y Dossier</span>
-                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-1">5) Las 21 Fotos Oficiales Recortadas en Perfit + Las 8 Tarjetas Enmarcadas 1200x628 con Cleany</h2>
-                <p class="text-xs text-gray-500 mt-1">Todas las imágenes de banco fueron eliminadas y reemplazadas por las fotos reales de Star Union curadas desde Perfit, manteniendo en todas las tarjetas de verticales el marco gráfico oficial (filete blanco interior, logo Star Union arriba a la derecha y pastilla blanca inferior con Cleany):</p>
+                <div class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Punto 5 · Unificación gráfica en las 12 páginas del sitio web</div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-black mt-0.5">
+                    5) Fotos recortadas de Perfit y tarjetas enmarcadas con Cleany aplicadas en el sitio web
+                </h2>
+                <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                    Se descargaron las fotografías reales de las campañas de Perfit, se eliminaron todas las fotos de banco y se unificaron las tarjetas de todas las verticales y de la base operativa bajo el mismo marco institucional (filete blanco interior, logo de Star Union arriba a la derecha y pastilla blanca inferior con Cleany):
+                </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 text-xs">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-[11px]">
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-industrial.png?v=20261028" alt="Industria Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 1. Limpieza en Fábricas (Enmarcada)</strong><span class="text-gray-500">Aplicada en Home + Vertical Industria</span></div>
+                    <img src="../../assets/img/vertical-industrial.png?v=20261028" alt="Limpieza profesional en fábricas" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">1. Fábricas y zonas industriales</strong><span class="text-gray-500">Aplicada en inicio y en vertical industrial</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-corporativo.png?v=20261028" alt="Oficinas Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 2. Limpieza en Oficinas (Enmarcada)</strong><span class="text-gray-500">Aplicada en Home + Vertical Consorcios</span></div>
+                    <img src="../../assets/img/vertical-corporativo.png?v=20261028" alt="Limpieza profesional en oficinas" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">2. Edificios de oficinas y consorcios</strong><span class="text-gray-500">Aplicada en inicio y en vertical oficinas</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-salud.png?v=20261028" alt="Salud Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 3. Clínicas y Laboratorios (Enmarcada)</strong><span class="text-gray-500">Foto real de Perfit enmarcada con Cleany</span></div>
+                    <img src="../../assets/img/vertical-salud.png?v=20261028" alt="Limpieza en clínicas y laboratorios" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">3. Clínicas, hospitales y laboratorios</strong><span class="text-gray-500">Foto real de Perfit enmarcada con Cleany</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-educacion.png?v=20261028" alt="Educación Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 4. Instituciones Educativas (Enmarcada)</strong><span class="text-gray-500">Aplicada en Home + Universidades y Clubes</span></div>
+                    <img src="../../assets/img/vertical-educacion.png?v=20261028" alt="Limpieza en instituciones educativas" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">4. Universidades, colegios y clubes</strong><span class="text-gray-500">Aplicada en inicio y en vertical educación</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-altura.png?v=20261028" alt="Altura Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 5. Vidrios en Altura (Enmarcada)</strong><span class="text-gray-500">Cuadrilla real de Perfit enmarcada con Cleany</span></div>
+                    <img src="../../assets/img/vertical-altura.png?v=20261028" alt="Limpieza de vidrios en altura" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">5. Limpieza de vidrios en altura</strong><span class="text-gray-500">Cuadrilla real enmarcada con Cleany</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-grandes-superficies.png?v=20261028" alt="Grandes Superficies Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 6. Grandes Superficies (Enmarcada)</strong><span class="text-gray-500">Foto real de Perfit en shopping con Cleany</span></div>
+                    <img src="../../assets/img/vertical-grandes-superficies.png?v=20261028" alt="Limpieza en grandes superficies" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">6. Grandes superficies y shoppings</strong><span class="text-gray-500">Foto real de Perfit enmarcada con Cleany</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/vertical-servicios-especiales.png?v=20261028" alt="Servicios Especiales Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 7. Final de Obra y Predios (Enmarcada)</strong><span class="text-gray-500">Aplicada en Servicios Especiales</span></div>
+                    <img src="../../assets/img/vertical-servicios-especiales.png?v=20261028" alt="Limpieza de final de obra y predios" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">7. Final de obra y espacios verdes</strong><span class="text-gray-500">Aplicada en vertical servicios especiales</span></div>
                 </div>
                 <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                    <img src="../../assets/img/base-guamini-hero-framed.png?v=20261028" alt="Base Guaminí Enmarcada" class="w-full aspect-[1200/628] object-cover">
-                    <div class="p-3"><strong class="block text-black">Card 8. Base Operativa 800 m² (Enmarcada)</strong><span class="text-gray-500">Reemplazó a la foto cruda de fachada en La Empresa</span></div>
+                    <img src="../../assets/img/base-guamini-hero-framed.png?v=20261028" alt="Base operativa propia de 800 m² en CABA" class="w-full aspect-[1200/628] object-cover">
+                    <div class="p-2.5"><strong class="block text-black">8. Base operativa propia (800 m²)</strong><span class="text-gray-500">Portada de La Empresa y del dossier</span></div>
                 </div>
             </div>
         </section>
 
+        <!-- PIE DE DOCUMENTO EDITORIAL -->
+        <footer class="pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-2 text-[11px] text-gray-500">
+            <div>Star Union S.R.L. · Norma ISO 9001:2015 certificada por TÜV Rheinland (ID 9000041847)</div>
+            <div>Sede operativa actual: Guaminí 5052 / 5657, CABA (800 m²)</div>
+        </footer>
+
     </div>
+
+    <script>
+        const STORAGE_KEY = 'starunion_informe_perfit_v1';
+        const reportRoot = document.getElementById('editable-report-root');
+        const btnToggle = document.getElementById('btn-toggle-edit');
+        const statusDot = document.getElementById('edit-status-dot');
+        const statusText = document.getElementById('edit-status-text');
+
+        // Cargar versión editada si existe en el navegador de Ariana
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                reportRoot.innerHTML = saved;
+            }
+        });
+
+        // Auto-guardar cada cambio que Ariana escriba
+        reportRoot.addEventListener('input', () => {
+            localStorage.setItem(STORAGE_KEY, reportRoot.innerHTML);
+        });
+
+        function toggleEditMode() {
+            const isEditable = reportRoot.getAttribute('contenteditable') === 'true';
+            if (isEditable) {
+                reportRoot.setAttribute('contenteditable', 'false');
+                btnToggle.textContent = '✏️ Volver a editar texto';
+                statusDot.className = 'w-2.5 h-2.5 rounded-full bg-amber-400';
+                statusText.textContent = 'Modo vista previa limpia (lista para exportar a PDF).';
+            } else {
+                reportRoot.setAttribute('contenteditable', 'true');
+                btnToggle.textContent = '🔒 Ver vista previa sin bordes';
+                statusDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400';
+                statusText.textContent = 'Modo edición activo: hacé clic sobre cualquier texto, título o celda de tabla para modificarlo.';
+            }
+        }
+
+        function resetReportContent() {
+            if (confirm('¿Querés restaurar el texto original del informe?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                window.location.reload();
+            }
+        }
+
+        function exportCleanPDF() {
+            const wasEditable = reportRoot.getAttribute('contenteditable') === 'true';
+            if (wasEditable) {
+                reportRoot.setAttribute('contenteditable', 'false');
+            }
+            window.print();
+            if (wasEditable) {
+                setTimeout(() => {
+                    reportRoot.setAttribute('contenteditable', 'true');
+                }, 400);
+            }
+        }
+    </script>
 </body>
 </html>
