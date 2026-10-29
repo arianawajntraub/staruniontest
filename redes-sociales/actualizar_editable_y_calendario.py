@@ -289,6 +289,25 @@ def main():
                 <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_{p['id']}">{p['copy_wa']}</span></div>
                 <button onclick="copyText('wa_{p['id']}', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
               </div>
+
+              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
+                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_{p['id']}" checked> 📸 IG Feed (4:5)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_{p['id']}" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_{p['id']}" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_{p['id']}" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_{p['id']}" checked> 💼 LinkedIn Empresa</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_{p['id']}" checked> 📍 Google My Business</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_{p['id']}" checked> ▶️ YouTube Shorts</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_{p['id']}"> 🎵 TikTok</label>
+                </div>
+                <button type="button" onclick="publishPostViaApi('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
+                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #{p['id']})
+                </button>
+                <div id="api_res_{p['id']}" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -322,12 +341,130 @@ def main():
         </div>
       </div>
       <div class="flex flex-wrap gap-2">
+        <button type="button" onclick="toggleApiBox()" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold px-4 py-2.5 rounded-lg transition shadow-sm">
+          🔌 Conectar / Ver Estado de las 6 Redes (API Directa)
+        </button>
         <a href="piezas/STAR_UNION_CANVA_ADOBE_BULK.csv" download class="bg-[#111827] hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
           📥 Descargar Planilla .CSV (Canva Bulk / Excel)
         </a>
         <a href="../radar-comercial/perfit-historial/index.html" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
           📊 Ver Informe Perfit (El mismo del Chat SU)
         </a>
+      </div>
+    </div>
+
+    <!-- CABINA DE CONEXIÓN DIRECTA DE LAS 6 REDES DE STAR UNION ($0 · CERO MAKE · CERO ZAPIER) -->
+    <div class="bg-[#111827] text-white rounded-2xl p-6 sm:p-8 border-2 border-[#03582d] shadow-md space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="inline-block bg-[#03582d] text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full mb-1">
+            🔌 CONEXIÓN DIRECTA POR API OFICIAL · BÓVEDA AISLADA STAR UNION (.agents/vault/social_keys.json)
+          </span>
+          <h2 class="text-lg sm:text-xl font-extrabold text-white">Conectá las 6 Redes de Star Union una sola vez y publicá en 1 clic</h2>
+          <div id="api-status-line" class="text-xs text-gray-300 mt-1">Verificando estado de conexión con el servidor API local (`127.0.0.1:8894`)...</div>
+        </div>
+        <button type="button" onclick="toggleApiBox()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-extrabold px-4 py-2 rounded-lg border border-white/20 transition">
+          ⚙️ Mostrar / Ocultar Llaves de API
+        </button>
+      </div>
+
+      <div id="api-config-box" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 border-t border-white/15 text-xs">
+        <!-- 1. META: FACEBOOK + INSTAGRAM -->
+        <div class="bg-white/5 border border-white/15 rounded-xl p-4 space-y-2 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="font-extrabold text-amber-400 text-sm">1. Facebook Page + Instagram (@starunion.srl)</div>
+            <p class="text-gray-300 leading-relaxed">
+              1) Abrí <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="text-amber-300 underline font-bold">Meta Graph API Explorer ↗</a><br>
+              2) Elegí tu App y marcá permisos: <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>pages_manage_posts</code>, <code>instagram_basic</code>, <code>instagram_content_publish</code>.<br>
+              3) Tocá <strong>Generate Access Token</strong>, seleccioná la Fan Page de <strong>Star Union</strong> y pegalo acá (detecta FB + IG juntos):
+            </p>
+          </div>
+          <div class="space-y-2 pt-2">
+            <input id="inp-meta-token" type="password" placeholder="Pegar Access Token de Meta (EAA...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar Facebook + Instagram</button>
+          </div>
+        </div>
+
+        <!-- 2. LINKEDIN PÁGINA DE EMPRESA -->
+        <div class="bg-white/5 border border-white/15 rounded-xl p-4 space-y-2 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="font-extrabold text-amber-400 text-sm">2. LinkedIn Página Empresa (Candado Anti-Perfil Personal)</div>
+            <p class="text-gray-300 leading-relaxed">
+              1) Abrí <a href="https://www.linkedin.com/developers/tools/oauth/token-generator" target="_blank" class="text-amber-300 underline font-bold">LinkedIn OAuth Token Generator ↗</a><br>
+              2) Marcá permisos de organización: <code>w_organization_social</code> y <code>r_organization_social</code>.<br>
+              3) Pegá el Token y el ID numérico de la Página de Empresa Star Union (el sistema bloquea por seguridad cualquier intento de publicar en tu perfil personal):
+            </p>
+          </div>
+          <div class="space-y-2 pt-2">
+            <input id="inp-li-token" type="password" placeholder="Access Token de LinkedIn (AQV...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-li-urn" type="text" placeholder="ID o URN Página Empresa (ej. urn:li:organization:123456)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar LinkedIn Empresa</button>
+          </div>
+        </div>
+
+        <!-- 3. GOOGLE MY BUSINESS (GOOGLE MAPS GUAMINÍ 5657) -->
+        <div class="bg-white/5 border border-white/15 rounded-xl p-4 space-y-2 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="font-extrabold text-amber-400 text-sm">3. Google My Business (Ficha Maps Guaminí 5657)</div>
+            <p class="text-gray-300 leading-relaxed">
+              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
+              2) En Step 1 pegá el scope: <code>https://www.googleapis.com/auth/business.manage</code> y autorizá con la cuenta de Google que administra la ficha de Star Union.<br>
+              3) En Step 2 tocá <strong>Exchange authorization code for tokens</strong> y pegá el <code>Access token</code>:
+            </p>
+          </div>
+          <div class="space-y-2 pt-2">
+            <input id="inp-gmb-token" type="password" placeholder="Token Google Business (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-gmb-loc" type="text" placeholder="ID Ubicación (accounts/123.../locations/456...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar Google My Business</button>
+          </div>
+        </div>
+
+        <!-- 4. YOUTUBE SHORTS (@StarUnionSRL) -->
+        <div class="bg-white/5 border border-white/15 rounded-xl p-4 space-y-2 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="font-extrabold text-amber-400 text-sm">4. YouTube Shorts (@StarUnionSRL · API v3)</div>
+            <p class="text-gray-300 leading-relaxed">
+              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
+              2) En Step 1 elegí <strong>YouTube Data API v3</strong> → marcá <code>https://www.googleapis.com/auth/youtube.upload</code> y <code>https://www.googleapis.com/auth/youtube.readonly</code>.<br>
+              3) Elegí el canal <strong>@StarUnionSRL</strong>, tocá <strong>Exchange authorization code</strong> y pegá el <code>Access token</code>:
+            </p>
+          </div>
+          <div class="space-y-2 pt-2">
+            <input id="inp-yt-token" type="password" placeholder="Token YouTube Data API (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar YouTube Shorts</button>
+          </div>
+        </div>
+
+        <!-- 5. TIKTOK BUSINESS -->
+        <div class="bg-white/5 border border-white/15 rounded-xl p-4 space-y-2 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="font-extrabold text-amber-400 text-sm">5. TikTok Business (Content Posting API v2)</div>
+            <p class="text-gray-300 leading-relaxed">
+              1) Abrí <a href="https://developers.tiktok.com/" target="_blank" class="text-amber-300 underline font-bold">TikTok for Developers ↗</a><br>
+              2) Habilitá el producto <strong>Content Posting API</strong> (scope <code>video.publish</code>).<br>
+              3) Pegá el <code>Access Token</code> de la cuenta de TikTok de Star Union:
+            </p>
+          </div>
+          <div class="space-y-2 pt-2">
+            <input id="inp-tt-token" type="password" placeholder="Access Token de TikTok (act...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar TikTok</button>
+          </div>
+        </div>
+
+        <!-- 6. ESTADO Y AUTO-DETECCIÓN -->
+        <div class="bg-emerald-950/60 border border-[#03582d] rounded-xl p-4 space-y-2 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="font-extrabold text-emerald-300 text-sm">🔒 Seguridad y Aislamiento Zero-Trust</div>
+            <p class="text-gray-300 leading-relaxed">
+              • Todas las llaves quedan guardadas solo en tu Mac dentro de <code>star-union/.agents/vault/social_keys.json</code> (jamás se suben a GitHub).<br>
+              • Perfit ya está conectado y activo en esa misma bóveda.<br>
+              • Podés conectar primero Meta (FB + IG) y YouTube, y sumar las demás cuando quieras.
+            </p>
+          </div>
+          <div id="api-connect-log" class="text-xs font-bold text-amber-300 bg-black/40 p-2.5 rounded-lg min-h-[42px] flex items-center">
+            Esperando pegado de tokens...
+          </div>
+        </div>
       </div>
     </div>
 
@@ -539,6 +676,8 @@ def main():
   </div>
 
   <script>
+    const API_BASE = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') ? '' : 'http://127.0.0.1:8894';
+
     function copyText(id, btn) {{
       const el = document.getElementById(id);
       navigator.clipboard.writeText(el.innerText);
@@ -546,6 +685,100 @@ def main():
       btn.innerText = '✅ ¡Copiado!';
       setTimeout(() => btn.innerText = old, 1800);
     }}
+
+    function toggleApiBox() {{
+      const b = document.getElementById('api-config-box');
+      b.classList.toggle('hidden');
+    }}
+
+    async function loadApiStatus() {{
+      const line = document.getElementById('api-status-line');
+      try {{
+        const r = await fetch(API_BASE + '/api/status');
+        const st = await r.json();
+        const parts = [];
+        parts.push(st.meta_connected ? `🟢 Meta ACTIVO (${{st.fb_page_name || 'FB'}} + @${{st.ig_username || 'IG'}})` : `🔴 Meta (FB/IG) pendiente`);
+        parts.push(st.linkedin_connected ? `🟢 LinkedIn (${{st.linkedin_name}})` : `⚪ LinkedIn pendiente`);
+        parts.push(st.gmb_connected ? `🟢 Google Maps conectado` : `⚪ Google Maps pendiente`);
+        parts.push(st.youtube_connected ? `🟢 YouTube (${{st.youtube_channel_name || 'Conectado'}})` : `⚪ YouTube pendiente`);
+        parts.push(st.tiktok_connected ? `🟢 TikTok conectado` : `⚪ TikTok pendiente`);
+        line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
+      }} catch (e) {{
+        line.innerHTML = '⚠️ Servidor API local corriendo en http://127.0.0.1:8894 — abrí la versión local si tu navegador bloquea conexiones mixtas.';
+      }}
+    }}
+
+    async function saveApiTokens() {{
+      const logEl = document.getElementById('api-connect-log');
+      logEl.innerHTML = '⏳ Conectando y auto-detectando cuentas de Star Union...';
+      const payload = {{
+        meta_token: document.getElementById('inp-meta-token').value,
+        linkedin_token: document.getElementById('inp-li-token').value,
+        linkedin_urn: document.getElementById('inp-li-urn').value,
+        gmb_token: document.getElementById('inp-gmb-token').value,
+        gmb_location_name: document.getElementById('inp-gmb-loc').value,
+        youtube_token: document.getElementById('inp-yt-token').value,
+        tiktok_token: document.getElementById('inp-tt-token').value
+      }};
+      try {{
+        const r = await fetch(API_BASE + '/api/connect', {{
+          method: 'POST',
+          headers: {{ 'Content-Type': 'application/json' }},
+          body: JSON.stringify(payload)
+        }});
+        const data = await r.json();
+        logEl.innerHTML = (data.messages || []).join('<br>') || '✅ Guardado en bóveda de Star Union.';
+        loadApiStatus();
+      }} catch (e) {{
+        logEl.innerHTML = '❌ Error conectando al servidor local (http://127.0.0.1:8894): ' + e.message;
+      }}
+    }}
+
+    async function publishPostViaApi(id, feedFile, storyFile, reelFile, btn) {{
+      const resBox = document.getElementById('api_res_' + id);
+      resBox.classList.remove('hidden');
+      resBox.innerHTML = '⏳ Publicando por API oficial en los canales seleccionados...';
+      const channels = [];
+      if (document.getElementById('chk_ig_feed_' + id).checked) channels.push('ig_feed');
+      if (document.getElementById('chk_ig_story_' + id).checked) channels.push('ig_story');
+      if (document.getElementById('chk_ig_reel_' + id).checked) channels.push('ig_reel');
+      if (document.getElementById('chk_fb_' + id).checked) channels.push('fb_page');
+      if (document.getElementById('chk_li_' + id).checked) channels.push('linkedin');
+      if (document.getElementById('chk_gmb_' + id).checked) channels.push('gmb');
+      if (document.getElementById('chk_yt_' + id).checked) channels.push('youtube');
+      if (document.getElementById('chk_tt_' + id).checked) channels.push('tiktok');
+
+      const payload = {{
+        channels: channels,
+        feed_file: feedFile,
+        story_file: storyFile,
+        reel_file: reelFile,
+        caption_ig: document.getElementById('ig_' + id).innerText,
+        caption_li: document.getElementById('li_' + id).innerText,
+        yt_title: document.getElementById('ytt_' + id).innerText,
+        yt_desc: document.getElementById('ytd_' + id).innerText,
+        yt_tags: document.getElementById('yttags_' + id).innerText,
+        public_url: 'https://www.starunion.com.ar',
+        title: document.getElementById('ytt_' + id).innerText
+      }};
+      try {{
+        const r = await fetch(API_BASE + '/api/publish', {{
+          method: 'POST',
+          headers: {{ 'Content-Type': 'application/json' }},
+          body: JSON.stringify(payload)
+        }});
+        const data = await r.json();
+        const lines = [];
+        for (const [k, v] of Object.entries(data.results || {{}})) {{
+          lines.push(v.ok ? `✅ <strong>${{k}}:</strong> Publicado (ID: ${{v.id}})` : `❌ <strong>${{k}}:</strong> ${{v.error}}`);
+        }}
+        resBox.innerHTML = lines.join('<br>') || '⚠️ Seleccioná al menos un canal.';
+      }} catch (e) {{
+        resBox.innerHTML = '❌ Error conectando con http://127.0.0.1:8894: ' + e.message;
+      }}
+    }}
+
+    window.addEventListener('DOMContentLoaded', loadApiStatus);
   </script>
 </body>
 </html>"""
