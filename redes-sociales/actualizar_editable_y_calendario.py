@@ -398,32 +398,82 @@ def main():
       </div>
     </div>
 
-    <!-- 2. VIDEOS MP4 SHORTS / REELS CON FOTOS OPERATIVAS REALES + MÚSICA INSTITUCIONAL -->
+    <!-- 2. VIDEOS MP4 SHORTS / REELS CON FOTOS OPERATIVAS REALES + SELECTOR DE 4 OPCIONES DE MÚSICA ARRIBA -->
     <div class="bg-white rounded-2xl p-6 border-2 border-[#03582d] shadow-sm space-y-6">
-      <div>
-        <span class="text-xs font-extrabold uppercase text-[#03582d]">2. Videos Verticales 9:16 (1080×1920 MP4) · Con Fotografías Operativas Reales + Música Institucional Insertada</span>
-        <h2 class="text-lg sm:text-xl font-extrabold text-gray-900 mt-0.5">3 Videos .MP4 Listos para Subir (YouTube Shorts, IG Reels, LinkedIn y Estados WA)</h2>
-        <p class="text-xs text-gray-600 mt-1">Cada escena incluye <strong>fotografía operativa real de Star Union S.R.L.</strong>, logo oficial, sello <strong>TÜV Rheinland ISO 9001:2015</strong>, márgenes de seguridad para Reels/Shorts y <strong>pista musical corporativa ya mezclada adentro del .MP4</strong>.</p>
+      <div class="flex flex-wrap items-start justify-between gap-4 border-b border-gray-200 pb-4">
+        <div>
+          <span class="inline-block bg-[#03582d] text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full mb-1">
+            🎵 NUEVO · 4 OPCIONES CON RITMO ARRIBA, MOVIMIENTO DE CÁMARA Y FIRMA HABLADA (CERO SINTETIZADOR LENTO)
+          </span>
+          <h2 class="text-lg sm:text-xl font-extrabold text-gray-900 mt-0.5">Probador en Vivo de Música y Locución + Videos .MP4 Listos</h2>
+          <p class="text-xs text-gray-600 mt-1">Reemplazamos la base lenta anterior por <strong>4 opciones reales con instrumentos de estudio, groove arriba, zoom dinámico en cada foto y opción de firma hablada al cierre</strong>.</p>
+        </div>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-6">
-        <!-- REEL MULTI-ESCENA 5 ESCENAS (15 SEG) -->
-        <div class="bg-emerald-50/60 p-4 rounded-xl border-2 border-[#03582d] flex flex-col sm:flex-row items-center gap-4">
-          <video src="piezas/REEL_5_ESCENAS_DINAMICO_15SEG.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
-          <div class="space-y-2">
-            <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">★ Reel Dinámico 5 Escenas · 15 seg + Música</span>
-            <h3 class="font-extrabold text-sm text-gray-900">Reel Multi-Escena (5 Fotos Reales: Playa Industrial, Hombre a Bordo, Taller Guaminí, Reloj Biométrico y Fachada)</h3>
-            <a href="piezas/REEL_5_ESCENAS_DINAMICO_15SEG.mp4" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
-              ⬇ Descargar Reel 5 Escenas (.MP4)
+      <!-- COMPARADOR DE LAS 4 OPCIONES SOBRE EL REEL DE 5 ESCENAS -->
+      <div class="bg-emerald-50/70 rounded-2xl p-5 border-2 border-[#03582d] space-y-4">
+        <div class="text-xs font-extrabold uppercase text-[#03582d]">🔊 Elegí cuál de las 4 opciones de audio te gusta más (tocá Play en cualquiera o descargala en 1 clic):</div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- OPCION C (GROOVE + FIRMA FINAL) -->
+          <div class="bg-white p-3.5 rounded-xl border-2 border-[#03582d] shadow-sm flex flex-col justify-between space-y-3">
+            <div>
+              <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">⭐ Opción 1 (Groove + Firma)</span>
+              <h3 class="font-extrabold text-xs text-gray-900">Funk Groove Arriba + Firma Hablada al Cierre ("Star Union. Sabemos de limpieza")</h3>
+              <p class="text-[11px] text-gray-600 mt-1">11 seg de ritmo funk bien arriba + cierre hablado firme en los últimos 3 seg.</p>
+            </div>
+            <video src="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
+            <a href="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4" download class="block text-center bg-[#03582d] hover:bg-[#133522] text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+              ⬇ Bajar MP4 Opción 1
+            </a>
+          </div>
+
+          <!-- OPCION A (SOLO FUNK GROOVE ARRIBA) -->
+          <div class="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-3">
+            <div>
+              <span class="inline-block bg-gray-900 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 2 · Solo Música Funk</span>
+              <h3 class="font-extrabold text-xs text-gray-900">Funk & Sax Groove 100% Instrumental Bien Arriba (Estudio Real)</h3>
+              <p class="text-[11px] text-gray-600 mt-1">Bajo funk, batería marcada y vientos con ritmo rápido para levantar las fotos operativas.</p>
+            </div>
+            <video src="piezas/REEL_OPCION_A_FUNK_GROOVE.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
+            <a href="piezas/REEL_OPCION_A_FUNK_GROOVE.mp4" download class="block text-center bg-gray-900 hover:bg-black text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+              ⬇ Bajar MP4 Opción 2
+            </a>
+          </div>
+
+          <!-- OPCION B (POP-ROCK PUBLICITARIO LUMINOSO) -->
+          <div class="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-3">
+            <div>
+              <span class="inline-block bg-gray-900 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 3 · Pop-Rock Luminoso</span>
+              <h3 class="font-extrabold text-xs text-gray-900">Upbeat Publicitario Luminoso (Guitarras y Batería Optimista)</h3>
+              <p class="text-[11px] text-gray-600 mt-1">Estética de comercial televisivo luminoso, limpio y positivo (cero tono solemne).</p>
+            </div>
+            <video src="piezas/REEL_OPCION_B_UPBEAT_LUMINOSO.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
+            <a href="piezas/REEL_OPCION_B_UPBEAT_LUMINOSO.mp4" download class="block text-center bg-gray-900 hover:bg-black text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+              ⬇ Bajar MP4 Opción 3
+            </a>
+          </div>
+
+          <!-- OPCION D (LOCUCIÓN B2B COMPLETA + MÚSICA ARRIBA) -->
+          <div class="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-3">
+            <div>
+              <span class="inline-block bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 4 · Locución Completa</span>
+              <h3 class="font-extrabold text-xs text-gray-900">Voz Rioplatense B2B Completa + Base Upbeat Luminosa</h3>
+              <p class="text-[11px] text-gray-600 mt-1">Locución comercial firme durante los 15 seg contando los 800 m², taller propio e ISO 9001.</p>
+            </div>
+            <video src="piezas/REEL_OPCION_D_LOCUCION_COMPLETA_B2B.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
+            <a href="piezas/REEL_OPCION_D_LOCUCION_COMPLETA_B2B.mp4" download class="block text-center bg-[#03582d] hover:bg-[#133522] text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+              ⬇ Bajar MP4 Opción 4
             </a>
           </div>
         </div>
+      </div>
 
+      <div class="grid md:grid-cols-2 gap-6">
         <!-- SHORT #1 -->
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex flex-col sm:flex-row items-center gap-4">
           <video src="piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4" poster="piezas/01_story_logistica_industria_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
           <div class="space-y-2">
-            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Jueves 29 Oct 2026 · Con Música</span>
+            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Jueves 29 Oct 2026 · Con Funk Groove Arriba</span>
             <h3 class="font-extrabold text-sm text-gray-900">Short #1: Infraestructura 800 m² Guaminí + Taller Propio + Presentismo Biométrico</h3>
             <a href="piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
               ⬇ Descargar Video Short #1 (.MP4)
@@ -435,7 +485,7 @@ def main():
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex flex-col sm:flex-row items-center gap-4">
           <video src="piezas/short_02_verticales_iso9001_1080x1920.mp4" poster="piezas/04_story_salud_laboratorios_1080x1920.jpg" preload="metadata" controls class="w-36 rounded-lg border border-gray-300 shadow-sm shrink-0 bg-white"></video>
           <div class="space-y-2">
-            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Viernes 06 Nov 2026 · Con Música</span>
+            <span class="text-[11px] font-extrabold text-[#03582d] uppercase">📅 Viernes 06 Nov 2026 · Con Pop-Rock Luminoso</span>
             <h3 class="font-extrabold text-sm text-gray-900">Short #2: Verticales de Alta Exigencia (Logística, Salud ANMAT y Educación) · ISO 9001</h3>
             <a href="piezas/short_02_verticales_iso9001_1080x1920.mp4" download class="inline-block bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg transition">
               ⬇ Descargar Video Short #2 (.MP4)
@@ -466,7 +516,7 @@ def main():
           </a>
           <a href="bases-canva-editables/ESCENA_5_REEL_1080x1920.jpg" target="_blank" class="block bg-gray-50 p-2 rounded-xl border border-gray-200 hover:border-[#03582d] transition">
             <img src="bases-canva-editables/ESCENA_5_REEL_1080x1920.jpg" class="w-full rounded-lg border border-gray-200" alt="Escena 5">
-            <div class="text-[11px] font-bold text-center text-gray-800 mt-1.5">Escena 5 (12–15s) · Base</div>
+            <div class="text-[11px] font-bold text-center text-gray-800 mt-1.5">Escena 5 (12–15s) · Flota</div>
           </a>
         </div>
       </div>
