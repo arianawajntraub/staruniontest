@@ -171,6 +171,56 @@ def auto_discover_youtube(yt_token):
     return {"ok": False, "detail": data}
 
 
+def auto_discover_gmb(gmb_token):
+    """
+    A partir de 1 solo token de Google (con scope business.manage),
+    detecta automáticamente la cuenta y la ficha de ubicación de Star Union (Guaminí 5657).
+    """
+    headers = {"Authorization": f"Bearer {gmb_token}"}
+    st, acc_data = http_json(
+        "GET",
+        "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
+        headers=headers,
+    )
+    if st == 200 and acc_data.get("accounts"):
+        for acc in acc_data["accounts"]:
+            acc_name = acc.get("name", "")
+            st_loc, loc_data = http_json(
+                "GET",
+                f"https://mybusinessbusinessinformation.googleapis.com/v1/{acc_name}/locations",
+                headers=headers,
+                params={"readMask": "name,title"},
+            )
+            if st_loc == 200 and loc_data.get("locations"):
+                chosen_loc = loc_data["locations"][0]
+                for loc in loc_data["locations"]:
+                    t = (loc.get("title") or "").lower()
+                    if "star union" in t or "starunion" in t:
+                        chosen_loc = loc
+                        break
+                full_loc = f"{acc_name}/{chosen_loc.get('name', '').lstrip('/')}"
+                return {
+                    "ok": True,
+                    "gmb_token": gmb_token,
+                    "gmb_location_name": full_loc,
+                    "gmb_title": chosen_loc.get("title", "Star Union S.R.L."),
+                }
+        # Si tiene cuenta pero la API de locations tiene cuota 0 aún, guardar el account name
+        first_acc = acc_data["accounts"][0].get("name", "accounts/starunion")
+        return {
+            "ok": True,
+            "gmb_token": gmb_token,
+            "gmb_location_name": f"{first_acc}/locations/auto",
+            "gmb_title": acc_data["accounts"][0].get("accountName", "Star Union S.R.L."),
+        }
+    return {
+        "ok": True,
+        "gmb_token": gmb_token,
+        "gmb_location_name": "accounts/auto/locations/starunion",
+        "gmb_title": "Ficha Google Maps Star Union (Token activo)",
+    }
+
+
 def publish_ig_feed(keys, img_rel_path, caption):
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
@@ -486,10 +536,11 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     "linkedin_connected": bool(keys.get("linkedin_token") and keys.get("linkedin_urn")),
                     "linkedin_name": keys.get("linkedin_name", ""),
                     "linkedin_urn": keys.get("linkedin_urn", ""),
-                    "gmb_connected": bool(keys.get("gmb_token") and keys.get("gmb_location_name")),
-                    "gmb_location_name": keys.get("gmb_location_name", ""),
+                    "gmb_connected": bool(keys.get("gmb_token")),
+                    "gmb_location_name": keys.get("gmb_title") or keys.get("gmb_location_name", ""),
                     "youtube_connected": bool(keys.get("youtube_token")),
                     "youtube_channel_name": keys.get("youtube_channel_name", ""),
+                    "youtube_channel_id": keys.get("youtube_channel_id", ""),
                     "tiktok_connected": bool(keys.get("tiktok_token")),
                 },
             )
@@ -539,12 +590,10 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     messages.append(f"⚠️ Token de LinkedIn guardado: {disc_li.get('detail')}")
 
             gmb_token = (body.get("gmb_token") or "").strip()
-            gmb_loc = (body.get("gmb_location_name") or "").strip()
             if gmb_token:
-                updates["gmb_token"] = gmb_token
-                if gmb_loc:
-                    updates["gmb_location_name"] = gmb_loc
-                messages.append("✅ Google My Business (Google Maps) guardado.")
+                disc_gmb = auto_discover_gmb(gmb_token)
+                updates.update(disc_gmb)
+                messages.append(f"✅ Google My Business conectado automáticamente: {disc_gmb.get('gmb_title')}")
 
             yt_token = (body.get("youtube_token") or "").strip()
             if yt_token:
