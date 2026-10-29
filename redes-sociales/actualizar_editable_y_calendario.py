@@ -380,8 +380,11 @@ def main():
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <input id="inp-meta-token" type="password" placeholder="Pegar Access Token de Meta (EAA...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar Facebook + Instagram</button>
+            <div id="status-box-meta" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
+              ✅ CONECTADO: FB "Star Union Servicios" + IG @starunionservicios
+            </div>
+            <input id="inp-meta-token" type="password" placeholder="Pegar nuevo Access Token si querés renovar (EAA...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button id="btn-connect-meta" type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ Facebook + Instagram Conectados (Tocar para actualizar)</button>
           </div>
         </div>
 
@@ -398,7 +401,7 @@ def main():
           <div class="space-y-2 pt-2">
             <input id="inp-li-token" type="password" placeholder="Access Token de LinkedIn (AQV...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
             <input id="inp-li-urn" type="text" placeholder="ID o URN Página Empresa (ej. urn:li:organization:123456)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar LinkedIn Empresa</button>
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar LinkedIn Empresa</button>
           </div>
         </div>
 
@@ -415,7 +418,7 @@ def main():
           <div class="space-y-2 pt-2">
             <input id="inp-gmb-token" type="password" placeholder="Token Google Business (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
             <input id="inp-gmb-loc" type="text" placeholder="ID Ubicación (accounts/123.../locations/456...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar Google My Business</button>
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar Google My Business</button>
           </div>
         </div>
 
@@ -431,7 +434,7 @@ def main():
           </div>
           <div class="space-y-2 pt-2">
             <input id="inp-yt-token" type="password" placeholder="Token YouTube Data API (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar YouTube Shorts</button>
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar YouTube Shorts</button>
           </div>
         </div>
 
@@ -447,7 +450,7 @@ def main():
           </div>
           <div class="space-y-2 pt-2">
             <input id="inp-tt-token" type="password" placeholder="Access Token de TikTok (act...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens()" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar TikTok</button>
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar TikTok</button>
           </div>
         </div>
 
@@ -703,13 +706,19 @@ def main():
         parts.push(st.youtube_connected ? `🟢 YouTube (${{st.youtube_channel_name || 'Conectado'}})` : `⚪ YouTube pendiente`);
         parts.push(st.tiktok_connected ? `🟢 TikTok conectado` : `⚪ TikTok pendiente`);
         line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
+        const metaBox = document.getElementById('status-box-meta');
+        if (metaBox && st.meta_connected) {{
+          metaBox.innerHTML = `✅ CONECTADO Y ACTIVO:<br>• Facebook: <strong>${{st.fb_page_name}}</strong> (${{st.fb_page_id}})<br>• Instagram: <strong>@${{st.ig_username}}</strong> (${{st.ig_user_id}})`;
+        }}
       }} catch (e) {{
-        line.innerHTML = '⚠️ Servidor API local corriendo en http://127.0.0.1:8894 — abrí la versión local si tu navegador bloquea conexiones mixtas.';
+        line.innerHTML = '⚠️ Servidor API local corriendo en http://127.0.0.1:8894';
       }}
     }}
 
-    async function saveApiTokens() {{
+    async function saveApiTokens(btnEl) {{
       const logEl = document.getElementById('api-connect-log');
+      const oldBtn = btnEl ? btnEl.innerHTML : '';
+      if (btnEl) btnEl.innerHTML = '⏳ Conectando...';
       logEl.innerHTML = '⏳ Conectando y auto-detectando cuentas de Star Union...';
       const payload = {{
         meta_token: document.getElementById('inp-meta-token').value,
@@ -727,10 +736,17 @@ def main():
           body: JSON.stringify(payload)
         }});
         const data = await r.json();
-        logEl.innerHTML = (data.messages || []).join('<br>') || '✅ Guardado en bóveda de Star Union.';
+        const msg = (data.messages || []).join('<br>') || '✅ Guardado en bóveda de Star Union.';
+        logEl.innerHTML = msg;
+        if (btnEl) btnEl.innerHTML = '✅ ¡CONECTADO CON ÉXITO!';
+        const metaBox = document.getElementById('status-box-meta');
+        if (metaBox && data.status && data.status.meta_connected) {{
+          metaBox.innerHTML = `✅ CONECTADO Y ACTIVO: FB <strong>${{data.status.fb_page_name}}</strong> + IG <strong>@${{data.status.ig_username}}</strong>`;
+        }}
         loadApiStatus();
       }} catch (e) {{
         logEl.innerHTML = '❌ Error conectando al servidor local (http://127.0.0.1:8894): ' + e.message;
+        if (btnEl) btnEl.innerHTML = oldBtn;
       }}
     }}
 
