@@ -1,46 +1,36 @@
 {
   "project_id": "4 - STAR UNION (Limpieza B2B)",
   "brand_name": "Star Union S.R.L.",
-  "local_linktree_url": "https://arianawajntraub.github.io/staruniontest/accesos/",
+  "local_linktree_url": "https://wajntraub.ar/star-union/linktree.html",
   "links": [
     {
+      "title": "⭐ Muestra Maestra Brochure (Fábricas e industrias · Editor + PDF A4)",
+      "url": "https://wajntraub.ar/star-union/brochures/editables/brochure-fabricas-e-industrias.html",
+      "category": "Brochures B2B"
+    },
+    {
+      "title": "📄 PDF A4 Directo — Muestra Maestra (Fábricas e industrias)",
+      "url": "https://wajntraub.ar/star-union/brochures/pdf/brochure-fabricas-e-industrias.pdf",
+      "category": "Brochures B2B"
+    },
+    {
       "title": "📋 Linktree General de Star Union (Todos los Accesos)",
-      "url": "https://arianawajntraub.github.io/staruniontest/accesos/",
+      "url": "https://wajntraub.ar/star-union/linktree.html",
       "category": "Panel Central"
     },
     {
-      "title": "📲 Pack de Redes Sociales + YouTube Shorts (.JPG + .MP4 + Copies en 1 Clic)",
-      "url": "http://127.0.0.1:8894/redes-sociales/index.html",
-      "category": "Redes Sociales"
-    },
-    {
       "title": "🏠 Sitio Web Público Unificado (10 Páginas con Fotos Perfit Curadas)",
-      "url": "https://arianawajntraub.github.io/staruniontest/",
+      "url": "https://wajntraub.ar/star-union/",
       "category": "Sitio Público"
     },
     {
-      "title": "📧 Inteligencia Histórica Perfit (21 Campañas + 21 Fotos Curadas HD)",
-      "url": "https://arianawajntraub.github.io/staruniontest/radar-comercial/perfit-historial/",
-      "category": "Perfit & Fotos"
-    },
-    {
-      "title": "✅ Formulario de Relevamiento para Mauro (Ranking 1° a 6°)",
-      "url": "https://arianawajntraub.github.io/staruniontest/relevamiento-gerencia/",
-      "category": "Stakeholders"
-    },
-    {
-      "title": "📊 Orden de Trabajo Completa para Mariel (Google Ads + Negativas)",
-      "url": "https://arianawajntraub.github.io/staruniontest/acuerdos/",
-      "category": "Google Ads"
-    },
-    {
-      "title": "📊 Dossier Ejecutivo Interactivo B2B",
-      "url": "https://arianawajntraub.github.io/staruniontest/dossier/",
+      "title": "📚 Centro de 16 Brochures PDF + Editor en Vivo",
+      "url": "https://wajntraub.ar/star-union/brochures/",
       "category": "Comercial"
     },
     {
-      "title": "📚 Centro de 16 Brochures PDF + Editor en Vivo",
-      "url": "https://arianawajntraub.github.io/staruniontest/brochures/",
+      "title": "📊 Dossier Ejecutivo Interactivo B2B",
+      "url": "https://wajntraub.ar/star-union/dossier/",
       "category": "Comercial"
     }
   ],
