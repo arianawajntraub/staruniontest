@@ -33,7 +33,7 @@
     text-decoration: none;
   }
 
-  /* BARRA SUPERIOR DE EDICIÓN INTERACTIVA (SOLO EN PANTALLA, SE OCULTA EN PDF/IMPRESIÓN) */
+  /* BARRA SUPERIOR DE EDICIÓN INTERACTIVA (OCULTA POR DEFECTO PARA CLIENTES; SE ACTIVA CON ?edit=1) */
   .editor-toolbar {
     position: sticky;
     top: 0;
@@ -41,7 +41,7 @@
     background: #084d27;
     color: #ffffff;
     padding: 8px 14px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
@@ -49,6 +49,9 @@
     box-shadow: 0 4px 14px rgba(0,0,0,0.25);
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
+  }
+  body.show-editor-toolbar .editor-toolbar {
+    display: flex;
   }
   .editor-toolbar .toolbar-title {
     display: flex;
@@ -654,16 +657,16 @@
   }
 </style>
 </head>
-<body class="editable-mode">
+<body class="">
 
-<!-- BARRA DE HERRAMIENTAS INTERACTIVA (SE OCULTA AL IMPRIMIR / EXPORTAR PDF) -->
+<!-- BARRA DE HERRAMIENTAS INTERACTIVA (OCULTA PARA CLIENTES; SE ACTIVA CON ?edit=1 PARA ARIANA) -->
 <div class="editor-toolbar">
   <div class="toolbar-title">
     <span class="toolbar-badge">VERSIÓN B · CARÁTULA IMPRESA + EDITORIAL ABIERTO</span>
     <span>Fábricas, Plantas Industriales y Centros Logísticos — Clic en textos o fotos para editar</span>
   </div>
   <div class="toolbar-actions">
-    <a class="btn-switch-version" href="brochure-fabricas-e-industrias.html">⇄ Ver Versión A</a>
+    <a class="btn-switch-version" href="brochure-fabricas-e-industrias.html?edit=1">⇄ Ver Versión A</a>
     <button class="btn-tool" id="btnToggleEdit" onclick="toggleEditMode()">🔒 Bloquear vista</button>
     <button class="btn-tool" onclick="resetChanges()">↺ Restaurar original</button>
     <a class="btn-tool" href="../pdf/brochure-fabricas-e-industrias-version-b.pdf" target="_blank">⬇ PDF Compilado</a>
@@ -702,36 +705,40 @@
 
   <!-- ESQUINA SUPERIOR IZQUIERDA BLANCA: LOGO + SABEMOS DE LIMPIEZA + 0810 + WEB + SELLO ISO -->
   <div class="cover-brand-corner">
-    <img src="../../assets/img/logo-star-union.png" alt="Star Union Servicios S.R.L." class="cover-logo img-editable">
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=logo_tapa" target="_blank">
+      <img src="../../assets/img/logo-star-union.png" alt="Star Union Servicios S.R.L." class="cover-logo img-editable">
+    </a>
     <div class="cover-tagline" contenteditable="true">SABEMOS DE LIMPIEZA</div>
     <div class="cover-phone" contenteditable="true">
-      0810 . 333 . <strong>UNION</strong> (8646)
+      <a href="tel:08103338646">0810 . 333 . <strong>UNION</strong> (8646)</a>
     </div>
-    <a href="https://www.starunion.com.ar" target="_blank" class="cover-web" contenteditable="true">www.starunion.com.ar</a>
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=web_tapa" target="_blank" class="cover-web" contenteditable="true">www.starunion.com.ar</a>
 
     <div class="cover-iso-discrete">
-      <a href="../../assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" title="Descargar Certificado Oficial ISO 9001:2015">
+      <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" title="Descargar Certificado Oficial ISO 9001:2015">
         <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015">
       </a>
       <div class="cover-iso-text" contenteditable="true">
-        <strong>Certificación ISO 9001:2015</strong>
-        TÜV Rheinland · ID 9000041847 · Desde 2001
+        <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank">
+          <strong>Certificación ISO 9001:2015</strong>
+          TÜV Rheinland · ID 9000041847 · Desde 2001
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- 3 GRANDES MEDALLONES CIRCULARES DE TAPA -->
-  <div class="cover-medallion med-top-right" title="Clic para cambiar fotografía">
+  <!-- 3 GRANDES MEDALLONES CIRCULARES DE TAPA (CLIQUEABLES CON UTM A LA WEB) -->
+  <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=foto_tapa_playa" target="_blank" class="cover-medallion med-top-right" title="Ver servicios industriales en www.starunion.com.ar">
     <img src="../img/fabricas-industrias-1.jpg" alt="Operario Star Union con aspiradora industrial en playa logística" class="img-editable">
-  </div>
+  </a>
 
-  <div class="cover-medallion med-center-left" title="Clic para cambiar fotografía">
+  <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=foto_tapa_hombre_a_bordo" target="_blank" class="cover-medallion med-center-left" title="Ver parque de maquinaria en www.starunion.com.ar">
     <img src="../img/p1-industria-hombre-a-bordo-hd.jpg" alt="Fregadora hombre a bordo Star Union en nave industrial" class="img-editable">
-  </div>
+  </a>
 
-  <div class="cover-medallion med-mid-right" title="Clic para cambiar fotografía">
+  <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=foto_tapa_convertamatic" target="_blank" class="cover-medallion med-mid-right" title="Ver equipamiento industrial en www.starunion.com.ar">
     <img src="../img/fabricas-industrias-3.jpg" alt="Lavadora automática Convertamatic 20B en planta industrial" class="img-editable">
-  </div>
+  </a>
 
   <!-- TÍTULO PRINCIPAL EN TIPOGRAFÍA ULTRA-LIGHT / THIN (IDÉNTICO AL BROCHURE ORIGINAL) -->
   <div class="cover-title-block">
@@ -765,23 +772,25 @@
     </svg>
 
     <div class="back-brand-left">
-      <img src="../../assets/img/logo-star-union.png" alt="Star Union Servicios S.R.L." class="back-logo img-editable">
+      <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=logo_dorso" target="_blank">
+        <img src="../../assets/img/logo-star-union.png" alt="Star Union Servicios S.R.L." class="back-logo img-editable">
+      </a>
       <div class="back-phone" contenteditable="true">
-        0810 . 333 . <strong>UNION</strong> (8646)
+        <a href="tel:08103338646">0810 . 333 . <strong>UNION</strong> (8646)</a>
       </div>
-      <a href="https://www.starunion.com.ar" target="_blank" class="back-web" contenteditable="true">www.starunion.com.ar</a>
+      <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=web_dorso" target="_blank" class="back-web" contenteditable="true">www.starunion.com.ar</a>
     </div>
 
-    <!-- Medallones de respaldo físico real en calle Guaminí -->
-    <div class="back-medallion back-med-main" title="Edificio propio de 800 m² y flota en calle Guaminí (clic para cambiar foto)">
+    <!-- Medallones de respaldo físico real en calle Guaminí (cliqueables con UTM) -->
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=medallon_guamini_fachada" target="_blank" class="back-medallion back-med-main" title="Edificio propio de 800 m² y flota en calle Guaminí">
       <img src="../img/p2-guamini-fachada-flota-hd.jpg" alt="Base Operativa propia en calle Guaminí y flota Star Union" class="img-editable">
-    </div>
-    <div class="back-medallion back-med-sec" title="Parque propio de maquinaria pesada en Guaminí (clic para cambiar foto)">
+    </a>
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=medallon_guamini_maquinas" target="_blank" class="back-medallion back-med-sec" title="Parque propio de maquinaria pesada en Guaminí">
       <img src="../img/p2-guamini-parque-maquinas-hd.jpg" alt="Parque de maquinaria industrial en Guaminí" class="img-editable">
-    </div>
-    <div class="back-medallion back-med-third" title="Control biométrico en planta y uniforme ARCIEL (clic para cambiar foto)">
+    </a>
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=medallon_guamini_biometrico" target="_blank" class="back-medallion back-med-third" title="Control biométrico en planta y uniforme ARCIEL">
       <img src="../img/p2-guamini-uniforme-arciel-hd.jpg" alt="Control biométrico en planta y uniforme ARCIEL" class="img-editable">
-    </div>
+    </a>
   </div>
 
   <!-- CUERPO EDITORIAL ABIERTO SOBRE FONDO BLANCO (TIPOGRAFÍA IMPRESA CÓMODA, CERO CAJAS) -->
@@ -789,11 +798,11 @@
     <h1 class="editorial-main-title" contenteditable="true">Limpieza de Fábricas</h1>
 
     <p class="editorial-p" contenteditable="true">
-      <strong>STAR<span class="star-gold">★</span>UNION</strong> es reconocida por su sólida trayectoria desde el año 2001 dentro del sector industrial —desde nuestros inicios en calle Pergamino hasta nuestra actual <strong>Base Operativa propia de 800 m² en calle Guaminí 5052 / 5657 (CABA)</strong>—, siendo proveedor principal de industrias automotrices, siderúrgicas, metalúrgicas, químicas, farmacéuticas, alimenticias y centros logísticos (Coca-Cola Reginald Lee, Mondelez, Air Liquide, Toyota Panamericana, Ferroclor, Grupo Simpa, Glencore, Viterra, Styropek, Motoimplementos Stihl, Evonik, Ball, Silgan y Atanor).
+      <strong>STAR<span class="star-gold">★</span>UNION</strong> es reconocida por su sólida trayectoria desde el año 2001 dentro del sector industrial —desde nuestros inicios en calle Pergamino hasta nuestra actual <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=texto_base_guamini" target="_blank"><strong>Base Operativa propia de 800 m² en calle Guaminí 5052 / 5657 (CABA)</strong></a>—, siendo proveedor principal de industrias automotrices, siderúrgicas, metalúrgicas, químicas, farmacéuticas, alimenticias y centros logísticos (Coca-Cola Reginald Lee, Mondelez, Air Liquide, Toyota Panamericana, Ferroclor, Grupo Simpa, Glencore, Viterra, Styropek, Motoimplementos Stihl, Evonik, Ball, Silgan y Atanor).
     </p>
 
     <p class="editorial-p" contenteditable="true">
-      Fruto de esta experiencia y bajo alcance certificado <strong>ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong>, adaptamos nuestros planes de trabajo a los turnos de manufactura, cambios de lote y paradas técnicas programadas de cada establecimiento, sin interrumpir el ritmo productivo. Operamos con flota propia de <strong>fregadoras hombre a bordo, lavadoras automáticas Convertamatic 20B a batería e hidrolavadoras industriales de 150 bar</strong> para el desengrase mecanizado de pisos de hormigón alisado y epoxi, removiendo caucho de autoelevadores, aceites e hidrocarburos sin dejar humedad residual en pasillos de circulación.
+      Fruto de esta experiencia y bajo alcance certificado <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank"><strong>ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong></a>, adaptamos nuestros planes de trabajo a los turnos de manufactura, cambios de lote y paradas técnicas programadas de cada establecimiento, sin interrumpir el ritmo productivo. Operamos con flota propia de <strong>fregadoras hombre a bordo, lavadoras automáticas Convertamatic 20B a batería e hidrolavadoras industriales de 150 bar</strong> para el desengrase mecanizado de pisos de hormigón alisado y epoxi, removiendo caucho de autoelevadores, aceites e hidrocarburos sin dejar humedad residual en pasillos de circulación.
     </p>
 
     <p class="editorial-p" contenteditable="true">
@@ -809,9 +818,9 @@
   <div class="responsible-band">
     <div class="resp-medallion-wrap">
       <div class="resp-medallion-crescent"></div>
-      <div class="resp-medallion" title="Flota propia y respaldo operativo (clic para cambiar foto)">
+      <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=medallon_flota_transit" target="_blank" class="resp-medallion" style="display:block;" title="Flota propia y respaldo operativo">
         <img src="../img/p2-guamini-utilitario-transit-hd.jpg" alt="Flota propia de utilitarios Star Union" class="img-editable">
-      </div>
+      </a>
     </div>
     <div class="resp-copy">
       <div class="resp-title" contenteditable="true">BRINDAMOS UN SERVICIO RESPONSABLE Y SIN RIESGO SOLIDARIO</div>
@@ -835,36 +844,37 @@
 
     <div class="folder-signature">
       <div class="sig-tuv-row">
-        <a href="../../assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" title="Descargar Certificado Oficial ISO 9001:2015">
+        <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" title="Descargar Certificado Oficial ISO 9001:2015">
           <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
         </a>
         <div class="sig-tuv-meta" contenteditable="true">
           <strong>TÜV Rheinland · ISO 9001:2015</strong>
-          ID <a href="../../assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" style="text-decoration:underline; color:#0b6535; font-weight:700;">9000041847</a> · Reg. 01 100 062529826
+          ID <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" style="text-decoration:underline; color:#0b6535; font-weight:700;">9000041847</a> · Reg. 01 100 062529826
         </div>
         <img src="../../assets/img/cleany-transparente.png" alt="Cleany Star Union" class="cleany-mini img-editable">
       </div>
       <div class="sig-contact-lines" contenteditable="true">
-        <strong>Relevamiento técnico en planta sin cargo (CABA y GBA)</strong><br>
-        Tel.: <strong>0810-333-UNION (8646)</strong> · (011) 4637-8146<br>
-        WhatsApp Comercial: <strong>+54 9 11 2275-9369</strong><br>
-        <strong>mrepetto@starunion.com.ar</strong> · comercial@starunion.com.ar
+        <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20estoy%20viendo%20el%20Brochure%20de%20Limpieza%20de%20F%C3%A1bricas%20e%20Industrias%20y%20quiero%20solicitar%20un%20relevamiento%20t%C3%A9cnico%20en%20planta%20sin%20cargo." target="_blank"><strong>Relevamiento técnico en planta sin cargo (CABA y GBA)</strong></a><br>
+        Tel.: <a href="tel:08103338646"><strong>0810-333-UNION (8646)</strong></a> · <a href="tel:+541146378146">(011) 4637-8146</a><br>
+        WhatsApp Comercial: <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20estoy%20viendo%20el%20Brochure%20de%20Limpieza%20de%20F%C3%A1bricas%20e%20Industrias%20y%20quiero%20solicitar%20un%20relevamiento%20t%C3%A9cnico%20en%20planta%20sin%20cargo." target="_blank" style="color:#0b6535; text-decoration:underline;"><strong>+54 9 11 2275-9369</strong></a><br>
+        <a href="mailto:mrepetto@starunion.com.ar?cc=comercial@starunion.com.ar&subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Brochure%20Limpieza%20de%20F%C3%A1bricas%20e%20Industrias"><strong>mrepetto@starunion.com.ar</strong></a> · <a href="mailto:comercial@starunion.com.ar?subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Brochure%20Limpieza%20de%20F%C3%A1bricas%20e%20Industrias">comercial@starunion.com.ar</a>
       </div>
     </div>
   </div>
 
   <!-- PIE DE PÁGINA VERDE BOSQUE INSTITUCIONAL -->
   <footer class="back-footer-bar" contenteditable="true">
-    Guaminí 5052 / 5657 (C1439HAW) - CABA – comercial@starunion.com.ar – <a href="https://www.starunion.com.ar" target="_blank">www.starunion.com.ar</a>
+    Guaminí 5052 / 5657 (C1439HAW) - CABA – <a href="mailto:comercial@starunion.com.ar?subject=Consulta%20Brochure%20Limpieza%20de%20F%C3%A1bricas">comercial@starunion.com.ar</a> – <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_b&utm_campaign=fabricas_industrias&utm_content=footer_web" target="_blank">www.starunion.com.ar</a>
   </footer>
 
 </section>
 
 <script>
-  const STORAGE_KEY = 'star_union_brochure_fabricas_version_b_v4_caratula_print';
+  const STORAGE_KEY = 'star_union_brochure_fabricas_version_b_v5_caratula_print_links';
   let activeImgElement = null;
   const imgInput = document.getElementById('imageInputPicker');
   const toast = document.getElementById('toastSaved');
+  const isEditParam = new URLSearchParams(window.location.search).get('edit') === '1';
 
   function showToast(msg) {
     toast.textContent = msg || '✓ Cambio guardado automáticamente';
@@ -906,18 +916,22 @@
     }
   }
 
-  function toggleEditMode() {
-    const body = document.body;
-    const btn = document.getElementById('btnToggleEdit');
-    const isEditable = body.classList.toggle('editable-mode');
+  function setEditableState(enabled) {
+    document.body.classList.toggle('editable-mode', enabled);
     document.querySelectorAll('#page1 [contenteditable], #page2 [contenteditable]').forEach(el => {
-      el.setAttribute('contenteditable', isEditable ? 'true' : 'false');
+      el.setAttribute('contenteditable', enabled ? 'true' : 'false');
     });
-    btn.textContent = isEditable ? '🔒 Bloquear vista' : '✏️ Activar edición';
+    const btn = document.getElementById('btnToggleEdit');
+    if (btn) btn.textContent = enabled ? '🔒 Bloquear vista' : '✏️ Activar edición';
+  }
+
+  function toggleEditMode() {
+    const nextState = !document.body.classList.contains('editable-mode');
+    setEditableState(nextState);
   }
 
   function bindEvents() {
-    document.querySelectorAll('#page1 [contenteditable="true"], #page2 [contenteditable="true"]').forEach(el => {
+    document.querySelectorAll('#page1 [contenteditable], #page2 [contenteditable]').forEach(el => {
       el.oninput = () => {
         clearTimeout(window._saveTimer);
         window._saveTimer = setTimeout(saveState, 500);
@@ -949,6 +963,12 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     loadState();
+    if (isEditParam) {
+      document.body.classList.add('show-editor-toolbar');
+      setEditableState(true);
+    } else {
+      setEditableState(false);
+    }
     bindEvents();
   });
 </script>

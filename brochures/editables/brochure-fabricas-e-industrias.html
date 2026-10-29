@@ -33,7 +33,7 @@
     color: inherit;
     text-decoration: none;
   }
-  /* BARRA DE EDICIÓN DE TEXTOS (SOLO EN PANTALLA - SE OCULTA AL EXPORTAR PDF) */
+  /* BARRA DE EDICIÓN DE TEXTOS (OCULTA PARA CLIENTES; SE ACTIVA CON ?edit=1 PARA ARIANA) */
   .editor-toolbar {
     position: sticky;
     top: 0;
@@ -41,7 +41,7 @@
     background: #133522;
     color: #ffffff;
     padding: 12px 18px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
@@ -50,6 +50,9 @@
     width: 210mm;
     margin: 0 auto;
     flex-wrap: wrap;
+  }
+  body.show-editor-toolbar .editor-toolbar {
+    display: flex;
   }
   .editor-toolbar .toolbar-title {
     font-size: 11.5px;
@@ -645,13 +648,13 @@
   }
 </style>
 </head>
-<body class="editable-mode">
+<body class="">
 
-<!-- BARRA INTERACTIVA DE EDICIÓN DE TEXTOS Y FORMA (SE OCULTA AUTOMÁTICAMENTE AL IMPRIMIR/GUARDAR PDF) -->
+<!-- BARRA INTERACTIVA DE EDICIÓN DE TEXTOS Y FORMA (OCULTA PARA CLIENTES; SE ACTIVA CON ?edit=1 PARA ARIANA) -->
 <div class="editor-toolbar no-print">
   <div class="toolbar-title">
-    <span class="toolbar-badge">VERSIÓN A · Blanca Sobria</span>
-    <a href="brochure-fabricas-e-industrias-version-b.html" style="background:#ffcc29; color:#111827; font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:999px; text-decoration:none;">↔ Ver Versión B (Diseño Impreso + Tarjeta)</a>
+    <span class="toolbar-badge">VERSIÓN A · Ficha Protocolo Técnico</span>
+    <a href="brochure-fabricas-e-industrias-version-b.html?edit=1" style="background:#ffcc29; color:#111827; font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:999px; text-decoration:none;">↔ Ver Versión B (Carátula Impresa + Editorial)</a>
   </div>
   <div class="toolbar-actions">
     <button class="btn-tool" onmousedown="event.preventDefault(); adjustFontSize(0.4)" title="Agrandar letra del bloque seleccionado">A+</button>
@@ -669,10 +672,10 @@
 <!-- PÁGINA 1: VERTICAL ESPECÍFICA DE FÁBRICAS E INDUSTRIAS -->
 <div class="page">
   <div class="top-header">
-    <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=logo_header&utm_campaign=brochure_fabricas_industrias" target="_blank">
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_a&utm_campaign=fabricas_industrias&utm_content=logo_header_p1" target="_blank">
       <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
     </a>
-    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf?utm_source=brochure_pdf&utm_medium=header_iso_pill&utm_campaign=brochure_fabricas_industrias" download="Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf" target="_blank" rel="noopener" onclick="return downloadIsoWithoutLeaving(event)" title="Clic en cualquier parte de esta etiqueta para descargar el certificado oficial ISO 9001:2015 en PDF sin salir de esta pantalla">
+    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" title="Clic para abrir el Certificado Oficial ISO 9001:2015 en PDF">
       <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
       <div class="iso-text">
         <strong>Certificación de calidad <span class="iso-highlight">ISO 9001:2015</span> <span class="iso-download-tag">⬇ PDF certificado</span></strong>
@@ -800,17 +803,17 @@
 
   <div class="footer-bar">
     <div><strong>Star Union S.R.L.</strong> · Base Operativa: <strong>Guaminí 5052 / 5657, CABA</strong></div>
-    <div><strong>0810-333-UNION (8646)</strong> · comercial@starunion.com.ar · <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=footer_p1&utm_campaign=brochure_fabricas_industrias" target="_blank">starunion.com.ar/limpieza-industrial ↗</a></div>
+    <div><a href="tel:08103338646" style="color:#ffffff; text-decoration:none;"><strong>0810-333-UNION (8646)</strong></a> · <a href="mailto:comercial@starunion.com.ar?subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Ficha%20Limpieza%20de%20F%C3%A1bricas" style="color:#f3f4f6; text-decoration:none;">comercial@starunion.com.ar</a> · <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_a&utm_campaign=fabricas_industrias&utm_content=footer_p1" target="_blank">www.starunion.com.ar ↗</a></div>
   </div>
 </div>
 
 <!-- PÁGINA 2: INFRAESTRUCTURA PROPIA EN BASE OPERATIVA GUAMINÍ (FOTOS DSLR REALES Y HUELLA UTM) -->
 <div class="page">
   <div class="top-header">
-    <a href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=logo_header_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">
+    <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_a&utm_campaign=fabricas_industrias&utm_content=logo_header_p2" target="_blank">
       <img src="../../logo-horizontal-1200x300.png" alt="Star Union S.R.L." class="logo-main">
     </a>
-    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/certificado-iso-starunion.pdf?utm_source=brochure_pdf&utm_medium=header_iso_pill_p2&utm_campaign=brochure_fabricas_industrias" download="Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf" target="_blank" rel="noopener" onclick="return downloadIsoWithoutLeaving(event)" title="Clic en cualquier parte de esta etiqueta para descargar el certificado oficial ISO 9001:2015 en PDF sin salir de esta pantalla">
+    <a class="iso-pill" href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" title="Clic para abrir el Certificado Oficial ISO 9001:2015 en PDF">
       <img src="../../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="tuv-qr">
       <div class="iso-text">
         <strong>Respaldo físico, logístico y legal · <span class="iso-highlight">ISO 9001:2015</span> <span class="iso-download-tag">⬇ PDF certificado</span></strong>
@@ -880,19 +883,19 @@
       </div>
 
       <div class="cta-contact-item">
-        <div><strong>Base Operativa:</strong> Guaminí 5052 / 5657, CABA (800 m² propios)</div>
-        <div><strong>Teléfonos:</strong> 0810-333-UNION (8646) · 4637-8146</div>
+        <div><strong>Base Operativa:</strong> <a href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_a&utm_campaign=fabricas_industrias&utm_content=direccion_guamini" target="_blank">Guaminí 5052 / 5657, CABA (800 m² propios)</a></div>
+        <div><strong>Teléfonos:</strong> <a href="tel:08103338646">0810-333-UNION (8646)</a> · <a href="tel:+541146378146">4637-8146</a></div>
         <div><strong>WhatsApp comercial:</strong> <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20le%C3%AD%20el%20brochure%20t%C3%A9cnico%20de%20f%C3%A1bricas%20e%20industrias%20(ref.%20PDF-IND-2026)%20y%20quiero%20solicitar%20una%20visita%20de%20diagn%C3%B3stico." target="_blank" style="color:#03582d; font-weight:700; text-decoration:underline;">+54 9 11 2275-9369</a></div>
-        <div><strong>Dirección:</strong> mrepetto@starunion.com.ar</div>
-        <div><strong>Comercial:</strong> comercial@starunion.com.ar</div>
+        <div><strong>Dirección:</strong> <a href="mailto:mrepetto@starunion.com.ar?cc=comercial@starunion.com.ar&subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Ficha%20Limpieza%20de%20F%C3%A1bricas">mrepetto@starunion.com.ar</a></div>
+        <div><strong>Comercial:</strong> <a href="mailto:comercial@starunion.com.ar?subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Ficha%20Limpieza%20de%20F%C3%A1bricas">comercial@starunion.com.ar</a></div>
       </div>
 
       <div class="cta-buttons-stack">
         <a class="btn-pdf-wa" href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20le%C3%AD%20el%20brochure%20t%C3%A9cnico%20de%20f%C3%A1bricas%20e%20industrias%20(ref.%20PDF-IND-2026)%20y%20quiero%20solicitar%20una%20visita%20de%20diagn%C3%B3stico." target="_blank">
           Solicitar visita técnica por WhatsApp →
         </a>
-        <a class="btn-pdf-web" href="https://www.starunion.com.ar/limpieza-industrial/?utm_source=brochure_pdf&utm_medium=boton_cta_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">
-          Ficha técnica online: starunion.com.ar/limpieza-industrial ↗
+        <a class="btn-pdf-web" href="https://www.starunion.com.ar/?utm_source=brochure_pdf&utm_medium=pdf_version_a&utm_campaign=fabricas_industrias&utm_content=boton_cta_p2" target="_blank">
+          Sitio web oficial: www.starunion.com.ar ↗
         </a>
       </div>
     </div>
@@ -900,29 +903,20 @@
 
   <div class="footer-bar">
     <div>© 2001–2026 <strong>Star Union S.R.L.</strong> · Guaminí 5052 / 5657, CABA · Ref.: <strong>SU-BRO-IND-2026</strong></div>
-    <div><strong>Edición 2026</strong> · <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=brochure_pdf&utm_medium=footer_p2&utm_campaign=brochure_fabricas_industrias" target="_blank">TÜV Rheinland ISO 9001:2015 (ID 9000041847) ↗</a></div>
+    <div><strong>Edición 2026</strong> · <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank">TÜV Rheinland ISO 9001:2015 (ID 9000041847) ↗</a></div>
   </div>
 </div>
 </div>
 
 <script class="no-print">
-  const STORAGE_KEY = "starunion_brochure_ind_v6";
+  const STORAGE_KEY = "starunion_brochure_ind_v7_clean";
   let initialSnapshot = "";
   let initialElementsMap = [];
   let activeEditable = null;
-
-  function downloadIsoWithoutLeaving(e) {
-    e.preventDefault();
-    const a = document.createElement("a");
-    a.href = "../../certificado-iso-starunion.pdf";
-    a.setAttribute("download", "Certificado-ISO-9001-2015-Star-Union-TUV-Rheinland.pdf");
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    return false;
-  }
+  const isEditParamA = new URLSearchParams(window.location.search).get("edit") === "1";
 
   function bindEditables() {
+    if (!isEditParamA) return;
     const canvas = document.getElementById("brochure-canvas");
     const editables = canvas.querySelectorAll("h1, h2, h3, h4, p, li, .hero-badge, .kpi-val, .kpi-lbl, .photo-caption, .section-eyebrow, .section-title, .bullet-spec, .clients-strip, .cta-eyebrow, .cta-contact-item div");
     editables.forEach((el, idx) => {
@@ -945,15 +939,18 @@
   window.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("brochure-canvas");
     initialSnapshot = canvas.innerHTML;
-    bindEditables();
-    initialElementsMap = Array.from(canvas.querySelectorAll("[contenteditable='true']")).map(el => ({
-      text: el.innerText.trim(),
-      style: el.getAttribute("style") || ""
-    }));
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && saved !== initialSnapshot) {
-      canvas.innerHTML = saved;
+    if (isEditParamA) {
+      document.body.classList.add("editable-mode", "show-editor-toolbar");
       bindEditables();
+      initialElementsMap = Array.from(canvas.querySelectorAll("[contenteditable='true']")).map(el => ({
+        text: el.innerText.trim(),
+        style: el.getAttribute("style") || ""
+      }));
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && saved !== initialSnapshot) {
+        canvas.innerHTML = saved;
+        bindEditables();
+      }
     }
   });
 

@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es-AR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dossier Ejecutivo Interactivo 2026 | Star Union S.R.L. · ISO 9001:2015 TÜV Rheinland</title>
-    <meta name="description" content="Presentación ejecutiva interactiva de Star Union S.R.L.: Base Operativa propia de 800 m² en calle Guaminí (CABA), control biométrico con alerta a los 15 minutos, parque de maquinaria propia, cuadrillas de altura ARAA y referencias corporativas 2026.">
+    <title>Brochure y Dossier Interactivo Multi-Vertical | Star Union S.R.L. · ISO 9001:2015 TÜV Rheinland</title>
+    <meta name="description" content="Brochure y presentación ejecutiva interactiva de Star Union S.R.L. por industria: limpieza de fábricas, laboratorios, oficinas corporativas, clínicas, consorcios, universidades, centros comerciales y vidrios en altura (ARAA). Base propia de 800 m² en Guaminí (CABA) e ISO 9001:2015.">
     <link rel="canonical" href="https://www.starunion.com.ar/dossier/">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- TIPOGRAFÍA OFICIAL STAR UNION: OPEN SANS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['"Open Sans"', 'sans-serif'],
-                        heading: ['"Open Sans"', 'sans-serif'],
-                        display: ['"Open Sans"', 'sans-serif']
+                        heading: ['"Montserrat"', 'sans-serif'],
+                        display: ['"Montserrat"', 'sans-serif']
                     },
                     colors: {
-                        brand: { DEFAULT: '#03582d', dark: '#024121', light: '#047a3e' },
-                        accent: { DEFAULT: '#ffcc29', hover: '#e5b622' },
-                        neutral: { custom: '#676b67', dark: '#111827', light: '#ffffff' }
+                        brand: { DEFAULT: '#0b6535', dark: '#084d27', light: '#1d8366', olive: '#8ab33e' },
+                        accent: { DEFAULT: '#e5b524', hover: '#cc9f1b' },
+                        neutral: { custom: '#4b5563', dark: '#111827', light: '#ffffff' }
                     }
                 }
             }
@@ -32,329 +31,490 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #676b67;
+            color: #374151;
             background-color: #ffffff;
+            overflow-x: hidden;
         }
         h1, h2, h3, h4, .font-heading, .font-display {
-            font-family: 'Open Sans', sans-serif;
-            color: #000000;
+            font-family: 'Montserrat', sans-serif;
         }
-        .slide-panel { display: none; animation: fadeSlide 0.32s cubic-bezier(0.16, 1, 0.3, 1); }
-        .slide-panel.active { display: block; }
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        .v-pill {
+            transition: all 0.2s ease;
         }
-        .tab-pill.active {
-            background-color: #03582d;
+        .v-pill.active {
+            background-color: #0b6535;
             color: #ffffff;
-            border-color: #03582d;
-            box-shadow: 0 4px 12px rgba(3, 88, 45, 0.16);
+            border-color: #0b6535;
+            box-shadow: 0 6px 16px rgba(11, 101, 53, 0.22);
+        }
+        .thin-display {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
         }
     </style>
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Star Union S.R.L.">
-  <meta property="og:title" content="Dossier Ejecutivo Interactivo 2026 | Star Union S.R.L. · ISO 9001:2015 TÜV Rheinland">
-  <meta property="og:description" content="Presentación ejecutiva interactiva de Star Union S.R.L.: Base Operativa propia de 800 m² en calle Guaminí (CABA), control biométrico con alerta a los 15 minutos, parque de maquinaria propia, cuadrillas de altura ARAA y referencias corporativas 2026.">
-  <meta property="og:url" content="https://www.starunion.com.ar/dossier/">
-  <meta property="og:image" content="https://www.starunion.com.ar/logo-horizontal-1200x300.png">
-  <link rel="llms-txt" href="/llms.txt" title="GEO & AI Context Profile - Star Union S.R.L.">
-  <script type="application/ld+json">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Star Union S.R.L.">
+    <meta property="og:title" content="Brochure y Dossier Interactivo Multi-Vertical | Star Union S.R.L. · ISO 9001:2015">
+    <meta property="og:description" content="Conmutador interactivo de protocolos técnicos por rubro, Base Operativa propia de 800 m² en calle Guaminí (CABA), control biométrico 15 min, blindaje Art. 30 LCT y certificación TÜV Rheinland ISO 9001:2015.">
+    <meta property="og:url" content="https://www.starunion.com.ar/dossier/">
+    <meta property="og:image" content="https://www.starunion.com.ar/logo-horizontal-1200x300.png">
+    <link rel="llms-txt" href="/llms.txt" title="GEO & AI Context Profile - Star Union S.R.L.">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Dossier Ejecutivo Interactivo 2026 | Star Union S.R.L. · ISO 9001:2015 TÜV Rheinland",
-  "description": "Presentación ejecutiva interactiva de Star Union S.R.L.: Base Operativa propia de 800 m² en calle Guaminí (CABA), control biométrico con alerta a los 15 minutos, parque de maquinaria propia, cuadrillas de altura ARAA y referencias corporativas 2026.",
+  "name": "Brochure y Dossier Interactivo Multi-Vertical | Star Union S.R.L. · ISO 9001:2015 TÜV Rheinland",
+  "description": "Brochure y presentación ejecutiva interactiva de Star Union S.R.L. por industria: limpieza de fábricas, laboratorios, oficinas corporativas, clínicas, consorcios, universidades, centros comerciales y vidrios en altura (ARAA).",
   "url": "https://www.starunion.com.ar/dossier/",
   "provider": {
     "@type": "Organization",
     "name": "Star Union S.R.L.",
     "url": "https://www.starunion.com.ar/",
+    "telephone": "+54-810-333-8646",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Guaminí 5657",
+      "streetAddress": "Guaminí 5052 / 5657",
       "addressLocality": "Ciudad Autónoma de Buenos Aires",
       "addressRegion": "CABA",
+      "postalCode": "C1439HAW",
       "addressCountry": "AR"
     }
   }
 }
-  </script>
+    </script>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-brand selection:text-white">
 
-    <!-- TOP EXECUTIVE BAR EN BLANCO PURO -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap justify-between items-center gap-4">
-            <div class="flex items-center gap-4">
-                <a href="../index.html" class="flex items-center gap-3">
-                    <img src="../assets/img/logo-star-union.png?v=20261028" alt="Star Union S.R.L." class="h-10 sm:h-11 w-auto object-contain">
-                </a>
-                <div class="hidden md:flex items-center gap-2.5 pl-4 border-l border-gray-200">
-                    <img src="../assets/img/tuv-iso-9001-badge.png" alt="TÜV Rheinland ISO 9001:2015" class="h-8 w-auto object-contain">
-                    <div class="text-[11px] leading-tight text-neutral-custom">
-                        <strong class="text-[#000000] block">Dossier Corporativo 2026</strong>
-                        ISO 9001:2015 · ID 9000041847
-                    </div>
-                </div>
+    <!-- FRANJA EJECUTIVA SUPERIOR VERDE BOSQUE INSTITUCIONAL (#084D27) -->
+    <div class="bg-brand-dark text-white text-xs py-2 px-4 border-b border-brand-olive/40">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-accent"></span>
+                <span><strong>Star Union S.R.L.</strong> · Trayectoria desde 2001 · Base Operativa propia de <strong>800 m² en Guaminí 5052 / 5657 (CABA)</strong></span>
             </div>
-
-            <!-- NAVEGACIÓN DE LÁMINAS -->
-            <nav class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full" aria-label="Láminas del Dossier">
-                <button onclick="goToSlide(0)" class="tab-pill active text-xs font-semibold px-3 py-2 rounded border border-gray-200 text-[#000000] hover:border-brand transition whitespace-nowrap">
-                    1. Resumen Ejecutivo
-                </button>
-                <button onclick="goToSlide(1)" class="tab-pill text-xs font-semibold px-3 py-2 rounded border border-gray-200 text-[#000000] hover:border-brand transition whitespace-nowrap">
-                    2. Base Operativa Guaminí
-                </button>
-                <button onclick="goToSlide(2)" class="tab-pill text-xs font-semibold px-3 py-2 rounded border border-gray-200 text-[#000000] hover:border-brand transition whitespace-nowrap">
-                    3. Biometría y Uniformes
-                </button>
-                <button onclick="goToSlide(3)" class="tab-pill text-xs font-semibold px-3 py-2 rounded border border-gray-200 text-[#000000] hover:border-brand transition whitespace-nowrap">
-                    4. Maquinaria y Altura
-                </button>
-                <button onclick="goToSlide(4)" class="tab-pill text-xs font-semibold px-3 py-2 rounded border border-gray-200 text-[#000000] hover:border-brand transition whitespace-nowrap">
-                    5. Clientes y Casos
-                </button>
-                <button onclick="goToSlide(5)" class="tab-pill text-xs font-semibold px-3 py-2 rounded border border-gray-200 text-[#000000] hover:border-brand transition whitespace-nowrap">
-                    6. Blindaje Legal y Contacto
-                </button>
-            </nav>
-
-            <div class="hidden xl:flex items-center gap-2.5">
-                <a href="#fichas-tecnicas" class="text-xs font-bold text-[#000000] hover:text-brand border border-gray-200 px-3 py-2 rounded transition">
-                    16 Brochures Editables + PDF
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" class="underline hover:text-accent font-semibold">
+                    ⬇ Certificado Oficial ISO 9001:2015 (PDF)
                 </a>
-                <a href="../index.html" class="text-xs font-bold text-brand hover:underline px-2 py-2">
-                    Ir al Sitio Web →
+                <span class="hidden sm:inline text-white/30">|</span>
+                <a href="tel:08103338646" class="font-bold hover:text-accent">0810-333-UNION (8646)</a>
+                <span class="hidden sm:inline text-white/30">|</span>
+                <a href="https://www.starunion.com.ar/?utm_source=brochure_interactivo&utm_medium=topbar&utm_campaign=dossier_multivertical" target="_blank" rel="noopener" class="text-accent font-bold hover:underline">
+                    www.starunion.com.ar ↗
                 </a>
             </div>
         </div>
-        <!-- PROGRESS BAR -->
-        <div class="w-full h-1 bg-gray-100">
-            <div id="slideProgress" class="h-full bg-brand transition-all duration-300" style="width: 16.66%"></div>
+    </div>
+
+    <!-- CABEZAL INSTITUCIONAL BLANCO CON NAVEGACIÓN RÁPIDA DE SECCIONES -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center gap-4">
+                <a href="https://www.starunion.com.ar/?utm_source=brochure_interactivo&utm_medium=logo_header&utm_campaign=dossier_multivertical" target="_blank" rel="noopener" class="flex items-center gap-3">
+                    <img src="../assets/img/logo-star-union.png" alt="Star Union S.R.L." class="h-10 sm:h-11 w-auto object-contain">
+                </a>
+                <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" class="hidden md:flex items-center gap-2.5 pl-4 border-l border-gray-200 group" title="Abrir Certificado Oficial TÜV Rheinland ISO 9001:2015 en PDF">
+                    <img src="../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015" class="h-9 w-auto object-contain">
+                    <div class="text-[11px] leading-tight text-gray-600">
+                        <strong class="text-brand group-hover:underline block">TÜV Rheinland · ISO 9001:2015</strong>
+                        ID 9000041847 · Ver Certificado PDF ↗
+                    </div>
+                </a>
+            </div>
+
+            <nav class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full text-xs font-semibold">
+                <a href="#selector-vertical" class="px-3 py-1.5 rounded-lg bg-brand/10 text-brand hover:bg-brand hover:text-white transition whitespace-nowrap">
+                    1. Protocolo por Rubro
+                </a>
+                <a href="#base-guamini" class="px-3 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
+                    2. Base Guaminí (800 m²)
+                </a>
+                <a href="#biometria-arciel" class="px-3 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
+                    3. Biometría 15 min y ARCIEL
+                </a>
+                <a href="#blindaje-art30" class="px-3 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
+                    4. Blindaje Art. 30 LCT
+                </a>
+                <a href="#fichas-tecnicas" class="px-3 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
+                    5. Los 16 Brochures PDF
+                </a>
+                <a href="#contacto-directo" class="px-3.5 py-1.5 rounded-lg bg-brand text-white hover:bg-brand-dark transition whitespace-nowrap">
+                    Solicitar Relevamiento
+                </a>
+            </nav>
         </div>
     </header>
 
-    <!-- CONTENIDO INTERACTIVO PRINCIPAL EN BLANCO AIREADO -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <main class="flex-1">
 
-        <!-- ==========================================
-             LÁMINA 1: RESUMEN EJECUTIVO Y TRAYECTORIA
-             ========================================== -->
-        <section class="slide-panel active" data-slide="0">
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                <div class="grid lg:grid-cols-12">
-                    <div class="lg:col-span-7 p-7 sm:p-10 lg:p-12 flex flex-col justify-between">
-                        <div>
-                            <div class="inline-flex items-center gap-2 bg-brand/10 text-brand text-xs font-bold px-3 py-1 rounded mb-5 uppercase tracking-wider">
-                                Presentación Corporativa B2B · Star Union S.R.L. (2001–2026)
-                            </div>
-                            <h1 class="text-2xl sm:text-4xl font-extrabold text-[#000000] tracking-tight leading-[1.15] mb-4">
-                                Ingeniería en Higiene Corporativa, Industrial y de <span class="text-brand">Grandes Superficies</span>.
-                            </h1>
-                            <p class="text-sm sm:text-base text-neutral-custom leading-relaxed mb-6">
-                                Con <strong>25 años de trayectoria en el mercado argentino</strong>, en <strong>Star Union S.R.L.</strong> diseñamos, ejecutamos y auditamos servicios integrales de limpieza y mantenimiento con más de 500 colaboradores propios, parque de maquinaria pesada y procesos certificados bajo norma <strong>ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong>.
-                            </p>
+        <!-- =====================================================================
+             SECCIÓN 1: SELECTOR MULTI-VERTICAL INTERACTIVO + CARÁTULA DINÁMICA
+             ===================================================================== -->
+        <section id="selector-vertical" class="bg-gradient-to-b from-[#f4f7f5] to-white pt-7 pb-12 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                            <!-- KPI GRID EN GRIS CLARO Y BLANCO -->
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mb-6">
-                                <div class="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                                    <div class="text-xl sm:text-2xl font-extrabold text-brand">25 Años</div>
-                                    <div class="text-[11px] text-neutral-custom mt-0.5 font-medium">Operación continua desde 2001</div>
-                                </div>
-                                <div class="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                                    <div class="text-xl sm:text-2xl font-extrabold text-brand">800 m²</div>
-                                    <div class="text-[11px] text-neutral-custom mt-0.5 font-medium">Base propia en calle Guaminí</div>
-                                </div>
-                                <div class="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                                    <div class="text-xl sm:text-2xl font-extrabold text-brand">15 Min</div>
-                                    <div class="text-[11px] text-neutral-custom mt-0.5 font-medium">Alerta biométrica de ingreso</div>
-                                </div>
-                                <div class="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                                    <div class="text-xl sm:text-2xl font-extrabold text-brand">ISO 9001</div>
-                                    <div class="text-[11px] text-neutral-custom mt-0.5 font-medium">Alcance comercial y operativo</div>
-                                </div>
-                            </div>
-
-                            <!-- CLEANY + TÜV RHEINLAND CARD CLICKABLE Y TRAQUEADA -->
-                            <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=starunion_web&utm_medium=dossier_iso_box&utm_campaign=dossier_ejecutivo" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','click_iso_certipedia',{source_page:'dossier'});}" class="group p-4 rounded-xl bg-gray-50 hover:bg-brand/[0.04] border border-gray-200 hover:border-brand transition mb-6 flex items-center justify-between gap-4 cursor-pointer">
-                                <div class="flex items-center gap-4">
-                                    <img src="../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015 ID 9000041847" class="h-14 w-auto object-contain bg-white p-1 rounded border border-gray-200 group-hover:border-brand/30 shrink-0">
-                                    <div>
-                                        <div class="text-xs font-bold uppercase tracking-wider text-brand mb-0.5">Certificación ISO 9001:2015 (ID 9000041847) · Cobertura Multi-Sede ↗</div>
-                                        <p class="text-xs sm:text-sm text-[#000000] leading-relaxed">
-                                            Operación directa en <strong>CABA y GBA (Norte, Oeste y Sur)</strong>, <strong>La Plata</strong>, <strong>Zárate</strong>, <strong>Bahía Blanca</strong>, <strong>Neuquén</strong> y <strong>Trelew</strong>. <span class="text-brand font-bold underline">Validar en TÜV Certipedia →</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <img src="../assets/img/cleany-hd.png" alt="Cleany Star Union" class="h-14 w-auto object-contain shrink-0 hidden sm:block">
-                            </a>
+                <!-- BARRA DE CONMUTACIÓN DE VERTICALES (RESUELVE EL ENVÍO MULTI-RUBRO) -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-4 sm:p-5 shadow-sm mb-7">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-brand text-white uppercase tracking-wider">
+                                Brochure Interactivo Multi-Vertical
+                            </span>
+                            <span class="text-xs sm:text-sm font-semibold text-gray-800">
+                                Seleccioná tu industria o tipo de instalación para adaptar el protocolo técnico y descargar su PDF A4:
+                            </span>
                         </div>
+                        <button onclick="copyCurrentVerticalLink()" id="btnCopyVerticalUrl" class="text-xs font-bold text-brand hover:text-brand-dark bg-brand/5 hover:bg-brand/10 border border-brand/20 px-3 py-1.5 rounded-lg transition">
+                            🔗 Copiar link directo a este rubro
+                        </button>
+                    </div>
 
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-gray-100">
-                            <div class="text-xs text-neutral-custom">
-                                Dirección Ejecutiva: <strong class="text-[#000000]">Juan Antonio Repetto</strong> · <strong class="text-[#000000]">Mauro Repetto</strong>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2" id="verticalSelectorPills">
+                        <button onclick="selectVertical('fabricas')" data-v="fabricas" class="v-pill active text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 01</span>
+                            Fábricas y Logística
+                        </button>
+                        <button onclick="selectVertical('oficinas')" data-v="oficinas" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 02</span>
+                            Oficinas Corporativas
+                        </button>
+                        <button onclick="selectVertical('laboratorios')" data-v="laboratorios" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 03</span>
+                            Laboratorios y Farma
+                        </button>
+                        <button onclick="selectVertical('clinicas')" data-v="clinicas" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 04</span>
+                            Clínicas y Salud
+                        </button>
+                        <button onclick="selectVertical('consorcios')" data-v="consorcios" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 05</span>
+                            Consorcios y Torres
+                        </button>
+                        <button onclick="selectVertical('educacion')" data-v="educacion" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 06</span>
+                            Universidades y Colegios
+                        </button>
+                        <button onclick="selectVertical('comercial')" data-v="comercial" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 07</span>
+                            Retail y Supermercados
+                        </button>
+                        <button onclick="selectVertical('altura')" data-v="altura" class="v-pill text-left px-3 py-2.5 rounded-xl border border-gray-200 bg-gray-50 hover:border-brand text-xs font-bold leading-snug">
+                            <span class="block text-[10px] opacity-75 font-semibold">Rubro 08</span>
+                            Vidrios en Altura (ARAA)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PORTADA DINÁMICA CON EL ADN INSTITUCIONAL STAR UNION + PROTOCOLO DE LA VERTICAL ACTIVA -->
+                <div class="bg-white rounded-3xl border border-gray-200 shadow-md overflow-hidden">
+                    <!-- BANNER SUPERIOR CON CURVAS ORGÁNICAS VERDE BOSQUE (#0B6535), ESMERALDA (#1D8366) Y OLIVA (#8AB33E) -->
+                    <div class="relative bg-brand text-white p-6 sm:p-10 lg:p-12 overflow-hidden">
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-95" viewBox="0 0 1200 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="1200" height="420" fill="#0b6535"/>
+                            <path d="M620,0 L1200,0 L1200,420 L480,420 C540,260 570,120 620,0 Z" fill="#084d27"/>
+                            <path d="M780,0 L1200,0 L1200,420 L650,420 C700,270 730,130 780,0 Z" fill="#1d8366"/>
+                            <path d="M740,0 L795,0 L525,420 L470,420 Z" fill="#8ab33e" opacity="0.85"/>
+                        </svg>
+
+                        <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7">
+                                <div class="inline-flex flex-wrap items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full mb-4">
+                                    <span id="vBadge">Higiene Industrial Certificada · ISO 9001:2015 · Trayectoria desde 2001</span>
+                                </div>
+                                <div class="thin-display text-2xl sm:text-3xl text-white/90 leading-tight" id="vPreTitle">
+                                    Limpieza de
+                                </div>
+                                <h1 class="thin-display text-4xl sm:text-6xl text-white tracking-tight leading-[0.98] mb-4" id="vMainTitle">
+                                    Fábricas e Industrias
+                                </h1>
+                                <p class="text-base sm:text-lg text-accent font-semibold leading-snug mb-3" id="vGoldSubtitle">
+                                    Brindamos un servicio a medida de cada planta industrial, nave productiva y centro logístico
+                                </p>
+                                <p class="text-sm sm:text-base text-white/95 leading-relaxed mb-6" id="vLeadText">
+                                    Provisión integral de mano de obra propia en relación de dependencia directa, insumos aprobados por ANMAT, herramientas y flota propia de maquinaria pesada las 24 hs, los 365 días del año, respaldados por nuestra Base Operativa propia de 800 m² en calle Guaminí (CABA).
+                                </p>
+
+                                <!-- BOTONES DE ACCIÓN DIRECTA DE LA VERTICAL SELECCIONADA -->
+                                <div class="flex flex-wrap items-center gap-3" id="vActionButtons">
+                                    <a id="vBtnWa" href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20estoy%20viendo%20el%20Brochure%20Interactivo%20de%20Limpieza%20de%20F%C3%A1bricas%20e%20Industrias%20y%20quiero%20solicitar%20un%20relevamiento%20t%C3%A9cnico%20sin%20cargo." target="_blank" rel="noopener" class="bg-accent hover:bg-accent-hover text-gray-900 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-sm transition">
+                                        📲 Solicitar Relevamiento Técnico sin Cargo (WhatsApp)
+                                    </a>
+                                    <a id="vBtnPdfMain" href="../brochures/pdf/brochure-fabricas-e-industrias-version-b.pdf" target="_blank" rel="noopener" class="bg-white hover:bg-gray-100 text-brand font-bold text-xs sm:text-sm px-4 py-3 rounded-xl shadow-sm transition">
+                                        ⬇ Descargar Brochure PDF (Versión Impresa)
+                                    </a>
+                                    <a id="vBtnPdfTech" href="../brochures/pdf/brochure-fabricas-e-industrias.pdf" target="_blank" rel="noopener" class="bg-white/15 hover:bg-white/25 text-white border border-white/35 font-semibold text-xs sm:text-sm px-4 py-3 rounded-xl transition">
+                                        ⬇ Ficha de Protocolo Técnico (PDF Liviano)
+                                    </a>
+                                </div>
                             </div>
-                            <button onclick="goToSlide(1)" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded shadow-sm transition">
-                                Explorar Base Operativa Guaminí →
-                            </button>
+
+                            <!-- 3 MEDALLONES CIRCULARES DE LA VERTICAL ACTIVA (ADN CARPETA Y BROCHURE STAR UNION) -->
+                            <div class="lg:col-span-5 grid grid-cols-3 gap-3 sm:gap-4 items-center">
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-[#1d8366] shadow-xl bg-white mb-2">
+                                        <img id="vImg1" src="../brochures/img/fabricas-industrias-1.jpg" alt="Operación Star Union 1" class="w-full h-full object-cover">
+                                    </div>
+                                    <span id="vCap1" class="text-[11px] text-white/90 font-medium leading-tight">Playas de maniobras y logística</span>
+                                </div>
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-[#8ab33e] shadow-xl bg-white mb-2">
+                                        <img id="vImg2" src="../brochures/img/p1-industria-hombre-a-bordo-hd.jpg" alt="Operación Star Union 2" class="w-full h-full object-cover">
+                                    </div>
+                                    <span id="vCap2" class="text-[11px] text-white font-semibold leading-tight">Fregadoras hombre a bordo</span>
+                                </div>
+                                <div class="flex flex-col items-center text-center">
+                                    <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-[#1d8366] shadow-xl bg-white mb-2">
+                                        <img id="vImg3" src="../brochures/img/fabricas-industrias-3.jpg" alt="Operación Star Union 3" class="w-full h-full object-cover">
+                                    </div>
+                                    <span id="vCap3" class="text-[11px] text-white/90 font-medium leading-tight">Lavadoras automáticas 20B</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- COLUMNA DERECHA EN GRIS CLARO AIREADO (CERO AZUL) -->
-                    <div class="lg:col-span-5 bg-gray-50 border-l border-gray-200 flex flex-col justify-between p-6 sm:p-8">
-                        <div>
-                            <div class="rounded-xl overflow-hidden border-2 border-white shadow-md mb-4 bg-white aspect-[1200/628]">
-                                <img src="../assets/img/base-guamini-hero-framed.png?v=20261028" alt="Base Operativa Central de 800 m² en calle Guaminí, CABA" class="w-full h-full object-cover">
-                            </div>
-                            <div class="rounded-xl overflow-hidden border-2 border-white shadow-md mb-5 bg-white">
-                                <img src="../assets/img/perfit-curadas/perfit-taller-propio.jpg" alt="Taller Electromecánico Propio con Cabina de Arenado y Pintura en Base Guaminí" class="w-full h-44 object-cover object-[center_30%]">
-                            </div>
-                            <h3 class="text-base font-bold text-[#000000] mb-1">Respaldo Físico y Logístico Propio en CABA</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">
-                                Fundada en 2001 (con sede histórica previa en calle Pergamino), hoy centralizamos nuestra planta operativa propia de 800 m² (3 niveles) en <strong>Guaminí 5052 / 5657 (CABA)</strong> con flota ploteada, taller electromecánico in-house con cabina de arenado y pintura desde 2010 y escuela de capacitación.
-                            </p>
+                    <!-- BANDA DE 4 KPIS TRANSVERSALES VERIFICABLES -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 p-4 sm:p-6 bg-gray-50 border-b border-gray-200">
+                        <div class="bg-white p-4 rounded-xl border border-gray-200 border-t-4 border-t-brand">
+                            <div class="text-lg sm:text-xl font-extrabold text-brand">800 m² propios</div>
+                            <div class="text-xs text-gray-700 font-semibold mt-0.5">Base Operativa en Guaminí, CABA</div>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
-                            <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=starunion_web&utm_medium=dossier_right_link&utm_campaign=dossier_ejecutivo" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','click_iso_certipedia',{source_page:'dossier_right'});}" class="text-xs text-brand font-bold hover:underline">✓ Certificación TÜV Rheinland verificable online (ID 9000041847) ↗</a>
-                            <img src="../assets/img/cleany-hd.png" alt="Cleany Star Union" class="h-11 w-auto object-contain">
+                        <div class="bg-white p-4 rounded-xl border border-gray-200 border-t-4 border-t-brand">
+                            <div class="text-lg sm:text-xl font-extrabold text-brand">Alerta en 15 min</div>
+                            <div class="text-xs text-gray-700 font-semibold mt-0.5">Reloj biométrico en el objetivo</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-gray-200 border-t-4 border-t-brand">
+                            <div class="text-lg sm:text-xl font-extrabold text-brand">Relevo &lt; 2 horas</div>
+                            <div class="text-xs text-gray-700 font-semibold mt-0.5">Dotación propia de franqueros</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-gray-200 border-t-4 border-t-brand">
+                            <div class="text-lg sm:text-xl font-extrabold text-brand">ISO 9001:2015</div>
+                            <div class="text-xs text-gray-700 font-semibold mt-0.5">TÜV Rheinland · ID 9000041847</div>
+                        </div>
+                    </div>
+
+                    <!-- CUERPO DEL PROTOCOLO TÉCNICO DE LA VERTICAL ACTIVA (6 PILARES + EDITORIAL + REFERENCIAS) -->
+                    <div class="p-6 sm:p-10">
+                        <div class="flex flex-wrap items-end justify-between gap-4 mb-6 pb-4 border-b border-gray-200">
+                            <div>
+                                <div class="text-xs font-bold uppercase tracking-wider text-brand mb-1">
+                                    Ingeniería de Procesos · Alcance Certificado ISO 9001:2015
+                                </div>
+                                <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900" id="vProtocolHeading">
+                                    Protocolo técnico para zonas productivas, depósitos y áreas de soporte
+                                </h2>
+                            </div>
+                            <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-bold text-brand bg-brand/5 hover:bg-brand/10 border border-brand/20 px-3.5 py-2 rounded-lg transition">
+                                <span>✓ Certificado TÜV Rheinland ID 9000041847 (Abrir PDF)</span>
+                            </a>
+                        </div>
+
+                        <!-- PÁRRAFO EDITORIAL DE LA VERTICAL -->
+                        <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-7" id="vEditorialParagraph">
+                            <strong>STAR★UNION</strong> es reconocida por su sólida trayectoria desde el año 2001 dentro del sector industrial —desde nuestros inicios en calle Pergamino hasta nuestra actual <strong>Base Operativa propia de 800 m² en calle Guaminí 5052 / 5657 (CABA)</strong>—, adaptando cada plan de trabajo a los turnos de manufactura, cambios de lote y paradas técnicas programadas sin interrumpir el ritmo productivo.
+                        </p>
+
+                        <!-- GRILLA DE 6 PILARES DEL RUBRO SELECCIONADO -->
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-7" id="vPillarsGrid">
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">01</span>
+                                        <h3 class="text-sm font-extrabold text-gray-900">Alcance certificado ISO 9001:2015 en planta</h3>
+                                    </div>
+                                    <p class="text-xs text-gray-700 leading-relaxed mb-3">Procedimientos operativos estandarizados que se sincronizan con los turnos de manufactura, cambios de lote y paradas técnicas programadas.</p>
+                                </div>
+                                <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">Certificación: alcance auditado en zonas productivas y no productivas</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">02</span>
+                                        <h3 class="text-sm font-extrabold text-gray-900">Fregado y desengrase mecanizado de naves</h3>
+                                    </div>
+                                    <p class="text-xs text-gray-700 leading-relaxed mb-3">Remoción profunda de caucho de autoelevadores, aceites e hidrocarburos en pisos de hormigón alisado y epoxi sin dejar humedad residual.</p>
+                                </div>
+                                <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">Equipamiento: fregadoras hombre a bordo, 20B a batería e hidrolavadoras 150 bar</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">03</span>
+                                        <h3 class="text-sm font-extrabold text-gray-900">Limpieza técnica aérea de cabriadas y conductos</h3>
+                                    </div>
+                                    <p class="text-xs text-gray-700 leading-relaxed mb-3">Aspirado y despolvoreo en altura de estructuras reticuladas, bandejas portacables, luminarias industriales, tuberías y lucernarios.</p>
+                                </div>
+                                <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">Seguridad: cuadrillas habilitadas bajo normas ARAA y plataformas elevadoras</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">04</span>
+                                        <h3 class="text-sm font-extrabold text-gray-900">Higiene intensiva de vestuarios, duchas y comedores</h3>
+                                    </div>
+                                    <p class="text-xs text-gray-700 leading-relaxed mb-3">Sanitización entre turnos de vestuarios masivos de planta, baterías sanitarias, comedores industriales, consultorios médicos y oficinas técnicas.</p>
+                                </div>
+                                <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">Insumos: desinfectantes aprobados por ANMAT con planillas de control horario</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">05</span>
+                                        <h3 class="text-sm font-extrabold text-gray-900">Gestión de residuos en planta y parquización</h3>
+                                    </div>
+                                    <p class="text-xs text-gray-700 leading-relaxed mb-3">Recolección interna clasificada hacia puntos de acopio (cartón, film stretch, húmedos) y mantenimiento integral de predios verdes fabriles.</p>
+                                </div>
+                                <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">Predios: tractores cortacésped, desmalezadoras y sopladoras Stihl propias</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">06</span>
+                                        <h3 class="text-sm font-extrabold text-gray-900">Supervisión HSE (CPQ 6999) e indumentaria ARCIEL</h3>
+                                    </div>
+                                    <p class="text-xs text-gray-700 leading-relaxed mb-3">Cumplimiento de normas BPM/GMP, entrega registrada de EPP homologados, hojas de seguridad MSDS en pañol y código de 4 colores.</p>
+                                </div>
+                                <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">Respaldo: licenciado propio (Mat. CPQ 6999), hojas MSDS y botines con puntera</div>
+                            </div>
+                        </div>
+
+                        <!-- BANDA DE CLIENTES Y REFERENCIAS DE ESA VERTICAL -->
+                        <div class="bg-[#f0fdf4] border border-[#bbf7d0] border-l-4 border-l-brand rounded-xl p-4 text-xs sm:text-sm text-gray-900">
+                            <strong class="text-brand font-extrabold">Referencias y trayectoria comprobable en el sector:</strong>
+                            <span id="vClientsList">Coca-Cola (Reginald Lee) · Mondelez International · Air Liquide Argentina · Toyota Panamericana · Ferroclor · Grupo Simpa · Glencore · Viterra · Styropek · Motoimplementos Stihl · Evonik · Ball · Silgan · Atanor</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             LÁMINA 2: BASE OPERATIVA GUAMINÍ (800 M²)
-             ========================================== -->
-        <section class="slide-panel" data-slide="1">
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-7 sm:p-10">
+        <!-- =====================================================================
+             SECCIÓN 2: POR DENTRO DE NUESTRA BASE OPERATIVA DE 800 M² EN GUAMINÍ
+             ===================================================================== -->
+        <section id="base-guamini" class="py-12 sm:py-16 bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Lámina 2 de 6 · Infraestructura Propia en CABA</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000]">Base Operativa Propia en Calle Guaminí (800 m² Cubiertos)</h2>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Infraestructura 100% Propia desde 2001</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">Por dentro de nuestra Base Operativa de 800 m² en calle Guaminí (CABA)</h2>
+                        <p class="text-sm text-gray-600 mt-1">Inmueble propio de 3 plantas en Guaminí 5052 / 5657 (C1439HAW) con centro logístico, taller electromecánico, laboratorio de 6 pisos y escuela de capacitación.</p>
                     </div>
-                    <a href="../la-empresa/index.html" class="text-xs font-bold text-brand hover:underline">
-                        Ver página completa de Base Operativa Guaminí →
+                    <a href="https://www.starunion.com.ar/?utm_source=brochure_interactivo&utm_medium=seccion_guamini&utm_campaign=dossier_multivertical" target="_blank" rel="noopener" class="text-xs font-bold text-brand hover:underline">
+                        Conocer más en www.starunion.com.ar ↗
                     </a>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <img src="../assets/img/base-guamini-lab-maquinas.jpg" alt="Parque de maquinaria 2026 en Base Guaminí" class="w-full h-52 object-cover">
+                    <div class="rounded-2xl border border-gray-200 border-t-4 border-t-brand overflow-hidden bg-white shadow-sm">
+                        <img src="../brochures/img/p2-guamini-fachada-flota-hd.jpg" alt="Edificio propio de 800 m² en calle Guaminí y flota oficial" class="w-full h-52 object-cover">
                         <div class="p-5">
-                            <span class="text-[11px] font-bold uppercase text-brand">Equipamiento 2026</span>
-                            <h3 class="text-base font-bold text-[#000000] mt-0.5 mb-1.5">1. Parque Propio de Maquinaria Pesada</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">Fregadoras hombre a bordo y de empuje (20"), rotativas de 175 RPM, aspiradoras de acero inoxidable polvo/agua y cestos por código de colores.</p>
+                            <span class="text-[11px] font-bold uppercase text-brand">Guaminí 5052 / 5657, CABA</span>
+                            <h3 class="text-base font-bold text-gray-900 mt-0.5 mb-1.5">1. Edificio Propio de 800 m² (3 Niveles)</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Sede central propia con centro de operaciones, administración, depósito mayorista de insumos registrados en ANMAT y despacho de flota.</p>
                         </div>
                     </div>
 
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <img src="../assets/img/base-guamini-2.jpg" alt="Taller Electromecánico In-House con Cabina de Arenado y Pintura" class="w-full h-52 object-cover">
+                    <div class="rounded-2xl border border-gray-200 border-t-4 border-t-brand overflow-hidden bg-white shadow-sm">
+                        <img src="../brochures/img/p2-guamini-parque-maquinas-hd.jpg" alt="Parque propio de maquinaria pesada en Base Guaminí" class="w-full h-52 object-cover">
+                        <div class="p-5">
+                            <span class="text-[11px] font-bold uppercase text-brand">Stock Permanente</span>
+                            <h3 class="text-base font-bold text-gray-900 mt-0.5 mb-1.5">2. Parque Propio de Maquinaria Pesada</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Fregadoras hombre a bordo, lavadoras automáticas Convertamatic 20B a batería, rotativas de 175 RPM, hidrolavadoras 150 bar y aspiradoras industriales.</p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-gray-200 border-t-4 border-t-brand overflow-hidden bg-white shadow-sm">
+                        <img src="../assets/img/base-guamini-2.jpg" alt="Taller electromecánico propio con cabina de arenado y pintura" class="w-full h-52 object-cover">
                         <div class="p-5">
                             <span class="text-[11px] font-bold uppercase text-brand">Autosuficiencia desde 2010</span>
-                            <h3 class="text-base font-bold text-[#000000] mt-0.5 mb-1.5">2. Taller Propio con Arenado y Pintura</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">Mantenimiento preventivo y correctivo propio de máquinas monofásicas, trifásicas, a batería y a explosión, con cabina de arenado y pintura in-house.</p>
+                            <h3 class="text-base font-bold text-gray-900 mt-0.5 mb-1.5">3. Taller Electromecánico In-House (Recambio en el Día)</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Mantenimiento preventivo y correctivo propio de máquinas monofásicas, trifásicas, a batería y a explosión, con cabina de arenado y pintura propia.</p>
                         </div>
                     </div>
 
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <img src="../assets/img/base-guamini-capacitacion.jpg" alt="Auditorio de Capacitación con Cleany en Base Guaminí" class="w-full h-52 object-cover">
+                    <div class="rounded-2xl border border-gray-200 border-t-4 border-t-brand overflow-hidden bg-white shadow-sm">
+                        <img src="../assets/img/base-guamini-capacitacion.jpg" alt="Auditorio de capacitación e inducción en Base Guaminí" class="w-full h-52 object-cover">
                         <div class="p-5">
-                            <span class="text-[11px] font-bold uppercase text-brand">Formación Técnica</span>
-                            <h3 class="text-base font-bold text-[#000000] mt-0.5 mb-1.5">3. Centro de Capacitación e Inducción</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">Auditorio propio donde cada operario y encargado es entrenado en procedimientos ISO 9001:2015, seguridad e higiene y código de colores.</p>
+                            <span class="text-[11px] font-bold uppercase text-brand">Formación Auditada</span>
+                            <h3 class="text-base font-bold text-gray-900 mt-0.5 mb-1.5">4. Auditorio de Capacitación e Inducción</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Sala de formación propia donde cada operario y supervisor es entrenado en procedimientos ISO 9001:2015, seguridad e higiene (CPQ 6999) y código de 4 colores.</p>
                         </div>
                     </div>
 
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <img src="../assets/img/base-guamini-3.jpg" alt="Laboratorio Escuela de 6 Pisos" class="w-full h-52 object-cover">
+                    <div class="rounded-2xl border border-gray-200 border-t-4 border-t-brand overflow-hidden bg-white shadow-sm">
+                        <img src="../assets/img/base-guamini-3.jpg" alt="Laboratorio escuela con 6 superficies de pisos" class="w-full h-52 object-cover">
                         <div class="p-5">
                             <span class="text-[11px] font-bold uppercase text-brand">Práctica Real</span>
-                            <h3 class="text-base font-bold text-[#000000] mt-0.5 mb-1.5">4. Laboratorio con 6 Superficies de Pisos</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">Pista de pruebas interna con 6 tipos de pisos reales (madera/parquet, granito, mosaico, cemento alisado, terrazo y porcelanato).</p>
+                            <h3 class="text-base font-bold text-gray-900 mt-0.5 mb-1.5">5. Laboratorio-Escuela con 6 Superficies de Pisos</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Pista de pruebas interna con 6 tipos de pisos reales (madera/parquet, granito, mosaico, cemento alisado, terrazo y porcelanato) para entrenar el uso de químicos y discos.</p>
                         </div>
                     </div>
 
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <img src="../assets/img/base-guamini-transit.jpg" alt="Flota Propia Star Union" class="w-full h-52 object-cover">
+                    <div class="rounded-2xl border border-gray-200 border-t-4 border-t-brand overflow-hidden bg-white shadow-sm">
+                        <img src="../brochures/img/p2-guamini-utilitario-transit-hd.jpg" alt="Flota propia de utilitarios identificados Star Union" class="w-full h-52 object-cover">
                         <div class="p-5">
-                            <span class="text-[11px] font-bold uppercase text-brand">Flota 24/7 · 365 Días</span>
-                            <h3 class="text-base font-bold text-[#000000] mt-0.5 mb-1.5">5. Flota Vehicular y Supervisión Móvil</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">Utilitarios propios adaptados para traslado de maquinaria e insumos. Cada Supervisor dispone de un vehículo asignado para sus servicios.</p>
-                        </div>
-                    </div>
-
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <img src="../assets/img/uniforme-arciel-1.jpg" alt="Operarios con Uniformes ARCIEL Star Union en acción" class="w-full h-52 object-cover">
-                        <div class="p-5">
-                            <span class="text-[11px] font-bold uppercase text-brand">Presencia Corporativa</span>
-                            <h3 class="text-base font-bold text-[#000000] mt-0.5 mb-1.5">6. Uniformes Reglamentarios ARCIEL</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">Confección certificada en tela ARCIEL INTA (65% poliéster / 35% viscosa) con proceso indanthren anticloro y antimanchas y clasificación por rubro.</p>
+                            <span class="text-[11px] font-bold uppercase text-brand">Logística 24/7 · 365 Días</span>
+                            <h3 class="text-base font-bold text-gray-900 mt-0.5 mb-1.5">6. Flota Propia de Utilitarios y Auxilio Móvil</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Vehículos utilitarios propios ploteados para distribución programada de insumos, traslado de maquinaria y supervisión presencial móvil en CABA y GBA.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             LÁMINA 3: PROTOCOLO BIOMÉTRICO 15 MINUTOS Y UNIFORMES
-             ========================================== -->
-        <section class="slide-panel" data-slide="2">
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-7 sm:p-10">
+        <!-- =====================================================================
+             SECCIÓN 3: SIMULADOR INTERACTIVO BIOMÉTRICO (15 MIN) + UNIFORMES ARCIEL
+             ===================================================================== -->
+        <section id="biometria-arciel" class="py-12 sm:py-16 bg-gray-50 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-10 items-center">
                     <div class="lg:col-span-6">
-                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Lámina 3 de 6 · Continuidad Operativa Auditada</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000] mb-4">
-                            Sistema de Control Biométrico con Alerta a los 15 Minutos
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Continuidad Operativa Auditada</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+                            Reloj de Control Biométrico en Planta con Alerta a los 15 Minutos
                         </h2>
-                        <p class="text-sm sm:text-base text-neutral-custom leading-relaxed mb-6">
-                            En servicios con dotaciones permanentes ofrecemos la instalación de nuestro <strong>reloj de control biométrico de huella dactilar</strong> (requiere únicamente punto de red y alimentación 220V). Seleccioná cada etapa para ver cómo garantizamos el 100% de cobertura del turno:
+                        <p class="text-sm text-gray-600 leading-relaxed mb-5">
+                            En servicios con dotaciones permanentes instalamos nuestro <strong>reloj biométrico de huella dactilar</strong> en el objetivo (solo requiere punto de red y 220V). Hacé clic en cada etapa para ver cómo eliminamos las ausencias sin cubrir:
                         </p>
 
-                        <!-- INTERACTIVE STEP BUTTONS -->
-                        <div class="grid grid-cols-3 gap-2.5 mb-5">
-                            <button onclick="setBioStep(0)" id="bioBtn0" class="p-3.5 rounded-xl border-2 border-brand bg-brand/5 text-left transition">
+                        <div class="grid grid-cols-3 gap-2.5 mb-4">
+                            <button onclick="setBioStep(0)" id="bioBtn0" class="p-3.5 rounded-xl border-2 border-brand bg-white text-left shadow-sm transition">
                                 <div class="text-xs font-extrabold text-brand">ETAPA 1 · 00 MIN</div>
-                                <div class="text-xs font-bold text-[#000000] mt-0.5">Fichada en Sitio</div>
+                                <div class="text-xs font-bold text-gray-900 mt-0.5">Fichada en Sitio</div>
                             </button>
                             <button onclick="setBioStep(1)" id="bioBtn1" class="p-3.5 rounded-xl border border-gray-200 bg-white text-left hover:border-brand transition">
                                 <div class="text-xs font-extrabold text-brand">ETAPA 2 · 15 MIN</div>
-                                <div class="text-xs font-bold text-[#000000] mt-0.5">Alerta Automática</div>
+                                <div class="text-xs font-bold text-gray-900 mt-0.5">Alerta Automática</div>
                             </button>
                             <button onclick="setBioStep(2)" id="bioBtn2" class="p-3.5 rounded-xl border border-gray-200 bg-white text-left hover:border-brand transition">
                                 <div class="text-xs font-extrabold text-brand">ETAPA 3 · &lt; 2 HS</div>
-                                <div class="text-xs font-bold text-[#000000] mt-0.5">Relevo en Puesto</div>
+                                <div class="text-xs font-bold text-gray-900 mt-0.5">Relevo en Puesto</div>
                             </button>
                         </div>
 
-                        <div id="bioDetailBox" class="p-6 rounded-xl bg-gray-50 border border-gray-200 border-l-4 border-l-brand">
+                        <div class="p-5 rounded-2xl bg-white border border-gray-200 border-l-4 border-l-brand shadow-sm">
                             <div class="text-xs font-bold uppercase tracking-wider text-brand mb-1" id="bioTag">Etapa 1 · Minuto 00 (Inicio del Turno)</div>
-                            <h3 class="text-lg font-bold text-[#000000] mb-2" id="bioTitle">Validación de Huella Dactilar en el Objetivo</h3>
-                            <p class="text-xs sm:text-sm text-neutral-custom leading-relaxed" id="bioText">
+                            <h3 class="text-base sm:text-lg font-extrabold text-gray-900 mb-1.5" id="bioTitle">Validación de Huella Dactilar en el Establecimiento</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed" id="bioText">
                                 Al ingresar y retirarse del establecimiento del cliente, cada operario registra su huella dactilar en el terminal biométrico conectado en línea con nuestra Base Operativa en calle Guaminí. El cliente dispone de trazabilidad exacta de horas-hombre efectivamente cumplidas.
                             </p>
                         </div>
                     </div>
 
-                    <div class="lg:col-span-6">
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                                <img src="../assets/img/base-guamini-biometrico.jpg" alt="Terminal de Control Biométrico y Personal Star Union" class="w-full h-56 object-cover">
-                                <div class="p-4">
-                                    <div class="text-xs font-bold text-[#000000]">Terminal Biométrico (Red + 220V)</div>
-                                    <p class="text-[11px] text-neutral-custom mt-1">Detección temprana de ausencias sin intervención manual ni avisos tardíos.</p>
-                                </div>
+                    <div class="lg:col-span-6 grid sm:grid-cols-2 gap-5">
+                        <div class="rounded-2xl border border-gray-200 overflow-hidden bg-white shadow-sm">
+                            <img src="../assets/img/base-guamini-biometrico.jpg" alt="Terminal de Control Biométrico Star Union" class="w-full h-56 object-cover">
+                            <div class="p-4">
+                                <span class="text-[10px] font-bold uppercase text-brand">Trazabilidad en Tiempo Real</span>
+                                <h4 class="text-sm font-bold text-gray-900 mt-0.5">Terminal Biométrico en Línea</h4>
+                                <p class="text-xs text-gray-600 mt-1">Detección temprana de ausencias a los 15 minutos sin esperar reclamos del cliente.</p>
                             </div>
-                            <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                                <img src="../assets/img/uniforme-arciel-1.jpg" alt="Uniforme ARCIEL Star Union en acción" class="w-full h-56 object-cover">
-                                <div class="p-4">
-                                    <div class="text-xs font-bold text-[#000000]">Uniformes Certificados ARCIEL</div>
-                                    <p class="text-[11px] text-neutral-custom mt-1">Chaqueta blanca/verde (Oficinas), chomba verde (Industria), grafa negro (Mantenimiento) y refractarios.</p>
-                                </div>
+                        </div>
+                        <div class="rounded-2xl border border-gray-200 overflow-hidden bg-white shadow-sm">
+                            <img src="../brochures/img/p2-guamini-uniforme-arciel-hd.jpg" alt="Uniforme Reglamentario ARCIEL Star Union" class="w-full h-56 object-cover">
+                            <div class="p-4">
+                                <span class="text-[10px] font-bold uppercase text-brand">Certificación INTA Anticloro</span>
+                                <h4 class="text-sm font-bold text-gray-900 mt-0.5">Uniformes Reglamentarios ARCIEL</h4>
+                                <p class="text-xs text-gray-600 mt-1">Chaqueta blanca/verde (Oficinas y Salud), chomba verde (Industria), grafa negro (Mantenimiento) y EPP con puntera.</p>
                             </div>
                         </div>
                     </div>
@@ -362,342 +522,628 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             LÁMINA 4: MAQUINARIA PESADA, ALTURA Y BROCHURES 2026
-             ========================================== -->
-        <section class="slide-panel" data-slide="3">
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-7 sm:p-10">
+        <!-- =====================================================================
+             SECCIÓN 4: BLINDAJE LEGAL ART. 30 LCT (FRANJA SERVICIO RESPONSABLE)
+             ===================================================================== -->
+        <section id="blindaje-art30" class="py-12 sm:py-16 bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- BANDA GRIS PIEDRA (#EBEBEB) FIEL AL BROCHURE INSTITUCIONAL -->
+                <div class="bg-[#ebebeb] rounded-3xl p-6 sm:p-10 mb-10 border border-gray-300">
+                    <div class="grid lg:grid-cols-12 gap-6 items-center">
+                        <div class="lg:col-span-3 flex justify-center">
+                            <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-[#1d8366] shadow-lg bg-white">
+                                <img src="../brochures/img/p2-guamini-utilitario-transit-hd.jpg" alt="Servicio Responsable y Sin Riesgo Solidario Star Union" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-9">
+                            <h2 class="text-xl sm:text-2xl font-extrabold italic text-brand uppercase tracking-wide mb-2">
+                                Brindamos un Servicio Responsable y Sin Riesgo Solidario (Art. 30 LCT)
+                            </h2>
+                            <p class="text-sm sm:text-base italic font-medium text-brand leading-relaxed mb-4">
+                                <strong>Como empresa líder del mercado, garantizamos indemnidad solidaria total (Art. 30 LCT) con el 100% del personal en nómina directa y preservación del medio ambiente.</strong> Entregamos del 1 al 10 de cada mes F931 AFIP, recibos de sueldo, acreditaciones bancarias y ART con cláusula de no repetición. Realizamos capacitación continua con nuestro Licenciado en Seguridad e Higiene propio (Mat. CPQ 6999), utilizando insumos biodegradables aprobados por ANMAT con hojas MSDS en pañol y código de 4 colores.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs font-bold text-brand">
+                                <span class="bg-white px-3 py-1.5 rounded-lg border border-brand/20">✓ 100% Nómina Directa (Cero Cooperativas)</span>
+                                <span class="bg-white px-3 py-1.5 rounded-lg border border-brand/20">✓ F931 AFIP + Bancarización Mensual</span>
+                                <span class="bg-white px-3 py-1.5 rounded-lg border border-brand/20">✓ ART con Cláusula de No Repetición + SVO</span>
+                                <span class="bg-white px-3 py-1.5 rounded-lg border border-brand/20">✓ Lic. Higiene y Seguridad Propio (Mat. CPQ 6999)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CALIDAD Y GARANTÍA DE SERVICIO + SELLO OFICIAL TÜV RHEINLAND -->
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Calidad y Garantía de Servicio</span>
+                        <h3 class="text-2xl font-extrabold text-gray-900 mb-3">
+                            Supervisión Ejecutiva Directa de sus Socios Gerentes
+                        </h3>
+                        <p class="text-sm text-gray-700 leading-relaxed mb-3">
+                            En <strong>STAR★UNION</strong> es prioritario brindar máxima calidad y trazabilidad en cada servicio para que nuestros clientes operen con total tranquilidad en todas las áreas donde desplegamos nuestro conocimiento técnico.
+                        </p>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Nuestros métodos combinan sistemas innovadores de higiene corporativa e industrial, controles exhaustivos de calidad auditados bajo norma <strong>ISO 9001:2015 por TÜV Rheinland (ID 9000041847)</strong>, maquinaria propia de última generación y supervisión ejecutiva directa de sus socios gerentes (<strong>Juan Antonio Repetto</strong> y <strong>Mauro Repetto</strong>), única entre nuestros competidores.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-5">
+                        <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" class="block p-6 rounded-2xl bg-[#f5f7f6] border-l-4 border-l-brand border border-gray-200 hover:border-brand transition shadow-sm">
+                            <div class="flex items-center justify-between gap-4 mb-3">
+                                <img src="../assets/img/tuv-iso-9001-qr.png" alt="TÜV Rheinland ISO 9001:2015 QR" class="h-16 w-auto object-contain bg-white p-1.5 rounded border border-gray-200">
+                                <div class="flex-1">
+                                    <div class="text-xs font-extrabold uppercase text-brand">Certificado Oficial Vigente</div>
+                                    <div class="text-base font-extrabold text-gray-900">TÜV Rheinland ISO 9001:2015</div>
+                                    <div class="text-xs text-gray-600">ID 9000041847 · Reg. 01 100 062529826</div>
+                                </div>
+                                <img src="../assets/img/cleany-transparente.png" alt="Cleany Star Union" class="h-14 w-auto object-contain">
+                            </div>
+                            <div class="text-xs font-bold text-brand underline">
+                                ⬇ Hacé clic aquí para abrir y descargar el Certificado Oficial TÜV Rheinland en PDF →
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             SECCIÓN 5: BIBLIOTECA COMPLETA DE LOS 16 BROCHURES EN PDF A4 (#fichas-tecnicas)
+             ===================================================================== -->
+        <section id="fichas-tecnicas" class="py-12 sm:py-16 bg-gray-50 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Lámina 4 de 6 · Capacidad Técnica Instalada</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000]">Parque de Maquinaria Propia y División Altura (ARAA)</h2>
-                    </div>
-                    <a href="../limpieza-en-altura/index.html" class="text-xs font-bold text-brand hover:underline">
-                        Ver División Vidrios en Altura →
-                    </a>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <div class="h-48 overflow-hidden bg-gray-50">
-                            <img src="../assets/img/base-guamini-lab-maquinas.jpg" alt="Parque de maquinaria Star Union" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-bold text-[#000000] mb-1.5">Maquinaria Industrial Propia</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">
-                                Lavadoras automáticas de pisos a batería de 20" (1.750 m²/h), lava alfombras de acero inoxidable de 2 motores, lustradoras rotativas de 175 RPM, hidrolavadoras 150BR, sopladoras Stihl y tractores John Deere.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <div class="h-48 overflow-hidden bg-gray-50">
-                            <img src="../assets/img/altura-curtain-wall-1.jpg" alt="Oficiales de altura Star Union en fachada Curtain Wall" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-bold text-[#000000] mb-1.5">Oficiales de Altura (Normas ARAA)</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">
-                                Cuadrillas propias entrenadas bajo normas de la Australian Rope Access Association: silletas, balancines, hidroelevadores, ósmosis inversa y sellado de cristales con supervisión HSE (M.P. CPQ 6999).
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-                        <div class="h-48 overflow-hidden bg-gray-50">
-                            <img src="../assets/img/insumos-anmat.jpg" alt="Insumos homologados ANMAT y carros exprimidores Star Union" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="text-base font-bold text-[#000000] mb-1.5">Insumos ANMAT y Carros Profesionales</h3>
-                            <p class="text-xs text-neutral-custom leading-relaxed">
-                                Provisión integral de carros mopas de doble balde con prensa escurridora, haraganes de aluminio, mopas de microfibra y químicos desinfectantes aprobados por ANMAT con MSDS en cada pañol.
-                            </p>
-                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Documentación A4 Lista para Imprimir o Adjuntar a Pliegos</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">16 Brochures y Protocolos Técnicos en PDF por Rubro</h2>
+                        <p class="text-sm text-gray-600 mt-1">Hacé clic en cualquiera de las 16 verticales para abrir o descargar su Brochure en PDF A4 con links interactivos incorporados.</p>
                     </div>
                 </div>
 
-                <!-- ACCESO RÁPIDO A LAS 16 FICHAS TÉCNICAS PDF + EDITABLES 2026 -->
-                <div class="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                    <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-xl border-2 border-brand shadow-sm flex flex-col justify-between">
                         <div>
-                            <h4 class="text-sm font-bold text-[#000000]">Descargar o Editar Fichas Técnicas por Rubro (Edición 2026)</h4>
-                            <p class="text-xs text-neutral-custom">Seleccioná tu industria para abrir el protocolo técnico A4 o ingresá al Editor Visual Editable:</p>
+                            <span class="inline-block bg-accent text-gray-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full mb-1">01 · Industria y Logística</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Fábricas y Plantas Industriales</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Naves productivas, depósitos logísticos, desengrase mecanizado, cabriadas y vestuarios.</p>
                         </div>
-                        <a href="#fichas-tecnicas" class="text-xs font-bold text-brand hover:underline">Ver los 16 Brochures + Modo Edición →</a>
+                        <div class="space-y-1.5">
+                            <a href="../brochures/pdf/brochure-fabricas-e-industrias-version-b.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                                ⬇ PDF Brochure Impreso (Carátula)
+                            </a>
+                            <a href="../brochures/pdf/brochure-fabricas-e-industrias.pdf" target="_blank" class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-900 text-[11px] font-bold py-1.5 px-3 rounded-lg transition">
+                                ⬇ PDF Ficha Protocolo (Fondo Blanco)
+                            </a>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 text-[11px] font-semibold">
-                        <a href="../brochures/pdf/brochure-institucional-star-union.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Institucional</a>
-                        <a href="../brochures/pdf/brochure-vidrios-en-altura.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Vidrios en Altura</a>
-                        <a href="../brochures/pdf/brochure-fabricas-e-industrias.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Fábricas e Ind.</a>
-                        <a href="../brochures/pdf/brochure-laboratorios-y-farma.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Laboratorios</a>
-                        <a href="../brochures/pdf/brochure-oficinas-corporativas.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Oficinas Corp.</a>
-                        <a href="../brochures/pdf/brochure-consorcios-y-edificios.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Consorcios</a>
-                        <a href="../brochures/pdf/brochure-clinicas-y-hospitales.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Clínicas y Salud</a>
-                        <a href="../brochures/pdf/brochure-universidades-y-colegios.pdf" target="_blank" class="p-2.5 rounded bg-white border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition text-center">Universidades</a>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">02 · Corporativo General</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Brochure Institucional Star Union</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Base propia de 800 m² en Guaminí, taller propio, escuela de 6 pisos y biometría 15 min.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-institucional-star-union.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">03 · Normas ARAA</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Vidrios y Trabajos en Altura</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Cuadrillas propias ARAA: curtain wall, silletas, balancines, hidroelevadores y ósmosis.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-vidrios-en-altura.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">04 · Sedes y Bancos</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Oficinas Corporativas</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Pisos corporativos, salas de directorio, tabiques vidriados, alfombras y guardia diurna.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-oficinas-corporativas.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">05 · Normas GMP / BPM</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Laboratorios e Industria Farma</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Protocolos alineados a POEs, trazabilidad en planillas, esclusas y áreas limpias.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-laboratorios-y-farma.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">06 · Bioseguridad Hospitalaria</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Clínicas, Sanatorios y Salud</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Higiene crítica y semicrítica 24/7, doble balde por código de 4 colores e insumos ANMAT.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-clinicas-y-hospitales.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">07 · Torres y Administraciones</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Consorcios y Edificios</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Reemplazo garantizado en vacaciones/licencias, halls, amenities, cocheras y legajo Art. 30.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-consorcios-y-edificios.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">08 · Campus Educativos</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Universidades y Colegios</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Operación sincronizada en recreos y entre turnos para aulas, comedores y campos deportivos.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-universidades-y-colegios.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">09 · Clubes y Polideportivos</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Instituciones Deportivas</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Desinfección de vestuarios y duchas, gimnasios, canchas cubiertas y corte de césped.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-instituciones-deportivas.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">10 · Grandes Superficies</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Centros Comerciales y Retail</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Fregado mecanizado de malls e hipermercados, patios de comidas, baños y cocheras.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-centros-comerciales.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">11 · Terminales Aéreas 24/7</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Aeropuertos y Terminales</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Salas de preembarque, check-in, mangas, cintas de equipaje y ventanales a plataforma.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-aeropuertos.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">12 · Showrooms y Talleres</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Concesionarios Automotrices</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Brillo espejo en salones de exposición 0 km, vidrieras y desengrase de talleres postventa.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-concesionarios-automotrices.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">13 · Hospitalidad y Eventos</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Hoteles y Convenciones</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Lobbies, salones de convenciones, lavado de alfombras y tapizados, cocinas y fachadas.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-hoteles.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">14 · Flotas y Cabeceras</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Ómnibus y Bases de Transporte</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Acondicionamiento de giro rápido en cabecera, sanitarios químicos, butacas y talleres.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-omnibus-y-terminales.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">15 · Sector Público</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Organismos Oficiales</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Cumplimiento de pliegos licitatorios con certificación ISO 9001:2015 y solvencia fiscal.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-organismos-oficiales.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-brand">16 · Operaciones Especiales</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">Limpieza de Final de Obra</h3>
+                            <p class="text-xs text-gray-600 mt-1 mb-3">Unidades móviles Ford Transit, remoción técnica de cemento/pintura y curtain wall.</p>
+                        </div>
+                        <a href="../brochures/pdf/brochure-final-de-obra.pdf" target="_blank" class="block w-full text-center bg-brand hover:bg-brand-dark text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                            ⬇ Descargar PDF A4
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             LÁMINA 5: CLIENTES Y REFERENCIAS COMPROBABLES 2026
-             ========================================== -->
-        <section class="slide-panel" data-slide="4">
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-7 sm:p-10">
-                <div class="flex flex-wrap justify-between items-end gap-4 mb-6">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Lámina 5 de 6 · Trayectoria Comprobable</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000]">Organizaciones que confían en Star Union S.R.L.</h2>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5" id="clientFilters">
-                        <button onclick="filterClients('all', this)" class="px-3 py-1.5 rounded text-xs font-bold bg-brand text-white transition">Todos</button>
-                        <button onclick="filterClients('industria', this)" class="px-3 py-1.5 rounded text-xs font-semibold bg-gray-100 text-[#000000] hover:bg-gray-200 transition">Industria y Farma</button>
-                        <button onclick="filterClients('corporativo', this)" class="px-3 py-1.5 rounded text-xs font-semibold bg-gray-100 text-[#000000] hover:bg-gray-200 transition">Corporativo y Retail</button>
-                        <button onclick="filterClients('educacion', this)" class="px-3 py-1.5 rounded text-xs font-semibold bg-gray-100 text-[#000000] hover:bg-gray-200 transition">Educación, Salud y Clubes</button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-8" id="clientGrid">
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Toyota Panamericana</div>
-                        <div class="text-[11px] text-neutral-custom">Automotriz / Concesionario</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Coca-Cola (Reginald Lee)</div>
-                        <div class="text-[11px] text-neutral-custom">Planta Embotelladora</div>
-                    </div>
-                    <div data-cat="corporativo" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Bain &amp; Company</div>
-                        <div class="text-[11px] text-neutral-custom">Consultoría Internacional</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Mondelez International</div>
-                        <div class="text-[11px] text-neutral-custom">Industria Alimenticia</div>
-                    </div>
-                    <div data-cat="educacion" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">New York University</div>
-                        <div class="text-[11px] text-neutral-custom">Sede Académica CABA</div>
-                    </div>
-                    <div data-cat="educacion" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Univ. Torcuato Di Tella</div>
-                        <div class="text-[11px] text-neutral-custom">Campus Universitario</div>
-                    </div>
-                    <div data-cat="educacion" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Asoc. Escuelas Lincoln</div>
-                        <div class="text-[11px] text-neutral-custom">Campus Educativo</div>
-                    </div>
-                    <div data-cat="educacion" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Belgrano Day School</div>
-                        <div class="text-[11px] text-neutral-custom">Institución Educativa</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Air Liquide Argentina</div>
-                        <div class="text-[11px] text-neutral-custom">Gases Industriales y Medicinales</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Biosidus / Evonik</div>
-                        <div class="text-[11px] text-neutral-custom">Biotecnología y Laboratorios</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Glencore / Viterra</div>
-                        <div class="text-[11px] text-neutral-custom">Agroindustria y Exportación</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Motoimplementos Stihl</div>
-                        <div class="text-[11px] text-neutral-custom">Planta y Centro Logístico</div>
-                    </div>
-                    <div data-cat="corporativo" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Supermercados Mayoristas Makro</div>
-                        <div class="text-[11px] text-neutral-custom">Grandes Superficies</div>
-                    </div>
-                    <div data-cat="corporativo" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Alsea (Burger King / Starbucks)</div>
-                        <div class="text-[11px] text-neutral-custom">Gastronomía Multi-Sucursal</div>
-                    </div>
-                    <div data-cat="corporativo" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Aeropuertos Neuquén y B. Blanca</div>
-                        <div class="text-[11px] text-neutral-custom">Terminales Aeroportuarias</div>
-                    </div>
-                    <div data-cat="educacion" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Asoc. Civil Club de Amigos</div>
-                        <div class="text-[11px] text-neutral-custom">Predio Deportivo y Vestuarios</div>
-                    </div>
-                    <div data-cat="industria" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Styropek / Ball / Silgan</div>
-                        <div class="text-[11px] text-neutral-custom">Complejos Industriales</div>
-                    </div>
-                    <div data-cat="corporativo" class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 text-center">
-                        <div class="text-xs font-extrabold text-[#000000]">Under Armour / Häfele / Makita</div>
-                        <div class="text-[11px] text-neutral-custom">Sedes Corporativas y Depósitos</div>
-                    </div>
-                </div>
-
-                <!-- TESTIMONIOS AUDITABLES -->
-                <div class="grid md:grid-cols-3 gap-5">
-                    <div class="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                        <p class="text-xs text-neutral-custom italic leading-relaxed mb-3">
-                            "Quiero destacar la predisposición ante emergencias o cambios de rutina que nos surgen a diario, además de la calidez humana de cada uno de los integrantes de la empresa."
-                        </p>
-                        <div class="text-xs font-bold text-[#000000]">Lic. Guillermo M.</div>
-                        <div class="text-[11px] text-brand font-semibold">Jefe de Servicios Generales · Clínica Privada</div>
-                    </div>
-                    <div class="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                        <p class="text-xs text-neutral-custom italic leading-relaxed mb-3">
-                            "Destacamos la excelente atención de la supervisión y la rápida respuesta frente a cualquier requerimiento operativo en nuestras instalaciones industriales."
-                        </p>
-                        <div class="text-xs font-bold text-[#000000]">Referencias Comerciales Directas</div>
-                        <div class="text-[11px] text-brand font-semibold">Air Liquide · Toyota Panamericana · Stihl · Club de Amigos</div>
-                    </div>
-                    <div class="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                        <p class="text-xs text-neutral-custom italic leading-relaxed mb-3">
-                            "La estabilidad del personal asignado y la entrega puntual de toda la documentación previsional y de seguridad e higiene nos brinda total tranquilidad."
-                        </p>
-                        <div class="text-xs font-bold text-[#000000]">Auditoría de Proveedores</div>
-                        <div class="text-[11px] text-brand font-semibold">Certificación TÜV Rheinland ISO 9001:2015</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             LÁMINA 6: BLINDAJE LEGAL Y CONTACTO DIRECTO (CERO AZUL)
-             ========================================== -->
-        <section class="slide-panel" data-slide="5">
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-7 sm:p-10">
-                <div class="grid lg:grid-cols-12 gap-10 items-start">
-                    <div class="lg:col-span-7">
-                        <span class="text-xs font-bold uppercase tracking-widest text-brand block mb-1">Lámina 6 de 6 · Mitigación de Riesgo Solidario (Art. 30 LCT)</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000] mb-4">
-                            Protocolo de Cumplimiento Laboral, Fiscal y HSE
-                        </h2>
-                        <p class="text-sm text-neutral-custom leading-relaxed mb-6">
-                            Sabemos que para el Directorio, Gerencia de Compras o Administración del comitente, la solvencia legal del proveedor es tan importante como la calidad de la limpieza. Presentamos mensualmente:
-                        </p>
-
-                        <div class="space-y-3 mb-6">
-                            <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 flex items-start gap-3">
-                                <span class="text-brand font-bold">✓</span>
-                                <div class="text-xs sm:text-sm text-neutral-custom">
-                                    <strong class="text-[#000000]">100% Personal en Relación de Dependencia Directa:</strong> Formulario AFIP 931, acuses de pago bancarios, recibos de sueldo firmados y altas tempranas. Cero subcontratación informal.
-                                </div>
-                            </div>
-                            <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 flex items-start gap-3">
-                                <span class="text-brand font-bold">✓</span>
-                                <div class="text-xs sm:text-sm text-neutral-custom">
-                                    <strong class="text-[#000000]">ART con Cláusula de No Repetición y Seguro de Vida Obligatorio:</strong> Endosados específicamente a favor de la razón social o consorcio contratante antes del inicio de actividades.
-                                </div>
-                            </div>
-                            <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 flex items-start gap-3">
-                                <span class="text-brand font-bold">✓</span>
-                                <div class="text-xs sm:text-sm text-neutral-custom">
-                                    <strong class="text-[#000000]">Servicio Propio de Higiene y Seguridad (M.P. CPQ 6999):</strong> Relevamiento de riesgos, entrega auditada de EPP homologados, hojas de seguridad ANMAT (MSDS) y capacitación continua.
-                                </div>
-                            </div>
-                            <div class="p-4 rounded-xl border border-gray-200 bg-gray-50 flex items-start gap-3">
-                                <span class="text-brand font-bold">✓</span>
-                                <div class="text-xs sm:text-sm text-neutral-custom">
-                                    <strong class="text-[#000000]">Póliza de Responsabilidad Civil Comprensiva:</strong> Cobertura integral para operaciones en plantas industriales, oficinas corporativas y trabajos de limpieza en altura.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5">
-                        <div class="bg-gray-50 rounded-2xl p-7 border border-gray-200 border-t-4 border-t-brand shadow-sm">
-                            <div class="flex items-center justify-between gap-3 mb-3">
-                                <div>
-                                    <span class="text-xs font-bold uppercase tracking-wider text-brand block mb-1">Contacto Ejecutivo Directo</span>
-                                    <h3 class="text-xl font-extrabold text-[#000000]">Coordinar Relevamiento Técnico sin Cargo</h3>
-                                </div>
-                                <img src="../assets/img/cleany-hd.png" alt="Cleany Star Union" class="h-12 w-auto object-contain shrink-0">
-                            </div>
-                            <p class="text-xs sm:text-sm text-neutral-custom leading-relaxed mb-6">
-                                Nuestro equipo comercial y operativo realiza una visita técnica de diagnóstico a tus instalaciones para dimensionar horas-hombre, maquinaria y frecuencia óptima en 24/48 hs.
+        <!-- =====================================================================
+             SECCIÓN 6: CONTACTO EJECUTIVO DIRECTO (CABA Y GBA)
+             ===================================================================== -->
+        <section id="contacto-directo" class="py-12 sm:py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-50 rounded-3xl p-7 sm:p-10 border border-gray-200 border-t-4 border-t-brand shadow-sm">
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand block mb-1">Relevamiento Técnico en Planta sin Cargo</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+                                Solicite una Visita de Diagnóstico (Propuesta en 24 a 48 hs)
+                            </h2>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-5">
+                                Relevamos sus instalaciones en CABA y GBA para dimensionar dotación, frecuencias y parque de maquinaria óptima, entregando propuesta técnica y económica a medida.
                             </p>
-
-                            <div class="space-y-2.5 text-xs text-neutral-custom mb-6 p-4 rounded-xl bg-white border border-gray-200">
-                                <div><strong class="text-[#000000]">Gerencia Comercial:</strong> Mauro Repetto (<a href="mailto:mrepetto@starunion.com.ar" class="text-brand font-semibold hover:underline">mrepetto@starunion.com.ar</a>)</div>
-                                <div><strong class="text-[#000000]">Mesa Comercial:</strong> <a href="mailto:comercial@starunion.com.ar" class="text-brand font-semibold hover:underline">comercial@starunion.com.ar</a></div>
-                                <div><strong class="text-[#000000]">Base Operativa Central:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA</div>
-                                <div><strong class="text-[#000000]">Atención Telefónica:</strong> 0810-333-UNION (8646) / (011) 4637-8146</div>
+                            <div class="space-y-2 text-xs sm:text-sm text-gray-700 bg-white p-4 rounded-2xl border border-gray-200">
+                                <div><strong>Base Operativa Propia:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA (800 m² cubiertos)</div>
+                                <div><strong>Atención Telefónica:</strong> <a href="tel:08103338646" class="text-brand font-bold hover:underline">0810-333-UNION (8646)</a> · <a href="tel:+541146378146" class="hover:underline">(011) 4637-8146</a></div>
+                                <div><strong>WhatsApp Comercial:</strong> <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20estoy%20viendo%20el%20Brochure%20Interactivo%20y%20quiero%20solicitar%20un%20relevamiento%20t%C3%A9cnico%20sin%20cargo." target="_blank" rel="noopener" class="text-brand font-bold underline">+54 9 11 2275-9369</a></div>
+                                <div><strong>Dirección Comercial:</strong> <a href="mailto:mrepetto@starunion.com.ar?cc=comercial@starunion.com.ar&subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Star%20Union%20S.R.L." class="text-brand font-bold hover:underline">mrepetto@starunion.com.ar</a> · <a href="mailto:comercial@starunion.com.ar?subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Star%20Union%20S.R.L." class="hover:underline">comercial@starunion.com.ar</a></div>
                             </div>
-
-                            <div class="space-y-3">
-                                <a href="https://api.whatsapp.com/send?phone=5491122759369&text=Hola%20Star%20Union,%20estuve%20viendo%20el%20Dossier%20Ejecutivo%20y%20quisiera%20coordinar%20un%20relevamiento%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="w-full block text-center bg-brand hover:bg-brand-dark text-white font-bold text-sm py-3.5 px-5 rounded shadow-sm transition">
-                                    Contactar por WhatsApp Corporativo
-                                </a>
-                                <a href="mailto:mrepetto@starunion.com.ar?cc=comercial@starunion.com.ar&subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20-%20Star%20Union%20S.R.L." class="w-full block text-center bg-white hover:border-brand text-[#000000] border-2 border-gray-200 font-bold text-sm py-3.5 px-5 rounded transition">
-                                    Enviar Correo a Gerencia Comercial
-                                </a>
-                            </div>
+                        </div>
+                        <div class="md:col-span-5 flex flex-col gap-3">
+                            <a href="https://wa.me/5491122759369?text=Hola%20Star%20Union%2C%20estoy%20viendo%20el%20Brochure%20Interactivo%20y%20quiero%20coordinar%20un%20relevamiento%20t%C3%A9cnico%20sin%20cargo." target="_blank" rel="noopener" class="w-full text-center bg-brand hover:bg-brand-dark text-white font-bold text-sm py-3.5 px-5 rounded-xl shadow-sm transition">
+                                📲 Contactar por WhatsApp Comercial
+                            </a>
+                            <a href="mailto:mrepetto@starunion.com.ar?cc=comercial@starunion.com.ar&subject=Solicitud%20de%20Relevamiento%20T%C3%A9cnico%20%E2%80%94%20Star%20Union%20S.R.L." class="w-full text-center bg-white hover:bg-gray-100 text-gray-900 border-2 border-gray-300 font-bold text-sm py-3.5 px-5 rounded-xl transition">
+                                ✉️ Enviar Correo a Gerencia Comercial
+                            </a>
+                            <a href="https://www.starunion.com.ar/?utm_source=brochure_interactivo&utm_medium=cta_footer&utm_campaign=dossier_multivertical" target="_blank" rel="noopener" class="w-full text-center bg-accent hover:bg-accent-hover text-gray-900 font-bold text-sm py-3.5 px-5 rounded-xl transition">
+                                🌐 Visitar www.starunion.com.ar ↗
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONTROLES DE PAGINACIÓN INFERIOR -->
-        <div class="mt-6 flex items-center justify-between">
-            <button onclick="prevSlide()" id="prevBtn" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#000000] hover:text-brand bg-white border border-gray-200 px-4 py-2.5 rounded shadow-sm transition">
-                ← Lámina Anterior
-            </button>
-            <div class="text-xs font-semibold text-neutral-custom" id="slideCounter">
-                Lámina 1 de 6 · Podés navegar con las flechas del teclado (← / →)
-            </div>
-            <button onclick="nextSlide()" id="nextBtn" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-brand hover:bg-brand-dark px-5 py-2.5 rounded shadow-sm transition">
-                Siguiente Lámina →
-            </button>
-        </div>
     </main>
 
-    <!-- FOOTER OFICIAL (#133522 - CERO AZUL) -->
-    <footer class="bg-[#133522] text-gray-300 py-8 border-t border-[#0e2719] text-xs mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-4">
-                <img src="../assets/img/logo-footer-blanco.png?v=20261028" alt="Star Union S.R.L." class="h-8 w-auto object-contain">
-                <span>© 2001–2026 <strong class="text-white">Star Union S.R.L.</strong> · <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=starunion_web&utm_medium=footer_iso_link&utm_campaign=dossier" target="_blank" rel="noopener noreferrer" class="text-white font-bold underline">ISO 9001:2015 TÜV (ID 9000041847) ↗</a> · <a href="../la-empresa/index.html" class="hover:underline">Base Guaminí 5052 / 5657, CABA</a> · <a href="tel:08103338646" class="hover:underline">0810-333-UNION (8646)</a></span>
+    <!-- PIE DE PÁGINA INSTITUCIONAL VERDE BOSQUE (#0B6535) -->
+    <footer class="bg-brand text-white py-6 border-t border-brand-dark text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div>
+                Guaminí 5052 / 5657 (C1439HAW) - CABA – <a href="mailto:comercial@starunion.com.ar" class="underline">comercial@starunion.com.ar</a> – <a href="https://www.starunion.com.ar/?utm_source=brochure_interactivo&utm_medium=footer_bar&utm_campaign=dossier_multivertical" target="_blank" rel="noopener" class="font-bold underline">www.starunion.com.ar</a>
             </div>
-            <div class="flex items-center gap-5">
-                <a href="../la-empresa/index.html" class="text-gray-300 hover:text-white transition font-medium">Base Operativa Guaminí</a>
-                <a href="#fichas-tecnicas" class="text-gray-300 hover:text-white transition font-medium">16 Brochures Editables</a>
-                <a href="../index.html" class="text-white hover:underline transition font-bold">← Volver al Sitio</a>
+            <div>
+                <a href="https://wajntraub.ar/staruniontest/assets/certificados/Certificado-ISO-9001-Star-Union-2025.pdf" target="_blank" rel="noopener" class="underline font-semibold">
+                    TÜV Rheinland ISO 9001:2015 (ID 9000041847) ↗
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- DATOS Y LÓGICA DEL CONMUTADOR MULTI-VERTICAL Y BIOMETRÍA -->
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide-panel');
-        const pills = document.querySelectorAll('.tab-pill');
-        const progress = document.getElementById('slideProgress');
-        const counter = document.getElementById('slideCounter');
+        const VERTICALS_DATA = {
+            fabricas: {
+                badge: "Higiene Industrial Certificada · ISO 9001:2015 · Trayectoria desde 2001",
+                preTitle: "Limpieza de",
+                mainTitle: "Fábricas e Industrias",
+                goldSubtitle: "Brindamos un servicio a medida de cada planta industrial, nave productiva y centro logístico",
+                leadText: "Provisión integral de mano de obra propia en relación de dependencia directa, insumos aprobados por ANMAT, herramientas y flota propia de maquinaria pesada las 24 hs, los 365 días del año · Base Operativa propia de 800 m² en CABA.",
+                protocolHeading: "Protocolo técnico para zonas productivas, depósitos y áreas de soporte",
+                editorial: "<strong>STAR★UNION</strong> es reconocida por su sólida trayectoria desde el año 2001 dentro del sector industrial —desde nuestros inicios en calle Pergamino hasta nuestra actual <strong>Base Operativa propia de 800 m² en calle Guaminí 5052 / 5657 (CABA)</strong>—, adaptando nuestros planes de trabajo a los turnos de manufactura, cambios de lote y paradas técnicas programadas sin interrumpir el ritmo productivo.",
+                img1: "../brochures/img/fabricas-industrias-1.jpg",
+                cap1: "Playas de maniobras y logística",
+                img2: "../brochures/img/p1-industria-hombre-a-bordo-hd.jpg",
+                cap2: "Fregadoras hombre a bordo",
+                img3: "../brochures/img/fabricas-industrias-3.jpg",
+                cap3: "Lavadoras automáticas 20B",
+                pdfMain: "../brochures/pdf/brochure-fabricas-e-industrias-version-b.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF (Versión Impresa)",
+                pdfTech: "../brochures/pdf/brochure-fabricas-e-industrias.pdf",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Fábricas e Industrias y quiero solicitar un relevamiento técnico en planta sin cargo.",
+                clients: "Coca-Cola (Reginald Lee) · Mondelez International · Air Liquide Argentina · Toyota Panamericana · Ferroclor · Grupo Simpa · Glencore · Viterra · Styropek · Motoimplementos Stihl · Evonik · Ball · Silgan · Atanor",
+                pillars: [
+                    { num: "01", title: "Alcance certificado ISO 9001:2015 en planta", desc: "Procedimientos operativos estandarizados que se sincronizan con los turnos de manufactura, cambios de lote y paradas técnicas programadas.", spec: "Certificación: alcance auditado en zonas productivas y no productivas" },
+                    { num: "02", title: "Fregado y desengrase mecanizado de naves", desc: "Remoción profunda de caucho de autoelevadores, aceites e hidrocarburos en pisos de hormigón alisado y epoxi sin dejar humedad residual.", spec: "Equipamiento: fregadoras hombre a bordo, 20B a batería e hidrolavadoras 150 bar" },
+                    { num: "03", title: "Limpieza técnica aérea de cabriadas y conductos", desc: "Aspirado y despolvoreo en altura de estructuras reticuladas, bandejas portacables, luminarias industriales, tuberías y lucernarios.", spec: "Seguridad: cuadrillas habilitadas bajo normas ARAA y plataformas elevadoras" },
+                    { num: "04", title: "Higiene intensiva de vestuarios, duchas y comedores", desc: "Sanitización entre turnos de vestuarios masivos de planta, baterías sanitarias, comedores industriales, consultorios médicos y oficinas técnicas.", spec: "Insumos: desinfectantes aprobados por ANMAT con planillas de control horario" },
+                    { num: "05", title: "Gestión de residuos en planta y parquización", desc: "Recolección interna clasificada hacia puntos de acopio (cartón, film stretch, húmedos) y mantenimiento integral de predios verdes fabriles.", spec: "Predios: tractores cortacésped, desmalezadoras y sopladoras Stihl propias" },
+                    { num: "06", title: "Supervisión HSE (CPQ 6999) e indumentaria ARCIEL", desc: "Cumplimiento de normas BPM/GMP, entrega registrada de EPP homologados, hojas de seguridad MSDS en pañol y código de 4 colores.", spec: "Respaldo: licenciado propio (Mat. CPQ 6999), hojas MSDS y botines con puntera" }
+                ]
+            },
+            oficinas: {
+                badge: "Sedes Corporativas, Bancos y Consultoras · ISO 9001:2015",
+                preTitle: "Limpieza de",
+                mainTitle: "Oficinas Corporativas",
+                goldSubtitle: "Presentación impecable para sedes corporativas, directorios, bancos y edificios AAA",
+                leadText: "Equipos uniformados con chaqueta ARCIEL, control biométrico de asistencia con alerta a los 15 minutos, guardia diurna silenciosa de sanitarios y cafeterías y mantenimiento integral de pisos, cristales y alfombras.",
+                protocolHeading: "Protocolo ejecutivo para sedes corporativas, salas de directorio y áreas comunes",
+                editorial: "En <strong>STAR★UNION</strong> acompañamos la imagen institucional de consultoras internacionales, entidades financieras y sedes corporativas, combinando rutinas intensivas fuera de horario de oficina con guardias diurnas discretas para mantener baños, salas de reuniones y recepciones impecables durante toda la jornada.",
+                img1: "../brochures/img/oficinas-corporativas-1.jpg",
+                cap1: "Pisos corporativos y puestos de trabajo",
+                img2: "../brochures/img/oficinas-corporativas-2.jpg",
+                cap2: "Salas de directorio y tabiques vidriados",
+                img3: "../brochures/img/oficinas-corporativas-3.jpg",
+                cap3: "Guardia diurna en sanitarios y office",
+                pdfMain: "../brochures/pdf/brochure-oficinas-corporativas.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Oficinas",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Oficinas Corporativas y quiero solicitar una cotización.",
+                clients: "Bain & Company · Under Armour · Häfele Argentina · Makita · Air Liquide · Toyota Panamericana · Asociaciones Profesionales y Sedes Corporativas en CABA y GBA",
+                pillars: [
+                    { num: "01", title: "Higiene diaria de puestos operativos y directorios", desc: "Despolvoreo con microfibra tratada y sanitización de escritorios, salas de directorio, telefonía y equipamiento informático sin alterar documentos.", spec: "Estándar: código de 4 colores para evitar contaminación cruzada" },
+                    { num: "02", title: "Guardia diurna continua en sanitarios y cafeterías", desc: "Personal de mantenimiento diurno para reposición de insumos higiénicos, repaso permanente de baterías sanitarias y orden de comedores y office.", spec: "Control: planillas horarias de revisión en cada núcleo sanitario" },
+                    { num: "03", title: "Lavado técnico de alfombras y tapizados", desc: "Inyección-extracción con máquinas de acero inoxidable de 2 motores para alfombras modulares, carpetas y sillas ergonómicas de oficina.", spec: "Frecuencia: cronograma preventivo nocturno o de fin de semana" },
+                    { num: "04", title: "Cristales interiores, mamparas y curtain wall", desc: "Limpieza sin vetas de tabiques divisorios vidriados, puertas blindex, barandas y fachadas integrales en altura con cuadrillas propias ARAA.", spec: "Seguridad: oficiales de altura propios y equipos de agua pura" },
+                    { num: "05", title: "Tratamiento de pisos nobles, porcelanato y madera", desc: "Lustrado rotativo a 175 RPM, sellado acrílico y mantenimiento de pisos técnicos elevados, mármol, granito y parquet corporativo.", spec: "Respaldo: laboratorio propio de 6 superficies en Base Guaminí" },
+                    { num: "06", title: "Control biométrico 15 min y blindaje Art. 30 LCT", desc: "Fichada dactilar en recepción con alerta temprana a los 15 minutos, cobertura de franqueros en < 2 hs y entrega mensual del legajo F931/ART.", spec: "Garantía: 100% personal en nómina directa de Star Union S.R.L." }
+                ]
+            },
+            laboratorios: {
+                badge: "Industria Farmacéutica, Cosmética y Biotecnología · Normas GMP / BPM",
+                preTitle: "Limpieza de",
+                mainTitle: "Laboratorios y Farma",
+                goldSubtitle: "Protocolos alineados a POEs y Buenas Prácticas de Manufactura con trazabilidad documental",
+                leadText: "Sanitización controlada de áreas de acondicionamiento, laboratorios físico-químicos, esclusas, vestuarios, depósitos farma y oficinas técnicas bajo certificación ISO 9001:2015.",
+                protocolHeading: "Protocolo técnico para laboratorios, plantas farmacéuticas y depósitos regulados",
+                editorial: "Operamos en laboratorios medicinales, biotecnológicos y veterinarios cumpliendo estrictamente los Procedimientos Operativos Estandarizados (POEs) de Garantía de Calidad de cada planta, con registro en bitácoras foliadas y rotación programada de principios activos desinfectantes.",
+                img1: "../brochures/img/laboratorios-1.jpg",
+                cap1: "Sanitización bajo normas GMP / BPM",
+                img2: "../brochures/img/laboratorios-2.jpg",
+                cap2: "Áreas técnicas, esclusas y pasillos",
+                img3: "../brochures/img/laboratorios-3.jpg",
+                cap3: "Depósitos farma y control de calidad",
+                pdfMain: "../brochures/pdf/brochure-laboratorios-y-farma.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Laboratorios",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Laboratorios e Industria Farma y quiero coordinar un relevamiento técnico.",
+                clients: "Biosidus · Evonik · Air Liquide (Gases Medicinales) · Laboratorios Farmacéuticos, Cosméticos y Plantas de Tecnología Médica en CABA y GBA",
+                pillars: [
+                    { num: "01", title: "Alineación estricta a POEs y normas GMP / ANMAT", desc: "Ejecución y registro en tiempo real de limpiezas rutinarias y profundas conforme a los Procedimientos Operativos Estandarizados del cliente.", spec: "Auditoría: planillas foliadas disponibles para Garantía de Calidad" },
+                    { num: "02", title: "Rotación de desinfectantes y código de 4 colores", desc: "Uso de amonios cuaternarios, peróxidos e hipoclorito según esquema de rotación validado, con segregación absoluta de utensilios por zona.", spec: "Insumos: productos registrados en ANMAT con hojas MSDS en pañol" },
+                    { num: "03", title: "Higiene de esclusas, vestuarios y áreas de empaque", desc: "Desinfección de pisos epoxi, paredes lavables, zócalos sanitarios, pasamateriales y áreas de acondicionamiento secundario.", spec: "Equipamiento: carros de doble balde con prensa y mopas libres de pelusa" },
+                    { num: "04", title: "Fregado mecanizado de depósitos farma y cuarentena", desc: "Aspirado con filtro y lavado automático a batería en depósitos de materias primas, producto terminado y cámaras con control de polvo.", spec: "Maquinaria: lavadoras Convertamatic 20B a batería cero emisiones" },
+                    { num: "05", title: "Personal estable capacitado en bioseguridad", desc: "Dotación fija entrenada en nuestro auditorio de Base Guaminí en normas de ingreso a áreas controladas, higiene de manos y uso de cofia y EPP homologados.", spec: "Continuidad: reloj biométrico 15 min y franqueros pre-habilitados" },
+                    { num: "06", title: "Solvencia documental para auditorías de proveedores", desc: "Certificación ISO 9001:2015 por TÜV Rheinland (ID 9000041847), Lic. en Seguridad e Higiene (CPQ 6999) y carpeta mensual Art. 30 LCT al día.", spec: "Respaldo: 25 años de trayectoria continua desde 2001" }
+                ]
+            },
+            clinicas: {
+                badge: "Bioseguridad Hospitalaria y Centros de Salud 24/7 · ISO 9001:2015",
+                preTitle: "Limpieza de",
+                mainTitle: "Clínicas y Sanatorios",
+                goldSubtitle: "Protocolos de bioseguridad para áreas críticas, semicríticas y generales las 24 hs",
+                leadText: "Higiene hospitalaria con técnica de doble balde, segregación por código de 4 colores, desinfección terminal de habitaciones y consultorios, e insumos aprobados por ANMAT.",
+                protocolHeading: "Protocolo de higiene hospitalaria para clínicas, centros de diagnóstico y sanatorios",
+                editorial: "En instituciones médicas la limpieza es una barrera sanitaria directa. Nuestro personal opera en coordinación con el Comité de Control de Infecciones y Jefatura de Enfermería de cada institución.",
+                img1: "../brochures/img/clinicas-hospitales-1.jpg",
+                cap1: "Desinfección de áreas críticas y consultorios",
+                img2: "../brochures/img/clinicas-hospitales-2.jpg",
+                cap2: "Técnica de doble balde y código de colores",
+                img3: "../brochures/img/clinicas-hospitales-3.jpg",
+                cap3: "Pasillos de internación y salas de espera",
+                pdfMain: "../brochures/pdf/brochure-clinicas-y-hospitales.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Clínicas y Salud",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Clínicas y Sanatorios y quiero solicitar un relevamiento técnico.",
+                clients: "Clínicas Privadas, Centros de Diagnóstico por Imágenes, Centros Médicos Ambulatorios y Laboratorios de Análisis Clínicos en CABA y GBA",
+                pillars: [
+                    { num: "01", title: "Protocolos para áreas críticas, semicríticas y comunes", desc: "Procedimientos diferenciados por nivel de riesgo biológico para internación, guardia, consultorios externos, diagnóstico por imágenes y admisión.", spec: "Técnica: arrastre húmedo en zig-zag de lo más limpio a lo más sucio" },
+                    { num: "02", title: "Sistema de doble balde y código de 4 colores", desc: "Separación estricta de paños de microfibra y mopas por color (rojo, amarillo, azul y verde) entre sanitarios, mobiliario clínico y áreas comunes.", spec: "Trazabilidad: desinfectantes ANMAT con dilución controlada" },
+                    { num: "03", title: "Desinfección terminal de alta rápida en internación", desc: "Acondicionamiento integral y sanitización de superficies de alto contacto (barandas, paneles de cabecera, picaportes y llamadores) entre pacientes.", spec: "Cobertura: guardias operativas 24/7 los 365 días del año" },
+                    { num: "04", title: "Gestión segura de residuos patogénicos y comunes", desc: "Retiro interno en circuitos y horarios diferenciados hacia el depósito transitorio según normativa ambiental y de bioseguridad vigente.", spec: "Seguridad: EPP completos y capacitación CPQ 6999" },
+                    { num: "05", title: "Silencio operativo y presencia impecable", desc: "Equipamiento de bajo nivel sonoro y personal uniformado con chaqueta ARCIEL anticloro entrenado en trato respetuoso frente a pacientes y familiares.", spec: "Control: fichada biométrica con alerta a los 15 minutos" },
+                    { num: "06", title: "Blindaje legal Art. 30 LCT e ISO 9001:2015", desc: "100% personal en relación de dependencia directa, ART con cláusula de no repetición y certificación TÜV Rheinland ID 9000041847.", spec: "Respaldo: Base Operativa propia de 800 m² en calle Guaminí, CABA" }
+                ]
+            },
+            consorcios: {
+                badge: "Torres Residenciales, Edificios Corporativos y Administraciones · ISO 9001:2015",
+                preTitle: "Limpieza de",
+                mainTitle: "Consorcios y Torres",
+                goldSubtitle: "Cobertura garantizada los 365 días sin conflictos laborales ni ausencias sin reemplazo",
+                leadText: "Mantenimiento integral de halls de entrada, paliers, ascensores, amenities, SUM, gimnasios, cocheras y veredas, con entrega mensual del legajo Art. 30 LCT al Administrador.",
+                protocolHeading: "Protocolo operativo para administraciones de consorcios, torres y complejos",
+                editorial: "Resolvemos los dos mayores dolores de cabeza de los Administradores y Consejos de Propietarios: garantizamos el reemplazo inmediato ante vacaciones o licencias con franqueros propios en menos de 2 horas y eliminamos el riesgo laboral solidario.",
+                img1: "../brochures/img/consorcios-1.jpg",
+                cap1: "Halls de entrada, cristales y broncería",
+                img2: "../brochures/img/consorcios-2.jpg",
+                cap2: "Paliers, escaleras, SUM y amenities",
+                img3: "../brochures/img/consorcios-3.jpg",
+                cap3: "Fregado mecanizado de cocheras",
+                pdfMain: "../brochures/pdf/brochure-consorcios-y-edificios.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Consorcios",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Consorcios y Edificios y quiero solicitar un presupuesto.",
+                clients: "Torres Residenciales, Edificios Apto Profesional, Complejos con Amenities y Administraciones de Consorcios en CABA y GBA",
+                pillars: [
+                    { num: "01", title: "Reemplazo garantizado en vacaciones y licencias", desc: "El edificio nunca queda sin servicio: cubrimos ausencias en menos de 2 horas y vacaciones anuales sin costos ocultos ni sobrecargas para el consorcio.", spec: "Control: reloj biométrico con alerta a los 15 minutos" },
+                    { num: "02", title: "Presentación impecable de halls, ascensores y paliers", desc: "Lustrado de pisos de mármol, granito y porcelanato, limpieza diaria de espejos y cabinas de ascensor en acero inoxidable y blindex de acceso.", spec: "Equipamiento: lustradoras rotativas y químicos neutros ANMAT" },
+                    { num: "03", title: "Higiene profunda de SUM, gimnasio, vestuarios y parrillas", desc: "Acondicionamiento pre y post-evento de salones de usos múltiples, sanitización de máquinas de gimnasio, vestuarios, solárium y juegos infantiles.", spec: "Frecuencia: rutinas programadas según reglamento del edificio" },
+                    { num: "04", title: "Hidrolavado de veredas y fregado de cocheras", desc: "Lavado periódico mecanizado de subsuelos de estacionamiento, rampas vehiculares, veredas perimetrales y cuartos de bombas y residuos.", spec: "Maquinaria: hidrolavadoras industriales y fregadoras propias" },
+                    { num: "05", title: "Gestión de residuos y clasificación reciclables", desc: "Recolección por pisos o ductos, compactación/embolsado, higiene de tachos con desodorización y puesta en vereda en la franja horaria oficial.", spec: "Sustentabilidad: separación de húmedos y reciclables" },
+                    { num: "06", title: "Legajo mensual Art. 30 LCT para la Administración", desc: "Envío digital y físico del 1 al 10 de cada mes con F931 AFIP, pagos bancarios, recibos de sueldo y ART con cláusula de no repetición a favor del Consorcio.", spec: "Tranquilidad: indemnidad solidaria para los copropietarios" }
+                ]
+            },
+            educacion: {
+                badge: "Universidades, Colegios Bilingües e Instituciones Educativas · ISO 9001:2015",
+                preTitle: "Limpieza de",
+                mainTitle: "Universidades y Colegios",
+                goldSubtitle: "Operación sincronizada en recreos y entre turnos para campus educativos y colegios",
+                leadText: "Sanitización continua de aulas, baterías de baños estudiantiles, comedores escolares, laboratorios, bibliotecas, auditorios, gimnasios y campos deportivos.",
+                protocolHeading: "Protocolo técnico para campus universitarios, colegios y polideportivos escolares",
+                editorial: "Somos el proveedor elegido por las principales instituciones educativas internacionales y universidades en Argentina (New York University, Universidad Torcuato Di Tella, Asociación Escuelas Lincoln, Belgrano Day School), garantizando ambientes seguros, auditados y saludables para miles de alumnos y docentes cada día.",
+                img1: "../brochures/img/universidades-colegios-1.jpg",
+                cap1: "Aulas, auditorios y bibliotecas",
+                img2: "../brochures/img/universidades-colegios-2.jpg",
+                cap2: "Guardia activa post-recreo en sanitarios",
+                img3: "../brochures/img/universidades-colegios-3.jpg",
+                cap3: "Comedores, gimnasios y campus",
+                pdfMain: "../brochures/pdf/brochure-universidades-y-colegios.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Universidades y Colegios",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Universidades y Colegios y quiero solicitar un relevamiento técnico.",
+                clients: "New York University (Sede Buenos Aires) · Universidad Torcuato Di Tella (UTDT) · Asociación Escuelas Lincoln · Belgrano Day School (BDS) · Asociación Civil Club de Amigos",
+                pillars: [
+                    { num: "01", title: "Operativo rápido en recreos y cambios de turno", desc: "Repaso y desinfección inmediata de baterías sanitarias, bebederos, pasillos y patios apenas finaliza cada recreo o bloque horario de cursada.", spec: "Dotación: guardia diurna permanente + turno profundo vespertino/nocturno" },
+                    { num: "02", title: "Sanitización de aulas, pupitres, pizarras y laboratorios", desc: "Limpieza diaria con desinfectantes aprobados por ANMAT en bancos, sillas, escritorios docentes, pantallas interactivas y gabinetes de ciencias.", spec: "Bioseguridad: código de 4 colores y hojas MSDS disponibles" },
+                    { num: "03", title: "Higiene bromatológica en comedores y bufets escolares", desc: "Desengrase y desinfección de mesas, sillas, líneas de autoservicio y pisos de comedor inmediatamente después de cada turno de almuerzo.", spec: "Equipamiento: fregadoras automáticas de secado inmediato" },
+                    { num: "04", title: "Mantenimiento de gimnasios, vestuarios y campos deportivos", desc: "Cuidado de pisos deportivos de parquet o goma, desinfección fungicida en duchas y vestuarios y corte de césped con tractores propios.", spec: "Parquización: tractores John Deere y equipos Stihl propios" },
+                    { num: "05", title: "Operativos intensivos en receso invernal y verano", desc: "Decapado y sellado acrílico de pisos, lavado de alfombras de auditorios, limpieza de vidrios en altura (ARAA) y puesta a punto pre-inicio de clases.", spec: "Respaldo: Base Operativa de 800 m² en Guaminí con taller propio" },
+                    { num: "06", title: "Personal estable con legajo verificado y reloj biométrico", desc: "100% personal en nómina directa con antecedentes verificados, uniforme ARCIEL identificado, control biométrico 15 min y carpeta Art. 30 LCT mensual.", spec: "Certificación: TÜV Rheinland ISO 9001:2015 (ID 9000041847)" }
+                ]
+            },
+            comercial: {
+                badge: "Centros Comerciales, Hipermercados y Cadenas Multi-Sucursal · ISO 9001:2015",
+                preTitle: "Limpieza de",
+                mainTitle: "Retail y Grandes Superficies",
+                goldSubtitle: "Fregado mecanizado de salones de venta, patios de comidas, baños públicos y playas",
+                leadText: "Operación continua en horarios de alto tránsito de público y puesta a punto nocturna para supermercados mayoristas, shoppings, concesionarios y cadenas gastronómicas.",
+                protocolHeading: "Protocolo operativo para hipermercados, centros comerciales y locales de gran superficie",
+                editorial: "Mantenemos el estándar de brillo, higiene y seguridad antideslizante en superficies de alto tránsito peatonal, combinando fregadoras hombre a bordo de secado instantáneo con cuadrillas permanentes en patios de comidas y núcleos sanitarios.",
+                img1: "../brochures/img/centros-comerciales-1.jpg",
+                cap1: "Fregado mecanizado de salones y pasillos",
+                img2: "../brochures/img/centros-comerciales-2.jpg",
+                cap2: "Guardia permanente en patios de comidas",
+                img3: "../brochures/img/centros-comerciales-3.jpg",
+                cap3: "Vidrieras, accesos y playas de estacionamiento",
+                pdfMain: "../brochures/pdf/brochure-centros-comerciales.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Centros Comerciales",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Centros Comerciales y Grandes Superficies y quiero solicitar una cotización.",
+                clients: "Supermercados Mayoristas Makro · Alsea (Burger King / Starbucks) · Toyota Panamericana · Aeropuertos Neuquén y Bahía Blanca · Showrooms y Centros Comerciales",
+                pillars: [
+                    { num: "01", title: "Fregado mecanizado con secado inmediato en salón", desc: "Lavado continuo de pasillos comerciales, líneas de cajas y áreas de circulación con fregadoras a batería que aspiran el agua al instante.", spec: "Seguridad: pisos secos y señalización preventiva para clientes" },
+                    { num: "02", title: "Guardia permanente en baños públicos y patios de comidas", desc: "Rotación continua de personal para desinfección de sanitarios de alto flujo, reposición de consumibles, despeje de bandejas y limpieza de mesas.", spec: "Trazabilidad: planillas horarias de control en cada baño" },
+                    { num: "03", title: "Higiene de cámaras, trastienda y dársenas de recepción", desc: "Desengrase de áreas de elaboración, depósitos de mercadería, compactadoras de cartón y muelles de descarga logística.", spec: "Insumos: desengrasantes y sanitizantes aprobados por ANMAT" },
+                    { num: "04", title: "Vidrieras de doble altura, lucernarios y escaleras mecánicas", desc: "Limpieza periódica de frentes vidriados, barandas de cristal, cenefas y cúpulas mediante cuadrillas propias de Oficiales de Altura (normas ARAA).", spec: "Equipamiento: plataformas tijera, pértigas de ósmosis y silletas" },
+                    { num: "05", title: "Barrido y lavado de playas de estacionamiento y cocheras", desc: "Mantenimiento de playas exteriores e interiores, retiro de carros, vaciado de cestos perimetrales e hidrolavado de veredas y dársenas.", spec: "Respaldo: taller electromecánico propio en Guaminí para recambio en el día" },
+                    { num: "06", title: "Cobertura multi-sede y control biométrico 15 min", desc: "Capacidad operativa en CABA, GBA, La Plata, Zárate, Bahía Blanca, Neuquén y Trelew con legajo Art. 30 LCT unificado para Compras.", spec: "Certificación: TÜV Rheinland ISO 9001:2015 (ID 9000041847)" }
+                ]
+            },
+            altura: {
+                badge: "División Especializada de Oficiales de Altura · Normas ARAA · HSE CPQ 6999",
+                preTitle: "Limpieza de",
+                mainTitle: "Vidrios y Trabajos en Altura",
+                goldSubtitle: "Cuadrillas propias entrenadas bajo normas ARAA para fachadas Curtain Wall y estructuras",
+                leadText: "Limpieza técnica de edificios vidriados en altura, silletas, balancines, plataformas hidroelevadoras, pértigas telescópicas con agua pura por ósmosis inversa y sellado de cristales.",
+                protocolHeading: "Protocolo de seguridad e ingeniería para fachadas vidriadas y estructuras en altura",
+                editorial: "Nuestra División de Limpieza en Altura opera con el 100% de Oficiales de Altura en nómina propia, formados bajo estándares de la Australian Rope Access Association (ARAA) y supervisados por nuestro Licenciado en Higiene y Seguridad (Mat. CPQ 6999), garantizando máxima seguridad para el consorcio o empresa comitente.",
+                img1: "../assets/img/altura-curtain-wall-1.jpg",
+                cap1: "Descenso en silleta bajo normas ARAA",
+                img2: "../brochures/img/carpeta-altura.jpg",
+                cap2: "Fachadas Curtain Wall y piel de vidrio",
+                img3: "../brochures/img/carpeta-hidrolavado.jpg",
+                cap3: "Hidrolavado, ósmosis inversa y sellado",
+                pdfMain: "../brochures/pdf/brochure-vidrios-en-altura.pdf",
+                pdfMainLabel: "⬇ Descargar Brochure PDF de Vidrios en Altura",
+                pdfTech: "",
+                waText: "Hola Star Union, estoy viendo el Brochure Interactivo de Limpieza de Vidrios en Altura (Normas ARAA) y quiero solicitar un relevamiento técnico.",
+                clients: "Torres Corporativas, Edificios Curtain Wall, Laboratorios, Plantas Industriales, Concesionarios, Aeropuertos y Consorcios en CABA y GBA",
+                pillars: [
+                    { num: "01", title: "Oficiales de altura propios bajo normas ARAA", desc: "Técnicas de acceso por cuerdas con doble línea de vida independiente (cuerda de trabajo + cuerda de seguridad con salvacaídas homologado).", spec: "Seguridad: arneses integrales certificados e inspección pre-operativa" },
+                    { num: "02", title: "Sistemas de silletas, balancines e hidroelevadores", desc: "Adaptación técnica a la arquitectura de cada torre o nave industrial: silletas individuales, balancines colgantes o brazos articulados.", spec: "Cobertura: fachadas Curtain Wall, frente integral, alucobond y lucernarios" },
+                    { num: "03", title: "Pértigas de fibra de carbono con ósmosis inversa", desc: "Lavado desde nivel de suelo hasta 20 metros con agua 100% desmineralizada que seca sin dejar gotas, sales ni residuos químicos en el cristal.", spec: "Sustentabilidad: cero químicos y máxima velocidad en podios y vidrieras" },
+                    { num: "04", title: "Sellado de cristales e hidrolavado de frentes", desc: "Reposición de selladores siliconados contra filtraciones de agua/viento, remoción de manchas calcáreas y limpieza post-obra de carpinterías.", spec: "Especialidad: recuperación de cristales manchados y marcos de aluminio" },
+                    { num: "05", title: "Programa de seguridad HSE (Mat. CPQ 6999) y vallado", desc: "Confección de Análisis de Trabajo Seguro (ATS), verificación de puntos de anclaje en terraza, vallado perimetral en planta baja y monitoreo de viento.", spec: "Respaldo: Licenciado en Higiene y Seguridad propio en nómina" },
+                    { num: "06", title: "Póliza de RC comprensiva y ART para trabajo en altura", desc: "Documentación completa previa al ingreso: ART con cláusula de no repetición específica para altura, SVO, F931 AFIP y certificación ISO 9001:2015.", spec: "Garantía: 100% personal propio de Star Union S.R.L." }
+                ]
+            }
+        };
 
-        function goToSlide(idx) {
-            if (idx < 0 || idx >= slides.length) return;
-            currentSlide = idx;
-            slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-            pills.forEach((p, i) => p.classList.toggle('active', i === idx));
-            progress.style.width = (((idx + 1) / slides.length) * 100).toFixed(2) + '%';
-            counter.textContent = `Lámina ${idx + 1} de ${slides.length} · Navegación interactiva Star Union S.R.L.`;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        let currentVerticalKey = "fabricas";
+
+        function selectVertical(vKey, updateHistory = true) {
+            const data = VERTICALS_DATA[vKey] || VERTICALS_DATA.fabricas;
+            currentVerticalKey = vKey in VERTICALS_DATA ? vKey : "fabricas";
+
+            document.querySelectorAll('#verticalSelectorPills .v-pill').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-v') === currentVerticalKey);
+            });
+
+            document.getElementById('vBadge').textContent = data.badge;
+            document.getElementById('vPreTitle').textContent = data.preTitle;
+            document.getElementById('vMainTitle').textContent = data.mainTitle;
+            document.getElementById('vGoldSubtitle').textContent = data.goldSubtitle;
+            document.getElementById('vLeadText').textContent = data.leadText;
+            document.getElementById('vProtocolHeading').textContent = data.protocolHeading;
+            document.getElementById('vEditorialParagraph').innerHTML = data.editorial;
+
+            document.getElementById('vImg1').src = data.img1;
+            document.getElementById('vCap1').textContent = data.cap1;
+            document.getElementById('vImg2').src = data.img2;
+            document.getElementById('vCap2').textContent = data.cap2;
+            document.getElementById('vImg3').src = data.img3;
+            document.getElementById('vCap3').textContent = data.cap3;
+
+            document.getElementById('vBtnWa').href = "https://wa.me/5491122759369?text=" + encodeURIComponent(data.waText);
+            const btnPdfMain = document.getElementById('vBtnPdfMain');
+            btnPdfMain.href = data.pdfMain;
+            btnPdfMain.textContent = data.pdfMainLabel;
+
+            const btnPdfTech = document.getElementById('vBtnPdfTech');
+            if (data.pdfTech) {
+                btnPdfTech.href = data.pdfTech;
+                btnPdfTech.style.display = "inline-block";
+            } else {
+                btnPdfTech.style.display = "none";
+            }
+
+            const grid = document.getElementById('vPillarsGrid');
+            grid.innerHTML = data.pillars.map(p => `
+                <div class="bg-gray-50 rounded-xl border border-gray-200 border-l-4 border-l-brand p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-brand/10 text-brand text-xs font-extrabold px-2 py-0.5 rounded">${p.num}</span>
+                            <h3 class="text-sm font-extrabold text-gray-900">${p.title}</h3>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed mb-3">${p.desc}</p>
+                    </div>
+                    <div class="text-[11px] font-bold text-brand pt-2.5 border-t border-dashed border-gray-300">${p.spec}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('vClientsList').textContent = data.clients;
+
+            if (updateHistory && window.history && window.history.replaceState) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('vertical', currentVerticalKey);
+                window.history.replaceState({}, '', url.toString());
+            }
         }
 
-        function nextSlide() {
-            goToSlide((currentSlide + 1) % slides.length);
+        function copyCurrentVerticalLink() {
+            const url = new URL(window.location.href);
+            url.searchParams.set('vertical', currentVerticalKey);
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                const btn = document.getElementById('btnCopyVerticalUrl');
+                const prev = btn.textContent;
+                btn.textContent = "✓ Link copiado al portapapeles";
+                setTimeout(() => { btn.textContent = prev; }, 2500);
+            });
         }
-
-        function prevSlide() {
-            goToSlide((currentSlide - 1 + slides.length) % slides.length);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-        });
 
         const bioSteps = [
             {
                 tag: "Etapa 1 · Minuto 00 (Inicio del Turno)",
-                title: "Validación de Huella Dactilar en el Objetivo",
+                title: "Validación de Huella Dactilar en el Establecimiento",
                 text: "Al ingresar y retirarse del establecimiento del cliente, cada operario registra su huella dactilar en el terminal biométrico conectado en línea con nuestra Base Operativa en calle Guaminí. El cliente dispone de trazabilidad exacta de horas-hombre efectivamente cumplidas."
             },
             {
@@ -719,27 +1165,20 @@
             [0, 1, 2].forEach(i => {
                 const btn = document.getElementById('bioBtn' + i);
                 if (i === idx) {
-                    btn.className = "p-3.5 rounded-xl border-2 border-brand bg-brand/5 text-left transition";
+                    btn.className = "p-3.5 rounded-xl border-2 border-brand bg-white text-left shadow-sm transition";
                 } else {
                     btn.className = "p-3.5 rounded-xl border border-gray-200 bg-white text-left hover:border-brand transition";
                 }
             });
         }
 
-        function filterClients(cat, btnEl) {
-            const items = document.querySelectorAll('#clientGrid > div');
-            items.forEach(el => {
-                if (cat === 'all' || el.getAttribute('data-cat') === cat) {
-                    el.style.display = 'block';
-                } else {
-                    el.style.display = 'none';
-                }
-            });
-            const btns = document.querySelectorAll('#clientFilters button');
-            btns.forEach(b => b.className = "px-3 py-1.5 rounded text-xs font-semibold bg-gray-100 text-[#000000] hover:bg-gray-200 transition");
-            btnEl.className = "px-3 py-1.5 rounded text-xs font-bold bg-brand text-white transition";
-        }
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const vParam = params.get('vertical');
+            if (vParam && VERTICALS_DATA[vParam]) {
+                selectVertical(vParam, false);
+            }
+        });
     </script>
-    <script src="../assets/js/starunion-b2b.js"></script>
 </body>
 </html>
