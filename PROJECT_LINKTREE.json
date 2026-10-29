@@ -4,12 +4,22 @@
   "local_linktree_url": "https://wajntraub.ar/staruniontest/accesos/",
   "links": [
     {
-      "title": "⭐ Muestra Maestra Brochure (Fábricas e industrias · Editor A+ / Interletrado + Descarga ISO sin salir)",
+      "title": "🗂️ Brochure Piloto — Versión B (ADN Papelería e Impresos Clásicos Star Union · Editor + Comparador A/B)",
+      "url": "https://wajntraub.ar/staruniontest/brochures/editables/brochure-fabricas-e-industrias-version-b.html",
+      "category": "Brochures B2B"
+    },
+    {
+      "title": "📄 PDF A4 Directo — Brochure Piloto Versión B (ADN Papelería Clásica · 2 Páginas)",
+      "url": "https://wajntraub.ar/staruniontest/brochures/pdf/brochure-fabricas-e-industrias-version-b.pdf",
+      "category": "Brochures B2B"
+    },
+    {
+      "title": "⭐ Brochure Piloto — Versión A (Estética Web 2026 · Editor + Comparador A/B)",
       "url": "https://wajntraub.ar/staruniontest/brochures/editables/brochure-fabricas-e-industrias.html",
       "category": "Brochures B2B"
     },
     {
-      "title": "📄 PDF A4 Directo — Muestra Maestra (Fábricas e industrias · Letra Grande Cero Aire)",
+      "title": "📄 PDF A4 Directo — Brochure Piloto Versión A (Estética Web 2026 · 2 Páginas)",
       "url": "https://wajntraub.ar/staruniontest/brochures/pdf/brochure-fabricas-e-industrias.pdf",
       "category": "Brochures B2B"
     },
