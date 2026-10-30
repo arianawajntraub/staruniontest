@@ -119,7 +119,7 @@ def create_editable_svg(post, width, height, out_svg):
   </g>
 
   <!-- TITULAR PRINCIPAL EDITABLE -->
-  <text id="Titular_Editable" x="{left_x}" y="{top_y + 178}" font-family="Open Sans, Arial, sans-serif" font-size="38" font-weight="800" fill="#111827">
+  <text id="Titular_Editable" x="{left_x}" y="{top_y + 178}" font-family="Open Sans, Arial, sans-serif" font-size="38" font-weight="800" fill="#133522">
     {title_tspans}
   </text>
 
@@ -138,7 +138,7 @@ def create_editable_svg(post, width, height, out_svg):
   <!-- PIE DE CONTACTO Y BOTÓN CTA EDITABLE DENTRO DE ZONA SEGURA -->
   <g id="Pie_Institucional">
     <line x1="{left_x}" y1="{footer_y - 16}" x2="{left_x + content_w}" y2="{footer_y - 16}" stroke="#E5E7EB" stroke-width="2"/>
-    <text x="{left_x}" y="{footer_y + 14}" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">Star Union · Base Operativa Guaminí 5657, CABA</text>
+    <text x="{left_x}" y="{footer_y + 14}" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#133522">Star Union · Base Operativa Guaminí 5657, CABA</text>
     <text x="{left_x}" y="{footer_y + 36}" font-family="Open Sans, Arial, sans-serif" font-size="14" font-weight="600" fill="#4B5563">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</text>
     <rect x="{left_x + content_w - 280}" y="{footer_y - 4}" width="280" height="46" rx="23" fill="#03582D"/>
     <text x="{left_x + content_w - 140}" y="{footer_y + 25}" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">{post["cta_pill"]}</text>
@@ -243,7 +243,7 @@ def main():
           <td class="p-3 text-gray-700 font-bold">Mailing Perfit (Segmento Activos No-Abridores)</td>
           <td class="p-3 text-gray-700">Aplica la regla comprobada de Septiembre (#117): cambio de asunto y enfoque de auditoría/riesgos (Plantilla B) para sumar +21,8% de aperturas extra hacia WhatsApp Comercial.</td>
           <td class="p-3 text-center whitespace-nowrap">
-            <a href="embudo-y-comparador-mailing-ab.html" class="bg-[#111827] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">📧 Ver Plantillas A y B →</a>
+            <a href="embudo-y-comparador-mailing-ab.html" class="bg-[#133522] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">📧 Ver Plantillas A y B →</a>
           </td>
         </tr>
     """
@@ -267,7 +267,7 @@ def main():
               <a href="{p['feed_file']}" download class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
                 ⬇ JPG Feed (1080×1350)
               </a>
-              <a href="{p['story_file']}" download class="bg-[#111827] hover:bg-black text-white text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
+              <a href="{p['story_file']}" download class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="{p['svg_feed_file']}" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
@@ -312,7 +312,7 @@ def main():
                   <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
                   <textarea id="sub_{p['id']}" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">{p['subtitle']}</textarea>
                 </div>
-                <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'borrador', true, this)" class="w-full bg-[#133522] hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
                   🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
                 </button>
               </div>
@@ -330,7 +330,7 @@ def main():
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
                   <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
-                  <button onclick="copyText('li_{p['id']}', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
+                  <button onclick="copyText('li_{p['id']}', this)" class="bg-[#133522] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
                 <textarea id="li_{p['id']}" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">{p['copy_linkedin']}</textarea>
               </div>
@@ -390,7 +390,7 @@ def main():
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
-                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'borrador', false, this)" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     💾 Guardar Edición de Textos
                   </button>
                   <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
@@ -417,7 +417,7 @@ def main():
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {{ font-family: 'Open Sans', sans-serif; background: #f9fafb; color: #111827; }}
+    body {{ font-family: 'Open Sans', sans-serif; background: #f9fafb; color: #133522; }}
   </style>
 </head>
 <body class="py-8 px-4 sm:px-6">
@@ -441,7 +441,7 @@ def main():
         <button type="button" onclick="toggleApiBox()" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold px-4 py-2.5 rounded-lg transition shadow-sm">
           🔌 Conectar / Ver Estado de las 6 Redes (API Directa)
         </button>
-        <a href="piezas/STAR_UNION_CANVA_ADOBE_BULK.csv" download class="bg-[#111827] hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
+        <a href="piezas/STAR_UNION_CANVA_ADOBE_BULK.csv" download class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
           📥 Descargar Planilla .CSV (Canva Bulk / Excel)
         </a>
         <a href="../radar-comercial/perfit-historial/index.html" class="bg-gray-800 hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
@@ -451,7 +451,7 @@ def main():
     </div>
 
     <!-- CABINA DE CONEXIÓN DIRECTA DE LAS 6 REDES DE STAR UNION ($0 · CERO MAKE · CERO ZAPIER) -->
-    <div class="bg-[#111827] text-white rounded-2xl p-6 sm:p-8 border-2 border-[#03582d] shadow-md space-y-4">
+    <div class="bg-[#133522] text-white rounded-2xl p-6 sm:p-8 border-2 border-[#03582d] shadow-md space-y-4">
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div>
           <span class="inline-block bg-[#03582d] text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full mb-1">
@@ -594,7 +594,7 @@ def main():
           </a>
           <div class="flex flex-col gap-2">
             <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920_EDITABLE_CANVA.pptx" download class="bg-[#03582d] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">✏️ Bajar Base 1 Editable (.PPTX con Fotos para Canva)</a>
-            <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920_EDITABLE_CANVA.pdf" download class="bg-gray-900 text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">📄 Bajar Base 1 Editable (.PDF para Canva/Illustrator)</a>
+            <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_1_REEL_SHORT_1080x1920_EDITABLE_CANVA.pdf" download class="bg-[#133522] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">📄 Bajar Base 1 Editable (.PDF para Canva/Illustrator)</a>
           </div>
         </div>
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
@@ -605,7 +605,7 @@ def main():
           </a>
           <div class="flex flex-col gap-2">
             <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350_EDITABLE_CANVA.pptx" download class="bg-[#03582d] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">✏️ Bajar Base 2 Editable (.PPTX con Fotos para Canva)</a>
-            <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350_EDITABLE_CANVA.pdf" download class="bg-gray-900 text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">📄 Bajar Base 2 Editable (.PDF para Canva/Illustrator)</a>
+            <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_2_FACEBOOK_IG_FEED_1080x1350_EDITABLE_CANVA.pdf" download class="bg-[#133522] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">📄 Bajar Base 2 Editable (.PDF para Canva/Illustrator)</a>
           </div>
         </div>
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
@@ -616,7 +616,7 @@ def main():
           </a>
           <div class="flex flex-col gap-2">
             <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200_EDITABLE_CANVA.pptx" download class="bg-[#03582d] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">✏️ Bajar Base 3 Editable (.PPTX con Fotos para Canva)</a>
-            <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200_EDITABLE_CANVA.pdf" download class="bg-gray-900 text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">📄 Bajar Base 3 Editable (.PDF para Canva/Illustrator)</a>
+            <a href="piezas/3_BASES_MAESTRAS_CANVA/BASE_3_LINKEDIN_1200x1200_EDITABLE_CANVA.pdf" download class="bg-[#133522] text-white text-center text-xs font-extrabold py-2 px-3 rounded-lg">📄 Bajar Base 3 Editable (.PDF para Canva/Illustrator)</a>
           </div>
         </div>
       </div>
@@ -633,7 +633,7 @@ def main():
           <p class="text-xs text-gray-600 mt-1">Acá elegís qué está pasando afuera, qué vertical necesita empujar hoy el negocio y activás el <strong>Randomizador Ponderado (Vertical × Dolor × Horario)</strong> conectado con las métricas reales de Perfit, Google y Redes.</p>
         </div>
         <div class="flex flex-wrap gap-2">
-          <a href="reporte-pulso-y-retroalimentacion.html" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold px-4 py-3 rounded-xl shadow transition">
+          <a href="reporte-pulso-y-retroalimentacion.html" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold px-4 py-3 rounded-xl shadow transition">
             📊 Ver Reporte Push Automático de Retroalimentación (API en Vivo)
           </a>
           <button type="button" onclick="applySmartRandomizer(this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-3 rounded-xl shadow transition">
@@ -772,12 +772,12 @@ def main():
           <!-- OPCION A (SOLO FUNK GROOVE ARRIBA) -->
           <div class="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-3">
             <div>
-              <span class="inline-block bg-gray-900 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 2 · Solo Música Funk</span>
+              <span class="inline-block bg-[#133522] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 2 · Solo Música Funk</span>
               <h3 class="font-extrabold text-xs text-gray-900">Funk & Sax Groove 100% Instrumental Bien Arriba (Estudio Real)</h3>
               <p class="text-[11px] text-gray-600 mt-1">Bajo funk, batería marcada y vientos con ritmo rápido para levantar las fotos operativas.</p>
             </div>
             <video src="piezas/REEL_OPCION_A_FUNK_GROOVE.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
-            <a href="piezas/REEL_OPCION_A_FUNK_GROOVE.mp4" download class="block text-center bg-gray-900 hover:bg-black text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+            <a href="piezas/REEL_OPCION_A_FUNK_GROOVE.mp4" download class="block text-center bg-[#133522] hover:bg-black text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
               ⬇ Bajar MP4 Opción 2
             </a>
           </div>
@@ -785,12 +785,12 @@ def main():
           <!-- OPCION B (POP-ROCK PUBLICITARIO LUMINOSO) -->
           <div class="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-3">
             <div>
-              <span class="inline-block bg-gray-900 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 3 · Pop-Rock Luminoso</span>
+              <span class="inline-block bg-[#133522] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase mb-1">Opción 3 · Pop-Rock Luminoso</span>
               <h3 class="font-extrabold text-xs text-gray-900">Upbeat Publicitario Luminoso (Guitarras y Batería Optimista)</h3>
               <p class="text-[11px] text-gray-600 mt-1">Estética de comercial televisivo luminoso, limpio y positivo (cero tono solemne).</p>
             </div>
             <video src="piezas/REEL_OPCION_B_UPBEAT_LUMINOSO.mp4" poster="bases-canva-editables/ESCENA_1_REEL_1080x1920.jpg" preload="metadata" controls class="w-full rounded-lg border border-gray-300 bg-white"></video>
-            <a href="piezas/REEL_OPCION_B_UPBEAT_LUMINOSO.mp4" download class="block text-center bg-gray-900 hover:bg-black text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
+            <a href="piezas/REEL_OPCION_B_UPBEAT_LUMINOSO.mp4" download class="block text-center bg-[#133522] hover:bg-black text-white text-[11px] font-extrabold py-2 px-3 rounded-lg transition">
               ⬇ Bajar MP4 Opción 3
             </a>
           </div>

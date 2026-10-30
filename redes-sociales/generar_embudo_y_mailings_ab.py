@@ -43,7 +43,7 @@ def build_template_a():
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Continuidad Operativa e Infraestructura Propia | Star Union</title>
 </head>
-<body style="margin:0;padding:0;background-color:#F3F4F6;font-family:'Open Sans',Arial,Helvetica,sans-serif;color:#111827;-webkit-font-smoothing:antialiased;">
+<body style="margin:0;padding:0;background-color:#F3F4F6;font-family:'Open Sans',Arial,Helvetica,sans-serif;color:#133522;-webkit-font-smoothing:antialiased;">
   <!-- Preheader oculto -->
   <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
     Base Operativa Propia de 800 m² en CABA, Taller Electromecánico In-House, presentismo biométrico (&lt; 2 hs) y procesos certificados ISO 9001:2015 por TÜV Rheinland.
@@ -79,7 +79,7 @@ def build_template_a():
                           <td valign="middle" style="padding-right:8px;">
                             <img src="{TUV_URL}" alt="TÜV Rheinland ISO 9001" width="38" style="display:block;border:0;">
                           </td>
-                          <td align="left" valign="middle" style="font-size:11px;line-height:1.3;color:#111827;">
+                          <td align="left" valign="middle" style="font-size:11px;line-height:1.3;color:#133522;">
                             <strong style="color:#03582D;display:block;">ISO 9001:2015</strong>
                             <span style="color:#4B5563;">ID 9000041847</span>
                           </td>
@@ -98,7 +98,7 @@ def build_template_a():
               <div style="display:inline-block;background-color:#E6EFEA;color:#03582D;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:0.05em;margin-bottom:12px;">
                 INFRAESTRUCTURA PROPIA Y TRAZABILIDAD OPERATIVA B2B
               </div>
-              <h1 style="margin:0 0 12px 0;font-size:25px;line-height:1.22;font-weight:800;color:#111827;">
+              <h1 style="margin:0 0 12px 0;font-size:25px;line-height:1.22;font-weight:800;color:#133522;">
                 Continuidad operativa respaldada por estructura propia de 800 m², taller in-house y control biométrico en tiempo real.
               </h1>
               <p style="margin:0 0 18px 0;font-size:15px;line-height:1.55;color:#374151;">
@@ -145,7 +145,7 @@ def build_template_a():
                 <div style="font-size:12px;font-weight:800;color:#03582D;text-transform:uppercase;letter-spacing:0.05em;">
                   SELECCIONÁ TU SECTOR PARA RECIBIR EL PROTOCOLO ESPECÍFICO
                 </div>
-                <h2 style="margin:4px 0 12px 0;font-size:18px;font-weight:800;color:#111827;">
+                <h2 style="margin:4px 0 12px 0;font-size:18px;font-weight:800;color:#133522;">
                   Soluciones diseñadas según la exigencia de cada operación:
                 </h2>
               </div>
@@ -166,7 +166,7 @@ def build_template_a():
                 <tr>
                   <td style="padding:16px 20px;">
                     <div style="font-size:11px;font-weight:800;color:#03582D;letter-spacing:0.05em;">1. CENTROS LOGÍSTICOS, DEPÓSITOS Y PLANTAS INDUSTRIALES</div>
-                    <h3 style="margin:4px 0 8px 0;font-size:17px;font-weight:800;color:#111827;">Fregado y barrido mecanizado sin detener el despacho</h3>
+                    <h3 style="margin:4px 0 8px 0;font-size:17px;font-weight:800;color:#133522;">Fregado y barrido mecanizado sin detener el despacho</h3>
                     <p style="margin:0 0 12px 0;font-size:13px;line-height:1.5;color:#374151;">
                       Autolavadoras hombre a bordo, barredoras industriales y respaldo de nuestro Taller Electromecánico Propio en Guaminí 5657 para reemplazo de equipos en el día.
                     </p>
@@ -194,11 +194,11 @@ def build_template_a():
                     </a>
                     <div style="padding:14px;">
                       <div style="font-size:10px;font-weight:800;color:#03582D;">2. OFICINAS Y CORPORATIVOS</div>
-                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#111827;">Edificios corporativos, bancos y sedes</h3>
+                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#133522;">Edificios corporativos, bancos y sedes</h3>
                       <p style="margin:0 0 10px 0;font-size:12px;line-height:1.45;color:#374151;">
                         Presentismo validado por reloj biométrico, personal registrado (indemnidad Art. 30 LCT) y supervisión constante.
                       </p>
-                      <a href="{WA_OFICINAS}" target="_blank" style="display:inline-block;background-color:#111827;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:8px 14px;border-radius:8px;">
+                      <a href="{WA_OFICINAS}" target="_blank" style="display:inline-block;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:8px 14px;border-radius:8px;">
                         📲 Consultar Oficinas →
                       </a>
                     </div>
@@ -211,11 +211,11 @@ def build_template_a():
                     </a>
                     <div style="padding:14px;">
                       <div style="font-size:10px;font-weight:800;color:#03582D;">3. CONSORCIOS Y TORRES</div>
-                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#111827;">Grandes consorcios y barrios cerrados</h3>
+                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#133522;">Grandes consorcios y barrios cerrados</h3>
                       <p style="margin:0 0 10px 0;font-size:12px;line-height:1.45;color:#374151;">
                         Cobertura de ausencias en menos de 2 horas con guardia móvil propia en CABA y GBA para que ningún turno quede vacío.
                       </p>
-                      <a href="{WA_CONSORCIOS}" target="_blank" style="display:inline-block;background-color:#111827;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:8px 14px;border-radius:8px;">
+                      <a href="{WA_CONSORCIOS}" target="_blank" style="display:inline-block;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:8px 14px;border-radius:8px;">
                         📲 Consultar Consorcios →
                       </a>
                     </div>
@@ -237,7 +237,7 @@ def build_template_a():
                     </a>
                     <div style="padding:14px;">
                       <div style="font-size:10px;font-weight:800;color:#03582D;">4. SALUD Y LABORATORIOS</div>
-                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#111827;">Clínicas, sanatorios y laboratorios</h3>
+                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#133522;">Clínicas, sanatorios y laboratorios</h3>
                       <p style="margin:0 0 10px 0;font-size:12px;line-height:1.45;color:#374151;">
                         Zonificación contra contaminación cruzada e insumos aprobados por ANMAT con hojas de seguridad (MSDS) en planta.
                       </p>
@@ -254,7 +254,7 @@ def build_template_a():
                     </a>
                     <div style="padding:14px;">
                       <div style="font-size:10px;font-weight:800;color:#03582D;">5. EDUCACIÓN Y DEPORTE</div>
-                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#111827;">Universidades, colegios y clubes</h3>
+                      <h3 style="margin:4px 0 6px 0;font-size:15px;font-weight:800;color:#133522;">Universidades, colegios y clubes</h3>
                       <p style="margin:0 0 10px 0;font-size:12px;line-height:1.45;color:#374151;">
                         Operativos en contraturno, cuidado de pisos deportivos de parquet y preparación para receso y temporada de verano.
                       </p>
@@ -276,7 +276,7 @@ def build_template_a():
                   <td width="64" valign="middle" style="padding-right:14px;">
                     <img src="{CLEANY_URL}" alt="Cleany" width="56" style="display:block;border:0;">
                   </td>
-                  <td valign="middle" style="font-size:13px;line-height:1.48;color:#111827;">
+                  <td valign="middle" style="font-size:13px;line-height:1.48;color:#133522;">
                     <strong style="color:#03582D;display:block;font-size:12px;letter-spacing:0.04em;">EL DATO TÉCNICO DE CLEANY · TRAZABILIDAD BIOMÉTRICA</strong>
                     Nuestro sistema de reloj biométrico reporta en vivo a la central de calle Guaminí: ante cualquier demora a los <strong>15 minutos</strong> del inicio de turno, se despacha personal de guardia registrado para cubrir el puesto en <strong>menos de 2 horas</strong>.
                   </td>
@@ -285,22 +285,22 @@ def build_template_a():
             </td>
           </tr>
 
-          <!-- PIE INSTITUCIONAL Y CUMPLIMIENTO PERFIT -->
+          <!-- PIE INSTITUCIONAL Y CUMPLIMIENTO PERFIT (BLANCO / VERDE STAR UNION · CERO AZUL MARINO) -->
           <tr>
-            <td style="background-color:#111827;color:#FFFFFF;padding:24px 28px;text-align:center;">
-              <div style="font-size:15px;font-weight:800;margin-bottom:4px;">Star Union · Sabemos de Limpieza</div>
-              <div style="font-size:12px;color:#D1D5DB;margin-bottom:12px;">
+            <td style="background-color:#F9FAFB;border-top:4px solid #03582D;color:#133522;padding:24px 28px;text-align:center;">
+              <div style="font-size:15px;font-weight:800;color:#03582D;margin-bottom:4px;">Star Union · Sabemos de Limpieza</div>
+              <div style="font-size:12px;color:#374151;font-weight:600;margin-bottom:12px;">
                 Base Operativa Propia (800 m²): Guaminí 5657, CABA · Tel: 0810-333-8646 · WhatsApp B2B: +54 9 11 2275-9369
               </div>
               <div style="margin-bottom:14px;">
-                <a href="https://www.starunion.com.ar/?utm_source=perfit&utm_medium=email&utm_campaign=funnel1_apertura_A" target="_blank" style="color:#FFCC29;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">Sitio Web Oficial</a> |
-                <a href="https://www.instagram.com/starunionservicios/" target="_blank" style="color:#FFFFFF;font-size:12px;text-decoration:none;margin:0 8px;">Instagram</a> |
-                <a href="https://www.linkedin.com/company/star-union-srl/" target="_blank" style="color:#FFFFFF;font-size:12px;text-decoration:none;margin:0 8px;">LinkedIn</a> |
-                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" style="color:#FFFFFF;font-size:12px;text-decoration:none;margin:0 8px;">Certificado TÜV ISO 9001</a>
+                <a href="https://www.starunion.com.ar/?utm_source=perfit&utm_medium=email&utm_campaign=funnel1_apertura_A" target="_blank" style="color:#03582D;font-size:12px;font-weight:800;text-decoration:underline;margin:0 8px;">Sitio Web Oficial</a> |
+                <a href="https://www.instagram.com/starunionservicios/" target="_blank" style="color:#133522;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">Instagram</a> |
+                <a href="https://www.linkedin.com/company/star-union-srl/" target="_blank" style="color:#133522;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">LinkedIn</a> |
+                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" style="color:#03582D;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">Certificado TÜV ISO 9001</a>
               </div>
-              <div style="font-size:11px;color:#9CA3AF;line-height:1.4;">
+              <div style="font-size:11px;color:#4B5563;line-height:1.4;">
                 Recibís esta comunicación institucional por formar parte de nuestra red de contactos corporativos.<br>
-                Si deseás dejar de recibir novedades, podés <a href="{{{{unsubscribe_link}}}}" style="color:#D1D5DB;text-decoration:underline;">desuscribirte en 1 clic aquí</a>.
+                Si deseás dejar de recibir novedades, podés <a href="{{{{unsubscribe_link}}}}" style="color:#03582D;font-weight:700;text-decoration:underline;">desuscribirte en 1 clic aquí</a>.
               </div>
             </td>
           </tr>
@@ -326,7 +326,7 @@ def build_template_b():
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auditoría Operativa y Continuidad del Servicio de Limpieza | Star Union</title>
 </head>
-<body style="margin:0;padding:0;background-color:#F3F4F6;font-family:'Open Sans',Arial,Helvetica,sans-serif;color:#111827;-webkit-font-smoothing:antialiased;">
+<body style="margin:0;padding:0;background-color:#F3F4F6;font-family:'Open Sans',Arial,Helvetica,sans-serif;color:#133522;-webkit-font-smoothing:antialiased;">
   <!-- Preheader oculto -->
   <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
     Cómo eliminar puestos vacíos, paradas por maquinaria caída y riesgos laborales solidarios (Art. 30 LCT) con certificación ISO 9001:2015 (TÜV Rheinland).
@@ -355,7 +355,7 @@ def build_template_b():
                           <td valign="middle" style="padding-right:8px;">
                             <img src="{TUV_URL}" alt="TÜV Rheinland ISO 9001" width="38" style="display:block;border:0;">
                           </td>
-                          <td align="left" valign="middle" style="font-size:11px;line-height:1.3;color:#111827;">
+                          <td align="left" valign="middle" style="font-size:11px;line-height:1.3;color:#133522;">
                             <strong style="color:#03582D;display:block;">ISO 9001:2015</strong>
                             <span style="color:#4B5563;">TÜV ID 9000041847</span>
                           </td>
@@ -374,7 +374,7 @@ def build_template_b():
               <div style="display:inline-block;background-color:#E6EFEA;color:#03582D;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:0.05em;margin-bottom:12px;">
                 DIAGNÓSTICO DE PROVEEDORES Y PREVISIBILIDAD OPERATIVA
               </div>
-              <h1 style="margin:0 0 12px 0;font-size:24px;line-height:1.24;font-weight:800;color:#111827;">
+              <h1 style="margin:0 0 12px 0;font-size:24px;line-height:1.24;font-weight:800;color:#133522;">
                 ¿Tu operación está protegida hoy frente a los 4 riesgos más frecuentes en servicios de limpieza?
               </h1>
               <p style="margin:0 0 16px 0;font-size:15px;line-height:1.55;color:#374151;">
@@ -392,19 +392,19 @@ def build_template_b():
                   <td width="58%" style="padding:10px 14px;">Protocolo Auditado Star Union</td>
                 </tr>
                 <tr style="border-bottom:1px solid #E5E7EB;background-color:#FFFFFF;">
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#111827;">1. Puestos vacíos por ausencias imprevistas</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#133522;">1. Puestos vacíos por ausencias imprevistas</td>
                   <td style="padding:12px 14px;font-size:12px;color:#374151;"><strong style="color:#03582D;">Reloj biométrico en tiempo real:</strong> alerta a los 15 min y cobertura en <strong>menos de 2 horas</strong> con guardia móvil propia.</td>
                 </tr>
                 <tr style="border-bottom:1px solid #E5E7EB;background-color:#F9FAFB;">
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#111827;">2. Servicio frenado por máquinas averiadas</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#133522;">2. Servicio frenado por máquinas averiadas</td>
                   <td style="padding:12px 14px;font-size:12px;color:#374151;"><strong style="color:#03582D;">Taller Electromecánico Propio (800 m² CABA):</strong> mantenimiento preventivo y reemplazo de equipos en el día.</td>
                 </tr>
                 <tr style="border-bottom:1px solid #E5E7EB;background-color:#FFFFFF;">
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#111827;">3. Contingencia laboral solidaria (Art. 30 LCT)</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#133522;">3. Contingencia laboral solidaria (Art. 30 LCT)</td>
                   <td style="padding:12px 14px;font-size:12px;color:#374151;"><strong style="color:#03582D;">Indemnidad documental:</strong> 100% del personal en relación de dependencia con entrega mensual de F.931, ART y seguros.</td>
                 </tr>
                 <tr style="background-color:#F9FAFB;">
-                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#111827;">4. Desvíos en auditorías de calidad o salud</td>
+                  <td style="padding:12px 14px;font-size:12px;font-weight:700;color:#133522;">4. Desvíos en auditorías de calidad o salud</td>
                   <td style="padding:12px 14px;font-size:12px;color:#374151;"><strong style="color:#03582D;">Norma ISO 9001:2015 (TÜV Rheinland)</strong> + insumos aprobados por ANMAT con hojas de seguridad (MSDS).</td>
                 </tr>
               </table>
@@ -424,7 +424,7 @@ def build_template_b():
                 </tr>
                 <tr>
                   <td style="padding:14px 18px;font-size:13px;line-height:1.48;color:#374151;">
-                    <strong style="color:#111827;">Respaldo físico verificable en CABA:</strong> Operamos desde nuestra Base Central Propia de 800 m² (3 niveles) en Guaminí 5657 con stock permanente de insumos, aula de capacitación y flota propia de asistencia técnica.
+                    <strong style="color:#133522;">Respaldo físico verificable en CABA:</strong> Operamos desde nuestra Base Central Propia de 800 m² (3 niveles) en Guaminí 5657 con stock permanente de insumos, aula de capacitación y flota propia de asistencia técnica.
                   </td>
                 </tr>
               </table>
@@ -440,35 +440,35 @@ def build_template_b():
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td style="padding:5px 0;">
-                    <a href="{WA_LOGISTICA}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#111827;font-size:13px;font-weight:800;">
+                    <a href="{WA_LOGISTICA}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#133522;font-size:13px;font-weight:800;">
                       🏭 1. Centros Logísticos, Depósitos y Plantas Industriales <span style="float:right;color:#03582D;">Solicitar relevamiento →</span>
                     </a>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding:5px 0;">
-                    <a href="{WA_OFICINAS}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#111827;font-size:13px;font-weight:800;">
+                    <a href="{WA_OFICINAS}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#133522;font-size:13px;font-weight:800;">
                       🏢 2. Oficinas Corporativas, Bancos y Centros Comerciales <span style="float:right;color:#03582D;">Solicitar relevamiento →</span>
                     </a>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding:5px 0;">
-                    <a href="{WA_CONSORCIOS}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#111827;font-size:13px;font-weight:800;">
+                    <a href="{WA_CONSORCIOS}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#133522;font-size:13px;font-weight:800;">
                       🏙️ 3. Grandes Consorcios, Edificios y Barrios Cerrados <span style="float:right;color:#03582D;">Solicitar relevamiento →</span>
                     </a>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding:5px 0;">
-                    <a href="{WA_SALUD}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#111827;font-size:13px;font-weight:800;">
+                    <a href="{WA_SALUD}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#133522;font-size:13px;font-weight:800;">
                       🏥 4. Clínicas, Sanatorios y Laboratorios (Protocolo ANMAT) <span style="float:right;color:#03582D;">Solicitar relevamiento →</span>
                     </a>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding:5px 0;">
-                    <a href="{WA_EDUCACION}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#111827;font-size:13px;font-weight:800;">
+                    <a href="{WA_EDUCACION}" target="_blank" style="display:block;background-color:#F9FAFB;border:1.5px solid #03582D;border-radius:10px;padding:11px 16px;text-decoration:none;color:#133522;font-size:13px;font-weight:800;">
                       🎓 5. Universidades, Colegios Bilingües y Clubes Deportivos <span style="float:right;color:#03582D;">Solicitar relevamiento →</span>
                     </a>
                   </td>
@@ -483,22 +483,22 @@ def build_template_b():
             </td>
           </tr>
 
-          <!-- PIE INSTITUCIONAL Y CUMPLIMIENTO PERFIT -->
+          <!-- PIE INSTITUCIONAL Y CUMPLIMIENTO PERFIT (BLANCO / VERDE STAR UNION · CERO AZUL MARINO) -->
           <tr>
-            <td style="background-color:#111827;color:#FFFFFF;padding:24px 28px;text-align:center;">
-              <div style="font-size:15px;font-weight:800;margin-bottom:4px;">Star Union · Sabemos de Limpieza</div>
-              <div style="font-size:12px;color:#D1D5DB;margin-bottom:12px;">
+            <td style="background-color:#F9FAFB;border-top:4px solid #03582D;color:#133522;padding:24px 28px;text-align:center;">
+              <div style="font-size:15px;font-weight:800;color:#03582D;margin-bottom:4px;">Star Union · Sabemos de Limpieza</div>
+              <div style="font-size:12px;color:#374151;font-weight:600;margin-bottom:12px;">
                 Base Operativa Propia (800 m²): Guaminí 5657, CABA · Tel: 0810-333-8646 · WhatsApp B2B: +54 9 11 2275-9369
               </div>
               <div style="margin-bottom:14px;">
-                <a href="https://www.starunion.com.ar/?utm_source=perfit&utm_medium=email&utm_campaign=funnel1_apertura_B" target="_blank" style="color:#FFCC29;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">Sitio Web Oficial</a> |
-                <a href="https://www.instagram.com/starunionservicios/" target="_blank" style="color:#FFFFFF;font-size:12px;text-decoration:none;margin:0 8px;">Instagram</a> |
-                <a href="https://www.linkedin.com/company/star-union-srl/" target="_blank" style="color:#FFFFFF;font-size:12px;text-decoration:none;margin:0 8px;">LinkedIn</a> |
-                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" style="color:#FFFFFF;font-size:12px;text-decoration:none;margin:0 8px;">Certificado TÜV ISO 9001</a>
+                <a href="https://www.starunion.com.ar/?utm_source=perfit&utm_medium=email&utm_campaign=funnel1_apertura_B" target="_blank" style="color:#03582D;font-size:12px;font-weight:800;text-decoration:underline;margin:0 8px;">Sitio Web Oficial</a> |
+                <a href="https://www.instagram.com/starunionservicios/" target="_blank" style="color:#133522;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">Instagram</a> |
+                <a href="https://www.linkedin.com/company/star-union-srl/" target="_blank" style="color:#133522;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">LinkedIn</a> |
+                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" style="color:#03582D;font-size:12px;font-weight:700;text-decoration:none;margin:0 8px;">Certificado TÜV ISO 9001</a>
               </div>
-              <div style="font-size:11px;color:#9CA3AF;line-height:1.4;">
+              <div style="font-size:11px;color:#4B5563;line-height:1.4;">
                 Recibís esta comunicación institucional por formar parte de nuestra red de contactos corporativos.<br>
-                Si deseás dejar de recibir novedades, podés <a href="{{{{unsubscribe_link}}}}" style="color:#D1D5DB;text-decoration:underline;">desuscribirte en 1 clic aquí</a>.
+                Si deseás dejar de recibir novedades, podés <a href="{{{{unsubscribe_link}}}}" style="color:#03582D;font-weight:700;text-decoration:underline;">desuscribirte en 1 clic aquí</a>.
               </div>
             </td>
           </tr>
@@ -526,7 +526,7 @@ def build_showcase_html(html_a, html_b):
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {{ font-family: 'Open Sans', sans-serif; background: #f9fafb; color: #111827; }}
+    body {{ font-family: 'Open Sans', sans-serif; background: #f9fafb; color: #133522; }}
   </style>
 </head>
 <body class="py-8 px-4 sm:px-6">
@@ -545,7 +545,7 @@ def build_showcase_html(html_a, html_b):
         </div>
       </div>
       <div class="flex flex-wrap gap-2">
-        <a href="index.html" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-xl transition">
+        <a href="index.html" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-xl transition">
           ← Volver a la Cabina de Redes y Calendario
         </a>
         <a href="../radar-comercial/perfit-historial/index.html" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl transition">
@@ -574,7 +574,7 @@ def build_showcase_html(html_a, html_b):
         </div>
 
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-2">
-          <span class="inline-block bg-gray-900 text-white font-extrabold px-2.5 py-0.5 rounded-full text-[10px]">ETAPA 2 · MARTES (+5 DÍAS)</span>
+          <span class="inline-block bg-[#133522] text-white font-extrabold px-2.5 py-0.5 rounded-full text-[10px]">ETAPA 2 · MARTES (+5 DÍAS)</span>
           <h3 class="font-extrabold text-sm text-gray-900">2° Pasada Automática solo a No-Abridores (+21,8% Aperturas)</h3>
           <p class="text-gray-700 leading-relaxed">
             A los 5 días, quienes no abrieron la Etapa 1 reciben el envío con <strong>Asunto cambiado</strong> (enfocado en <em>Control de Presentismo Biométrico y Blindaje Art. 30 LCT</em>). Si usaste la Plantilla A en el envío 1, podés usar la Plantilla B en el reenvío.
@@ -618,7 +618,7 @@ def build_showcase_html(html_a, html_b):
             <input id="subj_A" type="text" value="Infraestructura propia de 800 m² y continuidad operativa ISO 9001 º Star ⭐ Union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 font-bold text-gray-900">
           </div>
           <div class="grid sm:grid-cols-3 gap-2 pt-1">
-            <button type="button" onclick="copyHtml('code_A', this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
+            <button type="button" onclick="copyHtml('code_A', this)" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
               📋 Copiar HTML Opción A
             </button>
             <a href="mailing-apertura-funnel1-opcion-A.html" download="STAR_UNION_MAILING_FUNNEL1_OPCION_A.html" class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-center text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
@@ -641,7 +641,7 @@ def build_showcase_html(html_a, html_b):
       <div class="bg-white rounded-2xl border-2 border-gray-800 shadow-sm overflow-hidden flex flex-col">
         <div class="bg-gray-50 p-5 border-b border-gray-200 space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="bg-gray-900 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase">OPCIÓN B · Ejecutiva de Auditoría + Los 4 Dolores Resueltos</span>
+            <span class="bg-[#133522] text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase">OPCIÓN B · Ejecutiva de Auditoría + Los 4 Dolores Resueltos</span>
             <a href="mailing-apertura-funnel1-opcion-B.html" target="_blank" class="text-xs font-extrabold text-[#03582d] underline">Abrir sola en pestaña ↗</a>
           </div>
           <h2 class="text-lg font-extrabold text-gray-900">Plantilla B: Matriz de los 4 Riesgos Operativos Resueltos + Selector Rápido de Rubro en 1 Clic</h2>
@@ -653,7 +653,7 @@ def build_showcase_html(html_a, html_b):
             <input id="subj_B" type="text" value="¿Tu operación está cubierta hoy ante ausencias, fallas de máquinas o auditorías? º Star ⭐ Union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 font-bold text-gray-900">
           </div>
           <div class="grid sm:grid-cols-3 gap-2 pt-1">
-            <button type="button" onclick="copyHtml('code_B', this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
+            <button type="button" onclick="copyHtml('code_B', this)" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
               📋 Copiar HTML Opción B
             </button>
             <a href="mailing-apertura-funnel1-opcion-B.html" download="STAR_UNION_MAILING_FUNNEL1_OPCION_B.html" class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-center text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
