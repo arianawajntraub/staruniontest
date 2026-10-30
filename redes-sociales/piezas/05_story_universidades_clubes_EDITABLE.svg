@@ -20,7 +20,7 @@
   </g>
 
   <!-- TITULAR PRINCIPAL EDITABLE -->
-  <text id="Titular_Editable" x="76" y="428" font-family="Open Sans, Arial, sans-serif" font-size="38" font-weight="800" fill="#111827">
+  <text id="Titular_Editable" x="76" y="428" font-family="Open Sans, Arial, sans-serif" font-size="38" font-weight="800" fill="#133522">
     <tspan x="76" dy="0">Mantenimiento integral de campus</tspan><tspan x="76" dy="44">universitarios, colegios y</tspan><tspan x="76" dy="44">clubes deportivos.</tspan>
   </text>
 
@@ -39,7 +39,7 @@
   <!-- PIE DE CONTACTO Y BOTÓN CTA EDITABLE DENTRO DE ZONA SEGURA -->
   <g id="Pie_Institucional">
     <line x1="76" y1="1429" x2="940" y2="1429" stroke="#E5E7EB" stroke-width="2"/>
-    <text x="76" y="1459" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">Star Union · Base Operativa Guaminí 5657, CABA</text>
+    <text x="76" y="1459" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#133522">Star Union · Base Operativa Guaminí 5657, CABA</text>
     <text x="76" y="1481" font-family="Open Sans, Arial, sans-serif" font-size="14" font-weight="600" fill="#4B5563">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</text>
     <rect x="660" y="1441" width="280" height="46" rx="23" fill="#03582D"/>
     <text x="800" y="1470" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">www.starunion.com.ar</text>

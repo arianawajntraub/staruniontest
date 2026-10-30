@@ -110,8 +110,8 @@ def ensure_fresh_youtube_token(keys):
         yt_rt = yt_tok
         save_keys({"youtube_refresh_token": yt_rt})
     if yt_tok and not yt_tok.startswith("1//"):
-        st, _ = http_json("GET", "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true", headers={"Authorization": f"Bearer {yt_tok}"})
-        if st == 200:
+        st, info = http_json("GET", f"https://oauth2.googleapis.com/tokeninfo?access_token={urllib.parse.quote(yt_tok)}")
+        if st == 200 and int(info.get("expires_in", 0)) > 60:
             return yt_tok
     if yt_rt:
         new_tok = exchange_google_refresh_token(yt_rt)
@@ -129,8 +129,8 @@ def ensure_fresh_gmb_token(keys):
         gmb_rt = gmb_tok
         save_keys({"gmb_refresh_token": gmb_rt})
     if gmb_tok and not gmb_tok.startswith("1//"):
-        st, _ = http_json("GET", "https://mybusinessaccountmanagement.googleapis.com/v1/accounts", headers={"Authorization": f"Bearer {gmb_tok}"})
-        if st == 200:
+        st, info = http_json("GET", f"https://oauth2.googleapis.com/tokeninfo?access_token={urllib.parse.quote(gmb_tok)}")
+        if st == 200 and int(info.get("expires_in", 0)) > 60:
             return gmb_tok
     if gmb_rt:
         new_tok = exchange_google_refresh_token(gmb_rt)
@@ -389,12 +389,46 @@ def clean_ig_caption(caption):
     return cleaned
 
 
-def publish_ig_feed(keys, feed_rel_path, caption):
+def publish_ig_feed(keys, feed_rel_path, caption, carousel_files=None):
     caption = clean_ig_caption(caption)
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
+
+    # Si es modo Canva y tiene las 4 placas del carrusel, publicamos el Carrusel completo de 4 láminas (1080x1350)
+    if carousel_files and len(carousel_files) > 1 and ("canva_" in str(feed_rel_path)):
+        child_ids = []
+        for c_rel in carousel_files[:4]:
+            c_url = f"{PUBLIC_ASSET_BASE}/{c_rel.lstrip('/')}"
+            st_c, d_c = http_json(
+                "POST",
+                f"https://graph.facebook.com/v21.0/{ig_id}/media",
+                form_data={"image_url": c_url, "is_carousel_item": "true", "access_token": token},
+            )
+            if st_c == 200 and "id" in d_c:
+                child_ids.append(d_c["id"])
+        if len(child_ids) >= 2:
+            time.sleep(2)
+            st_car, d_car = http_json(
+                "POST",
+                f"https://graph.facebook.com/v21.0/{ig_id}/media",
+                form_data={
+                    "media_type": "CAROUSEL",
+                    "children": ",".join(child_ids),
+                    "caption": caption,
+                    "access_token": token,
+                },
+            )
+            if st_car == 200 and "id" in d_car:
+                time.sleep(3)
+                st_pub, pub_car = http_json(
+                    "POST",
+                    f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
+                    form_data={"creation_id": d_car["id"], "access_token": token},
+                )
+                if st_pub == 200 and "id" in pub_car:
+                    return {"ok": True, "id": pub_car["id"], "note": "Carrusel de 4 placas (1080x1350) publicado en IG Feed."}
 
     img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
     st, data = http_json(
@@ -415,6 +449,33 @@ def publish_ig_feed(keys, feed_rel_path, caption):
     if st3 == 200 and "id" in pub:
         return {"ok": True, "id": pub["id"]}
     return {"ok": False, "error": f"Error publicando IG Feed: {pub}"}
+
+
+def publish_fb_story(keys, story_rel_path):
+    """
+    Publica la Story Liviana 1080x1920 con Placa Central ('EMPRESA DE LIMPIEZA PROFESIONAL') en Facebook Page Stories.
+    """
+    page_id = keys.get("fb_page_id")
+    page_token = keys.get("fb_page_token")
+    if not page_id or not page_token:
+        return {"ok": False, "error": "Falta Token de Facebook Page."}
+
+    img_url = f"{PUBLIC_ASSET_BASE}/{story_rel_path.lstrip('/')}"
+    st_p, d_p = http_json(
+        "POST",
+        f"https://graph.facebook.com/v21.0/{page_id}/photos",
+        form_data={"url": img_url, "published": "false", "access_token": page_token},
+    )
+    if st_p == 200 and "id" in d_p:
+        photo_id = d_p["id"]
+        st_s, d_s = http_json(
+            "POST",
+            f"https://graph.facebook.com/v21.0/{page_id}/photo_stories",
+            form_data={"photo_id": photo_id, "access_token": page_token},
+        )
+        if st_s == 200:
+            return {"ok": True, "id": d_s.get("post_id") or photo_id, "note": "Story Liviana 9:16 publicada en Facebook Page Stories."}
+    return {"ok": False, "error": f"Error publicando FB Story: {d_p}"}
 
 
 def publish_ig_story(keys, story_rel_path, reel_rel_path="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"):
@@ -943,6 +1004,79 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(body)
             return
 
+        if self.path.startswith("/canva-auth"):
+            import hashlib, base64, secrets
+            verifier = secrets.token_urlsafe(48)
+            digest = hashlib.sha256(verifier.encode("ascii")).digest()
+            challenge = base64.urlsafe_b64encode(digest).rstrip(b"=").decode("ascii")
+            client_id = "NIUQDou1onsazrzX"
+            redirect_uri = "http://127.0.0.1:8894/canva-callback"
+            save_keys({"canva_client_id": client_id, "canva_code_verifier": verifier})
+            scopes = "profile:read design:meta:read design:content:write design:content:read folder:read folder:write brandtemplate:content:read brandtemplate:meta:read brandtemplate:content:write comment:write comment:read asset:read asset:write brandkit:read"
+            auth_url = "https://mcp.canva.com/authorize?" + urllib.parse.urlencode({
+                "client_id": client_id,
+                "redirect_uri": redirect_uri,
+                "response_type": "code",
+                "code_challenge": challenge,
+                "code_challenge_method": "S256",
+                "resource": "https://mcp.canva.com/mcp",
+                "scope": scopes,
+                "state": "starunion_canva",
+            })
+            self.send_response(302)
+            self.send_header("Location", auth_url)
+            self.end_headers()
+            return
+
+        if self.path.startswith("/canva-callback"):
+            parsed = urllib.parse.urlparse(self.path)
+            qs = urllib.parse.parse_qs(parsed.query)
+            code = (qs.get("code") or [""])[0].strip()
+            keys = load_keys()
+            client_id = keys.get("canva_client_id", "NIUQDou1onsazrzX")
+            verifier = keys.get("canva_code_verifier", "")
+            redirect_uri = "http://127.0.0.1:8894/canva-callback"
+            st_c, data_c = http_json(
+                "POST",
+                "https://mcp.canva.com/token",
+                form_data={
+                    "grant_type": "authorization_code",
+                    "client_id": client_id,
+                    "code": code,
+                    "redirect_uri": redirect_uri,
+                    "code_verifier": verifier,
+                    "resource": "https://mcp.canva.com/mcp",
+                },
+            )
+            tok = data_c.get("access_token", "")
+            rt = data_c.get("refresh_token", "")
+            if tok:
+                save_keys({
+                    "canva_token": tok,
+                    "canva_refresh_token": rt,
+                    "canva_connected_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                })
+                try:
+                    with open("/Users/arianawajntraub/.gemini/config/canva_oauth.json", "w", encoding="utf-8") as cf:
+                        json.dump({
+                            "client_id": client_id,
+                            "access_token": tok,
+                            "refresh_token": rt,
+                            "connected_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                        }, cf, indent=2)
+                except Exception:
+                    pass
+                html = "<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡Canva Pago Conectado en Automático con Star Union y Antigravity!</h2><p>Ya podés volver al chat o al panel. Redirigiendo...</p><script>setTimeout(()=>location.href='/redes-sociales/index.html', 1500);</script></body></html>"
+            else:
+                html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;'><h2>❌ Error obteniendo token de Canva</h2><pre>{json.dumps(data_c, indent=2)}</pre><p><a href='/canva-auth' style='color:#fde047;'>🔄 Reintentar conexión directa</a></p></body></html>"
+            body = html.encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
         if self.path.startswith("/api/status"):
             keys = load_keys()
             tok_meta = keys.get("fb_page_token") or keys.get("meta_user_token")
@@ -962,8 +1096,8 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             yt_ok = False
             yt_expired = False
             if yt_tok:
-                st_y, _ = http_json("GET", "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true", headers={"Authorization": f"Bearer {yt_tok}"})
-                if st_y == 200:
+                st_y, info_y = http_json("GET", f"https://oauth2.googleapis.com/tokeninfo?access_token={urllib.parse.quote(yt_tok)}")
+                if st_y == 200 and "youtube" in info_y.get("scope", ""):
                     yt_ok = True
                 else:
                     yt_expired = True
@@ -972,8 +1106,8 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             gmb_ok = False
             gmb_expired = False
             if gmb_tok and keys.get("gmb_location_name"):
-                st_g, _ = http_json("GET", "https://mybusinessaccountmanagement.googleapis.com/v1/accounts", headers={"Authorization": f"Bearer {gmb_tok}"})
-                if st_g == 200:
+                st_g, info_g = http_json("GET", f"https://oauth2.googleapis.com/tokeninfo?access_token={urllib.parse.quote(gmb_tok)}")
+                if st_g == 200 and "business.manage" in info_g.get("scope", ""):
                     gmb_ok = True
                 else:
                     gmb_expired = True
@@ -1005,6 +1139,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     "youtube_has_refresh": bool(keys.get("youtube_refresh_token")),
                     "youtube_channel_name": keys.get("youtube_channel_name", ""),
                     "tiktok_connected": tt_ok,
+                    "canva_connected": bool(keys.get("canva_token")),
                 },
             )
             return
@@ -1123,7 +1258,12 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             keys = load_keys()
             channels = body.get("channels", [])
             feed_file = body.get("feed_file", "piezas/01_feed_logistica_industria_1080x1350.jpg")
-            story_file = body.get("story_file", "piezas/01_story_logistica_industria_1080x1920.jpg")
+            carousel_files = body.get("carousel_files", [])
+            fb_feed_file = body.get("fb_feed_file") or feed_file
+            li_feed_file = body.get("li_feed_file") or feed_file
+            gmb_feed_file = body.get("gmb_feed_file") or feed_file
+            story_file = body.get("story_file", "piezas/story_liviana_01_3010_salud_1080x1920.jpg")
+            story_video_file = body.get("story_video_file") or body.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
             reel_file = body.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
             caption_ig = body.get("caption_ig", "")
             caption_li = body.get("caption_li", "")
@@ -1135,19 +1275,21 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
 
             results = {}
             if "ig_feed" in channels:
-                results["Instagram Feed (4:5)"] = publish_ig_feed(keys, feed_file, caption_ig)
+                results["Instagram Feed (4:5 · Carrusel 4 Placas)"] = publish_ig_feed(keys, feed_file, caption_ig, carousel_files=carousel_files)
             if "ig_story" in channels:
-                results["Instagram Story Video c/Música (9:16)"] = publish_ig_story(keys, story_file, reel_file)
+                results["Instagram Story Liviana (9:16 Placa Central c/Música)"] = publish_ig_story(keys, story_file, story_video_file)
             if "ig_reel" in channels:
-                results["Instagram Reel con Voz Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_file, caption_ig)
+                results["Instagram Reel 12s con Locución Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_file, caption_ig)
             if "fb_page" in channels:
-                results["Facebook Page"] = publish_fb_page(keys, feed_file, caption_ig, public_url)
+                results["Facebook Page (Adaptada 1080×1080)"] = publish_fb_page(keys, fb_feed_file, caption_ig, public_url)
+            if "fb_story" in channels:
+                results["Facebook Story Liviana (9:16 Placa Central)"] = publish_fb_story(keys, story_file)
             if "fb_reel" in channels:
-                results["Facebook Reel MP4"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
+                results["Facebook Reel MP4 12s"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
             if "linkedin" in channels:
-                results["LinkedIn Página Empresa (Imagen Nativa)"] = publish_linkedin(keys, feed_file, caption_li, public_url, title)
+                results["LinkedIn Organización (Adaptada 1080×1080)"] = publish_linkedin(keys, li_feed_file, caption_li, public_url, title)
             if "gmb" in channels:
-                results["Google My Business (Maps)"] = publish_gmb(keys, feed_file, caption_ig, public_url)
+                results["Google My Business (Adaptada 700×700)"] = publish_gmb(keys, gmb_feed_file, caption_ig, public_url)
             if "youtube" in channels:
                 results["YouTube Shorts (@starunionservicios)"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
             if "tiktok" in channels:
@@ -1171,6 +1313,12 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             for k in (
                 "scheduled_at",
                 "status",
+                "format_mode",
+                "volanta",
+                "bajada",
+                "placa2",
+                "placa3",
+                "cierre_rubro",
                 "tag",
                 "title",
                 "subtitle",
@@ -1193,6 +1341,51 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
             regen_msg = ""
+            if body.get("update_canva"):
+                try:
+                    import sys
+                    rs_dir = os.path.join(WEB_ROOT, "redes-sociales")
+                    if rs_dir not in sys.path:
+                        sys.path.insert(0, rs_dir)
+                    import sincronizar_tira_canva_y_videos12s as stc
+                    ig_did = entry.get("ig_design_id")
+                    tt_did = entry.get("tt_design_id")
+                    slug = entry.get("slug", f"post_{post_id}")
+                    if ig_did:
+                        stc.update_canva_design_texts(
+                            ig_did,
+                            volanta=entry.get("volanta"),
+                            bajada=entry.get("bajada"),
+                            placa2=entry.get("placa2"),
+                            placa3=entry.get("placa3"),
+                            cierre_rubro=entry.get("cierre_rubro"),
+                        )
+                        ig_slides = stc.export_canva_pages_jpg(ig_did, f"canva_{post_id}_{slug}_feed", 1080, 1350)
+                        entry["carousel_files"] = [f"piezas/{os.path.basename(p)}" for p in ig_slides]
+                        if entry["carousel_files"]:
+                            entry["feed_file"] = entry["carousel_files"][0]
+                    if tt_did:
+                        stc.update_canva_design_texts(
+                            tt_did,
+                            volanta=entry.get("volanta"),
+                            bajada=entry.get("bajada"),
+                            placa2=entry.get("placa2"),
+                            placa3=entry.get("placa3"),
+                            cierre_rubro=entry.get("cierre_rubro"),
+                        )
+                        tt_slides = stc.export_canva_pages_jpg(tt_did, f"canva_{post_id}_{slug}_9x16", 1080, 1920)
+                        entry["story_slides"] = [f"piezas/{os.path.basename(p)}" for p in tt_slides]
+                        if entry["story_slides"]:
+                            entry["story_file"] = entry["story_slides"][0]
+                        reel_out = os.path.join(stc.PIEZAS_DIR, f"canva_{post_id}_{slug}_reel_12s_locucion.mp4")
+                        stc.build_12s_reel_from_4_slides(tt_slides, reel_out)
+                        entry["reel_file"] = f"piezas/{os.path.basename(reel_out)}"
+                    data[post_id] = entry
+                    with open(sched_path, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2)
+                    regen_msg = " + Canva actualizado por API + 4 láminas re-exportadas + Video 12s con locución masculina regenerado."
+                except Exception as ex_c:
+                    regen_msg = f" (Aviso Canva API: {ex_c})"
             if body.get("regenerate_image"):
                 try:
                     import sys
@@ -1249,8 +1442,8 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 payload_pf = {
                     "name": f"Funnel 1 Apertura - Opción {opt} (Star Union)",
                     "subject": subj,
-                    "from": {"email": "info@starunion.com.ar", "name": "Star Union"},
-                    "replyTo": {"email": "info@starunion.com.ar", "name": "Star Union"},
+                    "from": {"email": "ventas@starunion.com.ar", "name": "Star Union"},
+                    "replyTo": {"email": "ventas@starunion.com.ar", "name": "Star Union"},
                     "content": {"html": html_content},
                 }
                 st_pf, res_pf = http_json(
@@ -1287,7 +1480,12 @@ def run_scheduler_loop():
                     if entry.get("status") == "programado" and entry.get("scheduled_at") and entry["scheduled_at"] <= now_str:
                         channels = entry.get("channels", [])
                         feed_file = entry.get("feed_file", f"piezas/{pid}_feed_logistica_industria_1080x1350.jpg")
-                        story_file = entry.get("story_file", f"piezas/{pid}_story_logistica_industria_1080x1920.jpg")
+                        carousel_files = entry.get("carousel_files", [])
+                        fb_feed_file = entry.get("fb_feed_file") or feed_file
+                        li_feed_file = entry.get("li_feed_file") or feed_file
+                        gmb_feed_file = entry.get("gmb_feed_file") or feed_file
+                        story_file = entry.get("story_file", f"piezas/story_liviana_{pid}_{entry.get('slug','salud')}_1080x1920.jpg")
+                        story_video_file = entry.get("story_video_file") or entry.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
                         reel_file = entry.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
                         caption_ig = entry.get("copy_ig_fb", "")
                         caption_li = entry.get("copy_linkedin", "")
@@ -1298,23 +1496,25 @@ def run_scheduler_loop():
                         title = entry.get("title", "Star Union")
                         res = {}
                         if "ig_feed" in channels:
-                            res["IG Feed"] = publish_ig_feed(keys, feed_file, caption_ig)
+                            res["IG Feed (4:5 Carrusel)"] = publish_ig_feed(keys, feed_file, caption_ig, carousel_files=carousel_files)
                         if "ig_story" in channels:
-                            res["IG Story Video"] = publish_ig_story(keys, story_file, reel_file)
+                            res["IG Story Liviana Video"] = publish_ig_story(keys, story_file, story_video_file)
                         if "ig_reel" in channels:
-                            res["IG Reel"] = publish_ig_reel(keys, reel_file, caption_ig)
+                            res["IG Reel 12s c/Locución"] = publish_ig_reel(keys, reel_file, caption_ig)
                         if "fb_page" in channels:
-                            res["FB Page"] = publish_fb_page(keys, feed_file, caption_ig, public_url)
+                            res["FB Page (1080x1080)"] = publish_fb_page(keys, fb_feed_file, caption_ig, public_url)
+                        if "fb_story" in channels:
+                            res["FB Story Liviana"] = publish_fb_story(keys, story_file)
                         if "fb_reel" in channels:
-                            res["FB Reel"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
+                            res["FB Reel 12s"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
                         if "linkedin" in channels:
-                            res["LinkedIn"] = publish_linkedin(keys, feed_file, caption_li, public_url, title)
+                            res["LinkedIn (1080x1080)"] = publish_linkedin(keys, li_feed_file, caption_li, public_url, title)
                         if "gmb" in channels:
-                            res["Google Maps"] = publish_gmb(keys, feed_file, caption_ig, public_url)
+                            res["Google Maps (700x700)"] = publish_gmb(keys, gmb_feed_file, caption_ig, public_url)
                         if "youtube" in channels:
-                            res["YouTube"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
+                            res["YouTube Shorts"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
                         if "tiktok" in channels:
-                            res["TikTok"] = publish_tiktok(keys, reel_file, caption_ig)
+                            res["TikTok Video"] = publish_tiktok(keys, reel_file, caption_ig)
                         entry["status"] = "publicado"
                         entry["published_at"] = now_str
                         entry["last_results"] = res
