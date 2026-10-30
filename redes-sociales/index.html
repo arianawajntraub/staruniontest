@@ -64,7 +64,7 @@
             <p class="text-gray-300 leading-relaxed">
               1) En <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="text-amber-300 underline font-bold">Meta Graph API Explorer ↗</a> (usando tu App principal con los 5 permisos ya cargados), tocá <strong>Generate Access Token</strong>.<br>
               2) Tildá la Fan Page <strong>Star Union Servicios</strong> + IG <strong>@starunionservicios</strong>.<br>
-              3) Pegá el Token acá (el servidor ya tiene guardado el <code>App Secret</code> y lo convierte automáticamente en <strong>Token de Página ETERNO que no vence nunca</strong>):
+              3) Pegá el Token acá (el servidor ya tiene guardado el <code>App Secret</code> y lo convierte en automático en <strong>Token de Página ETERNO que no vence nunca</strong>):
             </p>
           </div>
           <div class="space-y-2 pt-2">
@@ -1544,7 +1544,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
             metaBox.innerHTML = `✅ CONECTADO Y ACTIVO (TOKEN PERMANENTE):<br>• Facebook: <strong>${st.fb_page_name}</strong> (${st.fb_page_id})<br>• Instagram: <strong>@${st.ig_username}</strong> (${st.ig_user_id})`;
           } else if (st.meta_expired) {
             metaBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
-            metaBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (${st.fb_page_name} + @${st.ig_username}):<br>Pegá abajo un Token nuevo de Graph Explorer y se convertirá automáticamente en <strong>Token Permanente (Nunca vence)</strong>.`;
+            metaBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (${st.fb_page_name} + @${st.ig_username}):<br>Pegá abajo un Token nuevo de Graph Explorer y se convertirá en automático en <strong>Token Permanente (Nunca vence)</strong>.`;
           }
         }
         const liBox = document.getElementById('status-box-li');
