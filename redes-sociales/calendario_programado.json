@@ -1,7 +1,23 @@
 {
   "01": {
-    "scheduled_at": "2026-10-30T10:00",
+    "id": "01",
+    "post_id": "01",
     "status": "programado",
+    "scheduled_at": "2026-10-30T10:00",
+    "channels": [
+      "ig_feed",
+      "ig_story",
+      "ig_reel",
+      "fb_page",
+      "fb_reel",
+      "linkedin",
+      "gmb",
+      "youtube",
+      "tiktok"
+    ],
+    "feed_file": "piezas/01_feed_logistica_industria_1080x1350.jpg",
+    "story_file": "piezas/01_story_logistica_industria_1080x1920.jpg",
+    "reel_file": "piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4",
     "tag": "LOGÍSTICA E INDUSTRIA · ISO 9001:2015",
     "title": "Operación continua en centros logísticos y plantas industriales.",
     "subtitle": "Autolavadoras hombre a bordo, barredoras industriales y supervisión técnica bajo norma ISO 9001:2015 (TÜV Rheinland) sin detener tu línea ni el despacho.",
@@ -11,22 +27,27 @@
     "yt_desc": "Empresa de limpieza industrial y profesional en CABA y GBA — Star Union. Garantizamos la continuidad operativa en centros logísticos, depósitos y plantas industriales sin detener el despacho.\n\n• Limpieza mecanizada con autolavadoras hombre a bordo y barredoras industriales en pasillos de racks y playas de maniobra.\n• Base Operativa Propia de 800 m² en Guaminí 5657 (CABA) con Taller Electromecánico In-House y reemplazo de equipos en el día.\n• Servicio de limpieza para empresas certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (ID 9000041847).\n\nSolicitá una visita técnica para tu empresa en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #LimpiezaIndustrial #ServicioDeLimpieza #LimpiezaParaEmpresas #StarUnion",
     "yt_tags": "empresa de limpieza, empresas de limpieza en buenos aires, servicio de limpieza para empresas, limpieza industrial, limpieza de depositos, centros logisticos, star union, iso 9001 tuv rheinland, limpieza profesional caba",
     "copy_wa": "Empresa de limpieza industrial y centros logísticos con maquinaria propia y certificación ISO 9001:2015 (TÜV Rheinland). Conocé más en https://www.starunion.com.ar",
+    "public_url": "https://www.starunion.com.ar"
+  },
+  "02": {
+    "id": "02",
+    "post_id": "02",
+    "status": "programado",
+    "scheduled_at": "2026-11-02T10:00",
     "channels": [
       "ig_feed",
       "ig_story",
       "ig_reel",
       "fb_page",
+      "fb_reel",
+      "linkedin",
       "gmb",
       "youtube",
       "tiktok"
     ],
-    "feed_file": "piezas/01_feed_logistica_industria_1080x1350.jpg",
-    "story_file": "piezas/01_story_logistica_industria_1080x1920.jpg",
-    "reel_file": "piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4"
-  },
-  "02": {
-    "scheduled_at": "2026-11-02T10:00",
-    "status": "programado",
+    "feed_file": "piezas/02_feed_base_operativa_taller_1080x1350.jpg",
+    "story_file": "piezas/02_story_base_operativa_taller_1080x1920.jpg",
+    "reel_file": "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4",
     "tag": "INFRAESTRUCTURA PROPIA · GUAMINÍ 5657 CABA",
     "title": "Taller electromecánico propio: tus máquinas en planta nunca se detienen.",
     "subtitle": "En nuestra Base Operativa de 800 m² en CABA reparamos, mantenemos y despachamos equipos de reemplazo con flota propia sin depender de terceros.",
@@ -36,22 +57,27 @@
     "yt_desc": "Star Union — Empresa de limpieza profesional e industrial con Base Operativa Propia de 800 m² en Guaminí 5657 (CABA) y Taller Electromecánico In-House.\n\n• Parque propio de autolavadoras, barredoras e hidrolavadoras con mantenimiento preventivo in-house.\n• Stock permanente de insumos aprobados por ANMAT y equipos de respaldo para reemplazo en el día.\n• Servicio de limpieza para empresas, industrias, consorcios y oficinas en CABA y GBA bajo Norma ISO 9001:2015.\n\nConocé nuestra infraestructura en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #ServicioDeLimpieza #LimpiezaProfesional #LimpiezaIndustrial #StarUnion",
     "yt_tags": "empresa de limpieza, empresas de limpieza caba, servicio de limpieza para empresas, limpieza profesional, star union, base operativa guamini, maquinaria de limpieza industrial, iso 9001 limpieza",
     "copy_wa": "Empresa de limpieza con taller electromecánico propio en nuestra Base Operativa de 800 m² (Guaminí 5657, CABA): respaldo real para tu empresa. 👉 https://www.starunion.com.ar",
+    "public_url": "https://www.starunion.com.ar"
+  },
+  "03": {
+    "id": "03",
+    "post_id": "03",
+    "status": "programado",
+    "scheduled_at": "2026-11-04T10:00",
     "channels": [
       "ig_feed",
       "ig_story",
       "ig_reel",
       "fb_page",
+      "fb_reel",
+      "linkedin",
       "gmb",
       "youtube",
       "tiktok"
     ],
-    "feed_file": "piezas/02_feed_base_operativa_taller_1080x1350.jpg",
-    "story_file": "piezas/02_story_base_operativa_taller_1080x1920.jpg",
-    "reel_file": "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"
-  },
-  "03": {
-    "scheduled_at": "2026-11-04T10:00",
-    "status": "programado",
+    "feed_file": "piezas/03_feed_presentismo_biometrico_1080x1350.jpg",
+    "story_file": "piezas/03_story_presentismo_biometrico_1080x1920.jpg",
+    "reel_file": "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4",
     "tag": "CONTROL BIOMÉTRICO · COBERTURA < 2 HORAS",
     "title": "Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.",
     "subtitle": "Reloj biométrico conectado a nuestra central operativa: alerta temprana a los 15 minutos y envío en el acto de personal de reemplazo.",
@@ -61,22 +87,27 @@
     "yt_desc": "Cómo funciona el sistema de control de presentismo biométrico en tiempo real de Star Union para garantizar puestos 100% cubiertos en oficinas, consorcios, clínicas y plantas industriales.\n\n• Fichaje biométrico en tiempo real con alerta a los 15 minutos en nuestra central operativa de CABA.\n• Cobertura de ausencias en menos de 2 horas mediante guardia móvil propia.\n• Personal 100% registrado en relación de dependencia con ART y F.931 al día.\n\nSolicitá una propuesta técnica en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #LimpiezaDeOficinas #LimpiezaDeConsorcios #ServicioDeLimpieza #StarUnion",
     "yt_tags": "empresa de limpieza, limpieza de oficinas, limpieza de consorcios, servicio de limpieza caba, empresas de limpieza en buenos aires, control biometrico limpieza, edificios corporativos limpieza, star union",
     "copy_wa": "Empresa de limpieza con presentismo auditado por reloj biométrico y cobertura en menos de 2 horas para oficinas, consorcios e industrias 👉 https://www.starunion.com.ar",
+    "public_url": "https://www.starunion.com.ar"
+  },
+  "04": {
+    "id": "04",
+    "post_id": "04",
+    "status": "programado",
+    "scheduled_at": "2026-11-06T10:00",
     "channels": [
       "ig_feed",
       "ig_story",
       "ig_reel",
       "fb_page",
+      "fb_reel",
+      "linkedin",
       "gmb",
       "youtube",
       "tiktok"
     ],
-    "feed_file": "piezas/03_feed_presentismo_biometrico_1080x1350.jpg",
-    "story_file": "piezas/03_story_presentismo_biometrico_1080x1920.jpg",
-    "reel_file": "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"
-  },
-  "04": {
-    "scheduled_at": "2026-11-06T10:00",
-    "status": "programado",
+    "feed_file": "piezas/04_feed_salud_laboratorios_1080x1350.jpg",
+    "story_file": "piezas/04_story_salud_laboratorios_1080x1920.jpg",
+    "reel_file": "piezas/short_02_verticales_iso9001_1080x1920.mp4",
     "tag": "SALUD Y LABORATORIOS · PROTOCOLOS ANMAT",
     "title": "Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.",
     "subtitle": "Protocolos contra contaminación cruzada, insumos aprobados por ANMAT con hojas de seguridad (MSDS) y supervisión auditada bajo ISO 9001:2015.",
@@ -86,22 +117,27 @@
     "yt_desc": "Servicio de limpieza e higiene técnica institucional para clínicas, sanatorios, centros de diagnóstico y laboratorios en CABA y GBA bajo Norma ISO 9001:2015 — Star Union.\n\n• Zonificación técnica por áreas críticas y prevención de contaminación cruzada.\n• Insumos desinfectantes aprobados por ANMAT con hojas de seguridad (MSDS) en el objetivo.\n• Supervisión auditada bajo certificación internacional TÜV Rheinland ISO 9001:2015.\n\nConocé más en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #LimpiezaDeClinicas #LimpiezaDeLaboratorios #HigieneHospitalaria #StarUnion",
     "yt_tags": "empresa de limpieza, limpieza de clinicas, limpieza hospitalaria, limpieza de laboratorios, servicio de limpieza para clinicas, insumos anmat, iso 9001 salud, star union",
     "copy_wa": "Empresa de limpieza certificada ISO 9001:2015 para clínicas, sanatorios y laboratorios con insumos aprobados por ANMAT. 👉 https://www.starunion.com.ar",
+    "public_url": "https://www.starunion.com.ar"
+  },
+  "05": {
+    "id": "05",
+    "post_id": "05",
+    "status": "programado",
+    "scheduled_at": "2026-11-10T10:00",
     "channels": [
       "ig_feed",
       "ig_story",
       "ig_reel",
       "fb_page",
+      "fb_reel",
+      "linkedin",
       "gmb",
       "youtube",
       "tiktok"
     ],
-    "feed_file": "piezas/04_feed_salud_laboratorios_1080x1350.jpg",
-    "story_file": "piezas/04_story_salud_laboratorios_1080x1920.jpg",
-    "reel_file": "piezas/short_02_verticales_iso9001_1080x1920.mp4"
-  },
-  "05": {
-    "scheduled_at": "2026-11-10T10:00",
-    "status": "programado",
+    "feed_file": "piezas/05_feed_universidades_clubes_1080x1350.jpg",
+    "story_file": "piezas/05_story_universidades_clubes_1080x1920.jpg",
+    "reel_file": "piezas/short_02_verticales_iso9001_1080x1920.mp4",
     "tag": "EDUCACIÓN Y DEPORTE · GRANDES PREDIOS",
     "title": "Mantenimiento integral de campus universitarios, colegios y clubes deportivos.",
     "subtitle": "Equipos sincronizados en contraturno y entre cambios de clase para aulas, auditorios, vestuarios y pisos deportivos de alto tránsito.",
@@ -111,17 +147,6 @@
     "yt_desc": "Empresa de limpieza y mantenimiento integral en contraturno para grandes campus universitarios, colegios e instituciones deportivas en CABA y GBA — Star Union.\n\n• Cuidado técnico de pisos deportivos de parquet, gimnasios, vestuarios y comedores.\n• Operación sincronizada en contraturno y guardias diurnas en aulas, auditorios y sanitarios.\n• Personal capacitado y procesos certificados bajo Norma ISO 9001:2015 (TÜV Rheinland).\n\nConocé más en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #LimpiezaDeColegios #LimpiezaDeUniversidades #ServicioDeLimpieza #StarUnion",
     "yt_tags": "empresa de limpieza, limpieza de universidades, limpieza de colegios, limpieza de clubes deportivos, servicio de limpieza institucional, mantenimiento de campus, star union",
     "copy_wa": "Empresa de limpieza y mantenimiento integral en contraturno para universidades, colegios y clubes deportivos con certificación ISO 9001:2015. 👉 https://www.starunion.com.ar",
-    "channels": [
-      "ig_feed",
-      "ig_story",
-      "ig_reel",
-      "fb_page",
-      "gmb",
-      "youtube",
-      "tiktok"
-    ],
-    "feed_file": "piezas/05_feed_universidades_clubes_1080x1350.jpg",
-    "story_file": "piezas/05_story_universidades_clubes_1080x1920.jpg",
-    "reel_file": "piezas/short_02_verticales_iso9001_1080x1920.mp4"
+    "public_url": "https://www.starunion.com.ar"
   }
 }

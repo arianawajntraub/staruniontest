@@ -1,74 +1,70 @@
 #!/usr/bin/env python3
 """
-Servidor Local de Publicación Directa por API — 4 - STAR UNION S.R.L.
-Corre en http://127.0.0.1:8894
-- Sirve la web y la Central de Redes (/redes-sociales/index.html)
-- Guarda las llaves aisladas en /Users/arianawajntraub/Documents/antigravity/star-union/.agents/vault/social_keys.json
-- Publica directo por API oficial en las 6 redes:
-  1) Instagram Business (Feed 4:5, Story 9:16 y Reel MP4 con voz de varón + Funk Groove)
-  2) Facebook Page (Post y Reel MP4)
-  3) LinkedIn Página de Empresa (con Candado Duro Anti-Perfil Personal urn:li:organization)
-  4) Google Business Profile / My Business (Google Maps)
-  5) YouTube Shorts (YouTube Data API v3)
-  6) TikTok Business (TikTok Content Posting API v2)
+STAR UNION — Servidor Local de Publicación Directa por API ($0 · Sin Make ni Zapier)
+Unificado 100% con el Estándar Maestro de Redes:
+  - Facebook Page API + Facebook Reels (Graph API v21.0 · Page Token Permanente expires_at=0)
+  - Instagram Business API (Graph API v21.0: Feed 4:5 sin URL en copy + Stories en Video MP4 con música + Reels MP4)
+  - LinkedIn Company Page API (UGC Posts v2 + registerUpload binario nativo 1080x1350 · Candado duro urn:li:organization:35644861)
+  - Google Business Profile API (Google Maps Local Posts v4 + Auto-Refresh con refresh_token 1//04...)
+  - YouTube Data API v3 (Subida Resumable de YouTube Shorts MP4 + X-Upload-Content-Length + Auto-Refresh 1//04...)
+  - TikTok Content Posting API v2 (Subida Binaria FILE_UPLOAD + Fallback /inbox/video/init/ + Auto-Refresh 365 días)
+
+Bóveda aislada Zero-Trust: /Users/arianawajntraub/Documents/antigravity/star-union/.agents/vault/social_keys.json
+Puerto exclusivo: http://127.0.0.1:8894
 """
+
+import base64
 import http.server
 import json
 import os
-import stat
+import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
-import urllib.error
 
-WEB_ROOT = "/Users/arianawajntraub/Documents/antigravity/star-union"
-VAULT_DIR = "/Users/arianawajntraub/Documents/antigravity/star-union/.agents/vault"
-KEYS_PATH = os.path.join(VAULT_DIR, "social_keys.json")
-PUBLIC_BASE = "https://wajntraub.ar/staruniontest"
+WEB_ROOT = os.path.dirname(os.path.abspath(__file__))
+VAULT_PATH = os.path.join(WEB_ROOT, ".agents", "vault", "social_keys.json")
+PUBLIC_ASSET_BASE = "https://wajntraub.ar/staruniontest/redes-sociales"
+STAR_UNION_LI_ORG_URN = "urn:li:organization:35644861"
 
 
 def load_keys():
-    os.makedirs(VAULT_DIR, exist_ok=True)
-    if not os.path.exists(KEYS_PATH):
-        return {}
-    try:
-        with open(KEYS_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
+    if os.path.exists(VAULT_PATH):
+        try:
+            with open(VAULT_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
 
 
-def save_keys(data):
-    os.makedirs(VAULT_DIR, exist_ok=True)
+def save_keys(new_data):
+    os.makedirs(os.path.dirname(VAULT_PATH), exist_ok=True)
     current = load_keys()
-    current.update(data)
-    with open(KEYS_PATH, "w", encoding="utf-8") as f:
-        json.dump(current, f, indent=2, ensure_ascii=False)
-    try:
-        os.chmod(KEYS_PATH, stat.S_IRUSR | stat.S_IWUSR)
-    except Exception:
-        pass
+    for k, v in new_data.items():
+        if v is not None and v != "":
+            current[k] = v
+    with open(VAULT_PATH, "w", encoding="utf-8") as f:
+        json.dump(current, f, ensure_ascii=False, indent=2)
     return current
 
 
-def http_json(method, url, headers=None, params=None, body_json=None, form_data=None):
-    if params:
-        qs = urllib.parse.urlencode(params)
-        url = f"{url}{'&' if '?' in url else '?'}{qs}"
-    req_headers = headers or {}
-    data_bytes = None
-    if body_json is not None:
-        data_bytes = json.dumps(body_json).encode("utf-8")
-        req_headers["Content-Type"] = "application/json"
+def http_json(method, url, headers=None, json_body=None, form_data=None, timeout=45):
+    hdrs = headers.copy() if headers else {}
+    data = None
+    if json_body is not None:
+        data = json.dumps(json_body).encode("utf-8")
+        hdrs["Content-Type"] = "application/json"
     elif form_data is not None:
-        data_bytes = urllib.parse.urlencode(form_data).encode("utf-8")
-        req_headers["Content-Type"] = "application/x-www-form-urlencoded"
+        data = urllib.parse.urlencode(form_data).encode("utf-8")
+        hdrs["Content-Type"] = "application/x-www-form-urlencoded"
 
-    req = urllib.request.Request(url, data=data_bytes, headers=req_headers, method=method)
+    req = urllib.request.Request(url, data=data, headers=hdrs, method=method)
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
             raw = resp.read().decode("utf-8")
-            return resp.status, (json.loads(raw) if raw else {})
+            return resp.status, json.loads(raw) if raw else {}
     except urllib.error.HTTPError as e:
         raw = e.read().decode("utf-8", errors="replace")
         try:
@@ -79,365 +75,648 @@ def http_json(method, url, headers=None, params=None, body_json=None, form_data=
         return 500, {"error": str(e)}
 
 
-def auto_discover_meta(user_or_page_token):
+# =====================================================================
+# 0. AUTO-RENOVACIÓN DE TOKENS (GOOGLE OAUTH PLAYGROUND + TIKTOK + META)
+# =====================================================================
+def exchange_google_refresh_token(refresh_token):
+    """Usa el endpoint oficial de Google OAuth Playground para renovar un ya29... a partir de un 1//04..."""
+    if not refresh_token or not refresh_token.startswith("1//"):
+        return ""
+    try:
+        req = urllib.request.Request(
+            "https://developers.google.com/oauthplayground/refreshAccessToken",
+            data=json.dumps({
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "refresh_token": refresh_token.strip()
+            }).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=15) as r:
+            outer = json.loads(r.read().decode("utf-8"))
+            msg_b64 = outer.get("Response", {}).get("message-body", "")
+            if msg_b64:
+                inner = json.loads(base64.b64decode(msg_b64).decode("utf-8", "ignore"))
+                return inner.get("access_token", "")
+            return outer.get("access_token", "")
+    except Exception:
+        return ""
+
+
+def ensure_fresh_youtube_token(keys):
+    yt_tok = keys.get("youtube_token", "")
+    yt_rt = keys.get("youtube_refresh_token", "")
+    if yt_tok.startswith("1//"):
+        yt_rt = yt_tok
+        save_keys({"youtube_refresh_token": yt_rt})
+    if yt_tok and not yt_tok.startswith("1//"):
+        st, _ = http_json("GET", "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true", headers={"Authorization": f"Bearer {yt_tok}"})
+        if st == 200:
+            return yt_tok
+    if yt_rt:
+        new_tok = exchange_google_refresh_token(yt_rt)
+        if new_tok:
+            save_keys({"youtube_token": new_tok, "youtube_refresh_token": yt_rt})
+            keys["youtube_token"] = new_tok
+            return new_tok
+    return yt_tok
+
+
+def ensure_fresh_gmb_token(keys):
+    gmb_tok = keys.get("gmb_token", "")
+    gmb_rt = keys.get("gmb_refresh_token", "")
+    if gmb_tok.startswith("1//"):
+        gmb_rt = gmb_tok
+        save_keys({"gmb_refresh_token": gmb_rt})
+    if gmb_tok and not gmb_tok.startswith("1//"):
+        st, _ = http_json("GET", "https://mybusinessaccountmanagement.googleapis.com/v1/accounts", headers={"Authorization": f"Bearer {gmb_tok}"})
+        if st == 200:
+            return gmb_tok
+    if gmb_rt:
+        new_tok = exchange_google_refresh_token(gmb_rt)
+        if new_tok:
+            save_keys({"gmb_token": new_tok, "gmb_refresh_token": gmb_rt})
+            keys["gmb_token"] = new_tok
+            return new_tok
+    return gmb_tok
+
+
+def ensure_fresh_tiktok_token(keys):
+    tt_tok = keys.get("tiktok_token", "")
+    tt_rt = keys.get("tiktok_refresh_token", "")
+    ck = keys.get("tiktok_client_key", "")
+    cs = keys.get("tiktok_client_secret", "")
+    if tt_tok:
+        st, _ = http_json("GET", "https://open.tiktokapis.com/v2/user/info/?fields=open_id,display_name", headers={"Authorization": f"Bearer {tt_tok}"})
+        if st == 200:
+            return tt_tok
+    if tt_rt and ck and cs:
+        st, data = http_json(
+            "POST",
+            "https://open.tiktokapis.com/v2/oauth/token/",
+            form_data={
+                "client_key": ck,
+                "client_secret": cs,
+                "grant_type": "refresh_token",
+                "refresh_token": tt_rt,
+            },
+        )
+        new_tok = data.get("access_token") or data.get("data", {}).get("access_token", "")
+        new_rt = data.get("refresh_token") or data.get("data", {}).get("refresh_token", tt_rt)
+        if new_tok:
+            save_keys({"tiktok_token": new_tok, "tiktok_refresh_token": new_rt})
+            keys["tiktok_token"] = new_tok
+            return new_tok
+    return tt_tok
+
+
+# =====================================================================
+# 1. AUTO-DISCOVERY DE CUENTAS (CONEXIÓN EN 1 CLIC + TOKEN PERMANENTE)
+# =====================================================================
+def auto_discover_meta(user_or_page_token, app_secret=""):
     """
-    A partir de 1 solo token de Meta, detecta automáticamente:
-    - La Fan Page de Facebook de Star Union (fb_page_id, fb_page_name, fb_page_token)
-    - La cuenta de Instagram Business vinculada (ig_user_id, ig_username)
+    Intercambia el User Token de 1h por un Long-Lived User Token (60 días) y extrae el
+    Page Token Permanente (expires_at: 0, no vence nunca) para Star Union Servicios + @starunionservicios.
+    Soporta tanto la App 924417103935122 como 912176281861229.
     """
-    status, data = http_json(
-        "GET",
-        "https://graph.facebook.com/v21.0/me/accounts",
-        params={
-            "fields": "id,name,access_token,instagram_business_account{id,username}",
-            "access_token": user_or_page_token,
-        },
+    token_to_use = user_or_page_token.strip()
+    saved_keys = load_keys()
+
+    candidate_apps = []
+    if app_secret:
+        candidate_apps.append(("924417103935122", app_secret.strip()))
+        candidate_apps.append(("912176281861229", app_secret.strip()))
+    if saved_keys.get("meta_app_secret"):
+        candidate_apps.append(("924417103935122", saved_keys["meta_app_secret"]))
+        candidate_apps.append(("912176281861229", saved_keys["meta_app_secret"]))
+    if saved_keys.get("meta_app_secret_shared"):
+        candidate_apps.append(("912176281861229", saved_keys["meta_app_secret_shared"]))
+
+    exchanged_permanent = False
+    for app_id, sec in candidate_apps:
+        ex_url = (
+            "https://graph.facebook.com/v21.0/oauth/access_token?"
+            + urllib.parse.urlencode({
+                "grant_type": "fb_exchange_token",
+                "client_id": app_id,
+                "client_secret": sec,
+                "fb_exchange_token": token_to_use,
+            })
+        )
+        st_ex, data_ex = http_json("GET", ex_url)
+        if st_ex == 200 and data_ex.get("access_token"):
+            token_to_use = data_ex["access_token"]
+            exchanged_permanent = True
+            break
+
+    url = (
+        "https://graph.facebook.com/v21.0/me/accounts?"
+        + urllib.parse.urlencode(
+            {
+                "fields": "id,name,access_token,instagram_business_account{id,username}",
+                "access_token": token_to_use,
+            }
+        )
     )
-    if status == 200 and "data" in data and len(data["data"]) > 0:
-        chosen = data["data"][0]
-        for page in data["data"]:
-            pname = (page.get("name") or "").lower()
-            if "star union" in pname or "starunion" in pname:
-                chosen = page
-                break
-        ig = chosen.get("instagram_business_account") or {}
+    status, data = http_json("GET", url)
+    if status != 200 or "data" not in data:
+        me_url = "https://graph.facebook.com/v21.0/me?" + urllib.parse.urlencode(
+            {
+                "fields": "id,name,instagram_business_account{id,username}",
+                "access_token": token_to_use,
+            }
+        )
+        st2, me_data = http_json("GET", me_url)
+        if st2 == 200 and "id" in me_data:
+            ig = me_data.get("instagram_business_account", {})
+            return {
+                "ok": True,
+                "meta_user_token": token_to_use,
+                "fb_page_id": me_data["id"],
+                "fb_page_name": me_data.get("name", "Star Union"),
+                "fb_page_token": token_to_use,
+                "ig_user_id": ig.get("id", ""),
+                "ig_username": ig.get("username", ""),
+                "permanent": exchanged_permanent,
+            }
+        return {"ok": False, "detail": data}
+
+    pages = data.get("data", [])
+    if not pages:
+        return {"ok": False, "detail": "El token no devolvió páginas asociadas. Verificá tildar 'Star Union Servicios' al generar el token."}
+
+    chosen = pages[0]
+    for p in pages:
+        name_low = p.get("name", "").lower()
+        if "star" in name_low or "union" in name_low or p.get("id") == "349413715151593":
+            chosen = p
+            break
+
+    ig = chosen.get("instagram_business_account", {})
+    return {
+        "ok": True,
+        "meta_user_token": token_to_use,
+        "fb_page_id": chosen["id"],
+        "fb_page_name": chosen.get("name", ""),
+        "fb_page_token": chosen.get("access_token", token_to_use),
+        "ig_user_id": ig.get("id", ""),
+        "ig_username": ig.get("username", ""),
+        "permanent": exchanged_permanent,
+    }
+
+
+def auto_discover_linkedin(li_token, manual_org_urn=""):
+    """
+    CANDADO ESTRICTO: En Star Union JAMÁS se publica en perfil personal (urn:li:person:).
+    Solo se permite urn:li:organization:35644861 (Star Union Servicios).
+    """
+    urn = (manual_org_urn or STAR_UNION_LI_ORG_URN).strip()
+    if not urn.startswith("urn:li:"):
+        urn = f"urn:li:organization:{urn}"
+    if "urn:li:person:" in urn:
         return {
-            "ok": True,
-            "meta_user_token": user_or_page_token,
-            "fb_page_id": chosen.get("id", ""),
-            "fb_page_name": chosen.get("name", ""),
-            "fb_page_token": chosen.get("access_token", user_or_page_token),
-            "ig_user_id": ig.get("id", ""),
-            "ig_username": ig.get("username", ""),
+            "ok": False,
+            "detail": "🛑 BLOQUEADO POR SEGURIDAD: Se detectó un URN de perfil personal. Star Union solo permite Página de Empresa (urn:li:organization:35644861).",
         }
-
-    status2, page_data = http_json(
-        "GET",
-        "https://graph.facebook.com/v21.0/me",
-        params={
-            "fields": "id,name,instagram_business_account{id,username}",
-            "access_token": user_or_page_token,
-        },
-    )
-    if status2 == 200 and page_data.get("id"):
-        ig = page_data.get("instagram_business_account") or {}
+    hdrs = {"Authorization": f"Bearer {li_token}", "X-Restli-Protocol-Version": "2.0.0"}
+    org_id = urn.split(":")[-1]
+    st, data = http_json("GET", f"https://api.linkedin.com/v2/organizations/{org_id}", headers=hdrs)
+    if st == 200 and data.get("localizedName"):
         return {
             "ok": True,
-            "meta_user_token": user_or_page_token,
-            "fb_page_id": page_data.get("id", ""),
-            "fb_page_name": page_data.get("name", ""),
-            "fb_page_token": user_or_page_token,
-            "ig_user_id": ig.get("id", ""),
-            "ig_username": ig.get("username", ""),
-        }
-    return {"ok": False, "detail": data}
-
-
-def auto_discover_linkedin(li_token, custom_urn=""):
-    headers = {"Authorization": f"Bearer {li_token}"}
-    if custom_urn:
-        if custom_urn.isdigit():
-            custom_urn = f"urn:li:organization:{custom_urn}"
-        return {"ok": True, "linkedin_token": li_token, "linkedin_urn": custom_urn, "linkedin_name": f"Página Empresa ({custom_urn})"}
-    st_org, org_data = http_json(
-        "GET",
-        "https://api.linkedin.com/v2/organizationalEntityAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED",
-        headers=headers,
-    )
-    if st_org == 200 and org_data.get("elements"):
-        org_urn = org_data["elements"][0].get("organizationalTarget", "")
-        if org_urn:
-            return {"ok": True, "linkedin_token": li_token, "linkedin_urn": org_urn, "linkedin_name": f"Página Empresa ({org_urn})"}
-    status, info = http_json("GET", "https://api.linkedin.com/v2/userinfo", headers=headers)
-    if status == 200 and info.get("sub"):
-        urn = f"urn:li:person:{info['sub']}"
-        return {"ok": True, "linkedin_token": li_token, "linkedin_urn": urn, "linkedin_name": f"🛑 Perfil Personal: {info.get('name', urn)} (Bloqueado: falta urn:li:organization)"}
-    return {"ok": False, "detail": info}
-
-
-def auto_discover_youtube(yt_token):
-    headers = {"Authorization": f"Bearer {yt_token}"}
-    st, data = http_json(
-        "GET",
-        "https://www.googleapis.com/youtube/v3/channels",
-        headers=headers,
-        params={"part": "snippet", "mine": "true"},
-    )
-    if st == 200 and data.get("items"):
-        ch = data["items"][0]
-        title = ch.get("snippet", {}).get("title", "Canal YouTube")
-        cid = ch.get("id", "")
-        return {"ok": True, "youtube_token": yt_token, "youtube_channel_id": cid, "youtube_channel_name": title}
-    return {"ok": False, "detail": data}
-
-
-def auto_discover_gmb(gmb_token):
-    """
-    A partir de 1 solo token de Google (con scope business.manage),
-    detecta automáticamente la cuenta y la ficha de ubicación de Star Union (Guaminí 5657).
-    """
-    headers = {"Authorization": f"Bearer {gmb_token}"}
-    st, acc_data = http_json(
-        "GET",
-        "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
-        headers=headers,
-    )
-    if st == 200 and acc_data.get("accounts"):
-        for acc in acc_data["accounts"]:
-            acc_name = acc.get("name", "")
-            st_loc, loc_data = http_json(
-                "GET",
-                f"https://mybusinessbusinessinformation.googleapis.com/v1/{acc_name}/locations",
-                headers=headers,
-                params={"readMask": "name,title"},
-            )
-            if st_loc == 200 and loc_data.get("locations"):
-                chosen_loc = loc_data["locations"][0]
-                for loc in loc_data["locations"]:
-                    t = (loc.get("title") or "").lower()
-                    if "star union" in t or "starunion" in t:
-                        chosen_loc = loc
-                        break
-                full_loc = f"{acc_name}/{chosen_loc.get('name', '').lstrip('/')}"
-                return {
-                    "ok": True,
-                    "gmb_token": gmb_token,
-                    "gmb_location_name": full_loc,
-                    "gmb_title": chosen_loc.get("title", "Star Union S.R.L."),
-                }
-        # Si tiene cuenta pero la API de locations tiene cuota 0 aún, guardar el account name
-        first_acc = acc_data["accounts"][0].get("name", "accounts/starunion")
-        return {
-            "ok": True,
-            "gmb_token": gmb_token,
-            "gmb_location_name": f"{first_acc}/locations/auto",
-            "gmb_title": acc_data["accounts"][0].get("accountName", "Star Union S.R.L."),
+            "linkedin_token": li_token,
+            "linkedin_urn": urn,
+            "linkedin_name": f"{data.get('localizedName')} (Página Empresa ID {org_id})",
         }
     return {
         "ok": True,
-        "gmb_token": gmb_token,
-        "gmb_location_name": "accounts/auto/locations/starunion",
-        "gmb_title": "Ficha Google Maps Star Union (Token activo)",
+        "linkedin_token": li_token,
+        "linkedin_urn": urn,
+        "linkedin_name": f"Star Union ({urn})",
     }
 
 
-def publish_ig_feed(keys, img_rel_path, caption):
+def auto_discover_youtube(yt_token_or_rt):
+    raw = yt_token_or_rt.strip()
+    refresh_tok = ""
+    access_tok = raw
+    if raw.startswith("1//"):
+        refresh_tok = raw
+        access_tok = exchange_google_refresh_token(refresh_tok)
+        if not access_tok:
+            return {"ok": False, "detail": "No se pudo canjear el Refresh Token (1//04...) en Google OAuth Playground."}
+    hdrs = {"Authorization": f"Bearer {access_tok}"}
+    st, data = http_json("GET", "https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true", headers=hdrs)
+    if st == 200 and data.get("items"):
+        ch = data["items"][0]
+        res = {
+            "ok": True,
+            "youtube_token": access_tok,
+            "youtube_channel_id": ch["id"],
+            "youtube_channel_name": ch["snippet"]["title"],
+        }
+        if refresh_tok:
+            res["youtube_refresh_token"] = refresh_tok
+        return res
+    return {"ok": False, "detail": data}
+
+
+def auto_discover_gmb(gmb_token_or_rt, manual_loc=""):
+    raw = gmb_token_or_rt.strip()
+    refresh_tok = ""
+    access_tok = raw
+    if raw.startswith("1//"):
+        refresh_tok = raw
+        access_tok = exchange_google_refresh_token(refresh_tok)
+        if not access_tok:
+            return {"ok": False, "detail": "No se pudo canjear el Refresh Token (1//04...) en Google OAuth Playground."}
+
+    if manual_loc and manual_loc.strip():
+        res = {"ok": True, "gmb_token": access_tok, "gmb_location_name": manual_loc.strip()}
+        if refresh_tok:
+            res["gmb_refresh_token"] = refresh_tok
+        return res
+
+    hdrs = {"Authorization": f"Bearer {access_tok}"}
+    st, acc_data = http_json("GET", "https://mybusinessaccountmanagement.googleapis.com/v1/accounts", headers=hdrs)
+    if st == 200 and "accounts" in acc_data:
+        for acc in acc_data["accounts"]:
+            acc_name = acc["name"]
+            st2, loc_data = http_json(
+                "GET",
+                f"https://mybusinessbusinessinformation.googleapis.com/v1/{acc_name}/locations?readMask=name,title",
+                headers=hdrs,
+            )
+            if st2 == 200 and "locations" in loc_data:
+                for loc in loc_data["locations"]:
+                    title = loc.get("title", "")
+                    if "star" in title.lower() or "union" in title.lower() or len(loc_data["locations"]) == 1:
+                        res = {
+                            "ok": True,
+                            "gmb_token": access_tok,
+                            "gmb_location_name": f"{acc_name}/{loc['name']}" if not loc["name"].startswith("accounts/") else loc["name"],
+                            "gmb_title": title,
+                        }
+                        if refresh_tok:
+                            res["gmb_refresh_token"] = refresh_tok
+                        return res
+    return {
+        "ok": False,
+        "gmb_token": access_tok,
+        "detail": "Token guardado, pero no se encontró ubicación activa de Google Business Profile.",
+    }
+
+
+# =====================================================================
+# 2. PUBLICADORES DIRECTOS POR API OFICIAL (ESTÁNDAR MAESTRO UNIFICADO)
+# =====================================================================
+def clean_ig_caption(caption):
+    """
+    REGLA INQUEBRANTABLE: En Instagram los links en el copy NO son clicables.
+    Elimina cualquier URL cruda (http://, https://, www.starunion.com.ar) y deriva a la bio.
+    """
+    lines = []
+    for line in (caption or "").splitlines():
+        s = line.strip()
+        if s.startswith("http://") or s.startswith("https://"):
+            continue
+        line = re.sub(r"https?://\S+", "el link de nuestra bio (@starunionservicios)", line)
+        line = re.sub(r"www\.starunion\.com\.ar", "el link de nuestra bio (@starunionservicios)", line, flags=re.IGNORECASE)
+        lines.append(line)
+    cleaned = "\n".join(lines).strip()
+    if "@starunionservicios" not in cleaned:
+        cleaned += "\n\n📲 Relevamiento técnico y contacto directo en el link de nuestra bio (@starunionservicios)."
+    return cleaned
+
+
+def publish_ig_feed(keys, feed_rel_path, caption):
+    caption = clean_ig_caption(caption)
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
-        return {"ok": False, "error": "Falta conectar el Token de Meta / Instagram de Star Union."}
+        return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
 
-    img_url = f"{PUBLIC_BASE}/redes-sociales/{img_rel_path.lstrip('/')}"
-    st, res = http_json(
+    img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
+    st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media",
-        form_data={
-            "image_url": img_url,
-            "caption": caption,
-            "access_token": token,
-        },
+        form_data={"image_url": img_url, "caption": caption, "access_token": token},
     )
-    if st != 200 or not res.get("id"):
-        return {"ok": False, "error": f"Error subiendo imagen a IG: {res}"}
+    if st != 200 or "id" not in data:
+        return {"ok": False, "error": f"Error creando contenedor IG Feed: {data}"}
 
-    time.sleep(2)
-    st_pub, res_pub = http_json(
+    creation_id = data["id"]
+    time.sleep(3)
+    st3, pub = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
-        form_data={
-            "creation_id": res["id"],
-            "access_token": token,
-        },
+        form_data={"creation_id": creation_id, "access_token": token},
     )
-    if st_pub == 200 and res_pub.get("id"):
-        return {"ok": True, "id": res_pub["id"]}
-    return {"ok": False, "error": f"Error publicando Feed IG: {res_pub}"}
+    if st3 == 200 and "id" in pub:
+        return {"ok": True, "id": pub["id"]}
+    return {"ok": False, "error": f"Error publicando IG Feed: {pub}"}
 
 
-def publish_ig_story(keys, story_rel_path):
+def publish_ig_story(keys, story_rel_path, reel_rel_path="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"):
+    """
+    REGLA INQUEBRANTABLE: Prohibido subir un JPG mudo a Instagram Stories por API.
+    Se sube siempre el video vertical 9:16 (.mp4 con música y voz de marca) como media_type=STORIES.
+    """
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
-        return {"ok": False, "error": "Falta conectar el Token de Meta / Instagram de Star Union."}
+        return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
 
-    story_url = f"{PUBLIC_BASE}/redes-sociales/{story_rel_path.lstrip('/')}"
-    st, res = http_json(
+    rel = reel_rel_path if reel_rel_path and reel_rel_path.endswith(".mp4") else "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"
+    video_url = f"{PUBLIC_ASSET_BASE}/{rel.lstrip('/')}"
+    st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media",
         form_data={
-            "image_url": story_url,
             "media_type": "STORIES",
+            "video_url": video_url,
             "access_token": token,
         },
     )
-    if st != 200 or not res.get("id"):
-        return {"ok": False, "error": f"Error creando Story IG: {res}"}
+    if st != 200 or "id" not in data:
+        return {"ok": False, "error": f"Error creando IG Story en video con música: {data}"}
 
-    time.sleep(2)
-    st_pub, res_pub = http_json(
+    cid = data["id"]
+    for _ in range(18):
+        time.sleep(3)
+        st_chk, chk = http_json(
+            "GET",
+            f"https://graph.facebook.com/v21.0/{cid}?fields=status_code,status&access_token={urllib.parse.quote(token)}",
+        )
+        code = chk.get("status_code", "")
+        if code == "FINISHED":
+            break
+        if code == "ERROR":
+            return {"ok": False, "error": f"Meta rechazó el video de Story: {chk}"}
+
+    st2, pub = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
-        form_data={
-            "creation_id": res["id"],
-            "access_token": token,
-        },
+        form_data={"creation_id": cid, "access_token": token},
     )
-    if st_pub == 200 and res_pub.get("id"):
-        return {"ok": True, "id": res_pub["id"]}
-    return {"ok": False, "error": f"Error publicando Story IG: {res_pub}"}
+    if st2 == 200 and "id" in pub:
+        return {"ok": True, "id": pub["id"], "note": "Story publicada en video MP4 9:16 con voz de varón y Funk Groove."}
+    return {"ok": False, "error": f"Error publicando IG Story: {pub}"}
 
 
 def publish_ig_reel(keys, reel_rel_path, caption):
+    caption = clean_ig_caption(caption)
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
-        return {"ok": False, "error": "Falta conectar el Token de Meta / Instagram de Star Union."}
+        return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
 
-    video_url = f"{PUBLIC_BASE}/redes-sociales/{reel_rel_path.lstrip('/')}"
-    st, res = http_json(
+    video_url = f"{PUBLIC_ASSET_BASE}/{reel_rel_path.lstrip('/')}"
+    st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media",
         form_data={
-            "video_url": video_url,
             "media_type": "REELS",
+            "video_url": video_url,
             "caption": caption,
+            "share_to_feed": "true",
             "access_token": token,
         },
     )
-    if st != 200 or not res.get("id"):
-        return {"ok": False, "error": f"Error subiendo Reel a IG: {res}"}
+    if st != 200 or "id" not in data:
+        return {"ok": False, "error": f"Error iniciando contenedor de Reel MP4: {data}"}
 
-    cid = res["id"]
-    for _ in range(15):
+    cid = data["id"]
+    for _ in range(20):
         time.sleep(3)
-        st_c, res_c = http_json(
+        st_chk, chk = http_json(
             "GET",
-            f"https://graph.facebook.com/v21.0/{cid}",
-            params={"fields": "status_code", "access_token": token},
+            f"https://graph.facebook.com/v21.0/{cid}?fields=status_code,status&access_token={urllib.parse.quote(token)}",
         )
-        if res_c.get("status_code") == "FINISHED":
+        code = chk.get("status_code", "")
+        if code == "FINISHED":
             break
-        if res_c.get("status_code") == "ERROR":
-            return {"ok": False, "error": f"Error procesando video Reel en IG: {res_c}"}
+        if code == "ERROR":
+            return {"ok": False, "error": f"Meta rechazó el procesamiento del Reel: {chk}"}
 
-    st_pub, res_pub = http_json(
+    st2, pub = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
-        form_data={
-            "creation_id": cid,
-            "access_token": token,
-        },
+        form_data={"creation_id": cid, "access_token": token},
     )
-    if st_pub == 200 and res_pub.get("id"):
-        return {"ok": True, "id": res_pub["id"]}
-    return {"ok": False, "error": f"Error publicando Reel IG: {res_pub}"}
+    if st2 == 200 and "id" in pub:
+        return {"ok": True, "id": pub["id"]}
+    return {"ok": False, "error": f"Error publicando Reel: {pub}"}
 
 
-def publish_fb_page(keys, img_rel_path, caption):
+def publish_fb_page(keys, feed_rel_path, caption, public_url="https://www.starunion.com.ar"):
     page_id = keys.get("fb_page_id")
-    token = keys.get("fb_page_token") or keys.get("meta_user_token")
-    if not page_id or not token:
-        return {"ok": False, "error": "Falta conectar el Token de Facebook Page de Star Union."}
+    page_token = keys.get("fb_page_token")
+    if not page_id or not page_token:
+        return {"ok": False, "error": "Falta conectar o renovar el Token de Facebook Page."}
 
-    img_url = f"{PUBLIC_BASE}/redes-sociales/{img_rel_path.lstrip('/')}"
-    st, res = http_json(
+    fb_caption = (caption or "").strip()
+    if public_url and public_url not in fb_caption and "starunion.com.ar" not in fb_caption:
+        fb_caption += f"\n\n👉 Conocé más en: {public_url}"
+
+    img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
+    st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{page_id}/photos",
+        form_data={"url": img_url, "message": fb_caption, "published": "true", "access_token": page_token},
+    )
+    if st == 200 and "id" in data:
+        return {"ok": True, "id": data["id"]}
+    return {"ok": False, "error": f"Error publicando en Facebook Page: {data}"}
+
+
+def publish_fb_reel(keys, reel_rel_path, caption, public_url="https://www.starunion.com.ar"):
+    page_id = keys.get("fb_page_id")
+    page_token = keys.get("fb_page_token")
+    if not page_id or not page_token:
+        return {"ok": False, "error": "Falta conectar o renovar el Token de Facebook Page."}
+
+    fb_caption = (caption or "").strip()
+    if public_url and public_url not in fb_caption and "starunion.com.ar" not in fb_caption:
+        fb_caption += f"\n\n👉 Relevamiento técnico: {public_url}"
+
+    video_url = f"{PUBLIC_ASSET_BASE}/{reel_rel_path.lstrip('/')}"
+    st, data = http_json(
+        "POST",
+        f"https://graph.facebook.com/v21.0/{page_id}/videos",
         form_data={
-            "url": img_url,
-            "message": caption,
-            "access_token": token,
+            "file_url": video_url,
+            "description": fb_caption,
+            "published": "true",
+            "access_token": page_token,
         },
     )
-    if st == 200 and res.get("id"):
-        return {"ok": True, "id": res["id"]}
-    return {"ok": False, "error": f"Error publicando en Facebook Page: {res}"}
+    if st == 200 and "id" in data:
+        return {"ok": True, "id": data["id"]}
+    return {"ok": False, "error": f"Error publicando Reel en Facebook Page: {data}"}
 
 
-def publish_linkedin(keys, caption, public_url, title):
-    token = keys.get("linkedin_token")
-    urn = keys.get("linkedin_urn")
-    if not token or not urn:
-        return {"ok": False, "error": "Falta conectar el Token de LinkedIn de Star Union."}
-    if urn.startswith("urn:li:person:"):
+def publish_linkedin(keys, feed_rel_path, caption, article_url, title):
+    """
+    REGLA INQUEBRANTABLE:
+    1) Bloqueo duro de cualquier perfil personal (urn:li:person:). Solo permite urn:li:organization:35644861.
+    2) Subida binaria de la placa gráfica 1080x1350 (registerUpload + shareMediaCategory: IMAGE)
+       para que LinkedIn muestre la imagen completa y no un recuadro gris.
+    """
+    li_token = keys.get("linkedin_token")
+    li_urn = keys.get("linkedin_urn") or STAR_UNION_LI_ORG_URN
+    if not li_token or not li_urn:
+        return {"ok": False, "error": "Falta conectar LinkedIn Página de Empresa."}
+    if "urn:li:person:" in li_urn or li_urn != STAR_UNION_LI_ORG_URN:
         return {
             "ok": False,
-            "error": "🛑 BLOQUEADO POR SEGURIDAD: El token actual apunta a tu perfil personal (Ariana Wajntraub) y NO a la Página de Empresa STAR UNION (urn:li:organization:...). Jamás se publica en perfil personal.",
+            "error": f"🛑 BLOQUEADO POR SEGURIDAD: El URN ({li_urn}) no coincide con la Página de Empresa de Star Union ({STAR_UNION_LI_ORG_URN}).",
         }
 
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "X-Restli-Protocol-Version": "2.0.0",
-    }
-    body = {
-        "author": urn,
-        "lifecycleState": "PUBLISHED",
-        "specificContent": {
-            "com.linkedin.ugc.ShareContent": {
-                "shareCommentary": {"text": caption},
-                "shareMediaCategory": "ARTICLE",
-                "media": [
-                    {
-                        "status": "READY",
-                        "originalUrl": public_url,
-                        "title": {"text": title},
-                    }
+    hdrs = {"Authorization": f"Bearer {li_token}", "X-Restli-Protocol-Version": "2.0.0"}
+    img_path = os.path.join(WEB_ROOT, "redes-sociales", feed_rel_path.lstrip("/"))
+    asset_urn = None
+
+    if os.path.exists(img_path):
+        reg_body = {
+            "registerUploadRequest": {
+                "recipes": ["urn:li:digitalmediaRecipe:feedshare-image"],
+                "owner": li_urn,
+                "serviceRelationships": [
+                    {"relationshipType": "OWNER", "identifier": "urn:li:userGeneratedContent"}
                 ],
             }
-        },
-        "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
-    }
-    st, res = http_json("POST", "https://api.linkedin.com/v2/ugcPosts", headers=headers, body_json=body)
-    if st in (200, 201):
-        return {"ok": True, "id": res.get("id", "published")}
-    return {"ok": False, "error": f"Error en LinkedIn API: {res}"}
+        }
+        st_reg, reg_data = http_json(
+            "POST",
+            "https://api.linkedin.com/v2/assets?action=registerUpload",
+            headers=hdrs,
+            json_body=reg_body,
+        )
+        if st_reg in (200, 201):
+            val = reg_data.get("value", {})
+            upload_url = (
+                val.get("uploadMechanism", {})
+                .get("com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest", {})
+                .get("uploadUrl", "")
+            )
+            asset_urn = val.get("asset", "")
+            if upload_url and asset_urn:
+                with open(img_path, "rb") as f:
+                    img_bytes = f.read()
+                req_put = urllib.request.Request(
+                    upload_url,
+                    data=img_bytes,
+                    headers={"Authorization": f"Bearer {li_token}", "Content-Type": "image/jpeg"},
+                    method="PUT",
+                )
+                try:
+                    urllib.request.urlopen(req_put, timeout=45).read()
+                except Exception as ex:
+                    return {"ok": False, "error": f"Error subiendo imagen a LinkedIn: {ex}"}
+
+    clean_title = (title or "STAR UNION").strip().upper()
+    full_text = f"{clean_title}\n\n{(caption or '').strip()}"
+    if article_url and article_url not in full_text:
+        full_text += f"\n\n👉 Protocolo técnico y contacto directo: {article_url}"
+
+    if asset_urn:
+        body = {
+            "author": li_urn,
+            "lifecycleState": "PUBLISHED",
+            "specificContent": {
+                "com.linkedin.ugc.ShareContent": {
+                    "shareCommentary": {"text": full_text},
+                    "shareMediaCategory": "IMAGE",
+                    "media": [
+                        {
+                            "status": "READY",
+                            "media": asset_urn,
+                            "title": {"text": title or "Star Union"},
+                        }
+                    ],
+                }
+            },
+            "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
+        }
+    else:
+        body = {
+            "author": li_urn,
+            "lifecycleState": "PUBLISHED",
+            "specificContent": {
+                "com.linkedin.ugc.ShareContent": {
+                    "shareCommentary": {"text": full_text},
+                    "shareMediaCategory": "ARTICLE",
+                    "media": [
+                        {
+                            "status": "READY",
+                            "originalUrl": article_url,
+                            "title": {"text": title or "Star Union"},
+                        }
+                    ],
+                }
+            },
+            "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
+        }
+
+    st, data = http_json("POST", "https://api.linkedin.com/v2/ugcPosts", headers=hdrs, json_body=body)
+    if st in (200, 201) and "id" in data:
+        return {"ok": True, "id": data["id"]}
+    return {"ok": False, "error": f"Error en LinkedIn API ({st}): {data}"}
 
 
-def publish_gmb(keys, img_rel_path, caption, public_url):
-    token = keys.get("gmb_token")
-    loc = keys.get("gmb_location_name")
-    if not token or not loc:
-        return {"ok": False, "error": "Falta Token o ID de ubicación de Google My Business (Guaminí 5657)."}
+def publish_gmb(keys, feed_rel_path, caption, article_url="https://www.starunion.com.ar"):
+    gmb_token = ensure_fresh_gmb_token(keys)
+    gmb_loc = keys.get("gmb_location_name")
+    if not gmb_token or not gmb_loc:
+        return {"ok": False, "error": "Falta conectar o renovar Google My Business."}
 
-    headers = {"Authorization": f"Bearer {token}"}
-    img_url = f"{PUBLIC_BASE}/redes-sociales/{img_rel_path.lstrip('/')}"
+    img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
     body = {
-        "languageCode": "es-419",
-        "summary": caption[:1450],
-        "callToAction": {
-            "actionType": "LEARN_MORE",
-            "url": public_url,
-        },
-        "media": [
-            {
-                "mediaFormat": "PHOTO",
-                "sourceUrl": img_url,
-            }
-        ],
+        "languageCode": "es-AR",
+        "summary": (caption or "")[:1450],
+        "callToAction": {"actionType": "LEARN_MORE", "url": article_url},
+        "media": [{"mediaFormat": "PHOTO", "sourceUrl": img_url}],
         "topicType": "STANDARD",
     }
-    url = f"https://mybusiness.googleapis.com/v4/{loc.lstrip('/')}/localPosts"
-    st, res = http_json("POST", url, headers=headers, body_json=body)
-    if st in (200, 201):
-        return {"ok": True, "id": res.get("name", "published")}
-    return {"ok": False, "error": f"Error en Google Business API: {res}"}
+    st, data = http_json(
+        "POST",
+        f"https://mybusiness.googleapis.com/v4/{gmb_loc}/localPosts",
+        headers={"Authorization": f"Bearer {gmb_token}"},
+        json_body=body,
+    )
+    if st in (200, 201) and "name" in data:
+        return {"ok": True, "id": data["name"]}
+    return {"ok": False, "error": f"Error en Google Business Profile API ({st}): {data}"}
 
 
-def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv):
-    token = keys.get("youtube_token")
-    if not token:
-        return {"ok": False, "error": "Falta conectar el Token de YouTube Data API v3 (@starunionservicios)."}
+def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv=""):
+    yt_token = ensure_fresh_youtube_token(keys)
+    if not yt_token:
+        return {"ok": False, "error": "Falta conectar o renovar el Token de YouTube Shorts."}
 
-    local_mp4 = os.path.join(WEB_ROOT, "redes-sociales", reel_rel_path.lstrip("/").split("?")[0])
+    clean_rel = reel_rel_path.split("?")[0].lstrip("/")
+    local_mp4 = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
     if not os.path.exists(local_mp4):
-        return {"ok": False, "error": f"Archivo MP4 no encontrado: {local_mp4}"}
+        return {"ok": False, "error": f"No se encontró el archivo MP4 local: {local_mp4}"}
 
-    tags_list = [t.strip() for t in (tags_csv or "").split(",") if t.strip()]
-    short_title = title if "#Shorts" in title else f"{title[:88]} #Shorts"
+    with open(local_mp4, "rb") as f:
+        video_bytes = f.read()
+
+    short_title = (title or "Star Union — Empresa de Limpieza Industrial").strip()
+    if "#Shorts" not in short_title and "#shorts" not in short_title:
+        short_title = short_title[:88].strip() + " #Shorts"
+    else:
+        short_title = short_title[:98]
+
+    tags_list = [t.strip() for t in (tags_csv or "").split(",") if t.strip()][:15]
+    if "Shorts" not in tags_list:
+        tags_list.append("Shorts")
+
     meta = {
         "snippet": {
             "title": short_title,
-            "description": description,
+            "description": (description or "") + "\n\n#Shorts #EmpresaDeLimpieza #StarUnion",
             "tags": tags_list,
             "categoryId": "22",
         },
@@ -446,81 +725,164 @@ def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv):
             "selfDeclaredMadeForKids": False,
         },
     }
-    init_req = urllib.request.Request(
-        "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",
+
+    init_url = "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status"
+    req = urllib.request.Request(
+        init_url,
         data=json.dumps(meta).encode("utf-8"),
         headers={
-            "Authorization": f"Bearer {token}",
+            "Authorization": f"Bearer {yt_token}",
             "Content-Type": "application/json; charset=UTF-8",
+            "X-Upload-Content-Length": str(len(video_bytes)),
             "X-Upload-Content-Type": "video/mp4",
         },
         method="POST",
     )
     try:
-        with urllib.request.urlopen(init_req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=45) as resp:
             upload_url = resp.headers.get("Location")
-        if not upload_url:
-            return {"ok": False, "error": "YouTube no devolvió URL de subida resumable."}
-        with open(local_mp4, "rb") as vf:
-            video_bytes = vf.read()
-        up_req = urllib.request.Request(
-            upload_url,
-            data=video_bytes,
-            headers={"Content-Type": "video/mp4", "Content-Length": str(len(video_bytes))},
-            method="PUT",
-        )
-        with urllib.request.urlopen(up_req, timeout=120) as uresp:
-            res_data = json.loads(uresp.read().decode("utf-8"))
-            return {"ok": True, "id": res_data.get("id", "uploaded")}
+    except urllib.error.HTTPError as e:
+        return {"ok": False, "error": f"Error iniciando subida a YouTube ({e.code}): {e.read().decode('utf-8', 'replace')}"}
     except Exception as e:
-        return {"ok": False, "error": f"Error subiendo YouTube Short: {e}"}
+        return {"ok": False, "error": f"Error de red con YouTube: {e}"}
+
+    if not upload_url:
+        return {"ok": False, "error": "YouTube no devolvió Location header para subida resumable."}
+
+    put_req = urllib.request.Request(
+        upload_url,
+        data=video_bytes,
+        headers={
+            "Authorization": f"Bearer {yt_token}",
+            "Content-Type": "video/mp4",
+            "Content-Length": str(len(video_bytes)),
+        },
+        method="PUT",
+    )
+    try:
+        with urllib.request.urlopen(put_req, timeout=180) as resp2:
+            out = json.loads(resp2.read().decode("utf-8"))
+            vid_id = out.get("id", "")
+            return {"ok": True, "id": f"https://youtube.com/shorts/{vid_id}"}
+    except urllib.error.HTTPError as e:
+        return {"ok": False, "error": f"Error subiendo bytes a YouTube ({e.code}): {e.read().decode('utf-8', 'replace')}"}
+    except Exception as e:
+        return {"ok": False, "error": f"Error completando subida a YouTube: {e}"}
 
 
 def publish_tiktok(keys, reel_rel_path, caption):
-    token = keys.get("tiktok_token")
-    if not token:
-        return {"ok": False, "error": "Falta conectar el Access Token de TikTok Content Posting API."}
+    """
+    REGLA INQUEBRANTABLE:
+    En TikTok jamás usar PULL_FROM_URL (exige verificación de dominio y auditoría).
+    Siempre subir el archivo binario local con FILE_UPLOAD y usar fallback automático
+    a /v2/post/publish/inbox/video/init/ para apps en modo Sandbox / sin auditar.
+    """
+    tt_token = ensure_fresh_tiktok_token(keys)
+    if not tt_token:
+        return {"ok": False, "error": "Falta conectar o renovar TikTok."}
 
-    video_url = f"{PUBLIC_BASE}/redes-sociales/{reel_rel_path.lstrip('/')}"
-    st, res = http_json(
-        "POST",
-        "https://open.tiktokapis.com/v2/post/publish/video/init/",
-        headers={"Authorization": f"Bearer {token}"},
-        body_json={
+    clean_rel = reel_rel_path.split("?")[0].lstrip("/")
+    video_path = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
+    if not os.path.exists(video_path):
+        return {"ok": False, "error": f"No existe el archivo MP4 local: {video_path}"}
+
+    with open(video_path, "rb") as f:
+        video_bytes = f.read()
+    size = len(video_bytes)
+
+    hdrs = {
+        "Authorization": f"Bearer {tt_token}",
+        "Content-Type": "application/json; charset=UTF-8",
+    }
+
+    st_ci, ci_data = http_json("POST", "https://open.tiktokapis.com/v2/post/publish/creator_info/query/", headers=hdrs, json_body={})
+    priv_opts = ci_data.get("data", {}).get("privacy_level_options", [])
+    privacy = "PUBLIC_TO_EVERYONE" if "PUBLIC_TO_EVERYONE" in priv_opts else ("SELF_ONLY" if "SELF_ONLY" in priv_opts else (priv_opts[0] if priv_opts else "SELF_ONLY"))
+
+    upload_url = ""
+    pub_id = ""
+    mode_note = "Publicado directo"
+
+    if st_ci == 200:
+        body = {
             "post_info": {
-                "title": caption[:150],
-                "privacy_level": "PUBLIC_TO_EVERYONE",
+                "title": (caption or "")[:2000],
+                "privacy_level": privacy,
+                "disable_duet": False,
+                "disable_comment": False,
+                "disable_stitch": False,
             },
             "source_info": {
-                "source": "PULL_FROM_URL",
-                "video_url": video_url,
+                "source": "FILE_UPLOAD",
+                "video_size": size,
+                "chunk_size": size,
+                "total_chunk_count": 1,
             },
+        }
+        st, data = http_json("POST", "https://open.tiktokapis.com/v2/post/publish/video/init/", headers=hdrs, json_body=body)
+        if st == 200 and data.get("data", {}).get("upload_url"):
+            upload_url = data["data"]["upload_url"]
+            pub_id = data["data"].get("publish_id", "")
+
+    if not upload_url:
+        inbox_body = {
+            "source_info": {
+                "source": "FILE_UPLOAD",
+                "video_size": size,
+                "chunk_size": size,
+                "total_chunk_count": 1,
+            }
+        }
+        st_in, data_in = http_json("POST", "https://open.tiktokapis.com/v2/post/publish/inbox/video/init/", headers=hdrs, json_body=inbox_body)
+        if st_in == 200 and data_in.get("data", {}).get("upload_url"):
+            upload_url = data_in["data"]["upload_url"]
+            pub_id = data_in["data"].get("publish_id", "")
+            mode_note = "Enviado a la Bandeja de TikTok (@starunionservicios listos para 1 toque)"
+        else:
+            return {"ok": False, "error": f"Error iniciando subida en TikTok API: {data_in}"}
+
+    put_req = urllib.request.Request(
+        upload_url,
+        data=video_bytes,
+        headers={
+            "Content-Type": "video/mp4",
+            "Content-Length": str(size),
+            "Content-Range": f"bytes 0-{size - 1}/{size}",
         },
+        method="PUT",
     )
-    if st in (200, 201) and not res.get("error", {}).get("code") in ("access_token_invalid", "scope_not_authorized"):
-        return {"ok": True, "id": res.get("data", {}).get("publish_id", "published")}
-    return {"ok": False, "error": f"Error en TikTok API: {res}"}
+    try:
+        with urllib.request.urlopen(put_req, timeout=120) as _:
+            return {"ok": True, "id": f"{pub_id} ({mode_note})"}
+    except Exception as e:
+        return {"ok": False, "error": f"Error subiendo bytes del MP4 a TikTok: {e}"}
 
 
+# =====================================================================
+# 3. SERVIDOR HTTP LOCAL + ENDPOINTS /api/status, /api/connect, /api/publish, /api/schedule
+# =====================================================================
 class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=WEB_ROOT, **kwargs)
+
+    def end_headers(self):
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        super().end_headers()
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.end_headers()
 
     def _send_json(self, code, payload):
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         self.send_response(code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
-
-    def do_OPTIONS(self):
-        self.send_response(200)
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
-        self.end_headers()
 
     def do_GET(self):
         if self.path.startswith("/api/tiktok/login"):
@@ -532,17 +894,14 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             if ck or cs:
                 save_keys({"tiktok_client_key": ck, "tiktok_client_secret": cs})
             redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
-            auth_url = (
-                "https://www.tiktok.com/v2/auth/authorize?"
-                + urllib.parse.urlencode(
-                    {
-                        "client_key": ck,
-                        "scope": "user.info.basic,video.upload",
-                        "response_type": "code",
-                        "redirect_uri": redirect_uri,
-                        "state": "starunion_tt",
-                    }
-                )
+            auth_url = "https://www.tiktok.com/v2/auth/authorize/?" + urllib.parse.urlencode(
+                {
+                    "client_key": ck,
+                    "scope": "user.info.basic,video.upload",
+                    "response_type": "code",
+                    "redirect_uri": redirect_uri,
+                    "state": "starunion_tt",
+                }
             )
             self.send_response(302)
             self.send_header("Location", auth_url)
@@ -552,33 +911,102 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         if self.path.startswith("/api/tiktok/callback"):
             parsed = urllib.parse.urlparse(self.path)
             qs = urllib.parse.parse_qs(parsed.query)
-            code = qs.get("code", [""])[0]
+            code = urllib.parse.unquote(qs.get("code", [""])[0]).strip()
             keys = load_keys()
             ck = keys.get("tiktok_client_key", "")
             cs = keys.get("tiktok_client_secret", "")
             redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
-            if code and ck and cs:
-                st, res = http_json(
-                    "POST",
-                    "https://open.tiktokapis.com/v2/oauth/token/",
-                    form_data={
-                        "client_key": ck,
-                        "client_secret": cs,
-                        "code": code,
-                        "grant_type": "authorization_code",
-                        "redirect_uri": redirect_uri,
-                    },
-                )
-                print("TIKTOK TOKEN RESPONSE:", st, res, flush=True)
-                tok = res.get("access_token") or res.get("data", {}).get("access_token", "")
-                open_id = res.get("open_id") or res.get("data", {}).get("open_id", "")
-                if tok:
-                    save_keys({"tiktok_token": tok, "tiktok_open_id": open_id})
-                else:
-                    save_keys({"tiktok_last_error": str(res)})
-            self.send_response(302)
-            self.send_header("Location", "/redes-sociales/index.html")
+            st, data = http_json(
+                "POST",
+                "https://open.tiktokapis.com/v2/oauth/token/",
+                form_data={
+                    "client_key": ck,
+                    "client_secret": cs,
+                    "code": code,
+                    "grant_type": "authorization_code",
+                    "redirect_uri": redirect_uri,
+                },
+            )
+            tok = data.get("access_token") or data.get("data", {}).get("access_token", "")
+            open_id = data.get("open_id") or data.get("data", {}).get("open_id", "")
+            rt = data.get("refresh_token") or data.get("data", {}).get("refresh_token", "")
+            if tok:
+                save_keys({"tiktok_token": tok, "tiktok_open_id": open_id, "tiktok_refresh_token": rt})
+                html = "<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡TikTok de Star Union Conectado con Éxito!</h2><p>Redirigiendo al panel...</p><script>setTimeout(()=>location.href='/redes-sociales/index.html', 1000);</script></body></html>"
+            else:
+                html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;'><h2>❌ Error obteniendo token de TikTok</h2><pre>{json.dumps(data, indent=2)}</pre><p><a href='/redes-sociales/index.html' style='color:#fde047;'>← Volver al panel</a></p></body></html>"
+            body = html.encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
             self.end_headers()
+            self.wfile.write(body)
+            return
+
+        if self.path.startswith("/api/status"):
+            keys = load_keys()
+            tok_meta = keys.get("fb_page_token") or keys.get("meta_user_token")
+            meta_ok = False
+            meta_expired = False
+            if tok_meta:
+                st_m, dm = http_json(
+                    "GET",
+                    f"https://graph.facebook.com/v21.0/me?fields=id,name&access_token={urllib.parse.quote(tok_meta)}",
+                )
+                if st_m == 200 and dm.get("id"):
+                    meta_ok = True
+                else:
+                    meta_expired = True
+
+            yt_tok = ensure_fresh_youtube_token(keys)
+            yt_ok = False
+            yt_expired = False
+            if yt_tok:
+                st_y, _ = http_json("GET", "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true", headers={"Authorization": f"Bearer {yt_tok}"})
+                if st_y == 200:
+                    yt_ok = True
+                else:
+                    yt_expired = True
+
+            gmb_tok = ensure_fresh_gmb_token(keys)
+            gmb_ok = False
+            gmb_expired = False
+            if gmb_tok and keys.get("gmb_location_name"):
+                st_g, _ = http_json("GET", "https://mybusinessaccountmanagement.googleapis.com/v1/accounts", headers={"Authorization": f"Bearer {gmb_tok}"})
+                if st_g == 200:
+                    gmb_ok = True
+                else:
+                    gmb_expired = True
+
+            tt_tok = ensure_fresh_tiktok_token(keys)
+            tt_ok = bool(tt_tok)
+            li_ok = bool(keys.get("linkedin_token") and keys.get("linkedin_urn") == STAR_UNION_LI_ORG_URN)
+
+            self._send_json(
+                200,
+                {
+                    "ok": True,
+                    "meta_connected": meta_ok,
+                    "meta_expired": meta_expired,
+                    "fb_page_name": keys.get("fb_page_name", ""),
+                    "fb_page_id": keys.get("fb_page_id", ""),
+                    "ig_username": keys.get("ig_username", ""),
+                    "ig_user_id": keys.get("ig_user_id", ""),
+                    "linkedin_connected": li_ok,
+                    "linkedin_name": keys.get("linkedin_name", ""),
+                    "linkedin_urn": keys.get("linkedin_urn", ""),
+                    "gmb_connected": gmb_ok,
+                    "gmb_expired": gmb_expired,
+                    "gmb_has_refresh": bool(keys.get("gmb_refresh_token")),
+                    "gmb_location_name": keys.get("gmb_location_name", ""),
+                    "gmb_location_title": keys.get("gmb_title", ""),
+                    "youtube_connected": yt_ok,
+                    "youtube_expired": yt_expired,
+                    "youtube_has_refresh": bool(keys.get("youtube_refresh_token")),
+                    "youtube_channel_name": keys.get("youtube_channel_name", ""),
+                    "tiktok_connected": tt_ok,
+                },
+            )
             return
 
         if self.path.startswith("/api/schedule"):
@@ -593,29 +1021,6 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             self._send_json(200, {"ok": True, "schedule": data})
             return
 
-        if self.path.startswith("/api/status"):
-            keys = load_keys()
-            self._send_json(
-                200,
-                {
-                    "meta_connected": bool(keys.get("fb_page_token") or keys.get("meta_user_token")),
-                    "fb_page_name": keys.get("fb_page_name", ""),
-                    "fb_page_id": keys.get("fb_page_id", ""),
-                    "ig_username": keys.get("ig_username", ""),
-                    "ig_user_id": keys.get("ig_user_id", ""),
-                    "linkedin_connected": bool(keys.get("linkedin_token") and keys.get("linkedin_urn")),
-                    "linkedin_name": keys.get("linkedin_name", ""),
-                    "linkedin_urn": keys.get("linkedin_urn", ""),
-                    "gmb_connected": bool(keys.get("gmb_token")),
-                    "gmb_location_name": keys.get("gmb_title") or keys.get("gmb_location_name", ""),
-                    "youtube_connected": bool(keys.get("youtube_token")),
-                    "youtube_channel_name": keys.get("youtube_channel_name", ""),
-                    "youtube_channel_id": keys.get("youtube_channel_id", ""),
-                    "tiktok_connected": bool(keys.get("tiktok_token")),
-                    "tiktok_client_key": keys.get("tiktok_client_key", ""),
-                },
-            )
-            return
         return super().do_GET()
 
     def do_POST(self):
@@ -631,21 +1036,21 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             messages = []
 
             meta_token = (body.get("meta_token") or "").strip()
+            meta_secret = (body.get("meta_app_secret") or "").strip()
+            if meta_secret:
+                updates["meta_app_secret"] = meta_secret
             if meta_token:
-                disc = auto_discover_meta(meta_token)
+                disc = auto_discover_meta(meta_token, meta_secret)
                 if disc.get("ok"):
                     updates.update(disc)
-                    if body.get("fb_page_id"):
-                        updates["fb_page_id"] = body["fb_page_id"].strip()
-                    if body.get("ig_user_id"):
-                        updates["ig_user_id"] = body["ig_user_id"].strip()
+                    perm_txt = " (TOKEN PERMANENTE SIN VENCIMIENTO)" if disc.get("permanent") else " (Agregá la Clave Secreta de la App para que no venza en 1h)"
                     messages.append(
-                        f"✅ Meta conectado: FB Page '{updates.get('fb_page_name')}' ({updates.get('fb_page_id')}) + IG @{updates.get('ig_username')} ({updates.get('ig_user_id')})"
+                        f"✅ Meta conectado: FB Page '{updates.get('fb_page_name')}' ({updates.get('fb_page_id')}) + IG @{updates.get('ig_username')}{perm_txt}"
                     )
                 else:
                     updates["meta_user_token"] = meta_token
                     updates["fb_page_token"] = meta_token
-                    messages.append(f"⚠️ Token de Meta guardado (verificá permisos pages_manage_posts / instagram_content_publish): {disc.get('detail')}")
+                    messages.append(f"⚠️ Token de Meta guardado (revisar permisos): {disc.get('detail')}")
 
             li_token = (body.get("linkedin_token") or "").strip()
             li_urn = (body.get("linkedin_urn") or "").strip()
@@ -655,26 +1060,29 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     updates.update(disc_li)
                     messages.append(f"✅ LinkedIn conectado: {disc_li.get('linkedin_name')}")
                 else:
-                    updates["linkedin_token"] = li_token
-                    if li_urn:
-                        updates["linkedin_urn"] = li_urn if li_urn.startswith("urn:") else f"urn:li:organization:{li_urn}"
-                    messages.append(f"⚠️ Token de LinkedIn guardado: {disc_li.get('detail')}")
+                    messages.append(disc_li.get("detail", "❌ Error en LinkedIn"))
 
             gmb_token = (body.get("gmb_token") or "").strip()
+            gmb_loc = (body.get("gmb_location_name") or "").strip()
             if gmb_token:
-                disc_gmb = auto_discover_gmb(gmb_token)
+                disc_gmb = auto_discover_gmb(gmb_token, gmb_loc)
                 updates.update(disc_gmb)
-                messages.append(f"✅ Google My Business conectado automáticamente: {disc_gmb.get('gmb_title')}")
+                if disc_gmb.get("ok"):
+                    rt_note = " (Refresh Token permanente activo)" if disc_gmb.get("gmb_refresh_token") else ""
+                    messages.append(f"✅ Google My Business conectado: {disc_gmb.get('gmb_location_name')}{rt_note}")
+                else:
+                    messages.append(f"⚠️ {disc_gmb.get('detail')}")
 
             yt_token = (body.get("youtube_token") or "").strip()
             if yt_token:
                 disc_yt = auto_discover_youtube(yt_token)
                 if disc_yt.get("ok"):
                     updates.update(disc_yt)
-                    messages.append(f"✅ YouTube Shorts conectado: {disc_yt.get('youtube_channel_name')} ({disc_yt.get('youtube_channel_id')})")
+                    rt_note = " (Refresh Token permanente activo)" if disc_yt.get("youtube_refresh_token") else ""
+                    messages.append(f"✅ Canal de YouTube conectado: {disc_yt.get('youtube_channel_name')}{rt_note}")
                 else:
                     updates["youtube_token"] = yt_token
-                    messages.append("✅ Token de YouTube Data API v3 guardado.")
+                    messages.append(f"⚠️ Token de YouTube guardado (verificá scope youtube.upload): {disc_yt.get('detail')}")
 
             tt_token = (body.get("tiktok_token") or "").strip()
             if tt_token:
@@ -719,29 +1127,31 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             reel_file = body.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
             caption_ig = body.get("caption_ig", "")
             caption_li = body.get("caption_li", "")
-            yt_title = body.get("yt_title", "Star Union S.R.L. · Limpieza Corporativa e Industrial #Shorts")
+            yt_title = body.get("yt_title", "Star Union · Limpieza Corporativa e Industrial #Shorts")
             yt_desc = body.get("yt_desc", caption_ig)
-            yt_tags = body.get("yt_tags", "star union, limpieza industrial, iso 9001")
+            yt_tags = body.get("yt_tags", "empresa de limpieza, star union, limpieza industrial, iso 9001")
             public_url = body.get("public_url", "https://www.starunion.com.ar")
-            title = body.get("title", "Star Union S.R.L.")
+            title = body.get("title", "Star Union")
 
             results = {}
             if "ig_feed" in channels:
                 results["Instagram Feed (4:5)"] = publish_ig_feed(keys, feed_file, caption_ig)
             if "ig_story" in channels:
-                results["Instagram Story (9:16)"] = publish_ig_story(keys, story_file)
+                results["Instagram Story Video c/Música (9:16)"] = publish_ig_story(keys, story_file, reel_file)
             if "ig_reel" in channels:
                 results["Instagram Reel con Voz Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_file, caption_ig)
             if "fb_page" in channels:
-                results["Facebook Page"] = publish_fb_page(keys, feed_file, caption_ig)
+                results["Facebook Page"] = publish_fb_page(keys, feed_file, caption_ig, public_url)
+            if "fb_reel" in channels:
+                results["Facebook Reel MP4"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
             if "linkedin" in channels:
-                results["LinkedIn Página Empresa"] = publish_linkedin(keys, caption_li, public_url, title)
+                results["LinkedIn Página Empresa (Imagen Nativa)"] = publish_linkedin(keys, feed_file, caption_li, public_url, title)
             if "gmb" in channels:
                 results["Google My Business (Maps)"] = publish_gmb(keys, feed_file, caption_ig, public_url)
             if "youtube" in channels:
                 results["YouTube Shorts (@starunionservicios)"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
             if "tiktok" in channels:
-                results["TikTok Video"] = publish_tiktok(keys, reel_file, caption_ig)
+                results["TikTok Video (FILE_UPLOAD)"] = publish_tiktok(keys, reel_file, caption_ig)
 
             self._send_json(200, {"ok": True, "results": results})
             return
@@ -829,84 +1239,6 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         self._send_json(404, {"error": "Endpoint no encontrado"})
 
 
-def watch_chrome_tiktok_callback():
-    import subprocess, threading, re
-    seen_codes = set()
-    cache_dir = os.path.expanduser("~/Library/Application Support/Antigravity/Partitions/hub-browser-9ddc5300/Cache/Cache_Data")
-    # Pre-poblar con códigos viejos para no reintentar expirados
-    if os.path.isdir(cache_dir):
-        for f in os.listdir(cache_dir):
-            p = os.path.join(cache_dir, f)
-            if os.path.isfile(p):
-                try:
-                    data = open(p, "rb").read()
-                    for m in re.findall(rb"tiktok-callback\.html\?code=([^\x00-\x1f\x7f-\xff\"'\s<>&]+)", data):
-                        seen_codes.add(urllib.parse.unquote(m.decode("utf-8", "ignore")))
-                except Exception:
-                    pass
-    script = '''tell application "Google Chrome"
-      set out to ""
-      repeat with w in windows
-        repeat with t in tabs of w
-          if URL of t contains "tiktok-callback.html?code=" then
-            set out to (URL of t)
-            set URL of t to "http://127.0.0.1:8894/redes-sociales/index.html"
-          end if
-        end repeat
-      end repeat
-      return out
-    end tell'''
-    while True:
-        try:
-            keys = load_keys()
-            if not keys.get("tiktok_token"):
-                found_code = ""
-                if os.path.isdir(cache_dir):
-                    for f in os.listdir(cache_dir):
-                        p = os.path.join(cache_dir, f)
-                        if os.path.isfile(p) and (time.time() - os.path.getmtime(p) < 180):
-                            try:
-                                raw = open(p, "rb").read()
-                                for m in re.findall(rb"tiktok-callback\.html\?code=([^\x00-\x1f\x7f-\xff\"'\s<>&]+)", raw):
-                                    c = urllib.parse.unquote(m.decode("utf-8", "ignore"))
-                                    if c and c not in seen_codes:
-                                        found_code = c
-                                        break
-                            except Exception:
-                                pass
-                if not found_code:
-                    res = subprocess.run(["osascript", "-e", script], capture_output=True, text=True, timeout=3)
-                    url = (res.stdout or "").strip()
-                    if "code=" in url:
-                        parsed = urllib.parse.urlparse(url)
-                        qs = urllib.parse.parse_qs(parsed.query)
-                        found_code = qs.get("code", [""])[0]
-                if found_code and found_code not in seen_codes:
-                    seen_codes.add(found_code)
-                    ck = keys.get("tiktok_client_key", "")
-                    cs = keys.get("tiktok_client_secret", "")
-                    redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
-                    st, data = http_json(
-                        "POST",
-                        "https://open.tiktokapis.com/v2/oauth/token/",
-                        form_data={
-                            "client_key": ck,
-                            "client_secret": cs,
-                            "code": found_code,
-                            "grant_type": "authorization_code",
-                            "redirect_uri": redirect_uri,
-                        },
-                    )
-                    print("WATCHER TIKTOK TOKEN:", st, data, flush=True)
-                    tok = data.get("access_token") or data.get("data", {}).get("access_token", "")
-                    open_id = data.get("open_id") or data.get("data", {}).get("open_id", "")
-                    if tok:
-                        save_keys({"tiktok_token": tok, "tiktok_open_id": open_id})
-        except Exception:
-            pass
-        time.sleep(0.8)
-
-
 def run_scheduler_loop():
     import datetime
     sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
@@ -935,13 +1267,15 @@ def run_scheduler_loop():
                         if "ig_feed" in channels:
                             res["IG Feed"] = publish_ig_feed(keys, feed_file, caption_ig)
                         if "ig_story" in channels:
-                            res["IG Story"] = publish_ig_story(keys, story_file)
+                            res["IG Story Video"] = publish_ig_story(keys, story_file, reel_file)
                         if "ig_reel" in channels:
                             res["IG Reel"] = publish_ig_reel(keys, reel_file, caption_ig)
                         if "fb_page" in channels:
-                            res["FB Page"] = publish_fb_page(keys, feed_file, caption_ig)
+                            res["FB Page"] = publish_fb_page(keys, feed_file, caption_ig, public_url)
+                        if "fb_reel" in channels:
+                            res["FB Reel"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
                         if "linkedin" in channels:
-                            res["LinkedIn"] = publish_linkedin(keys, caption_li, public_url, title)
+                            res["LinkedIn"] = publish_linkedin(keys, feed_file, caption_li, public_url, title)
                         if "gmb" in channels:
                             res["Google Maps"] = publish_gmb(keys, feed_file, caption_ig, public_url)
                         if "youtube" in channels:
@@ -962,8 +1296,6 @@ def run_scheduler_loop():
 
 if __name__ == "__main__":
     import threading
-    t = threading.Thread(target=watch_chrome_tiktok_callback, daemon=True)
-    t.start()
     t2 = threading.Thread(target=run_scheduler_loop, daemon=True)
     t2.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)

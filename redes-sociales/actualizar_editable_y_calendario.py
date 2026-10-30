@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import csv
+import json
 import base64
 from generar_pack_redes import POSTS, OUT_DIR, PIEZAS_DIR, BASE_DIR
 
@@ -10,31 +11,36 @@ CALENDAR_META = [
     {
         "date": "Viernes 30 Oct 2026 · 10:00 hs",
         "iso_dt": "2026-10-30T10:00",
-        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
+        "reel_file": "piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4",
+        "channels": "IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok",
         "reason": "Acompaña en caliente los 179 clics a WhatsApp del Mailing de Octubre (#116/#119) donde el bloque #1 más clickeado (197 clics) fue Centros Logísticos y Plantas Industriales."
     },
     {
         "date": "Lunes 02 Nov 2026 · 10:00 hs",
         "iso_dt": "2026-11-02T10:00",
-        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
+        "reel_file": "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4",
+        "channels": "IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok",
         "reason": "Abre noviembre mostrando el diferenciador físico duro (Base Propia de 800 m² en Guaminí 5657 y Taller Electromecánico In-House) para decisores técnicos que están evaluando recambio de proveedor."
     },
     {
         "date": "Miércoles 04 Nov 2026 · 10:00 hs",
         "iso_dt": "2026-11-04T10:00",
-        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
+        "reel_file": "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4",
+        "channels": "IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok",
         "reason": "Mitad de semana: ataca el dolor #1 de Administraciones y Gerencias (el ausentismo) con 'El Dato Técnico de Cleany' (Reloj Biométrico con alerta a los 15 min y cobertura < 2 hs)."
     },
     {
         "date": "Viernes 06 Nov 2026 · 10:00 hs",
         "iso_dt": "2026-11-06T10:00",
-        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
+        "reel_file": "piezas/short_02_verticales_iso9001_1080x1920.mp4",
+        "channels": "IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok",
         "reason": "Cierre de semana enfocado en el vertical regulado (Clínicas, Sanatorios y Laboratorios con insumos ANMAT + ISO 9001:2015 TÜV Rheinland), preparando el terreno antes del 1° Envío Perfit de Noviembre."
     },
     {
         "date": "Martes 10 Nov 2026 · 10:00 hs",
         "iso_dt": "2026-11-10T10:00",
-        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
+        "reel_file": "piezas/short_02_verticales_iso9001_1080x1920.mp4",
+        "channels": "IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok",
         "reason": "Pre-temporada de licitaciones educativas y deportivas (Universidades, Colegios y Clubes para receso de verano y colonia), conectando con el 1° Envío de Perfit de Noviembre (Jueves 19/11)."
     }
 ]
@@ -155,6 +161,7 @@ def main():
             meta = CALENDAR_META[i]
             p["date"] = meta["date"]
             p["iso_dt"] = meta["iso_dt"]
+            p["reel_file"] = meta["reel_file"]
             p["channels"] = meta["channels"]
             p["reason"] = meta["reason"]
 
@@ -173,14 +180,42 @@ def main():
                 p["copy_ig_fb"], p["copy_linkedin"], p["yt_title"], p["yt_desc"], p["yt_tags"], p["copy_wa"]
             ])
 
+    # 1b. Persist calendario_programado.json on disk so run_scheduler_loop fires at 10:00 AM
+    sched_path = os.path.join(OUT_DIR, "calendario_programado.json")
+    sched_data = {}
+    for p in POSTS:
+        sched_data[p["id"]] = {
+            "id": p["id"],
+            "post_id": p["id"],
+            "status": "programado",
+            "scheduled_at": p["iso_dt"],
+            "channels": ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_reel", "linkedin", "gmb", "youtube", "tiktok"],
+            "feed_file": p["feed_file"],
+            "story_file": p["story_file"],
+            "reel_file": p["reel_file"],
+            "tag": p["tag"],
+            "title": p["title"],
+            "subtitle": p["subtitle"],
+            "copy_ig_fb": p["copy_ig_fb"],
+            "copy_linkedin": p["copy_linkedin"],
+            "yt_title": p["yt_title"],
+            "yt_desc": p["yt_desc"],
+            "yt_tags": p["yt_tags"],
+            "copy_wa": p["copy_wa"],
+            "public_url": "https://www.starunion.com.ar"
+        }
+    with open(sched_path, "w", encoding="utf-8") as sf:
+        json.dump(sched_data, sf, indent=2, ensure_ascii=False)
+
     # 2. Build Calendar rows
     cal_rows = ""
     for p in POSTS:
+        sched_lbl = p['iso_dt'].replace('T', ' ') + ' hs'
         cal_rows += f"""
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>{p['date']}</div>
-            <span id="cal_badge_{p['id']}" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+            <span id="cal_badge_{p['id']}" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: {sched_lbl}</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#{p['id']} · <span id="cal_title_{p['id']}">{p['title']}</span></td>
           <td class="p-3 text-gray-700 font-semibold">{p['channels']}</td>
@@ -215,13 +250,14 @@ def main():
 
     cards_html = ""
     for p in POSTS:
+        sched_lbl = p['iso_dt'].replace('T', ' ') + ' hs'
         cards_html += f"""
         <div id="post-{p['id']}" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 {p['date']}</span>
-                <span id="card_badge_{p['id']}" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
+                <span id="card_badge_{p['id']}" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: {sched_lbl}</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">{p['day_label']}</span>
               </div>
               <h2 id="head_title_{p['id']}" class="text-lg font-extrabold text-gray-900 mt-1">{p['title']}</h2>
@@ -276,7 +312,7 @@ def main():
                   <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
                   <textarea id="sub_{p['id']}" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">{p['subtitle']}</textarea>
                 </div>
-                <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
                   🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
                 </button>
               </div>
@@ -344,23 +380,23 @@ def main():
 
                 <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_{p['id']}" checked> 📸 IG Feed (4:5)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_{p['id']}" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_{p['id']}" checked> 📱 IG Story MP4 (15s + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_{p['id']}" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_{p['id']}" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_{p['id']}" checked> 👍 FB Page + FB Reel</label>
+                  <label class="flex items-center gap-1.5 bg-emerald-100 px-2.5 py-1.5 rounded-lg border border-[#03582d]"><input type="checkbox" id="chk_li_{p['id']}" checked> 💼 LinkedIn Empresa (ID 35644861)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_{p['id']}" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_{p['id']}" checked> ▶️ YouTube Shorts</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_{p['id']}" checked> 🎵 TikTok</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_{p['id']}"> 💼 LinkedIn Empresa</label>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
-                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     💾 Guardar Edición de Textos
                   </button>
-                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     📅 PROGRAMAR EN CALENDARIO API
                   </button>
-                  <button type="button" onclick="publishPostViaApi('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="publishPostViaApi('{p['id']}', '{p['feed_file']}', '{p['story_file']}', '{p['reel_file']}', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     🚀 PUBLICAR AHORA POR API
                   </button>
                 </div>
@@ -432,17 +468,18 @@ def main():
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">1. Facebook Page + Instagram (@starunionservicios)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="text-amber-300 underline font-bold">Meta Graph API Explorer ↗</a><br>
-              2) Elegí tu App y marcá permisos: <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>pages_manage_posts</code>, <code>instagram_basic</code>, <code>instagram_content_publish</code>.<br>
-              3) Tocá <strong>Generate Access Token</strong>, seleccioná la Fan Page de <strong>Star Union</strong> y pegalo acá (detecta FB + IG juntos):
+              1) En <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="text-amber-300 underline font-bold">Meta Graph API Explorer ↗</a> (usando tu App principal con los 5 permisos ya cargados), tocá <strong>Generate Access Token</strong>.<br>
+              2) Tildá la Fan Page <strong>Star Union Servicios</strong> + IG <strong>@starunionservicios</strong>.<br>
+              3) Pegá el Token acá (el servidor ya tiene guardado el <code>App Secret</code> y lo convierte automáticamente en <strong>Token de Página ETERNO que no vence nunca</strong>):
             </p>
           </div>
           <div class="space-y-2 pt-2">
             <div id="status-box-meta" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
               ✅ CONECTADO: FB "Star Union Servicios" + IG @starunionservicios
             </div>
-            <input id="inp-meta-token" type="password" placeholder="Pegar nuevo Access Token si querés renovar (EAA...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button id="btn-connect-meta" type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ Facebook + Instagram Conectados (Tocar para actualizar)</button>
+            <input id="inp-meta-token" type="password" placeholder="Pegar Access Token (EAA...) para convertir a Eterno" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-meta-secret" type="password" placeholder="App Secret (opcional si usás otra App de Meta)" class="w-full px-3 py-1.5 rounded-lg bg-gray-950 border border-gray-800 text-gray-300 text-[11px]">
+            <button id="btn-connect-meta" type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔄 Guardar y Convertir en Token Eterno</button>
           </div>
         </div>
 
@@ -451,15 +488,17 @@ def main():
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">2. LinkedIn Página Empresa (Candado Anti-Perfil Personal)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://www.linkedin.com/developers/tools/oauth/token-generator" target="_blank" class="text-amber-300 underline font-bold">LinkedIn OAuth Token Generator ↗</a><br>
-              2) Marcá permisos de organización: <code>w_organization_social</code> y <code>r_organization_social</code>.<br>
-              3) Pegá el Token y el ID numérico de la Página de Empresa Star Union (el sistema bloquea por seguridad cualquier intento de publicar en tu perfil personal):
+              • Tu Token OAuth de LinkedIn ya tiene aprobado el rol <code>ADMINISTRATOR</code> sobre la Página de Empresa <strong>Star Union Servicios</strong> (<code>urn:li:organization:35644861</code>).<br>
+              • Candado duro activo: el servidor bloquea cualquier intento de publicar en perfil personal y sube imagen nativa <code>1080×1350</code> + copy B2B.
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <input id="inp-li-token" type="password" placeholder="Access Token de LinkedIn (AQV...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <input id="inp-li-urn" type="text" placeholder="ID o URN Página Empresa (ej. urn:li:organization:123456)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar LinkedIn Empresa</button>
+            <div id="status-box-li" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
+              ✅ CONECTADO Y ACTIVO: Star Union Servicios (urn:li:organization:35644861)
+            </div>
+            <input id="inp-li-token" type="password" placeholder="Access Token de LinkedIn (ya conectado · 60 días)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-li-urn" type="text" value="urn:li:organization:35644861" placeholder="URN Página Empresa" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ LinkedIn Empresa Conectado (ID 35644861)</button>
           </div>
         </div>
 
@@ -468,17 +507,16 @@ def main():
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">3. Google My Business (Ficha Maps Guaminí 5657)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
-              2) En Step 1 pegá el permiso: <code>https://www.googleapis.com/auth/business.manage</code> y tocá <strong>Authorize APIs</strong>.<br>
-              3) En Step 2 tocá <strong>Exchange authorization code</strong> y pegá acá <strong>SOLO el Token</strong> (el sistema ya detectó solo el ID de ubicación):
+              1) En <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a> → Step 1: <code>https://www.googleapis.com/auth/business.manage</code>.<br>
+              2) En Step 2 tocá <strong>Exchange authorization code</strong> y pegá acá el <strong><code>Refresh token</code> (empieza con <code>1//04...</code>)</strong> para que el servidor lo renueve solo cada hora para siempre:
             </p>
           </div>
           <div class="space-y-2 pt-2">
             <div id="status-box-gmb" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
               ✅ CONECTADO: Empresa de Limpieza - Star Union (locations/8938663810475756647)
             </div>
-            <input id="inp-gmb-token" type="password" placeholder="Pegar nuevo Token Google Business si querés renovar (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ Google Maps Conectado (Tocar para actualizar)</button>
+            <input id="inp-gmb-token" type="password" placeholder="Pegar Refresh Token (1//04...) o Access Token (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔄 Guardar Token Google Maps</button>
           </div>
         </div>
 
@@ -487,17 +525,16 @@ def main():
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">4. YouTube Shorts (@starunionservicios · API v3)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
-              2) En Step 1 elegí <strong>YouTube Data API v3</strong> → marcá <code>https://www.googleapis.com/auth/youtube.upload</code> y <code>https://www.googleapis.com/auth/youtube.readonly</code>.<br>
-              3) Elegí el canal <strong>@starunionservicios</strong>, tocá <strong>Exchange authorization code</strong> y pegá el <code>Access token</code>:
+              1) En <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a> → Step 1: <code>youtube.upload</code> + <code>youtube.readonly</code> (eligiendo el canal <strong>@starunionservicios</strong>).<br>
+              2) En Step 2 copiá y pegá el <strong><code>Refresh token</code> (empieza con <code>1//04...</code>)</strong> para que no venza nunca más a la hora:
             </p>
           </div>
           <div class="space-y-2 pt-2">
             <div id="status-box-yt" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
               ✅ CONECTADO: Star Union | Limpieza Profesional e Industrial (@starunionservicios)
             </div>
-            <input id="inp-yt-token" type="password" placeholder="Pegar nuevo Token YouTube si querés renovar (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ YouTube Shorts Conectado (Tocar para actualizar)</button>
+            <input id="inp-yt-token" type="password" placeholder="Pegar Refresh Token (1//04...) o Access Token (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔄 Guardar Token YouTube Shorts</button>
           </div>
         </div>
 
@@ -906,26 +943,47 @@ def main():
         const r = await fetch(API_BASE + '/api/status');
         const st = await r.json();
         const parts = [];
-        parts.push(st.meta_connected ? `🟢 Meta ACTIVO (${{st.fb_page_name || 'FB'}} + @${{st.ig_username || 'IG'}})` : `🔴 Meta (FB/IG) pendiente`);
-        parts.push(st.linkedin_connected ? `🟢 LinkedIn (${{st.linkedin_name}})` : `⚪ LinkedIn pendiente`);
-        parts.push(st.gmb_connected ? `🟢 Google Maps conectado` : `⚪ Google Maps pendiente`);
-        parts.push(st.youtube_connected ? `🟢 YouTube (${{st.youtube_channel_name || 'Conectado'}})` : `⚪ YouTube pendiente`);
-        parts.push(st.tiktok_connected ? `🟢 TikTok conectado` : `⚪ TikTok pendiente`);
+        parts.push(st.meta_connected ? `🟢 Meta ACTIVO (${{st.fb_page_name || 'FB'}} + @${{st.ig_username || 'IG'}})` : (st.meta_expired ? `🟠 Meta (Token 1h vencido: tocar Generate Access Token)` : `🔴 Meta pendiente`));
+        parts.push(st.linkedin_connected ? `🟢 LinkedIn ACTIVO (${{st.linkedin_name}})` : `⚪ LinkedIn pendiente`);
+        parts.push(st.gmb_connected ? `🟢 Google Maps ACTIVO` : (st.gmb_expired ? `🟠 Google Maps (Token 1h vencido: pegar Refresh Token 1//04...)` : `⚪ Google Maps pendiente`));
+        parts.push(st.youtube_connected ? `🟢 YouTube ACTIVO (${{st.youtube_channel_name || 'Conectado'}})` : (st.youtube_expired ? `🟠 YouTube (Token 1h vencido: pegar Refresh Token 1//04...)` : `⚪ YouTube pendiente`));
+        parts.push(st.tiktok_connected ? `🟢 TikTok ACTIVO (@starunionservicios)` : `⚪ TikTok pendiente`);
         line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
+
         const metaBox = document.getElementById('status-box-meta');
-        if (metaBox && st.meta_connected) {{
-          metaBox.innerHTML = `✅ CONECTADO Y ACTIVO:<br>• Facebook: <strong>${{st.fb_page_name}}</strong> (${{st.fb_page_id}})<br>• Instagram: <strong>@${{st.ig_username}}</strong> (${{st.ig_user_id}})`;
+        if (metaBox) {{
+          if (st.meta_connected) {{
+            metaBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+            metaBox.innerHTML = `✅ CONECTADO Y ACTIVO (TOKEN PERMANENTE):<br>• Facebook: <strong>${{st.fb_page_name}}</strong> (${{st.fb_page_id}})<br>• Instagram: <strong>@${{st.ig_username}}</strong> (${{st.ig_user_id}})`;
+          }} else if (st.meta_expired) {{
+            metaBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
+            metaBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (${{st.fb_page_name}} + @${{st.ig_username}}):<br>Pegá abajo un Token nuevo de Graph Explorer y se convertirá automáticamente en <strong>Token Permanente (Nunca vence)</strong>.`;
+          }}
+        }}
+        const liBox = document.getElementById('status-box-li');
+        if (liBox && st.linkedin_connected) {{
+          liBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+          liBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${{st.linkedin_name || 'Star Union Servicios'}}</strong> (${{st.linkedin_urn}})`;
         }}
         const ytBox = document.getElementById('status-box-yt');
-        if (ytBox && st.youtube_connected) {{
-          ytBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${{st.youtube_channel_name || 'Star Union | Limpieza Profesional e Industrial'}} (@starunionservicios)</strong>`;
+        if (ytBox) {{
+          if (st.youtube_connected) {{
+            ytBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+            ytBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${{st.youtube_channel_name || 'Star Union'}} (@starunionservicios)</strong>`;
+          }} else if (st.youtube_expired) {{
+            ytBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
+            ytBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (@starunionservicios): Pegá abajo el <strong>Refresh token (1//04...)</strong> de OAuth Playground para que se renueve solo cada hora.`;
+          }}
         }}
         const gmbBox = document.getElementById('status-box-gmb');
-        if (gmbBox && st.gmb_connected) {{
-          gmbBox.style.background = '#d1fae5';
-          gmbBox.style.borderColor = '#10b981';
-          gmbBox.style.color = '#065f46';
-          gmbBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${{st.gmb_location_title || 'Star Union (Google Maps)'}}</strong> (${{st.gmb_location_name || 'Auto-detectado'}})`;
+        if (gmbBox) {{
+          if (st.gmb_connected) {{
+            gmbBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+            gmbBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${{st.gmb_location_title || 'Star Union (Google Maps)'}}</strong> (${{st.gmb_location_name || 'Auto-detectado'}})`;
+          }} else if (st.gmb_expired) {{
+            gmbBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
+            gmbBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (locations/8938663810475756647): Pegá abajo el <strong>Refresh token (1//04...)</strong> de OAuth Playground para que no venza más.`;
+          }}
         }}
         const ttBox = document.getElementById('status-box-tt');
         if (ttBox && st.tiktok_connected) {{
@@ -950,6 +1008,7 @@ def main():
       logEl.innerHTML = '⏳ Conectando y auto-detectando cuentas de Star Union...';
       const payload = {{
         meta_token: document.getElementById('inp-meta-token').value,
+        meta_app_secret: document.getElementById('inp-meta-secret') ? document.getElementById('inp-meta-secret').value : '',
         linkedin_token: document.getElementById('inp-li-token').value,
         linkedin_urn: document.getElementById('inp-li-urn').value,
         gmb_token: document.getElementById('inp-gmb-token').value,
@@ -967,10 +1026,6 @@ def main():
         const msg = (data.messages || []).join('<br>') || '✅ Guardado en bóveda de Star Union.';
         logEl.innerHTML = msg;
         if (btnEl) btnEl.innerHTML = '✅ ¡CONECTADO CON ÉXITO!';
-        const metaBox = document.getElementById('status-box-meta');
-        if (metaBox && data.status && data.status.meta_connected) {{
-          metaBox.innerHTML = `✅ CONECTADO Y ACTIVO: FB <strong>${{data.status.fb_page_name}}</strong> + IG <strong>@${{data.status.ig_username}}</strong>`;
-        }}
         loadApiStatus();
       }} catch (e) {{
         logEl.innerHTML = '❌ Error conectando al servidor local (http://127.0.0.1:8894): ' + e.message;
@@ -983,7 +1038,10 @@ def main():
       if (document.getElementById('chk_ig_feed_' + id).checked) channels.push('ig_feed');
       if (document.getElementById('chk_ig_story_' + id).checked) channels.push('ig_story');
       if (document.getElementById('chk_ig_reel_' + id).checked) channels.push('ig_reel');
-      if (document.getElementById('chk_fb_' + id).checked) channels.push('fb_page');
+      if (document.getElementById('chk_fb_' + id).checked) {{
+        channels.push('fb_page');
+        if (document.getElementById('chk_ig_reel_' + id).checked) channels.push('fb_reel');
+      }}
       if (document.getElementById('chk_li_' + id).checked) channels.push('linkedin');
       if (document.getElementById('chk_gmb_' + id).checked) channels.push('gmb');
       if (document.getElementById('chk_yt_' + id).checked) channels.push('youtube');

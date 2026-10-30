@@ -59,17 +59,18 @@
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">1. Facebook Page + Instagram (@starunionservicios)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="text-amber-300 underline font-bold">Meta Graph API Explorer ↗</a><br>
-              2) Elegí tu App y marcá permisos: <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>pages_manage_posts</code>, <code>instagram_basic</code>, <code>instagram_content_publish</code>.<br>
-              3) Tocá <strong>Generate Access Token</strong>, seleccioná la Fan Page de <strong>Star Union</strong> y pegalo acá (detecta FB + IG juntos):
+              1) En <a href="https://developers.facebook.com/tools/explorer/" target="_blank" class="text-amber-300 underline font-bold">Meta Graph API Explorer ↗</a> (usando tu App principal con los 5 permisos ya cargados), tocá <strong>Generate Access Token</strong>.<br>
+              2) Tildá la Fan Page <strong>Star Union Servicios</strong> + IG <strong>@starunionservicios</strong>.<br>
+              3) Pegá el Token acá (el servidor ya tiene guardado el <code>App Secret</code> y lo convierte automáticamente en <strong>Token de Página ETERNO que no vence nunca</strong>):
             </p>
           </div>
           <div class="space-y-2 pt-2">
             <div id="status-box-meta" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
               ✅ CONECTADO: FB "Star Union Servicios" + IG @starunionservicios
             </div>
-            <input id="inp-meta-token" type="password" placeholder="Pegar nuevo Access Token si querés renovar (EAA...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button id="btn-connect-meta" type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ Facebook + Instagram Conectados (Tocar para actualizar)</button>
+            <input id="inp-meta-token" type="password" placeholder="Pegar Access Token (EAA...) para convertir a Eterno" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-meta-secret" type="password" placeholder="App Secret (opcional si usás otra App de Meta)" class="w-full px-3 py-1.5 rounded-lg bg-gray-950 border border-gray-800 text-gray-300 text-[11px]">
+            <button id="btn-connect-meta" type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔄 Guardar y Convertir en Token Eterno</button>
           </div>
         </div>
 
@@ -78,15 +79,17 @@
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">2. LinkedIn Página Empresa (Candado Anti-Perfil Personal)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://www.linkedin.com/developers/tools/oauth/token-generator" target="_blank" class="text-amber-300 underline font-bold">LinkedIn OAuth Token Generator ↗</a><br>
-              2) Marcá permisos de organización: <code>w_organization_social</code> y <code>r_organization_social</code>.<br>
-              3) Pegá el Token y el ID numérico de la Página de Empresa Star Union (el sistema bloquea por seguridad cualquier intento de publicar en tu perfil personal):
+              • Tu Token OAuth de LinkedIn ya tiene aprobado el rol <code>ADMINISTRATOR</code> sobre la Página de Empresa <strong>Star Union Servicios</strong> (<code>urn:li:organization:35644861</code>).<br>
+              • Candado duro activo: el servidor bloquea cualquier intento de publicar en perfil personal y sube imagen nativa <code>1080×1350</code> + copy B2B.
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <input id="inp-li-token" type="password" placeholder="Access Token de LinkedIn (AQV...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <input id="inp-li-urn" type="text" placeholder="ID o URN Página Empresa (ej. urn:li:organization:123456)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Conectar LinkedIn Empresa</button>
+            <div id="status-box-li" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
+              ✅ CONECTADO Y ACTIVO: Star Union Servicios (urn:li:organization:35644861)
+            </div>
+            <input id="inp-li-token" type="password" placeholder="Access Token de LinkedIn (ya conectado · 60 días)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-li-urn" type="text" value="urn:li:organization:35644861" placeholder="URN Página Empresa" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ LinkedIn Empresa Conectado (ID 35644861)</button>
           </div>
         </div>
 
@@ -95,17 +98,16 @@
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">3. Google My Business (Ficha Maps Guaminí 5657)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
-              2) En Step 1 pegá el permiso: <code>https://www.googleapis.com/auth/business.manage</code> y tocá <strong>Authorize APIs</strong>.<br>
-              3) En Step 2 tocá <strong>Exchange authorization code</strong> y pegá acá <strong>SOLO el Token</strong> (el sistema ya detectó solo el ID de ubicación):
+              1) En <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a> → Step 1: <code>https://www.googleapis.com/auth/business.manage</code>.<br>
+              2) En Step 2 tocá <strong>Exchange authorization code</strong> y pegá acá el <strong><code>Refresh token</code> (empieza con <code>1//04...</code>)</strong> para que el servidor lo renueve solo cada hora para siempre:
             </p>
           </div>
           <div class="space-y-2 pt-2">
             <div id="status-box-gmb" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
               ✅ CONECTADO: Empresa de Limpieza - Star Union (locations/8938663810475756647)
             </div>
-            <input id="inp-gmb-token" type="password" placeholder="Pegar nuevo Token Google Business si querés renovar (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ Google Maps Conectado (Tocar para actualizar)</button>
+            <input id="inp-gmb-token" type="password" placeholder="Pegar Refresh Token (1//04...) o Access Token (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔄 Guardar Token Google Maps</button>
           </div>
         </div>
 
@@ -114,17 +116,16 @@
           <div class="space-y-1.5">
             <div class="font-extrabold text-amber-400 text-sm">4. YouTube Shorts (@starunionservicios · API v3)</div>
             <p class="text-gray-300 leading-relaxed">
-              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a><br>
-              2) En Step 1 elegí <strong>YouTube Data API v3</strong> → marcá <code>https://www.googleapis.com/auth/youtube.upload</code> y <code>https://www.googleapis.com/auth/youtube.readonly</code>.<br>
-              3) Elegí el canal <strong>@starunionservicios</strong>, tocá <strong>Exchange authorization code</strong> y pegá el <code>Access token</code>:
+              1) En <a href="https://developers.google.com/oauthplayground/" target="_blank" class="text-amber-300 underline font-bold">Google OAuth Playground ↗</a> → Step 1: <code>youtube.upload</code> + <code>youtube.readonly</code> (eligiendo el canal <strong>@starunionservicios</strong>).<br>
+              2) En Step 2 copiá y pegá el <strong><code>Refresh token</code> (empieza con <code>1//04...</code>)</strong> para que no venza nunca más a la hora:
             </p>
           </div>
           <div class="space-y-2 pt-2">
             <div id="status-box-yt" class="bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs">
               ✅ CONECTADO: Star Union | Limpieza Profesional e Industrial (@starunionservicios)
             </div>
-            <input id="inp-yt-token" type="password" placeholder="Pegar nuevo Token YouTube si querés renovar (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">✅ YouTube Shorts Conectado (Tocar para actualizar)</button>
+            <input id="inp-yt-token" type="password" placeholder="Pegar Refresh Token (1//04...) o Access Token (ya29...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔄 Guardar Token YouTube Shorts</button>
           </div>
         </div>
 
@@ -322,10 +323,10 @@
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>Viernes 30 Oct 2026 · 10:00 hs</div>
-            <span id="cal_badge_01" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+            <span id="cal_badge_01" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: 2026-10-30 10:00 hs</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#01 · <span id="cal_title_01">Operación continua en centros logísticos y plantas industriales.</span></td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Acompaña en caliente los 179 clics a WhatsApp del Mailing de Octubre (#116/#119) donde el bloque #1 más clickeado (197 clics) fue Centros Logísticos y Plantas Industriales.</td>
           <td class="p-3 text-center whitespace-nowrap space-y-1">
             <a href="#post-01" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #01 ↓</a>
@@ -335,10 +336,10 @@
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>Lunes 02 Nov 2026 · 10:00 hs</div>
-            <span id="cal_badge_02" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+            <span id="cal_badge_02" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-02 10:00 hs</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#02 · <span id="cal_title_02">Taller electromecánico propio: tus máquinas en planta nunca se detienen.</span></td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Abre noviembre mostrando el diferenciador físico duro (Base Propia de 800 m² en Guaminí 5657 y Taller Electromecánico In-House) para decisores técnicos que están evaluando recambio de proveedor.</td>
           <td class="p-3 text-center whitespace-nowrap space-y-1">
             <a href="#post-02" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #02 ↓</a>
@@ -348,10 +349,10 @@
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>Miércoles 04 Nov 2026 · 10:00 hs</div>
-            <span id="cal_badge_03" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+            <span id="cal_badge_03" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-04 10:00 hs</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#03 · <span id="cal_title_03">Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</span></td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Mitad de semana: ataca el dolor #1 de Administraciones y Gerencias (el ausentismo) con 'El Dato Técnico de Cleany' (Reloj Biométrico con alerta a los 15 min y cobertura < 2 hs).</td>
           <td class="p-3 text-center whitespace-nowrap space-y-1">
             <a href="#post-03" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #03 ↓</a>
@@ -361,10 +362,10 @@
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>Viernes 06 Nov 2026 · 10:00 hs</div>
-            <span id="cal_badge_04" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+            <span id="cal_badge_04" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-06 10:00 hs</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#04 · <span id="cal_title_04">Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</span></td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Cierre de semana enfocado en el vertical regulado (Clínicas, Sanatorios y Laboratorios con insumos ANMAT + ISO 9001:2015 TÜV Rheinland), preparando el terreno antes del 1° Envío Perfit de Noviembre.</td>
           <td class="p-3 text-center whitespace-nowrap space-y-1">
             <a href="#post-04" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #04 ↓</a>
@@ -374,10 +375,10 @@
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>Martes 10 Nov 2026 · 10:00 hs</div>
-            <span id="cal_badge_05" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+            <span id="cal_badge_05" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-10 10:00 hs</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#05 · <span id="cal_title_05">Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</span></td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB Page + FB Reel + LinkedIn + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Pre-temporada de licitaciones educativas y deportivas (Universidades, Colegios y Clubes para receso de verano y colonia), conectando con el 1° Envío de Perfit de Noviembre (Jueves 19/11).</td>
           <td class="p-3 text-center whitespace-nowrap space-y-1">
             <a href="#post-05" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #05 ↓</a>
@@ -543,7 +544,7 @@
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Viernes 30 Oct 2026 · 10:00 hs</span>
-                <span id="card_badge_01" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
+                <span id="card_badge_01" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: 2026-10-30 10:00 hs</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 1 · Viernes 30 Oct (Vertical #1 en Clics B2B)</span>
               </div>
               <h2 id="head_title_01" class="text-lg font-extrabold text-gray-900 mt-1">Operación continua en centros logísticos y plantas industriales.</h2>
@@ -598,7 +599,7 @@
                   <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
                   <textarea id="sub_01" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Autolavadoras hombre a bordo, barredoras industriales y supervisión técnica bajo norma ISO 9001:2015 (TÜV Rheinland) sin detener tu línea ni el despacho.</textarea>
                 </div>
-                <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
                   🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
                 </button>
               </div>
@@ -695,23 +696,23 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
 
                 <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_01" checked> 📸 IG Feed (4:5)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_01" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_01" checked> 📱 IG Story MP4 (15s + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_01" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_01" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_01" checked> 👍 FB Page + FB Reel</label>
+                  <label class="flex items-center gap-1.5 bg-emerald-100 px-2.5 py-1.5 rounded-lg border border-[#03582d]"><input type="checkbox" id="chk_li_01" checked> 💼 LinkedIn Empresa (ID 35644861)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_01" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_01" checked> ▶️ YouTube Shorts</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_01" checked> 🎵 TikTok</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_01"> 💼 LinkedIn Empresa</label>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
-                  <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     💾 Guardar Edición de Textos
                   </button>
-                  <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     📅 PROGRAMAR EN CALENDARIO API
                   </button>
-                  <button type="button" onclick="publishPostViaApi('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="publishPostViaApi('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     🚀 PUBLICAR AHORA POR API
                   </button>
                 </div>
@@ -726,7 +727,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Lunes 02 Nov 2026 · 10:00 hs</span>
-                <span id="card_badge_02" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
+                <span id="card_badge_02" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-02 10:00 hs</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 2 · Lunes 02 Nov (Infraestructura Propia B2B)</span>
               </div>
               <h2 id="head_title_02" class="text-lg font-extrabold text-gray-900 mt-1">Taller electromecánico propio: tus máquinas en planta nunca se detienen.</h2>
@@ -879,13 +880,13 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
 
                 <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_02" checked> 📸 IG Feed (4:5)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_02" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_02" checked> 📱 IG Story MP4 (15s + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_02" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_02" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_02" checked> 👍 FB Page + FB Reel</label>
+                  <label class="flex items-center gap-1.5 bg-emerald-100 px-2.5 py-1.5 rounded-lg border border-[#03582d]"><input type="checkbox" id="chk_li_02" checked> 💼 LinkedIn Empresa (ID 35644861)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_02" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_02" checked> ▶️ YouTube Shorts</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_02" checked> 🎵 TikTok</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_02"> 💼 LinkedIn Empresa</label>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
@@ -910,7 +911,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Miércoles 04 Nov 2026 · 10:00 hs</span>
-                <span id="card_badge_03" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
+                <span id="card_badge_03" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-04 10:00 hs</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 3 · Miércoles 04 Nov (El Dato Técnico de Cleany)</span>
               </div>
               <h2 id="head_title_03" class="text-lg font-extrabold text-gray-900 mt-1">Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</h2>
@@ -1061,13 +1062,13 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
 
                 <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_03" checked> 📸 IG Feed (4:5)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_03" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_03" checked> 📱 IG Story MP4 (15s + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_03" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_03" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_03" checked> 👍 FB Page + FB Reel</label>
+                  <label class="flex items-center gap-1.5 bg-emerald-100 px-2.5 py-1.5 rounded-lg border border-[#03582d]"><input type="checkbox" id="chk_li_03" checked> 💼 LinkedIn Empresa (ID 35644861)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_03" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_03" checked> ▶️ YouTube Shorts</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_03" checked> 🎵 TikTok</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_03"> 💼 LinkedIn Empresa</label>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
@@ -1092,7 +1093,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Viernes 06 Nov 2026 · 10:00 hs</span>
-                <span id="card_badge_04" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
+                <span id="card_badge_04" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-06 10:00 hs</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 4 · Viernes 06 Nov (Clínicas, Sanatorios y Laboratorios)</span>
               </div>
               <h2 id="head_title_04" class="text-lg font-extrabold text-gray-900 mt-1">Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</h2>
@@ -1147,7 +1148,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
                   <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
                   <textarea id="sub_04" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Protocolos contra contaminación cruzada, insumos aprobados por ANMAT con hojas de seguridad (MSDS) y supervisión auditada bajo ISO 9001:2015.</textarea>
                 </div>
-                <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
                   🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
                 </button>
               </div>
@@ -1241,23 +1242,23 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
 
                 <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_04" checked> 📸 IG Feed (4:5)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_04" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_04" checked> 📱 IG Story MP4 (15s + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_04" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_04" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_04" checked> 👍 FB Page + FB Reel</label>
+                  <label class="flex items-center gap-1.5 bg-emerald-100 px-2.5 py-1.5 rounded-lg border border-[#03582d]"><input type="checkbox" id="chk_li_04" checked> 💼 LinkedIn Empresa (ID 35644861)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_04" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_04" checked> ▶️ YouTube Shorts</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_04" checked> 🎵 TikTok</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_04"> 💼 LinkedIn Empresa</label>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
-                  <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     💾 Guardar Edición de Textos
                   </button>
-                  <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     📅 PROGRAMAR EN CALENDARIO API
                   </button>
-                  <button type="button" onclick="publishPostViaApi('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="publishPostViaApi('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     🚀 PUBLICAR AHORA POR API
                   </button>
                 </div>
@@ -1272,7 +1273,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Martes 10 Nov 2026 · 10:00 hs</span>
-                <span id="card_badge_05" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
+                <span id="card_badge_05" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: 2026-11-10 10:00 hs</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 5 · Martes 10 Nov (Universidades, Colegios y Clubes)</span>
               </div>
               <h2 id="head_title_05" class="text-lg font-extrabold text-gray-900 mt-1">Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</h2>
@@ -1327,7 +1328,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
                   <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
                   <textarea id="sub_05" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Equipos sincronizados en contraturno y entre cambios de clase para aulas, auditorios, vestuarios y pisos deportivos de alto tránsito.</textarea>
                 </div>
-                <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
                   🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
                 </button>
               </div>
@@ -1421,23 +1422,23 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
 
                 <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_05" checked> 📸 IG Feed (4:5)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_05" checked> 📱 IG Story (9:16)</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_05" checked> 📱 IG Story MP4 (15s + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_05" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_05" checked> 👍 Facebook Page</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_05" checked> 👍 FB Page + FB Reel</label>
+                  <label class="flex items-center gap-1.5 bg-emerald-100 px-2.5 py-1.5 rounded-lg border border-[#03582d]"><input type="checkbox" id="chk_li_05" checked> 💼 LinkedIn Empresa (ID 35644861)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_05" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_05" checked> ▶️ YouTube Shorts</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_05" checked> 🎵 TikTok</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_05"> 💼 LinkedIn Empresa</label>
                 </div>
 
                 <div class="grid sm:grid-cols-3 gap-2 pt-1">
-                  <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     💾 Guardar Edición de Textos
                   </button>
-                  <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     📅 PROGRAMAR EN CALENDARIO API
                   </button>
-                  <button type="button" onclick="publishPostViaApi('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                  <button type="button" onclick="publishPostViaApi('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
                     🚀 PUBLICAR AHORA POR API
                   </button>
                 </div>
@@ -1526,26 +1527,47 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
         const r = await fetch(API_BASE + '/api/status');
         const st = await r.json();
         const parts = [];
-        parts.push(st.meta_connected ? `🟢 Meta ACTIVO (${st.fb_page_name || 'FB'} + @${st.ig_username || 'IG'})` : `🔴 Meta (FB/IG) pendiente`);
-        parts.push(st.linkedin_connected ? `🟢 LinkedIn (${st.linkedin_name})` : `⚪ LinkedIn pendiente`);
-        parts.push(st.gmb_connected ? `🟢 Google Maps conectado` : `⚪ Google Maps pendiente`);
-        parts.push(st.youtube_connected ? `🟢 YouTube (${st.youtube_channel_name || 'Conectado'})` : `⚪ YouTube pendiente`);
-        parts.push(st.tiktok_connected ? `🟢 TikTok conectado` : `⚪ TikTok pendiente`);
+        parts.push(st.meta_connected ? `🟢 Meta ACTIVO (${st.fb_page_name || 'FB'} + @${st.ig_username || 'IG'})` : (st.meta_expired ? `🟠 Meta (Token 1h vencido: tocar Generate Access Token)` : `🔴 Meta pendiente`));
+        parts.push(st.linkedin_connected ? `🟢 LinkedIn ACTIVO (${st.linkedin_name})` : `⚪ LinkedIn pendiente`);
+        parts.push(st.gmb_connected ? `🟢 Google Maps ACTIVO` : (st.gmb_expired ? `🟠 Google Maps (Token 1h vencido: pegar Refresh Token 1//04...)` : `⚪ Google Maps pendiente`));
+        parts.push(st.youtube_connected ? `🟢 YouTube ACTIVO (${st.youtube_channel_name || 'Conectado'})` : (st.youtube_expired ? `🟠 YouTube (Token 1h vencido: pegar Refresh Token 1//04...)` : `⚪ YouTube pendiente`));
+        parts.push(st.tiktok_connected ? `🟢 TikTok ACTIVO (@starunionservicios)` : `⚪ TikTok pendiente`);
         line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
+
         const metaBox = document.getElementById('status-box-meta');
-        if (metaBox && st.meta_connected) {
-          metaBox.innerHTML = `✅ CONECTADO Y ACTIVO:<br>• Facebook: <strong>${st.fb_page_name}</strong> (${st.fb_page_id})<br>• Instagram: <strong>@${st.ig_username}</strong> (${st.ig_user_id})`;
+        if (metaBox) {
+          if (st.meta_connected) {
+            metaBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+            metaBox.innerHTML = `✅ CONECTADO Y ACTIVO (TOKEN PERMANENTE):<br>• Facebook: <strong>${st.fb_page_name}</strong> (${st.fb_page_id})<br>• Instagram: <strong>@${st.ig_username}</strong> (${st.ig_user_id})`;
+          } else if (st.meta_expired) {
+            metaBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
+            metaBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (${st.fb_page_name} + @${st.ig_username}):<br>Pegá abajo un Token nuevo de Graph Explorer y se convertirá automáticamente en <strong>Token Permanente (Nunca vence)</strong>.`;
+          }
+        }
+        const liBox = document.getElementById('status-box-li');
+        if (liBox && st.linkedin_connected) {
+          liBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+          liBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${st.linkedin_name || 'Star Union Servicios'}</strong> (${st.linkedin_urn})`;
         }
         const ytBox = document.getElementById('status-box-yt');
-        if (ytBox && st.youtube_connected) {
-          ytBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${st.youtube_channel_name || 'Star Union | Limpieza Profesional e Industrial'} (@starunionservicios)</strong>`;
+        if (ytBox) {
+          if (st.youtube_connected) {
+            ytBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+            ytBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${st.youtube_channel_name || 'Star Union'} (@starunionservicios)</strong>`;
+          } else if (st.youtube_expired) {
+            ytBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
+            ytBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (@starunionservicios): Pegá abajo el <strong>Refresh token (1//04...)</strong> de OAuth Playground para que se renueve solo cada hora.`;
+          }
         }
         const gmbBox = document.getElementById('status-box-gmb');
-        if (gmbBox && st.gmb_connected) {
-          gmbBox.style.background = '#d1fae5';
-          gmbBox.style.borderColor = '#10b981';
-          gmbBox.style.color = '#065f46';
-          gmbBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${st.gmb_location_title || 'Star Union (Google Maps)'}</strong> (${st.gmb_location_name || 'Auto-detectado'})`;
+        if (gmbBox) {
+          if (st.gmb_connected) {
+            gmbBox.className = 'bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs';
+            gmbBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${st.gmb_location_title || 'Star Union (Google Maps)'}</strong> (${st.gmb_location_name || 'Auto-detectado'})`;
+          } else if (st.gmb_expired) {
+            gmbBox.className = 'bg-amber-900/80 border border-amber-400 text-amber-200 font-extrabold p-2.5 rounded-lg text-xs';
+            gmbBox.innerHTML = `🟠 TOKEN DE 1 HORA VENCIDO (locations/8938663810475756647): Pegá abajo el <strong>Refresh token (1//04...)</strong> de OAuth Playground para que no venza más.`;
+          }
         }
         const ttBox = document.getElementById('status-box-tt');
         if (ttBox && st.tiktok_connected) {
@@ -1570,6 +1592,7 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
       logEl.innerHTML = '⏳ Conectando y auto-detectando cuentas de Star Union...';
       const payload = {
         meta_token: document.getElementById('inp-meta-token').value,
+        meta_app_secret: document.getElementById('inp-meta-secret') ? document.getElementById('inp-meta-secret').value : '',
         linkedin_token: document.getElementById('inp-li-token').value,
         linkedin_urn: document.getElementById('inp-li-urn').value,
         gmb_token: document.getElementById('inp-gmb-token').value,
@@ -1587,10 +1610,6 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
         const msg = (data.messages || []).join('<br>') || '✅ Guardado en bóveda de Star Union.';
         logEl.innerHTML = msg;
         if (btnEl) btnEl.innerHTML = '✅ ¡CONECTADO CON ÉXITO!';
-        const metaBox = document.getElementById('status-box-meta');
-        if (metaBox && data.status && data.status.meta_connected) {
-          metaBox.innerHTML = `✅ CONECTADO Y ACTIVO: FB <strong>${data.status.fb_page_name}</strong> + IG <strong>@${data.status.ig_username}</strong>`;
-        }
         loadApiStatus();
       } catch (e) {
         logEl.innerHTML = '❌ Error conectando al servidor local (http://127.0.0.1:8894): ' + e.message;
@@ -1603,7 +1622,10 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369
       if (document.getElementById('chk_ig_feed_' + id).checked) channels.push('ig_feed');
       if (document.getElementById('chk_ig_story_' + id).checked) channels.push('ig_story');
       if (document.getElementById('chk_ig_reel_' + id).checked) channels.push('ig_reel');
-      if (document.getElementById('chk_fb_' + id).checked) channels.push('fb_page');
+      if (document.getElementById('chk_fb_' + id).checked) {
+        channels.push('fb_page');
+        if (document.getElementById('chk_ig_reel_' + id).checked) channels.push('fb_reel');
+      }
       if (document.getElementById('chk_li_' + id).checked) channels.push('linkedin');
       if (document.getElementById('chk_gmb_' + id).checked) channels.push('gmb');
       if (document.getElementById('chk_yt_' + id).checked) channels.push('youtube');
