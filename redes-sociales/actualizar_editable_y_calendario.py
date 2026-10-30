@@ -215,7 +215,7 @@ def main():
         <tr class="hover:bg-gray-50">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
             <div>{p['date']}</div>
-            <span id="cal_badge_{p['id']}" class="inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: {sched_lbl}</span>
+            <span id="cal_badge_{p['id']}" class="inline-block mt-1 bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">📅 PROGRAMADO: {sched_lbl}</span>
           </td>
           <td class="p-3 font-bold text-gray-900">#{p['id']} · <span id="cal_title_{p['id']}">{p['title']}</span></td>
           <td class="p-3 text-gray-700 font-semibold">{p['channels']}</td>
@@ -257,7 +257,7 @@ def main():
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 {p['date']}</span>
-                <span id="card_badge_{p['id']}" class="bg-blue-600 text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: {sched_lbl}</span>
+                <span id="card_badge_{p['id']}" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 PROGRAMADO: {sched_lbl}</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">{p['day_label']}</span>
               </div>
               <h2 id="head_title_{p['id']}" class="text-lg font-extrabold text-gray-900 mt-1">{p['title']}</h2>
@@ -710,7 +710,7 @@ def main():
           <h2 class="text-lg sm:text-xl font-extrabold text-gray-900">Calendario de Publicaciones Conectado al Embudo de Mailings Perfit</h2>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="scheduleAllPosts(this)" class="bg-blue-700 hover:bg-blue-800 text-white text-xs font-extrabold px-4 py-2 rounded-lg shadow transition">
+          <button onclick="scheduleAllPosts(this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2 rounded-lg shadow transition">
             📅 Programar las 5 Publicaciones del Mes en 1 Clic (API)
           </button>
           <span class="text-xs bg-gray-100 text-gray-800 font-bold px-3 py-1.5 rounded-lg">
@@ -1109,11 +1109,11 @@ def main():
         if (isSched) {{
           const labelTxt = '📅 PROGRAMADO: ' + payload.scheduled_at.replace('T', ' ') + ' hs';
           if (badge) {{
-            badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-blue-600 text-white';
+            badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-[#03582d] text-white';
             badge.innerHTML = labelTxt;
           }}
           if (calBadge) {{
-            calBadge.className = 'inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full';
+            calBadge.className = 'inline-block mt-1 bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full';
             calBadge.innerHTML = labelTxt;
           }}
           resBox.innerHTML = `✅ <strong>Programado en Calendario API:</strong> Saldrá el <strong>${{payload.scheduled_at.replace('T', ' ')}} hs</strong> en ${{payload.channels.join(', ')}}.`;
@@ -1178,8 +1178,8 @@ def main():
           const isPub = (item.status === 'publicado' || item.status === 'published');
           if (isSched) {{
             const txt = '📅 PROGRAMADO: ' + (item.scheduled_at || '').replace('T', ' ') + ' hs';
-            if (badge) {{ badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-blue-600 text-white'; badge.innerHTML = txt; }}
-            if (calBadge) {{ calBadge.className = 'inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full'; calBadge.innerHTML = txt; }}
+            if (badge) {{ badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-[#03582d] text-white'; badge.innerHTML = txt; }}
+            if (calBadge) {{ calBadge.className = 'inline-block mt-1 bg-[#03582d] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full'; calBadge.innerHTML = txt; }}
           }} else if (isPub) {{
             if (badge) {{ badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-emerald-700 text-white'; badge.innerHTML = '✅ PUBLICADO POR API'; }}
             if (calBadge) {{ calBadge.className = 'inline-block mt-1 bg-emerald-700 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full'; calBadge.innerHTML = '✅ PUBLICADO POR API'; }}
