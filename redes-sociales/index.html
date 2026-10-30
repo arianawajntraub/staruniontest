@@ -139,11 +139,9 @@
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <input id="inp-tt-ck" type="text" placeholder="Client Key de TikTok (ej. aw123456...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <input id="inp-tt-cs" type="password" placeholder="Client Secret de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="connectTikTokOAuth()" class="w-full bg-amber-500 hover:bg-amber-600 text-gray-950 font-extrabold py-2 px-3 rounded-lg transition">🔗 1 Clic: Autorizar Cuenta de TikTok (OAuth)</button>
-            <input id="inp-tt-token" type="password" placeholder="(Opcional) Access Token directo (act...)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <button type="button" onclick="saveApiTokens(this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white font-extrabold py-2 px-3 rounded-lg transition">🔌 Guardar Credenciales TikTok</button>
+            <input id="inp-tt-ck" type="text" placeholder="Pegar Client key de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-tt-cs" type="password" placeholder="Pegar Client secret de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <button type="button" onclick="connectTikTokOAuth()" class="w-full bg-amber-500 hover:bg-amber-600 text-gray-950 font-extrabold py-2 px-3 rounded-lg transition">🔗 1 Clic: Conectar TikTok con Client Key y Secret</button>
           </div>
         </div>
 
@@ -1159,7 +1157,6 @@ Conocé más en: https://www.starunion.com.ar</pre>
         linkedin_urn: document.getElementById('inp-li-urn').value,
         gmb_token: document.getElementById('inp-gmb-token').value,
         youtube_token: document.getElementById('inp-yt-token').value,
-        tiktok_token: document.getElementById('inp-tt-token').value,
         tiktok_client_key: document.getElementById('inp-tt-ck') ? document.getElementById('inp-tt-ck').value : '',
         tiktok_client_secret: document.getElementById('inp-tt-cs') ? document.getElementById('inp-tt-cs').value : ''
       };
