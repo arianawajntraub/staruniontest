@@ -533,7 +533,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 save_keys({"tiktok_client_key": ck, "tiktok_client_secret": cs})
             redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
             auth_url = (
-                "https://www.tiktok.com/v2/auth/authorize/?"
+                "https://www.tiktok.com/v2/auth/authorize?"
                 + urllib.parse.urlencode(
                     {
                         "client_key": ck,
@@ -737,7 +737,88 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         self._send_json(404, {"error": "Endpoint no encontrado"})
 
 
+def watch_chrome_tiktok_callback():
+    import subprocess, threading, re
+    seen_codes = set()
+    cache_dir = os.path.expanduser("~/Library/Application Support/Antigravity/Partitions/hub-browser-9ddc5300/Cache/Cache_Data")
+    # Pre-poblar con códigos viejos para no reintentar expirados
+    if os.path.isdir(cache_dir):
+        for f in os.listdir(cache_dir):
+            p = os.path.join(cache_dir, f)
+            if os.path.isfile(p):
+                try:
+                    data = open(p, "rb").read()
+                    for m in re.findall(rb"tiktok-callback\.html\?code=([^\x00-\x1f\x7f-\xff\"'\s<>&]+)", data):
+                        seen_codes.add(urllib.parse.unquote(m.decode("utf-8", "ignore")))
+                except Exception:
+                    pass
+    script = '''tell application "Google Chrome"
+      set out to ""
+      repeat with w in windows
+        repeat with t in tabs of w
+          if URL of t contains "tiktok-callback.html?code=" then
+            set out to (URL of t)
+            set URL of t to "http://127.0.0.1:8894/redes-sociales/index.html"
+          end if
+        end repeat
+      end repeat
+      return out
+    end tell'''
+    while True:
+        try:
+            keys = load_keys()
+            if not keys.get("tiktok_token"):
+                found_code = ""
+                if os.path.isdir(cache_dir):
+                    for f in os.listdir(cache_dir):
+                        p = os.path.join(cache_dir, f)
+                        if os.path.isfile(p) and (time.time() - os.path.getmtime(p) < 180):
+                            try:
+                                raw = open(p, "rb").read()
+                                for m in re.findall(rb"tiktok-callback\.html\?code=([^\x00-\x1f\x7f-\xff\"'\s<>&]+)", raw):
+                                    c = urllib.parse.unquote(m.decode("utf-8", "ignore"))
+                                    if c and c not in seen_codes:
+                                        found_code = c
+                                        break
+                            except Exception:
+                                pass
+                if not found_code:
+                    res = subprocess.run(["osascript", "-e", script], capture_output=True, text=True, timeout=3)
+                    url = (res.stdout or "").strip()
+                    if "code=" in url:
+                        parsed = urllib.parse.urlparse(url)
+                        qs = urllib.parse.parse_qs(parsed.query)
+                        found_code = qs.get("code", [""])[0]
+                if found_code and found_code not in seen_codes:
+                    seen_codes.add(found_code)
+                    ck = keys.get("tiktok_client_key", "")
+                    cs = keys.get("tiktok_client_secret", "")
+                    redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
+                    st, data = http_json(
+                        "POST",
+                        "https://open.tiktokapis.com/v2/oauth/token/",
+                        form_data={
+                            "client_key": ck,
+                            "client_secret": cs,
+                            "code": found_code,
+                            "grant_type": "authorization_code",
+                            "redirect_uri": redirect_uri,
+                        },
+                    )
+                    print("WATCHER TIKTOK TOKEN:", st, data, flush=True)
+                    tok = data.get("access_token") or data.get("data", {}).get("access_token", "")
+                    open_id = data.get("open_id") or data.get("data", {}).get("open_id", "")
+                    if tok:
+                        save_keys({"tiktok_token": tok, "tiktok_open_id": open_id})
+        except Exception:
+            pass
+        time.sleep(0.8)
+
+
 if __name__ == "__main__":
+    import threading
+    t = threading.Thread(target=watch_chrome_tiktok_callback, daemon=True)
+    t.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)
     print("STAR UNION API Server corriendo en http://127.0.0.1:8894")
     server.serve_forever()

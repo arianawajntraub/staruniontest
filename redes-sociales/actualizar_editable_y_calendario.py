@@ -823,7 +823,10 @@ def main():
       }}
     }}
 
-    window.addEventListener('DOMContentLoaded', loadApiStatus);
+    window.addEventListener('DOMContentLoaded', () => {{
+      loadApiStatus();
+      setInterval(loadApiStatus, 3000);
+    }});
   </script>
 </body>
 </html>"""
