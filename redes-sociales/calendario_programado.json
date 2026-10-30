@@ -4,7 +4,7 @@
     "slug": "3010_salud",
     "date_label": "Hoy Viernes 30/10 · 10:30 hs (Lista para aprobar)",
     "scheduled_at": "2026-10-30T10:30",
-    "status": "programado",
+    "status": "publicado",
     "format_mode": "Canva Dinámico (Opción 2) + Video 12s con Locución",
     "ig_design_id": "DAHYlLXJOQw",
     "tt_design_id": "DAHYlJA4Xrs",
@@ -57,7 +57,51 @@
     "story_video_file": "piezas/story_liviana_01_3010_salud_6s.mp4",
     "fb_feed_file": "piezas/canva_01_3010_salud_fb_p1.jpg",
     "li_feed_file": "piezas/canva_01_3010_salud_li_p1.jpg",
-    "gmb_feed_file": "piezas/canva_01_3010_salud_gmb_p1.jpg"
+    "gmb_feed_file": "piezas/canva_01_3010_salud_gmb_p1.jpg",
+    "published_at": "2026-10-30T10:30",
+    "last_results": {
+      "IG Feed (4:5 Carrusel)": {
+        "ok": false,
+        "error": "Error creando contenedor IG Feed: {'error': {'message': 'Only photo or video can be accepted as media type.', 'type': 'OAuthException', 'code': 9004, 'error_subcode': 2207052, 'is_transient': False, 'error_user_title': 'Error al descargar el contenido multimedia. El URI del contenido multimedia no cumple nuestros requisitos.', 'error_user_msg': 'No se pudo recuperar el contenido multimedia de este URI: https://wajntraub.ar/staruniontest/redes-sociales/piezas/canva_01_3010_salud_feed_p1.jpg.Consulta la sección de limitaciones de nuestra documentación de desarrollo para obtener más información: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating', 'fbtrace_id': 'Abe4aL8uSWubWh0hN5HZRSM'}}"
+      },
+      "IG Story Liviana Video": {
+        "ok": false,
+        "error": "Meta rechazó el video de Story: {'id': '18189788053411817', 'status': 'Error: Media upload has failed with error code 2207076', 'status_code': 'ERROR'}"
+      },
+      "IG Reel 12s c/Locución": {
+        "ok": true,
+        "id": "17994137538022166"
+      },
+      "FB Page (1080x1080)": {
+        "ok": true,
+        "id": "1774180217924130"
+      },
+      "FB Story Liviana": {
+        "ok": true,
+        "id": "2589254058205151",
+        "note": "Story Liviana 9:16 publicada en Facebook Page Stories."
+      },
+      "FB Reel 12s": {
+        "ok": true,
+        "id": "1825297295480414"
+      },
+      "LinkedIn (1080x1080)": {
+        "ok": true,
+        "id": "urn:li:share:7521926727904817154"
+      },
+      "Google Maps (700x700)": {
+        "ok": false,
+        "error": "Error en Google Business Profile API (401): {'error': {'code': 401, 'message': 'Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.', 'status': 'UNAUTHENTICATED'}}"
+      },
+      "YouTube Shorts": {
+        "ok": false,
+        "error": "Error iniciando subida a YouTube (401): {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.\",\n    \"errors\": [\n      {\n        \"message\": \"Invalid Credentials\",\n        \"domain\": \"global\",\n        \"reason\": \"authError\",\n        \"location\": \"Authorization\",\n        \"locationType\": \"header\"\n      }\n    ],\n    \"status\": \"UNAUTHENTICATED\"\n  }\n}\n"
+      },
+      "TikTok Video": {
+        "ok": true,
+        "id": "v_inbox_file~v2.7702452883044747282 (Enviado a la Bandeja de TikTok (@starunionservicios listos para 1 toque))"
+      }
+    }
   },
   "02": {
     "id": "02",

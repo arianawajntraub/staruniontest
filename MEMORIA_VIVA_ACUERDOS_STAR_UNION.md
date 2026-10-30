@@ -148,3 +148,68 @@
    - En español, las mayúsculas van **SOLO cuando inicia una oración y en nombres propios o siglas** (*Star Union S.R.L., Perfit, Mauro, Guaminí, Pergamino, TÜV Rheinland, ISO 9001, LinkedIn, WhatsApp, Google Analytics*). Prohibido poner mayúsculas en cada palabra de los títulos o subtítulos (ej. escribir *"Informe estratégico y plan de acción de mailing B2B"* y *"Qué hacemos con la base general y el reenvío"*, jamás *"Base General Segmentada + Reenvío con Nuevo Asunto"*).
 5. **Formato de Informes para Cliente / Gerencia (Editable para Ariana $\rightarrow$ PDF 100% limpio sin navegación a otros paneles):**
    - Los informes estratégicos se entregan en formato documento limpio, con barra de edición privada (`.no-print`, oculta al imprimir/exportar a PDF) y **sin ningún botón ni enlace hacia "Linktree", "Radar Comercial" u otros centros de control**, para que al tocar *"Guardar como PDF limpio"* nadie vea que era editable ni que existen otros paneles internos.
+
+---
+
+## 12. LOS 3 REGISTROS DE VOZ DE STAR UNION (EXTRAÍDOS DE `Comunicaciones varias - MR check- ISO 90012015.pdf` Y `Copys_para_Redes.csv`)
+
+Prohibido usar un único tono plano para todo Star Union. El sistema distingue obligatoriamente **3 registros de comunicación**:
+
+### Registro 1: Ariana $\leftrightarrow$ Mauro (`MR`) y Mails Directos de `MR` a Clientes Actuales / Auditados
+- **De Ariana a Mauro (Minutas / Relevamientos / Órdenes):** Directo, numerado (`1, 2, 3, 4` / `A, B`), al hueso sin relleno (*"QUEDA DE TU LADO! mrepetto@starunion.com.ar"*, *"ENVIARME LISTA DE CLIENTES actual: Empresa, Rubro, Locación, Desde cuándo es cliente, Llegó x ADS/SEO? SI SÍ Y DA: CÓMO LO PIDIÓ?"*).
+- **De Mauro (`MR`) a Clientes Actuales Puntuales (Toyota Pacheco, Ferroclor, Bella Cup, Torre Promenade, UTDT, Club de Amigos):** Primera persona singular de Director (*"Te escribo hoy para compartir una noticia muy importante para Star Union y, principalmente, para agradecerte"*, *"Mi compromiso es llevar adelante el equipo Star Union apuntando siempre a la generación de valor agregado para tu empresa"*, *"Agradezco la confianza constante en mi compañía. Seguimos trabajando para mejorar. Quedo a completa disposición. MR"*).
+
+### Registro 2: Star Union $\rightarrow$ Público / Mercado B2B (LinkedIn, Instagram, Perfit, Sitio Web, Brochures)
+- **Voz:** Primera persona plural institucional (*"Alcanzamos"*, *"Aseguramos"*, *"Estandarizamos protocolos"*, *"Mitigamos tus riesgos"*) hacia el decisor en voseo corporativo sobrio (*"tu empresa"*, *"tus instalaciones"*, *"tu infraestructura"*, *"Cotizá"*, *"Operá"*, *"Elevá"*).
+- **Los 3 Enfoques de Redes B2B de Ariana:**
+  1. *Enfoque Riesgo y Beneficio:* Contratar basándose solo en costo inicial se paga con faltas de personal, deterioro prematuro e interrupciones en la propia operación.
+  2. *Enfoque Mejora Continua e Ingeniería de Procesos:* El mantenimiento de grandes superficies dejó de ser pasar la mopa; es ingeniería de procesos (protocolos estandarizados, tecnología de vanguardia, reducción de mermas).
+  3. *Enfoque Institucional y Autoridad:* Solidez estructural y garantía de cumplimiento auditada externamente (`ISO 9001:2015 TÜV Rheinland ID 9000041847`) para gestionar grandes dotaciones y contratos anuales.
+- **Las 10 Firmas de Cierre Oficiales (Plan A de Ariana):**
+  1. `Somos Star Union. Sabemos de Limpieza. Calidad certificada para tu infraestructura.`
+  2. `Somos Star Union. Sabemos de Limpieza. Mejora continua en cada proceso.`
+  3. `Somos Star Union. Sabemos de Limpieza. Valor agregado certificado.`
+  4. `Somos Star Union. Sabemos de Limpieza. Recursos optimizados. Calidad certificada.`
+  5. `Somos Star Union. Sabemos de Limpieza. Decisiones basadas en información.`
+  6. `Somos Star Union. Sabemos de Limpieza. Comunicación interactiva y eficaz.`
+  7. `Somos Star Union. Sabemos de Limpieza. Cumplimiento legal asegurado. Proveedor con Certificación ISO 9001:2015.`
+  8. `Somos Star Union. Sabemos de Limpieza. Equipo comprometido con la Calidad.`
+  9. `Somos Star Union. Sabemos de Limpieza. Anticipamos tus necesidades.`
+  10. `Somos Star Union. Sabemos de Limpieza. Innovación y eficacia operativa.`
+
+### Registro 3: Star Union $\rightarrow$ Comunidad Interna, Empleados, Oficiales de Limpieza y RRHH
+- **Mail / Mensaje de Dirección al Equipo:** Habla a *"ustedes"* / *"todo nuestro equipo"* agradeciendo el esfuerzo real, reconociendo a las personas con nombre y apellido (ej. mención a Denise Rivero en Calidad) y explicando que *"trabajar internamente siendo más ordenados y competentes es lo que nos asegura poder brindar un mejor servicio cada día. Sigamos por este camino"*.
+- **WhatsApp a la Comunidad Star Union (con `Cleany` como protagonista cercano):**
+  - Encabezado fijo: `*Este es un mensaje para la Comunidad Star Union*`
+  - Lenguaje llano y de orgullo compartido: *"Es un nombre técnico, pero en el fondo tiene todo que ver con el esfuerzo que le ponemos todos los días a nuestro trabajo, en cada locación que nos toca cuidar."*
+  - Bajada con `Cleany`: `*Mirá el video, Cleany te cuenta bien de qué se trata y por qué este es un paso enorme para Star Union.*`
+  - Formato nativo de WhatsApp (`*negritas*`, `_cursivas_`, emojis normales no desmedidos 🌟 👇).
+
+---
+
+## 13. CIRCUITO COMERCIAL B2B, CRM SIMULADO Y REGLAS DE MAILING / PERFIT (DIRECTIVAS DE ARIANA — OCTUBRE 2026)
+
+1. **Verdad Técnica del Reenvío a No-Abridores en Perfit (+5 días):**
+   - El botón nativo rápido de Perfit (*"Reenviar a no abridores"*) **NO cambia el asunto**: repite el mismo asunto del envío 1 y solo le agrega `(reenvío)` al nombre interno (verificado en el último envío real).
+   - **Obligación Operativa:** Toda pieza de mailing debe diseñarse y presentarse siempre con **2 Asuntos obligatorios basados en datos de apertura históricos**:
+     - **Asunto 1 (Envío Inicial - Jueves):** Foco en infraestructura física / continuidad operativa / rubro.
+     - **Asunto 2 (Reenvío a No-Abridores +5 días - Martes):** Foco en dolor operativo / riesgo legal Art. 30 LCT / presentismo biométrico, ejecutado **por API creando una campaña nueva dirigida al segmento de No-Abridores de la Etapa 1** para que el asunto cambie de verdad.
+
+2. **Circuito Comercial B2B y "CRM Simulado" (Sin CRM formal, pero con trazabilidad completa para decisiones empresarias):**
+   - Prohibido dibujar un "embudo teórico" sin explicar **quién recibe el contacto, dónde se registra, cómo se sigue y qué dato entrega para la toma de decisiones**.
+   - **Flujo obligatorio de punta a punta (CRM Simulado con herramientas disponibles):**
+     1. **Captura con Origen Trazable (UTM + Mensaje Pre-armado por Rubro):** Cada botón del mailing o landing dispara a WhatsApp Comercial (`+54 9 11 2275-9369`) o a `ventas@starunion.com.ar` / `comercial@starunion.com.ar` con el rubro y origen ya identificados en el texto/asunto (ej. `[Perfit Mailing #121 - Rubro Salud/Clínicas]`).
+     2. **Registro Automático en Planilla Maestra / Pipeline Comercial (CRM Simulado en Google Sheets + Perfit Tags):** Fecha de ingreso, Empresa, Contacto, Teléfono/Email, Rubro (Industria, Logística, Salud, Corporativo, Educación/Clubes), Zona Geográfica, Origen (Mailing # / Ads / Orgánico), Responsable asignado (`Ventas / Comercial`), Estado (`1. Ingresado` $\rightarrow$ `2. Relevamiento Técnico Agendado` $\rightarrow$ `3. Cotización Enviada` $\rightarrow$ `4. Seguimiento 7d` $\rightarrow$ `5. Ganado / Perdido + Motivo`).
+     3. **Tablero de Decisión Empresaria:** Permite cruzar qué rubro clicó más en Perfit vs. cuántos relevamientos técnicos y presupuestos reales se abrieron en la semana.
+
+3. **Prohibición Absoluta de `info@starunion.com.ar` en Embudo Comercial y Mailings:**
+   - En mailings comerciales, respuestas (`Reply-To`) y CTAs de ventas **NO va `info@`**: va siempre **`ventas@starunion.com.ar`** o **`comercial@starunion.com.ar`** (cuando un prospecto responde un mailing de Perfit, entra a **Ventas**).
+
+4. **Depuración Previa Obligatoria por Dominio (`@empresa.com.ar`) contra el Listado de Clientes Actuales:**
+   - Antes de disparar campañas de captación B2B en Perfit, es obligatorio cruzar la base contra el **Listado de Clientes Actuales de Star Union** (pendiente de entrega por Mauro) filtrando por **dominio corporativo (`@dominio`)** para excluir clientes activos del circuito de prospección en frío y pasarlos a la lista exclusiva de **Fidelización / Clientes Activos**.
+
+5. **Reglas de Diseño y CTAs en Plantillas de Mailing A/B y Landings:**
+   - **Prohibido poner textos ridículos o genéricos en botones** como `"IR A LANDING"` o promesas vacías como `"RECIBIR PROPUESTA A TU MEDIDA"` sin relevamiento previo. Usar verbos accionables reales B2B bien centrados: **`SOLICITAR RELEVAMIENTO TÉCNICO`**, **`COTIZAR MI PLANTA / EDIFICIO`**, **`VER PROTOCOLO DEL RUBRO`**.
+   - **Destino de los clics:** Cada bloque por rubro lleva a la **Landing específica de ese rubro** (asegurando que la landing tenga botones de contacto directo por WhatsApp y formulario arriba del pliegue para evitar mil clics sin conversión).
+   - **Cobertura Geográfica Completa obligatoria en el diseño:** Prohibido reducir la cobertura a *"solo CABA y GBA"*; deben figurar explícitamente todas las zonas operativas reales definidas en las correcciones (CABA, Zona Norte, Zona Oeste, Zona Sur y corredores industriales/logísticos).
+   - **Footer con Cuerpo Visual:** Aunque el diseño sea limpio (80–85% blanco), el footer **no puede quedar lavado ni flotando en blanco**: debe tener línea divisoria firme, sombra sutil o bloque de cierre institucional que enmarque los datos de Guaminí 5657, teléfonos, `ventas@starunion.com.ar` y sello TÜV Rheinland ISO 9001:2015.
