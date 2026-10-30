@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <title>Conectando TikTok — Star Union S.R.L.</title>
-  <script>
-    window.onload = function() {
-      const qs = window.location.search || '';
-      window.location.href = 'http://127.0.0.1:8894/api/tiktok/callback' + qs;
-    };
-  </script>
 </head>
 <body style="font-family:sans-serif;text-align:center;padding:60px;background:#111827;color:#fff;">
   <h2>⏳ Conectando cuenta oficial de TikTok con Star Union...</h2>
+  <p style="color:#a7f3d0;font-size:15px;">Si tu navegador bloquea el salto automático al servidor local, tocá el botón verde acá abajo:</p>
+  <p><a id="btn-jump" href="http://127.0.0.1:8894/redes-sociales/index.html" style="display:inline-block;background:#00A651;color:#fff;font-weight:bold;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:16px;">👉 Volver a la Cabina y Guardar TikTok</a></p>
+  <script>
+    (function() {
+      const qs = window.location.search || '';
+      const target = 'http://127.0.0.1:8894/api/tiktok/callback' + qs;
+      const btn = document.getElementById('btn-jump');
+      if (btn) btn.href = target;
+      window.location.replace(target);
+    })();
+  </script>
 </body>
 </html>
