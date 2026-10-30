@@ -449,7 +449,7 @@ def main():
             <div class="font-extrabold text-amber-400 text-sm">5. TikTok Business (Content Posting API v2)</div>
             <p class="text-gray-300 leading-relaxed">
               1) En <a href="https://developers.tiktok.com/" target="_blank" class="text-amber-300 underline font-bold">TikTok for Developers ↗</a> (modo <strong>Sandbox</strong> o <strong>Production</strong>), copiá arriba el <code>Client Key</code> y <code>Client Secret</code>.<br>
-              2) En <strong>Login Kit → Redirect URI</strong> poné: <code>http://127.0.0.1:8894/api/tiktok/callback</code><br>
+              2) En <strong>Login Kit → Redirect URI</strong> poné: <code>https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html</code><br>
               3) <a href="assets/starunion_tiktok_icon_1024.png" download class="text-emerald-300 underline font-bold">⬇ Bajar Ícono 1024×1024 PNG de Star Union</a> (para subir en App Icon):
             </p>
           </div>

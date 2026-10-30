@@ -531,7 +531,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             cs = (qs.get("client_secret", [""])[0] or keys.get("tiktok_client_secret", "")).strip()
             if ck or cs:
                 save_keys({"tiktok_client_key": ck, "tiktok_client_secret": cs})
-            redirect_uri = "http://127.0.0.1:8894/api/tiktok/callback"
+            redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
             auth_url = (
                 "https://www.tiktok.com/v2/auth/authorize/?"
                 + urllib.parse.urlencode(
@@ -556,7 +556,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             keys = load_keys()
             ck = keys.get("tiktok_client_key", "")
             cs = keys.get("tiktok_client_secret", "")
-            redirect_uri = "http://127.0.0.1:8894/api/tiktok/callback"
+            redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
             if code and ck and cs:
                 st, res = http_json(
                     "POST",
