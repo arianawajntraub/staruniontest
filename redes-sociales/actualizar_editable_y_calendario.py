@@ -582,6 +582,81 @@ def main():
       </div>
     </div>
 
+    <!-- MOTOR INTELIGENTE: CONTEXTO EXTERNO + NECESIDAD DEL NEGOCIO + RANDOMIZADOR PONDERADO + MEDICIÓN Y RETROALIMENTACIÓN -->
+    <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-[#03582d] shadow-md space-y-6">
+      <div class="flex flex-wrap items-start justify-between gap-4 border-b border-gray-200 pb-4">
+        <div>
+          <span class="inline-block bg-[#03582d] text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full mb-1">
+            🧠 CEREBRO COMERCIAL VIVO · CONTEXTO + NECESIDAD DE NEGOCIO + RANDOMIZACIÓN + RETROALIMENTACIÓN
+          </span>
+          <h2 class="text-lg sm:text-xl font-extrabold text-gray-900 mt-0.5">Cómo se controla, mide, rota y retroalimenta el motor de Star Union</h2>
+          <p class="text-xs text-gray-600 mt-1">Acá elegís qué está pasando afuera, qué vertical necesita empujar hoy el negocio y activás el <strong>Randomizador Ponderado (Vertical × Dolor × Horario)</strong> conectado con las métricas reales de Perfit, Google y Redes.</p>
+        </div>
+        <button type="button" onclick="applySmartRandomizer(this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-3 rounded-xl shadow transition">
+          🎲 Re-Armar Rotación Inteligente y Horarios (1 Clic)
+        </button>
+      </div>
+
+      <div class="grid lg:grid-cols-4 gap-4">
+        <!-- PASO 1: LO QUE PASA ALREDEDOR (CONTEXTO EXTERNO) -->
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-2.5">
+          <div class="text-xs font-extrabold uppercase text-[#03582d]">1. 🌍 Lo que pasa alrededor (Contexto)</div>
+          <p class="text-[11px] text-gray-600">El calendario lee la estacionalidad real de los decisores B2B en CABA y GBA:</p>
+          <select id="sel-contexto" onchange="updateBrainPreview()" class="w-full p-2 rounded-lg bg-white border border-gray-300 text-xs font-bold text-gray-900">
+            <option value="logistica_pico">📦 Noviembre: Pico Logístico (CyberMonday / Fiestas) + Cierre Presupuestos 2027</option>
+            <option value="verano_colegios">☀️ Pre-Verano: Receso Universitario, Colegios y Temporada Clubes Deportivos</option>
+            <option value="auditorias_fin_anio">📋 Fin de Año: Auditorías ISO 9001, ANMAT y Blindaje Legal Art. 30 LCT</option>
+            <option value="recambio_ausentismo">⏱️ Recambio de Proveedor por Ausentismo en Consorcios y Oficinas</option>
+          </select>
+          <div id="box-contexto-tip" class="text-[11px] bg-white p-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold">
+            ✅ <strong>Señal activa hoy:</strong> Depósitos al 100% de despacho + gerencias cerrando proveedor para 2027. Prioriza <strong>Logística (#01)</strong> y <strong>Base/Taller (#02)</strong> al inicio de la semana.
+          </div>
+        </div>
+
+        <!-- PASO 2: LO QUE NECESITA EL NEGOCIO HOY -->
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-2.5">
+          <div class="text-xs font-extrabold uppercase text-[#03582d]">2. 🎯 Lo que necesita el negocio hoy</div>
+          <p class="text-[11px] text-gray-600">Dónde tenemos capacidad operativa lista o mayor margen para salir a buscar objetivos:</p>
+          <select id="sel-foco-negocio" onchange="updateBrainPreview()" class="w-full p-2 rounded-lg bg-white border border-gray-300 text-xs font-bold text-gray-900">
+            <option value="industria_logistica">🏭 Foco #1: Sumar Plantas Industriales y Centros Logísticos (+Ticket B2B)</option>
+            <option value="oficinas_consorcios">🏢 Foco #2: Sumar Edificios Corporativos, Oficinas y Grandes Consorcios (CABA)</option>
+            <option value="salud_anmat">🏥 Foco #3: Sumar Clínicas, Sanatorios y Laboratorios (Alta retención ISO/ANMAT)</option>
+            <option value="educacion_clubes">🎓 Foco #4: Licitaciones de Verano en Universidades, Colegios y Clubes</option>
+          </select>
+          <div class="text-[11px] bg-white p-2.5 rounded-lg border border-gray-200 text-gray-700 space-y-1">
+            <div class="font-extrabold text-gray-900">Pesos de Rotación Activos:</div>
+            <div class="flex justify-between"><span>• Logística e Industria:</span><strong id="w-ind" class="text-[#03582d]">30%</strong></div>
+            <div class="flex justify-between"><span>• Oficinas y Consorcios:</span><strong id="w-ofi" class="text-[#03582d]">25%</strong></div>
+            <div class="flex justify-between"><span>• Salud y Laboratorios:</span><strong id="w-sal" class="text-[#03582d]">25%</strong></div>
+            <div class="flex justify-between"><span>• Universidades y Clubes:</span><strong id="w-edu" class="text-[#03582d]">20%</strong></div>
+          </div>
+        </div>
+
+        <!-- PASO 3: MATRIZ RANDOMIZADA (VERTICAL × DOLOR × HORARIO) -->
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-2.5">
+          <div class="text-xs font-extrabold uppercase text-[#03582d]">3. 🎲 Randomización sin Repetir (3 Ejes)</div>
+          <p class="text-[11px] text-gray-600">Prohibido el monotema o publicar a la misma hora clavada. El motor cruza 3 variables en cada tanda:</p>
+          <ul class="text-[11px] text-gray-700 space-y-1.5 bg-white p-2.5 rounded-lg border border-gray-200">
+            <li><strong>Eje A (Vertical):</strong> Nunca salen 2 posteos seguidos del mismo rubro.</li>
+            <li><strong>Eje B (Ángulo de Dolor):</strong> Alterna <em>1) Taller Propio 800 m²</em>, <em>2) Reloj Biométrico &lt;2 hs</em>, <em>3) Blindaje Art. 30 LCT</em>, <em>4) ISO 9001 TÜV</em> y <em>5) Protocolo ANMAT</em>.</li>
+            <li><strong>Eje C (Horario Humano B2B):</strong> Varía minutos reales de publicación (<span id="lbl-horarios" class="font-bold text-[#03582d]">09:35, 10:15, 11:05, 14:20, 09:50</span>) para evitar huella robótica en los algoritmos.</li>
+          </ul>
+        </div>
+
+        <!-- PASO 4: CONTROL, MEDICIÓN Y RETROALIMENTACIÓN EN VIVO -->
+        <div class="bg-emerald-50/80 p-4 rounded-xl border-2 border-[#03582d] space-y-2.5">
+          <div class="text-xs font-extrabold uppercase text-[#03582d]">4. 📊 Medición y Retroalimentación</div>
+          <p class="text-[11px] text-gray-700">Lo que mide cada semana y cómo corrige la tanda siguiente sin adivinar:</p>
+          <div class="text-[11px] bg-white p-2.5 rounded-lg border border-emerald-300 space-y-1.5 text-gray-800">
+            <div>🟢 <strong>Señal Perfit API (#116/#119):</strong> 179 clics a WhatsApp · Bloque #1 ganador: <strong>Logística e Industria (197 clics)</strong> → <em>Abre la tanda #01</em>.</div>
+            <div>🟢 <strong>Señal objeción comercial #1:</strong> Ausentismo de operarios → <em>Activa Pieza #03 (Dato de Cleany: Biométrico 15 min)</em>.</div>
+            <div>🟢 <strong>Regla de Ganadores:</strong> El posteo que supera el promedio de clics a WhatsApp/Web pasa al bloque #1 del próximo Mailing Perfit y rota de foto en el mes siguiente.</div>
+          </div>
+        </div>
+      </div>
+      <div id="randomizer-log" class="hidden text-xs font-bold text-[#03582d] bg-emerald-50 border border-[#03582d] rounded-xl p-3"></div>
+    </div>
+
     <!-- 1. CALENDARIO CRONOLÓGICO VISIBLE (SENTIDO COMERCIAL CONECTADO CON PERFIT) -->
     <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-4">
       <div class="flex flex-wrap items-center justify-between gap-2">
@@ -752,6 +827,59 @@ def main():
 
   <script>
     const API_BASE = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') ? '' : 'http://127.0.0.1:8894';
+
+    function updateBrainPreview() {{
+      const ctx = document.getElementById('sel-contexto').value;
+      const foco = document.getElementById('sel-foco-negocio').value;
+      const tipBox = document.getElementById('box-contexto-tip');
+      const tips = {{
+        logistica_pico: '✅ <strong>Señal activa hoy:</strong> Depósitos al 100% de despacho + gerencias cerrando proveedor para 2027. Prioriza <strong>Logística (#01)</strong> y <strong>Base/Taller (#02)</strong> al inicio de la semana.',
+        verano_colegios: '☀️ <strong>Señal activa hoy:</strong> Campus universitarios, colegios y clubes licitando receso de verano. Sube prioridad de <strong>Educación y Deporte (#05)</strong> y <strong>Presentismo (#03)</strong>.',
+        auditorias_fin_anio: '📋 <strong>Señal activa hoy:</strong> Compras y Legales auditando ISO 9001, ANMAT y Art. 30 LCT antes del cierre anual. Prioriza <strong>Salud/ANMAT (#04)</strong> e <strong>Infraestructura (#02)</strong>.',
+        recambio_ausentismo: '⏱️ <strong>Señal activa hoy:</strong> Administraciones de consorcios y oficinas buscando reemplazo por ausentismo. Prioriza <strong>Biométrico &lt;2 hs (#03)</strong>.'
+      }};
+      if (tipBox && tips[ctx]) tipBox.innerHTML = tips[ctx];
+
+      const weights = {{
+        industria_logistica: ['35%', '25%', '20%', '20%'],
+        oficinas_consorcios: ['20%', '40%', '20%', '20%'],
+        salud_anmat: ['20%', '20%', '40%', '20%'],
+        educacion_clubes: ['20%', '20%', '20%', '40%']
+      }}[foco] || ['30%', '25%', '25%', '20%'];
+      document.getElementById('w-ind').innerText = weights[0];
+      document.getElementById('w-ofi').innerText = weights[1];
+      document.getElementById('w-sal').innerText = weights[2];
+      document.getElementById('w-edu').innerText = weights[3];
+    }}
+
+    function applySmartRandomizer(btn) {{
+      updateBrainPreview();
+      const baseDates = ['2026-10-30', '2026-11-02', '2026-11-04', '2026-11-06', '2026-11-10'];
+      const b2bHours = ['09:25', '09:45', '10:15', '10:35', '11:10', '11:40', '14:15', '14:45'];
+      const chosenHours = [];
+      const pool = [...b2bHours];
+      for (let i = 0; i < 5; i++) {{
+        const idx = Math.floor(Math.random() * pool.length);
+        chosenHours.push(pool.splice(idx, 1)[0]);
+      }}
+      const ids = ['01', '02', '03', '04', '05'];
+      ids.forEach((id, i) => {{
+        const dtInput = document.getElementById('dt_' + id);
+        if (dtInput) dtInput.value = baseDates[i] + 'T' + chosenHours[i];
+      }});
+      const lblH = document.getElementById('lbl-horarios');
+      if (lblH) lblH.innerText = chosenHours.join(', ');
+      const logBox = document.getElementById('randomizer-log');
+      if (logBox) {{
+        logBox.classList.remove('hidden');
+        logBox.innerHTML = `🎲 <strong>Rotación Ponderada y Anti-Huella Aplicada:</strong> 5 verticales alternadas sin repetición × 5 ángulos de dolor distintos × horarios B2B humanizados (${{chosenHours.join(' hs · ')}} hs). Tocá "📅 Programar las 5 Publicaciones" para dejarlas agendadas en el servidor.`;
+      }}
+      if (btn) {{
+        const old = btn.innerHTML;
+        btn.innerHTML = '✅ ¡Rotación y Horarios Actualizados!';
+        setTimeout(() => btn.innerHTML = old, 2200);
+      }}
+    }}
 
     function copyText(id, btn) {{
       const el = document.getElementById(id);
