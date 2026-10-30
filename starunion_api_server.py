@@ -581,6 +581,18 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             return
 
+        if self.path.startswith("/api/schedule"):
+            sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
+            data = {}
+            if os.path.exists(sched_path):
+                try:
+                    with open(sched_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                except Exception:
+                    data = {}
+            self._send_json(200, {"ok": True, "schedule": data})
+            return
+
         if self.path.startswith("/api/status"):
             keys = load_keys()
             self._send_json(
@@ -734,6 +746,86 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             self._send_json(200, {"ok": True, "results": results})
             return
 
+        if self.path.startswith("/api/schedule"):
+            sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
+            data = {}
+            if os.path.exists(sched_path):
+                try:
+                    with open(sched_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                except Exception:
+                    data = {}
+
+            post_id = str(body.get("id", "01")).zfill(2)
+            entry = data.get(post_id, {})
+            for k in (
+                "scheduled_at",
+                "status",
+                "tag",
+                "title",
+                "subtitle",
+                "copy_ig_fb",
+                "copy_linkedin",
+                "yt_title",
+                "yt_desc",
+                "yt_tags",
+                "copy_wa",
+                "channels",
+                "feed_file",
+                "story_file",
+                "reel_file",
+            ):
+                if k in body:
+                    entry[k] = body[k]
+            data[post_id] = entry
+
+            with open(sched_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+
+            regen_msg = ""
+            if body.get("regenerate_image"):
+                try:
+                    import sys
+                    rs_dir = os.path.join(WEB_ROOT, "redes-sociales")
+                    if rs_dir not in sys.path:
+                        sys.path.insert(0, rs_dir)
+                    import generar_pack_redes as gpr
+                    import actualizar_editable_y_calendario as aec
+                    from PIL import Image
+                    for p in gpr.POSTS:
+                        if p["id"] == post_id:
+                            if entry.get("tag"):
+                                p["tag"] = entry["tag"]
+                            if entry.get("title"):
+                                p["title"] = entry["title"]
+                            if entry.get("subtitle"):
+                                p["subtitle"] = entry["subtitle"]
+                            feed_html = os.path.join(gpr.TMP_DIR, f"feed_{p['id']}.html")
+                            feed_png = os.path.join(gpr.TMP_DIR, f"feed_{p['id']}.png")
+                            feed_jpg = os.path.join(gpr.PIEZAS_DIR, f"{p['id']}_feed_{p['slug']}_1080x1350.jpg")
+                            with open(feed_html, "w", encoding="utf-8") as hf:
+                                hf.write(gpr.build_feed_html(p))
+                            gpr.render_screenshot(feed_html, feed_png, 1080, 1350)
+                            Image.open(feed_png).convert("RGB").save(feed_jpg, "JPEG", quality=95)
+
+                            story_html = os.path.join(gpr.TMP_DIR, f"story_{p['id']}.html")
+                            story_png = os.path.join(gpr.TMP_DIR, f"story_{p['id']}.png")
+                            story_jpg = os.path.join(gpr.PIEZAS_DIR, f"{p['id']}_story_{p['slug']}_1080x1920.jpg")
+                            with open(story_html, "w", encoding="utf-8") as hf:
+                                hf.write(gpr.build_story_html(p))
+                            gpr.render_screenshot(story_html, story_png, 1080, 1920)
+                            Image.open(story_png).convert("RGB").save(story_jpg, "JPEG", quality=95)
+
+                            aec.create_editable_svg(p, 1080, 1350, os.path.join(gpr.PIEZAS_DIR, f"{p['id']}_feed_{p['slug']}_EDITABLE.svg"))
+                            aec.create_editable_svg(p, 1080, 1920, os.path.join(gpr.PIEZAS_DIR, f"{p['id']}_story_{p['slug']}_EDITABLE.svg"))
+                            regen_msg = " + Placas JPG (1080×1350 y 1080×1920) y SVGs regenerados en vivo."
+                            break
+                except Exception as ex:
+                    regen_msg = f" (Aviso placa: {ex})"
+
+            self._send_json(200, {"ok": True, "entry": entry, "message": f"✅ Guardado Pieza #{post_id} ({entry.get('status', 'guardado')} para {entry.get('scheduled_at', '')}){regen_msg}"})
+            return
+
         self._send_json(404, {"error": "Endpoint no encontrado"})
 
 
@@ -815,10 +907,65 @@ def watch_chrome_tiktok_callback():
         time.sleep(0.8)
 
 
+def run_scheduler_loop():
+    import datetime
+    sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
+    while True:
+        try:
+            if os.path.exists(sched_path):
+                with open(sched_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                now_str = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M")
+                changed = False
+                keys = load_keys()
+                for pid, entry in data.items():
+                    if entry.get("status") == "programado" and entry.get("scheduled_at") and entry["scheduled_at"] <= now_str:
+                        channels = entry.get("channels", [])
+                        feed_file = entry.get("feed_file", f"piezas/{pid}_feed_logistica_industria_1080x1350.jpg")
+                        story_file = entry.get("story_file", f"piezas/{pid}_story_logistica_industria_1080x1920.jpg")
+                        reel_file = entry.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
+                        caption_ig = entry.get("copy_ig_fb", "")
+                        caption_li = entry.get("copy_linkedin", "")
+                        yt_title = entry.get("yt_title", "Star Union S.R.L. #Shorts")
+                        yt_desc = entry.get("yt_desc", caption_ig)
+                        yt_tags = entry.get("yt_tags", "star union, limpieza industrial")
+                        public_url = "https://www.starunion.com.ar"
+                        title = entry.get("title", "Star Union S.R.L.")
+                        res = {}
+                        if "ig_feed" in channels:
+                            res["IG Feed"] = publish_ig_feed(keys, feed_file, caption_ig)
+                        if "ig_story" in channels:
+                            res["IG Story"] = publish_ig_story(keys, story_file)
+                        if "ig_reel" in channels:
+                            res["IG Reel"] = publish_ig_reel(keys, reel_file, caption_ig)
+                        if "fb_page" in channels:
+                            res["FB Page"] = publish_fb_page(keys, feed_file, caption_ig)
+                        if "linkedin" in channels:
+                            res["LinkedIn"] = publish_linkedin(keys, caption_li, public_url, title)
+                        if "gmb" in channels:
+                            res["Google Maps"] = publish_gmb(keys, feed_file, caption_ig, public_url)
+                        if "youtube" in channels:
+                            res["YouTube"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
+                        if "tiktok" in channels:
+                            res["TikTok"] = publish_tiktok(keys, reel_file, caption_ig)
+                        entry["status"] = "publicado"
+                        entry["published_at"] = now_str
+                        entry["last_results"] = res
+                        changed = True
+                if changed:
+                    with open(sched_path, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
+        time.sleep(25)
+
+
 if __name__ == "__main__":
     import threading
     t = threading.Thread(target=watch_chrome_tiktok_callback, daemon=True)
     t.start()
+    t2 = threading.Thread(target=run_scheduler_loop, daemon=True)
+    t2.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)
     print("STAR UNION API Server corriendo en http://127.0.0.1:8894")
     server.serve_forever()

@@ -216,9 +216,14 @@
           <span class="text-xs font-extrabold uppercase text-[#03582d]">1. Cronograma con Sentido Comercial (Octubre → Noviembre 2026)</span>
           <h2 class="text-lg sm:text-xl font-extrabold text-gray-900">Calendario de Publicaciones Conectado al Embudo de Mailings Perfit</h2>
         </div>
-        <span class="text-xs bg-gray-100 text-gray-800 font-bold px-3 py-1.5 rounded-lg">
-          💡 Para editar en Canva / Illustrator / Adobe Express: descargá el botón <strong>✏️ SVG Editable</strong> de cualquier pieza y arrastralo a Canva o Illustrator.
-        </span>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="scheduleAllPosts(this)" class="bg-blue-700 hover:bg-blue-800 text-white text-xs font-extrabold px-4 py-2 rounded-lg shadow transition">
+            📅 Programar las 5 Publicaciones del Mes en 1 Clic (API)
+          </button>
+          <span class="text-xs bg-gray-100 text-gray-800 font-bold px-3 py-1.5 rounded-lg">
+            💡 Editá textos, fechas y placas acá mismo o bajá el <strong>✏️ SVG Editable</strong>.
+          </span>
+        </div>
       </div>
 
       <div class="overflow-x-auto border border-gray-200 rounded-xl">
@@ -235,52 +240,67 @@
           <tbody class="divide-y divide-gray-100">
             
         <tr class="hover:bg-gray-50">
-          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Jueves 29 Oct 2026</td>
-          <td class="p-3 font-bold text-gray-900">#01 · Operación continua en centros logísticos y plantas industriales.</td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + FB + LinkedIn + Estado WA + Short #1</td>
+          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
+            <div>Viernes 30 Oct 2026 · 10:00 hs</div>
+            <span id="cal_badge_01" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+          </td>
+          <td class="p-3 font-bold text-gray-900">#01 · <span id="cal_title_01">Operación continua en centros logísticos y plantas industriales.</span></td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Acompaña en caliente los 179 clics a WhatsApp del Mailing de Octubre (#116/#119) donde el bloque #1 más clickeado (197 clics) fue Centros Logísticos y Plantas Industriales.</td>
-          <td class="p-3 text-center whitespace-nowrap">
-            <a href="#post-01" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ir a Pieza #01 ↓</a>
+          <td class="p-3 text-center whitespace-nowrap space-y-1">
+            <a href="#post-01" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #01 ↓</a>
           </td>
         </tr>
         
         <tr class="hover:bg-gray-50">
-          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Lunes 02 Nov 2026</td>
-          <td class="p-3 font-bold text-gray-900">#02 · Taller electromecánico propio: tus máquinas en planta nunca se detienen.</td>
-          <td class="p-3 text-gray-700 font-semibold">LinkedIn + IG Feed + FB + Story</td>
+          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
+            <div>Lunes 02 Nov 2026 · 10:00 hs</div>
+            <span id="cal_badge_02" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+          </td>
+          <td class="p-3 font-bold text-gray-900">#02 · <span id="cal_title_02">Taller electromecánico propio: tus máquinas en planta nunca se detienen.</span></td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Abre noviembre mostrando el diferenciador físico duro (Base Propia de 800 m² en Guaminí 5657 y Taller Electromecánico In-House) para decisores técnicos que están evaluando recambio de proveedor.</td>
-          <td class="p-3 text-center whitespace-nowrap">
-            <a href="#post-02" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ir a Pieza #02 ↓</a>
+          <td class="p-3 text-center whitespace-nowrap space-y-1">
+            <a href="#post-02" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #02 ↓</a>
           </td>
         </tr>
         
         <tr class="hover:bg-gray-50">
-          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Miércoles 04 Nov 2026</td>
-          <td class="p-3 font-bold text-gray-900">#03 · Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + FB + LinkedIn + Estado WA</td>
+          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
+            <div>Miércoles 04 Nov 2026 · 10:00 hs</div>
+            <span id="cal_badge_03" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+          </td>
+          <td class="p-3 font-bold text-gray-900">#03 · <span id="cal_title_03">Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</span></td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Mitad de semana: ataca el dolor #1 de Administraciones y Gerencias (el ausentismo) con 'El Dato Técnico de Cleany' (Reloj Biométrico con alerta a los 15 min y cobertura < 2 hs).</td>
-          <td class="p-3 text-center whitespace-nowrap">
-            <a href="#post-03" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ir a Pieza #03 ↓</a>
+          <td class="p-3 text-center whitespace-nowrap space-y-1">
+            <a href="#post-03" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #03 ↓</a>
           </td>
         </tr>
         
         <tr class="hover:bg-gray-50">
-          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Viernes 06 Nov 2026</td>
-          <td class="p-3 font-bold text-gray-900">#04 · Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</td>
-          <td class="p-3 text-gray-700 font-semibold">LinkedIn + IG Feed + FB + Short #2</td>
+          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
+            <div>Viernes 06 Nov 2026 · 10:00 hs</div>
+            <span id="cal_badge_04" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+          </td>
+          <td class="p-3 font-bold text-gray-900">#04 · <span id="cal_title_04">Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</span></td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Cierre de semana enfocado en el vertical regulado (Clínicas, Sanatorios y Laboratorios con insumos ANMAT + ISO 9001:2015 TÜV Rheinland), preparando el terreno antes del 1° Envío Perfit de Noviembre.</td>
-          <td class="p-3 text-center whitespace-nowrap">
-            <a href="#post-04" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ir a Pieza #04 ↓</a>
+          <td class="p-3 text-center whitespace-nowrap space-y-1">
+            <a href="#post-04" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #04 ↓</a>
           </td>
         </tr>
         
         <tr class="hover:bg-gray-50">
-          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Martes 10 Nov 2026</td>
-          <td class="p-3 font-bold text-gray-900">#05 · Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</td>
-          <td class="p-3 text-gray-700 font-semibold">IG Feed + FB + LinkedIn + Estado WA</td>
+          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
+            <div>Martes 10 Nov 2026 · 10:00 hs</div>
+            <span id="cal_badge_05" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+          </td>
+          <td class="p-3 font-bold text-gray-900">#05 · <span id="cal_title_05">Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</span></td>
+          <td class="p-3 text-gray-700 font-semibold">IG Feed + Story + Reel + FB + Maps + YouTube + TikTok</td>
           <td class="p-3 text-gray-600">Pre-temporada de licitaciones educativas y deportivas (Universidades, Colegios y Clubes para receso de verano y colonia), conectando con el 1° Envío de Perfit de Noviembre (Jueves 19/11).</td>
-          <td class="p-3 text-center whitespace-nowrap">
-            <a href="#post-05" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ir a Pieza #05 ↓</a>
+          <td class="p-3 text-center whitespace-nowrap space-y-1">
+            <a href="#post-05" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #05 ↓</a>
           </td>
         </tr>
         
@@ -438,14 +458,15 @@
     <!-- 3. LAS 5 PUBLICACIONES CON JPG + SVG EDITABLE + COPIES -->
     <div class="space-y-6">
       
-        <div id="post-01" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div id="post-01" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Jueves 29 Oct 2026</span>
+                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Viernes 30 Oct 2026 · 10:00 hs</span>
+                <span id="card_badge_01" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 1 · Hoy / Mañana (Vertical #1 en Clics B2B)</span>
               </div>
-              <h2 class="text-lg font-extrabold text-gray-900 mt-1">Operación continua en centros logísticos y plantas industriales.</h2>
+              <h2 id="head_title_01" class="text-lg font-extrabold text-gray-900 mt-1">Operación continua en centros logísticos y plantas industriales.</h2>
               <p class="text-xs text-gray-600 mt-0.5"><strong>Sentido cronológico:</strong> Acompaña en caliente los 179 clics a WhatsApp del Mailing de Octubre (#116/#119) donde el bloque #1 más clickeado (197 clics) fue Centros Logísticos y Plantas Industriales.</p>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -456,37 +477,60 @@
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="piezas/01_feed_logistica_industria_EDITABLE.svg" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Feed (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Feed (Canva)
               </a>
               <a href="piezas/01_story_logistica_industria_EDITABLE.svg" download class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Story (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Story (Canva)
               </a>
             </div>
           </div>
 
           <div class="p-6 grid lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
-                <a href="piezas/01_feed_logistica_industria_1080x1350.jpg" target="_blank">
-                  <img src="piezas/01_feed_logistica_industria_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
-                </a>
+            <div class="lg:col-span-5 space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
+                  <a href="piezas/01_feed_logistica_industria_1080x1350.jpg" target="_blank">
+                    <img id="img_feed_01" src="piezas/01_feed_logistica_industria_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
+                  <a href="piezas/01_story_logistica_industria_1080x1920.jpg" target="_blank">
+                    <img id="img_story_01" src="piezas/01_story_logistica_industria_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
+                  </a>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
-                <a href="piezas/01_story_logistica_industria_1080x1920.jpg" target="_blank">
-                  <img src="piezas/01_story_logistica_industria_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
-                </a>
+
+              <!-- EDITOR RÁPIDO DEL TEXTO ADENTRO DE LA IMAGEN JPG (SIN ABRIR CANVA) -->
+              <div class="bg-amber-50/70 border-2 border-amber-400 rounded-xl p-4 space-y-2.5">
+                <div class="text-xs font-extrabold uppercase text-gray-900">🎨 Editar Texto Adentro de la Imagen (Sin abrir Canva)</div>
+                <p class="text-[11px] text-gray-700">Si querés cambiar una frase de la placa gráfica, modificala acá y tocá el botón: el servidor redibuja el JPG (1080×1350 y 1080×1920) en 1 segundo.</p>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Etiqueta Verde Superior:</label>
+                  <input id="tag_01" type="text" value="LOGÍSTICA E INDUSTRIA · ISO 9001:2015" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-bold text-[#03582d]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Titular Principal de la Placa:</label>
+                  <textarea id="title_01" rows="2" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-extrabold text-gray-900">Operación continua en centros logísticos y plantas industriales.</textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
+                  <textarea id="sub_01" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Autolavadoras hombre a bordo, barredoras industriales y supervisión técnica bajo norma ISO 9001:2015 (TÜV Rheinland) sin detener tu línea ni el despacho.</textarea>
+                </div>
+                <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                  🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
+                </button>
               </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-[#03582d]">📸 Copy Instagram y Facebook</span>
-                  <button onclick="copyText('ig_01', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy IG/FB</button>
+                  <span class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Copy Editable: Instagram, Facebook, TikTok y Google Maps</span>
+                  <button onclick="copyText('ig_01', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy</button>
                 </div>
-                <pre id="ig_01" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">Continuidad operativa real para centros logísticos, depósitos y plantas industriales en CABA y GBA.
+                <textarea id="ig_01" rows="9" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">Continuidad operativa real para centros logísticos, depósitos y plantas industriales en CABA y GBA.
 
 En operaciones de alto tránsito de autoelevadores y despacho 24/7, la limpieza técnica no puede improvisarse ni frenar el ritmo de planta:
 
@@ -496,15 +540,15 @@ En operaciones de alto tránsito de autoelevadores y despacho 24/7, la limpieza 
 
 Solicitá un relevamiento técnico para tu planta o centro logístico en www.starunion.com.ar o por WhatsApp Comercial al +54 9 11 2275-9369.
 
-#StarUnion #LimpiezaIndustrial #LogisticaArgentina #FacilityManagement #ISO9001 #MantenimientoIndustrial</pre>
+#StarUnion #LimpiezaIndustrial #LogisticaArgentina #FacilityManagement #ISO9001 #MantenimientoIndustrial</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-gray-900">💼 Copy LinkedIn B2B</span>
+                  <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
                   <button onclick="copyText('li_01', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
-                <pre id="li_01" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">En logística e industria manufacturera, el proveedor de limpieza e higiene técnica impacta de forma directa en la seguridad operativa y en las auditorías de calidad.
+                <textarea id="li_01" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">En logística e industria manufacturera, el proveedor de limpieza e higiene técnica impacta de forma directa en la seguridad operativa y en las auditorías de calidad.
 
 Por eso en Star Union S.R.L. estructuramos nuestro servicio industrial sobre tres pilares verificables:
 
@@ -514,70 +558,96 @@ Por eso en Star Union S.R.L. estructuramos nuestro servicio industrial sobre tre
 
 👉 Conocé nuestro protocolo para plantas y centros logísticos en: https://www.starunion.com.ar
 
-#FacilityManagement #Logistica #IndustriaArgentina #ISO9001 #HigieneIndustrial #OperacionesB2B #StarUnion</pre>
+#FacilityManagement #Logistica #IndustriaArgentina #ISO9001 #HigieneIndustrial #OperacionesB2B #StarUnion</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">▶️ Pack YouTube Shorts (Título + Descripción + Etiquetas)</div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Título:</strong> <span id="ytt_01" class="font-bold text-gray-900">Limpieza Técnica en Centros Logísticos y Plantas | Star Union ISO 9001</span></div>
-                  <button onclick="copyText('ytt_01', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Pack Editable YouTube Shorts (Título + Descripción + Etiquetas)</div>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Título:</strong>
+                    <button onclick="copyText('ytt_01', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                  </div>
+                  <input id="ytt_01" type="text" value="Limpieza Técnica en Centros Logísticos y Plantas | Star Union ISO 9001" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs font-bold text-gray-900">
                 </div>
-                <div class="bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="flex items-center justify-between mb-1">
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
                     <strong class="text-xs text-gray-600">Descripción:</strong>
                     <button onclick="copyText('ytd_01', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Descripción</button>
                   </div>
-                  <pre id="ytd_01" class="text-xs text-gray-800 whitespace-pre-wrap font-sans">Cómo garantizamos la continuidad operativa en centros logísticos, depósitos y plantas industriales de CABA y GBA sin detener el despacho.
+                  <textarea id="ytd_01" rows="5" class="w-full p-2.5 rounded border border-gray-300 text-xs text-gray-800 font-sans">Cómo garantizamos la continuidad operativa en centros logísticos, depósitos y plantas industriales de CABA y GBA sin detener el despacho.
 
 00:00 Limpieza mecanizada en pasillos de racks y zonas de despacho
 00:04 Base Operativa Propia de 800 m² en calle Guaminí (CABA) y Taller Propio
 00:08 Certificación ISO 9001:2015 por TÜV Rheinland (ID 9000041847)
 
 Solicitá una visita técnica para tu empresa en: https://www.starunion.com.ar
-WhatsApp Comercial B2B: +54 9 11 2275-9369</pre>
+WhatsApp Comercial B2B: +54 9 11 2275-9369</textarea>
                 </div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Tags:</strong> <span id="yttags_01" class="text-gray-800">limpieza industrial, centros logisticos, limpieza de depositos, star union, iso 9001 tuv rheinland, facility management argentina, autolavadoras industriales, mantenimiento de plantas</span></div>
-                  <button onclick="copyText('yttags_01', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Tags:</strong>
+                    <button onclick="copyText('yttags_01', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                  </div>
+                  <input id="yttags_01" type="text" value="limpieza industrial, centros logisticos, limpieza de depositos, star union, iso 9001 tuv rheinland, facility management argentina, autolavadoras industriales, mantenimiento de plantas" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs text-gray-800">
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-between gap-3">
-                <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_01">Operación continua en centros logísticos y plantas industriales con maquinaria propia y certificación ISO 9001:2015 (TÜV Rheinland). Conocé más en https://www.starunion.com.ar</span></div>
-                <button onclick="copyText('wa_01', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs text-[#03582d] uppercase">📲 Pie Editable para Estado de WhatsApp:</strong>
+                  <button onclick="copyText('wa_01', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+                </div>
+                <input id="wa_01" type="text" value="Operación continua en centros logísticos y plantas industriales con maquinaria propia y certificación ISO 9001:2015 (TÜV Rheinland). Conocé más en https://www.starunion.com.ar" class="w-full px-2.5 py-1.5 rounded bg-white border border-gray-300 text-xs text-gray-800">
               </div>
 
-              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <!-- BARRA DE CALENDARIZACIÓN Y DISPARO DIRECTO POR API -->
               <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
-                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="text-xs font-extrabold uppercase text-[#03582d]">📅 Calendarizar Día/Hora o Publicar Ahora por API (Pieza #01):</div>
+                  <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border-2 border-[#03582d]">
+                    <span class="text-xs font-extrabold text-gray-800">📅 Día y Hora:</span>
+                    <input type="datetime-local" id="dt_01" value="2026-10-30T10:00" class="text-xs font-extrabold text-[#03582d] bg-transparent focus:outline-none">
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_01" checked> 📸 IG Feed (4:5)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_01" checked> 📱 IG Story (9:16)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_01" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_01" checked> 👍 Facebook Page</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_01" checked> 💼 LinkedIn Empresa</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_01" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_01" checked> ▶️ YouTube Shorts</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_01"> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_01" checked> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_01"> 💼 LinkedIn Empresa</label>
                 </div>
-                <button type="button" onclick="publishPostViaApi('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
-                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #01)
-                </button>
+
+                <div class="grid sm:grid-cols-3 gap-2 pt-1">
+                  <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    💾 Guardar Edición de Textos
+                  </button>
+                  <button type="button" onclick="saveOrSchedulePost('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    📅 PROGRAMAR EN CALENDARIO API
+                  </button>
+                  <button type="button" onclick="publishPostViaApi('01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    🚀 PUBLICAR AHORA POR API
+                  </button>
+                </div>
                 <div id="api_res_01" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
               </div>
             </div>
           </div>
         </div>
         
-        <div id="post-02" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div id="post-02" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Lunes 02 Nov 2026</span>
+                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Lunes 02 Nov 2026 · 10:00 hs</span>
+                <span id="card_badge_02" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 2 · Infraestructura Propia (Diferenciador #1 B2B)</span>
               </div>
-              <h2 class="text-lg font-extrabold text-gray-900 mt-1">Taller electromecánico propio: tus máquinas en planta nunca se detienen.</h2>
+              <h2 id="head_title_02" class="text-lg font-extrabold text-gray-900 mt-1">Taller electromecánico propio: tus máquinas en planta nunca se detienen.</h2>
               <p class="text-xs text-gray-600 mt-0.5"><strong>Sentido cronológico:</strong> Abre noviembre mostrando el diferenciador físico duro (Base Propia de 800 m² en Guaminí 5657 y Taller Electromecánico In-House) para decisores técnicos que están evaluando recambio de proveedor.</p>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -588,37 +658,60 @@ WhatsApp Comercial B2B: +54 9 11 2275-9369</pre>
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="piezas/02_feed_base_operativa_taller_EDITABLE.svg" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Feed (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Feed (Canva)
               </a>
               <a href="piezas/02_story_base_operativa_taller_EDITABLE.svg" download class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Story (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Story (Canva)
               </a>
             </div>
           </div>
 
           <div class="p-6 grid lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
-                <a href="piezas/02_feed_base_operativa_taller_1080x1350.jpg" target="_blank">
-                  <img src="piezas/02_feed_base_operativa_taller_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
-                </a>
+            <div class="lg:col-span-5 space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
+                  <a href="piezas/02_feed_base_operativa_taller_1080x1350.jpg" target="_blank">
+                    <img id="img_feed_02" src="piezas/02_feed_base_operativa_taller_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
+                  <a href="piezas/02_story_base_operativa_taller_1080x1920.jpg" target="_blank">
+                    <img id="img_story_02" src="piezas/02_story_base_operativa_taller_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
+                  </a>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
-                <a href="piezas/02_story_base_operativa_taller_1080x1920.jpg" target="_blank">
-                  <img src="piezas/02_story_base_operativa_taller_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
-                </a>
+
+              <!-- EDITOR RÁPIDO DEL TEXTO ADENTRO DE LA IMAGEN JPG (SIN ABRIR CANVA) -->
+              <div class="bg-amber-50/70 border-2 border-amber-400 rounded-xl p-4 space-y-2.5">
+                <div class="text-xs font-extrabold uppercase text-gray-900">🎨 Editar Texto Adentro de la Imagen (Sin abrir Canva)</div>
+                <p class="text-[11px] text-gray-700">Si querés cambiar una frase de la placa gráfica, modificala acá y tocá el botón: el servidor redibuja el JPG (1080×1350 y 1080×1920) en 1 segundo.</p>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Etiqueta Verde Superior:</label>
+                  <input id="tag_02" type="text" value="INFRAESTRUCTURA PROPIA · GUAMINÍ 5657 CABA" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-bold text-[#03582d]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Titular Principal de la Placa:</label>
+                  <textarea id="title_02" rows="2" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-extrabold text-gray-900">Taller electromecánico propio: tus máquinas en planta nunca se detienen.</textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
+                  <textarea id="sub_02" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">En nuestra Base Operativa de 800 m² en CABA reparamos, mantenemos y despachamos equipos de reemplazo con flota propia sin depender de terceros.</textarea>
+                </div>
+                <button type="button" onclick="saveOrSchedulePost('02', 'piezas/02_feed_base_operativa_taller_1080x1350.jpg', 'piezas/02_story_base_operativa_taller_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                  🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
+                </button>
               </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-[#03582d]">📸 Copy Instagram y Facebook</span>
-                  <button onclick="copyText('ig_02', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy IG/FB</button>
+                  <span class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Copy Editable: Instagram, Facebook, TikTok y Google Maps</span>
+                  <button onclick="copyText('ig_02', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy</button>
                 </div>
-                <pre id="ig_02" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">¿Qué pasa cuando una máquina lavadora se detiene en medio de tu operación diaria?
+                <textarea id="ig_02" rows="9" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">¿Qué pasa cuando una máquina lavadora se detiene en medio de tu operación diaria?
 
 En Star Union no dependemos de talleres externos ni de alquileres improvisados. Contamos con Taller Electromecánico Propio dentro de nuestra Base Operativa Central de 800 m² en calle Guaminí (CABA).
 
@@ -628,15 +721,15 @@ En Star Union no dependemos de talleres externos ni de alquileres improvisados. 
 
 Conocé nuestra infraestructura operativa en www.starunion.com.ar
 
-#StarUnion #InfraestructuraPropia #FacilityServices #LimpiezaProfesional #OperacionesB2B #CABA</pre>
+#StarUnion #InfraestructuraPropia #FacilityServices #LimpiezaProfesional #OperacionesB2B #CABA</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-gray-900">💼 Copy LinkedIn B2B</span>
+                  <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
                   <button onclick="copyText('li_02', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
-                <pre id="li_02" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">Uno de los mayores costos ocultos al contratar servicios de limpieza B2B es la caída del servicio cuando se avería una máquina crítica en el objetivo.
+                <textarea id="li_02" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">Uno de los mayores costos ocultos al contratar servicios de limpieza B2B es la caída del servicio cuando se avería una máquina crítica en el objetivo.
 
 Fundada en 2001 (con sede histórica inicial en calle Pergamino), Star Union S.R.L. centraliza hoy toda su logística en su Base Operativa Propia de 800 m² (3 niveles) en Guaminí 5657, CABA, donde desde fines de 2010 opera nuestro Taller Electromecánico In-House.
 
@@ -647,69 +740,95 @@ Fundada en 2001 (con sede histórica inicial en calle Pergamino), Star Union S.R
 
 👉 Recorré nuestra Base Operativa en: https://www.starunion.com.ar
 
-#InfraestructuraB2B #ComprasCorporativas #FacilityManagement #MantenimientoOperativo #ISO9001 #StarUnion</pre>
+#InfraestructuraB2B #ComprasCorporativas #FacilityManagement #MantenimientoOperativo #ISO9001 #StarUnion</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">▶️ Pack YouTube Shorts (Título + Descripción + Etiquetas)</div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Título:</strong> <span id="ytt_02" class="font-bold text-gray-900">Taller Electromecánico Propio y Base de 800 m² | Star Union S.R.L.</span></div>
-                  <button onclick="copyText('ytt_02', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Pack Editable YouTube Shorts (Título + Descripción + Etiquetas)</div>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Título:</strong>
+                    <button onclick="copyText('ytt_02', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                  </div>
+                  <input id="ytt_02" type="text" value="Taller Electromecánico Propio y Base de 800 m² | Star Union S.R.L." class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs font-bold text-gray-900">
                 </div>
-                <div class="bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="flex items-center justify-between mb-1">
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
                     <strong class="text-xs text-gray-600">Descripción:</strong>
                     <button onclick="copyText('ytd_02', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Descripción</button>
                   </div>
-                  <pre id="ytd_02" class="text-xs text-gray-800 whitespace-pre-wrap font-sans">Por qué nuestra Base Operativa Propia de 800 m² en calle Guaminí (CABA) y nuestro Taller Electromecánico In-House garantizan cero interrupciones en tu empresa.
+                  <textarea id="ytd_02" rows="5" class="w-full p-2.5 rounded border border-gray-300 text-xs text-gray-800 font-sans">Por qué nuestra Base Operativa Propia de 800 m² en calle Guaminí (CABA) y nuestro Taller Electromecánico In-House garantizan cero interrupciones en tu empresa.
 
 00:00 Parque de maquinaria propio y mantenimiento preventivo in-house
 00:04 Stock permanente de insumos ANMAT y repuestos en 800 m²
 00:08 Soporte logístico con flota propia Ford Transit en CABA y GBA
 
-Conocé nuestra infraestructura en: https://www.starunion.com.ar</pre>
+Conocé nuestra infraestructura en: https://www.starunion.com.ar</textarea>
                 </div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Tags:</strong> <span id="yttags_02" class="text-gray-800">star union, base operativa guamini, taller electromecanico limpieza, empresa de limpieza b2b, maquinaria de limpieza industrial, iso 9001 limpieza</span></div>
-                  <button onclick="copyText('yttags_02', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Tags:</strong>
+                    <button onclick="copyText('yttags_02', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                  </div>
+                  <input id="yttags_02" type="text" value="star union, base operativa guamini, taller electromecanico limpieza, empresa de limpieza b2b, maquinaria de limpieza industrial, iso 9001 limpieza" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs text-gray-800">
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-between gap-3">
-                <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_02">Taller electromecánico propio en nuestra Base Operativa de 800 m² (Guaminí 5657, CABA): respaldo real para que las máquinas en tu empresa nunca se detengan. 👉 https://www.starunion.com.ar</span></div>
-                <button onclick="copyText('wa_02', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs text-[#03582d] uppercase">📲 Pie Editable para Estado de WhatsApp:</strong>
+                  <button onclick="copyText('wa_02', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+                </div>
+                <input id="wa_02" type="text" value="Taller electromecánico propio en nuestra Base Operativa de 800 m² (Guaminí 5657, CABA): respaldo real para que las máquinas en tu empresa nunca se detengan. 👉 https://www.starunion.com.ar" class="w-full px-2.5 py-1.5 rounded bg-white border border-gray-300 text-xs text-gray-800">
               </div>
 
-              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <!-- BARRA DE CALENDARIZACIÓN Y DISPARO DIRECTO POR API -->
               <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
-                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="text-xs font-extrabold uppercase text-[#03582d]">📅 Calendarizar Día/Hora o Publicar Ahora por API (Pieza #02):</div>
+                  <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border-2 border-[#03582d]">
+                    <span class="text-xs font-extrabold text-gray-800">📅 Día y Hora:</span>
+                    <input type="datetime-local" id="dt_02" value="2026-11-02T10:00" class="text-xs font-extrabold text-[#03582d] bg-transparent focus:outline-none">
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_02" checked> 📸 IG Feed (4:5)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_02" checked> 📱 IG Story (9:16)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_02" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_02" checked> 👍 Facebook Page</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_02" checked> 💼 LinkedIn Empresa</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_02" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_02" checked> ▶️ YouTube Shorts</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_02"> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_02" checked> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_02"> 💼 LinkedIn Empresa</label>
                 </div>
-                <button type="button" onclick="publishPostViaApi('02', 'piezas/02_feed_base_operativa_taller_1080x1350.jpg', 'piezas/02_story_base_operativa_taller_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
-                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #02)
-                </button>
+
+                <div class="grid sm:grid-cols-3 gap-2 pt-1">
+                  <button type="button" onclick="saveOrSchedulePost('02', 'piezas/02_feed_base_operativa_taller_1080x1350.jpg', 'piezas/02_story_base_operativa_taller_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    💾 Guardar Edición de Textos
+                  </button>
+                  <button type="button" onclick="saveOrSchedulePost('02', 'piezas/02_feed_base_operativa_taller_1080x1350.jpg', 'piezas/02_story_base_operativa_taller_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    📅 PROGRAMAR EN CALENDARIO API
+                  </button>
+                  <button type="button" onclick="publishPostViaApi('02', 'piezas/02_feed_base_operativa_taller_1080x1350.jpg', 'piezas/02_story_base_operativa_taller_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    🚀 PUBLICAR AHORA POR API
+                  </button>
+                </div>
                 <div id="api_res_02" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
               </div>
             </div>
           </div>
         </div>
         
-        <div id="post-03" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div id="post-03" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Miércoles 04 Nov 2026</span>
+                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Miércoles 04 Nov 2026 · 10:00 hs</span>
+                <span id="card_badge_03" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 3 · El Dato Técnico de Cleany (Presentismo Auditado)</span>
               </div>
-              <h2 class="text-lg font-extrabold text-gray-900 mt-1">Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</h2>
+              <h2 id="head_title_03" class="text-lg font-extrabold text-gray-900 mt-1">Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</h2>
               <p class="text-xs text-gray-600 mt-0.5"><strong>Sentido cronológico:</strong> Mitad de semana: ataca el dolor #1 de Administraciones y Gerencias (el ausentismo) con 'El Dato Técnico de Cleany' (Reloj Biométrico con alerta a los 15 min y cobertura < 2 hs).</p>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -720,37 +839,60 @@ Conocé nuestra infraestructura en: https://www.starunion.com.ar</pre>
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="piezas/03_feed_presentismo_biometrico_EDITABLE.svg" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Feed (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Feed (Canva)
               </a>
               <a href="piezas/03_story_presentismo_biometrico_EDITABLE.svg" download class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Story (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Story (Canva)
               </a>
             </div>
           </div>
 
           <div class="p-6 grid lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
-                <a href="piezas/03_feed_presentismo_biometrico_1080x1350.jpg" target="_blank">
-                  <img src="piezas/03_feed_presentismo_biometrico_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
-                </a>
+            <div class="lg:col-span-5 space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
+                  <a href="piezas/03_feed_presentismo_biometrico_1080x1350.jpg" target="_blank">
+                    <img id="img_feed_03" src="piezas/03_feed_presentismo_biometrico_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
+                  <a href="piezas/03_story_presentismo_biometrico_1080x1920.jpg" target="_blank">
+                    <img id="img_story_03" src="piezas/03_story_presentismo_biometrico_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
+                  </a>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
-                <a href="piezas/03_story_presentismo_biometrico_1080x1920.jpg" target="_blank">
-                  <img src="piezas/03_story_presentismo_biometrico_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
-                </a>
+
+              <!-- EDITOR RÁPIDO DEL TEXTO ADENTRO DE LA IMAGEN JPG (SIN ABRIR CANVA) -->
+              <div class="bg-amber-50/70 border-2 border-amber-400 rounded-xl p-4 space-y-2.5">
+                <div class="text-xs font-extrabold uppercase text-gray-900">🎨 Editar Texto Adentro de la Imagen (Sin abrir Canva)</div>
+                <p class="text-[11px] text-gray-700">Si querés cambiar una frase de la placa gráfica, modificala acá y tocá el botón: el servidor redibuja el JPG (1080×1350 y 1080×1920) en 1 segundo.</p>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Etiqueta Verde Superior:</label>
+                  <input id="tag_03" type="text" value="CONTROL BIOMÉTRICO · COBERTURA < 2 HORAS" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-bold text-[#03582d]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Titular Principal de la Placa:</label>
+                  <textarea id="title_03" rows="2" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-extrabold text-gray-900">Presentismo auditado en tiempo real y cobertura de ausencias en menos de 2 horas.</textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
+                  <textarea id="sub_03" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Reloj biométrico conectado a nuestra central operativa: alerta automática a los 15 minutos y envío inmediato de personal de reemplazo.</textarea>
+                </div>
+                <button type="button" onclick="saveOrSchedulePost('03', 'piezas/03_feed_presentismo_biometrico_1080x1350.jpg', 'piezas/03_story_presentismo_biometrico_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                  🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
+                </button>
               </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-[#03582d]">📸 Copy Instagram y Facebook</span>
-                  <button onclick="copyText('ig_03', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy IG/FB</button>
+                  <span class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Copy Editable: Instagram, Facebook, TikTok y Google Maps</span>
+                  <button onclick="copyText('ig_03', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy</button>
                 </div>
-                <pre id="ig_03" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">El Dato Técnico de Cleany: ¿Cómo aseguramos el 100% de los puestos cubiertos en cada turno?
+                <textarea id="ig_03" rows="9" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">El Dato Técnico de Cleany: ¿Cómo aseguramos el 100% de los puestos cubiertos en cada turno?
 
 En edificios corporativos, grandes consorcios, clínicas e industrias, una ausencia sin cubrir resiente toda la jornada. Por eso implementamos control biométrico conectado en tiempo real con nuestra mesa operativa:
 
@@ -760,15 +902,15 @@ En edificios corporativos, grandes consorcios, clínicas e industrias, una ausen
 
 Consultá por nuestros abonos corporativos en www.starunion.com.ar
 
-#StarUnion #ControlDePresentismo #GestionOperativa #ConsorciosCABA #EdificiosCorporativos #ISO9001</pre>
+#StarUnion #ControlDePresentismo #GestionOperativa #ConsorciosCABA #EdificiosCorporativos #ISO9001</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-gray-900">💼 Copy LinkedIn B2B</span>
+                  <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
                   <button onclick="copyText('li_03', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
-                <pre id="li_03" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">La previsibilidad en el servicio de limpieza corporativa no depende de promesas comerciales, sino de sistemas de control en tiempo real.
+                <textarea id="li_03" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">La previsibilidad en el servicio de limpieza corporativa no depende de promesas comerciales, sino de sistemas de control en tiempo real.
 
 En Star Union S.R.L. combinamos tecnología biométrica con capacidad de respuesta física:
 • Cada ingreso se valida mediante reloj biométrico conectado a nuestra central en CABA.
@@ -777,69 +919,95 @@ En Star Union S.R.L. combinamos tecnología biométrica con capacidad de respues
 
 👉 Conocé nuestro sistema de trazabilidad operativa en: https://www.starunion.com.ar/
 
-#RecursosHumanos #Operaciones #FacilityManagement #Consorcios #EdificiosCorporativos #ComplianceLaboral #StarUnion</pre>
+#RecursosHumanos #Operaciones #FacilityManagement #Consorcios #EdificiosCorporativos #ComplianceLaboral #StarUnion</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">▶️ Pack YouTube Shorts (Título + Descripción + Etiquetas)</div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Título:</strong> <span id="ytt_03" class="font-bold text-gray-900">Control Biométrico y Cobertura en < 2 Horas | El Dato Técnico de Cleany</span></div>
-                  <button onclick="copyText('ytt_03', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Pack Editable YouTube Shorts (Título + Descripción + Etiquetas)</div>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Título:</strong>
+                    <button onclick="copyText('ytt_03', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                  </div>
+                  <input id="ytt_03" type="text" value="Control Biométrico y Cobertura en < 2 Horas | El Dato Técnico de Cleany" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs font-bold text-gray-900">
                 </div>
-                <div class="bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="flex items-center justify-between mb-1">
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
                     <strong class="text-xs text-gray-600">Descripción:</strong>
                     <button onclick="copyText('ytd_03', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Descripción</button>
                   </div>
-                  <pre id="ytd_03" class="text-xs text-gray-800 whitespace-pre-wrap font-sans">Cómo funciona el sistema de control de presentismo biométrico en tiempo real de Star Union S.R.L. para garantizar puestos 100% cubiertos en cada turno.
+                  <textarea id="ytd_03" rows="5" class="w-full p-2.5 rounded border border-gray-300 text-xs text-gray-800 font-sans">Cómo funciona el sistema de control de presentismo biométrico en tiempo real de Star Union S.R.L. para garantizar puestos 100% cubiertos en cada turno.
 
 00:00 Fichaje biométrico en tiempo real en cada objetivo
 00:04 Alerta automática a los 15 minutos en nuestra central operativa
 00:08 Cobertura en menos de 2 horas con personal registrado y flota propia
 
-Solicitá una propuesta técnica en: https://www.starunion.com.ar/</pre>
+Solicitá una propuesta técnica en: https://www.starunion.com.ar/</textarea>
                 </div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Tags:</strong> <span id="yttags_03" class="text-gray-800">control biometrico limpieza, presentismo limpieza, empresa de limpieza caba, star union, consorcios caba, edificios corporativos limpieza</span></div>
-                  <button onclick="copyText('yttags_03', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Tags:</strong>
+                    <button onclick="copyText('yttags_03', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                  </div>
+                  <input id="yttags_03" type="text" value="control biometrico limpieza, presentismo limpieza, empresa de limpieza caba, star union, consorcios caba, edificios corporativos limpieza" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs text-gray-800">
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-between gap-3">
-                <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_03">Presentismo auditado por reloj biométrico con alerta a los 15 min y cobertura en menos de 2 horas. Conocé cómo protegemos la continuidad de tu edificio o empresa 👉 https://www.starunion.com.ar/</span></div>
-                <button onclick="copyText('wa_03', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs text-[#03582d] uppercase">📲 Pie Editable para Estado de WhatsApp:</strong>
+                  <button onclick="copyText('wa_03', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+                </div>
+                <input id="wa_03" type="text" value="Presentismo auditado por reloj biométrico con alerta a los 15 min y cobertura en menos de 2 horas. Conocé cómo protegemos la continuidad de tu edificio o empresa 👉 https://www.starunion.com.ar/" class="w-full px-2.5 py-1.5 rounded bg-white border border-gray-300 text-xs text-gray-800">
               </div>
 
-              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <!-- BARRA DE CALENDARIZACIÓN Y DISPARO DIRECTO POR API -->
               <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
-                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="text-xs font-extrabold uppercase text-[#03582d]">📅 Calendarizar Día/Hora o Publicar Ahora por API (Pieza #03):</div>
+                  <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border-2 border-[#03582d]">
+                    <span class="text-xs font-extrabold text-gray-800">📅 Día y Hora:</span>
+                    <input type="datetime-local" id="dt_03" value="2026-11-04T10:00" class="text-xs font-extrabold text-[#03582d] bg-transparent focus:outline-none">
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_03" checked> 📸 IG Feed (4:5)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_03" checked> 📱 IG Story (9:16)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_03" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_03" checked> 👍 Facebook Page</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_03" checked> 💼 LinkedIn Empresa</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_03" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_03" checked> ▶️ YouTube Shorts</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_03"> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_03" checked> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_03"> 💼 LinkedIn Empresa</label>
                 </div>
-                <button type="button" onclick="publishPostViaApi('03', 'piezas/03_feed_presentismo_biometrico_1080x1350.jpg', 'piezas/03_story_presentismo_biometrico_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
-                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #03)
-                </button>
+
+                <div class="grid sm:grid-cols-3 gap-2 pt-1">
+                  <button type="button" onclick="saveOrSchedulePost('03', 'piezas/03_feed_presentismo_biometrico_1080x1350.jpg', 'piezas/03_story_presentismo_biometrico_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    💾 Guardar Edición de Textos
+                  </button>
+                  <button type="button" onclick="saveOrSchedulePost('03', 'piezas/03_feed_presentismo_biometrico_1080x1350.jpg', 'piezas/03_story_presentismo_biometrico_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    📅 PROGRAMAR EN CALENDARIO API
+                  </button>
+                  <button type="button" onclick="publishPostViaApi('03', 'piezas/03_feed_presentismo_biometrico_1080x1350.jpg', 'piezas/03_story_presentismo_biometrico_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    🚀 PUBLICAR AHORA POR API
+                  </button>
+                </div>
                 <div id="api_res_03" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
               </div>
             </div>
           </div>
         </div>
         
-        <div id="post-04" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div id="post-04" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Viernes 06 Nov 2026</span>
+                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Viernes 06 Nov 2026 · 10:00 hs</span>
+                <span id="card_badge_04" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 4 · Clínicas, Hospitales y Laboratorios</span>
               </div>
-              <h2 class="text-lg font-extrabold text-gray-900 mt-1">Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</h2>
+              <h2 id="head_title_04" class="text-lg font-extrabold text-gray-900 mt-1">Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</h2>
               <p class="text-xs text-gray-600 mt-0.5"><strong>Sentido cronológico:</strong> Cierre de semana enfocado en el vertical regulado (Clínicas, Sanatorios y Laboratorios con insumos ANMAT + ISO 9001:2015 TÜV Rheinland), preparando el terreno antes del 1° Envío Perfit de Noviembre.</p>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -850,37 +1018,60 @@ Solicitá una propuesta técnica en: https://www.starunion.com.ar/</pre>
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="piezas/04_feed_salud_laboratorios_EDITABLE.svg" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Feed (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Feed (Canva)
               </a>
               <a href="piezas/04_story_salud_laboratorios_EDITABLE.svg" download class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Story (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Story (Canva)
               </a>
             </div>
           </div>
 
           <div class="p-6 grid lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
-                <a href="piezas/04_feed_salud_laboratorios_1080x1350.jpg" target="_blank">
-                  <img src="piezas/04_feed_salud_laboratorios_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
-                </a>
+            <div class="lg:col-span-5 space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
+                  <a href="piezas/04_feed_salud_laboratorios_1080x1350.jpg" target="_blank">
+                    <img id="img_feed_04" src="piezas/04_feed_salud_laboratorios_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
+                  <a href="piezas/04_story_salud_laboratorios_1080x1920.jpg" target="_blank">
+                    <img id="img_story_04" src="piezas/04_story_salud_laboratorios_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
+                  </a>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
-                <a href="piezas/04_story_salud_laboratorios_1080x1920.jpg" target="_blank">
-                  <img src="piezas/04_story_salud_laboratorios_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
-                </a>
+
+              <!-- EDITOR RÁPIDO DEL TEXTO ADENTRO DE LA IMAGEN JPG (SIN ABRIR CANVA) -->
+              <div class="bg-amber-50/70 border-2 border-amber-400 rounded-xl p-4 space-y-2.5">
+                <div class="text-xs font-extrabold uppercase text-gray-900">🎨 Editar Texto Adentro de la Imagen (Sin abrir Canva)</div>
+                <p class="text-[11px] text-gray-700">Si querés cambiar una frase de la placa gráfica, modificala acá y tocá el botón: el servidor redibuja el JPG (1080×1350 y 1080×1920) en 1 segundo.</p>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Etiqueta Verde Superior:</label>
+                  <input id="tag_04" type="text" value="SALUD Y LABORATORIOS · PROTOCOLOS ANMAT" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-bold text-[#03582d]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Titular Principal de la Placa:</label>
+                  <textarea id="title_04" rows="2" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-extrabold text-gray-900">Higiene técnica para clínicas, sanatorios y laboratorios de alta exigencia.</textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
+                  <textarea id="sub_04" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Protocolos contra contaminación cruzada, insumos aprobados por ANMAT con hojas de seguridad (MSDS) y supervisión auditada bajo ISO 9001:2015.</textarea>
+                </div>
+                <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                  🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
+                </button>
               </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-[#03582d]">📸 Copy Instagram y Facebook</span>
-                  <button onclick="copyText('ig_04', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy IG/FB</button>
+                  <span class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Copy Editable: Instagram, Facebook, TikTok y Google Maps</span>
+                  <button onclick="copyText('ig_04', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy</button>
                 </div>
-                <pre id="ig_04" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">En clínicas, centros de diagnóstico y laboratorios, la limpieza e higiene institucional exige rigor técnico verificable y trazabilidad documental.
+                <textarea id="ig_04" rows="9" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">En clínicas, centros de diagnóstico y laboratorios, la limpieza e higiene institucional exige rigor técnico verificable y trazabilidad documental.
 
 ✔️ Protocolos estrictos de zonificación por áreas críticas, semicríticas y comunes para evitar contaminación cruzada.
 ✔️ Insumos desinfectantes de grado profesional aprobados por ANMAT, con fichas técnicas y hojas de seguridad (MSDS) disponibles en el objetivo.
@@ -888,15 +1079,15 @@ Solicitá una propuesta técnica en: https://www.starunion.com.ar/</pre>
 
 Conocé nuestra división de Salud y Laboratorios en www.starunion.com.ar
 
-#StarUnion #Salud #ClinicasYHospitales #Laboratorios #HigieneHospitalaria #ISO9001 #ANMAT</pre>
+#StarUnion #Salud #ClinicasYHospitales #Laboratorios #HigieneHospitalaria #ISO9001 #ANMAT</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-gray-900">💼 Copy LinkedIn B2B</span>
+                  <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
                   <button onclick="copyText('li_04', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
-                <pre id="li_04" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">La gestión de higiene en instituciones de salud, centros médicos y laboratorios farmacéuticos requiere estándares auditables en cada turno.
+                <textarea id="li_04" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">La gestión de higiene en instituciones de salud, centros médicos y laboratorios farmacéuticos requiere estándares auditables en cada turno.
 
 Desde nuestra división especializada en Salud y Laboratorios, en Star Union S.R.L. implementamos:
 • Codificación estricta de elementos y paños por área para prevenir la contaminación cruzada.
@@ -905,69 +1096,95 @@ Desde nuestra división especializada en Salud y Laboratorios, en Star Union S.R
 
 👉 Consultá el protocolo técnico para instituciones médicas en: https://www.starunion.com.ar
 
-#SaludArgentina #GestionHospitalaria #Laboratorios #Bioseguridad #ISO9001 #StarUnion</pre>
+#SaludArgentina #GestionHospitalaria #Laboratorios #Bioseguridad #ISO9001 #StarUnion</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">▶️ Pack YouTube Shorts (Título + Descripción + Etiquetas)</div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Título:</strong> <span id="ytt_04" class="font-bold text-gray-900">Higiene Técnica en Clínicas, Sanatorios y Laboratorios | Star Union</span></div>
-                  <button onclick="copyText('ytt_04', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Pack Editable YouTube Shorts (Título + Descripción + Etiquetas)</div>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Título:</strong>
+                    <button onclick="copyText('ytt_04', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                  </div>
+                  <input id="ytt_04" type="text" value="Higiene Técnica en Clínicas, Sanatorios y Laboratorios | Star Union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs font-bold text-gray-900">
                 </div>
-                <div class="bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="flex items-center justify-between mb-1">
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
                     <strong class="text-xs text-gray-600">Descripción:</strong>
                     <button onclick="copyText('ytd_04', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Descripción</button>
                   </div>
-                  <pre id="ytd_04" class="text-xs text-gray-800 whitespace-pre-wrap font-sans">Protocolos de desinfección e higiene institucional para clínicas, hospitales, centros de diagnóstico y laboratorios bajo Norma ISO 9001:2015.
+                  <textarea id="ytd_04" rows="5" class="w-full p-2.5 rounded border border-gray-300 text-xs text-gray-800 font-sans">Protocolos de desinfección e higiene institucional para clínicas, hospitales, centros de diagnóstico y laboratorios bajo Norma ISO 9001:2015.
 
 00:00 Zonificación técnica y prevención de contaminación cruzada
 00:04 Insumos aprobados por ANMAT con hojas de seguridad (MSDS)
 00:08 Supervisión auditada bajo ISO 9001:2015 (TÜV Rheinland)
 
-Conocé más en: https://www.starunion.com.ar</pre>
+Conocé más en: https://www.starunion.com.ar</textarea>
                 </div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Tags:</strong> <span id="yttags_04" class="text-gray-800">limpieza de clinicas, limpieza hospitalaria, limpieza de laboratorios, insumos anmat, iso 9001 salud, star union</span></div>
-                  <button onclick="copyText('yttags_04', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Tags:</strong>
+                    <button onclick="copyText('yttags_04', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                  </div>
+                  <input id="yttags_04" type="text" value="limpieza de clinicas, limpieza hospitalaria, limpieza de laboratorios, insumos anmat, iso 9001 salud, star union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs text-gray-800">
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-between gap-3">
-                <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_04">Higiene técnica certificada ISO 9001:2015 para clínicas, sanatorios y laboratorios con insumos aprobados por ANMAT. 👉 https://www.starunion.com.ar</span></div>
-                <button onclick="copyText('wa_04', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs text-[#03582d] uppercase">📲 Pie Editable para Estado de WhatsApp:</strong>
+                  <button onclick="copyText('wa_04', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+                </div>
+                <input id="wa_04" type="text" value="Higiene técnica certificada ISO 9001:2015 para clínicas, sanatorios y laboratorios con insumos aprobados por ANMAT. 👉 https://www.starunion.com.ar" class="w-full px-2.5 py-1.5 rounded bg-white border border-gray-300 text-xs text-gray-800">
               </div>
 
-              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <!-- BARRA DE CALENDARIZACIÓN Y DISPARO DIRECTO POR API -->
               <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
-                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="text-xs font-extrabold uppercase text-[#03582d]">📅 Calendarizar Día/Hora o Publicar Ahora por API (Pieza #04):</div>
+                  <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border-2 border-[#03582d]">
+                    <span class="text-xs font-extrabold text-gray-800">📅 Día y Hora:</span>
+                    <input type="datetime-local" id="dt_04" value="2026-11-06T10:00" class="text-xs font-extrabold text-[#03582d] bg-transparent focus:outline-none">
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_04" checked> 📸 IG Feed (4:5)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_04" checked> 📱 IG Story (9:16)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_04" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_04" checked> 👍 Facebook Page</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_04" checked> 💼 LinkedIn Empresa</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_04" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_04" checked> ▶️ YouTube Shorts</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_04"> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_04" checked> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_04"> 💼 LinkedIn Empresa</label>
                 </div>
-                <button type="button" onclick="publishPostViaApi('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
-                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #04)
-                </button>
+
+                <div class="grid sm:grid-cols-3 gap-2 pt-1">
+                  <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    💾 Guardar Edición de Textos
+                  </button>
+                  <button type="button" onclick="saveOrSchedulePost('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    📅 PROGRAMAR EN CALENDARIO API
+                  </button>
+                  <button type="button" onclick="publishPostViaApi('04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    🚀 PUBLICAR AHORA POR API
+                  </button>
+                </div>
                 <div id="api_res_04" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
               </div>
             </div>
           </div>
         </div>
         
-        <div id="post-05" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div id="post-05" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Martes 10 Nov 2026</span>
+                <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 Martes 10 Nov 2026 · 10:00 hs</span>
+                <span id="card_badge_05" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">Publicación 5 · Universidades, Colegios y Clubes Deportivos</span>
               </div>
-              <h2 class="text-lg font-extrabold text-gray-900 mt-1">Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</h2>
+              <h2 id="head_title_05" class="text-lg font-extrabold text-gray-900 mt-1">Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</h2>
               <p class="text-xs text-gray-600 mt-0.5"><strong>Sentido cronológico:</strong> Pre-temporada de licitaciones educativas y deportivas (Universidades, Colegios y Clubes para receso de verano y colonia), conectando con el 1° Envío de Perfit de Noviembre (Jueves 19/11).</p>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -978,37 +1195,60 @@ Conocé más en: https://www.starunion.com.ar</pre>
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="piezas/05_feed_universidades_clubes_EDITABLE.svg" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Feed (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Feed (Canva)
               </a>
               <a href="piezas/05_story_universidades_clubes_EDITABLE.svg" download class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Story (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Story (Canva)
               </a>
             </div>
           </div>
 
           <div class="p-6 grid lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
-                <a href="piezas/05_feed_universidades_clubes_1080x1350.jpg" target="_blank">
-                  <img src="piezas/05_feed_universidades_clubes_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
-                </a>
+            <div class="lg:col-span-5 space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
+                  <a href="piezas/05_feed_universidades_clubes_1080x1350.jpg" target="_blank">
+                    <img id="img_feed_05" src="piezas/05_feed_universidades_clubes_1080x1350.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
+                  <a href="piezas/05_story_universidades_clubes_1080x1920.jpg" target="_blank">
+                    <img id="img_story_05" src="piezas/05_story_universidades_clubes_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
+                  </a>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
-                <a href="piezas/05_story_universidades_clubes_1080x1920.jpg" target="_blank">
-                  <img src="piezas/05_story_universidades_clubes_1080x1920.jpg" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
-                </a>
+
+              <!-- EDITOR RÁPIDO DEL TEXTO ADENTRO DE LA IMAGEN JPG (SIN ABRIR CANVA) -->
+              <div class="bg-amber-50/70 border-2 border-amber-400 rounded-xl p-4 space-y-2.5">
+                <div class="text-xs font-extrabold uppercase text-gray-900">🎨 Editar Texto Adentro de la Imagen (Sin abrir Canva)</div>
+                <p class="text-[11px] text-gray-700">Si querés cambiar una frase de la placa gráfica, modificala acá y tocá el botón: el servidor redibuja el JPG (1080×1350 y 1080×1920) en 1 segundo.</p>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Etiqueta Verde Superior:</label>
+                  <input id="tag_05" type="text" value="EDUCACIÓN Y DEPORTE · GRANDES PREDIOS" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-bold text-[#03582d]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Titular Principal de la Placa:</label>
+                  <textarea id="title_05" rows="2" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-extrabold text-gray-900">Mantenimiento integral de campus universitarios, colegios y clubes deportivos.</textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
+                  <textarea id="sub_05" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">Equipos sincronizados en contraturno y entre cambios de clase para aulas, auditorios, vestuarios y pisos deportivos de alto tránsito.</textarea>
+                </div>
+                <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                  🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
+                </button>
               </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-[#03582d]">📸 Copy Instagram y Facebook</span>
-                  <button onclick="copyText('ig_05', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy IG/FB</button>
+                  <span class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Copy Editable: Instagram, Facebook, TikTok y Google Maps</span>
+                  <button onclick="copyText('ig_05', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy</button>
                 </div>
-                <pre id="ig_05" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">Miles de personas circulan cada día por campus universitarios, colegios bilingües y clubes deportivos. Mantener cada espacio impecable sin interferir con las actividades académicas o deportivas requiere planificación milimétrica.
+                <textarea id="ig_05" rows="9" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">Miles de personas circulan cada día por campus universitarios, colegios bilingües y clubes deportivos. Mantener cada espacio impecable sin interferir con las actividades académicas o deportivas requiere planificación milimétrica.
 
 ✔️ Operación en contraturno nocturno y guardias activas durante los cambios de turno.
 ✔️ Tratamiento específico para pisos deportivos de madera/parquet, gimnasios, vestuarios, comedores y aulas.
@@ -1016,15 +1256,15 @@ Conocé más en: https://www.starunion.com.ar</pre>
 
 Conocé nuestras referencias en educación y deporte en www.starunion.com.ar
 
-#StarUnion #Universidades #Colegios #ClubesDeportivos #InfraestructuraEducativa #LimpiezaProfesional</pre>
+#StarUnion #Universidades #Colegios #ClubesDeportivos #InfraestructuraEducativa #LimpiezaProfesional</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-gray-900">💼 Copy LinkedIn B2B</span>
+                  <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
                   <button onclick="copyText('li_05', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
-                <pre id="li_05" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">¿Cómo se gestiona la higiene diaria de un campus universitario o un club deportivo donde circulan miles de personas por jornada?
+                <textarea id="li_05" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">¿Cómo se gestiona la higiene diaria de un campus universitario o un club deportivo donde circulan miles de personas por jornada?
 
 En Star Union S.R.L. acompañamos a instituciones educativas y deportivas líderes (como Universidad Torcuato Di Tella, Asociación Escuelas Lincoln y Club de Amigos) con un esquema de doble capa operativa:
 
@@ -1033,55 +1273,80 @@ En Star Union S.R.L. acompañamos a instituciones educativas y deportivas líder
 
 👉 Conocé nuestras soluciones para instituciones educativas y clubes en: https://www.starunion.com.ar
 
-#Educacion #Universidades #GestionDeportiva #FacilityManagement #ISO9001 #StarUnion</pre>
+#Educacion #Universidades #GestionDeportiva #FacilityManagement #ISO9001 #StarUnion</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">▶️ Pack YouTube Shorts (Título + Descripción + Etiquetas)</div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Título:</strong> <span id="ytt_05" class="font-bold text-gray-900">Limpieza Profesional en Universidades, Colegios y Clubes | Star Union</span></div>
-                  <button onclick="copyText('ytt_05', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Pack Editable YouTube Shorts (Título + Descripción + Etiquetas)</div>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Título:</strong>
+                    <button onclick="copyText('ytt_05', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                  </div>
+                  <input id="ytt_05" type="text" value="Limpieza Profesional en Universidades, Colegios y Clubes | Star Union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs font-bold text-gray-900">
                 </div>
-                <div class="bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="flex items-center justify-between mb-1">
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
                     <strong class="text-xs text-gray-600">Descripción:</strong>
                     <button onclick="copyText('ytd_05', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Descripción</button>
                   </div>
-                  <pre id="ytd_05" class="text-xs text-gray-800 whitespace-pre-wrap font-sans">Gestión de higiene y mantenimiento en contraturno para grandes campus universitarios, colegios e instituciones deportivas en CABA y GBA.
+                  <textarea id="ytd_05" rows="5" class="w-full p-2.5 rounded border border-gray-300 text-xs text-gray-800 font-sans">Gestión de higiene y mantenimiento en contraturno para grandes campus universitarios, colegios e instituciones deportivas en CABA y GBA.
 
 00:00 Cuidado técnico de pisos deportivos de parquet y gimnasios
 00:04 Operación sincronizada en aulas, laboratorios y vestuarios
 00:08 Personal capacitado y procesos certificados ISO 9001:2015
 
-Conocé más en: https://www.starunion.com.ar</pre>
+Conocé más en: https://www.starunion.com.ar</textarea>
                 </div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Tags:</strong> <span id="yttags_05" class="text-gray-800">limpieza de universidades, limpieza de colegios, limpieza de clubes deportivos, mantenimiento de campus, star union</span></div>
-                  <button onclick="copyText('yttags_05', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Tags:</strong>
+                    <button onclick="copyText('yttags_05', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                  </div>
+                  <input id="yttags_05" type="text" value="limpieza de universidades, limpieza de colegios, limpieza de clubes deportivos, mantenimiento de campus, star union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs text-gray-800">
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-between gap-3">
-                <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_05">Mantenimiento integral en contraturno para universidades, colegios y clubes deportivos con certificación ISO 9001:2015. 👉 https://www.starunion.com.ar</span></div>
-                <button onclick="copyText('wa_05', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs text-[#03582d] uppercase">📲 Pie Editable para Estado de WhatsApp:</strong>
+                  <button onclick="copyText('wa_05', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+                </div>
+                <input id="wa_05" type="text" value="Mantenimiento integral en contraturno para universidades, colegios y clubes deportivos con certificación ISO 9001:2015. 👉 https://www.starunion.com.ar" class="w-full px-2.5 py-1.5 rounded bg-white border border-gray-300 text-xs text-gray-800">
               </div>
 
-              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <!-- BARRA DE CALENDARIZACIÓN Y DISPARO DIRECTO POR API -->
               <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
-                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="text-xs font-extrabold uppercase text-[#03582d]">📅 Calendarizar Día/Hora o Publicar Ahora por API (Pieza #05):</div>
+                  <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border-2 border-[#03582d]">
+                    <span class="text-xs font-extrabold text-gray-800">📅 Día y Hora:</span>
+                    <input type="datetime-local" id="dt_05" value="2026-11-10T10:00" class="text-xs font-extrabold text-[#03582d] bg-transparent focus:outline-none">
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_05" checked> 📸 IG Feed (4:5)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_05" checked> 📱 IG Story (9:16)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_05" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_05" checked> 👍 Facebook Page</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_05" checked> 💼 LinkedIn Empresa</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_05" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_05" checked> ▶️ YouTube Shorts</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_05"> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_05" checked> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_05"> 💼 LinkedIn Empresa</label>
                 </div>
-                <button type="button" onclick="publishPostViaApi('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
-                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #05)
-                </button>
+
+                <div class="grid sm:grid-cols-3 gap-2 pt-1">
+                  <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    💾 Guardar Edición de Textos
+                  </button>
+                  <button type="button" onclick="saveOrSchedulePost('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    📅 PROGRAMAR EN CALENDARIO API
+                  </button>
+                  <button type="button" onclick="publishPostViaApi('05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    🚀 PUBLICAR AHORA POR API
+                  </button>
+                </div>
                 <div id="api_res_05" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
               </div>
             </div>
@@ -1096,7 +1361,8 @@ Conocé más en: https://www.starunion.com.ar</pre>
 
     function copyText(id, btn) {
       const el = document.getElementById(id);
-      navigator.clipboard.writeText(el.innerText);
+      const val = (el.value !== undefined) ? el.value : el.innerText;
+      navigator.clipboard.writeText(val);
       const old = btn.innerText;
       btn.innerText = '✅ ¡Copiado!';
       setTimeout(() => btn.innerText = old, 1800);
@@ -1185,10 +1451,7 @@ Conocé más en: https://www.starunion.com.ar</pre>
       }
     }
 
-    async function publishPostViaApi(id, feedFile, storyFile, reelFile, btn) {
-      const resBox = document.getElementById('api_res_' + id);
-      resBox.classList.remove('hidden');
-      resBox.innerHTML = '⏳ Publicando por API oficial en los canales seleccionados...';
+    function getSelectedChannels(id) {
       const channels = [];
       if (document.getElementById('chk_ig_feed_' + id).checked) channels.push('ig_feed');
       if (document.getElementById('chk_ig_story_' + id).checked) channels.push('ig_story');
@@ -1198,19 +1461,143 @@ Conocé más en: https://www.starunion.com.ar</pre>
       if (document.getElementById('chk_gmb_' + id).checked) channels.push('gmb');
       if (document.getElementById('chk_yt_' + id).checked) channels.push('youtube');
       if (document.getElementById('chk_tt_' + id).checked) channels.push('tiktok');
+      return channels;
+    }
+
+    function buildPostPayload(id, feedFile, storyFile, reelFile, statusMode, regenerateImage) {
+      return {
+        post_id: id,
+        status: statusMode || 'scheduled',
+        regenerate_image: !!regenerateImage,
+        scheduled_at: document.getElementById('dt_' + id).value,
+        channels: getSelectedChannels(id),
+        feed_file: feedFile,
+        story_file: storyFile,
+        reel_file: reelFile,
+        tag_img: document.getElementById('tag_img_' + id).value,
+        h1_img: document.getElementById('h1_img_' + id).value,
+        sub_img: document.getElementById('sub_img_' + id).value,
+        caption_ig: document.getElementById('ig_' + id).value,
+        caption_li: document.getElementById('li_' + id).value,
+        yt_title: document.getElementById('ytt_' + id).value,
+        yt_desc: document.getElementById('ytd_' + id).value,
+        yt_tags: document.getElementById('yttags_' + id).value,
+        wa_status: document.getElementById('wa_' + id).value,
+        public_url: 'https://www.starunion.com.ar',
+        title: document.getElementById('ytt_' + id).value
+      };
+    }
+
+    async function saveOrSchedulePost(id, feedFile, storyFile, reelFile, statusMode, regenerateImage, btn) {
+      const resBox = document.getElementById('api_res_' + id);
+      const badge = document.getElementById('sched_badge_' + id);
+      resBox.classList.remove('hidden');
+      const oldBtn = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = regenerateImage ? '⏳ Regenerando JPG + SVG...' : (statusMode === 'scheduled' ? '⏳ Programando...' : '⏳ Guardando...');
+      resBox.innerHTML = regenerateImage ? '🎨 Regenerando placa gráfica 1080×1350 y 1080×1920 con tu nuevo texto...' : '⏳ Guardando en motor de calendario...';
+
+      const payload = buildPostPayload(id, feedFile, storyFile, reelFile, statusMode, regenerateImage);
+      try {
+        const r = await fetch(API_BASE + '/api/schedule', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await r.json();
+        if (regenerateImage) {
+          const ts = Date.now();
+          const fImg = document.getElementById('img_feed_' + id);
+          const sImg = document.getElementById('img_story_' + id);
+          if (fImg) fImg.src = 'piezas/' + feedFile + '?v=' + ts;
+          if (sImg) sImg.src = 'piezas/' + storyFile + '?v=' + ts;
+        }
+        if (statusMode === 'scheduled') {
+          if (badge) {
+            badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-600 text-white';
+            badge.innerHTML = '📅 PROGRAMADO: ' + payload.scheduled_at.replace('T', ' ') + ' hs';
+          }
+          resBox.innerHTML = `✅ <strong>Programado en Calendario API:</strong> Saldrá el <strong>${payload.scheduled_at.replace('T', ' ')} hs</strong> en ${payload.channels.join(', ')}.`;
+          if (btn) btn.innerHTML = '✅ ¡Programado!';
+        } else {
+          resBox.innerHTML = regenerateImage
+            ? '✅ <strong>Placa JPG + SVG regenerada y textos guardados.</strong> Mirá la imagen actualizada a la izquierda.'
+            : '✅ <strong>Edición de textos guardada con éxito.</strong>';
+          if (btn) btn.innerHTML = '✅ ¡Guardado!';
+        }
+        setTimeout(() => { if (btn) btn.innerHTML = oldBtn; }, 2200);
+      } catch (e) {
+        resBox.innerHTML = '❌ Error conectando con servidor local: ' + e.message;
+        if (btn) btn.innerHTML = oldBtn;
+      }
+    }
+
+    async function scheduleAllPosts(btn) {
+      const posts = [
+        ['01', '01_feed_logistica_industria_1080x1350.jpg', '01_story_logistica_industria_1080x1920.jpg', 'short_01_infraestructura_y_presentismo_1080x1920.mp4'],
+        ['02', '02_feed_consorcios_edificios_1080x1350.jpg', '02_story_consorcios_edificios_1080x1920.jpg', 'REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
+        ['03', '03_feed_oficinas_corporativas_1080x1350.jpg', '03_story_oficinas_corporativas_1080x1920.jpg', 'REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
+        ['04', '04_feed_salud_laboratorios_1080x1350.jpg', '04_story_salud_laboratorios_1080x1920.jpg', 'short_02_verticales_iso9001_1080x1920.mp4'],
+        ['05', '05_feed_educacion_universidades_1080x1350.jpg', '05_story_educacion_universidades_1080x1920.jpg', 'short_02_verticales_iso9001_1080x1920.mp4']
+      ];
+      const old = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = '⏳ Programando las 5 publicaciones...';
+      for (const [id, ff, sf, rf] of posts) {
+        await saveOrSchedulePost(id, ff, sf, rf, 'scheduled', false, null);
+      }
+      if (btn) btn.innerHTML = '✅ ¡Las 5 Publicaciones quedaron Programadas!';
+      setTimeout(() => { if (btn) btn.innerHTML = old; }, 3000);
+    }
+
+    async function loadScheduleStatus() {
+      try {
+        const r = await fetch(API_BASE + '/api/schedule');
+        const data = await r.json();
+        const items = data.items || {};
+        for (const [id, item] of Object.entries(items)) {
+          if (item.scheduled_at && document.getElementById('dt_' + id)) {
+            document.getElementById('dt_' + id).value = item.scheduled_at;
+          }
+          if (item.caption_ig && document.getElementById('ig_' + id)) document.getElementById('ig_' + id).value = item.caption_ig;
+          if (item.caption_li && document.getElementById('li_' + id)) document.getElementById('li_' + id).value = item.caption_li;
+          if (item.yt_title && document.getElementById('ytt_' + id)) document.getElementById('ytt_' + id).value = item.yt_title;
+          if (item.yt_desc && document.getElementById('ytd_' + id)) document.getElementById('ytd_' + id).value = item.yt_desc;
+          if (item.yt_tags && document.getElementById('yttags_' + id)) document.getElementById('yttags_' + id).value = item.yt_tags;
+          if (item.wa_status && document.getElementById('wa_' + id)) document.getElementById('wa_' + id).value = item.wa_status;
+          if (item.tag_img && document.getElementById('tag_img_' + id)) document.getElementById('tag_img_' + id).value = item.tag_img;
+          if (item.h1_img && document.getElementById('h1_img_' + id)) document.getElementById('h1_img_' + id).value = item.h1_img;
+          if (item.sub_img && document.getElementById('sub_img_' + id)) document.getElementById('sub_img_' + id).value = item.sub_img;
+          const badge = document.getElementById('sched_badge_' + id);
+          if (badge) {
+            if (item.status === 'scheduled') {
+              badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-600 text-white';
+              badge.innerHTML = '📅 PROGRAMADO: ' + (item.scheduled_at || '').replace('T', ' ') + ' hs';
+            } else if (item.status === 'published') {
+              badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-700 text-white';
+              badge.innerHTML = '✅ PUBLICADO POR API';
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
+    async function publishPostViaApi(id, feedFile, storyFile, reelFile, btn) {
+      const resBox = document.getElementById('api_res_' + id);
+      resBox.classList.remove('hidden');
+      resBox.innerHTML = '⏳ Publicando por API oficial en los canales seleccionados...';
+      const channels = getSelectedChannels(id);
 
       const payload = {
         channels: channels,
         feed_file: feedFile,
         story_file: storyFile,
         reel_file: reelFile,
-        caption_ig: document.getElementById('ig_' + id).innerText,
-        caption_li: document.getElementById('li_' + id).innerText,
-        yt_title: document.getElementById('ytt_' + id).innerText,
-        yt_desc: document.getElementById('ytd_' + id).innerText,
-        yt_tags: document.getElementById('yttags_' + id).innerText,
+        caption_ig: document.getElementById('ig_' + id).value,
+        caption_li: document.getElementById('li_' + id).value,
+        yt_title: document.getElementById('ytt_' + id).value,
+        yt_desc: document.getElementById('ytd_' + id).value,
+        yt_tags: document.getElementById('yttags_' + id).value,
         public_url: 'https://www.starunion.com.ar',
-        title: document.getElementById('ytt_' + id).innerText
+        title: document.getElementById('ytt_' + id).value
       };
       try {
         const r = await fetch(API_BASE + '/api/publish', {
@@ -1231,6 +1618,7 @@ Conocé más en: https://www.starunion.com.ar</pre>
 
     window.addEventListener('DOMContentLoaded', () => {
       loadApiStatus();
+      loadScheduleStatus();
       setInterval(loadApiStatus, 3000);
     });
   </script>

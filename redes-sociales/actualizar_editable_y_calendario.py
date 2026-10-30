@@ -8,28 +8,33 @@ from generar_pack_redes import POSTS, OUT_DIR, PIEZAS_DIR, BASE_DIR
 # Add chronological dates & rationale to each post
 CALENDAR_META = [
     {
-        "date": "Jueves 29 Oct 2026",
-        "channels": "IG Feed + FB + LinkedIn + Estado WA + Short #1",
+        "date": "Viernes 30 Oct 2026 · 10:00 hs",
+        "iso_dt": "2026-10-30T10:00",
+        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
         "reason": "Acompaña en caliente los 179 clics a WhatsApp del Mailing de Octubre (#116/#119) donde el bloque #1 más clickeado (197 clics) fue Centros Logísticos y Plantas Industriales."
     },
     {
-        "date": "Lunes 02 Nov 2026",
-        "channels": "LinkedIn + IG Feed + FB + Story",
+        "date": "Lunes 02 Nov 2026 · 10:00 hs",
+        "iso_dt": "2026-11-02T10:00",
+        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
         "reason": "Abre noviembre mostrando el diferenciador físico duro (Base Propia de 800 m² en Guaminí 5657 y Taller Electromecánico In-House) para decisores técnicos que están evaluando recambio de proveedor."
     },
     {
-        "date": "Miércoles 04 Nov 2026",
-        "channels": "IG Feed + FB + LinkedIn + Estado WA",
+        "date": "Miércoles 04 Nov 2026 · 10:00 hs",
+        "iso_dt": "2026-11-04T10:00",
+        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
         "reason": "Mitad de semana: ataca el dolor #1 de Administraciones y Gerencias (el ausentismo) con 'El Dato Técnico de Cleany' (Reloj Biométrico con alerta a los 15 min y cobertura < 2 hs)."
     },
     {
-        "date": "Viernes 06 Nov 2026",
-        "channels": "LinkedIn + IG Feed + FB + Short #2",
+        "date": "Viernes 06 Nov 2026 · 10:00 hs",
+        "iso_dt": "2026-11-06T10:00",
+        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
         "reason": "Cierre de semana enfocado en el vertical regulado (Clínicas, Sanatorios y Laboratorios con insumos ANMAT + ISO 9001:2015 TÜV Rheinland), preparando el terreno antes del 1° Envío Perfit de Noviembre."
     },
     {
-        "date": "Martes 10 Nov 2026",
-        "channels": "IG Feed + FB + LinkedIn + Estado WA",
+        "date": "Martes 10 Nov 2026 · 10:00 hs",
+        "iso_dt": "2026-11-10T10:00",
+        "channels": "IG Feed + Story + Reel + FB + Maps + YouTube + TikTok",
         "reason": "Pre-temporada de licitaciones educativas y deportivas (Universidades, Colegios y Clubes para receso de verano y colonia), conectando con el 1° Envío de Perfit de Noviembre (Jueves 19/11)."
     }
 ]
@@ -149,6 +154,7 @@ def main():
         for i, p in enumerate(POSTS):
             meta = CALENDAR_META[i]
             p["date"] = meta["date"]
+            p["iso_dt"] = meta["iso_dt"]
             p["channels"] = meta["channels"]
             p["reason"] = meta["reason"]
 
@@ -172,12 +178,15 @@ def main():
     for p in POSTS:
         cal_rows += f"""
         <tr class="hover:bg-gray-50">
-          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">{p['date']}</td>
-          <td class="p-3 font-bold text-gray-900">#{p['id']} · {p['title']}</td>
+          <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">
+            <div>{p['date']}</div>
+            <span id="cal_badge_{p['id']}" class="inline-block mt-1 bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">✏️ Lista para programar</span>
+          </td>
+          <td class="p-3 font-bold text-gray-900">#{p['id']} · <span id="cal_title_{p['id']}">{p['title']}</span></td>
           <td class="p-3 text-gray-700 font-semibold">{p['channels']}</td>
           <td class="p-3 text-gray-600">{p['reason']}</td>
-          <td class="p-3 text-center whitespace-nowrap">
-            <a href="#post-{p['id']}" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ir a Pieza #{p['id']} ↓</a>
+          <td class="p-3 text-center whitespace-nowrap space-y-1">
+            <a href="#post-{p['id']}" class="block bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">✏️ Editar / Calendarizar #{p['id']} ↓</a>
           </td>
         </tr>
         """
@@ -207,14 +216,15 @@ def main():
     cards_html = ""
     for p in POSTS:
         cards_html += f"""
-        <div id="post-{p['id']}" class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div id="post-{p['id']}" class="bg-white rounded-2xl border-2 border-gray-200 shadow-sm overflow-hidden">
           <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-0.5 rounded-full">📅 {p['date']}</span>
+                <span id="card_badge_{p['id']}" class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-0.5 rounded-full">✏️ Editable y Lista para Programar</span>
                 <span class="text-xs font-extrabold uppercase tracking-wider text-[#03582d]">{p['day_label']}</span>
               </div>
-              <h2 class="text-lg font-extrabold text-gray-900 mt-1">{p['title']}</h2>
+              <h2 id="head_title_{p['id']}" class="text-lg font-extrabold text-gray-900 mt-1">{p['title']}</h2>
               <p class="text-xs text-gray-600 mt-0.5"><strong>Sentido cronológico:</strong> {p['reason']}</p>
             </div>
             <div class="flex flex-wrap gap-2">
@@ -225,87 +235,135 @@ def main():
                 ⬇ JPG Story/WA (1080×1920)
               </a>
               <a href="{p['svg_feed_file']}" download class="bg-white border-2 border-[#03582d] text-[#03582d] hover:bg-[#03582d]/5 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Feed (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Feed (Canva)
               </a>
               <a href="{p['svg_story_file']}" download class="bg-white border-2 border-gray-800 text-gray-900 hover:bg-gray-100 text-xs font-extrabold px-3.5 py-2 rounded-lg transition">
-                ✏️ SVG Editable Story (Canva / Illustrator / Adobe)
+                ✏️ SVG Editable Story (Canva)
               </a>
             </div>
           </div>
 
           <div class="p-6 grid lg:grid-cols-12 gap-6 items-start">
-            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
-                <a href="{p['feed_file']}" target="_blank">
-                  <img src="{p['feed_file']}" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
-                </a>
+            <div class="lg:col-span-5 space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Feed IG / FB / LinkedIn (1080×1350)</div>
+                  <a href="{p['feed_file']}" target="_blank">
+                    <img id="img_feed_{p['id']}" src="{p['feed_file']}" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Feed">
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
+                  <a href="{p['story_file']}" target="_blank">
+                    <img id="img_story_{p['id']}" src="{p['story_file']}" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
+                  </a>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold text-gray-500 mb-2">Story IG/FB + Estado WhatsApp (1080×1920)</div>
-                <a href="{p['story_file']}" target="_blank">
-                  <img src="{p['story_file']}" class="w-full rounded-xl border border-gray-200 shadow-sm hover:opacity-95 transition" alt="Story">
-                </a>
+
+              <!-- EDITOR RÁPIDO DEL TEXTO ADENTRO DE LA IMAGEN JPG (SIN ABRIR CANVA) -->
+              <div class="bg-amber-50/70 border-2 border-amber-400 rounded-xl p-4 space-y-2.5">
+                <div class="text-xs font-extrabold uppercase text-gray-900">🎨 Editar Texto Adentro de la Imagen (Sin abrir Canva)</div>
+                <p class="text-[11px] text-gray-700">Si querés cambiar una frase de la placa gráfica, modificala acá y tocá el botón: el servidor redibuja el JPG (1080×1350 y 1080×1920) en 1 segundo.</p>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Etiqueta Verde Superior:</label>
+                  <input id="tag_{p['id']}" type="text" value="{p['tag']}" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-bold text-[#03582d]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Titular Principal de la Placa:</label>
+                  <textarea id="title_{p['id']}" rows="2" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-extrabold text-gray-900">{p['title']}</textarea>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-gray-700 mb-0.5">Bajada de la Placa:</label>
+                  <textarea id="sub_{p['id']}" rows="3" class="w-full px-2.5 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-gray-800">{p['subtitle']}</textarea>
+                </div>
+                <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', true, this)" class="w-full bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-lg transition">
+                  🎨 Regenerar Placa JPG + SVG con este Texto (1 Clic)
+                </button>
               </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-[#03582d]">📸 Copy Instagram y Facebook</span>
-                  <button onclick="copyText('ig_{p['id']}', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy IG/FB</button>
+                  <span class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Copy Editable: Instagram, Facebook, TikTok y Google Maps</span>
+                  <button onclick="copyText('ig_{p['id']}', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy</button>
                 </div>
-                <pre id="ig_{p['id']}" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">{p['copy_ig_fb']}</pre>
+                <textarea id="ig_{p['id']}" rows="9" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">{p['copy_ig_fb']}</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-extrabold uppercase text-gray-900">💼 Copy LinkedIn B2B</span>
+                  <span class="text-xs font-extrabold uppercase text-gray-900">✏️ Copy Editable: LinkedIn B2B</span>
                   <button onclick="copyText('li_{p['id']}', this)" class="bg-[#111827] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg">📋 Copiar Copy LinkedIn</button>
                 </div>
-                <pre id="li_{p['id']}" class="text-xs text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">{p['copy_linkedin']}</pre>
+                <textarea id="li_{p['id']}" rows="8" class="w-full p-3 rounded-lg bg-white border border-gray-300 text-xs text-gray-800 font-sans leading-relaxed">{p['copy_linkedin']}</textarea>
               </div>
 
               <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-2">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">▶️ Pack YouTube Shorts (Título + Descripción + Etiquetas)</div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Título:</strong> <span id="ytt_{p['id']}" class="font-bold text-gray-900">{p['yt_title']}</span></div>
-                  <button onclick="copyText('ytt_{p['id']}', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                <div class="text-xs font-extrabold uppercase text-[#03582d]">✏️ Pack Editable YouTube Shorts (Título + Descripción + Etiquetas)</div>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Título:</strong>
+                    <button onclick="copyText('ytt_{p['id']}', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Título</button>
+                  </div>
+                  <input id="ytt_{p['id']}" type="text" value="{p['yt_title']}" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs font-bold text-gray-900">
                 </div>
-                <div class="bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="flex items-center justify-between mb-1">
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
                     <strong class="text-xs text-gray-600">Descripción:</strong>
                     <button onclick="copyText('ytd_{p['id']}', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded">📋 Copiar Descripción</button>
                   </div>
-                  <pre id="ytd_{p['id']}" class="text-xs text-gray-800 whitespace-pre-wrap font-sans">{p['yt_desc']}</pre>
+                  <textarea id="ytd_{p['id']}" rows="5" class="w-full p-2.5 rounded border border-gray-300 text-xs text-gray-800 font-sans">{p['yt_desc']}</textarea>
                 </div>
-                <div class="flex items-center justify-between gap-2 bg-white p-2.5 rounded-lg border border-gray-200">
-                  <div class="text-xs"><strong class="text-gray-600">Tags:</strong> <span id="yttags_{p['id']}" class="text-gray-800">{p['yt_tags']}</span></div>
-                  <button onclick="copyText('yttags_{p['id']}', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                <div class="bg-white p-2.5 rounded-lg border border-gray-200 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <strong class="text-xs text-gray-600">Tags:</strong>
+                    <button onclick="copyText('yttags_{p['id']}', this)" class="bg-gray-200 hover:bg-gray-300 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded shrink-0">📋 Copiar Tags</button>
+                  </div>
+                  <input id="yttags_{p['id']}" type="text" value="{p['yt_tags']}" class="w-full px-2.5 py-1.5 rounded border border-gray-300 text-xs text-gray-800">
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-between gap-3">
-                <div class="text-xs text-gray-800"><strong class="text-[#03582d] uppercase block mb-0.5">📲 Pie para Estado de WhatsApp:</strong><span id="wa_{p['id']}">{p['copy_wa']}</span></div>
-                <button onclick="copyText('wa_{p['id']}', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs text-[#03582d] uppercase">📲 Pie Editable para Estado de WhatsApp:</strong>
+                  <button onclick="copyText('wa_{p['id']}', this)" class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-lg shrink-0">📋 Copiar Texto WA</button>
+                </div>
+                <input id="wa_{p['id']}" type="text" value="{p['copy_wa']}" class="w-full px-2.5 py-1.5 rounded bg-white border border-gray-300 text-xs text-gray-800">
               </div>
 
-              <!-- BARRA DE APROBACIÓN HUMANA Y DISPARO DIRECTO POR API -->
+              <!-- BARRA DE CALENDARIZACIÓN Y DISPARO DIRECTO POR API -->
               <div class="bg-emerald-50/90 border-2 border-[#03582d] rounded-xl p-4 space-y-3">
-                <div class="text-xs font-extrabold uppercase text-[#03582d]">🚀 Aprobación Humana y Disparo Directo por API (Marcá en qué redes publicar esta pieza):</div>
-                <div class="flex flex-wrap gap-3 text-xs font-bold text-gray-900">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="text-xs font-extrabold uppercase text-[#03582d]">📅 Calendarizar Día/Hora o Publicar Ahora por API (Pieza #{p['id']}):</div>
+                  <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border-2 border-[#03582d]">
+                    <span class="text-xs font-extrabold text-gray-800">📅 Día y Hora:</span>
+                    <input type="datetime-local" id="dt_{p['id']}" value="{p['iso_dt']}" class="text-xs font-extrabold text-[#03582d] bg-transparent focus:outline-none">
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 text-xs font-bold text-gray-900">
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_feed_{p['id']}" checked> 📸 IG Feed (4:5)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_ig_story_{p['id']}" checked> 📱 IG Story (9:16)</label>
                   <label class="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-400"><input type="checkbox" id="chk_ig_reel_{p['id']}" checked> 🎬 IG Reel MP4 (Voz Varón + Funk)</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_fb_{p['id']}" checked> 👍 Facebook Page</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_{p['id']}" checked> 💼 LinkedIn Empresa</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_gmb_{p['id']}" checked> 📍 Google My Business</label>
                   <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_yt_{p['id']}" checked> ▶️ YouTube Shorts</label>
-                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_{p['id']}"> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_tt_{p['id']}" checked> 🎵 TikTok</label>
+                  <label class="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-lg border border-gray-300"><input type="checkbox" id="chk_li_{p['id']}"> 💼 LinkedIn Empresa</label>
                 </div>
-                <button type="button" onclick="publishPostViaApi('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="w-full bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-4 rounded-xl transition shadow-sm">
-                  🚀 APROBAR Y PUBLICAR AHORA POR API EN LAS REDES MARCADAS (PIEZA #{p['id']})
-                </button>
+
+                <div class="grid sm:grid-cols-3 gap-2 pt-1">
+                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'borrador', false, this)" class="bg-gray-900 hover:bg-black text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    💾 Guardar Edición de Textos
+                  </button>
+                  <button type="button" onclick="saveOrSchedulePost('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', 'programado', false, this)" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    📅 PROGRAMAR EN CALENDARIO API
+                  </button>
+                  <button type="button" onclick="publishPostViaApi('{p['id']}', '{p['feed_file']}', '{p['story_file']}', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-3 px-3 rounded-xl transition shadow-sm">
+                    🚀 PUBLICAR AHORA POR API
+                  </button>
+                </div>
                 <div id="api_res_{p['id']}" class="text-xs font-semibold text-gray-800 hidden bg-white p-3 rounded-lg border border-gray-200"></div>
               </div>
             </div>
@@ -531,9 +589,14 @@ def main():
           <span class="text-xs font-extrabold uppercase text-[#03582d]">1. Cronograma con Sentido Comercial (Octubre → Noviembre 2026)</span>
           <h2 class="text-lg sm:text-xl font-extrabold text-gray-900">Calendario de Publicaciones Conectado al Embudo de Mailings Perfit</h2>
         </div>
-        <span class="text-xs bg-gray-100 text-gray-800 font-bold px-3 py-1.5 rounded-lg">
-          💡 Para editar en Canva / Illustrator / Adobe Express: descargá el botón <strong>✏️ SVG Editable</strong> de cualquier pieza y arrastralo a Canva o Illustrator.
-        </span>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="scheduleAllPosts(this)" class="bg-blue-700 hover:bg-blue-800 text-white text-xs font-extrabold px-4 py-2 rounded-lg shadow transition">
+            📅 Programar las 5 Publicaciones del Mes en 1 Clic (API)
+          </button>
+          <span class="text-xs bg-gray-100 text-gray-800 font-bold px-3 py-1.5 rounded-lg">
+            💡 Editá textos, fechas y placas acá mismo o bajá el <strong>✏️ SVG Editable</strong>.
+          </span>
+        </div>
       </div>
 
       <div class="overflow-x-auto border border-gray-200 rounded-xl">
@@ -692,7 +755,8 @@ def main():
 
     function copyText(id, btn) {{
       const el = document.getElementById(id);
-      navigator.clipboard.writeText(el.innerText);
+      const val = (el.value !== undefined) ? el.value : el.innerText;
+      navigator.clipboard.writeText(val);
       const old = btn.innerText;
       btn.innerText = '✅ ¡Copiado!';
       setTimeout(() => btn.innerText = old, 1800);
@@ -781,10 +845,7 @@ def main():
       }}
     }}
 
-    async function publishPostViaApi(id, feedFile, storyFile, reelFile, btn) {{
-      const resBox = document.getElementById('api_res_' + id);
-      resBox.classList.remove('hidden');
-      resBox.innerHTML = '⏳ Publicando por API oficial en los canales seleccionados...';
+    function getSelectedChannels(id) {{
       const channels = [];
       if (document.getElementById('chk_ig_feed_' + id).checked) channels.push('ig_feed');
       if (document.getElementById('chk_ig_story_' + id).checked) channels.push('ig_story');
@@ -794,19 +855,143 @@ def main():
       if (document.getElementById('chk_gmb_' + id).checked) channels.push('gmb');
       if (document.getElementById('chk_yt_' + id).checked) channels.push('youtube');
       if (document.getElementById('chk_tt_' + id).checked) channels.push('tiktok');
+      return channels;
+    }}
+
+    function buildPostPayload(id, feedFile, storyFile, reelFile, statusMode, regenerateImage) {{
+      return {{
+        post_id: id,
+        status: statusMode || 'scheduled',
+        regenerate_image: !!regenerateImage,
+        scheduled_at: document.getElementById('dt_' + id).value,
+        channels: getSelectedChannels(id),
+        feed_file: feedFile,
+        story_file: storyFile,
+        reel_file: reelFile,
+        tag_img: document.getElementById('tag_img_' + id).value,
+        h1_img: document.getElementById('h1_img_' + id).value,
+        sub_img: document.getElementById('sub_img_' + id).value,
+        caption_ig: document.getElementById('ig_' + id).value,
+        caption_li: document.getElementById('li_' + id).value,
+        yt_title: document.getElementById('ytt_' + id).value,
+        yt_desc: document.getElementById('ytd_' + id).value,
+        yt_tags: document.getElementById('yttags_' + id).value,
+        wa_status: document.getElementById('wa_' + id).value,
+        public_url: 'https://www.starunion.com.ar',
+        title: document.getElementById('ytt_' + id).value
+      }};
+    }}
+
+    async function saveOrSchedulePost(id, feedFile, storyFile, reelFile, statusMode, regenerateImage, btn) {{
+      const resBox = document.getElementById('api_res_' + id);
+      const badge = document.getElementById('sched_badge_' + id);
+      resBox.classList.remove('hidden');
+      const oldBtn = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = regenerateImage ? '⏳ Regenerando JPG + SVG...' : (statusMode === 'scheduled' ? '⏳ Programando...' : '⏳ Guardando...');
+      resBox.innerHTML = regenerateImage ? '🎨 Regenerando placa gráfica 1080×1350 y 1080×1920 con tu nuevo texto...' : '⏳ Guardando en motor de calendario...';
+
+      const payload = buildPostPayload(id, feedFile, storyFile, reelFile, statusMode, regenerateImage);
+      try {{
+        const r = await fetch(API_BASE + '/api/schedule', {{
+          method: 'POST',
+          headers: {{ 'Content-Type': 'application/json' }},
+          body: JSON.stringify(payload)
+        }});
+        const data = await r.json();
+        if (regenerateImage) {{
+          const ts = Date.now();
+          const fImg = document.getElementById('img_feed_' + id);
+          const sImg = document.getElementById('img_story_' + id);
+          if (fImg) fImg.src = 'piezas/' + feedFile + '?v=' + ts;
+          if (sImg) sImg.src = 'piezas/' + storyFile + '?v=' + ts;
+        }}
+        if (statusMode === 'scheduled') {{
+          if (badge) {{
+            badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-600 text-white';
+            badge.innerHTML = '📅 PROGRAMADO: ' + payload.scheduled_at.replace('T', ' ') + ' hs';
+          }}
+          resBox.innerHTML = `✅ <strong>Programado en Calendario API:</strong> Saldrá el <strong>${{payload.scheduled_at.replace('T', ' ')}} hs</strong> en ${{payload.channels.join(', ')}}.`;
+          if (btn) btn.innerHTML = '✅ ¡Programado!';
+        }} else {{
+          resBox.innerHTML = regenerateImage
+            ? '✅ <strong>Placa JPG + SVG regenerada y textos guardados.</strong> Mirá la imagen actualizada a la izquierda.'
+            : '✅ <strong>Edición de textos guardada con éxito.</strong>';
+          if (btn) btn.innerHTML = '✅ ¡Guardado!';
+        }}
+        setTimeout(() => {{ if (btn) btn.innerHTML = oldBtn; }}, 2200);
+      }} catch (e) {{
+        resBox.innerHTML = '❌ Error conectando con servidor local: ' + e.message;
+        if (btn) btn.innerHTML = oldBtn;
+      }}
+    }}
+
+    async function scheduleAllPosts(btn) {{
+      const posts = [
+        ['01', '01_feed_logistica_industria_1080x1350.jpg', '01_story_logistica_industria_1080x1920.jpg', 'short_01_infraestructura_y_presentismo_1080x1920.mp4'],
+        ['02', '02_feed_consorcios_edificios_1080x1350.jpg', '02_story_consorcios_edificios_1080x1920.jpg', 'REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
+        ['03', '03_feed_oficinas_corporativas_1080x1350.jpg', '03_story_oficinas_corporativas_1080x1920.jpg', 'REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
+        ['04', '04_feed_salud_laboratorios_1080x1350.jpg', '04_story_salud_laboratorios_1080x1920.jpg', 'short_02_verticales_iso9001_1080x1920.mp4'],
+        ['05', '05_feed_educacion_universidades_1080x1350.jpg', '05_story_educacion_universidades_1080x1920.jpg', 'short_02_verticales_iso9001_1080x1920.mp4']
+      ];
+      const old = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = '⏳ Programando las 5 publicaciones...';
+      for (const [id, ff, sf, rf] of posts) {{
+        await saveOrSchedulePost(id, ff, sf, rf, 'scheduled', false, null);
+      }}
+      if (btn) btn.innerHTML = '✅ ¡Las 5 Publicaciones quedaron Programadas!';
+      setTimeout(() => {{ if (btn) btn.innerHTML = old; }}, 3000);
+    }}
+
+    async function loadScheduleStatus() {{
+      try {{
+        const r = await fetch(API_BASE + '/api/schedule');
+        const data = await r.json();
+        const items = data.items || {{}};
+        for (const [id, item] of Object.entries(items)) {{
+          if (item.scheduled_at && document.getElementById('dt_' + id)) {{
+            document.getElementById('dt_' + id).value = item.scheduled_at;
+          }}
+          if (item.caption_ig && document.getElementById('ig_' + id)) document.getElementById('ig_' + id).value = item.caption_ig;
+          if (item.caption_li && document.getElementById('li_' + id)) document.getElementById('li_' + id).value = item.caption_li;
+          if (item.yt_title && document.getElementById('ytt_' + id)) document.getElementById('ytt_' + id).value = item.yt_title;
+          if (item.yt_desc && document.getElementById('ytd_' + id)) document.getElementById('ytd_' + id).value = item.yt_desc;
+          if (item.yt_tags && document.getElementById('yttags_' + id)) document.getElementById('yttags_' + id).value = item.yt_tags;
+          if (item.wa_status && document.getElementById('wa_' + id)) document.getElementById('wa_' + id).value = item.wa_status;
+          if (item.tag_img && document.getElementById('tag_img_' + id)) document.getElementById('tag_img_' + id).value = item.tag_img;
+          if (item.h1_img && document.getElementById('h1_img_' + id)) document.getElementById('h1_img_' + id).value = item.h1_img;
+          if (item.sub_img && document.getElementById('sub_img_' + id)) document.getElementById('sub_img_' + id).value = item.sub_img;
+          const badge = document.getElementById('sched_badge_' + id);
+          if (badge) {{
+            if (item.status === 'scheduled') {{
+              badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-600 text-white';
+              badge.innerHTML = '📅 PROGRAMADO: ' + (item.scheduled_at || '').replace('T', ' ') + ' hs';
+            }} else if (item.status === 'published') {{
+              badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-700 text-white';
+              badge.innerHTML = '✅ PUBLICADO POR API';
+            }}
+          }}
+        }}
+      }} catch (e) {{}}
+    }}
+
+    async function publishPostViaApi(id, feedFile, storyFile, reelFile, btn) {{
+      const resBox = document.getElementById('api_res_' + id);
+      resBox.classList.remove('hidden');
+      resBox.innerHTML = '⏳ Publicando por API oficial en los canales seleccionados...';
+      const channels = getSelectedChannels(id);
 
       const payload = {{
         channels: channels,
         feed_file: feedFile,
         story_file: storyFile,
         reel_file: reelFile,
-        caption_ig: document.getElementById('ig_' + id).innerText,
-        caption_li: document.getElementById('li_' + id).innerText,
-        yt_title: document.getElementById('ytt_' + id).innerText,
-        yt_desc: document.getElementById('ytd_' + id).innerText,
-        yt_tags: document.getElementById('yttags_' + id).innerText,
+        caption_ig: document.getElementById('ig_' + id).value,
+        caption_li: document.getElementById('li_' + id).value,
+        yt_title: document.getElementById('ytt_' + id).value,
+        yt_desc: document.getElementById('ytd_' + id).value,
+        yt_tags: document.getElementById('yttags_' + id).value,
         public_url: 'https://www.starunion.com.ar',
-        title: document.getElementById('ytt_' + id).innerText
+        title: document.getElementById('ytt_' + id).value
       }};
       try {{
         const r = await fetch(API_BASE + '/api/publish', {{
@@ -827,6 +1012,7 @@ def main():
 
     window.addEventListener('DOMContentLoaded', () => {{
       loadApiStatus();
+      loadScheduleStatus();
       setInterval(loadApiStatus, 3000);
     }});
   </script>
