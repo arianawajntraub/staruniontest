@@ -454,8 +454,9 @@ def main():
             </p>
           </div>
           <div class="space-y-2 pt-2">
-            <input id="inp-tt-ck" type="text" placeholder="Pegar Client key de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
-            <input id="inp-tt-cs" type="password" placeholder="Pegar Client secret de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <div id="status-box-tt" class="hidden bg-emerald-900/80 border border-emerald-400 text-emerald-200 font-extrabold p-2.5 rounded-lg text-xs"></div>
+            <input id="inp-tt-ck" type="text" value="sbawc4ja3xhr21w4e6" placeholder="Pegar Client key de TikTok" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
+            <input id="inp-tt-cs" type="password" placeholder="Pegar Client secret de TikTok (ya guardado en bóveda)" class="w-full px-3 py-2 rounded-lg bg-gray-950 border border-gray-700 text-white text-xs">
             <button type="button" onclick="connectTikTokOAuth()" class="w-full bg-amber-500 hover:bg-amber-600 text-gray-950 font-extrabold py-2 px-3 rounded-lg transition">🔗 1 Clic: Conectar TikTok con Client Key y Secret</button>
           </div>
         </div>
@@ -727,6 +728,11 @@ def main():
           gmbBox.style.color = '#065f46';
           gmbBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>${{st.gmb_location_title || 'Star Union (Google Maps)'}}</strong> (${{st.gmb_location_name || 'Auto-detectado'}})`;
         }}
+        const ttBox = document.getElementById('status-box-tt');
+        if (ttBox && st.tiktok_connected) {{
+          ttBox.classList.remove('hidden');
+          ttBox.innerHTML = `✅ CONECTADO Y ACTIVO: <strong>TikTok Star Union (@starunionservicios)</strong>`;
+        }}
       }} catch (e) {{
         line.innerHTML = '⚠️ Servidor API local corriendo en http://127.0.0.1:8894';
       }}
@@ -735,10 +741,6 @@ def main():
     function connectTikTokOAuth() {{
       const ck = document.getElementById('inp-tt-ck').value.trim();
       const cs = document.getElementById('inp-tt-cs').value.trim();
-      if (!ck || !cs) {{
-        alert('Pegá primero el Client Key y el Client Secret que figuran arriba en la página de tu App de TikTok.');
-        return;
-      }}
       window.location.href = API_BASE + '/api/tiktok/login?client_key=' + encodeURIComponent(ck) + '&client_secret=' + encodeURIComponent(cs);
     }}
 

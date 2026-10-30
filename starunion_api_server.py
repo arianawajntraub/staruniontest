@@ -537,7 +537,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 + urllib.parse.urlencode(
                     {
                         "client_key": ck,
-                        "scope": "user.info.basic,video.upload,video.publish",
+                        "scope": "user.info.basic,video.upload",
                         "response_type": "code",
                         "redirect_uri": redirect_uri,
                         "state": "starunion_tt",
@@ -569,9 +569,13 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                         "redirect_uri": redirect_uri,
                     },
                 )
+                print("TIKTOK TOKEN RESPONSE:", st, res, flush=True)
                 tok = res.get("access_token") or res.get("data", {}).get("access_token", "")
+                open_id = res.get("open_id") or res.get("data", {}).get("open_id", "")
                 if tok:
-                    save_keys({"tiktok_token": tok})
+                    save_keys({"tiktok_token": tok, "tiktok_open_id": open_id})
+                else:
+                    save_keys({"tiktok_last_error": str(res)})
             self.send_response(302)
             self.send_header("Location", "/redes-sociales/index.html")
             self.end_headers()
