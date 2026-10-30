@@ -36,29 +36,57 @@
       </div>
     </div>
 
-    <!-- 1. RESPUESTA DIRECTA A TUS 3 PREGUNTAS DE SISTEMA (PERFIT REENVÍO, LANDINGS CON CTA Y CRM SIMULADO) -->
+    <!-- PASO 0 OBLIGATORIO: DEPURACIÓN POR DOMINIO CONTRA LISTADO DE CLIENTES ACTUALES DE MAURO -->
+    <div class="bg-amber-50 rounded-2xl p-6 border-2 border-amber-500 shadow-sm space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="inline-block bg-amber-500 text-gray-950 text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+          🔒 PASO 0 BLOQUEANTE ANTES DEL DISPARO · ESPERANDO LISTADO DE CLIENTES DE MAURO
+        </span>
+        <span class="text-xs font-extrabold text-amber-950">Estado actual: En espera de la nómina de clientes activos para depurar por dominio</span>
+      </div>
+      <h2 class="text-base sm:text-lg font-extrabold text-[#133522]">
+        Primera Depuración por Dominio Corporativo (<code>@empresa.com.ar</code>) + Limpieza de Rebotes Duros (#46)
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4 text-xs text-gray-800">
+        <div class="bg-white p-3.5 rounded-xl border border-amber-300">
+          <strong class="text-[#03582d] block mb-1">1. ¿Por qué depuramos por DOMINIO (@empresa.com.ar) además del email exacto?</strong>
+          Porque si una empresa ya es cliente de Star Union (ej. está cargado <code>compras@empresa.com.ar</code>), en Perfit puede figurar otra persona del mismo dominio (<code>mantenimiento@empresa.com.ar</code>). Al cruzar por <strong>dominio completo</strong>, detectamos a todas las casillas de empresas que ya nos pagan para no mandarles un correo de prospección fría.
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-amber-300">
+          <strong class="text-[#03582d] block mb-1">2. Separación en 2 Listas Limpias en Perfit:</strong>
+          • <strong>Lista A (Clientes Actuales Star Union):</strong> Reciben comunicaciones de fidelización, certificado TÜV renovado y expansión a nuevas sedes.<br>
+          • <strong>Lista B (Prospectos Puros B2B):</strong> Reciben este <strong>Funnel 1 de Apertura Comercial</strong> sin mezclar clientes adentro.
+        </div>
+        <div class="bg-white p-3.5 rounded-xl border border-amber-300">
+          <strong class="text-[#03582d] block mb-1">3. Aislamiento de los 767 Rebotes del envío Octubre (#116 / #119):</strong>
+          En el último envío (#116 y su reenvío #119) se sumó la lista cruda <code>#46 ventas. 22oct26</code> (10.500 contactos) que generó <strong>546 + 221 = 767 rebotes</strong> y bajó la apertura del reenvío al <strong>4,4%</strong>. Antes de disparar el Funnel 1, filtramos solo contactos activos validados.
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. RESPUESTA DIRECTA A TUS 3 PREGUNTAS DE SISTEMA (PERFIT REENVÍO, BOTONES DE SECTOR Y CRM SIMULADO) -->
     <div class="bg-emerald-50/80 rounded-2xl p-6 border-2 border-[#03582d] space-y-4">
-      <div class="text-xs font-extrabold uppercase text-[#03582d]">⚡ 1. VERDAD TÉCNICA DE LAS 3 PIEZAS DEL SISTEMA (SIN INVENTAR NADA)</div>
+      <div class="text-xs font-extrabold uppercase text-[#03582d]">⚡ 1. VERDAD TÉCNICA DE LAS 3 PIEZAS DEL SISTEMA (CON DATOS REALES DE LA API DE PERFIT)</div>
       <div class="grid md:grid-cols-3 gap-4 text-xs">
         <div class="bg-white p-4 rounded-xl border border-gray-200 space-y-2">
-          <div class="font-extrabold text-sm text-[#03582d]">A. ¿Se puede cambiar el Asunto en el Reenvío +5 días de Perfit?</div>
+          <div class="font-extrabold text-sm text-[#03582d]">A. ¿Qué pasó con el Asunto en el último reenvío (#116 → #119) en Perfit?</div>
           <p class="text-gray-700 leading-relaxed">
-            <strong>Sí, 100%, pero ojo cómo se hace:</strong> En las campañas anteriores (#112, #115, #117, #119) tocaban el botón rápido <em>"Reenviar a no abridores"</em> de Perfit, que por defecto repite el mismo asunto y solo le agrega <code>(reenvío)</code> al nombre interno.<br>
-            <strong>Cómo lo hacemos nosotros por API (en 1 clic desde acá):</strong> El servidor crea una campaña duplicada filtrada al segmento <code>No abrieron Envío #1</code> con el <strong>Asunto #2 nuevo ya cambiado</strong>.
+            <strong>Tenías 100% razón:</strong> Al inspeccionar el campo interno <code>options.RESEND_SUBJECT</code> de la API de Perfit vimos que <strong>vos SÍ cambiaste el asunto en los reenvíos</strong>:<br>
+            • En <strong>#114 → #117 (Septiembre)</strong> cambiaste de <em>"Soluciones técnicas..."</em> a <em>"Empresa de Limpieza Profesional..."</em> sobre la base limpia (1.167 contactos) y el reenvío logró <strong>53,0% de apertura (+237 aperturas reales)</strong>.<br>
+            • En <strong>#116 → #119 (Octubre, el último envío)</strong> cambiaste a <em>"Operamos al ritmo de tu máxima exigencia..."</em>, pero como se disparó a los 10.500 contactos sin depurar de la lista <code>#46 ventas. 22oct26</code> (con 767 rebotes), el reenvío #119 cayó a <strong>4,4% de apertura</strong>. Por eso el Paso 0 de depuración es clave antes de volver a enviar.
           </p>
         </div>
         <div class="bg-white p-4 rounded-xl border border-gray-200 space-y-2">
-          <div class="font-extrabold text-sm text-[#03582d]">B. ¿A dónde van los botones de cada sector para evitar mil clics?</div>
+          <div class="font-extrabold text-sm text-[#03582d]">B. Botones sin la palabra "Landing" + Respuesta directa a Ventas</div>
           <p class="text-gray-700 leading-relaxed">
-            Cada sector tiene <strong>2 botones bien centrados</strong>:<br>
-            1. <strong>"📄 Ver Landing del Sector →"</strong>: Lleva a la Landing / Dossier interactivo abierto en ese rubro exacto, que arriba del todo tiene el <strong>botón flotante de WhatsApp de 1 clic</strong> y el teléfono <code>0810-333-8646</code> sin tener que navegar.<br>
-            2. <strong>"📲 Cotizar por WhatsApp"</strong>: Abre directo el chat de WhatsApp Comercial (<code>+54 9 11 2275-9369</code>) con el rubro ya escrito.
+            Quitamos por completo la palabra <em>"Landing"</em> de los botones del correo. Ahora cada rubro dice <strong>"Ver protocolo industrial →"</strong>, <strong>"Ver servicio corporativo →"</strong>, <strong>"Ver servicio en consorcios →"</strong>, etc. + <strong>"📲 Cotizar por WhatsApp"</strong>.<br>
+            Además, tal como está configurado en Perfit (<code>replyTo: ventas@starunion.com.ar</code>), toda respuesta al correo entra directo a <strong><code>ventas@starunion.com.ar</code> / <code>comercial@starunion.com.ar</code></strong> (nunca a <code>info@</code>).
           </p>
         </div>
         <div class="bg-white p-4 rounded-xl border border-gray-200 space-y-2">
           <div class="font-extrabold text-sm text-[#03582d]">C. ¿Cómo simulamos un CRM sin tener CRM?</div>
           <p class="text-gray-700 leading-relaxed">
-            La API de Perfit nos devuelve con <strong>nombre, apellido y correo corporativo</strong> quién hizo clic en cada botón del mail. Nuestro script cruza esa lista contra la base de clientes actuales de Mauro y genera la <strong>Planilla Viva de Seguimiento Comercial (abajo)</strong> para que Mauro o Ventas vean a quién llamar cada semana.
+            La API de Perfit nos devuelve con <strong>nombre, apellido y correo corporativo</strong> quién hizo clic en cada botón del mail. Nuestro script cruza esa lista por dominio contra la nómina de clientes actuales de Mauro y genera la <strong>Planilla Viva de Seguimiento Comercial (abajo)</strong> para que Ventas y Mauro vean a quién contactar cada semana.
           </p>
         </div>
       </div>
@@ -67,42 +95,42 @@
     <!-- 2. EL ÁRBOL LÓGICO COMPLETO DEL EMBUDO + QUIÉN LO VE Y CÓMO SE SIGUE -->
     <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
       <div>
-        <span class="text-xs font-extrabold uppercase text-[#03582d]">2. Árbol Lógico del Embudo B2B (Para Visualizar con Mauro: "Se manda esto a todos → Qué pasa en cada rama")</span>
+        <span class="text-xs font-extrabold uppercase text-[#03582d]">2. Árbol Lógico del Embudo B2B (Para Visualizar con Mauro: "Se manda esto a la base depurada → Qué pasa en cada rama")</span>
         <h2 class="text-lg sm:text-xl font-extrabold text-[#133522] mt-0.5">Qué pasa cuando alguien toca, quién lo recibe, dónde queda registrado y qué se hace con quien no toca nada</h2>
       </div>
 
       <div class="bg-[#03582d] text-white rounded-2xl p-5 text-center space-y-1.5 shadow">
-        <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#ffcc29]">DISPARO INICIAL · DÍA 1 (JUEVES 10:00 HS)</div>
-        <div class="text-base sm:text-lg font-extrabold">SE MANDA EL MAILING #1 DE APERTURA (GENÉRICO MULTI-RUBRO) A TODA LA BASE ACTIVA DE PERFIT</div>
-        <div class="text-xs text-emerald-100">Muestra +25 años de trayectoria, Zonas Operativas (CABA, GBA Norte/Oeste/Sur, La Plata, Bahía Blanca, Neuquén y Trelew), Base 800 m², Taller Propio, Biométrico &lt;2 hs, Sello TÜV ISO 9001 + los 5 Sectores.</div>
+        <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#ffcc29]">DISPARO INICIAL (POST-DEPURACIÓN POR DOMINIO) · DÍA 1 (JUEVES 10:00 HS)</div>
+        <div class="text-base sm:text-lg font-extrabold">SE MANDA EL MAILING #1 DE APERTURA (GENÉRICO MULTI-RUBRO) A LA BASE ACTIVA DEPURADA EN PERFIT</div>
+        <div class="text-xs text-emerald-100">Sale desde <code>cleany@starunion.com.ar</code> con respuesta directa a <strong><code>ventas@starunion.com.ar</code></strong>. Muestra +25 años de trayectoria, las 7 Zonas Operativas, Base 800 m², Taller Propio, Biométrico &lt;2 hs, Sello TÜV ISO 9001 + los 5 Sectores.</div>
       </div>
 
       <div class="grid lg:grid-cols-4 gap-4 text-xs">
         <!-- RAMA 1 -->
         <div class="bg-emerald-50 border-2 border-[#03582d] rounded-2xl p-4 space-y-2.5 flex flex-col justify-between">
           <div class="space-y-2">
-            <span class="inline-block bg-[#03582d] text-white font-extrabold px-2.5 py-1 rounded-full text-[10px] uppercase">🔥 RAMA 1 · TOCA WHATSAPP O RESPONDE</span>
+            <span class="inline-block bg-[#03582d] text-white font-extrabold px-2.5 py-1 rounded-full text-[10px] uppercase">🔥 RAMA 1 · TOCA WHATSAPP O RESPONDE EL MAIL</span>
             <h3 class="font-extrabold text-sm text-[#133522]">Quiere cotizar hoy (Urgencia inmediata)</h3>
             <ul class="bg-white p-3 rounded-xl border border-emerald-200 space-y-1.5 text-gray-800">
-              <li><strong>¿Dónde cae?:</strong> Directo en el WhatsApp Comercial B2B (<code>+54 9 11 2275-9369</code>) o en <code>info@starunion.com.ar</code> con el rubro ya escrito.</li>
-              <li><strong>¿Quién lo ve?:</strong> Recepción Comercial / Mauro en el momento.</li>
+              <li><strong>¿Dónde cae?:</strong> Directo en el WhatsApp Comercial B2B (<code>+54 9 11 2275-9369</code>) o en <strong><code>ventas@starunion.com.ar</code></strong> (Reply-To oficial del mailing) / <strong><code>comercial@starunion.com.ar</code></strong>.</li>
+              <li><strong>¿Quién lo ve?:</strong> Ventas / Comercial / Mauro en el momento.</li>
               <li><strong>¿Cómo se sigue?:</strong> Se agenda <strong>Visita de Relevamiento Técnico en Planta/Edificio</strong> en 24–48 hs y se lo marca como <code>EN COTIZACIÓN</code> en la Planilla CRM Simulado para excluirlo del reenvío del martes.</li>
             </ul>
           </div>
           <div class="bg-[#03582d] text-white p-2 rounded-xl text-center font-extrabold text-[11px]">
-            Pasa directo a Visita Técnica y Presupuesto
+            Pasa directo a Ventas (Visita Técnica y Presupuesto)
           </div>
         </div>
 
         <!-- RAMA 2 -->
         <div class="bg-amber-50 border-2 border-amber-400 rounded-2xl p-4 space-y-2.5 flex flex-col justify-between">
           <div class="space-y-2">
-            <span class="inline-block bg-amber-500 text-gray-950 font-extrabold px-2.5 py-1 rounded-full text-[10px] uppercase">🎯 RAMA 2 · TOCA "VER LANDING DEL SECTOR"</span>
-            <h3 class="font-extrabold text-sm text-[#133522]">Miró la Landing de su rubro pero NO mandó WhatsApp</h3>
+            <span class="inline-block bg-amber-500 text-gray-950 font-extrabold px-2.5 py-1 rounded-full text-[10px] uppercase">🎯 RAMA 2 · TOCA "VER SERVICIO / PROTOCOLO"</span>
+            <h3 class="font-extrabold text-sm text-[#133522]">Entró a ver el protocolo de su rubro pero NO mandó WhatsApp</h3>
             <ul class="bg-white p-3 rounded-xl border border-amber-300 space-y-1.5 text-gray-800">
               <li><strong>¿Dónde cae?:</strong> La API de Perfit registra con <strong>nombre, email y empresa</strong> que ese contacto hizo clic en ese rubro exacto (ej. <em>Logística</em> o <em>Salud</em>).</li>
-              <li><strong>¿Quién lo ve?:</strong> Todos los viernes/lunes nuestro script actualiza la <strong>Tabla Nominal de Contactos Tibios (abajo)</strong> separando quién ya es cliente y quién es <strong>Prospecto Nuevo</strong>.</li>
-              <li><strong>¿Cómo se sigue?:</strong><br>1) Al Día +7 recibe un <strong>Email #2 corto específico de ese rubro</strong>.<br>2) Comercial lo contacta sabiendo de antemano qué rubro estuvo mirando.</li>
+              <li><strong>¿Quién lo ve?:</strong> Todos los viernes/lunes nuestro script actualiza la <strong>Tabla Nominal de Contactos Tibios (abajo)</strong> para Ventas y Mauro.</li>
+              <li><strong>¿Cómo se sigue?:</strong><br>1) Al Día +7 recibe un <strong>Email #2 corto específico de ese rubro</strong>.<br>2) Ventas (<code>ventas@starunion.com.ar</code>) lo contacta sabiendo qué rubro estuvo mirando.</li>
             </ul>
           </div>
           <div class="bg-amber-500 text-gray-950 p-2 rounded-xl text-center font-extrabold text-[11px]">
@@ -179,18 +207,18 @@
               <td class="p-3 font-extrabold text-[#03582d]">📅 Visita Técnica Agendada</td>
             </tr>
             <tr class="bg-amber-50/50">
-              <td class="p-3 font-bold text-[#133522]">Administración de Consorcios<br><span class="text-[11px] text-gray-600">info@administracion-caba.com.ar</span></td>
-              <td class="p-3 font-extrabold text-[#133522]">📄 Ver Landing Consorcios (2 clics)</td>
+              <td class="p-3 font-bold text-[#133522]">Administración de Consorcios<br><span class="text-[11px] text-gray-600">administracion@consorcios-caba.com.ar</span></td>
+              <td class="p-3 font-extrabold text-[#133522]">Ver servicio en consorcios → (2 clics)</td>
               <td class="p-3"><span class="bg-amber-500 text-gray-950 font-extrabold px-2 py-0.5 rounded-full text-[10px]">🎯 TIBIO CON INTENCIÓN (Rama 2)</span></td>
-              <td class="p-3 font-bold text-amber-800">Prospecto Nuevo</td>
-              <td class="p-3 text-gray-800"><strong>Sistema + Comercial:</strong> Recibe Email #2 de Consorcios (Biométrico &lt;2 hs) al Día +7 y entra en lista de llamado comercial de la semana.</td>
+              <td class="p-3 font-bold text-amber-800">Prospecto Nuevo (Dominio no cliente)</td>
+              <td class="p-3 text-gray-800"><strong>Sistema + Ventas (<code>ventas@starunion.com.ar</code>):</strong> Recibe Email #2 de Consorcios (Biométrico &lt;2 hs) al Día +7 y entra en lista de llamado comercial de la semana.</td>
               <td class="p-3 font-extrabold text-amber-900">📞 Llamar / Enviar Dossier Consorcios</td>
             </tr>
             <tr>
               <td class="p-3 font-bold text-[#133522]">Dirección Médica / Compras<br><span class="text-[11px] text-gray-600">compras@clinica-salud.com.ar</span></td>
-              <td class="p-3 font-extrabold text-[#133522]">🏅 Certificado TÜV ISO 9001 + Landing Salud</td>
+              <td class="p-3 font-extrabold text-[#133522]">🏅 Certificado TÜV ISO 9001 + Ver protocolo clínico / ANMAT →</td>
               <td class="p-3"><span class="bg-amber-500 text-gray-950 font-extrabold px-2 py-0.5 rounded-full text-[10px]">🎯 TIBIO AUDITORÍA (Rama 2)</span></td>
-              <td class="p-3 font-bold text-emerald-800">✅ Cliente Actual (Fidelización)</td>
+              <td class="p-3 font-bold text-emerald-800">✅ Dominio Cliente Actual (Fidelización)</td>
               <td class="p-3 text-gray-800"><strong>Ejecutivo de Cuenta:</strong> Enviar actualización de certificado TÜV Rheinland y consultar si suma nuevos consultorios/sedes.</td>
               <td class="p-3 font-extrabold text-gray-700">🤝 Seguimiento de Cuenta Activa</td>
             </tr>
@@ -212,7 +240,7 @@
         <div class="bg-emerald-50/80 p-5 border-b border-gray-200 space-y-3">
           <div class="flex items-center justify-between gap-2">
             <span class="bg-[#03582d] text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase">🛠️ PANEL INTERNO · OPCIÓN A (NO LO VE EL CLIENTE)</span>
-            <a href="mailing-apertura-funnel1-opcion-A.html?v=20261030_v4" target="_blank" class="text-xs font-extrabold text-[#03582d] underline">Abrir mail A limpio en pestaña ↗</a>
+            <a href="mailing-apertura-funnel1-opcion-A.html?v=20261030_v5" target="_blank" class="text-xs font-extrabold text-[#03582d] underline">Abrir mail A limpio en pestaña ↗</a>
           </div>
           <h2 class="text-lg font-extrabold text-[#133522]">Opción A: Editorial Visual + Zonas Operativas + Sello TÜV + 5 Rubros con Doble Botón + Cleany</h2>
 
@@ -223,7 +251,7 @@
               <input id="subj_A" type="text" value="Mantenimiento técnico y continuidad operativa para infraestructuras exigentes º Star ⭐ Union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 font-bold text-[#133522]">
             </div>
             <div>
-              <label class="block font-extrabold text-amber-900 mb-1">2° Asunto (Reenvío Martes +5 días SOLO a No-Abridores · Basado en +21,8% de campaña #117):</label>
+              <label class="block font-extrabold text-amber-900 mb-1">2° Asunto (Reenvío Martes +5 días en options.RESEND_SUBJECT · Basado en 53% de apertura del reenvío #117):</label>
               <input id="subj_A_resend" type="text" value="Cobertura de ausencias en menos de 2 hs y taller propio en CABA ⚙️ º Star ⭐ Union" class="w-full px-2.5 py-1.5 rounded border border-amber-300 bg-amber-50/40 font-bold text-[#133522]">
             </div>
           </div>
@@ -232,7 +260,7 @@
             <button type="button" onclick="copyHtml('code_A', this)" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
               📋 Copiar HTML Opción A
             </button>
-            <a href="mailing-apertura-funnel1-opcion-A.html?v=20261030_v4" download="STAR_UNION_MAILING_FUNNEL1_OPCION_A.html" class="bg-white border-2 border-[#133522] text-[#133522] hover:bg-gray-100 text-center text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
+            <a href="mailing-apertura-funnel1-opcion-A.html?v=20261030_v5" download="STAR_UNION_MAILING_FUNNEL1_OPCION_A.html" class="bg-white border-2 border-[#133522] text-[#133522] hover:bg-gray-100 text-center text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
               ⬇ Descargar .HTML (A)
             </a>
             <button type="button" onclick="pushDraftToPerfit('A', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition shadow-sm">
@@ -243,10 +271,10 @@
         </div>
 
         <div class="bg-[#03582d] text-white text-[11px] font-extrabold text-center py-1.5 uppercase tracking-wider">
-          👁️ Lo que ve el destinatario en su correo (Opción A):
+          👁️ Lo que ve el destinatario en su correo (Opción A · Reply-To: ventas@starunion.com.ar):
         </div>
         <div class="p-4 bg-gray-100">
-          <iframe src="mailing-apertura-funnel1-opcion-A.html?v=20261030_v4" class="w-full h-[1120px] bg-white rounded-xl border border-gray-300 shadow-inner"></iframe>
+          <iframe src="mailing-apertura-funnel1-opcion-A.html?v=20261030_v5" class="w-full h-[1120px] bg-white rounded-xl border border-gray-300 shadow-inner"></iframe>
         </div>
         <textarea id="code_A" class="hidden">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;es&quot;&gt;
@@ -367,7 +395,7 @@
             &lt;td style=&quot;padding:10px 28px 6px 28px;background-color:#FFFFFF;&quot;&gt;
               &lt;div style=&quot;border-top:2px solid #E5E7EB;padding-top:18px;&quot;&gt;
                 &lt;div style=&quot;font-size:12px;font-weight:800;color:#03582D;text-transform:uppercase;letter-spacing:0.05em;&quot;&gt;
-                  ELEGÍ TU RUBRO PARA VER LA LANDING ESPECÍFICA O COTIZAR DIRECTO
+                  SELECCIONÁ TU SECTOR PARA VER EL ALCANCE DEL SERVICIO O COTIZAR DIRECTO
                 &lt;/div&gt;
                 &lt;h2 style=&quot;margin:4px 0 12px 0;font-size:18px;font-weight:800;color:#133522;&quot;&gt;
                   Equipamiento y protocolos diseñados para cada operación:
@@ -398,7 +426,7 @@
                       &lt;tr&gt;
                         &lt;td width=&quot;56%&quot; style=&quot;padding-right:6px;&quot;&gt;
                           &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=fabricas&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=logistica_industria&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:12px;font-weight:800;text-decoration:none;padding:10px 12px;border-radius:8px;&quot;&gt;
-                            📄 Ver Landing y Ficha Industrial →
+                            Ver protocolo industrial →
                           &lt;/a&gt;
                         &lt;/td&gt;
                         &lt;td width=&quot;44%&quot; style=&quot;padding-left:6px;&quot;&gt;
@@ -432,7 +460,7 @@
                       &lt;/p&gt;
                       &lt;div style=&quot;margin-bottom:6px;&quot;&gt;
                         &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=oficinas&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=oficinas_corporativas&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                          📄 Ver Landing Oficinas →
+                          Ver servicio corporativo →
                         &lt;/a&gt;
                       &lt;/div&gt;
                       &lt;div&gt;
@@ -456,7 +484,7 @@
                       &lt;/p&gt;
                       &lt;div style=&quot;margin-bottom:6px;&quot;&gt;
                         &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=consorcios&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=consorcios_edificios&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                          📄 Ver Landing Consorcios →
+                          Ver servicio en consorcios →
                         &lt;/a&gt;
                       &lt;/div&gt;
                       &lt;div&gt;
@@ -489,7 +517,7 @@
                       &lt;/p&gt;
                       &lt;div style=&quot;margin-bottom:6px;&quot;&gt;
                         &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=clinicas&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=salud_laboratorios&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                          📄 Ver Landing Salud / ANMAT →
+                          Ver protocolo clínico / ANMAT →
                         &lt;/a&gt;
                       &lt;/div&gt;
                       &lt;div&gt;
@@ -513,7 +541,7 @@
                       &lt;/p&gt;
                       &lt;div style=&quot;margin-bottom:6px;&quot;&gt;
                         &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=universidades&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=educacion_clubes&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                          📄 Ver Landing Educación/Clubes →
+                          Ver servicio educativo y clubes →
                         &lt;/a&gt;
                       &lt;/div&gt;
                       &lt;div&gt;
@@ -553,7 +581,7 @@
                 Star Union · Sabemos de Limpieza
               &lt;/div&gt;
               &lt;div style=&quot;font-size:12px;color:#E6EFEA;font-weight:600;&quot;&gt;
-                Base Operativa Central Propia (800 m²): Guaminí 5657, CABA · Atención Comercial: &lt;strong&gt;0810-333-8646&lt;/strong&gt; · WhatsApp B2B: &lt;strong&gt;+54 9 11 2275-9369&lt;/strong&gt;
+                Base Operativa Central Propia (800 m²): Guaminí 5657, CABA · Atención Comercial: &lt;strong&gt;0810-333-8646&lt;/strong&gt; · WhatsApp B2B: &lt;strong&gt;+54 9 11 2275-9369&lt;/strong&gt; · &lt;strong&gt;ventas@starunion.com.ar&lt;/strong&gt;
               &lt;/div&gt;
             &lt;/td&gt;
           &lt;/tr&gt;
@@ -570,6 +598,7 @@
 
               &lt;div style=&quot;margin-bottom:14px;&quot;&gt;
                 &lt;a href=&quot;https://www.starunion.com.ar/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura_A&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:7px 14px;border-radius:999px;margin:3px;&quot;&gt;🌐 Sitio Web Oficial&lt;/a&gt;
+                &lt;a href=&quot;mailto:ventas@starunion.com.ar&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#03582D;font-size:11px;font-weight:800;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;✉️ ventas@starunion.com.ar&lt;/a&gt;
                 &lt;a href=&quot;https://www.certipedia.com/quality_marks/9000041847&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#03582D;font-size:11px;font-weight:800;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;🏅 Certificado TÜV ISO 9001&lt;/a&gt;
                 &lt;a href=&quot;https://www.instagram.com/starunionservicios/&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#133522;font-size:11px;font-weight:700;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;Instagram&lt;/a&gt;
                 &lt;a href=&quot;https://www.linkedin.com/company/star-union-srl/&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#133522;font-size:11px;font-weight:700;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;LinkedIn&lt;/a&gt;
@@ -596,7 +625,7 @@
         <div class="bg-gray-50 p-5 border-b border-gray-200 space-y-3">
           <div class="flex items-center justify-between gap-2">
             <span class="bg-[#133522] text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase">🛠️ PANEL INTERNO · OPCIÓN B (NO LO VE EL CLIENTE)</span>
-            <a href="mailing-apertura-funnel1-opcion-B.html?v=20261030_v4" target="_blank" class="text-xs font-extrabold text-[#03582d] underline">Abrir mail B limpio en pestaña ↗</a>
+            <a href="mailing-apertura-funnel1-opcion-B.html?v=20261030_v5" target="_blank" class="text-xs font-extrabold text-[#03582d] underline">Abrir mail B limpio en pestaña ↗</a>
           </div>
           <h2 class="text-lg font-extrabold text-[#133522]">Opción B: Ejecutiva de Auditoría + Tabla de 4 Riesgos + Grilla de 5 Sectores con Botones Centrados</h2>
 
@@ -607,7 +636,7 @@
               <input id="subj_B" type="text" value="El servicio con respaldo propio que protege tu operación crítica º Star ⭐ Union" class="w-full px-2.5 py-1.5 rounded border border-gray-300 font-bold text-[#133522]">
             </div>
             <div>
-              <label class="block font-extrabold text-amber-900 mb-1">2° Asunto (Reenvío Martes +5 días SOLO a No-Abridores · Enfoque Auditoría y Continuidad):</label>
+              <label class="block font-extrabold text-amber-900 mb-1">2° Asunto (Reenvío Martes +5 días en options.RESEND_SUBJECT · Enfoque Auditoría y Continuidad):</label>
               <input id="subj_B_resend" type="text" value="¿Tu operación está cubierta hoy ante ausencias, fallas de máquinas o auditorías? º Star ⭐ Union" class="w-full px-2.5 py-1.5 rounded border border-amber-300 bg-amber-50/40 font-bold text-[#133522]">
             </div>
           </div>
@@ -616,7 +645,7 @@
             <button type="button" onclick="copyHtml('code_B', this)" class="bg-[#133522] hover:bg-black text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
               📋 Copiar HTML Opción B
             </button>
-            <a href="mailing-apertura-funnel1-opcion-B.html?v=20261030_v4" download="STAR_UNION_MAILING_FUNNEL1_OPCION_B.html" class="bg-white border-2 border-[#133522] text-[#133522] hover:bg-gray-100 text-center text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
+            <a href="mailing-apertura-funnel1-opcion-B.html?v=20261030_v5" download="STAR_UNION_MAILING_FUNNEL1_OPCION_B.html" class="bg-white border-2 border-[#133522] text-[#133522] hover:bg-gray-100 text-center text-xs font-extrabold py-2.5 px-3 rounded-xl transition">
               ⬇ Descargar .HTML (B)
             </a>
             <button type="button" onclick="pushDraftToPerfit('B', this)" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold py-2.5 px-3 rounded-xl transition shadow-sm">
@@ -627,10 +656,10 @@
         </div>
 
         <div class="bg-[#133522] text-white text-[11px] font-extrabold text-center py-1.5 uppercase tracking-wider">
-          👁️ Lo que ve el destinatario en su correo (Opción B):
+          👁️ Lo que ve el destinatario en su correo (Opción B · Reply-To: ventas@starunion.com.ar):
         </div>
         <div class="p-4 bg-gray-100">
-          <iframe src="mailing-apertura-funnel1-opcion-B.html?v=20261030_v4" class="w-full h-[1120px] bg-white rounded-xl border border-gray-300 shadow-inner"></iframe>
+          <iframe src="mailing-apertura-funnel1-opcion-B.html?v=20261030_v5" class="w-full h-[1120px] bg-white rounded-xl border border-gray-300 shadow-inner"></iframe>
         </div>
         <textarea id="code_B" class="hidden">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;es&quot;&gt;
@@ -763,11 +792,11 @@
             &lt;/td&gt;
           &lt;/tr&gt;
 
-          &lt;!-- SELECTOR AUTO-SEGMENTADOR CON BOTONES BIEN CENTRADOS (LANDING DEL RUBRO + WHATSAPP) --&gt;
+          &lt;!-- SELECTOR AUTO-SEGMENTADOR CON BOTONES BIEN CENTRADOS (FICHA DEL RUBRO + WHATSAPP) --&gt;
           &lt;tr&gt;
             &lt;td style=&quot;padding:4px 28px 22px 28px;&quot;&gt;
               &lt;div style=&quot;font-size:12px;font-weight:800;color:#03582D;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;&quot;&gt;
-                SELECCIONÁ TU SECTOR (VER LANDING ESPECÍFICA O COTIZAR POR WHATSAPP):
+                SELECCIONÁ TU SECTOR (VER PROTOCOLO Y ALCANCE O COTIZAR POR WHATSAPP):
               &lt;/div&gt;
               &lt;p style=&quot;margin:0 0 10px 0;font-size:12px;color:#4B5563;&quot;&gt;
                 Tocá tu sector para ver el protocolo operativo y equipamiento de ese rubro o iniciá conversación directa por WhatsApp:
@@ -786,7 +815,7 @@
                       &lt;tr&gt;
                         &lt;td width=&quot;54%&quot; align=&quot;center&quot; style=&quot;padding-right:6px;&quot;&gt;
                           &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=fabricas&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=logistica_industria&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:12px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                            📄 Ver Landing del Sector →
+                            Ver protocolo industrial →
                           &lt;/a&gt;
                         &lt;/td&gt;
                         &lt;td width=&quot;46%&quot; align=&quot;center&quot; style=&quot;padding-left:6px;&quot;&gt;
@@ -811,7 +840,7 @@
                       &lt;tr&gt;
                         &lt;td width=&quot;54%&quot; align=&quot;center&quot; style=&quot;padding-right:6px;&quot;&gt;
                           &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=oficinas&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=oficinas_corporativas&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:12px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                            📄 Ver Landing del Sector →
+                            Ver servicio corporativo →
                           &lt;/a&gt;
                         &lt;/td&gt;
                         &lt;td width=&quot;46%&quot; align=&quot;center&quot; style=&quot;padding-left:6px;&quot;&gt;
@@ -836,7 +865,7 @@
                       &lt;tr&gt;
                         &lt;td width=&quot;54%&quot; align=&quot;center&quot; style=&quot;padding-right:6px;&quot;&gt;
                           &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=consorcios&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=consorcios_edificios&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:12px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                            📄 Ver Landing del Sector →
+                            Ver servicio en consorcios →
                           &lt;/a&gt;
                         &lt;/td&gt;
                         &lt;td width=&quot;46%&quot; align=&quot;center&quot; style=&quot;padding-left:6px;&quot;&gt;
@@ -861,7 +890,7 @@
                       &lt;tr&gt;
                         &lt;td width=&quot;54%&quot; align=&quot;center&quot; style=&quot;padding-right:6px;&quot;&gt;
                           &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=clinicas&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=salud_laboratorios&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:12px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                            📄 Ver Landing del Sector →
+                            Ver protocolo clínico / ANMAT →
                           &lt;/a&gt;
                         &lt;/td&gt;
                         &lt;td width=&quot;46%&quot; align=&quot;center&quot; style=&quot;padding-left:6px;&quot;&gt;
@@ -886,7 +915,7 @@
                       &lt;tr&gt;
                         &lt;td width=&quot;54%&quot; align=&quot;center&quot; style=&quot;padding-right:6px;&quot;&gt;
                           &lt;a href=&quot;https://wajntraub.ar/staruniontest/dossier/index.html?vertical=universidades&amp;utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura&amp;rubro=educacion_clubes&quot; target=&quot;_blank&quot; style=&quot;display:block;text-align:center;background-color:#03582D;color:#FFFFFF;font-size:12px;font-weight:800;text-decoration:none;padding:9px 10px;border-radius:8px;&quot;&gt;
-                            📄 Ver Landing del Sector →
+                            Ver servicio educativo y clubes →
                           &lt;/a&gt;
                         &lt;/td&gt;
                         &lt;td width=&quot;46%&quot; align=&quot;center&quot; style=&quot;padding-left:6px;&quot;&gt;
@@ -917,7 +946,7 @@
                 Star Union · Sabemos de Limpieza
               &lt;/div&gt;
               &lt;div style=&quot;font-size:12px;color:#E6EFEA;font-weight:600;&quot;&gt;
-                Base Operativa Central Propia (800 m²): Guaminí 5657, CABA · Atención Comercial: &lt;strong&gt;0810-333-8646&lt;/strong&gt; · WhatsApp B2B: &lt;strong&gt;+54 9 11 2275-9369&lt;/strong&gt;
+                Base Operativa Central Propia (800 m²): Guaminí 5657, CABA · Atención Comercial: &lt;strong&gt;0810-333-8646&lt;/strong&gt; · WhatsApp B2B: &lt;strong&gt;+54 9 11 2275-9369&lt;/strong&gt; · &lt;strong&gt;ventas@starunion.com.ar&lt;/strong&gt;
               &lt;/div&gt;
             &lt;/td&gt;
           &lt;/tr&gt;
@@ -934,6 +963,7 @@
 
               &lt;div style=&quot;margin-bottom:14px;&quot;&gt;
                 &lt;a href=&quot;https://www.starunion.com.ar/?utm_source=perfit&amp;utm_medium=email&amp;utm_campaign=funnel1_apertura_B&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#03582D;color:#FFFFFF;font-size:11px;font-weight:800;text-decoration:none;padding:7px 14px;border-radius:999px;margin:3px;&quot;&gt;🌐 Sitio Web Oficial&lt;/a&gt;
+                &lt;a href=&quot;mailto:ventas@starunion.com.ar&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#03582D;font-size:11px;font-weight:800;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;✉️ ventas@starunion.com.ar&lt;/a&gt;
                 &lt;a href=&quot;https://www.certipedia.com/quality_marks/9000041847&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#03582D;font-size:11px;font-weight:800;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;🏅 Certificado TÜV ISO 9001&lt;/a&gt;
                 &lt;a href=&quot;https://www.instagram.com/starunionservicios/&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#133522;font-size:11px;font-weight:700;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;Instagram&lt;/a&gt;
                 &lt;a href=&quot;https://www.linkedin.com/company/star-union-srl/&quot; target=&quot;_blank&quot; style=&quot;display:inline-block;background-color:#FFFFFF;border:1px solid #03582D;color:#133522;font-size:11px;font-weight:700;text-decoration:none;padding:6px 13px;border-radius:999px;margin:3px;&quot;&gt;LinkedIn&lt;/a&gt;
