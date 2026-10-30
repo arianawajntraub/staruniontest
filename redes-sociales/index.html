@@ -1552,7 +1552,7 @@ Conocé más en: https://www.starunion.com.ar</textarea>
       try {
         const r = await fetch(API_BASE + '/api/schedule');
         const data = await r.json();
-        const items = data.items || {};
+        const items = data.schedule || data.items || {};
         for (const [id, item] of Object.entries(items)) {
           if (item.scheduled_at && document.getElementById('dt_' + id)) {
             document.getElementById('dt_' + id).value = item.scheduled_at;
