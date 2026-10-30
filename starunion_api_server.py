@@ -926,11 +926,11 @@ def run_scheduler_loop():
                         reel_file = entry.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
                         caption_ig = entry.get("copy_ig_fb", "")
                         caption_li = entry.get("copy_linkedin", "")
-                        yt_title = entry.get("yt_title", "Star Union S.R.L. #Shorts")
+                        yt_title = entry.get("yt_title", "Star Union — Empresa de Limpieza #Shorts")
                         yt_desc = entry.get("yt_desc", caption_ig)
-                        yt_tags = entry.get("yt_tags", "star union, limpieza industrial")
+                        yt_tags = entry.get("yt_tags", "empresa de limpieza, star union, limpieza industrial")
                         public_url = "https://www.starunion.com.ar"
-                        title = entry.get("title", "Star Union S.R.L.")
+                        title = entry.get("title", "Star Union")
                         res = {}
                         if "ig_feed" in channels:
                             res["IG Feed"] = publish_ig_feed(keys, feed_file, caption_ig)

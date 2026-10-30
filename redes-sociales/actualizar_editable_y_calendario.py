@@ -132,7 +132,7 @@ def create_editable_svg(post, width, height, out_svg):
   <!-- PIE DE CONTACTO Y BOTÓN CTA EDITABLE DENTRO DE ZONA SEGURA -->
   <g id="Pie_Institucional">
     <line x1="{left_x}" y1="{footer_y - 16}" x2="{left_x + content_w}" y2="{footer_y - 16}" stroke="#E5E7EB" stroke-width="2"/>
-    <text x="{left_x}" y="{footer_y + 14}" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">Star Union S.R.L. · Base Operativa Guaminí 5657, CABA</text>
+    <text x="{left_x}" y="{footer_y + 14}" font-family="Open Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">Star Union · Base Operativa Guaminí 5657, CABA</text>
     <text x="{left_x}" y="{footer_y + 36}" font-family="Open Sans, Arial, sans-serif" font-size="14" font-weight="600" fill="#4B5563">WhatsApp Comercial B2B: +54 9 11 2275-9369 · 0810-333-8646</text>
     <rect x="{left_x + content_w - 280}" y="{footer_y - 4}" width="280" height="46" rx="23" fill="#03582D"/>
     <text x="{left_x + content_w - 140}" y="{footer_y + 25}" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">{post["cta_pill"]}</text>
@@ -377,7 +377,7 @@ def main():
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Calendario + Pack Editable de Redes Sociales y Shorts | Star Union S.R.L.</title>
+  <title>Calendario + Pack Editable de Redes Sociales y Shorts | Star Union</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -394,7 +394,7 @@ def main():
           <span class="inline-block bg-[#03582d]/10 text-[#03582d] text-[11px] font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full mb-1">
             Calendario Cronológico + 10 JPG + 10 SVG Editables (Canva / Illustrator / Adobe) + CSV Lote + 2 MP4
           </span>
-          <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Planilla Cronológica y Pack Editable de Redes — Star Union S.R.L.</h1>
+          <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Planilla Cronológica y Pack Editable de Redes — Star Union</h1>
           <p class="text-xs text-gray-600 mt-0.5">Todo queda guardado en tu disco y con archivos .SVG por capas + .CSV para abrir y editar textos/fotos en Canva, Adobe Express o Illustrator cuando quieras.</p>
         </div>
       </div>
@@ -860,37 +860,39 @@ def main():
 
     function buildPostPayload(id, feedFile, storyFile, reelFile, statusMode, regenerateImage) {{
       return {{
+        id: id,
         post_id: id,
-        status: statusMode || 'scheduled',
+        status: statusMode || 'programado',
         regenerate_image: !!regenerateImage,
         scheduled_at: document.getElementById('dt_' + id).value,
         channels: getSelectedChannels(id),
         feed_file: feedFile,
         story_file: storyFile,
         reel_file: reelFile,
-        tag_img: document.getElementById('tag_img_' + id).value,
-        h1_img: document.getElementById('h1_img_' + id).value,
-        sub_img: document.getElementById('sub_img_' + id).value,
-        caption_ig: document.getElementById('ig_' + id).value,
-        caption_li: document.getElementById('li_' + id).value,
+        tag: document.getElementById('tag_' + id).value,
+        title: document.getElementById('title_' + id).value,
+        subtitle: document.getElementById('sub_' + id).value,
+        copy_ig_fb: document.getElementById('ig_' + id).value,
+        copy_linkedin: document.getElementById('li_' + id).value,
         yt_title: document.getElementById('ytt_' + id).value,
         yt_desc: document.getElementById('ytd_' + id).value,
         yt_tags: document.getElementById('yttags_' + id).value,
-        wa_status: document.getElementById('wa_' + id).value,
-        public_url: 'https://www.starunion.com.ar',
-        title: document.getElementById('ytt_' + id).value
+        copy_wa: document.getElementById('wa_' + id).value,
+        public_url: 'https://www.starunion.com.ar'
       }};
     }}
 
     async function saveOrSchedulePost(id, feedFile, storyFile, reelFile, statusMode, regenerateImage, btn) {{
       const resBox = document.getElementById('api_res_' + id);
-      const badge = document.getElementById('sched_badge_' + id);
+      const badge = document.getElementById('card_badge_' + id);
+      const calBadge = document.getElementById('cal_badge_' + id);
       resBox.classList.remove('hidden');
       const oldBtn = btn ? btn.innerHTML : '';
-      if (btn) btn.innerHTML = regenerateImage ? '⏳ Regenerando JPG + SVG...' : (statusMode === 'scheduled' ? '⏳ Programando...' : '⏳ Guardando...');
+      const isSched = (statusMode === 'programado' || statusMode === 'scheduled');
+      if (btn) btn.innerHTML = regenerateImage ? '⏳ Regenerando JPG + SVG...' : (isSched ? '⏳ Programando...' : '⏳ Guardando...');
       resBox.innerHTML = regenerateImage ? '🎨 Regenerando placa gráfica 1080×1350 y 1080×1920 con tu nuevo texto...' : '⏳ Guardando en motor de calendario...';
 
-      const payload = buildPostPayload(id, feedFile, storyFile, reelFile, statusMode, regenerateImage);
+      const payload = buildPostPayload(id, feedFile, storyFile, reelFile, isSched ? 'programado' : 'borrador', regenerateImage);
       try {{
         const r = await fetch(API_BASE + '/api/schedule', {{
           method: 'POST',
@@ -898,17 +900,27 @@ def main():
           body: JSON.stringify(payload)
         }});
         const data = await r.json();
+        const headT = document.getElementById('head_title_' + id);
+        const calT = document.getElementById('cal_title_' + id);
+        if (headT && payload.title) headT.innerText = payload.title;
+        if (calT && payload.title) calT.innerText = payload.title;
+
         if (regenerateImage) {{
           const ts = Date.now();
           const fImg = document.getElementById('img_feed_' + id);
           const sImg = document.getElementById('img_story_' + id);
-          if (fImg) fImg.src = 'piezas/' + feedFile + '?v=' + ts;
-          if (sImg) sImg.src = 'piezas/' + storyFile + '?v=' + ts;
+          if (fImg) fImg.src = feedFile + '?v=' + ts;
+          if (sImg) sImg.src = storyFile + '?v=' + ts;
         }}
-        if (statusMode === 'scheduled') {{
+        if (isSched) {{
+          const labelTxt = '📅 PROGRAMADO: ' + payload.scheduled_at.replace('T', ' ') + ' hs';
           if (badge) {{
-            badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-600 text-white';
-            badge.innerHTML = '📅 PROGRAMADO: ' + payload.scheduled_at.replace('T', ' ') + ' hs';
+            badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-blue-600 text-white';
+            badge.innerHTML = labelTxt;
+          }}
+          if (calBadge) {{
+            calBadge.className = 'inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full';
+            calBadge.innerHTML = labelTxt;
           }}
           resBox.innerHTML = `✅ <strong>Programado en Calendario API:</strong> Saldrá el <strong>${{payload.scheduled_at.replace('T', ' ')}} hs</strong> en ${{payload.channels.join(', ')}}.`;
           if (btn) btn.innerHTML = '✅ ¡Programado!';
@@ -927,16 +939,16 @@ def main():
 
     async function scheduleAllPosts(btn) {{
       const posts = [
-        ['01', '01_feed_logistica_industria_1080x1350.jpg', '01_story_logistica_industria_1080x1920.jpg', 'short_01_infraestructura_y_presentismo_1080x1920.mp4'],
-        ['02', '02_feed_consorcios_edificios_1080x1350.jpg', '02_story_consorcios_edificios_1080x1920.jpg', 'REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
-        ['03', '03_feed_oficinas_corporativas_1080x1350.jpg', '03_story_oficinas_corporativas_1080x1920.jpg', 'REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
-        ['04', '04_feed_salud_laboratorios_1080x1350.jpg', '04_story_salud_laboratorios_1080x1920.jpg', 'short_02_verticales_iso9001_1080x1920.mp4'],
-        ['05', '05_feed_educacion_universidades_1080x1350.jpg', '05_story_educacion_universidades_1080x1920.jpg', 'short_02_verticales_iso9001_1080x1920.mp4']
+        ['01', 'piezas/01_feed_logistica_industria_1080x1350.jpg', 'piezas/01_story_logistica_industria_1080x1920.jpg', 'piezas/short_01_infraestructura_y_presentismo_1080x1920.mp4'],
+        ['02', 'piezas/02_feed_base_operativa_taller_1080x1350.jpg', 'piezas/02_story_base_operativa_taller_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
+        ['03', 'piezas/03_feed_presentismo_biometrico_1080x1350.jpg', 'piezas/03_story_presentismo_biometrico_1080x1920.jpg', 'piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4'],
+        ['04', 'piezas/04_feed_salud_laboratorios_1080x1350.jpg', 'piezas/04_story_salud_laboratorios_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4'],
+        ['05', 'piezas/05_feed_universidades_clubes_1080x1350.jpg', 'piezas/05_story_universidades_clubes_1080x1920.jpg', 'piezas/short_02_verticales_iso9001_1080x1920.mp4']
       ];
       const old = btn ? btn.innerHTML : '';
       if (btn) btn.innerHTML = '⏳ Programando las 5 publicaciones...';
       for (const [id, ff, sf, rf] of posts) {{
-        await saveOrSchedulePost(id, ff, sf, rf, 'scheduled', false, null);
+        await saveOrSchedulePost(id, ff, sf, rf, 'programado', false, null);
       }}
       if (btn) btn.innerHTML = '✅ ¡Las 5 Publicaciones quedaron Programadas!';
       setTimeout(() => {{ if (btn) btn.innerHTML = old; }}, 3000);
@@ -951,24 +963,32 @@ def main():
           if (item.scheduled_at && document.getElementById('dt_' + id)) {{
             document.getElementById('dt_' + id).value = item.scheduled_at;
           }}
-          if (item.caption_ig && document.getElementById('ig_' + id)) document.getElementById('ig_' + id).value = item.caption_ig;
-          if (item.caption_li && document.getElementById('li_' + id)) document.getElementById('li_' + id).value = item.caption_li;
+          if (item.copy_ig_fb && document.getElementById('ig_' + id)) document.getElementById('ig_' + id).value = item.copy_ig_fb;
+          if (item.copy_linkedin && document.getElementById('li_' + id)) document.getElementById('li_' + id).value = item.copy_linkedin;
           if (item.yt_title && document.getElementById('ytt_' + id)) document.getElementById('ytt_' + id).value = item.yt_title;
           if (item.yt_desc && document.getElementById('ytd_' + id)) document.getElementById('ytd_' + id).value = item.yt_desc;
           if (item.yt_tags && document.getElementById('yttags_' + id)) document.getElementById('yttags_' + id).value = item.yt_tags;
-          if (item.wa_status && document.getElementById('wa_' + id)) document.getElementById('wa_' + id).value = item.wa_status;
-          if (item.tag_img && document.getElementById('tag_img_' + id)) document.getElementById('tag_img_' + id).value = item.tag_img;
-          if (item.h1_img && document.getElementById('h1_img_' + id)) document.getElementById('h1_img_' + id).value = item.h1_img;
-          if (item.sub_img && document.getElementById('sub_img_' + id)) document.getElementById('sub_img_' + id).value = item.sub_img;
-          const badge = document.getElementById('sched_badge_' + id);
-          if (badge) {{
-            if (item.status === 'scheduled') {{
-              badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-600 text-white';
-              badge.innerHTML = '📅 PROGRAMADO: ' + (item.scheduled_at || '').replace('T', ' ') + ' hs';
-            }} else if (item.status === 'published') {{
-              badge.className = 'text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-700 text-white';
-              badge.innerHTML = '✅ PUBLICADO POR API';
-            }}
+          if (item.copy_wa && document.getElementById('wa_' + id)) document.getElementById('wa_' + id).value = item.copy_wa;
+          if (item.tag && document.getElementById('tag_' + id)) document.getElementById('tag_' + id).value = item.tag;
+          if (item.title && document.getElementById('title_' + id)) {{
+            document.getElementById('title_' + id).value = item.title;
+            const headT = document.getElementById('head_title_' + id);
+            const calT = document.getElementById('cal_title_' + id);
+            if (headT) headT.innerText = item.title;
+            if (calT) calT.innerText = item.title;
+          }}
+          if (item.subtitle && document.getElementById('sub_' + id)) document.getElementById('sub_' + id).value = item.subtitle;
+          const badge = document.getElementById('card_badge_' + id);
+          const calBadge = document.getElementById('cal_badge_' + id);
+          const isSched = (item.status === 'programado' || item.status === 'scheduled');
+          const isPub = (item.status === 'publicado' || item.status === 'published');
+          if (isSched) {{
+            const txt = '📅 PROGRAMADO: ' + (item.scheduled_at || '').replace('T', ' ') + ' hs';
+            if (badge) {{ badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-blue-600 text-white'; badge.innerHTML = txt; }}
+            if (calBadge) {{ calBadge.className = 'inline-block mt-1 bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full'; calBadge.innerHTML = txt; }}
+          }} else if (isPub) {{
+            if (badge) {{ badge.className = 'text-xs font-extrabold px-3 py-0.5 rounded-full bg-emerald-700 text-white'; badge.innerHTML = '✅ PUBLICADO POR API'; }}
+            if (calBadge) {{ calBadge.className = 'inline-block mt-1 bg-emerald-700 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full'; calBadge.innerHTML = '✅ PUBLICADO POR API'; }}
           }}
         }}
       }} catch (e) {{}}

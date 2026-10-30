@@ -63,7 +63,7 @@ SCENES = [
     },
     {
         "step": "ESCENA 5/5 · CONTACTO DIRECTO (12-15s)",
-        "cat": "STAR UNION S.R.L. · DESDE 2001 EN LIMPIEZA B2B",
+        "cat": "STAR UNION · DESDE 2001 EN LIMPIEZA B2B",
         "title": "Solicitá hoy un relevamiento técnico para tu planta, centro logístico o edificio",
         "body": "Propuesta operativa a medida en CABA y GBA con certificación internacional TÜV Rheinland ISO 9001:2015.",
         "cta": "📲 WHATSAPP +54 9 11 2275-9369 · STARUNION.COM.AR",
