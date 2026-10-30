@@ -230,20 +230,20 @@ def main():
     cal_rows += """
         <tr class="bg-[#03582d]/5 border-t-2 border-[#03582d]/20">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Jueves 19 Nov 2026</td>
-          <td class="p-3 font-extrabold text-gray-900">📧 PERFIT NOVIEMBRE (1° Envío Mensual · 10:00 hs)</td>
+          <td class="p-3 font-extrabold text-gray-900">📧 PERFIT FUNNEL 1 · 1° Envío Mensual (Plantilla A o B · 10:00 hs)</td>
           <td class="p-3 text-gray-700 font-bold">Mailing Perfit (Lista Fidelizada + Lista Depurada)</td>
-          <td class="p-3 text-gray-700">Cierra el ciclo iniciado en redes: Bloque #1 Logística/Industria + Bloque #2 Inicio Licitaciones Verano (Clubes/Universidades) + Dato Técnico de Cleany aterrizando en las nuevas landings web.</td>
+          <td class="p-3 text-gray-700">Mailing Inicial de Apertura del Funnel 1 (Genérico Multi-Vertical Autosegmentador): Base 800 m² Guaminí + Taller Propio + Biométrico &lt;2 hs + 5 Botones de Rubro directos a WhatsApp B2B.</td>
           <td class="p-3 text-center whitespace-nowrap">
-            <a href="../radar-comercial/perfit-historial/index.html" class="bg-[#111827] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ver Plan Perfit →</a>
+            <a href="embudo-y-comparador-mailing-ab.html" class="bg-[#03582d] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">📧 Ver Plantillas A y B →</a>
           </td>
         </tr>
         <tr class="bg-[#03582d]/5">
           <td class="p-3 font-extrabold text-[#03582d] whitespace-nowrap">Martes 24 Nov 2026</td>
-          <td class="p-3 font-extrabold text-gray-900">📧 PERFIT NOVIEMBRE (2° Envío +5 días a No-Abridores con Asunto Nuevo)</td>
+          <td class="p-3 font-extrabold text-gray-900">📧 PERFIT FUNNEL 1 · 2° Envío (+5 días a No-Abridores con Asunto/Plantilla B)</td>
           <td class="p-3 text-gray-700 font-bold">Mailing Perfit (Segmento Activos No-Abridores)</td>
-          <td class="p-3 text-gray-700">Aplica la regla comprobada de Septiembre (#117): cambio de asunto obligatorio para sumar +21,8% de aperturas extra y duplicar los clics hacia WhatsApp Comercial.</td>
+          <td class="p-3 text-gray-700">Aplica la regla comprobada de Septiembre (#117): cambio de asunto y enfoque de auditoría/riesgos (Plantilla B) para sumar +21,8% de aperturas extra hacia WhatsApp Comercial.</td>
           <td class="p-3 text-center whitespace-nowrap">
-            <a href="../radar-comercial/perfit-historial/index.html" class="bg-[#111827] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">Ver Plan Perfit →</a>
+            <a href="embudo-y-comparador-mailing-ab.html" class="bg-[#111827] text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg">📧 Ver Plantillas A y B →</a>
           </td>
         </tr>
     """
@@ -435,14 +435,17 @@ def main():
         </div>
       </div>
       <div class="flex flex-wrap gap-2">
+        <a href="embudo-y-comparador-mailing-ab.html" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition shadow-sm">
+          📧 Embudo + Plantillas Mailing HTML A y B
+        </a>
         <button type="button" onclick="toggleApiBox()" class="bg-amber-500 hover:bg-amber-600 text-gray-950 text-xs font-extrabold px-4 py-2.5 rounded-lg transition shadow-sm">
           🔌 Conectar / Ver Estado de las 6 Redes (API Directa)
         </button>
         <a href="piezas/STAR_UNION_CANVA_ADOBE_BULK.csv" download class="bg-[#111827] hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
           📥 Descargar Planilla .CSV (Canva Bulk / Excel)
         </a>
-        <a href="../radar-comercial/perfit-historial/index.html" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
-          📊 Ver Informe Perfit (El mismo del Chat SU)
+        <a href="../radar-comercial/perfit-historial/index.html" class="bg-gray-800 hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
+          📊 Ver Historial Perfit (93 Campañas)
         </a>
       </div>
     </div>

@@ -1236,6 +1236,39 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             self._send_json(200, {"ok": True, "entry": entry, "message": f"✅ Guardado Pieza #{post_id} ({entry.get('status', 'guardado')} para {entry.get('scheduled_at', '')}){regen_msg}"})
             return
 
+        if self.path.startswith("/api/perfit/create-draft"):
+            try:
+                perfit_vault = os.path.join(WEB_ROOT, ".agents", "vault", "perfit.json")
+                pf = json.load(open(perfit_vault, "r", encoding="utf-8"))
+                account = pf.get("account", "starunionsrl")
+                api_key = pf.get("api_key", "")
+                opt = str(body.get("option", "A")).upper()
+                subj = body.get("subject", "Continuidad operativa e infraestructura propia º Star ⭐ Union")
+                fname = "mailing-apertura-funnel1-opcion-A.html" if opt == "A" else "mailing-apertura-funnel1-opcion-B.html"
+                html_content = open(os.path.join(WEB_ROOT, "redes-sociales", fname), "r", encoding="utf-8").read()
+                payload_pf = {
+                    "name": f"Funnel 1 Apertura - Opción {opt} (Star Union)",
+                    "subject": subj,
+                    "from": {"email": "info@starunion.com.ar", "name": "Star Union"},
+                    "replyTo": {"email": "info@starunion.com.ar", "name": "Star Union"},
+                    "content": {"html": html_content},
+                }
+                st_pf, res_pf = http_json(
+                    "POST",
+                    f"https://api.myperfit.com/v2/{account}/campaigns",
+                    headers={"Authorization": f"Bearer {api_key}"},
+                    json_body=payload_pf,
+                )
+                if st_pf in (200, 201) and res_pf.get("data"):
+                    cid = res_pf["data"].get("id", "")
+                    cname = res_pf["data"].get("name", f"Opción {opt}")
+                    self._send_json(200, {"ok": True, "campaign_id": cid, "name": cname})
+                else:
+                    self._send_json(200, {"ok": False, "error": f"Perfit ({st_pf}): {res_pf}"})
+            except Exception as ex:
+                self._send_json(200, {"ok": False, "error": str(ex)})
+            return
+
         self._send_json(404, {"error": "Endpoint no encontrado"})
 
 
