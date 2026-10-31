@@ -796,16 +796,59 @@ def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv=""):
         return {"ok": False, "error": f"Error completando subida a YouTube: {e}"}
 
 
+BLOCKED_NON_STARUNION_TIKTOK_OPEN_IDS = {
+    "-000bsxdARfkDH88S4MIjn7NEQf5i4lijwGx",
+}
+
+
+def verify_tiktok_is_starunion(tt_token, open_id=""):
+    """
+    CORTAFUEGOS DE HIERRO EN TIKTOK:
+    Verifica por API en vivo (user/info y creator_info/query) que el token de TikTok
+    pertenezca EXCLUSIVAMENTE a Star Union (@starunionservicios) y bloquea físicamente
+    cualquier otra cuenta que haya quedado abierta en la sesión del navegador.
+    """
+    if open_id in BLOCKED_NON_STARUNION_TIKTOK_OPEN_IDS:
+        return False, f"🛑 BLOQUEADO POR CORTAFUEGOS: El open_id ({open_id}) pertenece a otra cuenta del navegador y NO es @starunionservicios."
+
+    hdrs = {
+        "Authorization": f"Bearer {tt_token}",
+        "Content-Type": "application/json; charset=UTF-8",
+    }
+    st_ci, ci_data = http_json("POST", "https://open.tiktokapis.com/v2/post/publish/creator_info/query/", headers=hdrs, json_body={})
+    c_data = ci_data.get("data", {}) if isinstance(ci_data, dict) else {}
+    c_user = str(c_data.get("creator_username") or "").strip().lower()
+    c_nick = str(c_data.get("creator_nickname") or "").strip().lower()
+
+    st_u, u_data = http_json("GET", "https://open.tiktokapis.com/v2/user/info/?fields=open_id,display_name,username", headers={"Authorization": f"Bearer {tt_token}"})
+    u_obj = (u_data.get("data", {}) or {}).get("user", {}) if isinstance(u_data, dict) else {}
+    u_open_id = str(u_obj.get("open_id") or open_id or "").strip()
+    u_name = str(u_obj.get("display_name") or "").strip().lower()
+    u_handle = str(u_obj.get("username") or "").strip().lower()
+
+    if u_open_id in BLOCKED_NON_STARUNION_TIKTOK_OPEN_IDS:
+        return False, f"🛑 BLOQUEADO POR CORTAFUEGOS: La cuenta de TikTok ({u_handle or u_name or u_open_id}) NO pertenece a Star Union."
+
+    combined = f"{c_user} {c_nick} {u_name} {u_handle}"
+    if "star" not in combined and "union" not in combined and "unión" not in combined:
+        return False, f"🛑 BLOQUEADO POR CORTAFUEGOS: La sesión de TikTok activa en el navegador ({combined.strip() or u_open_id}) NO coincide con @starunionservicios."
+
+    return True, (c_user or u_handle or u_name or "starunionservicios")
+
+
 def publish_tiktok(keys, reel_rel_path, caption):
     """
     REGLA INQUEBRANTABLE:
-    En TikTok jamás usar PULL_FROM_URL (exige verificación de dominio y auditoría).
-    Siempre subir el archivo binario local con FILE_UPLOAD y usar fallback automático
-    a /v2/post/publish/inbox/video/init/ para apps en modo Sandbox / sin auditar.
+    1. Verificar identidad de cuenta con verify_tiktok_is_starunion() antes de tocar TikTok.
+    2. Jamás usar PULL_FROM_URL. Subir binario local con FILE_UPLOAD.
     """
     tt_token = ensure_fresh_tiktok_token(keys)
     if not tt_token:
-        return {"ok": False, "error": "Falta conectar o renovar TikTok."}
+        return {"ok": False, "error": "TikTok desconectado en Star Union (requiere iniciar sesión con @starunionservicios)."}
+
+    is_valid_su, id_msg = verify_tiktok_is_starunion(tt_token, keys.get("tiktok_open_id", ""))
+    if not is_valid_su:
+        return {"ok": False, "error": id_msg}
 
     clean_rel = reel_rel_path.split("?")[0].lstrip("/")
     video_path = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
@@ -911,6 +954,25 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        if self.path.startswith("/download"):
+            parsed = urllib.parse.urlparse(self.path)
+            qs = urllib.parse.parse_qs(parsed.query)
+            rel = (qs.get("file") or [""])[0].lstrip("/")
+            abs_p = os.path.realpath(os.path.join(WEB_ROOT, rel))
+            if abs_p.startswith(os.path.realpath(WEB_ROOT)) and os.path.isfile(abs_p):
+                with open(abs_p, "rb") as f:
+                    data_bytes = f.read()
+                fname = os.path.basename(abs_p)
+                self.send_response(200)
+                self.send_header("Content-Type", "application/octet-stream")
+                self.send_header("Content-Disposition", f'attachment; filename="{fname}"')
+                self.send_header("Content-Length", str(len(data_bytes)))
+                self.end_headers()
+                self.wfile.write(data_bytes)
+                return
+            self.send_error(404, "Archivo no encontrado")
+            return
+
         if self.path.startswith("/api/tiktok/login"):
             parsed = urllib.parse.urlparse(self.path)
             qs = urllib.parse.parse_qs(parsed.query)
@@ -923,7 +985,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             auth_url = "https://www.tiktok.com/v2/auth/authorize/?" + urllib.parse.urlencode(
                 {
                     "client_key": ck,
-                    "scope": "user.info.basic,video.upload",
+                    "scope": "user.info.basic,video.upload,video.publish",
                     "response_type": "code",
                     "redirect_uri": redirect_uri,
                     "state": "starunion_tt",
@@ -957,8 +1019,12 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             open_id = data.get("open_id") or data.get("data", {}).get("open_id", "")
             rt = data.get("refresh_token") or data.get("data", {}).get("refresh_token", "")
             if tok:
-                save_keys({"tiktok_token": tok, "tiktok_open_id": open_id, "tiktok_refresh_token": rt})
-                html = "<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡TikTok de Star Union Conectado con Éxito!</h2><p>Redirigiendo al panel...</p><script>setTimeout(()=>location.href='/redes-sociales/index.html', 1000);</script></body></html>"
+                is_valid_su, id_msg = verify_tiktok_is_starunion(tok, open_id)
+                if not is_valid_su:
+                    html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;text-align:center;'><h2>{id_msg}</h2><p>Tu navegador tiene iniciada la sesión de otra cuenta en tiktok.com. Cerrá sesión en tiktok.com, iniciá sesión con <strong>@starunionservicios</strong> y volvé a conectar.</p><p><a href='/redes-sociales/index.html' style='color:#fde047;font-weight:bold;'>← Volver al panel de Star Union</a></p></body></html>"
+                else:
+                    save_keys({"tiktok_token": tok, "tiktok_open_id": open_id, "tiktok_refresh_token": rt, "tiktok_username": id_msg})
+                    html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡TikTok de Star Union (@{id_msg}) Verificado y Conectado!</h2><p>Redirigiendo al panel...</p><script>setTimeout(()=>location.href='/redes-sociales/index.html', 1500);</script></body></html>"
             else:
                 html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;'><h2>❌ Error obteniendo token de TikTok</h2><pre>{json.dumps(data, indent=2)}</pre><p><a href='/redes-sociales/index.html' style='color:#fde047;'>← Volver al panel</a></p></body></html>"
             body = html.encode("utf-8")
@@ -972,7 +1038,15 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         if self.path.startswith("/google-auth"):
             cid, _ = get_google_desktop_creds()
             redirect_uri = "http://localhost:8894/google-callback"
-            scopes = "https://www.googleapis.com/auth/business.manage https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly"
+            if "gmb" in self.path:
+                scopes = "https://www.googleapis.com/auth/business.manage"
+                state_mode = "gmb"
+            elif "yt" in self.path:
+                scopes = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly"
+                state_mode = "yt"
+            else:
+                scopes = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly"
+                state_mode = "yt"
             auth_url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode({
                 "client_id": cid,
                 "redirect_uri": redirect_uri,
@@ -980,6 +1054,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 "scope": scopes,
                 "access_type": "offline",
                 "prompt": "consent",
+                "state": state_mode,
             })
             self.send_response(302)
             self.send_header("Location", auth_url)
@@ -991,6 +1066,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             parsed = urllib.parse.urlparse(self.path)
             qs = urllib.parse.parse_qs(parsed.query)
             code = (qs.get("code") or [""])[0].strip()
+            state_mode = (qs.get("state") or ["yt"])[0].strip()
             redirect_uri = "http://localhost:8894/google-callback"
             st_g, data_g = http_json(
                 "POST",
@@ -1006,12 +1082,19 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             acc = data_g.get("access_token", "")
             rt = data_g.get("refresh_token", "")
             if acc:
-                updates = {"gmb_token": acc, "youtube_token": acc}
-                if rt:
-                    updates["gmb_refresh_token"] = rt
-                    updates["youtube_refresh_token"] = rt
+                updates = {}
+                if state_mode == "gmb":
+                    updates["gmb_token"] = acc
+                    if rt:
+                        updates["gmb_refresh_token"] = rt
+                    label_ok = "Google My Business (Maps)"
+                else:
+                    updates["youtube_token"] = acc
+                    if rt:
+                        updates["youtube_refresh_token"] = rt
+                    label_ok = "YouTube Shorts (@starunionservicios)"
                 save_keys(updates)
-                html = "<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡Google My Business y YouTube Shorts Conectados con Token Permanente Propio (Sin OAuth Playground)!</h2><p>Este Refresh Token ya no vence a las 24 hs. Redirigiendo...</p><script>setTimeout(()=>location.href='/redes-sociales/canva-tira-intercalada.html', 1500);</script></body></html>"
+                html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡{label_ok} Conectado con Token Permanente Propio!</h2><p>Ya podés cerrar esta pestaña.</p></body></html>"
             else:
                 html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;'><h2>❌ Error obteniendo token de Google</h2><pre>{json.dumps(data_g, indent=2)}</pre><p><a href='/google-auth' style='color:#fde047;'>🔄 Reintentar</a></p></body></html>"
             body = html.encode("utf-8")
@@ -1454,7 +1537,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     "name": f"Funnel 1 Apertura - Opción {opt} (Star Union)",
                     "subject": subj,
                     "from": {"email": "info@starunion.com.ar", "name": "Star Union"},
-                    "replyTo": {"email": "info@starunion.com.ar", "name": "Star Union"},
+                    "replyTo": {"email": "ventas@starunion.com.ar", "name": "Star Union"},
                     "content": {"html": html_content},
                 }
                 st_pf, res_pf = http_json(
@@ -1476,65 +1559,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         self._send_json(404, {"error": "Endpoint no encontrado"})
 
 
-def run_scheduler_loop():
-    import datetime
-    sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
-    while True:
-        try:
-            if os.path.exists(sched_path):
-                with open(sched_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                now_str = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M")
-                changed = False
-                keys = load_keys()
-                for pid, entry in data.items():
-                    if entry.get("status") == "programado" and entry.get("scheduled_at") and entry["scheduled_at"] <= now_str:
-                        channels = entry.get("channels", [])
-                        feed_file = entry.get("feed_file", f"piezas/{pid}_feed_logistica_industria_1080x1350.jpg")
-                        story_file = entry.get("story_file", f"piezas/{pid}_story_logistica_industria_1080x1920.jpg")
-                        reel_file = entry.get("reel_file", "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4")
-                        caption_ig = entry.get("copy_ig_fb", "")
-                        caption_li = entry.get("copy_linkedin", "")
-                        yt_title = entry.get("yt_title", "Star Union — Empresa de Limpieza #Shorts")
-                        yt_desc = entry.get("yt_desc", caption_ig)
-                        yt_tags = entry.get("yt_tags", "empresa de limpieza, star union, limpieza industrial")
-                        public_url = "https://www.starunion.com.ar"
-                        title = entry.get("title", "Star Union")
-                        res = {}
-                        if "ig_feed" in channels:
-                            res["IG Feed"] = publish_ig_feed(keys, feed_file, caption_ig)
-                        if "ig_story" in channels:
-                            res["IG Story Video"] = publish_ig_story(keys, story_file, reel_file)
-                        if "ig_reel" in channels:
-                            res["IG Reel"] = publish_ig_reel(keys, reel_file, caption_ig)
-                        if "fb_page" in channels:
-                            res["FB Page"] = publish_fb_page(keys, feed_file, caption_ig, public_url)
-                        if "fb_reel" in channels:
-                            res["FB Reel"] = publish_fb_reel(keys, reel_file, caption_ig, public_url)
-                        if "linkedin" in channels:
-                            res["LinkedIn"] = publish_linkedin(keys, feed_file, caption_li, public_url, title)
-                        if "gmb" in channels:
-                            res["Google Maps"] = publish_gmb(keys, feed_file, caption_ig, public_url)
-                        if "youtube" in channels:
-                            res["YouTube"] = publish_youtube_short(keys, reel_file, yt_title, yt_desc, yt_tags)
-                        if "tiktok" in channels:
-                            res["TikTok"] = publish_tiktok(keys, reel_file, caption_ig)
-                        entry["status"] = "publicado"
-                        entry["published_at"] = now_str
-                        entry["last_results"] = res
-                        changed = True
-                if changed:
-                    with open(sched_path, "w", encoding="utf-8") as f:
-                        json.dump(data, f, ensure_ascii=False, indent=2)
-        except Exception:
-            pass
-        time.sleep(25)
-
-
 if __name__ == "__main__":
-    import threading
-    t2 = threading.Thread(target=run_scheduler_loop, daemon=True)
-    t2.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)
-    print("STAR UNION API Server corriendo en http://127.0.0.1:8894")
+    print("STAR UNION API Server corriendo en http://127.0.0.1:8894 (Disparo automático en segundo plano DESACTIVADO — Requiere clic humano)")
     server.serve_forever()

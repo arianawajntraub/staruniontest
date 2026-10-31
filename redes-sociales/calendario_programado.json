@@ -29,6 +29,10 @@
     ],
     "editorial_feed_file": "piezas/04_feed_salud_laboratorios_1080x1350.jpg",
     "story_file": "piezas/story_liviana_01_3010_salud_1080x1920.jpg",
+    "story_video_file": "piezas/story_liviana_01_3010_salud_6s.mp4",
+    "fb_feed_file": "piezas/canva_01_3010_salud_fb_p1.jpg",
+    "li_feed_file": "piezas/canva_01_3010_salud_li_p1.jpg",
+    "gmb_feed_file": "piezas/canva_01_3010_salud_gmb_p1.jpg",
     "story_slides": [
       "piezas/canva_01_3010_salud_9x16_p1.jpg",
       "piezas/canva_01_3010_salud_9x16_p2.jpg",
@@ -51,13 +55,8 @@
       "fb_reel",
       "linkedin",
       "gmb",
-      "youtube",
-      "tiktok"
+      "youtube"
     ],
-    "story_video_file": "piezas/story_liviana_01_3010_salud_6s.mp4",
-    "fb_feed_file": "piezas/canva_01_3010_salud_fb_p1.jpg",
-    "li_feed_file": "piezas/canva_01_3010_salud_li_p1.jpg",
-    "gmb_feed_file": "piezas/canva_01_3010_salud_gmb_p1.jpg",
     "published_at": "2026-10-30T10:30",
     "last_results": {
       "IG Feed (4:5 Carrusel)": {
@@ -65,8 +64,9 @@
         "error": "Error creando contenedor IG Feed: {'error': {'message': 'Only photo or video can be accepted as media type.', 'type': 'OAuthException', 'code': 9004, 'error_subcode': 2207052, 'is_transient': False, 'error_user_title': 'Error al descargar el contenido multimedia. El URI del contenido multimedia no cumple nuestros requisitos.', 'error_user_msg': 'No se pudo recuperar el contenido multimedia de este URI: https://wajntraub.ar/staruniontest/redes-sociales/piezas/canva_01_3010_salud_feed_p1.jpg.Consulta la sección de limitaciones de nuestra documentación de desarrollo para obtener más información: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media#creating', 'fbtrace_id': 'Abe4aL8uSWubWh0hN5HZRSM'}}"
       },
       "IG Story Liviana Video": {
-        "ok": false,
-        "error": "Meta rechazó el video de Story: {'id': '18189788053411817', 'status': 'Error: Media upload has failed with error code 2207076', 'status_code': 'ERROR'}"
+        "ok": true,
+        "id": "17998502676011808",
+        "note": "Story Liviana 9:16 publicada en Instagram Stories (@starunionservicios)"
       },
       "IG Reel 12s c/Locución": {
         "ok": true,
@@ -133,6 +133,10 @@
     ],
     "editorial_feed_file": "piezas/02_feed_base_operativa_taller_1080x1350.jpg",
     "story_file": "piezas/story_liviana_02_0211_equipos_listos_1080x1920.jpg",
+    "story_video_file": "piezas/story_liviana_02_0211_equipos_listos_6s.mp4",
+    "fb_feed_file": "piezas/canva_02_0211_equipos_listos_feed_p1.jpg",
+    "li_feed_file": "piezas/canva_02_0211_equipos_listos_feed_p1.jpg",
+    "gmb_feed_file": "piezas/canva_02_0211_equipos_listos_feed_p1.jpg",
     "story_slides": [
       "piezas/canva_02_0211_equipos_listos_9x16_p1.jpg",
       "piezas/canva_02_0211_equipos_listos_9x16_p2.jpg",
@@ -155,13 +159,8 @@
       "fb_reel",
       "linkedin",
       "gmb",
-      "youtube",
-      "tiktok"
-    ],
-    "story_video_file": "piezas/story_liviana_02_0211_equipos_listos_6s.mp4",
-    "fb_feed_file": "piezas/canva_02_0211_equipos_listos_feed_p1.jpg",
-    "li_feed_file": "piezas/canva_02_0211_equipos_listos_feed_p1.jpg",
-    "gmb_feed_file": "piezas/canva_02_0211_equipos_listos_feed_p1.jpg"
+      "youtube"
+    ]
   },
   "03": {
     "id": "03",
@@ -193,6 +192,10 @@
     ],
     "editorial_feed_file": "piezas/05_feed_universidades_clubes_1080x1350.jpg",
     "story_file": "piezas/story_liviana_03_0311_edificios_corporativos_1080x1920.jpg",
+    "story_video_file": "piezas/story_liviana_03_0311_edificios_corporativos_6s.mp4",
+    "fb_feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
+    "li_feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
+    "gmb_feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
     "story_slides": [
       "piezas/canva_03_0311_edificios_corporativos_9x16_p1.jpg",
       "piezas/canva_03_0311_edificios_corporativos_9x16_p2.jpg",
@@ -215,13 +218,8 @@
       "fb_reel",
       "linkedin",
       "gmb",
-      "youtube",
-      "tiktok"
-    ],
-    "story_video_file": "piezas/story_liviana_03_0311_edificios_corporativos_6s.mp4",
-    "fb_feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
-    "li_feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
-    "gmb_feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg"
+      "youtube"
+    ]
   },
   "04": {
     "id": "04",
@@ -253,6 +251,10 @@
     ],
     "editorial_feed_file": "piezas/03_feed_presentismo_biometrico_1080x1350.jpg",
     "story_file": "piezas/story_liviana_04_0511_respuesta_inmediata_1080x1920.jpg",
+    "story_video_file": "piezas/story_liviana_04_0511_respuesta_inmediata_6s.mp4",
+    "fb_feed_file": "piezas/canva_04_0511_respuesta_inmediata_feed_p1.jpg",
+    "li_feed_file": "piezas/canva_04_0511_respuesta_inmediata_feed_p1.jpg",
+    "gmb_feed_file": "piezas/canva_04_0511_respuesta_inmediata_feed_p1.jpg",
     "story_slides": [
       "piezas/canva_04_0511_respuesta_inmediata_9x16_p1.jpg",
       "piezas/canva_04_0511_respuesta_inmediata_9x16_p2.jpg",
@@ -275,13 +277,8 @@
       "fb_reel",
       "linkedin",
       "gmb",
-      "youtube",
-      "tiktok"
-    ],
-    "story_video_file": "piezas/story_liviana_04_0511_respuesta_inmediata_6s.mp4",
-    "fb_feed_file": "piezas/canva_04_0511_respuesta_inmediata_feed_p1.jpg",
-    "li_feed_file": "piezas/canva_04_0511_respuesta_inmediata_feed_p1.jpg",
-    "gmb_feed_file": "piezas/canva_04_0511_respuesta_inmediata_feed_p1.jpg"
+      "youtube"
+    ]
   },
   "05": {
     "id": "05",
@@ -313,6 +310,10 @@
     ],
     "editorial_feed_file": "piezas/01_feed_logistica_industria_1080x1350.jpg",
     "story_file": "piezas/story_liviana_05_0611_maquinaria_lista_1080x1920.jpg",
+    "story_video_file": "piezas/story_liviana_05_0611_maquinaria_lista_6s.mp4",
+    "fb_feed_file": "piezas/canva_05_0611_maquinaria_lista_feed_p1.jpg",
+    "li_feed_file": "piezas/canva_05_0611_maquinaria_lista_feed_p1.jpg",
+    "gmb_feed_file": "piezas/canva_05_0611_maquinaria_lista_feed_p1.jpg",
     "story_slides": [
       "piezas/canva_05_0611_maquinaria_lista_9x16_p1.jpg",
       "piezas/canva_05_0611_maquinaria_lista_9x16_p2.jpg",
@@ -335,12 +336,7 @@
       "fb_reel",
       "linkedin",
       "gmb",
-      "youtube",
-      "tiktok"
-    ],
-    "story_video_file": "piezas/story_liviana_05_0611_maquinaria_lista_6s.mp4",
-    "fb_feed_file": "piezas/canva_05_0611_maquinaria_lista_feed_p1.jpg",
-    "li_feed_file": "piezas/canva_05_0611_maquinaria_lista_feed_p1.jpg",
-    "gmb_feed_file": "piezas/canva_05_0611_maquinaria_lista_feed_p1.jpg"
+      "youtube"
+    ]
   }
 }
