@@ -316,10 +316,10 @@
       <div class="net-bar" id="top-net-bar">
         <span class="net-pill">🟢 Instagram (@starunionservicios · Reel + Story Liviana + Feed)</span>
         <span class="net-pill">🟢 Facebook (Star Union Servicios · Page + Story + Reel)</span>
-        <span class="net-pill">🟢 LinkedIn (Star Union S.R.L. · Organización)</span>
+        <span class="net-pill">🟢 LinkedIn (Star Union · Página Empresa ID 35644861)</span>
         <span class="net-pill">🟢 Canva Pro API (Conectado)</span>
-        <a href="http://localhost:8894/google-auth-yt" class="net-pill warn" id="pill-yt">🟠 YouTube Shorts: Tocar para terminar 1 clic (Continuar)</a>
-        <a href="http://localhost:8894/google-auth-gmb" class="net-pill warn" id="pill-gmb">🟠 Google Maps: Tocar para terminar 1 clic (Continuar)</a>
+        <span class="net-pill" id="pill-yt">🟢 YouTube Shorts (Star Union | Limpieza Profesional e Industrial · Token Permanente)</span>
+        <span class="net-pill" id="pill-gmb">🟢 Google Maps (Empresa de Limpieza - Star Union · Token Permanente)</span>
       </div>
     </div>
 
@@ -361,23 +361,21 @@
 
       <div class="conn-card">
         <div>
-          <h3>2. YouTube Shorts (@starunionservicios · OAuth Star Union)</h3>
-          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Cliente propio <code>star-union-513217</code> (sin OAuth Playground). Elegí el canal <strong>Star Union</strong> y tocá <strong>Continuar</strong>:</p>
+          <h3>2. YouTube Shorts (Star Union | Limpieza Profesional e Industrial)</h3>
+          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Refresh Token permanente activo (<code>1//0hsDg...</code> · Canal ID <code>UCwCNs88hgID5ClnwOTOSwfw</code>).</p>
         </div>
         <div>
-          <div class="conn-status conn-pending" id="box-yt" style="margin-bottom:8px;">🟠 Falta último clic en "Continuar" en la ventana de Google</div>
-          <a href="http://localhost:8894/google-auth-yt" class="btn-link" style="background:#10b981;color:#052e16;width:100%;justify-content:center;">🔗 Conectar YouTube Shorts (1 Clic)</a>
+          <div class="conn-status conn-ok" id="box-yt" style="margin-bottom:8px;">✅ CONECTADO Y ACTIVO: YouTube Shorts (Star Union · Token Permanente)</div>
         </div>
       </div>
 
       <div class="conn-card">
         <div>
-          <h3>3. Google Maps (Guaminí 5657 · OAuth Star Union)</h3>
-          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Cliente propio <code>star-union-513217</code> (sin OAuth Playground). Elegí <strong>ariana@starunionservicios.com.ar</strong> y tocá <strong>Continuar</strong>:</p>
+          <h3>3. Google Maps (Empresa de Limpieza - Star Union · Guaminí 5657)</h3>
+          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Refresh Token permanente activo (<code>1//0hQu6...</code> · Location <code>8938663810475756647</code>).</p>
         </div>
         <div>
-          <div class="conn-status conn-pending" id="box-gmb" style="margin-bottom:8px;">🟠 Falta último clic en "Continuar" en la ventana de Google</div>
-          <a href="http://localhost:8894/google-auth-gmb" class="btn-link" style="background:#10b981;color:#052e16;width:100%;justify-content:center;">🔗 Conectar Google Maps (1 Clic)</a>
+          <div class="conn-status conn-ok" id="box-gmb" style="margin-bottom:8px;">✅ CONECTADO Y ACTIVO: Google Maps (Guaminí 5657 · Token Permanente)</div>
         </div>
       </div>
     </div>
@@ -387,23 +385,25 @@
   </div>
 
   <script>
+    const API_BASE = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') ? '' : 'http://127.0.0.1:8894';
+
     async function loadApiStatus() {
       try {
-        const r = await fetch('/api/status?t=' + Date.now());
+        const r = await fetch(API_BASE + '/api/status?t=' + Date.now());
         const st = await r.json();
         const ytBox = document.getElementById('box-yt');
         const pillYt = document.getElementById('pill-yt');
         if (st.youtube_connected) {
           ytBox.className = 'conn-status conn-ok';
-          ytBox.innerHTML = '✅ CONECTADO Y ACTIVO: YouTube Shorts (@starunionservicios)';
-          if (pillYt) { pillYt.className = 'net-pill'; pillYt.innerHTML = '🟢 YouTube Shorts (@starunionservicios)'; }
+          ytBox.innerHTML = '✅ CONECTADO Y ACTIVO: YouTube Shorts (' + (st.youtube_channel_name || 'Star Union') + ')';
+          if (pillYt) { pillYt.className = 'net-pill'; pillYt.innerHTML = '🟢 YouTube Shorts (' + (st.youtube_channel_name || 'Star Union') + ')'; }
         }
         const gmbBox = document.getElementById('box-gmb');
         const pillGmb = document.getElementById('pill-gmb');
         if (st.gmb_connected) {
           gmbBox.className = 'conn-status conn-ok';
-          gmbBox.innerHTML = '✅ CONECTADO Y ACTIVO: Google Maps (Guaminí 5657)';
-          if (pillGmb) { pillGmb.className = 'net-pill'; pillGmb.innerHTML = '🟢 Google Maps (Guaminí 5657)'; }
+          gmbBox.innerHTML = '✅ CONECTADO Y ACTIVO: Google Maps (' + (st.gmb_location_title || 'Guaminí 5657') + ')';
+          if (pillGmb) { pillGmb.className = 'net-pill'; pillGmb.innerHTML = '🟢 Google Maps (' + (st.gmb_location_title || 'Guaminí 5657') + ')'; }
         }
       } catch (e) {}
     }
@@ -417,11 +417,21 @@
       setTimeout(() => { btn.innerHTML = old; }, 2000);
     }
 
+    async function fetchScheduleData() {
+      try {
+        const r = await fetch(API_BASE + '/api/schedule?t=' + Date.now());
+        if (r.ok) {
+          const d = await r.json();
+          if (d && d.schedule) return d.schedule;
+        }
+      } catch (e) {}
+      const r2 = await fetch('calendario_programado.json?t=' + Date.now());
+      return await r2.json();
+    }
+
     async function loadSchedule() {
       await loadApiStatus();
-      const r = await fetch('/api/schedule?t=' + Date.now());
-      const d = await r.json();
-      const sched = d.schedule || {};
+      const sched = (await fetchScheduleData()) || {};
       const root = document.getElementById('posts-root');
       const tbody = document.getElementById('cal-tbody');
       root.innerHTML = '';
@@ -581,14 +591,14 @@
               </div>
               <div class="field">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                  <label style="margin:0;">Copy Instagram / Facebook / Google Maps / TikTok / YouTube:</label>
+                  <label style="margin:0;">Copy Instagram / Facebook / Google Maps / YouTube:</label>
                   <button type="button" style="background:#334155;color:#fde047;padding:4px 9px;font-size:11px;" onclick="copyTextarea('ig_${pid}', this)">📋 Copiar con Enter y Espacios</button>
                 </div>
                 <textarea id="ig_${pid}" rows="6">${p.copy_ig_fb || ''}</textarea>
               </div>
               <div class="field">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                  <label style="margin:0;">Copy LinkedIn Corporativo (Star Union S.R.L.):</label>
+                  <label style="margin:0;">Copy LinkedIn Corporativo (Star Union):</label>
                   <button type="button" style="background:#334155;color:#fde047;padding:4px 9px;font-size:11px;" onclick="copyTextarea('li_${pid}', this)">📋 Copiar Copy LinkedIn</button>
                 </div>
                 <textarea id="li_${pid}" rows="5">${p.copy_linkedin || ''}</textarea>
@@ -597,7 +607,7 @@
                 <button class="btn-approve" style="font-size:13px;padding:11px 16px;" onclick="savePost('${pid}', 'aprobado', false)">✅ DAR OK / APROBAR DÍA (Guarda Copy + Carteles Canva)</button>
                 <button class="btn-pause" onclick="savePost('${pid}', 'pausado_en_revision', false)">⏸️ Pausar</button>
                 <button class="btn-publish-now" onclick="publishNow('${pid}')">🚀 Publicar Ahora Mismo</button>
-                <a class="btn-link" style="background:#fde047;color:#0f172a;" href="/redes-sociales/contingencia.html#post_${pid}" target="_blank">🛡️ Ver en Base de Contingencia</a>
+                <a class="btn-link" style="background:#fde047;color:#0f172a;" href="contingencia.html#post_${pid}" target="_blank">🛡️ Ver en Base de Contingencia</a>
               </div>
               <div id="log_${pid}" class="msg-log"></div>
             </div>
@@ -613,9 +623,8 @@
         ? '⏳ Conectando con Canva API, actualizando carteles de las 4 placas y armando el video de 12 seg con locución (toma ~15 seg)...'
         : '⏳ Guardando cambios en el calendario...';
 
-      const r0 = await fetch('/api/schedule?t=' + Date.now());
-      const d0 = await r0.json();
-      const cur = (d0.schedule || {})[pid] || {};
+      const sched = (await fetchScheduleData()) || {};
+      const cur = sched[pid] || {};
 
       const payload = {
         id: pid,
@@ -633,7 +642,7 @@
         update_canva: updateCanva
       };
 
-      const res = await fetch('/api/schedule', {
+      const res = await fetch(API_BASE + '/api/schedule', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
@@ -653,16 +662,15 @@
 
     async function publishNow(pid) {
       const log = document.getElementById('log_' + pid);
-      log.textContent = '🚀 Publicando en vivo en Instagram, Facebook, LinkedIn, Google Maps, YouTube Shorts y TikTok...';
-      const r0 = await fetch('/api/schedule?t=' + Date.now());
-      const d0 = await r0.json();
-      const cur = (d0.schedule || {})[pid] || {};
+      log.textContent = '🚀 Publicando en vivo en Instagram, Facebook, LinkedIn, Google Maps y YouTube Shorts...';
+      const sched = (await fetchScheduleData()) || {};
+      const cur = sched[pid] || {};
 
-      const res = await fetch('/api/publish', {
+      const res = await fetch(API_BASE + '/api/publish', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_story','fb_reel','linkedin','gmb','youtube','tiktok'],
+          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_story','fb_reel','linkedin','gmb','youtube'],
           feed_file: cur.feed_file,
           story_file: cur.story_file,
           reel_file: cur.reel_file,

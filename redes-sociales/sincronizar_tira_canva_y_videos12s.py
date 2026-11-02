@@ -54,7 +54,7 @@ CANVA_SERIES = [
         ),
         "copy_linkedin": (
             "En instituciones de salud, clínicas, sanatorios y laboratorios, la higiene técnica exige trazabilidad por sector y coordinación horaria precisa.\n\n"
-            "En Star Union S.R.L. ejecutamos servicios de limpieza institucional para el sector salud con respaldo propio:\n"
+            "En Star Union ejecutamos servicios de limpieza institucional para el sector salud con respaldo propio:\n"
             "✔️ Protocolos operativos diferenciados para salas de espera, consultorios, laboratorios, pasillos y circulación vertical.\n"
             "✔️ Equipos entrenados en nuestro Centro de Capacitación propio antes de ingresar al objetivo.\n"
             "✔️ Supervisión en sitio y control biométrico de presentismo.\n"
@@ -94,7 +94,7 @@ CANVA_SERIES = [
         ),
         "copy_linkedin": (
             "La calidad de un servicio de limpieza B2B empieza antes del primer turno en las instalaciones del cliente.\n\n"
-            "En Star Union S.R.L. contamos con nuestro propio Centro de Capacitación dentro de la base operativa de Guaminí 5657 (CABA):\n"
+            "En Star Union contamos con nuestro propio Centro de Capacitación dentro de la base operativa de Guaminí 5657 (CABA):\n"
             "✔️ Entrenamiento práctico previo en procedimientos, seguridad e higiene y operación de maquinaria.\n"
             "✔️ Certificación interna por curso y seguimiento de supervisores en el objetivo.\n"
             "✔️ Respaldo documental completo y certificación TÜV Rheinland ISO 9001:2015.\n\n"
@@ -133,7 +133,7 @@ CANVA_SERIES = [
         ),
         "copy_linkedin": (
             "Unificar la higiene de un edificio corporativo en un solo proveedor certificado reduce costos de coordinación y garantiza trazabilidad.\n\n"
-            "En Star Union S.R.L. integramos bajo un mismo abono:\n"
+            "En Star Union integramos bajo un mismo abono:\n"
             "✔️ Puesta a punto de halls de acceso, ascensores, cocheras y pisos de oficinas antes del ingreso del personal.\n"
             "✔️ Cuadrillas propias para limpieza de vidrios y fachadas en altura.\n"
             "✔️ Un único interlocutor operativo con certificación ISO 9001:2015 (TÜV Rheinland).\n\n"
@@ -172,7 +172,7 @@ CANVA_SERIES = [
         ),
         "copy_linkedin": (
             "El principal punto crítico en la contratación de servicios de limpieza B2B es el ausentismo imprevisto.\n\n"
-            "En Star Union S.R.L. resolvemos la continuidad diaria mediante:\n"
+            "En Star Union resolvemos la continuidad diaria mediante:\n"
             "✔️ Control de presentismo en tiempo real desde el inicio de cada turno.\n"
             "✔️ Guardia operativa móvil con flota propia para cubrir ausencias en el acto.\n"
             "✔️ Supervisor asignado a cada cuenta con capacidad de respuesta inmediata ante cambios de agenda o eventos.\n\n"
@@ -211,7 +211,7 @@ CANVA_SERIES = [
         ),
         "copy_linkedin": (
             "La limpieza de una planta industrial o centro logístico depende directamente de la disponibilidad mecánica del equipamiento.\n\n"
-            "En Star Union S.R.L. garantizamos continuidad operativa desde nuestra base propia de 800 m² en CABA:\n"
+            "En Star Union garantizamos continuidad operativa desde nuestra base propia de 800 m² en CABA:\n"
             "✔️ Taller electromecánico in-house para mantenimiento preventivo y reemplazo inmediato de fregadoras, barredoras e hidrolavadoras.\n"
             "✔️ Stock permanente de insumos habilitados y distribución con flota utilitaria propia.\n"
             "✔️ Gestión auditada bajo Norma ISO 9001:2015 por TÜV Rheinland.\n\n"
@@ -553,7 +553,7 @@ def sync_all():
             "yt_desc": item["copy_ig_fb"],
             "yt_tags": "star union, empresa de limpieza, limpieza industrial, limpieza clinicas, iso 9001",
             "copy_wa": f"*{item['volanta']} — {item['bajada'].replace(chr(10), ' ')}*\n{item['placa2']}\n📲 Cotizá hoy: https://wa.me/5491122759369\n🌐 https://www.starunion.com.ar",
-            "channels": ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_story", "fb_reel", "linkedin", "gmb", "youtube"],
+            "channels": ["ig_reel", "ig_story", "fb_page", "fb_story", "fb_reel", "linkedin", "gmb", "youtube"],
         }
         if "published_at" in prev:
             sched[pid]["published_at"] = prev["published_at"]
