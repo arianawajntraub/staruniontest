@@ -1487,9 +1487,15 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
 
             post_id = str(body.get("id", "01")).zfill(2)
             entry = data.get(post_id, {})
+            cartel_changed = False
+            for ck in ("volanta", "bajada", "placa2", "placa3", "cierre_rubro"):
+                if ck in body and str(body[ck]).strip() != str(entry.get(ck, "")).strip():
+                    cartel_changed = True
+
             for k in (
                 "scheduled_at",
                 "status",
+                "approved_at",
                 "format_mode",
                 "volanta",
                 "bajada",
@@ -1512,13 +1518,19 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             ):
                 if k in body:
                     entry[k] = body[k]
+            if entry.get("status") == "aprobado" and not body.get("approved_at"):
+                entry["approved_at"] = time.strftime("%d/%m %H:%M hs")
+            if "copy_ig_fb" in body:
+                entry["yt_desc"] = body["copy_ig_fb"]
+            if "placa2" in body:
+                entry["subtitle"] = body["placa2"]
             data[post_id] = entry
 
             with open(sched_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
             regen_msg = ""
-            if body.get("update_canva"):
+            if body.get("update_canva") or cartel_changed:
                 try:
                     import sys
                     rs_dir = os.path.join(WEB_ROOT, "redes-sociales")

@@ -85,7 +85,7 @@ CANVA_SERIES = [
         "editorial_feed": "piezas/02_feed_base_operativa_taller_1080x1350.jpg",
         "copy_ig_fb": (
             "Equipos listos y formados en nuestro propio Centro de Capacitación antes de ingresar a tu empresa.\n\n"
-            "• En nuestra base operativa de Guaminí 5657 (CABA), cada operario se entrena en procesos, dosificación de insumos y manejo seguro de maquinaria.\n"
+            "• En nuestra base operativa de Guaminí 5657 (CABA), implementamos los planes de capacitación anual transversales a toda la organización: procesos, dosificación de insumos, manejo seguro de maquinaria, capacitación de habilidades y de seguridad técnica.\n"
             "• Certificamos cada instancia formativa y acompañamos con supervisión en campo para sostener el estándar en cada turno.\n"
             "• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n"
             "📲 Pedí tu cotización por WhatsApp: +54 9 11 2275-9369\n"
@@ -118,7 +118,7 @@ CANVA_SERIES = [
         "yt_design_id": "DAHYlADnG0c",
         "volanta": "EDIFICIOS CORPORATIVOS",
         "bajada": "UN SOLO PROVEEDOR",
-        "placa2": "Halls, ascensores, cocheras y pisos de oficina se integran en un solo abono con rutinas por horario, así el edificio está listo antes de que llegue la gente",
+        "placa2": "Pasillos, ascensores, cocheras y pisos de oficina se integran en un solo abono con rutinas por horario, así el edificio está listo antes de que llegue la gente",
         "placa3": "Unificar la limpieza en un solo proveedor te ahorra coordinación, tiempo y costos, y te deja un único responsable para todo, incluidos los vidrios en altura",
         "cierre_rubro": "Cotizá hoy el abono integral de tu edificio",
         "editorial_feed": "piezas/05_feed_universidades_clubes_1080x1350.jpg",

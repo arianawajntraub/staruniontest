@@ -431,8 +431,16 @@
       for (const pid of ids) {
         const p = sched[pid];
         const slides = p.carousel_files || [p.feed_file];
-        const stClass = p.status === 'programado' ? 'st-sched' : (p.status === 'publicado' ? 'st-pub' : 'st-paused');
-        const stLabel = p.status === 'programado' ? '🗓️ PROGRAMADO (' + p.scheduled_at.replace('T', ' ') + ' hs)' : (p.status === 'publicado' ? '✅ PUBLICADO HOY (' + (p.published_at || p.scheduled_at).replace('T', ' ') + ' hs)' : '⏸️ PAUSADO');
+        const isApproved = p.status === 'aprobado';
+        const isPub = p.status === 'publicado';
+        const stClass = isPub || isApproved ? 'st-pub' : (p.status === 'programado' ? 'st-sched' : 'st-paused');
+        const stLabel = isPub
+          ? '✅ PUBLICADO (' + (p.published_at || p.scheduled_at).replace('T', ' ') + ' hs)'
+          : (isApproved
+              ? '✅ OK · APROBADO POR ARIANA (' + (p.approved_at || 'Confirmado') + ') · Sale ' + p.scheduled_at.replace('T', ' ') + ' hs'
+              : (p.status === 'programado'
+                  ? '⏳ PENDIENTE DE TU OK (Sale ' + p.scheduled_at.replace('T', ' ') + ' hs · Deadline previa: 2h antes)'
+                  : '⏸️ PAUSADO EN REVISIÓN'));
 
         // Construir fila de tabla de calendario
         let netBadges = '';
@@ -446,10 +454,16 @@
             <span class="badge-ok">✅ LinkedIn Empresa Publicado</span>
             <span class="badge-ok">✅ YT Shorts + Google Maps Conectados</span>
           `;
+        } else if (isApproved) {
+          netBadges = `
+            <span class="badge-ok" style="font-size:12px;padding:5px 10px;">✅ OK · APROBADO POR ARIANA (${p.approved_at || 'Confirmado'})</span>
+            <span class="badge-sched">🗓️ Salida: ${p.scheduled_at.replace('T', ' ')} hs</span>
+            <div style="font-size:11px;color:#34d399;margin-top:4px;font-weight:700;">✔️ Tus cambios de copy y carteles Canva ya están incorporados en las imágenes y el video MP4 de 12s.</div>
+          `;
         } else {
           netBadges = `
-            <span class="badge-sched">🗓️ Programado (${p.scheduled_at.replace('T', ' ')} hs)</span>
-            <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Sale 100% con diseño Canva (Carteles + Cleany + Música): IG (Carrusel 4 Placas + Story Video c/Música + Reel 12s), FB (Page + Story + Reel), LinkedIn, Google Maps y YouTube Shorts.</div>
+            <span class="badge-sched" style="background:rgba(245,158,11,0.18);color:#fde047;border-color:rgba(245,158,11,0.4);">⏳ PENDIENTE DE TU OK (${p.scheduled_at.replace('T', ' ')} hs)</span>
+            <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Deadline de previa: hasta 2 hs antes de la salida. Tocá <strong>"✅ DAR OK / APROBAR DÍA"</strong> cuando lo revises.</div>
           `;
         }
 
@@ -580,10 +594,10 @@
                 <textarea id="li_${pid}" rows="5">${p.copy_linkedin || ''}</textarea>
               </div>
               <div class="btn-row">
-                <button class="btn-approve" onclick="savePost('${pid}', 'programado', false)">✅ Guardar Fecha / Programar</button>
+                <button class="btn-approve" style="font-size:13px;padding:11px 16px;" onclick="savePost('${pid}', 'aprobado', false)">✅ DAR OK / APROBAR DÍA (Guarda Copy + Carteles Canva)</button>
                 <button class="btn-pause" onclick="savePost('${pid}', 'pausado_en_revision', false)">⏸️ Pausar</button>
                 <button class="btn-publish-now" onclick="publishNow('${pid}')">🚀 Publicar Ahora Mismo</button>
-                <a class="btn-link" style="background:#0284c7;color:#fff;" href="https://www.tiktok.com/tiktokstudio/upload" target="_blank">🎵 Abrir TikTok Studio</a>
+                <a class="btn-link" style="background:#fde047;color:#0f172a;" href="/redes-sociales/contingencia.html#post_${pid}" target="_blank">🛡️ Ver en Base de Contingencia</a>
               </div>
               <div id="log_${pid}" class="msg-log"></div>
             </div>
@@ -606,7 +620,7 @@
       const payload = {
         id: pid,
         scheduled_at: document.getElementById('dt_' + pid).value,
-        status: newStatus || cur.status || 'programado',
+        status: newStatus || cur.status || 'aprobado',
         volanta: document.getElementById('vol_' + pid).value,
         bajada: document.getElementById('baj_' + pid).value,
         placa2: document.getElementById('p2_' + pid).value,
@@ -625,8 +639,16 @@
         body: JSON.stringify(payload)
       });
       const out = await res.json();
-      log.textContent = out.message || '✅ Guardado';
+      const finalMsg = out.message || '✅ OK · APROBADO Y GUARDADO';
       await loadSchedule();
+      const newLog = document.getElementById('log_' + pid);
+      if (newLog) {
+        newLog.style.borderColor = '#10b981';
+        newLog.style.background = 'rgba(16,185,129,0.15)';
+        newLog.style.color = '#a7f3d0';
+        newLog.style.fontWeight = '800';
+        newLog.textContent = finalMsg;
+      }
     }
 
     async function publishNow(pid) {

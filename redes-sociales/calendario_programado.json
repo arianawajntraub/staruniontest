@@ -107,7 +107,7 @@
     "slug": "0211_equipos_listos",
     "date_label": "Lunes 02/11 · 10:00 hs",
     "scheduled_at": "2026-11-02T10:00",
-    "status": "programado",
+    "status": "aprobado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
     "ig_design_id": "DAHYlMTU6ko",
     "tt_design_id": "DAHYlOiwq8o",
@@ -142,10 +142,10 @@
       "piezas/canva_02_0211_equipos_listos_9x16_p4.jpg"
     ],
     "reel_file": "piezas/canva_02_0211_equipos_listos_reel_12s_locucion.mp4",
-    "copy_ig_fb": "Equipos listos y formados en nuestro propio Centro de Capacitación antes de ingresar a tu empresa.\n\n• En nuestra base operativa de Guaminí 5657 (CABA), cada operario se entrena en procesos, dosificación de insumos y manejo seguro de maquinaria.\n• Certificamos cada instancia formativa y acompañamos con supervisión en campo para sostener el estándar en cada turno.\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n📲 Pedí tu cotización por WhatsApp: +54 9 11 2275-9369\n🌐 https://www.starunion.com.ar\n\n#StarUnion #EmpresaDeLimpieza #CapacitacionOperativa #LimpiezaCorporativa #ISO9001 #FacilityServices",
+    "copy_ig_fb": "Equipos listos y formados en nuestro propio Centro de Capacitación antes de ingresar a tu empresa.\n\n• En nuestra base operativa de Guaminí 5657 (CABA), implementamos los planes de capacitación anual transversales a toda la organización: procesos, dosificación de insumos, manejo seguro de maquinaria, capacitación de habilidades y de seguridad técnica.\n• Certificamos cada instancia formativa y acompañamos con supervisión en campo para sostener el estándar en cada turno.\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n📲 Pedí tu cotización por WhatsApp: +54 9 11 2275-9369\n🌐 https://www.starunion.com.ar\n\n#StarUnion #EmpresaDeLimpieza #CapacitacionOperativa #LimpiezaCorporativa #ISO9001 #FacilityServices",
     "copy_linkedin": "La calidad de un servicio de limpieza B2B empieza antes del primer turno en las instalaciones del cliente.\n\nEn Star Union S.R.L. contamos con nuestro propio Centro de Capacitación dentro de la base operativa de Guaminí 5657 (CABA):\n✔️ Entrenamiento práctico previo en procedimientos, seguridad e higiene y operación de maquinaria.\n✔️ Certificación interna por curso y seguimiento de supervisores en el objetivo.\n✔️ Respaldo documental completo y certificación TÜV Rheinland ISO 9001:2015.\n\nConocé nuestra infraestructura operativa:\n🌐 https://www.starunion.com.ar | 📲 +54 9 11 2275-9369\n\n#StarUnion #Capacitacion #LimpiezaProfesional #RRHH #OperacionesB2B #ISO9001",
     "yt_title": "Centro de Capacitación Propio y Equipos Listos — Star Union #Shorts",
-    "yt_desc": "Equipos listos y formados en nuestro propio Centro de Capacitación antes de ingresar a tu empresa.\n\n• En nuestra base operativa de Guaminí 5657 (CABA), cada operario se entrena en procesos, dosificación de insumos y manejo seguro de maquinaria.\n• Certificamos cada instancia formativa y acompañamos con supervisión en campo para sostener el estándar en cada turno.\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n📲 Pedí tu cotización por WhatsApp: +54 9 11 2275-9369\n🌐 https://www.starunion.com.ar\n\n#StarUnion #EmpresaDeLimpieza #CapacitacionOperativa #LimpiezaCorporativa #ISO9001 #FacilityServices",
+    "yt_desc": "Equipos listos y formados en nuestro propio Centro de Capacitación antes de ingresar a tu empresa.\n\n• En nuestra base operativa de Guaminí 5657 (CABA), implementamos los planes de capacitación anual transversales a toda la organización: procesos, dosificación de insumos, manejo seguro de maquinaria, capacitación de habilidades y de seguridad técnica.\n• Certificamos cada instancia formativa y acompañamos con supervisión en campo para sostener el estándar en cada turno.\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n📲 Pedí tu cotización por WhatsApp: +54 9 11 2275-9369\n🌐 https://www.starunion.com.ar\n\n#StarUnion #EmpresaDeLimpieza #CapacitacionOperativa #LimpiezaCorporativa #ISO9001 #FacilityServices",
     "yt_tags": "star union, empresa de limpieza, limpieza industrial, limpieza clinicas, iso 9001",
     "copy_wa": "*CENTRO DE CAPACITACIÓN — EQUIPOS LISTOS*\nCada operario se forma en nuestro centro de capacitación antes de llegar a tu servicio, así aprende los procesos, los productos y las máquinas con las que va a trabajar\n📲 Cotizá hoy: https://wa.me/5491122759369\n🌐 https://www.starunion.com.ar",
     "channels": [
@@ -158,14 +158,15 @@
       "linkedin",
       "gmb",
       "youtube"
-    ]
+    ],
+    "approved_at": "2026-11-02 09:46"
   },
   "03": {
     "id": "03",
     "slug": "0311_edificios_corporativos",
     "date_label": "Martes 03/11 · 10:00 hs",
     "scheduled_at": "2026-11-03T10:00",
-    "status": "programado",
+    "status": "aprobado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
     "ig_design_id": "DAHYlPsIWAA",
     "tt_design_id": "DAHYlOhqcCM",
@@ -175,12 +176,12 @@
     "yt_design_id": "DAHYlADnG0c",
     "volanta": "EDIFICIOS CORPORATIVOS",
     "bajada": "UN SOLO PROVEEDOR",
-    "placa2": "Halls, ascensores, cocheras y pisos de oficina se integran en un solo abono con rutinas por horario, así el edificio está listo antes de que llegue la gente",
+    "placa2": "Pasillos, ascensores, cocheras y pisos de oficina se integran en un solo abono con rutinas por horario, así el edificio está listo antes de que llegue la gente",
     "placa3": "Unificar la limpieza en un solo proveedor te ahorra coordinación, tiempo y costos, y te deja un único responsable para todo, incluidos los vidrios en altura",
     "cierre_rubro": "Cotizá hoy el abono integral de tu edificio",
     "tag": "EDIFICIOS CORPORATIVOS",
     "title": "UN SOLO PROVEEDOR",
-    "subtitle": "Halls, ascensores, cocheras y pisos de oficina se integran en un solo abono con rutinas por horario, así el edificio está listo antes de que llegue la gente",
+    "subtitle": "Pasillos, ascensores, cocheras y pisos de oficina se integran en un solo abono con rutinas por horario, así el edificio está listo antes de que llegue la gente",
     "feed_file": "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
     "carousel_files": [
       "piezas/canva_03_0311_edificios_corporativos_feed_p1.jpg",
@@ -216,7 +217,8 @@
       "linkedin",
       "gmb",
       "youtube"
-    ]
+    ],
+    "approved_at": "2026-11-02 09:47"
   },
   "04": {
     "id": "04",
