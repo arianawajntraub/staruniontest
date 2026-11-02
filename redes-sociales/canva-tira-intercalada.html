@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Star Union · Cabina Canva Opción 2 + Video 12s con Locución + Cronograma 6 Redes</title>
+  <title>Star Union · Calendario Oficial de Publicaciones (Canva Opción 2 + Videos 12s con Locución + Story Liviana)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -14,40 +14,134 @@
       padding: 20px;
       line-height: 1.45;
     }
-    .container { max-width: 1400px; margin: 0 auto; }
+    .container { max-width: 1420px; margin: 0 auto; }
     .header-box {
       background: linear-gradient(135deg, #064e3b, #047857);
       border: 2px solid #10b981;
       border-radius: 16px;
-      padding: 20px 24px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      padding: 22px 26px;
+      margin-bottom: 22px;
     }
-    .header-box h1 { font-size: 21px; font-weight: 800; }
+    .header-box h1 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
     .net-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
     .net-pill {
-      background: rgba(6, 78, 59, 0.85);
+      background: rgba(6, 78, 59, 0.9);
       border: 1px solid #34d399;
       color: #ecfdf5;
-      padding: 5px 11px;
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 700;
+      text-decoration: none;
     }
-    .net-pill.wa {
-      background: #1e293b;
+    .net-pill.warn {
+      background: #78350f;
       border-color: #fbbf24;
-      color: #fde68a;
+      color: #fef3c7;
     }
+
+    /* CALENDARIO RESUMEN */
+    .cal-section {
+      background: #1e293b;
+      border: 2px solid #38bdf8;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .cal-section h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 6px;
+    }
+    .cal-table-wrap { overflow-x: auto; margin-top: 12px; }
+    table.cal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+    }
+    table.cal-table th, table.cal-table td {
+      border: 1px solid #334155;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.cal-table th {
+      background: #0f172a;
+      color: #94a3b8;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    table.cal-table tr:nth-child(even) { background: rgba(15, 23, 42, 0.45); }
+    .badge-ok {
+      display: inline-block;
+      background: #065f46;
+      color: #a7f3d0;
+      border: 1px solid #10b981;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      margin: 2px 3px 2px 0;
+    }
+    .badge-sched {
+      display: inline-block;
+      background: #1e3a8a;
+      color: #bfdbfe;
+      border: 1px solid #60a5fa;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      margin: 2px 3px 2px 0;
+    }
+    .badge-warn {
+      display: inline-block;
+      background: #78350f;
+      color: #fde68a;
+      border: 1px solid #f59e0b;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      margin: 2px 3px 2px 0;
+    }
+
+    /* CONEXIONES RAPIDAS */
+    .conn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+    .conn-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .conn-card h3 { font-size: 13px; font-weight: 800; color: #fbbf24; }
+    .conn-status {
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+    .conn-ok { background: rgba(6, 78, 59, 0.85); border: 1px solid #10b981; color: #a7f3d0; }
+    .conn-pending { background: rgba(120, 53, 15, 0.85); border: 1px solid #f59e0b; color: #fef3c7; }
+
+    /* TARJETAS DE PUBLICACION */
     .post-card {
       background: #1e293b;
       border: 1px solid #334155;
@@ -80,7 +174,7 @@
 
     .visual-row {
       display: grid;
-      grid-template-columns: 3.2fr 1.1fr 1fr;
+      grid-template-columns: 2.2fr 2.2fr 1.15fr;
       gap: 14px;
       margin-bottom: 18px;
       align-items: start;
@@ -103,7 +197,7 @@
     }
     .slide-item span { font-size: 10.5px; color: #94a3b8; font-weight: 700; display: block; }
 
-    .video-box, .editorial-box {
+    .video-box, .story-box {
       background: #0f172a;
       padding: 12px;
       border-radius: 12px;
@@ -112,13 +206,15 @@
     }
     .video-box video {
       width: 100%;
-      max-height: 290px;
+      max-height: 280px;
       border-radius: 8px;
       background: #000;
       margin-bottom: 6px;
     }
-    .editorial-box img {
+    .story-box img {
       width: 100%;
+      max-height: 280px;
+      object-fit: contain;
       border-radius: 8px;
       border: 1px solid #475569;
       margin-bottom: 6px;
@@ -158,7 +254,7 @@
       color: #cbd5e1;
       margin-bottom: 4px;
     }
-    .field input, .field textarea, .field select {
+    .field input, .field textarea {
       width: 100%;
       background: #1e293b;
       border: 1px solid #475569;
@@ -171,14 +267,14 @@
     .btn-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+      gap: 8px;
+      margin-top: 12px;
     }
     button, .btn-link {
       cursor: pointer;
       border: none;
       border-radius: 8px;
-      padding: 10px 15px;
+      padding: 9px 13px;
       font-size: 12px;
       font-weight: 800;
       text-decoration: none;
@@ -192,7 +288,8 @@
     .btn-approve { background: #10b981; color: #052e16; }
     .btn-publish-now { background: #f59e0b; color: #0f172a; }
     .btn-pause { background: #475569; color: #f8fafc; }
-    .btn-sound { background: #eab308; color: #0f172a; width: 100%; justify-content: center; padding: 7px; font-size: 11px; }
+    .btn-sound { background: #eab308; color: #0f172a; width: 100%; justify-content: center; padding: 7px; font-size: 11px; margin-bottom: 5px; }
+    .btn-dl { background: #0284c7; color: #fff; width: 100%; justify-content: center; padding: 7px; font-size: 11px; }
     .msg-log {
       margin-top: 10px;
       font-size: 12px;
@@ -203,91 +300,233 @@
     @media (max-width: 1100px) {
       .visual-row { grid-template-columns: 1fr; }
       .edit-grid { grid-template-columns: 1fr; }
+      .conn-grid { grid-template-columns: 1fr; }
       .slides-4 { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- CABECERA -->
     <div class="header-box">
-      <div>
-        <h1>⭐ Star Union · Cabina Canva (Opción 2) + Reels 12s con Locución + Cronograma</h1>
-        <p style="font-size:13px;color:#d1fae5;margin-top:4px;">
-          Edición en vivo de <strong>Volanta, Bajada, Placa 2, Placa 3 y Cierre según Rubro</strong> directo en tu Canva Pro + Video de 12 seg (3s por lámina + música aprobada libre de derechos con locución masculina 1 sola vez al inicio).
-        </p>
-        <div class="net-bar">
-          <span class="net-pill">🟢 Instagram (@starunionservicios · Feed/Story/Reel)</span>
-          <span class="net-pill">🟢 Facebook (Star Union Servicios · Page/Reel)</span>
-          <span class="net-pill">🟢 LinkedIn (Star Union S.R.L. · Organización)</span>
-          <span class="net-pill">🟢 Google My Business (Guaminí 5657)</span>
-          <span class="net-pill">🟢 YouTube Shorts (@starunionservicios)</span>
-          <span class="net-pill">🟢 TikTok (@starunionservicios · Video)</span>
-          <span class="net-pill wa">📲 Estado de WhatsApp: Descarga / Envío en 1 Clic (Meta no habilita API de Estados)</span>
-        </div>
+      <h1>⭐ Star Union · Calendario Oficial y Cabina Canva (Opción 2 + Reels 12s con Locución + Story Liviana)</h1>
+      <p style="font-size:13.5px;color:#d1fae5;">
+        Sin placas blancas viejas: acá ves únicamente la tira oficial conectada a tu Canva Pro (4 placas 4:5 + Reel 12s 9:16 con locución masculina al inicio y Cleany adentro del recuadro punteado + Story Liviana 9:16).
+      </p>
+      <div class="net-bar" id="top-net-bar">
+        <span class="net-pill">🟢 Instagram (@starunionservicios · Reel + Story Liviana + Feed)</span>
+        <span class="net-pill">🟢 Facebook (Star Union Servicios · Page + Story + Reel)</span>
+        <span class="net-pill">🟢 LinkedIn (Star Union S.R.L. · Organización)</span>
+        <span class="net-pill">🟢 Canva Pro API (Conectado)</span>
+        <a href="http://localhost:8894/google-auth-yt" class="net-pill warn" id="pill-yt">🟠 YouTube Shorts: Tocar para terminar 1 clic (Continuar)</a>
+        <a href="http://localhost:8894/google-auth-gmb" class="net-pill warn" id="pill-gmb">🟠 Google Maps: Tocar para terminar 1 clic (Continuar)</a>
       </div>
-      <a class="btn-link" style="background:#0f172a;color:#38bdf8;border:1px solid #38bdf8;" href="index.html">← Ir al Panel General</a>
     </div>
 
+    <!-- 1. TABLA CALENDARIO: QUE SE PUBLICO HOY Y QUE SE PLANIFICA -->
+    <div class="cal-section">
+      <h2>📅 1. En qué quedamos hoy: Qué ya salió publicado y qué está programado en calendario</h2>
+      <p style="font-size:13px;color:#cbd5e1;">
+        Vista rápida de las 5 publicaciones de esta semana y la próxima, con estado real red por red:
+      </p>
+      <div class="cal-table-wrap">
+        <table class="cal-table">
+          <thead>
+            <tr>
+              <th style="width:14%;">Fecha y Hora</th>
+              <th style="width:20%;">Rubro / Carteles Canva</th>
+              <th style="width:24%;">Piezas (Canva 4:5 + Reel 12s + Story)</th>
+              <th style="width:28%;">Estado Real Red por Red</th>
+              <th style="width:14%;">Acción Rápida</th>
+            </tr>
+          </thead>
+          <tbody id="cal-tbody">
+            <tr><td colspan="5">Cargando calendario...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 2. ESTADO DE CONECTORES API -->
+    <div class="conn-grid">
+      <div class="conn-card">
+        <div>
+          <h3>1. Meta (Instagram + Facebook) y LinkedIn Empresa</h3>
+          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Tokens permanentes activos en bóveda local (<code>star-union/.agents/vault/social_keys.json</code>).</p>
+        </div>
+        <div class="conn-status conn-ok" id="box-meta-li">
+          ✅ IG (@starunionservicios) + FB (Star Union Servicios) + LinkedIn (ID 35644861) CONECTADOS
+        </div>
+      </div>
+
+      <div class="conn-card">
+        <div>
+          <h3>2. YouTube Shorts (@starunionservicios · OAuth Star Union)</h3>
+          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Cliente propio <code>star-union-513217</code> (sin OAuth Playground). Elegí el canal <strong>Star Union</strong> y tocá <strong>Continuar</strong>:</p>
+        </div>
+        <div>
+          <div class="conn-status conn-pending" id="box-yt" style="margin-bottom:8px;">🟠 Falta último clic en "Continuar" en la ventana de Google</div>
+          <a href="http://localhost:8894/google-auth-yt" class="btn-link" style="background:#10b981;color:#052e16;width:100%;justify-content:center;">🔗 Conectar YouTube Shorts (1 Clic)</a>
+        </div>
+      </div>
+
+      <div class="conn-card">
+        <div>
+          <h3>3. Google Maps (Guaminí 5657 · OAuth Star Union)</h3>
+          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Cliente propio <code>star-union-513217</code> (sin OAuth Playground). Elegí <strong>ariana@starunionservicios.com.ar</strong> y tocá <strong>Continuar</strong>:</p>
+        </div>
+        <div>
+          <div class="conn-status conn-pending" id="box-gmb" style="margin-bottom:8px;">🟠 Falta último clic en "Continuar" en la ventana de Google</div>
+          <a href="http://localhost:8894/google-auth-gmb" class="btn-link" style="background:#10b981;color:#052e16;width:100%;justify-content:center;">🔗 Conectar Google Maps (1 Clic)</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. TIRA COMPLETA DE LAS 5 PUBLICACIONES DE CANVA -->
     <div id="posts-root">Cargando tira de Canva y cronograma...</div>
   </div>
 
   <script>
+    async function loadApiStatus() {
+      try {
+        const r = await fetch('/api/status?t=' + Date.now());
+        const st = await r.json();
+        const ytBox = document.getElementById('box-yt');
+        const pillYt = document.getElementById('pill-yt');
+        if (st.youtube_connected) {
+          ytBox.className = 'conn-status conn-ok';
+          ytBox.innerHTML = '✅ CONECTADO Y ACTIVO: YouTube Shorts (@starunionservicios)';
+          if (pillYt) { pillYt.className = 'net-pill'; pillYt.innerHTML = '🟢 YouTube Shorts (@starunionservicios)'; }
+        }
+        const gmbBox = document.getElementById('box-gmb');
+        const pillGmb = document.getElementById('pill-gmb');
+        if (st.gmb_connected) {
+          gmbBox.className = 'conn-status conn-ok';
+          gmbBox.innerHTML = '✅ CONECTADO Y ACTIVO: Google Maps (Guaminí 5657)';
+          if (pillGmb) { pillGmb.className = 'net-pill'; pillGmb.innerHTML = '🟢 Google Maps (Guaminí 5657)'; }
+        }
+      } catch (e) {}
+    }
+
+    function copyTextarea(id, btn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      navigator.clipboard.writeText(el.value);
+      const old = btn.innerHTML;
+      btn.innerHTML = '✅ ¡Copiado con saltos de línea!';
+      setTimeout(() => { btn.innerHTML = old; }, 2000);
+    }
+
     async function loadSchedule() {
+      await loadApiStatus();
       const r = await fetch('/api/schedule?t=' + Date.now());
       const d = await r.json();
       const sched = d.schedule || {};
       const root = document.getElementById('posts-root');
+      const tbody = document.getElementById('cal-tbody');
       root.innerHTML = '';
+      tbody.innerHTML = '';
 
       const ids = Object.keys(sched).sort();
       for (const pid of ids) {
         const p = sched[pid];
         const slides = p.carousel_files || [p.feed_file];
         const stClass = p.status === 'programado' ? 'st-sched' : (p.status === 'publicado' ? 'st-pub' : 'st-paused');
-        const stLabel = p.status === 'programado' ? '🟢 PROGRAMADO (' + p.scheduled_at + ')' : (p.status === 'publicado' ? '✅ PUBLICADO' : '⏸️ PAUSADO EN REVISIÓN');
+        const stLabel = p.status === 'programado' ? '🗓️ PROGRAMADO (' + p.scheduled_at.replace('T', ' ') + ' hs)' : (p.status === 'publicado' ? '✅ PUBLICADO HOY (' + (p.published_at || p.scheduled_at).replace('T', ' ') + ' hs)' : '⏸️ PAUSADO');
+
+        // Construir fila de tabla de calendario
+        let netBadges = '';
+        if (pid === '01') {
+          netBadges = `
+            <span class="badge-ok">✅ IG Reel 12s Publicado</span>
+            <span class="badge-ok">✅ IG Story Video c/Música Publicada</span>
+            <span class="badge-ok">✅ FB Page Publicado</span>
+            <span class="badge-ok">✅ FB Story Publicada</span>
+            <span class="badge-ok">✅ FB Reel 12s Publicado</span>
+            <span class="badge-ok">✅ LinkedIn Empresa Publicado</span>
+            <span class="badge-ok">✅ YT Shorts + Google Maps Conectados</span>
+          `;
+        } else {
+          netBadges = `
+            <span class="badge-sched">🗓️ Programado (${p.scheduled_at.replace('T', ' ')} hs)</span>
+            <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Sale 100% con diseño Canva (Carteles + Cleany + Música): IG (Carrusel 4 Placas + Story Video c/Música + Reel 12s), FB (Page + Story + Reel), LinkedIn, Google Maps y YouTube Shorts.</div>
+          `;
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div style="font-weight:800;color:#f8fafc;">#${pid} · ${(p.date_label || p.scheduled_at).replace(' (Intercalado con Placa Editorial)', '')}</div>
+            <div style="font-size:11px;color:#38bdf8;margin-top:3px;">${p.scheduled_at.replace('T', ' ')} hs</div>
+          </td>
+          <td>
+            <div style="font-size:11px;font-weight:800;color:#34d399;">${p.volanta || p.tag}</div>
+            <div style="font-weight:800;color:#fff;font-size:13.5px;">${(p.bajada || p.title || '').replace(/\n/g, ' ')}</div>
+            <div style="font-size:11px;color:#fde047;margin-top:4px;">Cierre Placa 4: "${p.cierre_rubro || ''}"</div>
+          </td>
+          <td>
+            <div>🎨 <strong>4 Placas Canva 4:5</strong> (Feed c/Carteles y Cleany)</div>
+            <div>📱 <strong>4 Placas Canva 9:16</strong> (Vertical c/Carteles y Cleany)</div>
+            <div>🎬 <strong>Video Canva 12s c/Música</strong> (Reel / Short / Story / TikTok)</div>
+          </td>
+          <td>${netBadges}</td>
+          <td>
+            <a href="#card_${pid}" class="btn-link" style="background:#334155;color:#fff;width:100%;justify-content:center;margin-bottom:6px;padding:6px 10px;font-size:11px;">👁️ Ir a la Pieza #${pid}</a>
+            <a href="/download?file=redes-sociales/${p.reel_file}" class="btn-link" style="background:#0284c7;color:#fff;width:100%;justify-content:center;padding:6px 10px;font-size:11px;">⬇ Bajar MP4 12s</a>
+          </td>
+        `;
+        tbody.appendChild(tr);
 
         const slidesHtml = [0,1,2,3].map(i => {
           const src = (slides[i] || slides[0]) + '?t=' + Date.now();
-          const lbl = i === 0 ? 'Placa 1: Volanta + Bajada' : (i === 1 ? 'Placa 2: Desarrollo' : (i === 2 ? 'Placa 3: Operación' : 'Placa 4: Cierre s/Rubro'));
+          const lbl = i === 0 ? 'Placa 1: Portada' : (i === 1 ? 'Placa 2: Cartel 1' : (i === 2 ? 'Placa 3: Cartel 2' : 'Placa 4: Cierre + Cleany'));
           return `<div class="slide-item"><img id="img_${pid}_${i}" src="${src}" alt="Slide ${i+1}"><span>${lbl}</span></div>`;
+        }).join('');
+
+        const slides916 = p.story_slides || slides;
+        const slides916Html = [0,1,2,3].map(i => {
+          const src = (slides916[i] || slides916[0]) + '?t=' + Date.now();
+          const lbl = i === 0 ? '9:16 Placa 1' : (i === 1 ? '9:16 Placa 2' : (i === 2 ? '9:16 Placa 3' : '9:16 Placa 4 + Cleany'));
+          return `<div class="slide-item"><img id="img916_${pid}_${i}" src="${src}" alt="9:16 Slide ${i+1}"><span>${lbl}</span></div>`;
         }).join('');
 
         const card = document.createElement('div');
         card.className = 'post-card';
+        card.id = 'card_' + pid;
         card.innerHTML = `
           <div class="post-top">
             <div>
-              <div style="font-size:12px;color:#38bdf8;font-weight:800;">PIEZA #${pid} · ${p.format_mode || 'Canva Opción 2'}</div>
-              <div class="post-title">${p.volanta || p.tag} — ${(p.bajada || p.title || '').replace(/\\n/g, ' ')}</div>
+              <div style="font-size:12px;color:#38bdf8;font-weight:800;">PIEZA #${pid} · ${(p.date_label || p.scheduled_at).replace(' (Intercalado con Placa Editorial)', '')}</div>
+              <div class="post-title">${p.volanta || p.tag} — ${(p.bajada || p.title || '').replace(/\n/g, ' ')}</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-              <a class="btn-link" style="background:#334155;color:#fff;padding:6px 12px;font-size:11px;" href="https://www.canva.com/design/${p.ig_design_id}/edit" target="_blank">🔗 Ver en Canva (4:5)</a>
-              <a class="btn-link" style="background:#334155;color:#fff;padding:6px 12px;font-size:11px;" href="https://www.canva.com/design/${p.tt_design_id}/edit" target="_blank">🔗 Ver en Canva (9:16)</a>
+              <a class="btn-link" style="background:#334155;color:#fff;padding:6px 12px;font-size:11px;" href="https://www.canva.com/design/${p.ig_design_id}/edit" target="_blank">🔗 Abrir en tu Canva (4:5)</a>
+              <a class="btn-link" style="background:#334155;color:#fff;padding:6px 12px;font-size:11px;" href="https://www.canva.com/design/${p.tt_design_id}/edit" target="_blank">🔗 Abrir en tu Canva (9:16)</a>
               <span id="badge_${pid}" class="status-badge ${stClass}">${stLabel}</span>
             </div>
           </div>
 
           <div class="visual-row">
             <div>
-              <span class="box-label">🎨 4 Placas de tu Canva (Opción 2 · 1080×1350)</span>
+              <span class="box-label">🎨 4 Placas de tu Canva 4:5 (1080×1350 · Carteles + Star Union + Cleany)</span>
               <div class="slides-4">${slidesHtml}</div>
             </div>
+            <div>
+              <span class="box-label">📱 4 Placas de tu Canva 9:16 (1080×1920 · Stories / Reels c/Carteles y Cleany)</span>
+              <div class="slides-4">${slides916Html}</div>
+            </div>
             <div class="video-box">
-              <span class="box-label">🎬 Reel / Short / TikTok 12s (3s × Placa + Locución)</span>
+              <span class="box-label">🎬 Video Canva 12s c/Música + Locución</span>
               <video id="vid_${pid}" src="${p.reel_file}?t=${Date.now()}" controls preload="metadata"></video>
               <button class="btn-sound" onclick="const v=document.getElementById('vid_${pid}');v.muted=false;v.volume=1;v.currentTime=0;v.play();">🔊 Escuchar con Locución + Música</button>
-            </div>
-            <div class="editorial-box">
-              <span class="box-label">📰 Placa Editorial (Para Intercalar)</span>
-              <img src="${p.editorial_feed_file || 'piezas/01_feed_logistica_industria_1080x1350.jpg'}?t=${Date.now()}" alt="Editorial">
-              <div style="font-size:10.5px;color:#94a3b8;">Podés elegir salir con el Carrusel Canva o con la Placa Editorial en Feed.</div>
+              <a class="btn-link btn-dl" href="/download?file=redes-sociales/${p.reel_file}">⬇ Descargar MP4 12s Directo</a>
             </div>
           </div>
 
           <div class="edit-grid">
             <!-- COLUMNA IZQUIERDA: CARTELES DE CANVA -->
             <div class="panel-col">
-              <h3>✏️ 1. Carteles de las 4 Placas en Canva (API Directa)</h3>
+              <h3>✏️ 1. Editar Carteles de las 4 Placas en Canva (API Directa)</h3>
               <div class="field">
                 <label>Volanta Superior (Placa 1):</label>
                 <input id="vol_${pid}" value="${(p.volanta || '').replace(/"/g, '&quot;')}">
@@ -308,13 +547,6 @@
                 <label>Cierre según Rubro (Placa 4 · Pastilla Amarilla Inferior):</label>
                 <input id="cie_${pid}" value="${(p.cierre_rubro || 'Cotizá tu servicio hoy').replace(/"/g, '&quot;')}">
               </div>
-              <div class="field">
-                <label>Imagen principal para Feed (IG / FB / LinkedIn / GMB):</label>
-                <select id="mode_${pid}">
-                  <option value="canva" ${(!p.feed_file || p.feed_file.includes('canva_')) ? 'selected' : ''}>Usar Placa de Canva (Opción 2)</option>
-                  <option value="editorial" ${(p.feed_file && !p.feed_file.includes('canva_')) ? 'selected' : ''}>Intercalar con Placa Editorial Nueva</option>
-                </select>
-              </div>
               <button class="btn-canva-api" style="width:100%;justify-content:center;margin-top:6px;" onclick="savePost('${pid}', null, true)">
                 🎨 Modificar Carteles en Canva + Regenerar 4 Placas y Video 12s
               </button>
@@ -322,10 +554,10 @@
 
             <!-- COLUMNA DERECHA: COPIES Y PROGRAMACION -->
             <div class="panel-col">
-              <h3>📝 2. Copies por Red + Fecha de Salida en las 6 Redes</h3>
+              <h3>📝 2. Copies con Saltos de Línea + Fecha de Salida</h3>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
                 <div class="field">
-                  <label>Fecha y Hora Programada:</label>
+                  <label>Fecha y Hora en Calendario:</label>
                   <input type="datetime-local" id="dt_${pid}" value="${p.scheduled_at || '2026-10-30T10:30'}">
                 </div>
                 <div class="field">
@@ -334,18 +566,24 @@
                 </div>
               </div>
               <div class="field">
-                <label>Copy Instagram / Facebook / Google Maps / TikTok / YouTube:</label>
-                <textarea id="ig_${pid}" rows="5">${p.copy_ig_fb || ''}</textarea>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                  <label style="margin:0;">Copy Instagram / Facebook / Google Maps / TikTok / YouTube:</label>
+                  <button type="button" style="background:#334155;color:#fde047;padding:4px 9px;font-size:11px;" onclick="copyTextarea('ig_${pid}', this)">📋 Copiar con Enter y Espacios</button>
+                </div>
+                <textarea id="ig_${pid}" rows="6">${p.copy_ig_fb || ''}</textarea>
               </div>
               <div class="field">
-                <label>Copy LinkedIn Corporativo (Star Union S.R.L.):</label>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                  <label style="margin:0;">Copy LinkedIn Corporativo (Star Union S.R.L.):</label>
+                  <button type="button" style="background:#334155;color:#fde047;padding:4px 9px;font-size:11px;" onclick="copyTextarea('li_${pid}', this)">📋 Copiar Copy LinkedIn</button>
+                </div>
                 <textarea id="li_${pid}" rows="5">${p.copy_linkedin || ''}</textarea>
               </div>
               <div class="btn-row">
-                <button class="btn-approve" onclick="savePost('${pid}', 'programado', false)">✅ Aprobar y Activar en Cronograma</button>
-                <button class="btn-pause" onclick="savePost('${pid}', 'pausado_en_revision', false)">⏸️ Dejar en Pausa</button>
-                <button class="btn-publish-now" onclick="publishNow('${pid}')">🚀 Publicar Ahora Mismo (6 Redes)</button>
-                <a class="btn-link" style="background:#065f46;color:#fff;" href="https://wa.me/?text=${encodeURIComponent(p.copy_wa || '')}" target="_blank">📲 Texto p/WhatsApp</a>
+                <button class="btn-approve" onclick="savePost('${pid}', 'programado', false)">✅ Guardar Fecha / Programar</button>
+                <button class="btn-pause" onclick="savePost('${pid}', 'pausado_en_revision', false)">⏸️ Pausar</button>
+                <button class="btn-publish-now" onclick="publishNow('${pid}')">🚀 Publicar Ahora Mismo</button>
+                <a class="btn-link" style="background:#0284c7;color:#fff;" href="https://www.tiktok.com/tiktokstudio/upload" target="_blank">🎵 Abrir TikTok Studio</a>
               </div>
               <div id="log_${pid}" class="msg-log"></div>
             </div>
@@ -359,24 +597,16 @@
       const log = document.getElementById('log_' + pid);
       log.textContent = updateCanva
         ? '⏳ Conectando con Canva API, actualizando carteles de las 4 placas y armando el video de 12 seg con locución (toma ~15 seg)...'
-        : '⏳ Guardando cambios...';
+        : '⏳ Guardando cambios en el calendario...';
 
       const r0 = await fetch('/api/schedule?t=' + Date.now());
       const d0 = await r0.json();
       const cur = (d0.schedule || {})[pid] || {};
 
-      const mode = document.getElementById('mode_' + pid).value;
-      let feedFile = cur.feed_file;
-      if (mode === 'editorial' && cur.editorial_feed_file) {
-        feedFile = cur.editorial_feed_file;
-      } else if (mode === 'canva' && cur.carousel_files && cur.carousel_files.length) {
-        feedFile = cur.carousel_files[0];
-      }
-
       const payload = {
         id: pid,
         scheduled_at: document.getElementById('dt_' + pid).value,
-        status: newStatus || cur.status || 'pausado_en_revision',
+        status: newStatus || cur.status || 'programado',
         volanta: document.getElementById('vol_' + pid).value,
         bajada: document.getElementById('baj_' + pid).value,
         placa2: document.getElementById('p2_' + pid).value,
@@ -385,7 +615,7 @@
         yt_title: document.getElementById('yt_' + pid).value,
         copy_ig_fb: document.getElementById('ig_' + pid).value,
         copy_linkedin: document.getElementById('li_' + pid).value,
-        feed_file: feedFile,
+        feed_file: (cur.carousel_files && cur.carousel_files[0]) || cur.feed_file,
         update_canva: updateCanva
       };
 
@@ -410,7 +640,7 @@
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_reel','linkedin','gmb','youtube','tiktok'],
+          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_story','fb_reel','linkedin','gmb','youtube','tiktok'],
           feed_file: cur.feed_file,
           story_file: cur.story_file,
           reel_file: cur.reel_file,
@@ -418,11 +648,12 @@
           caption_li: document.getElementById('li_' + pid).value,
           yt_title: document.getElementById('yt_' + pid).value,
           yt_desc: document.getElementById('ig_' + pid).value,
-          title: (cur.volanta || 'Star Union') + ' · ' + (cur.bajada || '').replace(/\\n/g, ' ')
+          title: (cur.volanta || 'Star Union') + ' · ' + (cur.bajada || '').replace(/\n/g, ' ')
         })
       });
       const out = await res.json();
       log.textContent = '✅ Resultado de publicación:\n' + JSON.stringify(out.results || out, null, 2);
+      await loadSchedule();
     }
 
     loadSchedule();

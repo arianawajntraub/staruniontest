@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    background: #03582D;
+  }
+  .bg {
+    position: absolute;
+    inset: 0;
+    width: 1080px;
+    height: 1920px;
+    object-fit: cover;
+    filter: brightness(0.88);
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(3,88,45,0.18) 40%, rgba(0,0,0,0.55) 100%);
+  }
+  .center-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 4px solid #03582D;
+    border-bottom: 12px solid #FFCC29;
+    border-radius: 36px;
+    padding: 54px 48px;
+    text-align: center;
+    box-shadow: 0 28px 60px rgba(0,0,0,0.42);
+  }
+  .logo {
+    height: 86px;
+    width: auto;
+    margin: 0 auto 26px auto;
+    display: block;
+  }
+  .badge-main {
+    display: inline-block;
+    background: #03582D;
+    color: #FFFFFF;
+    font-size: 31px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    padding: 16px 34px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .rubro-title {
+    font-size: 44px;
+    line-height: 1.18;
+    font-weight: 900;
+    color: #133522;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .sub-txt {
+    font-size: 25px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 30px;
+  }
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    border-top: 2px solid #C6DDD0;
+    padding-top: 24px;
+  }
+  .tuv {
+    height: 78px;
+    width: auto;
+  }
+  .web-pill {
+    background: #E6EFEA;
+    border: 2px solid #03582D;
+    color: #03582D;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 12px 26px;
+    border-radius: 999px;
+  }
+</style>
+</head>
+<body>
+  <img class="bg" src="file:///Users/arianawajntraub/Documents/antigravity/star-union/assets/img/perfit-curadas/perfit-corporativo-oficinas.jpg">
+  <div class="overlay"></div>
+  <div class="center-card">
+    <img class="logo" src="file:///Users/arianawajntraub/Documents/antigravity/star-union/logo-horizontal-1200x300.png">
+    <div class="badge-main">EMPRESA DE LIMPIEZA PROFESIONAL</div>
+    <div class="rubro-title">EDIFICIOS CORPORATIVOS Y OFICINAS</div>
+    <div class="sub-txt">Un solo proveedor integral · Halls, pisos, cocheras y vidrios en altura</div>
+    <div class="bottom-row">
+      <img class="tuv" src="file:///Users/arianawajntraub/Documents/antigravity/star-union/logo-tuv.png">
+      <div class="web-pill">www.starunion.com.ar</div>
+    </div>
+  </div>
+</body>
+</html>

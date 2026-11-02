@@ -415,14 +415,54 @@ def clean_ig_caption(caption):
     return cleaned
 
 
+STAR_UNION_IG_USER_ID = "17841412354480113"
+STAR_UNION_FB_PAGE_ID = "349413715151593"
+
+
 def publish_ig_feed(keys, feed_rel_path, caption):
     caption = clean_ig_caption(caption)
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
+    if str(ig_id) != STAR_UNION_IG_USER_ID:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: ig_user_id ({ig_id}) NO es @starunionservicios ({STAR_UNION_IG_USER_ID})."}
 
-    img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
+    clean_rel = feed_rel_path.lstrip("/")
+    if clean_rel.endswith("_p1.jpg"):
+        base_prefix = clean_rel[:-7]
+        slide_urls = [f"{PUBLIC_ASSET_BASE}/{base_prefix}_p{i}.jpg" for i in (1, 2, 3, 4)]
+        child_ids = []
+        for s_url in slide_urls:
+            st_c, data_c = http_json(
+                "POST",
+                f"https://graph.facebook.com/v21.0/{ig_id}/media",
+                form_data={"image_url": s_url, "is_carousel_item": "true", "access_token": token},
+            )
+            if st_c == 200 and "id" in data_c:
+                child_ids.append(data_c["id"])
+        if len(child_ids) == 4:
+            st_car, data_car = http_json(
+                "POST",
+                f"https://graph.facebook.com/v21.0/{ig_id}/media",
+                form_data={
+                    "media_type": "CAROUSEL",
+                    "children": ",".join(child_ids),
+                    "caption": caption,
+                    "access_token": token,
+                },
+            )
+            if st_car == 200 and "id" in data_car:
+                time.sleep(3)
+                st_pub, pub_car = http_json(
+                    "POST",
+                    f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
+                    form_data={"creation_id": data_car["id"], "access_token": token},
+                )
+                if st_pub == 200 and "id" in pub_car:
+                    return {"ok": True, "id": pub_car["id"], "note": "Carrusel 4 placas Canva publicado"}
+
+    img_url = f"{PUBLIC_ASSET_BASE}/{clean_rel}"
     st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media",
@@ -452,6 +492,8 @@ def publish_ig_story(keys, story_rel_path, reel_rel_path="piezas/REEL_OPCION_C_G
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
+    if str(ig_id) != STAR_UNION_IG_USER_ID:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: ig_user_id ({ig_id}) NO es @starunionservicios ({STAR_UNION_IG_USER_ID})."}
 
     rel = reel_rel_path if reel_rel_path and reel_rel_path.endswith(".mp4") else "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"
     video_url = f"{PUBLIC_ASSET_BASE}/{rel.lstrip('/')}"
@@ -496,6 +538,8 @@ def publish_ig_reel(keys, reel_rel_path, caption):
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
     if not ig_id or not token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de Meta (Instagram @starunionservicios)."}
+    if str(ig_id) != STAR_UNION_IG_USER_ID:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: ig_user_id ({ig_id}) NO es @starunionservicios ({STAR_UNION_IG_USER_ID})."}
 
     video_url = f"{PUBLIC_ASSET_BASE}/{reel_rel_path.lstrip('/')}"
     st, data = http_json(
@@ -540,6 +584,8 @@ def publish_fb_page(keys, feed_rel_path, caption, public_url="https://www.starun
     page_token = keys.get("fb_page_token")
     if not page_id or not page_token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de Facebook Page."}
+    if str(page_id) != STAR_UNION_FB_PAGE_ID:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: fb_page_id ({page_id}) NO es Star Union Servicios ({STAR_UNION_FB_PAGE_ID})."}
 
     fb_caption = (caption or "").strip()
     if public_url and public_url not in fb_caption and "starunion.com.ar" not in fb_caption:
@@ -561,6 +607,8 @@ def publish_fb_reel(keys, reel_rel_path, caption, public_url="https://www.starun
     page_token = keys.get("fb_page_token")
     if not page_id or not page_token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de Facebook Page."}
+    if str(page_id) != STAR_UNION_FB_PAGE_ID:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: fb_page_id ({page_id}) NO es Star Union Servicios ({STAR_UNION_FB_PAGE_ID})."}
 
     fb_caption = (caption or "").strip()
     if public_url and public_url not in fb_caption and "starunion.com.ar" not in fb_caption:
@@ -693,9 +741,11 @@ def publish_linkedin(keys, feed_rel_path, caption, article_url, title):
 
 def publish_gmb(keys, feed_rel_path, caption, article_url="https://www.starunion.com.ar"):
     gmb_token = ensure_fresh_gmb_token(keys)
-    gmb_loc = keys.get("gmb_location_name")
+    gmb_loc = keys.get("gmb_location_name") or ""
     if not gmb_token or not gmb_loc:
         return {"ok": False, "error": "Falta conectar o renovar Google My Business."}
+    if "8938663810475756647" not in gmb_loc:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: La ubicación GMB ({gmb_loc}) NO es la ficha oficial de Star Union (8938663810475756647)."}
 
     img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
     body = {
@@ -716,10 +766,27 @@ def publish_gmb(keys, feed_rel_path, caption, article_url="https://www.starunion
     return {"ok": False, "error": f"Error en Google Business Profile API ({st}): {data}"}
 
 
+STAR_UNION_YT_CHANNEL_ID = "UCwCNs88hgID5ClnwOTOSwfw"
+
+
 def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv=""):
     yt_token = ensure_fresh_youtube_token(keys)
     if not yt_token:
         return {"ok": False, "error": "Falta conectar o renovar el Token de YouTube Shorts."}
+
+    st_ch, ch_data = http_json(
+        "GET",
+        "https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
+        headers={"Authorization": f"Bearer {yt_token}"},
+    )
+    items_ch = ch_data.get("items") or [] if isinstance(ch_data, dict) else []
+    live_ch_id = items_ch[0].get("id", "") if items_ch else ""
+    live_ch_title = (items_ch[0].get("snippet") or {}).get("title", "") if items_ch else ""
+    if live_ch_id != STAR_UNION_YT_CHANNEL_ID:
+        return {
+            "ok": False,
+            "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: El token de YouTube pertenece al canal '{live_ch_title}' ({live_ch_id}) y NO al canal oficial de Star Union ({STAR_UNION_YT_CHANNEL_ID}).",
+        }
 
     clean_rel = reel_rel_path.split("?")[0].lstrip("/")
     local_mp4 = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
@@ -1083,18 +1150,30 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             rt = data_g.get("refresh_token", "")
             if acc:
                 updates = {}
+                blocked_err = ""
                 if state_mode == "gmb":
-                    updates["gmb_token"] = acc
-                    if rt:
-                        updates["gmb_refresh_token"] = rt
-                    label_ok = "Google My Business (Maps)"
+                    disc_g = auto_discover_gmb(acc)
+                    if not disc_g.get("ok") or "8938663810475756647" not in str(disc_g.get("gmb_location_name", "")):
+                        blocked_err = f"🛑 BLOQUEADO POR CORTAFUEGOS: La cuenta de Google seleccionada no tiene acceso a la ficha GMB de Star Union (8938663810475756647). Detalle: {disc_g.get('detail')}"
+                    else:
+                        updates.update(disc_g)
+                        if rt:
+                            updates["gmb_refresh_token"] = rt
+                        label_ok = f"Google My Business ({disc_g.get('gmb_title')})"
                 else:
-                    updates["youtube_token"] = acc
-                    if rt:
-                        updates["youtube_refresh_token"] = rt
-                    label_ok = "YouTube Shorts (@starunionservicios)"
-                save_keys(updates)
-                html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡{label_ok} Conectado con Token Permanente Propio!</h2><p>Ya podés cerrar esta pestaña.</p></body></html>"
+                    disc_y = auto_discover_youtube(acc)
+                    if not disc_y.get("ok") or disc_y.get("youtube_channel_id") != STAR_UNION_YT_CHANNEL_ID:
+                        blocked_err = f"🛑 BLOQUEADO POR CORTAFUEGOS: El canal seleccionado ({disc_y.get('youtube_channel_name')} · {disc_y.get('youtube_channel_id')}) NO es el canal oficial de Star Union ({STAR_UNION_YT_CHANNEL_ID})."
+                    else:
+                        updates.update(disc_y)
+                        if rt:
+                            updates["youtube_refresh_token"] = rt
+                        label_ok = f"YouTube Shorts ({disc_y.get('youtube_channel_name')})"
+                if blocked_err:
+                    html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;text-align:center;'><h2>{blocked_err}</h2><p><a href='/redes-sociales/index.html' style='color:#fde047;'>← Volver al panel</a></p></body></html>"
+                else:
+                    save_keys(updates)
+                    html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#064e3b;color:#fff;padding:40px;text-align:center;'><h2>✅ ¡{label_ok} Verificado y Conectado con Token Permanente Propio!</h2><p>Ya podés cerrar esta pestaña.</p></body></html>"
             else:
                 html = f"<html><head><meta charset='utf-8'></head><body style='font-family:sans-serif;background:#7f1d1d;color:#fff;padding:40px;'><h2>❌ Error obteniendo token de Google</h2><pre>{json.dumps(data_g, indent=2)}</pre><p><a href='/google-auth' style='color:#fde047;'>🔄 Reintentar</a></p></body></html>"
             body = html.encode("utf-8")
@@ -1312,18 +1391,22 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             yt_token = (body.get("youtube_token") or "").strip()
             if yt_token:
                 disc_yt = auto_discover_youtube(yt_token)
-                if disc_yt.get("ok"):
+                if disc_yt.get("ok") and disc_yt.get("youtube_channel_id") == STAR_UNION_YT_CHANNEL_ID:
                     updates.update(disc_yt)
                     rt_note = " (Refresh Token permanente activo)" if disc_yt.get("youtube_refresh_token") else ""
-                    messages.append(f"✅ Canal de YouTube conectado: {disc_yt.get('youtube_channel_name')}{rt_note}")
+                    messages.append(f"✅ Canal de YouTube verificado y conectado: {disc_yt.get('youtube_channel_name')}{rt_note}")
                 else:
-                    updates["youtube_token"] = yt_token
-                    messages.append(f"⚠️ Token de YouTube guardado (verificá scope youtube.upload): {disc_yt.get('detail')}")
+                    messages.append(f"🛑 BLOQUEADO POR CORTAFUEGOS: El token de YouTube no pertenece al canal oficial de Star Union ({STAR_UNION_YT_CHANNEL_ID}). Detalle: {disc_yt.get('detail')}")
 
             tt_token = (body.get("tiktok_token") or "").strip()
             if tt_token:
-                updates["tiktok_token"] = tt_token
-                messages.append("✅ Token de TikTok Content Posting API guardado.")
+                ok_tt, msg_tt = verify_tiktok_is_starunion(tt_token)
+                if ok_tt:
+                    updates["tiktok_token"] = tt_token
+                    updates["tiktok_username"] = msg_tt
+                    messages.append(f"✅ Token de TikTok verificado para @{msg_tt} y guardado.")
+                else:
+                    messages.append(msg_tt)
 
             tt_ck = (body.get("tiktok_client_key") or "").strip()
             tt_cs = (body.get("tiktok_client_secret") or "").strip()

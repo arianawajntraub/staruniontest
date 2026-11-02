@@ -225,33 +225,63 @@ CANVA_SERIES = [
 
 
 def load_canva_token():
-    cfg = json.load(open("/Users/arianawajntraub/.gemini/config/canva_oauth.json"))
+    p = "/Users/arianawajntraub/.gemini/config/canva_oauth.json"
+    cfg = json.load(open(p))
+    return cfg["access_token"]
+
+
+def refresh_canva_token():
+    import urllib.parse
+    p = "/Users/arianawajntraub/.gemini/config/canva_oauth.json"
+    cfg = json.load(open(p))
+    data = urllib.parse.urlencode({
+        "grant_type": "refresh_token",
+        "client_id": cfg.get("client_id", "NIUQDou1onsazrzX"),
+        "refresh_token": cfg["refresh_token"],
+        "resource": "https://mcp.canva.com/mcp"
+    }).encode()
+    req = urllib.request.Request("https://mcp.canva.com/token", data=data, headers={"Content-Type": "application/x-www-form-urlencoded", "User-Agent": "Mozilla/5.0"}, method="POST")
+    with urllib.request.urlopen(req, timeout=30) as r:
+        res = json.loads(r.read().decode())
+        cfg["access_token"] = res["access_token"]
+        if "refresh_token" in res:
+            cfg["refresh_token"] = res["refresh_token"]
+        json.dump(cfg, open(p, "w"), indent=2)
     return cfg["access_token"]
 
 
 def mcp_req(method, params):
     tok = load_canva_token()
-    req = urllib.request.Request(
-        "https://mcp.canva.com/mcp",
-        data=json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {tok}",
-            "Content-Type": "application/json",
-            "Accept": "application/json, text/event-stream",
-        },
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=45) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    for attempt in range(2):
+        req = urllib.request.Request(
+            "https://mcp.canva.com/mcp",
+            data=json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode("utf-8"),
+            headers={
+                "Authorization": f"Bearer {tok}",
+                "Content-Type": "application/json",
+                "Accept": "application/json, text/event-stream",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            if e.code == 401 and attempt == 0:
+                tok = refresh_canva_token()
+                continue
+            raise
 
 
 def update_canva_design_texts(design_id, volanta=None, bajada=None, placa2=None, placa3=None, cierre_rubro=None):
     """
     Edita en vivo en Canva la Volanta (Placa 1), Bajada (Placa 1), Cartel Placa 2, Cartel Placa 3 y el Cierre según rubro (Placa 4).
+    Además corrige las posiciones en Placa 4 tanto en 4:5 (1080x1350) como en 9:16 (1080x1920) para que ningún cartel pise el logo de Star Union
+    y Cleany quede 100% adentro del recuadro punteado.
     """
     tx = mcp_req("tools/call", {
         "name": "start-editing-transaction",
-        "arguments": {"design_id": design_id, "user_intent": "Update slide headlines and closing CTA by industry"}
+        "arguments": {"design_id": design_id, "user_intent": "Update slide headlines, closing CTA and fix Page 4 layout"}
     })
     data = json.loads(tx["result"]["content"][0]["text"])
     tid = data["transaction"]["transaction_id"]
@@ -263,7 +293,6 @@ def update_canva_design_texts(design_id, volanta=None, bajada=None, placa2=None,
         p = rt["page_index"]
         by_page.setdefault(p, []).append(rt)
 
-    pages_set = sorted(list({rt["page_index"] for rt in richtexts}))
     ops_by_page = {}
 
     # Page 1: smaller height is volanta, larger height is bajada
@@ -287,36 +316,78 @@ def update_canva_design_texts(design_id, volanta=None, bajada=None, placa2=None,
     if p3_items and placa3:
         ops_by_page.setdefault(3, []).append({"type": "replace_text", "element_id": p3_items[0]["element_id"], "text": placa3})
 
-    # Page 4: find the CTA element ("Cotizá..." or similar)
+    # Page 4: position all 3 yellow carteles, Star Union logo and Cleany cleanly with zero overlap
     p4_items = by_page.get(4, [])
-    if p4_items and cierre_rubro:
-        target_el = None
+    pages_info = data.get("pages", [])
+    p4_height = 1350
+    for p_obj in pages_info:
+        if p_obj.get("page_number") == 4:
+            p4_height = p_obj.get("dimension", {}).get("height", 1350)
+
+    if p4_items:
+        el_somos = None
+        el_iso = None
+        el_cta = None
         for x in p4_items:
             t_str = "".join(r.get("text", "") for r in x.get("regions", "")).strip()
-            if "Cotiz" in t_str or "Sumá" in t_str or "Asegurá" in t_str or ("Star Union" not in t_str and "ISO" not in t_str and t_str):
-                target_el = x["element_id"]
-                break
-        if target_el:
-            ops_by_page.setdefault(4, []).append({"type": "replace_text", "element_id": target_el, "text": cierre_rubro})
+            if not t_str:
+                continue
+            if "Somos Star Union" in t_str:
+                el_somos = x["element_id"]
+            elif "ISO" in t_str:
+                el_iso = x["element_id"]
+            else:
+                el_cta = x["element_id"]
+
+        if el_somos:
+            if p4_height > 1500:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_somos, "top": 370, "left": 180.89})
+            else:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_somos, "top": 150, "left": 236.25})
+        if el_iso:
+            if p4_height > 1500:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_iso, "top": 590, "left": 180.89})
+            else:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_iso, "top": 315, "left": 236.25})
+        if el_cta:
+            if cierre_rubro:
+                ops_by_page.setdefault(4, []).append({"type": "replace_text", "element_id": el_cta, "text": cierre_rubro})
+            if p4_height > 1500:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_cta, "top": 815, "left": 194.75})
+            else:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_cta, "top": 480, "left": 236.25})
+
+    # Fix Cleany (MAEu36Mcttk) & Logo (MAEBWMQjEZc) position on Page 4 so Logo NEVER overlaps yellow cartel and Cleany sits inside dotted border
+    p4_fills = [f for f in data.get("fills", []) if f.get("page_index") == 4]
+    for f_el in p4_fills:
+        aid = f_el.get("asset_id", "")
+        el_id = f_el.get("element_id", "")
+        if aid == "MAEBWMQjEZc":
+            if p4_height > 1500:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_id, "top": 1095, "left": 322.18})
+            else:
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_id, "top": 710, "left": 322.18})
+        elif aid == "MAEu36Mcttk":
+            if p4_height > 1500:
+                ops_by_page.setdefault(4, []).append({"type": "resize_element", "element_id": el_id, "height": 295, "preserve_aspect_ratio": True})
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_id, "top": 1310, "left": 373.0})
+            else:
+                ops_by_page.setdefault(4, []).append({"type": "resize_element", "element_id": el_id, "height": 285, "preserve_aspect_ratio": True})
+                ops_by_page.setdefault(4, []).append({"type": "position_element", "element_id": el_id, "top": 900, "left": 373.0})
 
     try:
-        all_ops = []
-        first_p = 1
         for p_idx in sorted(ops_by_page.keys()):
             if ops_by_page[p_idx]:
-                if not all_ops:
-                    first_p = p_idx
-                all_ops.extend(ops_by_page[p_idx])
-        if all_ops:
-            mcp_req("tools/call", {
-                "name": "perform-editing-operations",
-                "arguments": {
-                    "transaction_id": tid,
-                    "page_index": first_p,
-                    "operations": all_ops,
-                    "user_intent": "Apply text updates across slides 1 to 4"
-                }
-            })
+                mcp_req("tools/call", {
+                    "name": "perform-editing-operations",
+                    "arguments": {
+                        "transaction_id": tid,
+                        "page_index": p_idx,
+                        "pages": pages_info,
+                        "operations": ops_by_page[p_idx],
+                        "user_intent": f"Apply updates on slide {p_idx}"
+                    }
+                })
         mcp_req("tools/call", {
             "name": "commit-editing-transaction",
             "arguments": {"transaction_id": tid, "user_intent": "Commit updated texts to Canva design"}
@@ -445,14 +516,14 @@ def sync_all():
         rel_slides_9x16 = [f"piezas/{os.path.basename(p)}" for p in tt_slides]
         rel_reel = f"piezas/{os.path.basename(reel_out)}"
 
-        # Si es intercalado (03 o 05), dejamos opción de Placa Editorial o Carrusel Canva
+        prev = sched.get(pid, {})
         sched[pid] = {
             "id": pid,
             "slug": slug,
-            "date_label": item["date_label"],
+            "date_label": item["date_label"].replace(" (Intercalado con Placa Editorial)", ""),
             "scheduled_at": item["scheduled_at"],
-            "status": "pausado_en_revision",
-            "format_mode": item["format_mode"],
+            "status": prev.get("status", "programado"),
+            "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
             "ig_design_id": item["ig_design_id"],
             "tt_design_id": item["tt_design_id"],
             "fb_design_id": item["fb_design_id"],
@@ -469,8 +540,11 @@ def sync_all():
             "subtitle": item["placa2"],
             "feed_file": rel_slides_feed[0],
             "carousel_files": rel_slides_feed,
-            "editorial_feed_file": item["editorial_feed"],
             "story_file": rel_slides_9x16[0],
+            "story_video_file": rel_reel,
+            "fb_feed_file": rel_slides_feed[0],
+            "li_feed_file": rel_slides_feed[0],
+            "gmb_feed_file": rel_slides_feed[0],
             "story_slides": rel_slides_9x16,
             "reel_file": rel_reel,
             "copy_ig_fb": item["copy_ig_fb"],
@@ -479,8 +553,12 @@ def sync_all():
             "yt_desc": item["copy_ig_fb"],
             "yt_tags": "star union, empresa de limpieza, limpieza industrial, limpieza clinicas, iso 9001",
             "copy_wa": f"*{item['volanta']} — {item['bajada'].replace(chr(10), ' ')}*\n{item['placa2']}\n📲 Cotizá hoy: https://wa.me/5491122759369\n🌐 https://www.starunion.com.ar",
-            "channels": ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_reel", "linkedin", "gmb", "youtube", "tiktok"],
+            "channels": ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_story", "fb_reel", "linkedin", "gmb", "youtube"],
         }
+        if "published_at" in prev:
+            sched[pid]["published_at"] = prev["published_at"]
+        if "last_results" in prev:
+            sched[pid]["last_results"] = prev["last_results"]
 
     with open(sched_path, "w", encoding="utf-8") as f:
         json.dump(sched, f, ensure_ascii=False, indent=2)
