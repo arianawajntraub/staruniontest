@@ -308,6 +308,24 @@
 <body>
   <div class="container">
     <!-- CABECERA -->
+    <div style="background:linear-gradient(135deg,#022c22,#065f46);border:2px solid #34d399;border-radius:16px;padding:20px 24px;margin-bottom:18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
+      <div style="max-width:850px;">
+        <div style="display:inline-block;background:#34d399;color:#022c22;font-size:11px;font-weight:900;padding:3px 10px;border-radius:999px;text-transform:uppercase;margin-bottom:6px;">
+          ☁️ CENTRALIZADO EN APROBALO + PUBLICADOR EN LA NUBE ACTIVO (CERO DEPENDER DE TU MAC)
+        </div>
+        <h2 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;">Todas las piezas (#01 a #05), carruseles de 4 placas, videos 12s y copies (incluido TikTok) ya viven y se publican desde Aprobalo</h2>
+        <p style="font-size:13px;color:#d1fae5;">• <strong>#01 (30/10)</strong>, <strong>#02 (02/11)</strong> y <strong>#03 (03/11)</strong>: ✅ Publicadas.<br>• <strong>#04 (Jue 05/11)</strong> y <strong>#05 (Vie 06/11)</strong>: 🟢 Aprobadas en Aprobalo y listas para salir solas desde la nube a las 10:00 AM ART.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1" target="_blank" class="btn-link" style="background:#34d399;color:#022c22;font-size:13.5px;padding:12px 18px;box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+          ☁️ Abrir Star Union en APROBALO ↗
+        </a>
+        <a href="http://127.0.0.1:8894/api/tiktok/login" class="btn-link" style="background:#fbbf24;color:#0f172a;font-size:13px;padding:12px 16px;">
+          🎵 Conectar TikTok (@starunion.ar) en 1 Clic
+        </a>
+      </div>
+    </div>
+
     <div class="header-box">
       <h1>⭐ Star Union · Calendario Oficial y Cabina Canva (Opción 2 + Reels 12s con Locución + Story Liviana)</h1>
       <p style="font-size:13.5px;color:#d1fae5;">
@@ -320,6 +338,7 @@
         <span class="net-pill">🟢 Canva Pro API (Conectado)</span>
         <span class="net-pill" id="pill-yt">🟢 YouTube Shorts (Star Union | Limpieza Profesional e Industrial · Token Permanente)</span>
         <span class="net-pill" id="pill-gmb">🟢 Google Maps (Empresa de Limpieza - Star Union · Token Permanente)</span>
+        <span class="net-pill warn" id="pill-tt">🎵 TikTok (@starunionservicios · Conectar Direct Post)</span>
       </div>
     </div>
 
@@ -371,11 +390,12 @@
 
       <div class="conn-card">
         <div>
-          <h3>3. Google Maps (Empresa de Limpieza - Star Union · Guaminí 5657)</h3>
-          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">Refresh Token permanente activo (<code>1//0hQu6...</code> · Location <code>8938663810475756647</code>).</p>
+          <h3>3. Google Maps (Empresa de Limpieza - Star Union · Guaminí 5657) + TikTok (@starunionservicios)</h3>
+          <p style="font-size:12px;color:#cbd5e1;margin-top:4px;">GMB activo (<code>8938663810475756647</code>) y TikTok con scope <code>video.publish</code> (sube video + copy automático).</p>
         </div>
-        <div>
-          <div class="conn-status conn-ok" id="box-gmb" style="margin-bottom:8px;">✅ CONECTADO Y ACTIVO: Google Maps (Guaminí 5657 · Token Permanente)</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="conn-status conn-ok" id="box-gmb">✅ CONECTADO Y ACTIVO: Google Maps (Guaminí 5657 · Token Permanente)</div>
+          <a href="http://127.0.0.1:8894/api/tiktok/login" class="btn-link" id="box-tt" style="background:#059669;color:#fff;justify-content:center;padding:8px 10px;font-size:11.5px;">🔌 Conectar TikTok @starunionservicios (Video + Copy Automático)</a>
         </div>
       </div>
     </div>
@@ -404,6 +424,12 @@
           gmbBox.className = 'conn-status conn-ok';
           gmbBox.innerHTML = '✅ CONECTADO Y ACTIVO: Google Maps (' + (st.gmb_location_title || 'Guaminí 5657') + ')';
           if (pillGmb) { pillGmb.className = 'net-pill'; pillGmb.innerHTML = '🟢 Google Maps (' + (st.gmb_location_title || 'Guaminí 5657') + ')'; }
+        }
+        const ttBox = document.getElementById('box-tt');
+        const pillTt = document.getElementById('pill-tt');
+        if (st.tiktok_connected) {
+          if (ttBox) { ttBox.style.background = '#065f46'; ttBox.innerHTML = '✅ TikTok Conectado (@starunionservicios · Direct Post)'; }
+          if (pillTt) { pillTt.className = 'net-pill'; pillTt.innerHTML = '🟢 TikTok (@starunionservicios · Video + Copy)'; }
         }
       } catch (e) {}
     }
@@ -664,7 +690,7 @@
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_story','fb_reel','linkedin','gmb','youtube'],
+          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_story','fb_reel','linkedin','gmb','youtube','tiktok'],
           feed_file: cur.feed_file,
           story_file: cur.story_file,
           reel_file: cur.reel_file,

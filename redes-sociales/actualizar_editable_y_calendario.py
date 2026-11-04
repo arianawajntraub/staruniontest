@@ -435,6 +435,9 @@ def main():
         </div>
       </div>
       <div class="flex flex-wrap gap-2">
+        <a href="https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1" target="_blank" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition shadow-md ring-2 ring-emerald-300">
+          ☁️ Abrir Star Union en APROBALO (Fuente Única en la Nube) ↗
+        </a>
         <a href="embudo-y-comparador-mailing-ab.html" class="bg-[#03582d] hover:bg-[#133522] text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition shadow-sm">
           📧 Embudo + Plantillas Mailing HTML A y B
         </a>
@@ -446,6 +449,22 @@ def main():
         </a>
         <a href="../radar-comercial/perfit-historial/index.html" class="bg-gray-800 hover:bg-black text-white text-xs font-extrabold px-4 py-2.5 rounded-lg transition">
           📊 Ver Historial Perfit (93 Campañas)
+        </a>
+      </div>
+    </div>
+
+    <!-- BANNER DE CENTRALIZACIÓN EN APROBALO + PUBLICACIÓN CLOUD AUTOMÁTICA -->
+    <div class="bg-emerald-950 text-white rounded-2xl p-5 sm:p-6 border-2 border-emerald-400 shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <span class="inline-block bg-emerald-400 text-gray-950 text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full">
+          ☁️ CENTRALIZADO 100% EN APROBALO + PUBLICADOR EN LA NUBE ACTIVO (CERO DEPENDER DE TU MAC)
+        </span>
+        <h2 class="text-base sm:text-lg font-extrabold text-white">Todas las piezas (#01 a #05), carruseles de 4 placas, videos 12s y copies (incluido TikTok) ya viven en Aprobalo</h2>
+        <p class="text-xs text-emerald-100">• <strong>#01 (Vie 30/10)</strong>, <strong>#02 (Lun 02/11)</strong> y <strong>#03 (Mar 03/11)</strong>: ✅ Publicadas.<br>• <strong>#04 (Jue 05/11)</strong> y <strong>#05 (Vie 06/11)</strong>: 🟢 Aprobadas en Aprobalo y listas para salir automáticamente desde la nube a las 10:00 AM ART.</p>
+      </div>
+      <div class="flex flex-wrap gap-2 shrink-0">
+        <a href="https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-gray-950 text-xs font-extrabold px-5 py-3 rounded-xl shadow transition">
+          👉 Ir a Aprobalo (Star Union) ↗
         </a>
       </div>
     </div>
