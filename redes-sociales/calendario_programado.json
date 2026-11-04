@@ -2,7 +2,7 @@
   "01": {
     "id": "01",
     "post_id": "01",
-    "status": "programado",
+    "status": "publicado",
     "scheduled_at": "2026-10-30T10:00",
     "channels": [
       "ig_feed",
@@ -27,12 +27,52 @@
     "yt_desc": "Empresa de limpieza industrial y profesional en CABA y GBA — Star Union. Garantizamos la continuidad operativa en centros logísticos, depósitos y plantas industriales sin detener el despacho.\n\n• Limpieza mecanizada con autolavadoras hombre a bordo y barredoras industriales en pasillos de racks y playas de maniobra.\n• Base Operativa Propia de 800 m² en Guaminí 5657 (CABA) con Taller Electromecánico In-House y reemplazo de equipos en el día.\n• Servicio de limpieza para empresas certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (ID 9000041847).\n\nSolicitá una visita técnica para tu empresa en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #LimpiezaIndustrial #ServicioDeLimpieza #LimpiezaParaEmpresas #StarUnion",
     "yt_tags": "empresa de limpieza, empresas de limpieza en buenos aires, servicio de limpieza para empresas, limpieza industrial, limpieza de depositos, centros logisticos, star union, iso 9001 tuv rheinland, limpieza profesional caba",
     "copy_wa": "Empresa de limpieza industrial y centros logísticos con maquinaria propia y certificación ISO 9001:2015 (TÜV Rheinland). Conocé más en https://www.starunion.com.ar",
-    "public_url": "https://www.starunion.com.ar"
+    "public_url": "https://www.starunion.com.ar",
+    "published_at": "2026-11-03T21:49",
+    "last_results": {
+      "Instagram Feed (4:5)": {
+        "ok": true,
+        "id": "17996016936111395"
+      },
+      "Instagram Story Video c/Música (9:16)": {
+        "ok": true,
+        "id": "18083890688742909",
+        "note": "Story publicada en video MP4 9:16 con voz de varón y Funk Groove."
+      },
+      "Instagram Reel con Voz Varón + Funk (MP4)": {
+        "ok": true,
+        "id": "18143536531623847"
+      },
+      "Facebook Page": {
+        "ok": true,
+        "id": "1779553714053447"
+      },
+      "Facebook Reel MP4": {
+        "ok": true,
+        "id": "2049600275708870"
+      },
+      "LinkedIn Página Empresa": {
+        "ok": true,
+        "id": "urn:li:share:7523547305535504385"
+      },
+      "Google My Business (Maps)": {
+        "ok": false,
+        "error": "Error en Google Business Profile API (403): {'error': {'code': 403, 'message': 'Google My Business API has not been used in project 838556799606 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.', 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'containerInfo': '838556799606', 'consumer': 'projects/838556799606', 'service': 'mybusiness.googleapis.com', 'serviceTitle': 'Google My Business API', 'activationUrl': 'https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Google My Business API has not been used in project 838556799606 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606'}]}]}}"
+      },
+      "YouTube Shorts": {
+        "ok": true,
+        "id": "https://youtube.com/shorts/8ks8CX4TQBU"
+      },
+      "TikTok Video": {
+        "ok": false,
+        "error": "TikTok desconectado en Star Union (requiere iniciar sesión con @starunionservicios)."
+      }
+    }
   },
   "02": {
     "id": "02",
     "post_id": "02",
-    "status": "programado",
+    "status": "publicado",
     "scheduled_at": "2026-11-02T10:00",
     "channels": [
       "ig_feed",
@@ -57,7 +97,47 @@
     "yt_desc": "Star Union — Empresa de limpieza profesional e industrial con Base Operativa Propia de 800 m² en Guaminí 5657 (CABA) y Taller Electromecánico In-House.\n\n• Parque propio de autolavadoras, barredoras e hidrolavadoras con mantenimiento preventivo in-house.\n• Stock permanente de insumos aprobados por ANMAT y equipos de respaldo para reemplazo en el día.\n• Servicio de limpieza para empresas, industrias, consorcios y oficinas en CABA y GBA bajo Norma ISO 9001:2015.\n\nConocé nuestra infraestructura en: https://www.starunion.com.ar\nWhatsApp Comercial B2B: +54 9 11 2275-9369\n\n#EmpresaDeLimpieza #ServicioDeLimpieza #LimpiezaProfesional #LimpiezaIndustrial #StarUnion",
     "yt_tags": "empresa de limpieza, empresas de limpieza caba, servicio de limpieza para empresas, limpieza profesional, star union, base operativa guamini, maquinaria de limpieza industrial, iso 9001 limpieza",
     "copy_wa": "Empresa de limpieza con taller electromecánico propio en nuestra Base Operativa de 800 m² (Guaminí 5657, CABA): respaldo real para tu empresa. 👉 https://www.starunion.com.ar",
-    "public_url": "https://www.starunion.com.ar"
+    "public_url": "https://www.starunion.com.ar",
+    "published_at": "2026-11-03T21:49",
+    "last_results": {
+      "Instagram Feed (4:5)": {
+        "ok": true,
+        "id": "17954157312311100"
+      },
+      "Instagram Story Video c/Música (9:16)": {
+        "ok": true,
+        "id": "18109936385616875",
+        "note": "Story publicada en video MP4 9:16 con voz de varón y Funk Groove."
+      },
+      "Instagram Reel con Voz Varón + Funk (MP4)": {
+        "ok": true,
+        "id": "18115616492169813"
+      },
+      "Facebook Page": {
+        "ok": true,
+        "id": "1779555104053308"
+      },
+      "Facebook Reel MP4": {
+        "ok": true,
+        "id": "1036055249508714"
+      },
+      "LinkedIn Página Empresa": {
+        "ok": true,
+        "id": "urn:li:share:7523547688324378624"
+      },
+      "Google My Business (Maps)": {
+        "ok": false,
+        "error": "Error en Google Business Profile API (403): {'error': {'code': 403, 'message': 'Google My Business API has not been used in project 838556799606 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.', 'status': 'PERMISSION_DENIED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'SERVICE_DISABLED', 'domain': 'googleapis.com', 'metadata': {'consumer': 'projects/838556799606', 'containerInfo': '838556799606', 'serviceTitle': 'Google My Business API', 'service': 'mybusiness.googleapis.com', 'activationUrl': 'https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Google My Business API has not been used in project 838556799606 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developers console API activation', 'url': 'https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=838556799606'}]}]}}"
+      },
+      "YouTube Shorts": {
+        "ok": true,
+        "id": "https://youtube.com/shorts/g0waaVQxgFY"
+      },
+      "TikTok Video": {
+        "ok": false,
+        "error": "TikTok desconectado en Star Union (requiere iniciar sesión con @starunionservicios)."
+      }
+    }
   },
   "03": {
     "id": "03",
