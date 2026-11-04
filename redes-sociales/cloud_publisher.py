@@ -152,7 +152,10 @@ def main():
 
         st = p.get("status", "")
         sched_at = p.get("scheduled_at", "")
-        if st in ("aprobado", "programado") and sched_at and sched_at <= now_ar:
+        ap_estado_actual = (ap_piece or {}).get("estado", "")
+        today_ar = now_ar[:10]
+        # REGLA DE HIERRO: Solo publicar si en Aprobalo está explícitamente "aprobada" (jamás "programado" ni "borrador") y su fecha es hoy
+        if ap_estado_actual == "aprobada" and st == "aprobado" and sched_at and sched_at[:10] == today_ar and sched_at <= now_ar:
             print(f"[CLOUD-PUBLISHER] Disparando pieza #{pid} (Aprobalo ID: {ap_id}) programada para {sched_at}...")
             chs = p.get("channels") or ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_story", "fb_reel", "linkedin", "gmb", "youtube", "tiktok"]
             feed_f = (p.get("carousel_files") or [p.get("feed_file", "")])[0]

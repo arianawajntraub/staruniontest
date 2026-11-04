@@ -428,65 +428,48 @@ def publish_ig_feed(keys, feed_rel_path, caption):
     if str(ig_id) != STAR_UNION_IG_USER_ID:
         return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: ig_user_id ({ig_id}) NO es @starunionservicios ({STAR_UNION_IG_USER_ID})."}
 
-    clean_rel = feed_rel_path.lstrip("/")
-    if clean_rel.endswith("_p1.jpg"):
-        base_prefix = clean_rel[:-7]
-        slide_urls = [f"{PUBLIC_ASSET_BASE}/{base_prefix}_p{i}.jpg" for i in (1, 2, 3, 4)]
-        child_ids = []
-        for s_url in slide_urls:
-            st_c, data_c = http_json(
+    clean_rel = feed_rel_path.split("?")[0].lstrip("/")
+    if "canva_" not in clean_rel or not clean_rel.endswith("_p1.jpg"):
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Prohibido publicar placas sueltas o viejas ({clean_rel}). Solo se permite Carrusel de 4 láminas de Canva (canva_*_p1..p4.jpg)."}
+
+    base_prefix = clean_rel[:-7]
+    slide_urls = [f"{PUBLIC_ASSET_BASE}/{base_prefix}_p{i}.jpg" for i in (1, 2, 3, 4)]
+    child_ids = []
+    for s_url in slide_urls:
+        st_c, data_c = http_json(
+            "POST",
+            f"https://graph.facebook.com/v21.0/{ig_id}/media",
+            form_data={"image_url": s_url, "is_carousel_item": "true", "access_token": token},
+        )
+        if st_c == 200 and "id" in data_c:
+            child_ids.append(data_c["id"])
+    if len(child_ids) == 4:
+        st_car, data_car = http_json(
+            "POST",
+            f"https://graph.facebook.com/v21.0/{ig_id}/media",
+            form_data={
+                "media_type": "CAROUSEL",
+                "children": ",".join(child_ids),
+                "caption": caption,
+                "access_token": token,
+            },
+        )
+        if st_car == 200 and "id" in data_car:
+            time.sleep(3)
+            st_pub, pub_car = http_json(
                 "POST",
-                f"https://graph.facebook.com/v21.0/{ig_id}/media",
-                form_data={"image_url": s_url, "is_carousel_item": "true", "access_token": token},
+                f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
+                form_data={"creation_id": data_car["id"], "access_token": token},
             )
-            if st_c == 200 and "id" in data_c:
-                child_ids.append(data_c["id"])
-        if len(child_ids) == 4:
-            st_car, data_car = http_json(
-                "POST",
-                f"https://graph.facebook.com/v21.0/{ig_id}/media",
-                form_data={
-                    "media_type": "CAROUSEL",
-                    "children": ",".join(child_ids),
-                    "caption": caption,
-                    "access_token": token,
-                },
-            )
-            if st_car == 200 and "id" in data_car:
-                time.sleep(3)
-                st_pub, pub_car = http_json(
-                    "POST",
-                    f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
-                    form_data={"creation_id": data_car["id"], "access_token": token},
-                )
-                if st_pub == 200 and "id" in pub_car:
-                    return {"ok": True, "id": pub_car["id"], "note": "Carrusel 4 placas Canva publicado"}
-
-    img_url = f"{PUBLIC_ASSET_BASE}/{clean_rel}"
-    st, data = http_json(
-        "POST",
-        f"https://graph.facebook.com/v21.0/{ig_id}/media",
-        form_data={"image_url": img_url, "caption": caption, "access_token": token},
-    )
-    if st != 200 or "id" not in data:
-        return {"ok": False, "error": f"Error creando contenedor IG Feed: {data}"}
-
-    creation_id = data["id"]
-    time.sleep(3)
-    st3, pub = http_json(
-        "POST",
-        f"https://graph.facebook.com/v21.0/{ig_id}/media_publish",
-        form_data={"creation_id": creation_id, "access_token": token},
-    )
-    if st3 == 200 and "id" in pub:
-        return {"ok": True, "id": pub["id"]}
-    return {"ok": False, "error": f"Error publicando IG Feed: {pub}"}
+            if st_pub == 200 and "id" in pub_car:
+                return {"ok": True, "id": pub_car["id"], "note": "Carrusel 4 placas Canva publicado"}
+    return {"ok": False, "error": f"No se pudieron crear las 4 láminas del carrusel Canva ({len(child_ids)}/4)."}
 
 
-def publish_ig_story(keys, story_rel_path, reel_rel_path="piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"):
+def publish_ig_story(keys, story_rel_path, reel_rel_path=""):
     """
-    REGLA INQUEBRANTABLE: Prohibido subir un JPG mudo a Instagram Stories por API.
-    Se sube siempre el video vertical 9:16 (.mp4 con música y voz de marca) como media_type=STORIES.
+    REGLA INQUEBRANTABLE: Prohibido subir un JPG mudo o un video viejo a Instagram Stories por API.
+    Se sube siempre el video vertical 9:16 de Canva (.mp4 de 12s con locución) como media_type=STORIES.
     """
     ig_id = keys.get("ig_user_id")
     token = keys.get("fb_page_token") or keys.get("meta_user_token")
@@ -495,8 +478,10 @@ def publish_ig_story(keys, story_rel_path, reel_rel_path="piezas/REEL_OPCION_C_G
     if str(ig_id) != STAR_UNION_IG_USER_ID:
         return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: ig_user_id ({ig_id}) NO es @starunionservicios ({STAR_UNION_IG_USER_ID})."}
 
-    rel = reel_rel_path if reel_rel_path and reel_rel_path.endswith(".mp4") else "piezas/REEL_OPCION_C_GROOVE_CON_FIRMA_FINAL.mp4"
-    video_url = f"{PUBLIC_ASSET_BASE}/{rel.lstrip('/')}"
+    rel = (reel_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in rel or not rel.endswith(".mp4"):
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Story rechazada ({rel}). Solo se permiten videos oficiales de Canva 12s."}
+    video_url = f"{PUBLIC_ASSET_BASE}/{rel}"
     st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media",
@@ -541,7 +526,10 @@ def publish_ig_reel(keys, reel_rel_path, caption):
     if str(ig_id) != STAR_UNION_IG_USER_ID:
         return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: ig_user_id ({ig_id}) NO es @starunionservicios ({STAR_UNION_IG_USER_ID})."}
 
-    video_url = f"{PUBLIC_ASSET_BASE}/{reel_rel_path.lstrip('/')}"
+    clean_reel = (reel_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_reel or not clean_reel.endswith(".mp4"):
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Reel rechazado ({clean_reel}). Solo se permiten videos oficiales de Canva 12s."}
+    video_url = f"{PUBLIC_ASSET_BASE}/{clean_reel}"
     st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{ig_id}/media",
@@ -587,11 +575,15 @@ def publish_fb_page(keys, feed_rel_path, caption, public_url="https://www.starun
     if str(page_id) != STAR_UNION_FB_PAGE_ID:
         return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: fb_page_id ({page_id}) NO es Star Union Servicios ({STAR_UNION_FB_PAGE_ID})."}
 
+    clean_rel = (feed_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_rel:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Prohibido publicar placas viejas ({clean_rel}). Solo se permiten piezas oficiales de Canva."}
+
     fb_caption = (caption or "").strip()
     if public_url and public_url not in fb_caption and "starunion.com.ar" not in fb_caption:
         fb_caption += f"\n\n👉 Conocé más en: {public_url}"
 
-    img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
+    img_url = f"{PUBLIC_ASSET_BASE}/{clean_rel}"
     st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{page_id}/photos",
@@ -614,7 +606,10 @@ def publish_fb_reel(keys, reel_rel_path, caption, public_url="https://www.starun
     if public_url and public_url not in fb_caption and "starunion.com.ar" not in fb_caption:
         fb_caption += f"\n\n👉 Relevamiento técnico: {public_url}"
 
-    video_url = f"{PUBLIC_ASSET_BASE}/{reel_rel_path.lstrip('/')}"
+    clean_reel = (reel_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_reel or not clean_reel.endswith(".mp4"):
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Reel rechazado ({clean_reel}). Solo se permiten videos oficiales de Canva 12s."}
+    video_url = f"{PUBLIC_ASSET_BASE}/{clean_reel}"
     st, data = http_json(
         "POST",
         f"https://graph.facebook.com/v21.0/{page_id}/videos",
@@ -647,8 +642,12 @@ def publish_linkedin(keys, feed_rel_path, caption, article_url, title):
             "error": f"🛑 BLOQUEADO POR SEGURIDAD: El URN ({li_urn}) no coincide con la Página de Empresa de Star Union ({STAR_UNION_LI_ORG_URN}).",
         }
 
+    clean_rel = (feed_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_rel:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Prohibido publicar placas viejas ({clean_rel}) en LinkedIn. Solo se permiten piezas oficiales de Canva."}
+
     hdrs = {"Authorization": f"Bearer {li_token}", "X-Restli-Protocol-Version": "2.0.0"}
-    img_path = os.path.join(WEB_ROOT, "redes-sociales", feed_rel_path.lstrip("/"))
+    img_path = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
     asset_urn = None
 
     if os.path.exists(img_path):
@@ -747,7 +746,11 @@ def publish_gmb(keys, feed_rel_path, caption, article_url="https://www.starunion
     if "8938663810475756647" not in gmb_loc:
         return {"ok": False, "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: La ubicación GMB ({gmb_loc}) NO es la ficha oficial de Star Union (8938663810475756647)."}
 
-    img_url = f"{PUBLIC_ASSET_BASE}/{feed_rel_path.lstrip('/')}"
+    clean_rel = (feed_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_rel:
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Prohibido publicar placas viejas ({clean_rel}) en GMB. Solo se permiten piezas oficiales de Canva."}
+
+    img_url = f"{PUBLIC_ASSET_BASE}/{clean_rel}"
     body = {
         "languageCode": "es-AR",
         "summary": (caption or "")[:1450],
@@ -788,7 +791,9 @@ def publish_youtube_short(keys, reel_rel_path, title, description, tags_csv=""):
             "error": f"🛑 BLOQUEADO POR CORTAFUEGOS: El token de YouTube pertenece al canal '{live_ch_title}' ({live_ch_id}) y NO al canal oficial de Star Union ({STAR_UNION_YT_CHANNEL_ID}).",
         }
 
-    clean_rel = reel_rel_path.split("?")[0].lstrip("/")
+    clean_rel = (reel_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_rel or not clean_rel.endswith(".mp4"):
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Prohibido publicar videos viejos ({clean_rel}) en YouTube. Solo se permiten videos oficiales de Canva 12s."}
     local_mp4 = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
     if not os.path.exists(local_mp4):
         return {"ok": False, "error": f"No se encontró el archivo MP4 local: {local_mp4}"}
@@ -917,7 +922,9 @@ def publish_tiktok(keys, reel_rel_path, caption):
     if not is_valid_su:
         return {"ok": False, "error": id_msg}
 
-    clean_rel = reel_rel_path.split("?")[0].lstrip("/")
+    clean_rel = (reel_rel_path or "").split("?")[0].lstrip("/")
+    if "canva_" not in clean_rel or not clean_rel.endswith(".mp4"):
+        return {"ok": False, "error": f"🛑 BLOQUEADO POR SEGURIDAD: Prohibido publicar videos viejos ({clean_rel}) en TikTok. Solo se permiten videos oficiales de Canva 12s."}
     video_path = os.path.join(WEB_ROOT, "redes-sociales", clean_rel)
     if not os.path.exists(video_path):
         return {"ok": False, "error": f"No existe el archivo MP4 local: {video_path}"}
@@ -1813,10 +1820,9 @@ def tiktok_cloud_relay_worker():
 
 if __name__ == "__main__":
     import threading
-    t = threading.Thread(target=auto_publish_approved_worker, daemon=True)
-    t.start()
+    # NUNCA correr auto_publish_approved_worker en la Mac: el único publicador es Cloud Publisher conectado a Aprobalo
     t_tt = threading.Thread(target=tiktok_cloud_relay_worker, daemon=True)
     t_tt.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)
-    print("STAR UNION API Server corriendo en http://127.0.0.1:8894 (Auto-disparo ACTIVO solo para piezas en estado APROBADO)")
+    print("STAR UNION API Server corriendo en http://127.0.0.1:8894 (Solo OAuth/Conexión · Auto-disparo local APAGADO)")
     server.serve_forever()
