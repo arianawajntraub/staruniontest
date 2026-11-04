@@ -201,7 +201,7 @@
     "slug": "0311_edificios_corporativos",
     "date_label": "Martes 03/11 · 10:00 hs",
     "scheduled_at": "2026-11-03T10:00",
-    "status": "aprobado",
+    "status": "publicado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
     "ig_design_id": "DAHYlPsIWAA",
     "tt_design_id": "DAHYlOhqcCM",
@@ -252,14 +252,47 @@
       "gmb",
       "youtube"
     ],
-    "approved_at": "2026-11-02 09:47"
+    "approved_at": "2026-11-02 09:47",
+    "published_at": "2026-11-03T21:09",
+    "last_results": {
+      "Instagram Feed (4:5)": {
+        "ok": true,
+        "id": "18353220829270133",
+        "note": "Carrusel 4 placas Canva publicado"
+      },
+      "Instagram Story Video c/Música (9:16)": {
+        "ok": true,
+        "id": "18097556345440795",
+        "note": "Story publicada en video MP4 9:16 con voz de varón y Funk Groove."
+      },
+      "Instagram Reel 12s c/Locución": {
+        "ok": true,
+        "id": "18112054283223918"
+      },
+      "Facebook Page": {
+        "ok": true,
+        "id": "1779525974056221"
+      },
+      "Facebook Reel MP4": {
+        "ok": true,
+        "id": "1847768086644370"
+      },
+      "LinkedIn Página Empresa": {
+        "ok": true,
+        "id": "urn:li:share:7523536807859281921"
+      },
+      "YouTube Shorts (@starunionservicios)": {
+        "ok": true,
+        "id": "https://youtube.com/shorts/ixZwPP-5Ipo"
+      }
+    }
   },
   "04": {
     "id": "04",
     "slug": "0511_respuesta_inmediata",
     "date_label": "Jueves 05/11 · 10:00 hs",
     "scheduled_at": "2026-11-05T10:00",
-    "status": "programado",
+    "status": "aprobado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
     "ig_design_id": "DAHYlKE5KiY",
     "tt_design_id": "DAHYlLcWsJU",
@@ -309,14 +342,15 @@
       "linkedin",
       "gmb",
       "youtube"
-    ]
+    ],
+    "approved_at": "Cierre semanal confirmado"
   },
   "05": {
     "id": "05",
     "slug": "0611_maquinaria_lista",
     "date_label": "Viernes 06/11 · 10:00 hs",
     "scheduled_at": "2026-11-06T10:00",
-    "status": "programado",
+    "status": "aprobado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
     "ig_design_id": "DAHYlG2Qedg",
     "tt_design_id": "DAHYlGci9ds",
@@ -366,6 +400,7 @@
       "linkedin",
       "gmb",
       "youtube"
-    ]
+    ],
+    "approved_at": "Cierre semanal confirmado"
   }
 }

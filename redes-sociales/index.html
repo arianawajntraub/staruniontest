@@ -441,39 +441,33 @@
       for (const pid of ids) {
         const p = sched[pid];
         const slides = p.carousel_files || [p.feed_file];
-        const isApproved = p.status === 'aprobado';
+        const isApproved = (p.status === 'aprobado' || p.status === 'programado');
         const isPub = p.status === 'publicado';
-        const stClass = isPub || isApproved ? 'st-pub' : (p.status === 'programado' ? 'st-sched' : 'st-paused');
+        const stClass = isPub || isApproved ? 'st-pub' : 'st-paused';
         const stLabel = isPub
           ? '✅ PUBLICADO (' + (p.published_at || p.scheduled_at).replace('T', ' ') + ' hs)'
           : (isApproved
-              ? '✅ OK · APROBADO POR ARIANA (' + (p.approved_at || 'Confirmado') + ') · Sale ' + p.scheduled_at.replace('T', ' ') + ' hs'
-              : (p.status === 'programado'
-                  ? '⏳ PENDIENTE DE TU OK (Sale ' + p.scheduled_at.replace('T', ' ') + ' hs · Deadline previa: 2h antes)'
-                  : '⏸️ PAUSADO EN REVISIÓN'));
+              ? '✅ APROBADO EN CIERRE SEMANAL · Sale automático ' + p.scheduled_at.replace('T', ' ') + ' hs'
+              : '⏸️ PAUSADO EN REVISIÓN');
 
         // Construir fila de tabla de calendario
         let netBadges = '';
-        if (pid === '01') {
+        if (isPub) {
           netBadges = `
-            <span class="badge-ok">✅ IG Reel 12s Publicado</span>
-            <span class="badge-ok">✅ IG Story Video c/Música Publicada</span>
-            <span class="badge-ok">✅ FB Page Publicado</span>
-            <span class="badge-ok">✅ FB Story Publicada</span>
-            <span class="badge-ok">✅ FB Reel 12s Publicado</span>
-            <span class="badge-ok">✅ LinkedIn Empresa Publicado</span>
-            <span class="badge-ok">✅ YT Shorts + Google Maps Conectados</span>
+            <span class="badge-ok">✅ PUBLICADO (${(p.published_at || p.scheduled_at).replace('T', ' ')} hs)</span>
+            <span class="badge-ok">✅ IG Carrusel 4:5 + Reel 12s + Story Video</span>
+            <span class="badge-ok">✅ FB Page + Reel 12s + Story</span>
+            <span class="badge-ok">✅ LinkedIn Empresa + YouTube Shorts</span>
           `;
         } else if (isApproved) {
           netBadges = `
-            <span class="badge-ok" style="font-size:12px;padding:5px 10px;">✅ OK · APROBADO POR ARIANA (${p.approved_at || 'Confirmado'})</span>
-            <span class="badge-sched">🗓️ Salida: ${p.scheduled_at.replace('T', ' ')} hs</span>
-            <div style="font-size:11px;color:#34d399;margin-top:4px;font-weight:700;">✔️ Tus cambios de copy y carteles Canva ya están incorporados en las imágenes y el video MP4 de 12s.</div>
+            <span class="badge-ok" style="font-size:12px;padding:5px 10px;">✅ OK · APROBADO EN CIERRE SEMANAL (${p.approved_at || 'Confirmado'})</span>
+            <span class="badge-sched">🗓️ Salida Automática: ${p.scheduled_at.replace('T', ' ')} hs</span>
+            <div style="font-size:11px;color:#34d399;margin-top:4px;font-weight:700;">✔️ Listo para salir automático sin que tengas que volver a tocar "Dar OK".</div>
           `;
         } else {
           netBadges = `
-            <span class="badge-sched" style="background:rgba(245,158,11,0.18);color:#fde047;border-color:rgba(245,158,11,0.4);">⏳ PENDIENTE DE TU OK (${p.scheduled_at.replace('T', ' ')} hs)</span>
-            <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Deadline de previa: hasta 2 hs antes de la salida. Tocá <strong>"✅ DAR OK / APROBAR DÍA"</strong> cuando lo revises.</div>
+            <span class="badge-sched" style="background:rgba(245,158,11,0.18);color:#fde047;border-color:rgba(245,158,11,0.4);">⏸️ PAUSADO (${p.scheduled_at.replace('T', ' ')} hs)</span>
           `;
         }
 

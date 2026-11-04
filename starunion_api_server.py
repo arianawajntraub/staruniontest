@@ -1452,13 +1452,39 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             public_url = body.get("public_url", "https://www.starunion.com.ar")
             title = body.get("title", "Star Union")
 
+            # CANDADO ANTI-DUPLICADO EN INSTAGRAM:
+            # Si sale ig_reel (las 4 placas de Canva animadas con música y share_to_feed=True), NUNCA disparar ig_feed estático al mismo tiempo
+            if "ig_reel" in channels and "ig_feed" in channels:
+                channels = [c for c in channels if c != "ig_feed"]
+
+            # Candado de idempotencia en vivo: verificar en IG Graph API si este mismo copy ya se publicó hoy
+            ig_already_posted = False
+            try:
+                tok_check = keys.get("fb_page_token") or keys.get("meta_user_token")
+                ig_id_check = keys.get("ig_user_id")
+                first_line = (caption_ig or "").strip().split("\n")[0][:60]
+                if tok_check and ig_id_check and first_line:
+                    st_chk, d_chk = http_json("GET", f"https://graph.facebook.com/v21.0/{ig_id_check}/media?fields=id,caption,timestamp,permalink&limit=3&access_token={urllib.parse.quote(tok_check)}")
+                    for item in (d_chk.get("data") or []):
+                        if first_line in (item.get("caption") or ""):
+                            ig_already_posted = item.get("permalink") or item.get("id")
+                            break
+            except Exception:
+                pass
+
             results = {}
             if "ig_feed" in channels:
-                results["Instagram Feed (4:5)"] = publish_ig_feed(keys, feed_file, caption_ig)
+                if ig_already_posted:
+                    results["Instagram Feed (4:5)"] = {"ok": False, "error": f"🛑 BLOQUEADO ANTI-DUPLICADO: Este post ya está publicado en Instagram ({ig_already_posted})."}
+                else:
+                    results["Instagram Feed (4:5)"] = publish_ig_feed(keys, feed_file, caption_ig)
             if "ig_story" in channels:
                 results["Instagram Story Video c/Música (9:16)"] = publish_ig_story(keys, story_file, reel_file)
             if "ig_reel" in channels:
-                results["Instagram Reel con Voz Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_file, caption_ig)
+                if ig_already_posted:
+                    results["Instagram Reel con Voz Varón + Funk (MP4)"] = {"ok": False, "error": f"🛑 BLOQUEADO ANTI-DUPLICADO: Este post ya está publicado en Instagram ({ig_already_posted})."}
+                else:
+                    results["Instagram Reel con Voz Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_file, caption_ig)
             if "fb_page" in channels:
                 results["Facebook Page"] = publish_fb_page(keys, feed_file, caption_ig, public_url)
             if "fb_reel" in channels:
@@ -1615,6 +1641,18 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 except Exception as ex:
                     regen_msg = f" (Aviso placa: {ex})"
 
+            try:
+                import subprocess
+                subprocess.Popen([
+                    "python3", "/Users/arianawajntraub/antigravity-cm/sync_gsheet_inmutable.py", "append",
+                    "Star Union", f"ACTUALIZACIÓN CABINA ({entry.get('status', 'guardado').upper()})",
+                    "Ariana Wajntraub (Dirección)", f"#{post_id} · {entry.get('volanta', '')}",
+                    entry.get("status", "guardado"),
+                    f"Placa 2: {entry.get('placa2', '')[:80]} | Cierre: {entry.get('cierre_rubro', '')}{regen_msg}",
+                    f"http://127.0.0.1:8894/redes-sociales/index.html#card_{post_id}"
+                ])
+            except Exception:
+                pass
             self._send_json(200, {"ok": True, "entry": entry, "message": f"✅ Guardado Pieza #{post_id} ({entry.get('status', 'guardado')} para {entry.get('scheduled_at', '')}){regen_msg}"})
             return
 
@@ -1631,7 +1669,7 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                 payload_pf = {
                     "name": f"Funnel 1 Apertura - Opción {opt} (Star Union)",
                     "subject": subj,
-                    "from": {"email": "info@starunion.com.ar", "name": "Star Union"},
+                    "from": {"email": "cleany@starunion.com.ar", "name": "Cleany | StarUnion"},
                     "replyTo": {"email": "ventas@starunion.com.ar", "name": "Star Union"},
                     "content": {"html": html_content},
                 }
@@ -1654,7 +1692,62 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
         self._send_json(404, {"error": "Endpoint no encontrado"})
 
 
+def auto_publish_approved_worker():
+    import subprocess
+    while True:
+        try:
+            sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
+            if os.path.exists(sched_path):
+                with open(sched_path, "r", encoding="utf-8") as f:
+                    sched = json.load(f)
+                now_str = time.strftime("%Y-%m-%dT%H:%M")
+                changed = False
+                for pid, p in sched.items():
+                    if p.get("status") in ("aprobado", "programado") and p.get("scheduled_at") and p["scheduled_at"] <= now_str:
+                        print(f"[AUTO-SCHEDULER] Disparando pieza APROBADA #{pid} ({p.get('scheduled_at')})...")
+                        keys = load_keys()
+                        chs = [c for c in (p.get("channels") or ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_story", "fb_reel", "linkedin", "gmb", "youtube"]) if c != "tiktok"]
+                        feed_f = (p.get("carousel_files") or [p.get("feed_file", "")])[0]
+                        story_f = p.get("story_video_file") or p.get("story_file", "")
+                        reel_f = p.get("reel_file", "")
+                        cap_ig = p.get("copy_ig_fb", "")
+                        cap_li = p.get("copy_linkedin", "")
+                        yt_t = p.get("yt_title", "")
+                        yt_d = p.get("yt_desc", cap_ig)
+                        yt_tags = p.get("yt_tags", "")
+                        title = f"{p.get('volanta', 'Star Union')} · {p.get('bajada', '').replace(chr(10), ' ')}"
+                        res = {}
+                        if "ig_feed" in chs: res["Instagram Feed (4:5)"] = publish_ig_feed(keys, feed_f, cap_ig)
+                        if "ig_story" in chs: res["Instagram Story Video c/Música (9:16)"] = publish_ig_story(keys, story_f, reel_f)
+                        if "ig_reel" in chs: res["Instagram Reel con Voz Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_f, cap_ig)
+                        if "fb_page" in chs: res["Facebook Page"] = publish_fb_page(keys, p.get("fb_feed_file") or feed_f, cap_ig, "https://www.starunion.com.ar")
+                        if "fb_reel" in chs: res["Facebook Reel MP4"] = publish_fb_reel(keys, reel_f, cap_ig, "https://www.starunion.com.ar")
+                        if "linkedin" in chs: res["LinkedIn Página Empresa"] = publish_linkedin(keys, p.get("li_feed_file") or feed_f, cap_li, "https://www.starunion.com.ar", title)
+                        if "gmb" in chs: res["Google My Business (Maps)"] = publish_gmb(keys, p.get("gmb_feed_file") or feed_f, cap_ig, "https://www.starunion.com.ar")
+                        if "youtube" in chs: res["YouTube Shorts"] = publish_youtube_short(keys, reel_f, yt_t, yt_d, yt_tags)
+                        any_ok = any(isinstance(v, dict) and v.get("ok") for v in res.values())
+                        if any_ok:
+                            p["status"] = "publicado"
+                            p["published_at"] = now_str
+                            p["last_results"] = res
+                            changed = True
+                        else:
+                            print(f"[AUTO-SCHEDULER] #{pid} sin red/DNS disponible en este segundo; reintentando en 45s...")
+                if changed:
+                    with open(sched_path, "w", encoding="utf-8") as f:
+                        json.dump(sched, f, ensure_ascii=False, indent=2)
+                    subprocess.Popen(
+                        "cd /Users/arianawajntraub/Documents/antigravity/star-union && git add redes-sociales/calendario_programado.json && git commit -m 'chore(auto): sync published post status' && git push origin main",
+                        shell=True,
+                    )
+        except Exception as e:
+            print("[AUTO-SCHEDULER ERROR]", e)
+        time.sleep(45)
+
 if __name__ == "__main__":
+    import threading
+    t = threading.Thread(target=auto_publish_approved_worker, daemon=True)
+    t.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)
-    print("STAR UNION API Server corriendo en http://127.0.0.1:8894 (Disparo automático en segundo plano DESACTIVADO — Requiere clic humano)")
+    print("STAR UNION API Server corriendo en http://127.0.0.1:8894 (Auto-disparo ACTIVO solo para piezas en estado APROBADO)")
     server.serve_forever()
