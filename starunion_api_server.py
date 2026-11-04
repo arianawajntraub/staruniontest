@@ -1062,7 +1062,6 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
                     "response_type": "code",
                     "redirect_uri": redirect_uri,
                     "state": "starunion_tt",
-                    "disable_auto_auth": "1",
                 }
             )
             self.send_response(302)
@@ -1783,10 +1782,41 @@ def auto_publish_approved_worker():
             print("[AUTO-SCHEDULER ERROR]", e)
         time.sleep(45)
 
+def tiktok_cloud_relay_worker():
+    seen_ids = set()
+    while True:
+        try:
+            req = urllib.request.Request(
+                "https://ntfy.sh/starunion_tt_oauth_943ari/json?poll=1",
+                headers={"User-Agent": "StarUnionCloudRelay/1.0"},
+            )
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                lines = resp.read().decode("utf-8", "replace").splitlines()
+            for ln in lines:
+                if not ln.strip():
+                    continue
+                ev = json.loads(ln)
+                mid = ev.get("id", "")
+                msg = ev.get("message", "")
+                if mid in seen_ids or "code=" not in msg:
+                    continue
+                seen_ids.add(mid)
+                try:
+                    urllib.request.urlopen(f"http://127.0.0.1:8894/api/tiktok/callback{msg if msg.startswith('?') else '?' + msg}", timeout=15)
+                    print(f"[TIKTOK-CLOUD-RELAY] Código de TikTok procesado desde el celular: {mid}")
+                except Exception as ex_cb:
+                    print("[TIKTOK-CLOUD-RELAY] Aviso callback:", ex_cb)
+        except Exception:
+            pass
+        time.sleep(2)
+
+
 if __name__ == "__main__":
     import threading
     t = threading.Thread(target=auto_publish_approved_worker, daemon=True)
     t.start()
+    t_tt = threading.Thread(target=tiktok_cloud_relay_worker, daemon=True)
+    t_tt.start()
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 8894), StarUnionAPIHandler)
     print("STAR UNION API Server corriendo en http://127.0.0.1:8894 (Auto-disparo ACTIVO solo para piezas en estado APROBADO)")
     server.serve_forever()

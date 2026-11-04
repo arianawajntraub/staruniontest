@@ -2,20 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Conectando TikTok — Star Union S.R.L.</title>
+  <title>Conectando TikTok — Star Union</title>
 </head>
-<body style="font-family:sans-serif;text-align:center;padding:60px;background:#111827;color:#fff;">
-  <h2>⏳ Conectando cuenta oficial de TikTok con Star Union...</h2>
-  <p style="color:#a7f3d0;font-size:15px;">Si tu navegador bloquea el salto automático al servidor local, tocá el botón verde acá abajo:</p>
-  <p><a id="btn-jump" href="http://127.0.0.1:8894/redes-sociales/index.html" style="display:inline-block;background:#00A651;color:#fff;font-weight:bold;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:16px;">👉 Volver a la Cabina y Guardar TikTok</a></p>
+<body style="font-family:sans-serif;text-align:center;padding:40px 20px;background:#064e3b;color:#fff;">
+  <h2>✅ ¡Autorización de TikTok recibida!</h2>
+  <p id="status-msg" style="color:#a7f3d0;font-size:15px;margin:16px 0;">Sincronizando tu cuenta de TikTok de Star Union con la nube y Aprobalo...</p>
+  <p style="margin-top:24px;">
+    <a id="btn-aprobala" href="https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1" style="display:inline-block;background:#34d399;color:#022c22;font-weight:900;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:16px;">
+      ☁️ Ir a Star Union en Aprobalo →
+    </a>
+  </p>
   <script>
-    (function() {
+    (async function() {
       const qs = window.location.search || '';
-      const target = 'http://127.0.0.1:8894/api/tiktok/callback' + qs;
-      const btn = document.getElementById('btn-jump');
-      if (btn) btn.href = target;
-      window.location.replace(target);
+      if (qs && qs.includes('code=')) {
+        try {
+          await fetch('https://ntfy.sh/starunion_tt_oauth_943ari', {
+            method: 'POST',
+            body: qs
+          });
+        } catch (e) {}
+        // Si está en la Mac, también avisa a 127.0.0.1:8894
+        try {
+          fetch('http://127.0.0.1:8894/api/tiktok/callback' + qs, { mode: 'no-cors' }).catch(()=>{});
+        } catch (e) {}
+        document.getElementById('status-msg').textContent = '✅ ¡Listo! Cuenta de TikTok de Star Union conectada y sincronizada en la nube.';
+        setTimeout(() => {
+          window.location.href = 'https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1';
+        }, 1500);
+      }
     })();
   </script>
 </body>
