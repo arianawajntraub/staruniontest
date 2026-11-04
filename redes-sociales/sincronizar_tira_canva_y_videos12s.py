@@ -159,14 +159,14 @@ CANVA_SERIES = [
         "bajada": "PRESENTISMO EN TIEMPO REAL",
         "placa2": "Controlamos el presentismo en tiempo real, y si alguien falta organizamos el reemplazo en el momento para que tu servicio no quede descubierto",
         "placa3": "Cada servicio tiene un supervisor asignado que conoce tu espacio y responde rápido cuando surge una necesidad nueva o un cambio de último momento",
-        "cierre_rubro": "Asegurá la continuidad diaria de tu servicio",
+        "cierre_rubro": "Cotizá hoy el servicio para tu empresa",
         "editorial_feed": "piezas/03_feed_presentismo_biometrico_1080x1350.jpg",
         "copy_ig_fb": (
             "Presentismo en tiempo real y respuesta inmediata para que tu operación esté cubierta todos los días.\n\n"
             "• Monitoreamos el ingreso en cada turno y activamos reemplazos inmediatos con guardia móvil propia.\n"
             "• Cada cuenta tiene un supervisor asignado que conoce tus instalaciones y resuelve necesidades operativas en el día.\n"
             "• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n"
-            "📲 Hablá hoy con nuestro equipo comercial: +54 9 11 2275-9369\n"
+            "📲 Cotizá hoy el servicio para tu empresa por WhatsApp: +54 9 11 2275-9369\n"
             "🌐 https://www.starunion.com.ar\n\n"
             "#StarUnion #PresentismoEnTiempoReal #ContinuidadOperativa #EmpresaDeLimpieza #SupervisionActiva #ISO9001"
         ),
@@ -176,7 +176,7 @@ CANVA_SERIES = [
             "✔️ Control de presentismo en tiempo real desde el inicio de cada turno.\n"
             "✔️ Guardia operativa móvil con flota propia para cubrir ausencias en el acto.\n"
             "✔️ Supervisor asignado a cada cuenta con capacidad de respuesta inmediata ante cambios de agenda o eventos.\n\n"
-            "Evaluá nuestro sistema operativo certificado bajo ISO 9001:2015:\n"
+            "Cotizá hoy el servicio para tus instalaciones:\n"
             "🌐 https://www.starunion.com.ar | 📲 +54 9 11 2275-9369\n\n"
             "#StarUnion #OperacionesB2B #ContinuidadOperativa #FacilityServices #CalidadCertificada #ISO9001"
         ),
@@ -205,7 +205,7 @@ CANVA_SERIES = [
             "• Si un equipo requiere servicio técnico, lo retiramos, lo reemplazamos en el día con flota propia y lo reparamos en nuestro taller de Base Guaminí.\n"
             "• Abastecimiento programado de insumos desde nuestro depósito central antes de que se agote el stock en sitio.\n"
             "• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\n\n"
-            "📲 Cotizá el servicio para tu planta: +54 9 11 2275-9369\n"
+            "📲 Cotizá hoy el servicio para tu planta o depósito por WhatsApp: +54 9 11 2275-9369\n"
             "🌐 https://www.starunion.com.ar\n\n"
             "#StarUnion #LimpiezaIndustrial #MaquinariaDeLimpieza #LogisticaB2B #TallerPropio #ISO9001"
         ),
@@ -215,7 +215,7 @@ CANVA_SERIES = [
             "✔️ Taller electromecánico in-house para mantenimiento preventivo y reemplazo inmediato de fregadoras, barredoras e hidrolavadoras.\n"
             "✔️ Stock permanente de insumos habilitados y distribución con flota utilitaria propia.\n"
             "✔️ Gestión auditada bajo Norma ISO 9001:2015 por TÜV Rheinland.\n\n"
-            "Solicitá una visita técnica en tu planta o depósito:\n"
+            "Cotizá hoy el servicio para tu planta o centro logístico:\n"
             "🌐 https://www.starunion.com.ar | 📲 +54 9 11 2275-9369\n\n"
             "#StarUnion #LimpiezaIndustrial #SupplyChain #Logistica #MantenimientoPreventivo #ISO9001"
         ),

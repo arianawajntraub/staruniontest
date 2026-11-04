@@ -1051,10 +1051,9 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             parsed = urllib.parse.urlparse(self.path)
             qs = urllib.parse.parse_qs(parsed.query)
             keys = load_keys()
-            ck = (qs.get("client_key", [""])[0] or keys.get("tiktok_client_key", "")).strip()
-            cs = (qs.get("client_secret", [""])[0] or keys.get("tiktok_client_secret", "")).strip()
-            if ck or cs:
-                save_keys({"tiktok_client_key": ck, "tiktok_client_secret": cs})
+            ck = (qs.get("client_key", [""])[0] or keys.get("tiktok_client_key", "") or "sbawc4ja3xhr21w4e6").strip()
+            cs = (qs.get("client_secret", [""])[0] or keys.get("tiktok_client_secret", "") or "gD5SWY5Vfwf6Msp2UumwzE7xK99iwdfW").strip()
+            save_keys({"tiktok_client_key": ck, "tiktok_client_secret": cs})
             redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
             auth_url = "https://www.tiktok.com/v2/auth/authorize/?" + urllib.parse.urlencode(
                 {
@@ -1076,8 +1075,8 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
             qs = urllib.parse.parse_qs(parsed.query)
             code = urllib.parse.unquote(qs.get("code", [""])[0]).strip()
             keys = load_keys()
-            ck = keys.get("tiktok_client_key", "")
-            cs = keys.get("tiktok_client_secret", "")
+            ck = keys.get("tiktok_client_key", "") or "sbawc4ja3xhr21w4e6"
+            cs = keys.get("tiktok_client_secret", "") or "gD5SWY5Vfwf6Msp2UumwzE7xK99iwdfW"
             redirect_uri = "https://wajntraub.ar/staruniontest/redes-sociales/tiktok-callback.html"
             st, data = http_json(
                 "POST",
