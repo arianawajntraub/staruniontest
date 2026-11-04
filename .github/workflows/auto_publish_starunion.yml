@@ -1,0 +1,41 @@
+name: Star Union — Publicador Automático en la Nube (Cero Dependencia de Mac)
+
+on:
+  schedule:
+    # 13:00 UTC = 10:00 AM Hora Argentina (Lunes a Viernes + chequeo 10:15 y 10:30)
+    - cron: '0,15,30 13,14 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish_scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositorio Star Union
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Ejecutar Publicador Cloud (con Secret STARUNION_SOCIAL_KEYS_JSON)
+        env:
+          STARUNION_SOCIAL_KEYS_JSON: ${{ secrets.STARUNION_SOCIAL_KEYS_JSON }}
+        run: |
+          python3 redes-sociales/cloud_publisher.py
+
+      - name: Guardar y subir estado publicado en calendario_programado.json
+        run: |
+          git config user.name "Star Union Cloud Publisher"
+          git config user.email "ventas@starunion.com.ar"
+          if ! git diff --quiet redes-sociales/calendario_programado.json; then
+            git add redes-sociales/calendario_programado.json
+            git commit -m "chore(cloud): actualizar estado publicado desde GitHub Actions"
+            git pull --rebase origin main
+            git push origin main
+          fi
