@@ -156,9 +156,9 @@ CANVA_SERIES = [
         "gmb_design_id": "DAHYlFVopSQ",
         "yt_design_id": "DAHYlLVF4CQ",
         "volanta": "RESPUESTA INMEDIATA",
-        "bajada": "PRESENTISMO EN TIEMPO REAL",
-        "placa2": "Controlamos el presentismo en tiempo real, y si alguien falta organizamos el reemplazo para que tu servicio no quede descubierto",
-        "placa3": "Cada servicio tiene un supervisor asignado que conoce tu espacio y responde rápido cuando surge una necesidad nueva o un cambio de último momento",
+        "bajada": "ESTRUCTURA Y PRESENTISMO",
+        "placa2": "Base operativa con stock permanente, taller propio de mantenimiento y arreglos, y estructura con supervisión activa",
+        "placa3": "Controlamos el presentismo en tiempo real en cada turno y respaldamos tu operación con toda nuestra infraestructura",
         "cierre_rubro": "Cotizá hoy el servicio para tu empresa",
         "editorial_feed": "piezas/03_feed_presentismo_biometrico_1080x1350.jpg",
         "copy_ig_fb": (
