@@ -320,8 +320,8 @@
         <a href="https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1" target="_blank" class="btn-link" style="background:#34d399;color:#022c22;font-size:13.5px;padding:12px 18px;box-shadow:0 4px 14px rgba(0,0,0,0.3);">
           ☁️ Abrir Star Union en APROBALO ↗
         </a>
-        <a href="http://127.0.0.1:8894/api/tiktok/login" class="btn-link" style="background:#fbbf24;color:#0f172a;font-size:13px;padding:12px 16px;">
-          🎵 Conectar TikTok (@starunion.ar) en 1 Clic
+        <a href="https://aprobala-app.943ari.workers.dev/api/oauth/start?cuenta_id=6e090d5e-8342-42b6-a355-8769bfaa85f3&red=tiktok&token=dir-ariana-master-2026" class="btn-link" style="background:#fbbf24;color:#0f172a;font-size:13px;padding:12px 16px;">
+          🎵 Conectar TikTok (@starunionservicios) en 1 Clic
         </a>
       </div>
     </div>
@@ -395,7 +395,7 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;">
           <div class="conn-status conn-ok" id="box-gmb">✅ CONECTADO Y ACTIVO: Google Maps (Guaminí 5657 · Token Permanente)</div>
-          <a href="http://127.0.0.1:8894/api/tiktok/login" class="btn-link" id="box-tt" style="background:#059669;color:#fff;justify-content:center;padding:8px 10px;font-size:11.5px;">🔌 Conectar TikTok @starunionservicios (Video + Copy Automático)</a>
+          <a href="https://aprobala-app.943ari.workers.dev/api/oauth/start?cuenta_id=6e090d5e-8342-42b6-a355-8769bfaa85f3&red=tiktok&token=dir-ariana-master-2026" class="btn-link" id="box-tt" style="background:#059669;color:#fff;justify-content:center;padding:8px 10px;font-size:11.5px;">🔌 Conectar TikTok @starunionservicios en 1 Clic (Aprobalo Cloud)</a>
         </div>
       </div>
     </div>
@@ -405,33 +405,36 @@
   </div>
 
   <script>
-    const API_BASE = (location.hostname === '127.0.0.1' || location.hostname === 'localhost') ? '' : 'http://127.0.0.1:8894';
+    const APROBALO_MAP = {
+      '01': 'https://aprobala-app.943ari.workers.dev/ver/90a76d21-600c-432b-b95c-2188240f3b11',
+      '02': 'https://aprobala-app.943ari.workers.dev/ver/186485cf-25ef-4e64-b5fe-b2c86a71a7a5',
+      '03': 'https://aprobala-app.943ari.workers.dev/ver/7560f074-3a94-4cb7-a309-3961d8e8c37a',
+      '04': 'https://aprobala-app.943ari.workers.dev/ver/230a728e-f201-46ef-85c0-67ea16672f69',
+      '05': 'https://aprobala-app.943ari.workers.dev/ver/e7608637-9a4e-41fb-820d-fa978b8e53ab'
+    };
 
-    async function loadApiStatus() {
+    async function forceDownload(fileUrl, fileName, btn) {
+      const oldText = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = '⏳ Bajando archivo...';
       try {
-        const r = await fetch(API_BASE + '/api/status?t=' + Date.now());
-        const st = await r.json();
-        const ytBox = document.getElementById('box-yt');
-        const pillYt = document.getElementById('pill-yt');
-        if (st.youtube_connected) {
-          ytBox.className = 'conn-status conn-ok';
-          ytBox.innerHTML = '✅ CONECTADO Y ACTIVO: YouTube Shorts (' + (st.youtube_channel_name || 'Star Union') + ')';
-          if (pillYt) { pillYt.className = 'net-pill'; pillYt.innerHTML = '🟢 YouTube Shorts (' + (st.youtube_channel_name || 'Star Union') + ')'; }
+        const res = await fetch(fileUrl);
+        const blob = await res.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName || fileUrl.split('/').pop();
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
+        if (btn) {
+          btn.innerHTML = '✅ ¡Descargado!';
+          setTimeout(() => { btn.innerHTML = oldText; }, 2200);
         }
-        const gmbBox = document.getElementById('box-gmb');
-        const pillGmb = document.getElementById('pill-gmb');
-        if (st.gmb_connected) {
-          gmbBox.className = 'conn-status conn-ok';
-          gmbBox.innerHTML = '✅ CONECTADO Y ACTIVO: Google Maps (' + (st.gmb_location_title || 'Guaminí 5657') + ')';
-          if (pillGmb) { pillGmb.className = 'net-pill'; pillGmb.innerHTML = '🟢 Google Maps (' + (st.gmb_location_title || 'Guaminí 5657') + ')'; }
-        }
-        const ttBox = document.getElementById('box-tt');
-        const pillTt = document.getElementById('pill-tt');
-        if (st.tiktok_connected) {
-          if (ttBox) { ttBox.style.background = '#065f46'; ttBox.innerHTML = '✅ TikTok Conectado (@starunionservicios · Direct Post)'; }
-          if (pillTt) { pillTt.className = 'net-pill'; pillTt.innerHTML = '🟢 TikTok (@starunionservicios · Video + Copy)'; }
-        }
-      } catch (e) {}
+      } catch (e) {
+        window.open(fileUrl, '_blank');
+        if (btn) btn.innerHTML = oldText;
+      }
     }
 
     function copyTextarea(id, btn) {
@@ -444,19 +447,11 @@
     }
 
     async function fetchScheduleData() {
-      try {
-        const r = await fetch(API_BASE + '/api/schedule?t=' + Date.now());
-        if (r.ok) {
-          const d = await r.json();
-          if (d && d.schedule) return d.schedule;
-        }
-      } catch (e) {}
       const r2 = await fetch('calendario_programado.json?t=' + Date.now());
       return await r2.json();
     }
 
     async function loadSchedule() {
-      await loadApiStatus();
       const sched = (await fetchScheduleData()) || {};
       const root = document.getElementById('posts-root');
       const tbody = document.getElementById('cal-tbody');
@@ -516,7 +511,7 @@
           <td>${netBadges}</td>
           <td>
             <a href="#card_${pid}" class="btn-link" style="background:#334155;color:#fff;width:100%;justify-content:center;margin-bottom:6px;padding:6px 10px;font-size:11px;">👁️ Ir a la Pieza #${pid}</a>
-            <a href="/download?file=redes-sociales/${p.reel_file}" class="btn-link" style="background:#0284c7;color:#fff;width:100%;justify-content:center;padding:6px 10px;font-size:11px;">⬇ Bajar MP4 12s</a>
+            <button type="button" onclick="forceDownload('${p.reel_file}', '${p.reel_file}', this)" class="btn-link" style="background:#0284c7;color:#fff;width:100%;justify-content:center;padding:6px 10px;font-size:11px;border:none;cursor:pointer;">⬇ Bajar MP4 12s</button>
           </td>
         `;
         tbody.appendChild(tr);
@@ -544,6 +539,7 @@
               <div class="post-title">${p.volanta || p.tag} — ${(p.bajada || p.title || '').replace(/\n/g, ' ')}</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <a class="btn-link" style="background:#34d399;color:#022c22;padding:6px 12px;font-size:11px;" href="${APROBALO_MAP[pid] || 'https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1'}" target="_blank">☁️ Abrir Pieza #${pid} en Aprobalo</a>
               <a class="btn-link" style="background:#334155;color:#fff;padding:6px 12px;font-size:11px;" href="https://www.canva.com/design/${p.ig_design_id}/edit" target="_blank">🔗 Abrir en tu Canva (4:5)</a>
               <a class="btn-link" style="background:#334155;color:#fff;padding:6px 12px;font-size:11px;" href="https://www.canva.com/design/${p.tt_design_id}/edit" target="_blank">🔗 Abrir en tu Canva (9:16)</a>
               <span id="badge_${pid}" class="status-badge ${stClass}">${stLabel}</span>
@@ -563,14 +559,14 @@
               <span class="box-label">🎬 Video Canva 12s c/Música + Locución</span>
               <video id="vid_${pid}" src="${p.reel_file}?t=${Date.now()}" controls preload="metadata"></video>
               <button class="btn-sound" onclick="const v=document.getElementById('vid_${pid}');v.muted=false;v.volume=1;v.currentTime=0;v.play();">🔊 Escuchar con Locución + Música</button>
-              <a class="btn-link btn-dl" href="/download?file=redes-sociales/${p.reel_file}">⬇ Descargar MP4 12s Directo</a>
+              <button type="button" class="btn-link btn-dl" style="width:100%;justify-content:center;border:none;cursor:pointer;" onclick="forceDownload('${p.reel_file}', '${p.reel_file}', this)">⬇ Descargar MP4 12s en 1 Clic</button>
             </div>
           </div>
 
           <div class="edit-grid">
             <!-- COLUMNA IZQUIERDA: CARTELES DE CANVA -->
             <div class="panel-col">
-              <h3>✏️ 1. Editar Carteles de las 4 Placas en Canva (API Directa)</h3>
+              <h3>✏️ 1. Editar Carteles de las 4 Placas en Aprobalo Cloud</h3>
               <div class="field">
                 <label>Volanta Superior (Placa 1):</label>
                 <input id="vol_${pid}" value="${(p.volanta || '').replace(/"/g, '&quot;')}">
@@ -591,9 +587,9 @@
                 <label>Cierre según Rubro (Placa 4 · Pastilla Amarilla Inferior):</label>
                 <input id="cie_${pid}" value="${(p.cierre_rubro || 'Cotizá tu servicio hoy').replace(/"/g, '&quot;')}">
               </div>
-              <button class="btn-canva-api" style="width:100%;justify-content:center;margin-top:6px;" onclick="savePost('${pid}', null, true)">
-                🎨 Modificar Carteles en Canva + Regenerar 4 Placas y Video 12s
-              </button>
+              <a class="btn-canva-api" style="width:100%;justify-content:center;margin-top:6px;text-decoration:none;display:inline-flex;align-items:center;" href="${APROBALO_MAP[pid] || 'https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1'}" target="_blank">
+                ☁️ Editar Carteles y Copies en Aprobalo Cloud ↗
+              </a>
             </div>
 
             <!-- COLUMNA DERECHA: COPIES Y PROGRAMACION -->
@@ -624,10 +620,8 @@
                 <textarea id="li_${pid}" rows="5">${p.copy_linkedin || ''}</textarea>
               </div>
               <div class="btn-row">
-                <button class="btn-approve" style="font-size:13px;padding:11px 16px;" onclick="savePost('${pid}', 'aprobado', false)">✅ DAR OK / APROBAR DÍA (Guarda Copy + Carteles Canva)</button>
-                <button class="btn-pause" onclick="savePost('${pid}', 'pausado_en_revision', false)">⏸️ Pausar</button>
-                <button class="btn-publish-now" onclick="publishNow('${pid}')">🚀 Publicar Ahora Mismo</button>
-                <a class="btn-link" style="background:#fde047;color:#0f172a;" href="contingencia.html#post_${pid}" target="_blank">🛡️ Ver en Base de Contingencia</a>
+                <a class="btn-link" style="background:#10b981;color:#022c22;font-size:13px;padding:11px 16px;" href="${APROBALO_MAP[pid] || 'https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1'}" target="_blank">✅ Abrir y Aprobar en Aprobalo Cloud ↗</a>
+                <a class="btn-link" style="background:#fde047;color:#0f172a;" href="contingencia.html#post_${pid}" target="_blank">🛡️ Descarga Manual en 1 Clic</a>
               </div>
               <div id="log_${pid}" class="msg-log"></div>
             </div>
@@ -635,75 +629,6 @@
         `;
         root.appendChild(card);
       }
-    }
-
-    async function savePost(pid, newStatus, updateCanva) {
-      const log = document.getElementById('log_' + pid);
-      log.textContent = updateCanva
-        ? '⏳ Conectando con Canva API, actualizando carteles de las 4 placas y armando el video de 12 seg con locución (toma ~15 seg)...'
-        : '⏳ Guardando cambios en el calendario...';
-
-      const sched = (await fetchScheduleData()) || {};
-      const cur = sched[pid] || {};
-
-      const payload = {
-        id: pid,
-        scheduled_at: document.getElementById('dt_' + pid).value,
-        status: newStatus || cur.status || 'aprobado',
-        volanta: document.getElementById('vol_' + pid).value,
-        bajada: document.getElementById('baj_' + pid).value,
-        placa2: document.getElementById('p2_' + pid).value,
-        placa3: document.getElementById('p3_' + pid).value,
-        cierre_rubro: document.getElementById('cie_' + pid).value,
-        yt_title: document.getElementById('yt_' + pid).value,
-        copy_ig_fb: document.getElementById('ig_' + pid).value,
-        copy_linkedin: document.getElementById('li_' + pid).value,
-        feed_file: (cur.carousel_files && cur.carousel_files[0]) || cur.feed_file,
-        update_canva: updateCanva
-      };
-
-      const res = await fetch(API_BASE + '/api/schedule', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
-      });
-      const out = await res.json();
-      const finalMsg = out.message || '✅ OK · APROBADO Y GUARDADO';
-      await loadSchedule();
-      const newLog = document.getElementById('log_' + pid);
-      if (newLog) {
-        newLog.style.borderColor = '#10b981';
-        newLog.style.background = 'rgba(16,185,129,0.15)';
-        newLog.style.color = '#a7f3d0';
-        newLog.style.fontWeight = '800';
-        newLog.textContent = finalMsg;
-      }
-    }
-
-    async function publishNow(pid) {
-      const log = document.getElementById('log_' + pid);
-      log.textContent = '🚀 Publicando en vivo en Instagram, Facebook, LinkedIn, Google Maps y YouTube Shorts...';
-      const sched = (await fetchScheduleData()) || {};
-      const cur = sched[pid] || {};
-
-      const res = await fetch(API_BASE + '/api/publish', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          channels: cur.channels || ['ig_feed','ig_story','ig_reel','fb_page','fb_story','fb_reel','linkedin','gmb','youtube','tiktok'],
-          feed_file: cur.feed_file,
-          story_file: cur.story_file,
-          reel_file: cur.reel_file,
-          caption_ig: document.getElementById('ig_' + pid).value,
-          caption_li: document.getElementById('li_' + pid).value,
-          yt_title: document.getElementById('yt_' + pid).value,
-          yt_desc: document.getElementById('ig_' + pid).value,
-          title: (cur.volanta || 'Star Union') + ' · ' + (cur.bajada || '').replace(/\n/g, ' ')
-        })
-      });
-      const out = await res.json();
-      log.textContent = '✅ Resultado de publicación:\n' + JSON.stringify(out.results || out, null, 2);
-      await loadSchedule();
     }
 
     loadSchedule();

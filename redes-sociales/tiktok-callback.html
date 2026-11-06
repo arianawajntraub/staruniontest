@@ -1,38 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Conectando TikTok — Star Union</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conectando TikTok — Star Union (Aprobalo Cloud)</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0d1322;
+      color: #f4f7fb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px;
+    }
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: #141d33;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    }
+    h1 { font-size: 22px; margin: 0 0 12px; color: #38bdf8; }
+    p { font-size: 15px; line-height: 1.5; color: #cbd5e1; margin: 0 0 20px; }
+    .code-box {
+      background: #090e1a;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: monospace;
+      font-size: 13px;
+      word-break: break-all;
+      color: #4ade80;
+      margin-bottom: 18px;
+      display: none;
+    }
+    .btn {
+      display: inline-block;
+      background: #0284c7;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
 </head>
-<body style="font-family:sans-serif;text-align:center;padding:40px 20px;background:#064e3b;color:#fff;">
-  <h2>✅ ¡Autorización de TikTok recibida!</h2>
-  <p id="status-msg" style="color:#a7f3d0;font-size:15px;margin:16px 0;">Sincronizando tu cuenta de TikTok de Star Union con la nube y Aprobalo...</p>
-  <p style="margin-top:24px;">
-    <a id="btn-aprobala" href="https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1" style="display:inline-block;background:#34d399;color:#022c22;font-weight:900;padding:14px 28px;border-radius:10px;text-decoration:none;font-size:16px;">
-      ☁️ Ir a Star Union en Aprobalo →
-    </a>
-  </p>
+<body>
+  <div class="card">
+    <h1 id="title">Sincronizando TikTok con Aprobalo Cloud...</h1>
+    <p id="desc">Guardando tu llave automática en la nube para publicar los Reels de Star Union.</p>
+    <div id="codeBox" class="code-box"></div>
+    <a id="cloudBtn" class="btn" href="https://aprobala-app.943ari.workers.dev/admin/dir-ariana-master-2026/seteo?cuenta_id=6e090d5e-8342-42b6-a355-8769bfaa85f3">Ir al Panel de Aprobalo Cloud</a>
+  </div>
+
   <script>
-    (async function() {
-      const qs = window.location.search || '';
-      if (qs && qs.includes('code=')) {
-        try {
-          await fetch('https://ntfy.sh/starunion_tt_oauth_943ari', {
-            method: 'POST',
-            body: qs
-          });
-        } catch (e) {}
-        // Si está en la Mac, también avisa a 127.0.0.1:8894
-        try {
-          fetch('http://127.0.0.1:8894/api/tiktok/callback' + qs, { mode: 'no-cors' }).catch(()=>{});
-        } catch (e) {}
-        document.getElementById('status-msg').textContent = '✅ ¡Listo! Cuenta de TikTok de Star Union conectada y sincronizada en la nube.';
-        setTimeout(() => {
-          window.location.href = 'https://aprobala-app.943ari.workers.dev/p/c-qx5kLFdWomst032yiHlu86ZKJGB4o1';
-        }, 1500);
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const error = params.get("error");
+      const errorDesc = params.get("error_description");
+      const rawState = params.get("state") || "";
+      const titleEl = document.getElementById("title");
+      const descEl = document.getElementById("desc");
+      const codeBox = document.getElementById("codeBox");
+      const cloudBtn = document.getElementById("cloudBtn");
+
+      if (error) {
+        titleEl.textContent = "Autorización cancelada o con error";
+        titleEl.style.color = "#f87171";
+        descEl.textContent = errorDesc || error;
+        return;
       }
+
+      if (!code) {
+        titleEl.textContent = "Puente OAuth TikTok — Star Union";
+        descEl.textContent = "Tocá el botón para iniciar la conexión de TikTok en 1 clic desde Aprobalo Cloud.";
+        cloudBtn.textContent = "🎵 Conectar TikTok en 1 Clic";
+        cloudBtn.href = "https://aprobala-app.943ari.workers.dev/api/oauth/start?cuenta_id=6e090d5e-8342-42b6-a355-8769bfaa85f3&red=tiktok&token=dir-ariana-master-2026";
+        return;
+      }
+
+      const finalState = (rawState && rawState.includes("|"))
+        ? rawState
+        : "6e090d5e-8342-42b6-a355-8769bfaa85f3|tiktok|dir-ariana-master-2026";
+
+      const targetUrl = "https://aprobala-app.943ari.workers.dev/api/oauth/callback?code="
+        + encodeURIComponent(code)
+        + "&state="
+        + encodeURIComponent(finalState);
+
+      cloudBtn.href = targetUrl;
+      cloudBtn.textContent = "Continuar a Aprobalo Cloud";
+      codeBox.style.display = "block";
+      codeBox.textContent = "Conectando con Aprobalo Cloud...";
+      window.location.replace(targetUrl);
     })();
   </script>
 </body>
