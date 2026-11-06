@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /accesos/
+Disallow: /acuerdos/
+Disallow: /radar-comercial/
+Disallow: /relevamiento-gerencia/
+Disallow: /redes-sociales/
+
+Sitemap: https://www.starunion.com.ar/sitemap.xml
+LLMs-Txt: https://www.starunion.com.ar/llms.txt
