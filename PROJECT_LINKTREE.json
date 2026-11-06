@@ -1,8 +1,28 @@
 {
   "project_id": "4 - STAR UNION (Limpieza B2B)",
-  "brand_name": "Star Union S.R.L.",
+  "brand_name": "Star Union",
   "local_linktree_url": "https://wajntraub.ar/staruniontest/accesos/",
   "links": [
+    {
+      "title": "📊 Google Sheet para Mauro: 88 Contactos Julio-Noviembre (4 Pestañas) + 948 Históricos Etiquetados",
+      "url": "https://docs.google.com/spreadsheets/d/1vkM3Mlaoz3js_iUxh1IDVlLUsVPsFZ3pYimYxuk26To/edit",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "✅ Vista Web para Mauro (Resumen de los 88 contactos + 3 Preguntas en singular + Link al Google Sheet)",
+      "url": "https://wajntraub.ar/staruniontest/relevamiento-gerencia/",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "📡 Radar Comercial B2B + Las 3 Canastas de WhatsApp Business (948 Históricos + 88 Activos Jul-Nov + 773 Ruido)",
+      "url": "https://wajntraub.ar/staruniontest/radar-comercial/#canastas-wa",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "📊 Orden de Trabajo para Mariel (Google Ads + Analytics + Cambio de Conversión al Formulario B2B)",
+      "url": "https://wajntraub.ar/staruniontest/acuerdos/",
+      "category": "Google Ads"
+    },
     {
       "title": "🟢 HOY PARA MANDAR A APROBAR A MAURO (Limpio sin barras): PDF Final Limpieza de Fábricas (Versión Colores Carátula + 38 links vivos)",
       "url": "https://wajntraub.ar/staruniontest/brochures/pdf/brochure-fabricas-e-industrias-version-b.pdf",
