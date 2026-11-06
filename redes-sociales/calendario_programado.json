@@ -2,7 +2,7 @@
   "01": {
     "id": "01",
     "slug": "3010_salud",
-    "date_label": "Hoy Viernes 30/10 · 10:30 hs (Lista para aprobar)",
+    "date_label": "Viernes 30/10 · 10:30 hs",
     "scheduled_at": "2026-10-30T10:30",
     "status": "publicado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
@@ -56,7 +56,7 @@
       "youtube",
       "tiktok"
     ],
-    "published_at": "2026-10-30T10:30",
+    "published_at": "2026-10-30 10:30",
     "last_results": {
       "IG Feed (4:5 Carrusel)": {
         "ok": false,
@@ -162,7 +162,7 @@
       "tiktok"
     ],
     "approved_at": "2026-11-02 09:46",
-    "published_at": "2026-11-02T10:05",
+    "published_at": "2026-11-02 10:00",
     "last_results": {
       "Instagram Feed (4:5)": {
         "ok": true,
@@ -260,7 +260,7 @@
       "tiktok"
     ],
     "approved_at": "2026-11-02 09:47",
-    "published_at": "2026-11-03T21:09",
+    "published_at": "2026-11-03 10:00",
     "last_results": {
       "Instagram Feed (4:5)": {
         "ok": true,
@@ -313,7 +313,7 @@
     "bajada": "PRESENTISMO EN TIEMPO REAL",
     "placa2": "Controlamos el presentismo en tiempo real, y si alguien falta organizamos el reemplazo para que tu servicio no quede descubierto",
     "placa3": "Cada servicio tiene un supervisor asignado que conoce tu espacio y responde rápido cuando surge una necesidad nueva o un cambio de último momento",
-    "cierre_rubro": "Cotizá hoy el servicio para tu empresa",
+    "cierre_rubro": "Cotizá hoy tu servicio de limpieza",
     "tag": "RESPUESTA INMEDIATA",
     "title": "PRESENTISMO EN TIEMPO REAL",
     "subtitle": "Controlamos el presentismo en tiempo real, y si alguien falta organizamos el reemplazo para que tu servicio no quede descubierto",
@@ -355,14 +355,15 @@
     ],
     "approved_at": "Cierre semanal confirmado",
     "aprobala_id": "230a728e-f201-46ef-85c0-67ea16672f69",
-    "copy_tiktok": "Respuesta inmediata sostenida por toda nuestra estructura operativa propia para que tu empresa esté cubierta todos los días.\r\n\r\n• Base operativa propia con stock permanente de insumos en Guaminí 5657 (CABA) para abastecer cada servicio en el acto.\r\n• Taller propio de mantenimiento y arreglos para garantizar que la maquinaria opere siempre en condiciones óptimas.\r\n• Estructura con supervisión activa asignada que conoce tus instalaciones y resuelve requerimientos en el día.\r\n• Control de presentismo en tiempo real en cada turno y guardia móvil propia para cubrir cualquier reemplazo.\r\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\r\n\r\n📲 Cotizá hoy el servicio para tu empresa por WhatsApp: +54 9 11 2275-9369\r\n🌐 https://www.starunion.com.ar\r\n\r\n#StarUnion #RespuestaInmediata #ContinuidadOperativa #BaseOperativa #SupervisionActiva #ISO9001"
+    "copy_tiktok": "Respuesta inmediata sostenida por toda nuestra estructura operativa propia para que tu empresa esté cubierta todos los días.\r\n\r\n• Base operativa propia con stock permanente de insumos en Guaminí 5657 (CABA) para abastecer cada servicio en el acto.\r\n• Taller propio de mantenimiento y arreglos para garantizar que la maquinaria opere siempre en condiciones óptimas.\r\n• Estructura con supervisión activa asignada que conoce tus instalaciones y resuelve requerimientos en el día.\r\n• Control de presentismo en tiempo real en cada turno y guardia móvil propia para cubrir cualquier reemplazo.\r\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\r\n\r\n📲 Cotizá hoy el servicio para tu empresa por WhatsApp: +54 9 11 2275-9369\r\n🌐 https://www.starunion.com.ar\r\n\r\n#StarUnion #RespuestaInmediata #ContinuidadOperativa #BaseOperativa #SupervisionActiva #ISO9001",
+    "published_at": "2026-11-05 10:02"
   },
   "05": {
     "id": "05",
     "slug": "0611_maquinaria_lista",
     "date_label": "Viernes 06/11 · 10:00 hs",
     "scheduled_at": "2026-11-06T10:00",
-    "status": "aprobado",
+    "status": "publicado",
     "format_mode": "Canva Dinámico (Opción 2 · 4 Placas con Carteles y Cleany) + Video 12s con Música",
     "ig_design_id": "DAHYlG2Qedg",
     "tt_design_id": "DAHYlGci9ds",
@@ -416,6 +417,7 @@
     ],
     "approved_at": "Cierre semanal confirmado",
     "aprobala_id": "197e2d41-9a16-4658-bac2-eb534fc04068",
-    "copy_tiktok": "Maquinaria lista, taller electromecánico propio y stock permanente de insumos para plantas industriales y centros logísticos.\r\n\r\n• Si un equipo requiere servicio técnico, lo retiramos, lo reemplazamos en el día con flota propia y lo reparamos en nuestro taller de Base Guaminí.\r\n• Abastecimiento programado de insumos desde nuestro depósito central antes de que se agote el stock en sitio.\r\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\r\n\r\n📲 Cotizá hoy el servicio para tu planta o depósito por WhatsApp: +54 9 11 2275-9369\r\n🌐 https://www.starunion.com.ar\r\n\r\n#StarUnion #LimpiezaIndustrial #MaquinariaDeLimpieza #LogisticaB2B #TallerPropio #ISO9001"
+    "copy_tiktok": "Maquinaria lista, taller electromecánico propio y stock permanente de insumos para plantas industriales y centros logísticos.\r\n\r\n• Si un equipo requiere servicio técnico, lo retiramos, lo reemplazamos en el día con flota propia y lo reparamos en nuestro taller de Base Guaminí.\r\n• Abastecimiento programado de insumos desde nuestro depósito central antes de que se agote el stock en sitio.\r\n• Gestión certificada ISO 9001:2015 por TÜV Rheinland.\r\n\r\n📲 Cotizá hoy el servicio para tu planta o depósito por WhatsApp: +54 9 11 2275-9369\r\n🌐 https://www.starunion.com.ar\r\n\r\n#StarUnion #LimpiezaIndustrial #MaquinariaDeLimpieza #LogisticaB2B #TallerPropio #ISO9001",
+    "published_at": "2026-11-06 10:02"
   }
 }
