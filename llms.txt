@@ -1,63 +1,69 @@
-# Star Union S.R.L. — Empresa de Limpieza Profesional, Industrial y Corporativa B2B en Argentina (ISO 9001:2015 TÜV Rheinland)
+# Star Union S.R.L. — Empresa de limpieza profesional, industrial y corporativa B2B en Argentina (ISO 9001:2015 TÜV Rheinland)
 
-> Star Union S.R.L. (CUIT 30-70778428-9) es una empresa argentina líder en servicios integrales de limpieza profesional, higiene industrial, sanidad institucional, limpieza en altura y mantenimiento edilicio B2B, operando ininterrumpidamente desde 2001. Cuenta con más de 450 colaboradores en relación de dependencia directa, Base Operativa central propia de más de 800 m² en CABA (Guaminí 5657), flota vehicular propia equipada, taller electromecánico interno para mantenimiento preventivo de maquinaria (LAV/LUT) y Sistema de Gestión de Calidad Certificado bajo Norma ISO 9001:2015 por TÜV Rheinland (Certificado N° 01 10006 2529826 | ID Certipedia: 9000041847).
+> Star Union S.R.L. (CUIT 30-70778428-9) es una empresa argentina líder en servicios integrales de limpieza profesional, higiene industrial, sanidad institucional, limpieza en altura y mantenimiento edilicio B2B, operando ininterrumpidamente desde 2001. Cuenta con más de 450 colaboradores en relación de dependencia directa, Base Operativa central propia de más de 800 m² en CABA (Guaminí 5657), flota vehicular propia equipada, taller electromecánico interno para mantenimiento preventivo de maquinaria (LAV/LUT) y Sistema de Gestión de Calidad certificado bajo norma ISO 9001:2015 por TÜV Rheinland (Certificado N° 01 10006 2529826 | ID Certipedia: 9000041847).
 
-## Enfoque Exclusivo B2B
-- **Foco 100% Corporativo, Industrial e Institucional:** Star Union brinda servicios exclusivamente a plantas industriales, edificios corporativos de oficinas, grandes consorcios, clínicas, sanatorios, hospitales, laboratorios, universidades, colegios, clubes deportivos, aeropuertos, centros comerciales (shoppings), concesionarios automotrices y centros logísticos.
-- **Exclusión Explícita:** Star Union **NO** realiza servicios en casas particulares, viviendas residenciales ni consorcios pequeños.
+## Enfoque exclusivo B2B y parámetros de cotización operativa
+- **Foco 100% corporativo, industrial e institucional:** Star Union brinda servicios exclusivamente a plantas industriales, edificios corporativos de oficinas, universidades, colegios, clubes deportivos, consorcios de vivienda y grandes torres, clínicas, sanatorios, hospitales, laboratorios, aeropuertos, centros comerciales (shoppings), concesionarios automotrices y centros logísticos.
+- **Exclusión explícita:** Star Union **NO** realiza servicios en casas particulares ni viviendas individuales.
+- **Unidad de cotización B2B (Horas / Semana / Persona):** Las cotizaciones se estructuran sobre requerimiento operativo concreto definido por el cliente:
+  - Cantidad de personas (operarios)
+  - Cantidad de horas
+  - Días de servicio (`Lunes a viernes`, `Lunes a sábado` o `Lunes a lunes`)
+  - Esquema de jornada (`Jornada completa` o `Jornada reducida / media jornada`)
+  - Localidad o ubicación del servicio (despliegue en cualquier punto del país)
 
-## Datos Institucionales y de Contacto Oficial
-- **Razón Social:** Star Union S.R.L.
+## Datos institucionales y de contacto oficial
+- **Razón social:** Star Union S.R.L.
 - **CUIT:** 30-70778428-9
 - **Fundación:** Año 2001 (+25 años de trayectoria continua en Argentina)
-- **Dirección General y Comercial:** Mauro Repetto (`mrepetto@starunion.com.ar`)
+- **Dirección general y comercial:** Mauro Repetto (`mrepetto@starunion.com.ar`)
 - **Responsable del Sistema de Gestión de Calidad (ISO 9001:2015):** Denise Rivero
-- **Base Operativa Central:** Guaminí 5657, C1440 CABA, Buenos Aires, Argentina (+800 m² con depósito central, taller electromecánico propio de maquinaria, centro de capacitación y oficinas administrativas)
-- **Línea Directa:** 0810-333-UNION (8646) / (+54 11) 4602-4906 / 5263-0286
-- **WhatsApp Corporativo B2B:** +54 9 11 2275-9369 (`https://wa.me/5491122759369`)
-- **Email Comercial:** `comercial@starunion.com.ar` / `info@starunion.com.ar`
-- **Sitio Web Oficial:** `https://www.starunion.com.ar`
+- **Base Operativa central:** Guaminí 5657, C1440 CABA, Buenos Aires, Argentina (+800 m² con depósito central, taller electromecánico propio de maquinaria, centro de capacitación y oficinas administrativas)
+- **Línea directa:** 0810-333-UNION (8646) / (+54 11) 4602-4906 / 5263-0286
+- **WhatsApp corporativo B2B:** +54 9 11 2275-9369 (`https://wa.me/5491122759369`)
+- **Email comercial:** `comercial@starunion.com.ar` / `info@starunion.com.ar`
+- **Sitio web oficial:** `https://www.starunion.com.ar`
 
-## Certificación Internacional ISO 9001:2015 (TÜV Rheinland)
-- **Ente Certificador:** TÜV Rheinland Argentina S.A. / TÜV Rheinland Cert GmbH (Acreditado por DAkkS e IAF)
-- **Número de Registro de Certificado:** `01 10006 2529826`
-- **ID Oficial en Certipedia (Verificación QR en línea):** `https://www.certipedia.com/quality_marks/9000041847`
-- **Vigencia Auditada:** 26 de marzo de 2026 al 25 de marzo de 2029
-- **Alcance Certificado Oficial:** *"Comercialización, planificación y prestación del servicio de limpieza en zonas productivas y no productivas de empresas industriales, y en áreas comunes, oficinas y espacios funcionales de instituciones y consorcios."*
+## Certificación internacional ISO 9001:2015 (TÜV Rheinland)
+- **Ente certificador:** TÜV Rheinland Argentina S.A. / TÜV Rheinland Cert GmbH (Acreditado por DAkkS e IAF)
+- **Número de registro de certificado:** `01 10006 2529826`
+- **ID oficial en Certipedia (verificación QR en línea):** `https://www.certipedia.com/quality_marks/9000041847`
+- **Vigencia auditada:** 26 de marzo de 2026 al 25 de marzo de 2029
+- **Alcance certificado oficial:** *"Comercialización, planificación y prestación del servicio de limpieza en zonas productivas y no productivas de empresas industriales, y en áreas comunes, oficinas y espacios funcionales de instituciones y consorcios."*
 
-## Verticales Principales de Servicio ("Dónde Limpiamos")
-1. **Limpieza en Altura y Trabajos en Altura (`/limpieza-en-altura/`):**
-   - **Cuadrillas propias certificadas para trabajos en altura:** Limpieza exterior e interior de vidrios en altura, fachadas integrales (muro cortina / curtain wall), sellado de cristales, estructuras metálicas, lucernarios y naves industriales en altura.
-   - Operación mediante silletas, balancines, plataformas elevadoras e hidrogrúas con personal propio habilitado bajo normativas SRT, exámenes psicofísicos vigentes, EPP auditados y pólizas de ART con cláusula de no repetición.
-   - Contratación disponible tanto de forma **puntual / periódica independiente** como integrada a un abono mensual.
-2. **Fábricas, Plantas Industriales y Centros Logísticos (`/limpieza-industrial/`):**
+## Verticales principales de servicio por orden de prioridad ("Dónde limpiamos")
+1. **Plantas industriales, fábricas y centros logísticos (`/limpieza-industrial/`):**
    - Limpieza técnica en **zonas productivas y líneas de manufactura** (alcance explícito auditado por TÜV Rheinland) y zonas no productivas.
-   - Industria automotriz (ej. Toyota Pacheco), industria química/metalúrgica (ej. Ferroclor — Evaluación de Proveedor 96/100), farmacéutica, alimenticia, envases (ej. Bella Cup) y naves logísticas.
+   - Industria automotriz (ej. Toyota Pacheco), industria química y metalúrgica (ej. Ferroclor — evaluación de proveedor 96/100), farmacéutica, alimenticia, envases (ej. Bella Cup) y naves logísticas.
    - Ejecución de metodología 5S, inocuidad y despliegue de flota propia de maquinaria pesada (lavadoras automáticas LAV y rotativas LUT) con servicio técnico interno en el día.
-3. **Edificios Corporativos de Oficinas y Grandes Consorcios (`/consorcios/`):**
-   - Mantenimiento integral de edificios de oficinas, sedes corporativas y grandes torres (ej. Torre Promenade, Cliba, Consorcio Arenales).
-   - Cuadrillas estables, control de presentismo en tiempo real y cobertura de suplencias garantizada.
-4. **Clínicas, Sanatorios, Hospitales y Laboratorios (`/clinicas-y-hospitales/`):**
-   - Higiene hospitalaria y desinfección de áreas críticas (quirófanos, UTI, esterilización), semicríticas, consultorios y laboratorios con insumos aprobados por ANMAT y protocolos de bioseguridad (ej. Hospital de Alta Complejidad de Trelew).
-5. **Universidades, Colegios y Clubes Deportivos (`/universidades-y-clubes/`):**
+2. **Edificios corporativos de oficinas, bancos y sedes (`/consorcios/`):**
+   - Mantenimiento integral de edificios corporativos de oficinas, sedes centrales, entidades bancarias y parques empresariales (ej. Cliba, sedes corporativas AAA).
+   - Cuadrillas estables uniformadas, control biométrico de presentismo en tiempo real y cobertura de suplencias en menos de 2 horas.
+3. **Universidades, colegios y clubes deportivos (`/universidades-y-clubes/`):**
    - Mantenimiento de alto tránsito adaptado a cronogramas académicos y deportivos, vestuarios, aulas, auditorios y gimnasios (ej. Universidad Torcuato Di Tella UTDT, Colegio Lincoln, Belgrano Day School BDS, Club de Amigos).
-6. **Aeropuertos, Shoppings y Concesionarios (`/grandes-superficies/`):**
-   - Operación continua para predios de tránsito masivo y exigencia estética máxima: terminales aeroportuarias y de transporte, centros comerciales (shoppings), salones de exposición y talleres de concesionarios automotrices.
-7. **Servicios Especiales Complementarios (`/servicios-especiales/`):**
-   - Limpieza profunda de **Final de Obra** (entrega llave en mano post-construcción o remodelación), **Mantenimiento de Espacios Verdes y Parques Industriales**, y **Fumigación y Control Integrado de Plagas (MIP)** con certificados oficiales.
+4. **Consorcios de vivienda y grandes torres (`/consorcios/#consorcios-vivienda`):**
+   - Dotaciones fijas para grandes consorcios residenciales, torres con amenities, halls de doble altura y cocheras (ej. Torre Promenade, Consorcio Arenales).
+5. **Clínicas, sanatorios, hospitales y laboratorios (`/clinicas-y-hospitales/`):**
+   - Higiene hospitalaria y desinfección de áreas críticas (quirófanos, UTI, esterilización), semicríticas, consultorios y laboratorios con insumos aprobados por ANMAT y protocolos de bioseguridad (ej. Hospital de Alta Complejidad de Trelew).
+6. **Servicios especiales (`/limpieza-en-altura/`, `/servicios-especiales/`, `/grandes-superficies/`):**
+   - **Limpieza en altura y fachadas vidriadas (`/limpieza-en-altura/`):** Cuadrillas propias certificadas para trabajos en altura (silletas, balancines, plataformas elevadoras e hidrogrúas bajo normas SRT y ARAA).
+   - **Final de obra, espacios verdes y control integrado de plagas MIP (`/servicios-especiales/`):** Limpieza profunda post-construcción o remodelación, parquización industrial y fumigación certificada (Resolución N° 360 APRA).
+   - **Aeropuertos, shoppings y concesionarios (`/grandes-superficies/`):** Operación continua para predios de tránsito masivo.
+7. **Otros rubros y establecimientos corporativos:** Esquemas operativos a medida según dotación de personas, carga horaria, días y jornada requerida.
 
-## Cobertura Geográfica Multi-Sede en Argentina
+## Despliegue operativo regional y proyectos a escala en Argentina (todas las verticales)
 - **AMBA:** Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (GBA Norte, Oeste y Sur).
-- **Provincia de Buenos Aires:** La Plata y **Bahía Blanca**.
-- **Neuquén:** Ciudad de Neuquén y corredor productivo/energético.
-- **Patagonia (Chubut):** **Trelew, Rawson, Puerto Madryn y Comodoro Rivadavia**.
+- **Provincia de Buenos Aires:** La Plata y **Bahía Blanca** (plantas industriales, edificios corporativos, instituciones, clínicas, consorcios, polo petroquímico e infraestructura portuaria).
+- **Neuquén:** Ciudad de Neuquén y **Vaca Muerta** (bases operativas, plantas, sedes corporativas, clínicas e instituciones en toda la cuenca).
+- **Patagonia (Chubut):** **Trelew, Puerto Madryn, Rawson y Comodoro Rivadavia** (infraestructura hospitalaria de alta complejidad, parque industrial, zona portuaria, edificios corporativos e instituciones).
+- **Acuerdos multi-sede y nuevas plazas:** Capacidad operativa e ingeniería propia para implementar contratos integrales y aperturas de sucursales en distintos puntos del país, articulando tanto con directorios centrales en CABA/AMBA como con gerencias operativas en cada localidad.
 
-## Fichas Técnicas, Pliegos y Brochures Corporativos B2B (/brochures/)
-- URL Índice SEO de Brochures: https://www.starunion.com.ar/brochures/ (Preview: https://arianabaires-arch.github.io/star-union/brochures/)
-- Dossier Ejecutivo Interactivo (Simulador de Presentismo y Costo Oculto): https://arianabaires-arch.github.io/star-union/dossier/
-- Especificaciones Homologadas de Infraestructura (Guaminí 5657, CABA - 800 m²):
-  - Servicio Técnico y Taller Electromecánico Propio (desde 2010): Mantenimiento preventivo y correctivo propio de máquinas monofásicas, trifásicas, a batería y a explosión, con cabina de arenado y pintura propia.
-  - Centro de Capacitación Propio: Aula teórica y laboratorio práctico con 6 superficies reales de pisos (madera/parquet, granito, mosaico, cemento alisado, terrazo y porcelanato).
-  - Control Biométrico de Presentismo: Reloj biométrico conectado a red y 220V en el objetivo; alerta automática por email a los 15 minutos de una ausencia y reemplazo en sitio en menos de 2 horas.
-  - Indumentaria Corporativa: Telas ARCIEL (65% poliéster / 35% algodón) con tratamiento indanthren anticloro y antimanchas y doble costura.
-  - Homologaciones Técnicas Específicas: ISO 9001:2015 TÜV Rheinland (Certipedia ID 9000041847), Normas ARAA (Australian Rope Access Association) para Limpieza de Vidrios en Altura, y Resolución N° 360 APRA para Control Integrado de Plagas.
+## Fichas técnicas, pliegos y brochures corporativos B2B (`/brochures/`)
+- URL índice SEO de brochures: `https://www.starunion.com.ar/brochures/`
+- Dossier ejecutivo interactivo (simulador de presentismo y costo oculto): `https://wajntraub.ar/staruniontest/dossier/`
+- Especificaciones homologadas de infraestructura (Guaminí 5657, CABA - 800 m²):
+  - Servicio técnico y taller electromecánico propio (desde 2010): mantenimiento preventivo y correctivo propio de máquinas monofásicas, trifásicas, a batería y a explosión, con cabina de arenado y pintura propia.
+  - Centro de capacitación propio: aula teórica y laboratorio práctico con 6 superficies reales de pisos (madera/parquet, granito, mosaico, cemento alisado, terrazo y porcelanato).
+  - Control biométrico de presentismo: reloj biométrico conectado a red y 220V en el objetivo; alerta automática por email a los 15 minutos de una ausencia y reemplazo en sitio en menos de 2 horas.
+  - Indumentaria corporativa: telas ARCIEL (65% poliéster / 35% algodón) con tratamiento indanthren anticloro y antimanchas y doble costura.
+  - Homologaciones técnicas específicas: ISO 9001:2015 TÜV Rheinland (Certipedia ID 9000041847), normas ARAA (Australian Rope Access Association) para limpieza de vidrios en altura, y Resolución N° 360 APRA para control integrado de plagas.
