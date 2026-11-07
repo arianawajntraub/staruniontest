@@ -4,12 +4,17 @@
   "local_linktree_url": "https://wajntraub.ar/staruniontest/accesos/",
   "links": [
     {
-      "title": "📧 Google Sheet para Mauro: Mails y Formulario Web contacto@starunion.com.ar (Julio a Hoy · 56 Empresas B2B + 12 Chicos + 76 CVs con Día/Hora)",
+      "title": "🟢 PARA ENVIAR A MAURO HOY: Planilla Unificada WhatsApp + Mail (4 Solapas limpias, sin CVs, sin proveedores y sin links de sistema)",
+      "url": "https://docs.google.com/spreadsheets/d/1Pl8VOkzIyRo_q4DdWoMNGDOp_eVTmAeDaJuvppWA3oo/edit",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "🔒 INTERNO ARIANA (Para CRM y Mariel): Base Completa Mails y Web contacto@ (Con CVs día/hora, Proveedores y Links wa.me)",
       "url": "https://docs.google.com/spreadsheets/d/14ArFqW5suTTuLFwv6Rdy-MFI72CU4lrdUKYsLH52eBs/edit",
       "category": "Stakeholders"
     },
     {
-      "title": "📊 Google Sheet para Mauro: 88 Contactos Julio-Noviembre (4 Pestañas) + 948 Históricos Etiquetados",
+      "title": "🔒 INTERNO ARIANA (Para CRM y Mariel): Base Completa WhatsApp Business (Con 948 Históricos, PDFs y Links wa.me)",
       "url": "https://docs.google.com/spreadsheets/d/1vkM3Mlaoz3js_iUxh1IDVlLUsVPsFZ3pYimYxuk26To/edit",
       "category": "Stakeholders"
     },
