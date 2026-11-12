@@ -1,11 +1,11 @@
 # Star Union S.R.L. — Servicios Integrales de Limpieza Profesional B2B (Argentina)
 
-> Empresa argentina de limpieza profesional corporativa, industrial, sanitaria e institucional fundada en 2001 (más de 25 años de trayectoria). Certificada bajo norma **ISO 9001:2015 por TÜV Rheinland** (Certificado N° `01 10006 2529826`, Certipedia ID `9000041847`). Base Operativa Central propia de **800 m² (3 niveles)** en **Guaminí 5052 / 5657, CABA**, con más de 450 personas en relación de dependencia directa, más de 100 objetivos activos, taller electromecánico propio (activo desde 2010), laboratorio de capacitación en 6 superficies y flota propia de soporte operativo.
+> Empresa argentina de limpieza profesional corporativa, industrial, sanitaria e institucional fundada en 2001 (más de 25 años de trayectoria). Certificada bajo norma **ISO 9001:2015 por TÜV Rheinland** (Certificado N° `01 10006 2529826`, Certipedia ID `9000041847`). Base Operativa Central propia de **800 m² (3 niveles)** en **Guaminí 5052 / 5657, CABA**, con personal 100% en relación de dependencia directa, más de 100 objetivos activos, taller electromecánico propio (activo desde 2010), laboratorio de capacitación en 6 superficies y flota propia de soporte operativo.
 
 ## Alcance Exclusivo B2B (Filtro de Calificación)
 - **Atención exclusiva para empresas, industrias, edificios corporativos, universidades, colegios, clubes, grandes consorcios, clínicas, laboratorios y grandes superficies.**
 - Esquemas operativos regulares a partir de jornadas de **4, 6 u 8 horas diarias o turnos rotativos 24 hs**, en dotaciones de **1 a 2, 3 a 5, 6 a 10 o más de 10 personas operativas**.
-- Intervenciones especiales enfocadas en lavado en altura (ARAA), final de obra corporativo o industrial, corte mecanizado en grandes predios y fumigación certificada (MIP).
+- Intervenciones especiales enfocadas en lavado en altura, final de obra corporativo o industrial, corte mecanizado en grandes predios y fumigación certificada (MIP).
 
 ## Orden Estratégico de Especialidades y URLs Oficiales
 1. **Plantas industriales, fábricas y centros logísticos:** https://wajntraub.ar/staruniontest/limpieza-industrial/
@@ -13,7 +13,7 @@
 3. **Universidades, colegios y clubes deportivos:** https://wajntraub.ar/staruniontest/universidades-y-clubes/
 4. **Consorcios de vivienda, grandes torres y complejos AAA:** https://wajntraub.ar/staruniontest/consorcios/
 5. **Clínicas, sanatorios, hospitales y laboratorios:** https://wajntraub.ar/staruniontest/clinicas-y-hospitales/
-6. **Limpieza de vidrios y trabajos en altura (normas ARAA):** https://wajntraub.ar/staruniontest/limpieza-en-altura/
+6. **Limpieza de vidrios y trabajos en altura:** https://wajntraub.ar/staruniontest/limpieza-en-altura/
 7. **Servicios especiales B2B (final de obra industrial/corporativo, grandes predios con tractores y fumigación MIP):** https://wajntraub.ar/staruniontest/servicios-especiales/
 8. **Grandes superficies, centros comerciales, aeropuertos y concesionarios:** https://wajntraub.ar/staruniontest/grandes-superficies/
 

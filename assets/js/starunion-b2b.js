@@ -78,7 +78,7 @@
       res.rubro = 'Clínicas, sanatorios, hospitales y laboratorios';
     } else if (p.indexOf('/limpieza-en-altura') !== -1) {
       res.rubro = 'Servicios especiales (altura, final de obra, predios y MIP)';
-      res.especialidad = '1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)';
+      res.especialidad = '1. Lavado de naves, vidrios o cartelería en altura';
     } else if (p.indexOf('/servicios-especiales') !== -1) {
       res.rubro = 'Servicios especiales (altura, final de obra, predios y MIP)';
     } else if (p.indexOf('/grandes-superficies') !== -1) {
@@ -143,7 +143,7 @@
       return 'Hola Star Union, nos interesa evaluar una propuesta de higiene institucional para nuestra clínica, sanatorio o laboratorio. Les comparto institución, localidad y áreas a cubrir: ';
     }
     if (p.indexOf('/limpieza-en-altura') !== -1) {
-      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza de vidrios o trabajos en altura con cuadrillas propias ARAA. Les comparto edificio o planta, localidad y alcance estimado: ';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza de vidrios o trabajos en altura con cuadrillas propias trabajo en altura. Les comparto edificio o planta, localidad y alcance estimado: ';
     }
     if (p.indexOf('/servicios-especiales') !== -1) {
       return 'Hola Star Union, nos interesa evaluar una propuesta de servicios especiales (altura, final de obra, predios o MIP) para nuestra empresa. Les comparto localidad y superficie aproximada: ';
@@ -350,7 +350,7 @@
       personas: 'A definir en relevamiento técnico',
       horas: 'Jornada completa (8 hs diarias)',
       dias: 'Lunes a viernes',
-      especialidad: '1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)',
+      especialidad: '1. Lavado de naves, vidrios o cartelería en altura',
       escalaEspecial: '',
       ubicacion: '',
       sedesExtras: [],
@@ -611,7 +611,7 @@
         var middleHtml = '';
         if (isEspecial) {
           var espOpts = [
-            '1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)',
+            '1. Lavado de naves, vidrios o cartelería en altura',
             '2. Final de obra industrial, corporativo o comercial de escala',
             '3. Corte mecanizado con tractores en grandes predios',
             '4. Fumigación certificada y manejo integrado de plagas (MIP)'
