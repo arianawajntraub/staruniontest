@@ -221,34 +221,67 @@
     document.head.appendChild(st);
   }
 
+  var CLOUD_COTIZADOR_API = 'https://cotizador-api-production-1166303f.up.railway.app/api/cotizar';
+
+  function resolveCotizarLandingUrl(opts) {
+    opts = opts || {};
+    var defaults = detectPageDefaults();
+    var rubro = opts.rubro || defaults.rubro || '';
+    var loc = opts.localidad || defaults.localidad || '';
+    var qp = [];
+    if (rubro) qp.push('rubro=' + encodeURIComponent(rubro));
+    if (loc) qp.push('localidad=' + encodeURIComponent(loc));
+    qp.push('origen=' + encodeURIComponent(window.location.pathname || '/'));
+    return resolveBaseRoot() + 'cotizar/index.html' + (qp.length ? '?' + qp.join('&') : '');
+  }
+
   function submitPayloadToApi(payload, onSuccess, onError) {
     window.dataLayer = window.dataLayer || [];
-    fetch(resolveApiUrl(), {
+    var isStagingHost = window.location.hostname.indexOf('wajntraub.ar') !== -1 ||
+                        window.location.hostname === 'localhost' ||
+                        window.location.hostname === '127.0.0.1';
+
+    var cloudBody = {
+      tipo_solicitud: 'cotizacion',
+      entorno: isStagingHost ? 'staging' : 'produccion',
+      empresa: payload.empresa || '',
+      nombre: payload.nombre || '',
+      email: payload.email || '',
+      telefono: payload.telefono || '',
+      rubro: payload.otro_rubro_detalle ? ('Otro: ' + payload.otro_rubro_detalle) : (payload.tipo_organizacion || ''),
+      alcance: payload.especialidad_requerida || payload.cantidad_personas || '',
+      horas_dia: payload.escala_especial || payload.cantidad_horas || '',
+      dias_semana: payload.dias_servicio || '',
+      localidad: payload.ubicacion || '',
+      sedes_adicionales: payload.sedes_adicionales || '',
+      comentarios: payload.escala || '',
+      origen_pagina: payload.pagina_origen || window.location.pathname,
+      canal_origen: 'Sitio web Star Union',
+      website_url: payload.website_hp || ''
+    };
+
+    if (!isStagingHost) {
+      fetch(resolveApiUrl(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+    }
+
+    fetch(CLOUD_COTIZADOR_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(cloudBody)
     })
-      .then(function (res) {
-        if (res.ok) {
-          return res.json().then(function (j) {
-            if (j && j.ok) {
-              onSuccess();
-            } else {
-              throw new Error((j && j.error) || 'Error de validación');
-            }
-          });
+      .then(function (res) { return res.json(); })
+      .then(function (j) {
+        if (j && j.ok) {
+          onSuccess(j);
+        } else {
+          throw new Error((j && j.error) || 'Error de validación');
         }
-        if (window.location.hostname.indexOf('wajntraub.ar') !== -1 || window.location.hostname === 'localhost') {
-          onSuccess();
-          return;
-        }
-        throw new Error('HTTP ' + res.status);
       })
       .catch(function () {
-        if (window.location.hostname.indexOf('wajntraub.ar') !== -1 || window.location.hostname === 'localhost') {
-          onSuccess();
-          return;
-        }
         onError();
       });
   }
@@ -434,12 +467,17 @@
         backBtn.style.display = 'none';
         stepLabel.textContent = 'Solicitud enviada';
         barEl.style.width = '100%';
+        var cNom = state.nombre.replace(/[,\s]+$/, '').trim();
+        var cEmp = state.empresa.replace(/[,\s]+$/, '').trim();
+        var doneHeading = (cEmp && cEmp.toLowerCase() !== cNom.toLowerCase())
+          ? ('Gracias, ' + escHtml(cNom) + '. Registramos la solicitud de ' + escHtml(cEmp) + '.')
+          : ('Gracias, ' + escHtml(cNom) + '. Registramos tu solicitud comercial.');
         bodyEl.innerHTML = [
-          '<div style="background:#f4f7f5;border:2px solid #03582d;border-radius:16px;padding:20px;space-y:10px;">',
-          '  <div style="display:inline-block;background:#03582d;color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;padding:4px 10px;border-radius:999px;margin-bottom:10px;">✓ Recibido por Dirección Comercial</div>',
-          '  <h3 id="su-wiz-title" style="font-size:19px;font-weight:800;color:#000;margin:0 0 8px;line-height:1.3;">Gracias, ' + escHtml(state.nombre) + '. Registramos la solicitud de ' + escHtml(state.empresa) + '.</h3>',
-          '  <p style="font-size:13.5px;color:#374151;margin:0 0 14px;line-height:1.55;">Nuestro equipo comercial evaluará el esquema solicitado y te responderá en forma directa a <strong>' + escHtml(state.email) + '</strong> o al <strong>' + escHtml(state.telefono) + '</strong> para coordinar el relevamiento técnico.</p>',
-          '  <div style="padding-top:12px;border-top:1px solid #d1fae5;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;color:#4b5563;">',
+          '<div style="padding:4px 0;">',
+          '  <div style="display:inline-block;background:#eef6f1;color:#03582d;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;padding:4px 10px;border-radius:999px;margin-bottom:10px;">✓ Solicitud recibida</div>',
+          '  <h3 id="su-wiz-title" style="font-size:19px;font-weight:800;color:#000;margin:0 0 8px;line-height:1.3;">' + doneHeading + '</h3>',
+          '  <p style="font-size:13.5px;color:#374151;margin:0 0 14px;line-height:1.55;">Dirección Comercial evaluará el esquema solicitado y responderá en forma directa a <strong>' + escHtml(state.email) + '</strong> o al <strong>' + escHtml(state.telefono) + '</strong>.</p>',
+          '  <div style="padding-top:12px;border-top:1px solid #e5e7eb;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12px;color:#4b5563;">',
           '    <span>Línea directa: <strong style="color:#03582d;">0810-333-UNION (8646)</strong></span>',
           '    <span>Base Central CABA (800 m²) · ISO 9001:2015</span>',
           '  </div>',
@@ -782,7 +820,7 @@
           '    <textarea id="su-wiz-obs" rows="2" class="su-wiz-input" style="resize:none;" placeholder="Ej.: visita de relevamiento o requisito puntual">' + escHtml(state.observaciones) + '</textarea>',
           '    <div style="font-size:11.5px;color:#676b67;margin-top:5px;">¿Invitación a licitar o pliego en PDF? <a href="' + escHtml(rfpUrl) + '" target="_blank" rel="noopener noreferrer" style="color:#03582d;font-weight:700;text-decoration:underline;">Subir pliego / RFP acá ↗</a></div>',
           '  </div>',
-          '  <div id="su-wiz-step3-err" style="display:none;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:600;"></div>',
+          '  <div id="su-wiz-step3-err" style="display:none;background:#f3f4f6;border:1px solid #d1d5db;color:#111827;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:600;"></div>',
           '  <button type="submit" id="su-wiz-submit" style="margin-top:4px;width:100%;background:#03582d;color:#ffffff;border:none;border-radius:12px;padding:14px 16px;font-size:14.5px;font-weight:800;cursor:pointer;min-height:50px;font-family:\'Open Sans\',sans-serif;">Enviar solicitud a Comercial</button>',
           '  <div style="margin-top:4px;text-align:center;">',
           '    <a href="#" id="su-wiz-wa-step3" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#03582d;text-decoration:underline;">O enviar estos datos por WhatsApp Comercial ↗</a>',
@@ -891,19 +929,18 @@
       }, 150);
     });
 
-    // Disparadores del Cotizador Conversacional Paso a Paso (botones "Cotizá hoy" y tarjetas lanzadoras de rubro)
+    // Disparadores del Cotizador Guiado Paso a Paso (/cotizar/) con contexto de rubro y página de origen
     document.querySelectorAll('[data-open-cotizador], a[href="#cotizar-form"], a[href="#formulario-cotizacion"]').forEach(function (trigger) {
       trigger.addEventListener('click', function (e) {
-        if (typeof window.openStarUnionCotizador !== 'function') return;
         e.preventDefault();
         var rubroAttr = trigger.getAttribute('data-rubro') || '';
         var locAttr = trigger.getAttribute('data-localidad') || '';
-        window.openStarUnionCotizador({ rubro: rubroAttr, localidad: locAttr });
+        window.location.href = resolveCotizarLandingUrl({ rubro: rubroAttr, localidad: locAttr });
       });
     });
 
-    if (window.location.search && window.location.search.indexOf('cotizar=1') !== -1 && typeof window.openStarUnionCotizador === 'function') {
-      window.openStarUnionCotizador();
+    if (window.location.search && window.location.search.indexOf('cotizar=1') !== -1) {
+      window.location.href = resolveCotizarLandingUrl();
     }
 
     // Anclas a #contacto (deslizar suave a la sección de datos y formulario inferior)
@@ -1108,18 +1145,27 @@
 
         submitPayloadToApi(
           payload,
-          function () {
+          function (resData) {
             fireQualifiedLeadEvents(payload, sedesExtras.length > 0);
+            var cNom2 = nombre.replace(/[,\s]+$/, '').trim().replace(/</g, '&lt;');
+            var cEmp2 = empresa.replace(/[,\s]+$/, '').trim().replace(/</g, '&lt;');
+            var h4Txt = (cEmp2 && cEmp2.toLowerCase() !== cNom2.toLowerCase())
+              ? ('Gracias, ' + cNom2 + '. Registramos la solicitud de ' + cEmp2 + '.')
+              : ('Gracias, ' + cNom2 + '. Registramos tu solicitud comercial.');
+            var previewBtn = (resData && resData.preview_url)
+              ? '<div class="pt-1"><a href="' + resData.preview_url + '" target="_blank" rel="noopener noreferrer" class="text-xs font-extrabold text-brand underline">Ver comprobante estructurado de la solicitud ↗</a></div>'
+              : '';
             var confirmBox = document.createElement('div');
-            confirmBox.className = 'bg-[#f4f7f5] border-2 border-brand rounded-2xl p-6 text-left space-y-3';
+            confirmBox.className = 'bg-white border border-gray-200 border-t-4 border-t-brand rounded-2xl p-6 text-left space-y-3 shadow-sm';
             confirmBox.innerHTML = [
-              '<div class="inline-flex items-center gap-2 bg-brand text-white text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">',
-                '✓ Solicitud recibida por Dirección Comercial',
+              '<div class="inline-flex items-center gap-2 bg-[#eef6f1] text-brand text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">',
+                '✓ Solicitud recibida',
               '</div>',
-              '<h4 class="text-lg font-extrabold text-[#000000]">Gracias, ' + nombre.replace(/</g, '&lt;') + '. Recibimos los datos de ' + empresa.replace(/</g, '&lt;') + '.</h4>',
+              '<h4 class="text-lg font-extrabold text-[#000000]">' + h4Txt + '</h4>',
               '<p class="text-sm text-[#676b67] leading-relaxed">',
-                'Nuestro equipo comercial analizará el requerimiento y te responderá de forma directa a <strong class="text-[#000000]">' + email.replace(/</g, '&lt;') + '</strong> o al <strong class="text-[#000000]">' + telefono.replace(/</g, '&lt;') + '</strong> para coordinar el relevamiento técnico.',
+                'Dirección Comercial analizará el requerimiento y responderá en forma directa a <strong class="text-[#000000]">' + email.replace(/</g, '&lt;') + '</strong> o al <strong class="text-[#000000]">' + telefono.replace(/</g, '&lt;') + '</strong>.',
               '</p>',
+              previewBtn,
               '<div class="pt-2 border-t border-gray-200 text-xs text-[#676b67] flex flex-wrap items-center justify-between gap-2">',
                 '<span>Atención telefónica directa: <strong class="text-brand">0810-333-UNION (8646)</strong></span>',
                 '<span>Base Central Guaminí 5657, CABA · ISO 9001:2015</span>',

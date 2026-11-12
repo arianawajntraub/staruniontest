@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Propuesta comercial y decisiones del nuevo sitio web | Star Union S.R.L.</title>
+    <title>Propuesta operativa del nuevo sitio web | Star Union S.R.L.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,310 +38,297 @@
             .no-print { display: none !important; }
             .doc-sheet { box-shadow: none !important; border: none !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
             .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+            .page-break-before { break-before: page; page-break-before: always; }
             [contenteditable="true"] { outline: none !important; background: transparent !important; }
             a { text-decoration: none !important; }
         }
     </style>
 </head>
-<body class="py-6 sm:py-10 px-3 sm:px-6">
+<body class="py-6 sm:py-10 px-3 sm:px-6 space-y-6">
 
     <!-- BARRA DE EDICIÓN PRIVADA (SOLO VISIBLE CON ?edit=1, INVISIBLE EN EL LINK LIMPIO Y EN EL PDF) -->
-    <div id="private-edit-bar" class="hidden no-print max-w-4xl mx-auto mb-4 bg-[#133522] text-white rounded-2xl px-5 py-3.5 shadow-lg flex flex-wrap items-center justify-between gap-3 text-xs">
+    <div id="private-edit-bar" class="hidden no-print max-w-4xl mx-auto bg-[#133522] text-white rounded-2xl px-5 py-3.5 shadow-lg flex flex-wrap items-center justify-between gap-3 text-xs">
         <div class="flex items-center gap-2.5">
             <span class="bg-[#ffcc29] text-[#111827] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Modo edición activo</span>
-            <span>Hacé clic sobre cualquier título o párrafo para editarlo. Tus cambios se guardan solos en este navegador y salen limpios en el PDF.</span>
+            <span>Hacé clic sobre cualquier título o texto para editarlo. Se guarda en este navegador y exporta un PDF limpio.</span>
         </div>
         <div class="flex items-center gap-2">
-            <button type="button" id="btn-reset-doc" class="bg-white/10 hover:bg-white/20 text-white font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">Restaurar texto original</button>
+            <button type="button" id="btn-reset-doc" class="bg-white/10 hover:bg-white/20 text-white font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">Restaurar original</button>
             <button type="button" onclick="window.print()" class="bg-white text-[#03582d] hover:bg-gray-100 font-extrabold px-4 py-2 rounded-lg transition cursor-pointer">Exportar PDF limpio</button>
         </div>
     </div>
 
-    <!-- BOTÓN SUPERIOR LIMPIO PARA DESCARGAR PDF O ABRIR EL SITIO EN PESTAÑA NUEVA (OCULTO AL IMPRIMIR) -->
-    <div class="no-print max-w-4xl mx-auto mb-4 flex flex-wrap items-center justify-between gap-3">
-        <a href="../index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-[#03582d] border border-gray-200 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">
-            <span>Abrir vista previa del sitio web en pestaña nueva ↗</span>
-        </a>
+    <!-- ACCESOS RÁPIDOS SUPERIORES (OCULTOS AL IMPRIMIR) -->
+    <div class="no-print max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2">
+            <a href="../index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-[#03582d] border border-gray-200 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">
+                <span>Abrir sitio web propuesto ↗</span>
+            </a>
+            <a href="../cotizar/index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-[#133522] border border-gray-200 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">
+                <span>Probar cotizador guiado (/cotizar/) ↗</span>
+            </a>
+        </div>
         <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition cursor-pointer">
-            <span>Guardar o imprimir este documento en PDF</span>
+            <span>Guardar o imprimir en PDF</span>
         </button>
     </div>
 
-    <!-- HOJA EDITORIAL PRINCIPAL -->
-    <article id="editable-doc-root" class="doc-sheet max-w-4xl mx-auto bg-white rounded-3xl shadow-md border border-gray-200 border-t-4 border-t-brand p-6 sm:p-10 lg:p-12 space-y-10">
+    <!-- DOCUMENTO PRINCIPAL -->
+    <div id="editable-doc-root" class="space-y-8">
 
-        <!-- ENCABEZADO -->
-        <header class="border-b border-gray-200 pb-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-            <div class="space-y-2">
-                <div class="inline-flex items-center gap-2 bg-[#f4f7f5] border border-brand/20 text-brand text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
-                    <span>Documento comercial · Nuevo sitio web y ecosistema Star Union</span>
+        <article class="doc-sheet max-w-4xl mx-auto bg-white rounded-3xl shadow-md border border-gray-200 border-t-4 border-t-brand p-6 sm:p-10 lg:p-12 space-y-9">
+
+            <!-- ENCABEZADO -->
+            <header class="border-b border-gray-200 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                <div class="space-y-1.5">
+                    <div class="inline-flex items-center gap-2 bg-[#f4f7f5] border border-brand/20 text-brand text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+                        <span>Propuesta operativa · Nuevo sitio web Star Union S.R.L.</span>
+                    </div>
+                    <h1 class="js-edit text-2xl sm:text-3xl font-extrabold text-[#111827] leading-tight">
+                        Estructura comercial del sitio, uso de cada landing y circuito de recepción de consultas
+                    </h1>
+                    <p class="js-edit text-sm text-[#4b5563] leading-relaxed">
+                        Mauro: acá tenés resumido cómo funciona cada página en tu gestión comercial diaria (qué enviás, qué completa el cliente y cómo te llega la respuesta), qué cambia para las campañas de Mariel y, en un apartado separado al final, los puntos con opciones abiertas para que elijas cuál preferís.
+                    </p>
                 </div>
-                <h1 class="js-edit text-2xl sm:text-3xl font-extrabold text-[#111827] leading-tight">
-                    Cómo tradujimos tu operación real, los pedidos que entran y tus diferenciales frente a la competencia en el nuevo sitio web
-                </h1>
-                <p class="js-edit text-sm text-[#4b5563] leading-relaxed">
-                    Mauro: armé este resumen ejecutivo para recorrer juntos por qué cada bloque, texto y botón del sitio nuevo está puesto en ese orden, cómo conecta con la propuesta de brochures y con la pauta de Mariel, y en qué 6 puntos puntuales dejé cerrada una opción firme pero te presento alternativas para que elijas cuál te representa mejor.
+                <img src="../assets/img/logo-star-union.png?v=20261028" alt="Star Union S.R.L." class="h-11 w-auto object-contain shrink-0 self-start sm:self-center">
+            </header>
+
+            <!-- SECCIÓN 1: LANDINGS COMERCIALES (QUÉ HACE MAURO, QUÉ ENVÍA Y CÓMO RECIBE LA RESPUESTA) -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">1</span>
+                    <div>
+                        <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Las URLs están pensadas como landings activas para respuestas comerciales, licitaciones, Google Ads, campañas de mailing, redes y futuro CRM</h2>
+                    </div>
+                </div>
+                <p class="js-edit text-xs sm:text-[13.5px] text-[#4b5563] leading-relaxed">
+                    Cada dirección nueva cumple una función comercial concreta: qué link pegás o mandás según el caso, qué hace el cliente al abrirlo y dónde recibís su pedido:
                 </p>
-            </div>
-            <img src="../assets/img/logo-star-union.png?v=20261028" alt="Star Union S.R.L." class="h-12 w-auto object-contain shrink-0 self-start sm:self-center">
-        </header>
 
-        <!-- BLOQUE 1: LAS 4 FUENTES REALES -->
-        <section class="space-y-4">
-            <div class="flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">1</span>
-                <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">De dónde sale cada decisión del sitio (las 4 fuentes reales que cruzamos)</h2>
-            </div>
-            <p class="js-edit text-sm text-[#4b5563] leading-relaxed">
-                Nada del diseño ni de las palabras salió de una plantilla genérica. Cruzamos cuatro insumos concretos de la operación diaria de Star Union:
-            </p>
-            <div class="grid sm:grid-cols-2 gap-4 text-sm">
-                <div class="avoid-break bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-1.5">
-                    <h3 class="js-edit font-extrabold text-[#133522]">A. El relevamiento de WhatsApp y correos</h3>
-                    <p class="js-edit text-xs sm:text-[13px] text-[#4b5563] leading-relaxed">
-                        Analizamos las 2.426 conversaciones históricas de WhatsApp (703 desde julio) y las casillas <strong class="text-[#111827]">contacto@</strong> e <strong class="text-[#111827]">info@</strong>. Vimos el cuello de botella real: entran postulaciones laborales, casas particulares o pedidos de pocas horas mezclados con cuentas excelentes como las de esta semana (<strong class="text-[#111827]">Escuela Argentina Modelo</strong> de 6.800 m² en CABA por WhatsApp, la licitación de planta y oficinas de <strong class="text-[#111827]">PRÜNE / GAX S.A.</strong> por <strong class="text-[#111827]">info@</strong>, y los pliegos de limpieza y fumigación de <strong class="text-[#111827]">ASE / Medifé</strong> pedidos desde Compras en Buenos Aires para su sucursal de Bahía Blanca).
-                    </p>
-                </div>
-                <div class="avoid-break bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-1.5">
-                    <h3 class="js-edit font-extrabold text-[#133522]">B. Tu orden comercial y tu forma de cotizar</h3>
-                    <p class="js-edit text-xs sm:text-[13px] text-[#4b5563] leading-relaxed">
-                        De nuestra charla del 5 de noviembre tomamos dos reglas rectoras: 1) ordenar toda la navegación según tu prioridad real de negocio (<strong class="text-[#111827]">1° Fábricas y logística, 2° Edificios de oficinas, 3° Universidades, colegios y clubes, 4° Consorcios, 5° Clínicas y laboratorios, 6° Altura, final de obra y grandes predios</strong>); y 2) pedir los datos en la unidad real con la que vos armás números (<strong class="text-[#111827]">Personas + Días + Carga horaria</strong>, partiendo del piso de 4 horas diarias corridas).
-                    </p>
-                </div>
-                <div class="avoid-break bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-1.5">
-                    <h3 class="js-edit font-extrabold text-[#133522]">C. Tu estudio comparativo de las 33 empresas</h3>
-                    <p class="js-edit text-xs sm:text-[13px] text-[#4b5563] leading-relaxed">
-                        En el Word que armaste quedó a la vista que casi todos los competidores prometen lo mismo en texto, pero muy pocos tienen activos propios. Por eso llevamos al frente lo que una cooperativa o intermediaria no puede copiar: <strong class="text-[#111827]">base propia de 800 m² en tres niveles sobre calle Guaminí</strong> (tras el crecimiento desde la histórica sede de calle Pergamino desde 2001), <strong class="text-[#111827]">taller electromecánico propio desde 2010</strong> con arenado y pintura, <strong class="text-[#111827]">escuela de 6 pisos</strong> y <strong class="text-[#111827]">más de 450 personas en nómina directa</strong> (Art. 30 LCT).
-                    </p>
-                </div>
-                <div class="avoid-break bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-1.5">
-                    <h3 class="js-edit font-extrabold text-[#133522]">D. El manual oficial de marca de TÜV Rheinland</h3>
-                    <p class="js-edit text-xs sm:text-[13px] text-[#4b5563] leading-relaxed">
-                        Revisamos el reglamento de uso del sello TÜV para que la certificación sume prestigio ante auditorías de grandes empresas sin cometer errores formales: figura siempre la norma completa <strong class="text-[#111827]">ISO 9001:2015</strong>, se aclara con precisión que certifica el <strong class="text-[#111827]">Sistema de Gestión de la Calidad</strong> (con los 2 puntos textuales del certificado N° 01 10006 2529826), el código QR respeta su margen limpio y el certificado A4 se ve nítido y verificable en un clic.
-                    </p>
-                </div>
-            </div>
-        </section>
+                <div class="space-y-3 text-xs sm:text-[13px] text-[#374151]">
+                    <!-- LANDING 1: COTIZADOR GUIADO -->
+                    <div class="avoid-break bg-[#f4f7f5] rounded-2xl p-4 sm:p-5 border border-brand/25 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#133522]">A. Cotizador guiado paso a paso · <a href="../cotizar/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">/cotizar/ ↗</a></h3>
+                            <span class="text-[11px] font-extrabold bg-white text-brand border border-brand/20 px-2.5 py-0.5 rounded-full">1 pregunta por pantalla · Sin límites mensuales</span>
+                        </div>
+                        <ul class="space-y-1 text-[#374151] leading-relaxed">
+                            <li class="js-edit"><strong>Cuándo lo usás / qué enviás:</strong> es el link directo para bio de Instagram/LinkedIn, botones del sitio, campañas y respuestas rápidas cuando alguien pide cotizar sin haber detallado datos.</li>
+                            <li class="js-edit"><strong>Qué hace el cliente ahí:</strong> avanza de a un paso por vez (1. Establecimiento → 2. Dotación estimada o adjuntar pliego → 3. Carga horaria desde 4 hs corridas → 4. Localidad o sedes → 5. Datos corporativos), con opción de pasar ese resumen cargado a WhatsApp Comercial.</li>
+                            <li class="js-edit"><strong>Cómo recibís la respuesta:</strong> te entra un correo estructurado en tu bandeja habitual con el botón <em>Responder</em> apuntando directo al mail del cliente (corrige el problema actual de los formularios sin dirección de respuesta) y queda asentada la fila para tu futuro CRM. *(Nota: hoy en el link de prueba envía los ensayos a mi bandeja para no ensuciar comercial@ ni contacto@ hasta salir en vivo).*</li>
+                        </ul>
+                    </div>
 
-        <!-- BLOQUE 2: RECORRIDO DE ARRIBA A ABAJO -->
-        <section class="space-y-4">
-            <div class="flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">2</span>
-                <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Recorrido del sitio de arriba hacia abajo: por qué está puesto cada elemento</h2>
-            </div>
-            <ul class="space-y-3 text-xs sm:text-[13.5px] text-[#374151] leading-relaxed">
-                <li class="avoid-break bg-[#f9fafb] p-4 rounded-xl border border-gray-200">
-                    <strong class="text-[#111827]">1. Primera vista limpia, textos breves al hueso y cotizador comercial arriba:</strong> la mayoría de las visitas entra desde el teléfono. Sacamos de arriba los accesos de <em>Trabajá con nosotros</em>, <em>Portal del equipo (Browix)</em> y <em>Proveedores</em>, y los dejamos aislados en una franja propia al pie de todas las páginas, lejos del formulario comercial. Acortamos la presentación y reescribimos las 6 tarjetas de <em>Dónde limpiamos</em> en dos líneas enfocadas en por qué una empresa cambia de proveedor (taller propio sin máquinas paradas, alerta biométrica a los 15 minutos, reemplazos cubiertos y trazabilidad ANMAT/GMP). Además, subimos el bloque de cotización y canales comerciales justo debajo de tus sectores y referencias.
-                </li>
-                <li class="avoid-break bg-[#f9fafb] p-4 rounded-xl border border-gray-200">
-                    <strong class="text-[#111827]">2. Lectura fluida con enlaces puestos a mano dentro de cada texto (cero párrafos clonados):</strong> eliminamos las frases repetidas entre páginas. Cada página arranca con una redacción propia para su sector o ciudad e incluye enlaces subrayados dentro del primer párrafo hacia <a href="../limpieza-industrial/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">plantas y logística ↗</a>, <a href="../oficinas-corporativas/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">oficinas ↗</a>, <a href="../limpieza-en-altura/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">altura ARAA ↗</a>, <a href="../la-empresa/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">base propia en CABA ↗</a> y <a href="../certificacion-iso/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">certificación ISO 9001:2015 ↗</a>.
-                </li>
-                <li class="avoid-break bg-[#f9fafb] p-4 rounded-xl border border-gray-200">
-                    <strong class="text-[#111827]">3. Cotizador guiado en 3 pasos cortos con mínimos claros y salida opcional a WhatsApp:</strong> en vez de una pared larga de casilleros, el cliente toca su rubro y abre un asistente liviano de 3 pasos sobre la misma pantalla:
-                    <span class="block mt-1.5 pl-3 border-l-2 border-brand/40 text-xs text-[#4b5563]">
-                        • <strong>Paso 1:</strong> elige su tipo de establecimiento (y quien toca empleo, proveedor o vivienda particular queda derivado afuera sin ensuciar tu bandeja comercial).<br>
-                        • <strong>Paso 2:</strong> los mínimos operativos quedan claros en los mismos selectores, sin carteles negativos: la carga horaria parte de <strong>4 hs corridas (mín.)</strong> (4 hs, 6 hs, 8 hs o Turnos / 24 hs) y en <em>Servicios especiales</em> figuran solo las 4 intervenciones corporativas que realizás. Si tiene varias sedes puede tocar <em>+ Sumar otra sede</em>, y si prefiere seguir por chat cuenta abajo con la opción <em>O enviar estos datos por WhatsApp Comercial ↗</em> llevando cargado lo que ya marcó.<br>
-                        • <strong>Paso 3:</strong> completa empresa, nombre, correo y teléfono, y a vos te llega el mail con respuesta directa al correo del comprador al tocar <em>Responder</em>.
-                    </span>
-                </li>
-                <li class="avoid-break bg-[#f9fafb] p-4 rounded-xl border border-gray-200">
-                    <strong class="text-[#111827]">4. Cobertura multiplaza arriba del todo en <em>Dónde limpiamos</em>:</strong> apenas empieza la sección de sectores aparece visible la franja de operación activa en <strong class="text-[#111827]">AMBA y La Plata, Bahía Blanca, Neuquén y Vaca Muerta, Trelew y Puerto Madryn</strong> junto al acceso de <a href="../cobertura-y-operaciones-multi-sede/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">operatoria multi-sede ↗</a>. Un gerente de Compras en Buenos Aires (como el caso real de ASE / Medifé pidiendo Bahía Blanca desde CABA) confirma en dos segundos que puede resolver interior y AMBA con un solo proveedor.
-                </li>
-                <li class="avoid-break bg-[#f9fafb] p-4 rounded-xl border border-gray-200">
-                    <strong class="text-[#111827]">5. Página dedicada para invitaciones a licitar y subida de pliegos (<a href="../licitaciones-y-pliegos/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">/licitaciones-y-pliegos/ ↗</a>) — cómo te llega a vos:</strong> creamos un acceso pensado para áreas de Compras (sin ocupar lugar en el menú superior para no distraer la navegación general). Ahí el comprador ve en un cuadro tus datos de homologación (razón social, CUIT, sede propia, ISO 9001:2015, Art. 30 LCT) y puede subir hasta 3 archivos en <strong>PDF, Word o Excel</strong> con su pliego o grilla de sedes. <strong>¿Dónde y cómo lo ves vos?</strong> Sin entrar a ningún panel externo: te llega un correo común a tu bandeja habitual con el asunto <strong>[LICITACIÓN / PLIEGO WEB] + Nombre de la Empresa</strong>, con los archivos PDF o Excel adjuntos adentro del mismo mail (igual que cuando escribieron PRÜNE o Medifé) y listo para contestarle al comprador tocando <em>Responder</em>.
-                </li>
-                <li class="avoid-break bg-[#f9fafb] p-4 rounded-xl border border-gray-200">
-                    <strong class="text-[#111827]">6. Verdad operativa en presentismo y filtro de 3 puertas en el botón de WhatsApp:</strong> expresamos con rigor cómo funciona el presentismo real (control por reloj biométrico con alerta a los 15 minutos y relevo con nómina propia). Y al tocar el botón flotante de WhatsApp, filtramos antes en 3 puertas: 1) cotización para empresas (abre con texto adaptado a la página que miraba), 2) postulaciones laborales (abre directo el formulario de RRHH en pestaña nueva) y 3) proveedores (muestra aislado <strong class="text-[#111827]">compras@starunion.com.ar</strong>).
-                </li>
-            </ul>
-        </section>
+                    <!-- LANDING 2: LICITACIONES Y PLIEGOS -->
+                    <div class="avoid-break bg-gray-50 rounded-2xl p-4 sm:p-5 border border-gray-200 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#133522]">B. Invitaciones a licitar y carga de pliegos · <a href="../licitaciones-y-pliegos/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">/licitaciones-y-pliegos/ ↗</a></h3>
+                            <span class="text-[11px] font-bold bg-white text-[#4b5563] border border-gray-200 px-2.5 py-0.5 rounded-full">Acceso directo para áreas de Compras</span>
+                        </div>
+                        <ul class="space-y-1 text-[#374151] leading-relaxed">
+                            <li class="js-edit"><strong>Cuándo lo usás / qué enviás:</strong> para mandar por mail, LinkedIn o respuesta automática de WhatsApp cuando una empresa invita a licitar o quiere enviar bases técnicas (casos como PRÜNE o ASE / Medifé).</li>
+                            <li class="js-edit"><strong>Qué hace el cliente ahí:</strong> consulta en un cuadro tus datos de alta de proveedor (razón social, CUIT, sede propia, ISO 9001:2015, Art. 30 LCT) y adjunta hasta 3 archivos en <strong>PDF, Word o Excel</strong>.</li>
+                            <li class="js-edit"><strong>Cómo recibís la respuesta:</strong> sin entrar a ningún sistema aparte, recibís el mail con asunto <strong>[LICITACIÓN / PLIEGO WEB] + Empresa</strong> y los archivos PDF o Excel adjuntos adentro del mismo correo.</li>
+                        </ul>
+                    </div>
 
-        <!-- BLOQUE 3: LAS 6 DECISIONES CON ALTERNATIVAS -->
-        <section class="space-y-5">
-            <div class="flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">3</span>
-                <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Las 6 definiciones con alternativas para que elijas cuál preferís</h2>
-            </div>
-            <p class="js-edit text-sm text-[#4b5563] leading-relaxed">
-                El sitio ya quedó cerrado y coherente con la <strong>Opción 1</strong> en cada punto para que puedas verlo funcionando de punta a punta. Si en alguno preferís otra alternativa, me decís la letra y el número y hacemos el ajuste en minutos:
-            </p>
+                    <!-- LANDING 3: CUENTAS MULTI-SEDE Y PLAZAS -->
+                    <div class="avoid-break bg-gray-50 rounded-2xl p-4 sm:p-5 border border-gray-200 space-y-2">
+                        <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#133522]">C. Contratos multi-sucursal y las 4 plazas regionales · <a href="../cobertura-y-operaciones-multi-sede/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">/cobertura-y-operaciones-multi-sede/ ↗</a> + <a href="../bahia-blanca/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Bahía Blanca ↗</a>, <a href="../neuquen-vaca-muerta/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Neuquén / Vaca Muerta ↗</a>, <a href="../trelew/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Trelew ↗</a> y <a href="../puerto-madryn/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Puerto Madryn ↗</a></h3>
+                        <ul class="space-y-1 text-[#374151] leading-relaxed">
+                            <li class="js-edit"><strong>Cuándo lo usás / qué enviás:</strong> para responder a casas matrices en Buenos Aires que licitan sucursales o plantas en el interior, y para aterrizar anuncios de Google Ads por ciudad.</li>
+                            <li class="js-edit"><strong>Qué hace el cliente ahí:</strong> confirma operación activa en su zona y, al tocar cotizar, ya tiene precargada esa localidad (con botón <em>+ Sumar otra sede</em> si cotiza varias sucursales juntas).</li>
+                            <li class="js-edit"><strong>Cómo recibís la respuesta:</strong> te llega el pedido identificando desde qué plaza entró y el listado desglosado de todas las sedes a cubrir.</li>
+                        </ul>
+                    </div>
 
-            <!-- DECISIÓN A -->
-            <div class="avoid-break border border-gray-200 rounded-2xl p-5 space-y-3">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                    <h3 class="js-edit font-extrabold text-base text-[#111827]">Decisión A · Título principal de apertura en la portada</h3>
-                    <span class="text-[11px] font-bold bg-[#eef6f1] text-brand px-2.5 py-0.5 rounded-full">Importante mantener "Empresa de limpieza profesional" al inicio para Google</span>
+                    <!-- LANDING 4: LAS 8 ESPECIALIDADES -->
+                    <div class="avoid-break bg-gray-50 rounded-2xl p-4 sm:p-5 border border-gray-200 space-y-2">
+                        <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#133522]">D. Las 8 landings por especialidad · <a href="../limpieza-industrial/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Industrial ↗</a>, <a href="../oficinas-corporativas/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Oficinas ↗</a>, <a href="../universidades-y-clubes/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Colegios y clubes ↗</a>, <a href="../consorcios/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Consorcios ↗</a>, <a href="../clinicas-y-hospitales/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Salud ↗</a>, <a href="../limpieza-en-altura/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Altura ARAA ↗</a>, <a href="../servicios-especiales/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Servicios especiales ↗</a> y <a href="../grandes-superficies/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Grandes superficies ↗</a></h3>
+                        <ul class="space-y-1 text-[#374151] leading-relaxed">
+                            <li class="js-edit"><strong>Cuándo lo usás / qué enviás:</strong> para pegar el link puntual del rubro al contestar por WhatsApp o mail, destino específico de anuncios en Google Ads y botones de envíos mensuales de mailing.</li>
+                            <li class="js-edit"><strong>Qué hace el cliente ahí:</strong> ve directo el protocolo de su sector y al tocar <em>Cotizar</em> entra directo al Paso 2 con ese rubro ya marcado.</li>
+                            <li class="js-edit"><strong>Cómo recibís la respuesta:</strong> entra clasificada por rubro y permite detectar qué empresas hicieron clic en cada especialidad para priorizar tu seguimiento.</li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="space-y-2 text-xs sm:text-[13px] text-[#374151]">
-                    <li class="js-edit p-3 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (puesta hoy en el sitio):</strong> "Empresa de limpieza profesional para industrias, oficinas e instituciones." <span class="text-[#6b7280]">— Directa, sobria y abarca tus tres grandes frentes de facturación desde el primer golpe de vista.</span></li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2 (foco cumplimiento y recambio de proveedor):</strong> "Empresa de limpieza profesional para organizaciones que exigen cumplimiento real." <span class="text-[#6b7280]">— Habla directo al comprador cansado del ausentismo o la informalidad de su proveedor actual.</span></li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3 (foco escala y activos propios):</strong> "Empresa de limpieza profesional con base propia en CABA y más de 450 personas en nómina." <span class="text-[#6b7280]">— Pone el tamaño y el respaldo patrimonial en el titular mismo para licitaciones grandes.</span></li>
+            </section>
+
+            <!-- SECCIÓN 2: CRITERIOS OPERATIVOS APLICADOS EN EL SITIO -->
+            <section class="space-y-3.5">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">2</span>
+                    <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Criterios comerciales y filtros ya aplicados en el sitio</h2>
+                </div>
+                <ul class="space-y-2.5 text-xs sm:text-[13.5px] text-[#374151] leading-relaxed">
+                    <li class="js-edit avoid-break bg-gray-50 p-3.5 rounded-xl border border-gray-200">
+                        <strong class="text-[#111827]">Orden comercial 1° a 6° y textos cortos enfocados en recambio de proveedor:</strong> toda la navegación respeta tu prioridad de facturación (<em>1° Plantas y logística, 2° Edificios de oficinas, 3° Universidades, colegios y clubes, 4° Consorcios, 5° Clínicas y laboratorios, 6° Altura, final de obra y grandes predios</em>), destacando respuesta mecánica propia, control biométrico a los 15 minutos con relevo de nómina directa y cumplimiento Art. 30 LCT.
+                    </li>
+                    <li class="js-edit avoid-break bg-gray-50 p-3.5 rounded-xl border border-gray-200">
+                        <strong class="text-[#111827]">Separación de postulantes y proveedores:</strong> el cotizador y los teléfonos comerciales están en la parte superior; <em>Postulaciones laborales (RRHH)</em>, <em>Portal del equipo (Browix)</em> y <em>Proveedores</em> (<strong class="text-[#111827]">compras@starunion.com.ar</strong>) quedaron aislados al pie de página y filtrados en 3 puertas antes de abrir el botón de WhatsApp.
+                    </li>
+                    <li class="js-edit avoid-break bg-gray-50 p-3.5 rounded-xl border border-gray-200">
+                        <strong class="text-[#111827]">Mínimos operativos resueltos en los propios selectores:</strong> las opciones de carga horaria arrancan en <strong>4 hs corridas (mín.)</strong> y en <em>Servicios especiales</em> figuran solo las 4 divisiones corporativas activas, filtrando pedidos domésticos o de pocas horas sin carteles negativos.
+                    </li>
+                    <li class="js-edit avoid-break bg-gray-50 p-3.5 rounded-xl border border-gray-200">
+                        <strong class="text-[#111827]">Páginas de respaldo para cierres y auditorías (<a href="../la-empresa/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">/la-empresa/ ↗</a> y <a href="../certificacion-iso/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">/certificacion-iso/ ↗</a>):</strong> reúnen el video de 35s de Base Guaminí (800 m², taller electromecánico propio y aula práctica sobre 6 superficies reales) y el sello <strong>ISO 9001:2015</strong> aplicado según manual TÜV Rheinland, que certifica el Sistema de Gestión de la Calidad con su alcance oficial y código QR verificable en un clic.
+                    </li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- DECISIÓN B -->
-            <div class="avoid-break border border-gray-200 rounded-2xl p-5 space-y-3">
-                <h3 class="js-edit font-extrabold text-base text-[#111827]">Decisión B · Segundo botón de la portada (al lado de "Cotizá tu servicio hoy")</h3>
-                <ul class="space-y-2 text-xs sm:text-[13px] text-[#374151]">
-                    <li class="js-edit p-3 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (puesta hoy en el sitio):</strong> <strong>Ver dónde limpiamos</strong> <span class="text-[#6b7280]">— Desliza suave hacia la cobertura multiplaza y las tarjetas de sectores en el orden 1° a 6°. Es el camino más natural para quien primero quiere confirmar si atendés su rubro o ciudad.</span></li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> <strong>Operaciones multi-sede y plazas</strong> <span class="text-[#6b7280]">— Lleva directo a la página de cobertura federal si querés empujar con más fuerza bancos, cadenas y plantas en el interior.</span></li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3:</strong> <strong>Conocer nuestra base propia (800 m²)</strong> <span class="text-[#6b7280]">— Lleva directo al video de 35 segundos, taller, flota y escuela si preferís que el segundo clic muestre el respaldo físico de Guaminí.</span></li>
-                </ul>
-            </div>
-
-            <!-- DECISIÓN C -->
-            <div class="avoid-break border border-gray-200 rounded-2xl p-5 space-y-3">
-                <h3 class="js-edit font-extrabold text-base text-[#111827]">Decisión C · Frase debajo de los botones de portada para quien entra a pedir precio</h3>
-                <ul class="space-y-2 text-xs sm:text-[13px] text-[#374151]">
-                    <li class="js-edit p-3 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (puesta hoy en el sitio):</strong> "¿Querés saber cuánto cuesta para tu operación? Cotizamos según dotación, carga horaria (mín. 4 hs) y localidad bajo Sistema de Gestión certificado ISO 9001:2015."</li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2 (foco transición ordenada de proveedor):</strong> "¿Evaluás renovar el estándar de tu servicio actual? Relevamos tu operación con reserva y planificamos una puesta en marcha ordenada desde el primer turno."</li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3 (foco ausentismo y respaldo Art. 30 LCT):</strong> "Si hoy tenés ausencias sin cubrir o demoras en la documentación laboral (Art. 30 LCT), presupuestamos tu esquema actual con personal 100% en nómina directa."</li>
-                </ul>
-            </div>
-
-            <!-- DECISIÓN D -->
-            <div class="avoid-break border border-gray-200 rounded-2xl p-5 space-y-3">
-                <h3 class="js-edit font-extrabold text-base text-[#111827]">Decisión D · Mínimos claros en el cotizador y alcance de "Servicios especiales"</h3>
-                <ul class="space-y-2 text-xs sm:text-[13px] text-[#374151]">
-                    <li class="js-edit p-3 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción A (puesta hoy en el sitio):</strong> Mínimo de <strong>4 hs corridas</strong> visible como primera opción de carga horaria (sin botones negativos que ensucien la experiencia) y selector cerrado en <em>Servicios especiales</em> con las 4 especialidades corporativas reales: 1. Lavado de naves, vidrios o cartelería en altura (ARAA); 2. Final de obra industrial o corporativo; 3. Corte con tractores en grandes predios; 4. Fumigación y manejo integrado de plagas (MIP).</li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción B:</strong> Igual a la A, sumando un piso orientativo de superficie en trabajos puntuales (salvo cuando sea dentro de una planta industrial o cliente activo de abono).</li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción C:</strong> Dejar abierto un campo libre de requerimiento especial para empresas y evaluar adentro cuáles cotizar.</li>
-                </ul>
-            </div>
-
-            <!-- DECISIÓN E -->
-            <div class="avoid-break border border-gray-200 rounded-2xl p-5 space-y-3">
-                <h3 class="js-edit font-extrabold text-base text-[#111827]">Decisión E · Páginas de cobertura regional (para cerrar en conjunto con Mariel)</h3>
-                <ul class="space-y-2 text-xs sm:text-[13px] text-[#374151]">
-                    <li class="js-edit p-3 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (puesta hoy en el sitio — recomendada):</strong> Página central de operaciones multi-sede más 4 páginas específicas por plaza activa (<a href="../bahia-blanca/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">Bahía Blanca ↗</a>, <a href="../neuquen-vaca-muerta/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">Neuquén / Vaca Muerta ↗</a>, <a href="../trelew/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">Trelew ↗</a> y <a href="../puerto-madryn/index.html" target="_blank" rel="noopener noreferrer" class="text-brand font-bold underline">Puerto Madryn ↗</a>). Son lo bastante amplias para abarcar industrias, salud, bancos y logística de cada zona, y a la vez lo bastante puntuales para recibir anuncios específicos en Google tanto en esa ciudad como en casas matrices de Buenos Aires.</li>
-                    <li class="js-edit p-3 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2 (preparada como respaldo si prefieren concentrar):</strong> Una sola página unificada con todas las plazas regionales adentro, sin separar por ciudad.</li>
-                </ul>
-            </div>
-
-            <!-- DECISIÓN F -->
-            <div class="avoid-break border border-gray-200 rounded-2xl p-5 space-y-3">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                    <h3 class="js-edit font-extrabold text-base text-[#111827]">Decisión F · Mensaje de entrada al WhatsApp y actualización de la respuesta automática de WhatsApp Business</h3>
-                    <span class="text-[11px] font-bold bg-[#eef6f1] text-brand px-2.5 py-0.5 rounded-full">Alinea lo que sale de la web con lo que responde tu teléfono</span>
+            <!-- SECCIÓN 3: BAJADA A MARIEL Y COHERENCIA CON BROCHURES -->
+            <section class="space-y-3.5">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">3</span>
+                    <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Bajada para Mariel (Google Ads) y unidad con materiales comerciales</h2>
                 </div>
-                <p class="js-edit text-xs sm:text-[13px] text-[#4b5563] leading-relaxed">
-                    <strong>1) Mensaje pre-cargado desde la web y desde el cotizador:</strong> cada página abre WhatsApp pidiendo empresa, localidad y esquema (adaptado al rubro o ciudad desde donde hacen clic), y dentro del cotizador de 3 pasos quien elija seguir por WhatsApp pasa directo con los datos que ya seleccionó.<br>
-                    <strong>2) Por qué conviene actualizar hoy la respuesta automática de WhatsApp Business:</strong> el saludo actual todavía dice <em>"presupuestos de servicios/productos"</em> (lo que atrae consultas minoristas), omite el piso operativo de 4 hs y pide <em>"los datos del servicio"</em> sin detallar las 4 variables necesarias para cotizar. Te dejo dos opciones limpias listas para pegar en WhatsApp Business:
+                <div class="grid sm:grid-cols-12 gap-4 text-xs sm:text-[13px] text-[#374151]">
+                    <div class="sm:col-span-8 avoid-break bg-[#f4f7f5] rounded-2xl p-5 border border-brand/20 space-y-2">
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">Google Ads · Orden operativa para Mariel</span>
+                        <ul class="list-disc pl-4 space-y-1.5 text-[#374151] leading-relaxed">
+                            <li class="js-edit"><strong>Cambio de conversión principal:</strong> dejar de medir como conversión cualquier clic suelto al WhatsApp (que entrenaba al algoritmo con búsquedas de empleo) y pasar a medir el envío completado del cotizador o pliego (que dispara solo en empresas y desde 4 hs corridas).</li>
+                            <li class="js-edit"><strong>Listado de palabras negativas:</strong> bloquear términos de empleo/CV, viviendas particulares, mudanzas, limpieza de sillones/alfombras domésticas, tanques de agua aislados y pocas horas.</li>
+                            <li class="js-edit"><strong>Doble segmentación en plazas regionales:</strong> orientar las campañas de Bahía Blanca, Neuquén, Trelew y Puerto Madryn tanto a búsquedas en cada localidad como a compradores en CABA/GBA que buscan proveedor para esas ciudades.</li>
+                        </ul>
+                    </div>
+                    <div class="sm:col-span-4 avoid-break bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-2 flex flex-col justify-center">
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">Unidad comercial</span>
+                        <h3 class="js-edit font-extrabold text-sm text-[#111827]">Coherencia con Brochures por rubro</h3>
+                        <p class="js-edit text-[#4b5563] leading-relaxed">
+                            El vocabulario, el orden de las verticales y los circuitos de contacto del sitio mantienen línea directa con los brochures comerciales por especialidad (que te paso por separado al cerrar el sitio).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CIERRE EJECUTIVO DIRECTO -->
+            <footer class="avoid-break bg-[#133522] text-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <p class="js-edit text-xs sm:text-sm text-white/95 leading-relaxed max-w-2xl">
+                    Debajo quedaron separadas las definiciones con opciones abiertas (<strong>A a G</strong>). Confirmame si dejamos las <strong>Opciones 1</strong> ya aplicadas en el sitio o qué letra preferís ajustar para avanzar con Mariel y publicar en <strong>www.starunion.com.ar</strong>.
                 </p>
-                <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-[12.5px] text-[#374151]">
+                <a href="../index.html" target="_blank" rel="noopener noreferrer" class="no-print shrink-0 bg-[#ffcc29] hover:bg-[#f2bf18] text-[#111827] font-extrabold text-xs sm:text-sm px-5 py-3 rounded-xl transition">
+                    Ver sitio propuesto ↗
+                </a>
+            </footer>
+
+        </article>
+
+        <!-- =========================================================================
+             APARTADO SEPARADO AL FINAL: DEFINICIONES CON ALTERNATIVAS PARA ELEGIR
+             ========================================================================= -->
+        <article class="doc-sheet page-break-before max-w-4xl mx-auto bg-white rounded-3xl shadow-md border border-gray-200 border-t-4 border-t-[#133522] p-6 sm:p-10 lg:p-12 space-y-6">
+            <header class="border-b border-gray-200 pb-4 space-y-1">
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">Apartado separado · Revisar al final</span>
+                <h2 class="js-edit text-xl sm:text-2xl font-extrabold text-[#111827]">Definiciones con alternativas para elegir (A a G)</h2>
+                <p class="js-edit text-xs sm:text-sm text-[#4b5563]">
+                    El sitio actual muestra aplicada la <strong>Opción 1</strong> en cada punto. Si querés cambiar alguna, indicame letra y número:
+                </p>
+            </header>
+
+            <!-- A -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">A. Título principal de portada</h3>
+                    <span class="text-[11px] font-bold bg-[#eef6f1] text-brand px-2.5 py-0.5 rounded-full">Mantiene "Empresa de limpieza profesional" al inicio para posicionamiento en Google</span>
+                </div>
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                    <li class="js-edit p-2.5 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (activa):</strong> "Empresa de limpieza profesional para industrias, oficinas e instituciones."</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> "Empresa de limpieza profesional para organizaciones que exigen cumplimiento operativo."</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3:</strong> "Empresa de limpieza profesional con base propia en CABA y más de 450 personas en nómina."</li>
+                </ul>
+            </div>
+
+            <!-- B -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">B. Segundo botón de portada (junto a "Cotizá tu servicio hoy")</h3>
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                    <li class="js-edit p-2.5 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (activa):</strong> <strong>Ver dónde limpiamos</strong> — baja directo a las plazas operativas y a las 6 especialidades ordenadas de 1° a 6°.</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> <strong>Operaciones multi-sede y plazas</strong> — abre la landing para cadenas, bancos e industrias con sucursales en el interior.</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3:</strong> <strong>Conocer nuestra base propia (800 m²)</strong> — lleva directo al video de Base Guaminí, taller propio y flota.</li>
+                </ul>
+            </div>
+
+            <!-- C -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">C. Línea comercial debajo de los botones de portada</h3>
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                    <li class="js-edit p-2.5 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (activa):</strong> "Propuestas técnicas y económicas según dotación, carga horaria (mín. 4 hs corridas) y localidad bajo Sistema de Gestión certificado ISO 9001:2015."</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> "¿Evaluás cambiar de proveedor actual? Relevamos tu operación con reserva y planificamos la puesta en marcha desde el primer turno."</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3:</strong> "Presupuestamos tu esquema con personal 100% en nómina directa, control biométrico de presentismo y legajo Art. 30 LCT al día."</li>
+                </ul>
+            </div>
+
+            <!-- D -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">D. Formato del cotizador online</h3>
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                    <li class="js-edit p-2.5 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (activa — recomendada):</strong> <strong>Landing de cotizador guiado paso a paso (<a href="../cotizar/index.html" target="_blank" rel="noopener noreferrer" class="underline">/cotizar/ ↗</a>)</strong> — muestra una sola pregunta por pantalla con previsualización atenuada del paso anterior y siguiente, permite adjuntar pliego en el Paso 2 y sirve como link único para redes, WhatsApp y anuncios.</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> Formulario tradicional con todos los casilleros juntos dentro de la misma página.</li>
+                </ul>
+            </div>
+
+            <!-- E -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">E. Mínimos operativos y alcance de "Servicios especiales"</h3>
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                    <li class="js-edit p-2.5 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (activa):</strong> Piso de <strong>4 hs corridas (mín.)</strong> en carga horaria y selector cerrado con las 4 especialidades corporativas reales (1. Altura ARAA; 2. Final de obra industrial o corporativo; 3. Corte con tractores en grandes predios; 4. Fumigación y MIP).</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> Sumar además un piso orientativo de m² para pedidos puntuales de empresas que no sean clientes de abono.</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 3:</strong> Dejar un campo abierto en servicios especiales para empresas y filtrar al recibirlo.</li>
+                </ul>
+            </div>
+
+            <!-- F -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">F. Arquitectura de páginas regionales (para cerrar junto a Mariel)</h3>
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-[#374151]">
+                    <li class="js-edit p-2.5 rounded-xl bg-[#f4f7f5] border border-brand/30"><strong class="text-brand">Opción 1 (activa):</strong> Página central multi-sede más 4 landings individuales por plaza activa (Bahía Blanca, Neuquén / Vaca Muerta, Trelew y Puerto Madryn) para pautar cada ciudad con su propio anuncio.</li>
+                    <li class="js-edit p-2.5 rounded-xl bg-gray-50 border border-gray-200"><strong class="text-[#111827]">Opción 2:</strong> Una sola página regional consolidada con todas las ciudades juntas.</li>
+                </ul>
+            </div>
+
+            <!-- G -->
+            <div class="avoid-break border border-gray-200 rounded-2xl p-4 sm:p-5 space-y-3">
+                <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">G. Actualización del saludo automático de WhatsApp Business</h3>
+                <p class="js-edit text-xs text-[#4b5563] leading-relaxed">
+                    El mensaje automático actual todavía menciona <em>"servicios/productos"</em> y no pide las 4 variables necesarias para cotizar. Dos textos listos para pegar en WhatsApp Business:
+                </p>
+                <div class="grid sm:grid-cols-2 gap-3 text-xs text-[#374151]">
                     <div class="js-edit p-3.5 rounded-xl bg-[#f4f7f5] border border-brand/30 space-y-1.5 leading-relaxed">
-                        <div class="font-extrabold text-brand">Opción 1 sugerida (recomendada — ordena los 4 datos y suma link de pliegos):</div>
+                        <div class="font-extrabold text-brand">Opción 1 (detalla las 4 variables + link de cotizador/pliegos):</div>
                         <div class="bg-white rounded-lg p-3 border border-gray-200 text-[#111827] whitespace-pre-line">Gracias por comunicarte con <strong>Star Union S.R.L.</strong> · Canal Comercial para empresas, industrias, instituciones y consorcios.
 
-Para confeccionar tu propuesta o coordinar visita técnica, indicanos por favor:
+Para armar tu propuesta o coordinar visita técnica, indicanos:
 1. <strong>Empresa, institución o consorcio</strong> y rubro
 2. <strong>Localidad</strong> (o sedes a cubrir)
 3. <strong>Dotación estimada o superficie aproximada (m²)</strong>
 4. <strong>Días y carga horaria</strong> <em>(esquemas desde 4 hs diarias corridas)</em>
 
-Si contás con pliego o bases de licitación en PDF, podés adjuntarlo en este chat o cargarlo en https://www.starunion.com.ar/licitaciones-y-pliegos/
+También podés completarlo paso a paso o adjuntar pliego en https://www.starunion.com.ar/cotizar/
 
 —
 <em>• Postulaciones laborales (RRHH): https://bit.ly/RRHHSU2024cv</em>
-<em>• Proveedores: compras@starunion.com.ar | Exclusivo organizaciones (sin viviendas particulares).</em></div>
+<em>• Proveedores: compras@starunion.com.ar</em></div>
                     </div>
                     <div class="js-edit p-3.5 rounded-xl bg-gray-50 border border-gray-200 space-y-1.5 leading-relaxed">
-                        <div class="font-extrabold text-[#111827]">Opción 2 sugerida (versión corta de lectura rápida):</div>
-                        <div class="bg-white rounded-lg p-3 border border-gray-200 text-[#111827] whitespace-pre-line">Gracias por comunicarte con el área comercial de <strong>Star Union S.R.L.</strong> (empresas, industrias, instituciones y consorcios).
+                        <div class="font-extrabold text-[#111827]">Opción 2 (versión breve):</div>
+                        <div class="bg-white rounded-lg p-3 border border-gray-200 text-[#111827] whitespace-pre-line">Gracias por comunicarte con Dirección Comercial de <strong>Star Union S.R.L.</strong> (exclusivo empresas, industrias, instituciones y consorcios).
 
-Para avanzar con tu cotización, indicanos: <strong>empresa, localidad, dotación o m² estimados y carga horaria</strong> <em>(mínimo 4 hs corridas)</em>. Si tenés pliego o RFP, podés adjuntarlo acá o subirlo en https://www.starunion.com.ar/licitaciones-y-pliegos/
+Indicanos por favor: <strong>empresa, localidad, dotación o m² estimados y carga horaria</strong> <em>(mínimo 4 hs corridas)</em>, o cargalo con tu pliego en https://www.starunion.com.ar/cotizar/
 
-<em>• Postulaciones laborales (CV): https://bit.ly/RRHHSU2024cv</em>
-<em>• Proveedores: compras@starunion.com.ar | Sin atención a viviendas particulares.</em></div>
+<em>• Postulaciones laborales (CV): https://bit.ly/RRHHSU2024cv · Proveedores: compras@starunion.com.ar</em></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </article>
 
-        <!-- BLOQUE 4: MAPA DE USO PRÁCTICO DE CADA PÁGINA Y URL -->
-        <section class="space-y-4">
-            <div class="flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">4</span>
-                <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Para qué te sirve cada página en el día a día comercial, respuestas de redes, Perfit y futuro CRM</h2>
-            </div>
-            <p class="js-edit text-xs sm:text-[13px] text-[#4b5563] leading-relaxed">
-                Cada dirección nueva fue pensada como una herramienta concreta de venta, respuesta rápida y seguimiento para que ninguna consulta quede en el aire:
-            </p>
-            <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-[12.5px] text-[#374151]">
-                <div class="avoid-break bg-gray-50 rounded-2xl p-4 border border-gray-200 space-y-1">
-                    <div class="font-extrabold text-[#133522]">1. Compras corporativas e invitaciones a licitar</div>
-                    <p class="js-edit text-[#4b5563] leading-relaxed"><strong>URL:</strong> <span class="text-brand font-bold">/licitaciones-y-pliegos/</span> · Para pegar en respuestas de mail, LinkedIn o WhatsApp cuando una empresa invita a cotizar. Incluye cuadro de homologación (CUIT, ISO 9001:2015, Art. 30 LCT) y subida de PDF/Excel que llega adjunto directo a tu casilla.</p>
-                </div>
-                <div class="avoid-break bg-gray-50 rounded-2xl p-4 border border-gray-200 space-y-1">
-                    <div class="font-extrabold text-[#133522]">2. Cuentas multi-sucursal y plazas del interior</div>
-                    <p class="js-edit text-[#4b5563] leading-relaxed"><strong>URLs:</strong> <span class="text-brand font-bold">/cobertura-y-operaciones-multi-sede/</span> + <span class="text-brand font-bold">/bahia-blanca/</span>, <span class="text-brand font-bold">/neuquen-vaca-muerta/</span>, <span class="text-brand font-bold">/trelew/</span> y <span class="text-brand font-bold">/puerto-madryn/</span> · Para anuncios de Google Ads por ciudad y para responder a casas matrices en CABA que licitan sucursales en el interior.</p>
-                </div>
-                <div class="avoid-break bg-gray-50 rounded-2xl p-4 border border-gray-200 space-y-1">
-                    <div class="font-extrabold text-[#133522]">3. Campañas de Perfit, respuestas por rubro y CRM</div>
-                    <p class="js-edit text-[#4b5563] leading-relaxed"><strong>URLs:</strong> las 8 páginas por especialidad (<span class="text-brand font-bold">/limpieza-industrial/</span>, <span class="text-brand font-bold">/oficinas-corporativas/</span>, <span class="text-brand font-bold">/universidades-y-clubes/</span>, <span class="text-brand font-bold">/consorcios/</span>, <span class="text-brand font-bold">/clinicas-y-hospitales/</span>, <span class="text-brand font-bold">/limpieza-en-altura/</span>, <span class="text-brand font-bold">/servicios-especiales/</span>, <span class="text-brand font-bold">/grandes-superficies/</span>) · Reemplazan los viejos links a posteos en Perfit y permiten detectar en qué rubro hizo clic cada contacto.</p>
-                </div>
-                <div class="avoid-break bg-gray-50 rounded-2xl p-4 border border-gray-200 space-y-1">
-                    <div class="font-extrabold text-[#133522]">4. Respaldo patrimonial y auditorías de calidad</div>
-                    <p class="js-edit text-[#4b5563] leading-relaxed"><strong>URLs:</strong> <span class="text-brand font-bold">/la-empresa/</span> (video de 35s, base de 800 m², taller propio y reloj biométrico 15 min) y <span class="text-brand font-bold">/certificacion-iso/</span> (certificado TÜV Rheinland N° 01 10006 2529826 y QR en línea) · Ideales para adjuntar en firmas de correo y cierres de presupuesto.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- BLOQUE 5: CONEXIÓN CON BROCHURES Y CON MARIEL -->
-        <section class="space-y-4">
-            <div class="flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-brand text-white text-xs font-extrabold flex items-center justify-center shrink-0">5</span>
-                <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Cómo se conecta este sitio cerrado con los otros dos frentes inmediatos</h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-[13px] text-[#374151]">
-                <div class="avoid-break bg-[#f4f7f5] rounded-2xl p-5 border border-brand/20 space-y-2">
-                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">Frente 1 · Propuesta de brochures</span>
-                    <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">Por qué hoy no están visibles en la web y cómo entran en juego</h3>
-                    <p class="js-edit leading-relaxed">
-                        Dejé todos los brochures desvinculados del sitio público a propósito hasta que vos y Juan aprueben primero el modelo piloto de <strong>Fábricas e Industrias</strong>. Una vez aprobado y replicado a las demás especialidades, los brochures trabajan en tándem con esta web:
-                    </p>
-                    <ul class="list-disc pl-4 space-y-1 text-[#4b5563]">
-                        <li class="js-edit">El sitio capta y filtra el pedido inicial las 24 horas.</li>
-                        <li class="js-edit">Cuando vos respondés una consulta, visitás una planta (como PRÜNE o Escuela Argentina Modelo) o contestás un pliego, enviás el PDF o el link interactivo puntual de ese rubro, con todos sus enlaces vivos apuntando a estas nuevas páginas.</li>
-                    </ul>
-                </div>
-
-                <div class="avoid-break bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-2">
-                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">Frente 2 · Orden de trabajo para Mariel (Google Ads)</span>
-                    <h3 class="js-edit font-extrabold text-sm sm:text-base text-[#111827]">Cómo cambia la calidad de las consultas pagas con este sitio</h3>
-                    <p class="js-edit leading-relaxed">
-                        Con el sitio nuevo listo, le pasamos a Mariel una bajada clara para que el presupuesto publicitario rinda en cuentas corporativas reales:
-                    </p>
-                    <ul class="list-disc pl-4 space-y-1 text-[#4b5563]">
-                        <li class="js-edit"><strong>Cambio de objetivo en Google Ads:</strong> dejar de contar como "éxito" cualquier clic suelto al WhatsApp (que entrenaba a Google a traer gente buscando empleo) y medir como conversión real el envío del nuevo cotizador de 3 pasos (que solo dispara cuando el pedido supera los filtros de empresa y mínimo de 4 horas).</li>
-                        <li class="js-edit"><strong>Limpieza de búsquedas no deseadas:</strong> sumar los filtros negativos surgidos de los 76 currículums y consultas descartadas (empleo, casas, sillones, tanques, mudanzas, pocas horas).</li>
-                        <li class="js-edit"><strong>Doble alcance en plazas del interior:</strong> apuntar las campañas de Bahía Blanca, Neuquén, Trelew y Puerto Madryn tanto a quien está en esa ciudad como a quien busca ese destino desde oficinas centrales en CABA/GBA.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- PIE DE PÁGINA PARA RESPUESTA RÁPIDA DE MAURO -->
-        <footer class="avoid-break bg-[#133522] text-white rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div class="space-y-1">
-                <div class="text-xs font-extrabold uppercase tracking-wider text-[#ffcc29]">Próximo paso sugerido</div>
-                <p class="js-edit text-xs sm:text-sm text-white/90 leading-relaxed max-w-2xl">
-                    Miralo cuando tengas un hueco tranquilo. Si te cierra cómo quedó estructurado, decime qué número preferís en las decisiones <strong>A, B, C, D, E y F</strong> (o si dejamos las opciones 1 recomendadas) y avanzamos con la bajada a Mariel y la puesta en producción.
-                </p>
-            </div>
-            <a href="../index.html" target="_blank" rel="noopener noreferrer" class="no-print shrink-0 bg-[#ffcc29] hover:bg-[#f2bf18] text-[#111827] font-extrabold text-xs sm:text-sm px-5 py-3 rounded-xl transition">
-                Recorrer el sitio propuesto ↗
-            </a>
-        </footer>
-
-    </article>
+    </div>
 
     <script>
         (function () {
             var params = new URLSearchParams(window.location.search);
             var isEdit = params.get('edit') === '1';
-            var STORAGE_KEY = 'su_propuesta_mauro_edits_v3';
+            var STORAGE_KEY = 'su_propuesta_mauro_edits_v4';
             var root = document.getElementById('editable-doc-root');
             var nodes = root ? root.querySelectorAll('.js-edit') : [];
 

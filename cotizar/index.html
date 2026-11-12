@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador corporativo paso a paso | Star Union S.R.L. · Limpieza Profesional</title>
+    <meta name="description" content="Solicitá una propuesta técnica y económica de limpieza profesional en 5 pasos breves: elegí tu tipo de establecimiento, dotación o pliego, carga horaria (mín. 4 hs corridas) y localidad.">
+    <link rel="canonical" href="https://www.starunion.com.ar/cotizar/" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Star Union S.R.L. | Sabemos de Limpieza">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="Cotizador corporativo paso a paso | Star Union S.R.L.">
+    <meta property="og:description" content="Configurá tu requerimiento de limpieza industrial, corporativa o institucional en menos de un minuto o adjuntá tu pliego de licitación.">
+    <meta property="og:url" content="https://www.starunion.com.ar/cotizar/">
+    <meta property="og:image" content="https://www.starunion.com.ar/assets/img/cards-unificadas/card-limpieza-industrial.jpg">
+    <link rel="llms-txt" href="/llms.txt" title="GEO & AI Context Profile - Star Union S.R.L.">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EC3GQ2K2E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9EC3GQ2K2E');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#03582d', dark: '#024121', deep: '#133522' },
+                        accent: { DEFAULT: '#ffcc29' },
+                        neutral: { custom: '#676b67' }
+                    },
+                    fontFamily: { sans: ['"Open Sans"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background: #f5f8f6; color: #111827; }
+        .ig-seg {
+            height: 4px;
+            border-radius: 999px;
+            background: #dfe6e1;
+            overflow: hidden;
+            flex: 1 1 0%;
+            transition: background 0.22s ease;
+        }
+        .ig-seg-fill {
+            height: 100%;
+            width: 0%;
+            background: #03582d;
+            border-radius: 999px;
+            transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .ig-seg.is-done .ig-seg-fill { width: 100%; background: #03582d; }
+        .ig-seg.is-active .ig-seg-fill { width: 100%; background: #03582d; }
+        .ig-seg.is-clickable { cursor: pointer; }
+
+        .tf-dim-prev {
+            opacity: 0.32;
+            transform: scale(0.975);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+        .tf-dim-prev:hover {
+            opacity: 0.78;
+            transform: scale(0.99);
+        }
+        .tf-dim-next {
+            opacity: 0.26;
+            transform: scale(0.975);
+            pointer-events: none;
+            user-select: none;
+            transition: opacity 0.2s ease;
+        }
+        @keyframes tfEnterUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tf-active-card {
+            animation: tfEnterUp 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .tf-opt-btn {
+            width: 100%;
+            text-align: left;
+            background: #f9fafb;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            min-height: 50px;
+        }
+        .tf-opt-btn:hover {
+            border-color: #03582d;
+            background: #f2f7f4;
+        }
+        .tf-opt-btn.is-selected {
+            border-color: #03582d;
+            background: #eef6f1;
+            box-shadow: 0 0 0 1px #03582d;
+        }
+        .tf-key-badge {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            color: #133522;
+            font-size: 11px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .tf-opt-btn.is-selected .tf-key-badge {
+            background: #03582d;
+            border-color: #03582d;
+            color: #ffffff;
+        }
+        .tf-pill {
+            border: 1.5px solid #d1d5db;
+            background: #ffffff;
+            border-radius: 11px;
+            padding: 9px 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1f2937;
+            cursor: pointer;
+            transition: all 0.14s ease;
+            text-align: center;
+        }
+        .tf-pill:hover { border-color: #03582d; color: #03582d; }
+        .tf-pill.is-selected { background: #03582d; border-color: #03582d; color: #ffffff; }
+        .tf-input {
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid #d1d5db;
+            border-radius: 12px;
+            padding: 11px 14px;
+            font-size: 16px;
+            color: #111827;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        @media (min-width: 640px) { .tf-input { font-size: 14.5px; } }
+        .tf-input:focus {
+            border-color: #03582d;
+            box-shadow: 0 0 0 3px rgba(3, 88, 45, 0.12);
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.starunion.com.ar/" },
+            { "@type": "ListItem", "position": 2, "name": "Cotizador corporativo", "item": "https://www.starunion.com.ar/cotizar/" }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.starunion.com.ar/cotizar/#webpage",
+          "name": "Cotizador corporativo paso a paso | Star Union S.R.L.",
+          "url": "https://www.starunion.com.ar/cotizar/",
+          "inLanguage": "es-AR",
+          "description": "Cotizador guiado para presupuestar servicios de limpieza industrial, corporativa e institucional o adjuntar pliegos de licitación."
+        },
+        {
+          "@type": "Service",
+          "name": "Presupuestos corporativos de limpieza integral y recepción de pliegos",
+          "provider": {
+            "@type": "Organization",
+            "name": "Star Union S.R.L.",
+            "url": "https://www.starunion.com.ar/",
+            "telephone": "0810-333-8646"
+          },
+          "areaServed": ["CABA", "Gran Buenos Aires", "La Plata", "Bahía Blanca", "Neuquén", "Trelew", "Puerto Madryn"]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- ENCABEZADO MINIMALISTA CON BARRAS DE PROGRESO SUTILES TIPO STORY DE IG -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-200">
+        <div class="max-w-3xl mx-auto px-4 pt-2.5 pb-1">
+            <div id="ig-progress-bars" class="flex items-center gap-1.5" aria-label="Progreso del cotizador">
+                <div class="ig-seg is-active" data-step="1" title="Paso 1: Establecimiento"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="2" title="Paso 2: Dotación o pliego"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="3" title="Paso 3: Carga horaria"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="4" title="Paso 4: Localidad"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="5" title="Paso 5: Datos de envío"><div class="ig-seg-fill"></div></div>
+            </div>
+        </div>
+        <div class="max-w-3xl mx-auto px-4 h-13 py-2.5 flex items-center justify-between gap-3">
+            <a href="../index.html" id="tf-logo-back" class="flex items-center gap-2.5 shrink-0">
+                <img src="../assets/img/logo-star-union.png?v=20261028" alt="Star Union S.R.L." class="h-8 sm:h-9 w-auto object-contain">
+            </a>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <span id="tf-step-counter" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-brand bg-[#eef6f1] px-2.5 py-1 rounded-full">Paso 1 de 5</span>
+                <a href="../index.html" id="tf-exit-link" class="text-xs font-bold text-[#4b5563] hover:text-[#111827] border border-gray-200 hover:border-gray-300 bg-gray-50 px-3 py-1.5 rounded-lg transition">
+                    ← Volver
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ESCENARIO CENTRAL TIPO TYPEFORM: ANTERIOR SEMI-TRANSPARENTE + ACTIVO NÍTIDO + SIGUIENTE SEMI-TRANSPARENTE -->
+    <main class="flex-1 flex flex-col justify-center py-5 sm:py-8 px-3.5 sm:px-6">
+        <div class="w-full max-w-2xl mx-auto space-y-3.5 sm:space-y-4">
+
+            <h1 class="sr-only">Cotizador corporativo de servicios de limpieza profesional — Star Union S.R.L.</h1>
+
+            <!-- RANURA SUPERIOR: PASO ANTERIOR APAGADO / SEMI-TRANSPARENTE (CLICABLE PARA VOLVER) -->
+            <div id="tf-prev-slot"></div>
+
+            <!-- RANURA CENTRAL: PREGUNTA ACTIVA (100% FOCO Y NITIDEZ) -->
+            <div id="tf-active-slot"></div>
+
+            <!-- RANURA INFERIOR: PRÓXIMO PASO APAGADO / SEMI-TRANSPARENTE -->
+            <div id="tf-next-slot"></div>
+
+            <!-- SELLO DISCRETO CONTEXTUAL DE RESPALDO (MANTIENE INTERLINKING EDITORIAL LIMPIO FUERA DE HEADER/FOOTER) -->
+            <div class="pt-3 text-center text-[11.5px] text-[#676b67] leading-relaxed">
+                Respaldo operativo propio:
+                <a href="../la-empresa/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">base de 800 m² en CABA</a> ·
+                <a href="../certificacion-iso/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">Sistema de Gestión ISO 9001:2015</a> ·
+                <a href="../cobertura-y-operaciones-multi-sede/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">cobertura multi-plaza</a> ·
+                <a href="../licitaciones-y-pliegos/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">recepción directa de pliegos</a>.
+            </div>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA COMPACTO CON AISLAMIENTO DE RRHH Y PROVEEDORES -->
+    <footer class="border-t border-gray-200 bg-white py-4 px-4 text-[11.5px] text-[#676b67]">
+        <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <span>Star Union S.R.L. · Atención comercial empresas: <a href="tel:08103338646" class="font-bold text-[#133522] hover:text-brand">0810-333-UNION (8646)</a></span>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform" target="_blank" rel="noopener noreferrer" class="hover:text-brand underline">Postulaciones laborales (RRHH) ↗</a>
+                <span>·</span>
+                <span>Proveedores: <strong class="text-[#111827] select-all">compras@starunion.com.ar</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var CLOUD_API_URL = 'https://cotizador-api-production-1166303f.up.railway.app/api/cotizar';
+        var LOCAL_PHP_URL = '../api/cotizar.php';
+        var WA_PHONE = '5491122759369';
+        var RRHH_FORM = 'https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform';
+
+        var RUBROS = [
+            { key: '1', slug: 'industrial', val: 'Plantas industriales, fábricas y centros logísticos', short: 'Plantas industriales y logística' },
+            { key: '2', slug: 'oficinas', val: 'Edificios corporativos de oficinas, bancos y sedes', short: 'Edificios de oficinas, bancos y sedes' },
+            { key: '3', slug: 'educacion', val: 'Universidades, colegios y clubes deportivos', short: 'Universidades, colegios y clubes' },
+            { key: '4', slug: 'consorcios', val: 'Consorcios de vivienda y grandes torres', short: 'Consorcios y grandes torres' },
+            { key: '5', slug: 'salud', val: 'Clínicas, sanatorios, hospitales y laboratorios', short: 'Clínicas, sanatorios y laboratorios' },
+            { key: '6', slug: 'especiales', val: 'Servicios especiales (altura, final de obra, predios y MIP)', short: 'Altura ARAA, final de obra, predios y MIP' },
+            { key: '7', slug: 'otro', val: 'Otro rubro o establecimiento corporativo', short: 'Otro establecimiento corporativo o comercial' }
+        ];
+
+        var DOTACIONES = [
+            { key: 'A', val: '1 a 3 personas operativas' },
+            { key: 'B', val: '4 a 10 personas operativas' },
+            { key: 'C', val: 'Más de 10 personas / Operación de escala' },
+            { key: 'D', val: 'A definir en visita de relevamiento técnico' }
+        ];
+
+        var ESPECIALIDADES = [
+            { key: 'A', val: '1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)' },
+            { key: 'B', val: '2. Final de obra industrial, corporativo o comercial de escala' },
+            { key: 'C', val: '3. Corte mecanizado con tractores en grandes predios' },
+            { key: 'D', val: '4. Fumigación certificada y manejo integrado de plagas (MIP)' }
+        ];
+
+        var HORAS = [
+            '4 hs corridas (mín.)',
+            '6 hs diarias',
+            '8 hs diarias',
+            'Turnos rotativos / 24 hs'
+        ];
+
+        var DIAS = [
+            'Lunes a viernes',
+            'Lunes a sábado',
+            'Lunes a lunes'
+        ];
+
+        var PLAZAS = [
+            'CABA',
+            'GBA Norte',
+            'GBA Oeste / Sur',
+            'La Plata',
+            'Bahía Blanca',
+            'Neuquén / Vaca Muerta',
+            'Trelew',
+            'Puerto Madryn'
+        ];
+
+        var params = new URLSearchParams(window.location.search);
+        var origenParam = params.get('origen') || '';
+        var rubroParam = (params.get('rubro') || '').trim();
+        var locParam = (params.get('localidad') || params.get('plaza') || '').trim();
+
+        var exitLink = document.getElementById('tf-exit-link');
+        var logoBack = document.getElementById('tf-logo-back');
+        if (origenParam && origenParam.indexOf('http') !== 0 && origenParam.indexOf('//') !== 0) {
+            var safeBack = origenParam.charAt(0) === '/' ? ('..' + origenParam) : ('../' + origenParam);
+            if (window.location.pathname.indexOf('/staruniontest/') !== -1 && origenParam.indexOf('/staruniontest/') === 0) {
+                safeBack = origenParam;
+            }
+            exitLink.setAttribute('href', safeBack);
+            logoBack.setAttribute('href', safeBack);
+        } else if (document.referrer && document.referrer.indexOf(window.location.host) !== -1 && document.referrer.indexOf('/cotizar') === -1) {
+            exitLink.setAttribute('href', document.referrer);
+        }
+
+        function matchRubro(q) {
+            if (!q) return '';
+            var ql = q.toLowerCase();
+            for (var i = 0; i < RUBROS.length; i++) {
+                if (RUBROS[i].val.toLowerCase() === ql || RUBROS[i].slug === ql || ql.indexOf(RUBROS[i].slug) !== -1) {
+                    return RUBROS[i].val;
+                }
+            }
+            if (ql.indexOf('plantas') !== -1 || ql.indexOf('industrial') !== -1) return RUBROS[0].val;
+            if (ql.indexOf('oficina') !== -1) return RUBROS[1].val;
+            if (ql.indexOf('universidad') !== -1 || ql.indexOf('colegio') !== -1) return RUBROS[2].val;
+            if (ql.indexOf('consorcio') !== -1) return RUBROS[3].val;
+            if (ql.indexOf('clínica') !== -1 || ql.indexOf('clinica') !== -1 || ql.indexOf('salud') !== -1) return RUBROS[4].val;
+            if (ql.indexOf('altura') !== -1 || ql.indexOf('especial') !== -1) return RUBROS[5].val;
+            return '';
+        }
+
+        var initialRubro = matchRubro(rubroParam);
+
+        var state = {
+            step: initialRubro ? 2 : 1,
+            subview: '', // '' | 'compras' | 'particular' | 'done'
+            rubro: initialRubro,
+            otroDetalle: '',
+            modoPliego: params.get('pliego') === '1',
+            files: [],
+            dotacion: '4 a 10 personas operativas',
+            especialidad: ESPECIALIDADES[0].val,
+            escalaEspecial: '',
+            horas: '8 hs diarias',
+            dias: 'Lunes a viernes',
+            localidad: locParam || '',
+            sedesExtras: [],
+            empresa: '',
+            nombre: '',
+            email: '',
+            telefono: '',
+            comentarios: '',
+            previewUrl: '',
+            entorno: ''
+        };
+
+        var prevSlot = document.getElementById('tf-prev-slot');
+        var activeSlot = document.getElementById('tf-active-slot');
+        var nextSlot = document.getElementById('tf-next-slot');
+        var stepCounter = document.getElementById('tf-step-counter');
+        var igBars = document.querySelectorAll('#ig-progress-bars .ig-seg');
+
+        function esc(s) {
+            return String(s || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function isEspecial() {
+            return state.rubro.indexOf('Servicios especiales') !== -1;
+        }
+
+        function isOtro() {
+            return state.rubro.indexOf('Otro rubro') !== -1;
+        }
+
+        function updateTopBars() {
+            if (state.subview === 'done') {
+                stepCounter.textContent = 'Solicitud registrada';
+                igBars.forEach(function (b) {
+                    b.className = 'ig-seg is-done';
+                });
+                return;
+            }
+            if (state.subview) {
+                stepCounter.textContent = 'Derivación directa';
+                return;
+            }
+            stepCounter.textContent = 'Paso ' + state.step + ' de 5';
+            igBars.forEach(function (b) {
+                var s = parseInt(b.getAttribute('data-step'), 10);
+                if (s < state.step) {
+                    b.className = 'ig-seg is-done is-clickable';
+                } else if (s === state.step) {
+                    b.className = 'ig-seg is-active';
+                } else {
+                    b.className = 'ig-seg';
+                }
+            });
+        }
+
+        igBars.forEach(function (b) {
+            b.addEventListener('click', function () {
+                if (state.subview === 'done') return;
+                var s = parseInt(b.getAttribute('data-step'), 10);
+                if (s < state.step) {
+                    state.subview = '';
+                    state.step = s;
+                    render();
+                }
+            });
+        });
+
+        function buildWaSummaryUrl() {
+            var parts = ['Hola Star Union, nos interesa evaluar una propuesta comercial.'];
+            if (state.empresa) parts.push('Empresa: ' + state.empresa + '.');
+            if (state.rubro) parts.push('Establecimiento: ' + (isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro) + '.');
+            if (state.files.length > 0) {
+                parts.push('Contamos con pliego / documentación (' + state.files.length + ' archivo/s).');
+            } else if (isEspecial()) {
+                parts.push('Intervención: ' + state.especialidad + (state.escalaEspecial ? ' (' + state.escalaEspecial + ')' : '') + '.');
+            } else {
+                parts.push('Esquema: ' + state.dotacion + ' · ' + state.horas + ' · ' + state.dias + '.');
+            }
+            if (state.localidad) {
+                var sedesStr = state.sedesExtras.filter(Boolean).join(', ');
+                parts.push('Localidad: ' + state.localidad + (sedesStr ? ' (+ ' + sedesStr + ')' : '') + '.');
+            }
+            return 'https://api.whatsapp.com/send?phone=' + WA_PHONE + '&text=' + encodeURIComponent(parts.join(' '));
+        }
+
+        function renderPrevDimmed() {
+            if (state.subview) {
+                prevSlot.innerHTML = '';
+                return;
+            }
+            if (state.step === 1) {
+                prevSlot.innerHTML = [
+                    '<div class="rounded-2xl border border-gray-200/80 bg-white/60 px-4 py-2.5 flex items-center justify-between text-xs text-[#676b67]">',
+                    '  <span>Atención exclusiva para empresas, industrias, instituciones y consorcios</span>',
+                    '  <span class="font-bold text-brand hidden sm:inline">Mín. 4 hs corridas</span>',
+                    '</div>'
+                ].join('');
+                return;
+            }
+
+            var prevNum = '0' + (state.step - 1);
+            var prevLabel = '';
+            var prevVal = '';
+
+            if (state.step === 2) {
+                prevLabel = 'Tipo de establecimiento';
+                prevVal = isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro;
+            } else if (state.step === 3) {
+                prevLabel = isEspecial() ? 'Intervención requerida' : 'Dotación / Alcance';
+                if (state.files.length > 0) {
+                    prevVal = 'Pliego adjunto (' + state.files.map(function (f) { return f.name; }).join(', ') + ')';
+                } else {
+                    prevVal = isEspecial() ? state.especialidad : state.dotacion;
+                }
+            } else if (state.step === 4) {
+                prevLabel = isEspecial() ? 'Superficie o plazo estimado' : 'Carga horaria y frecuencia';
+                prevVal = isEspecial()
+                    ? (state.escalaEspecial || 'Según pliego / relevamiento técnico')
+                    : (state.horas + ' · ' + state.dias);
+            } else if (state.step === 5) {
+                prevLabel = 'Localidad operativa';
+                var extras = state.sedesExtras.filter(Boolean);
+                prevVal = state.localidad + (extras.length ? ' + ' + extras.length + ' sede(s)' : '');
+            }
+
+            prevSlot.innerHTML = [
+                '<button type="button" id="btn-jump-prev" class="tf-dim-prev w-full text-left bg-white rounded-2xl border border-gray-200 px-4 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between gap-3">',
+                '  <div class="min-w-0">',
+                '    <div class="text-[11px] font-extrabold uppercase tracking-wider text-brand">' + prevNum + ' ✓ · ' + esc(prevLabel) + '</div>',
+                '    <div class="text-xs sm:text-sm font-bold text-[#111827] truncate mt-0.5">' + esc(prevVal) + '</div>',
+                '  </div>',
+                '  <span class="shrink-0 text-xs font-extrabold text-brand bg-[#eef6f1] px-2.5 py-1 rounded-lg">↑ Editar</span>',
+                '</button>'
+            ].join('');
+
+            var jumpBtn = document.getElementById('btn-jump-prev');
+            if (jumpBtn) {
+                jumpBtn.addEventListener('click', function () {
+                    state.step -= 1;
+                    render();
+                });
+            }
+        }
+
+        function renderNextDimmed() {
+            if (state.subview) {
+                nextSlot.innerHTML = '';
+                return;
+            }
+            if (state.step === 5) {
+                nextSlot.innerHTML = [
+                    '<div class="tf-dim-next bg-white rounded-2xl border border-gray-200 px-5 py-3.5 flex items-center justify-between gap-3 text-xs">',
+                    '  <span class="font-bold text-[#111827]">Confirmación inmediata · Respuesta directa al correo corporativo</span>',
+                    '  <span class="font-extrabold text-brand">ISO 9001:2015</span>',
+                    '</div>'
+                ].join('');
+                return;
+            }
+
+            var nextNum = '0' + (state.step + 1);
+            var nextTitle = '';
+            var nextPills = [];
+
+            if (state.step === 1) {
+                nextTitle = '¿Qué dotación estimada buscás cubrir o contás con pliego?';
+                nextPills = ['1 a 3 personas', '4 a 10 personas', '+10 personas', 'Adjuntar pliego PDF/Excel'];
+            } else if (state.step === 2) {
+                nextTitle = isEspecial()
+                    ? '¿Cuál es la superficie aproximada o alcance a relevar?'
+                    : '¿Qué carga horaria y frecuencia requiere la operación?';
+                nextPills = isEspecial()
+                    ? ['m² de nave o fachada', 'Hectáreas de predio', 'A relevar en visita']
+                    : ['4 hs corridas (mín.)', '6 hs diarias', '8 hs diarias', 'Turnos 24 hs'];
+            } else if (state.step === 3) {
+                nextTitle = '¿En qué localidad o sedes se presta el servicio?';
+                nextPills = ['CABA', 'GBA', 'Bahía Blanca', 'Neuquén', 'Trelew', 'Puerto Madryn'];
+            } else if (state.step === 4) {
+                nextTitle = '¿A quién enviamos la propuesta técnica y económica?';
+                nextPills = ['Empresa u organización', 'Correo corporativo', 'Teléfono directo'];
+            }
+
+            nextSlot.innerHTML = [
+                '<div class="tf-dim-next bg-white rounded-2xl border border-gray-200 px-4 sm:px-6 py-3.5 sm:py-4 space-y-2" aria-hidden="true">',
+                '  <div class="flex items-center gap-2">',
+                '    <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">' + nextNum + ' → Siguiente paso</span>',
+                '  </div>',
+                '  <div class="text-sm sm:text-base font-extrabold text-[#111827]">' + esc(nextTitle) + '</div>',
+                '  <div class="flex flex-wrap gap-1.5 pt-0.5">',
+                nextPills.map(function (p) {
+                    return '<span class="text-[11px] font-semibold bg-gray-100 text-gray-700 border border-gray-200 px-2.5 py-1 rounded-lg">' + esc(p) + '</span>';
+                }).join(''),
+                '  </div>',
+                '</div>'
+            ].join('');
+        }
+
+        function render() {
+            updateTopBars();
+            renderPrevDimmed();
+            renderNextDimmed();
+
+            // SUBVISTAS DE FILTRO LIMPIO (PROVEEDORES / PARTICULAR)
+            if (state.subview === 'compras') {
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-6 sm:p-8 space-y-4">',
+                    '  <span class="text-xs font-extrabold uppercase tracking-wider text-brand">Área de Compras · Proveedores</span>',
+                    '  <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827]">Recepción de propuestas de proveedores</h2>',
+                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Este cotizador es exclusivo para organizaciones que contratan servicios de limpieza. Enviá tu presentación o catálogo por correo a Compras:</p>',
+                    '  <div class="flex flex-wrap items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">',
+                    '    <span class="font-extrabold text-sm sm:text-base text-[#111827] select-all">compras@starunion.com.ar</span>',
+                    '    <button type="button" id="btn-copy-compras" class="bg-brand hover:bg-brand-dark text-white font-bold text-xs px-4 py-2 rounded-lg transition cursor-pointer">Copiar correo</button>',
+                    '  </div>',
+                    '  <button type="button" id="btn-back-from-sub" class="text-xs font-bold text-brand underline cursor-pointer">← Volver al cotizador comercial</button>',
+                    '</div>'
+                ].join('');
+                document.getElementById('btn-copy-compras').addEventListener('click', function () {
+                    var b = this;
+                    if (navigator.clipboard) navigator.clipboard.writeText('compras@starunion.com.ar').catch(function () {});
+                    b.textContent = '✓ Copiado';
+                });
+                document.getElementById('btn-back-from-sub').addEventListener('click', function () {
+                    state.subview = '';
+                    render();
+                });
+                return;
+            }
+
+            if (state.subview === 'particular') {
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-6 sm:p-8 space-y-4">',
+                    '  <span class="text-xs font-extrabold uppercase tracking-wider text-brand">Alcance corporativo</span>',
+                    '  <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827]">Servicio exclusivo para empresas, consorcios e instituciones</h2>',
+                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Star Union S.R.L. opera en plantas industriales, edificios corporativos, universidades, colegios, clubes, clínicas y grandes consorcios bajo esquemas desde 4 hs diarias corridas.</p>',
+                    '  <button type="button" id="btn-back-from-part" class="text-xs font-bold text-brand underline cursor-pointer">← Volver al cotizador comercial</button>',
+                    '</div>'
+                ].join('');
+                document.getElementById('btn-back-from-part').addEventListener('click', function () {
+                    state.subview = '';
+                    render();
+                });
+                return;
+            }
+
+            // PANTALLA DE CONFIRMACIÓN LIMPIA (CERO DOBLE BORDE, CERO REPETICIÓN DE NOMBRE)
+            if (state.subview === 'done') {
+                var cleanNombre = state.nombre.replace(/[,\s]+$/, '').trim();
+                var cleanEmpresa = state.empresa.replace(/[,\s]+$/, '').trim();
+                var headline = (cleanEmpresa && cleanEmpresa.toLowerCase() !== cleanNombre.toLowerCase())
+                    ? ('Gracias, ' + esc(cleanNombre) + '. Registramos la solicitud de ' + esc(cleanEmpresa) + '.')
+                    : ('Gracias, ' + esc(cleanNombre) + '. Registramos tu solicitud comercial.');
+
+                var alcanceResumen = state.files.length > 0
+                    ? ('Pliego adjunto (' + state.files.length + ' archivo/s)')
+                    : (isEspecial() ? state.especialidad : (state.dotacion + ' · ' + state.horas + ' · ' + state.dias));
+
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.14)] border border-gray-200 border-t-4 border-t-brand p-6 sm:p-9 space-y-5">',
+                    '  <div class="inline-flex items-center gap-2 bg-[#eef6f1] text-brand text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">',
+                    '    <span>✓ Solicitud recibida</span>',
+                    '  </div>',
+                    '  <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] leading-snug">' + headline + '</h2>',
+                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Dirección Comercial evaluará el requerimiento y responderá en forma directa a <strong class="text-[#111827]">' + esc(state.email) + '</strong> o al <strong class="text-[#111827]">' + esc(state.telefono) + '</strong>.</p>',
+                    '  <div class="bg-gray-50 rounded-2xl border border-gray-200 p-4 grid sm:grid-cols-2 gap-3 text-xs">',
+                    '    <div><span class="text-[#676b67] block">Establecimiento</span><strong class="text-[#111827]">' + esc(isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro) + '</strong></div>',
+                    '    <div><span class="text-[#676b67] block">Esquema / Alcance</span><strong class="text-[#111827]">' + esc(alcanceResumen) + '</strong></div>',
+                    '    <div class="sm:col-span-2"><span class="text-[#676b67] block">Localidad operativa</span><strong class="text-[#111827]">' + esc(state.localidad) + (state.sedesExtras.filter(Boolean).length ? ' · + ' + esc(state.sedesExtras.filter(Boolean).join(', ')) : '') + '</strong></div>',
+                    '  </div>',
+                    (state.previewUrl ? [
+                        '  <div class="bg-[#f4f7f5] border border-brand/25 rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-2 text-xs">',
+                        '    <span class="text-[#133522] font-semibold">' + (state.entorno === 'staging' ? 'Entorno de prueba activo (sin disparar correos a contacto@starunion.com.ar):' : 'Comprobante estructurado de tu solicitud:') + '</span>',
+                        '    <a href="' + esc(state.previewUrl) + '" target="_blank" rel="noopener noreferrer" class="font-extrabold text-brand underline">Ver correo generado y adjuntos ↗</a>',
+                        '  </div>'
+                    ].join('') : ''),
+                    '  <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">',
+                    '    <a href="' + esc(exitLink.getAttribute('href') || '../index.html') + '" class="w-full sm:w-auto text-center bg-brand hover:bg-brand-dark text-white font-extrabold text-sm px-6 py-3 rounded-xl transition">Volver al sitio</a>',
+                    '    <span class="text-xs text-[#676b67]">Atención directa: <strong class="text-brand">0810-333-UNION (8646)</strong></span>',
+                    '  </div>',
+                    '</div>'
+                ].join('');
+                return;
+            }
+
+            // PASO 1: ESTABLECIMIENTO
+            if (state.step === 1) {
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
+                    '  <div>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">01 → Tipo de establecimiento</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Para qué tipo de establecimiento necesitás propuesta?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Tocá una opción para avanzar al siguiente paso:</p>',
+                    '  </div>',
+                    '  <div class="grid grid-cols-1 gap-2">',
+                    RUBROS.map(function (r) {
+                        var sel = state.rubro === r.val ? ' is-selected' : '';
+                        return '<button type="button" class="tf-opt-btn js-pick-rubro' + sel + '" data-val="' + esc(r.val) + '">' +
+                            '<div class="flex items-center gap-3 min-w-0">' +
+                            '  <span class="tf-key-badge">' + esc(r.key) + '</span>' +
+                            '  <span class="text-[13.5px] sm:text-sm font-bold text-[#111827] leading-snug">' + esc(r.short) + '</span>' +
+                            '</div>' +
+                            '<svg class="w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>' +
+                            '</button>';
+                    }).join(''),
+                    '  </div>',
+                    '  <div class="pt-3 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2 text-[11.5px] text-[#676b67]">',
+                    '    <div class="flex flex-wrap items-center gap-3">',
+                    '      <a href="' + RRHH_FORM + '" target="_blank" rel="noopener noreferrer" class="font-bold text-[#4b5563] hover:text-brand underline">Busco empleo (RRHH) ↗</a>',
+                    '      <button type="button" id="btn-go-compras" class="font-bold text-[#4b5563] hover:text-brand underline cursor-pointer">Soy proveedor</button>',
+                    '      <button type="button" id="btn-go-part" class="text-[#676b67] hover:text-[#111827] underline cursor-pointer">Vivienda particular</button>',
+                    '    </div>',
+                    '  </div>',
+                    '</div>'
+                ].join('');
+
+                activeSlot.querySelectorAll('.js-pick-rubro').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        state.rubro = btn.getAttribute('data-val');
+                        state.step = 2;
+                        render();
+                    });
+                });
+                document.getElementById('btn-go-compras').addEventListener('click', function () {
+                    state.subview = 'compras';
+                    render();
+                });
+                document.getElementById('btn-go-part').addEventListener('click', function () {
+                    state.subview = 'particular';
+                    render();
+                });
+                return;
+            }
+
+            // PASO 2: DOTACIÓN / ESPECIALIDAD O SUBIDA DE PLIEGO
+            if (state.step === 2) {
+                var esp = isEspecial();
+                var otro = isOtro();
+                var optsList = esp ? ESPECIALIDADES : DOTACIONES;
+
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
+                    '  <div>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">02 → ' + (esp ? 'Especialidad corporativa' : 'Alcance o pliego') + '</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">' + (esp ? '¿Qué intervención técnica necesitás en tu empresa o predio?' : '¿Qué dotación estimada buscás cubrir?') + '</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">' + (esp ? 'Seleccioná una de nuestras 4 divisiones operativas o adjuntá pliego:' : 'Elegí una referencia rápida o adjuntá tu pliego / especificaciones:') + '</p>',
+                    '  </div>',
+                    (otro ? [
+                        '  <div>',
+                        '    <label class="block text-xs font-extrabold text-[#111827] mb-1.5">Especificá tu rubro o tipo de establecimiento *</label>',
+                        '    <input type="text" id="inp-otro-rubro" class="tf-input" value="' + esc(state.otroDetalle) + '" placeholder="Ej.: Centro comercial, cadena de sucursales, predio ferial fijo...">',
+                        '  </div>'
+                    ].join('') : ''),
+                    '  <div class="grid grid-cols-1 gap-2">',
+                    optsList.map(function (o) {
+                        var currentVal = esp ? state.especialidad : state.dotacion;
+                        var sel = (!state.modoPliego && currentVal === o.val) ? ' is-selected' : '';
+                        return '<button type="button" class="tf-opt-btn js-pick-step2' + sel + '" data-val="' + esc(o.val) + '">' +
+                            '<div class="flex items-center gap-3 min-w-0">' +
+                            '  <span class="tf-key-badge">' + esc(o.key) + '</span>' +
+                            '  <span class="text-[13.5px] sm:text-sm font-bold text-[#111827] leading-snug">' + esc(o.val) + '</span>' +
+                            '</div>' +
+                            '<svg class="w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>' +
+                            '</button>';
+                    }).join(''),
+                    '    <button type="button" id="btn-toggle-pliego" class="tf-opt-btn' + (state.modoPliego ? ' is-selected' : '') + '">',
+                    '      <div class="flex items-center gap-3 min-w-0">',
+                    '        <span class="tf-key-badge">E</span>',
+                    '        <span class="text-[13.5px] sm:text-sm font-bold text-brand leading-snug">📎 Adjuntar pliego o especificaciones (PDF, Word o Excel)</span>',
+                    '      </div>',
+                    '      <span class="text-[11px] font-bold text-[#676b67] shrink-0">Hasta 3 archivos</span>',
+                    '    </button>',
+                    '  </div>',
+                    '  <div id="pliego-drop-wrap" class="' + (state.modoPliego ? 'block' : 'hidden') + ' bg-[#f4f7f5] border border-brand/30 rounded-2xl p-4 space-y-3">',
+                    '    <input type="file" id="inp-pliego-files" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" class="block w-full text-xs text-[#374151] file:mr-3 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-extrabold file:bg-brand file:text-white hover:file:bg-brand-dark cursor-pointer">',
+                    '    <div id="pliego-files-list" class="space-y-1 text-xs"></div>',
+                    '    <button type="button" id="btn-continue-pliego" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3 rounded-xl transition cursor-pointer">Continuar con este pliego →</button>',
+                    '  </div>',
+                    '  <div id="step2-warn" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
+                    '</div>'
+                ].join('');
+
+                function renderSelectedFiles() {
+                    var listEl = document.getElementById('pliego-files-list');
+                    if (!listEl) return;
+                    listEl.innerHTML = state.files.map(function (f) {
+                        return '<div class="flex items-center justify-between bg-white border border-brand/20 rounded-lg px-3 py-1.5 font-semibold"><span class="truncate text-brand">✓ ' + esc(f.name) + '</span><span class="text-[#676b67] shrink-0 ml-2">' + Math.max(1, Math.round(f.size / 1024)) + ' KB</span></div>';
+                    }).join('');
+                }
+                renderSelectedFiles();
+
+                activeSlot.querySelectorAll('.js-pick-step2').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        if (otro) {
+                            var oVal = (document.getElementById('inp-otro-rubro').value || '').trim();
+                            if (!oVal) {
+                                var w = document.getElementById('step2-warn');
+                                w.textContent = 'Indicá en pocas palabras tu tipo de establecimiento.';
+                                w.classList.remove('hidden');
+                                document.getElementById('inp-otro-rubro').focus();
+                                return;
+                            }
+                            state.otroDetalle = oVal;
+                        }
+                        state.modoPliego = false;
+                        if (esp) state.especialidad = btn.getAttribute('data-val');
+                        else state.dotacion = btn.getAttribute('data-val');
+                        state.step = 3;
+                        render();
+                    });
+                });
+
+                document.getElementById('btn-toggle-pliego').addEventListener('click', function () {
+                    if (otro) state.otroDetalle = (document.getElementById('inp-otro-rubro')?.value || '').trim();
+                    state.modoPliego = true;
+                    render();
+                });
+
+                var fileInp = document.getElementById('inp-pliego-files');
+                if (fileInp) {
+                    fileInp.addEventListener('change', function () {
+                        var arr = Array.prototype.slice.call(fileInp.files || []).slice(0, 3);
+                        state.files = arr;
+                        renderSelectedFiles();
+                    });
+                }
+
+                var contPliego = document.getElementById('btn-continue-pliego');
+                if (contPliego) {
+                    contPliego.addEventListener('click', function () {
+                        if (otro) {
+                            var oVal2 = (document.getElementById('inp-otro-rubro')?.value || '').trim();
+                            if (!oVal2) {
+                                var w2 = document.getElementById('step2-warn');
+                                w2.textContent = 'Indicá tu tipo de establecimiento antes de avanzar.';
+                                w2.classList.remove('hidden');
+                                return;
+                            }
+                            state.otroDetalle = oVal2;
+                        }
+                        state.step = 4; // Con pliego adjunto salta directo a Localidad
+                        render();
+                    });
+                }
+                return;
+            }
+
+            // PASO 3: CARGA HORARIA Y DÍAS (O ESCALA EN SERVICIOS ESPECIALES)
+            if (state.step === 3) {
+                if (isEspecial()) {
+                    activeSlot.innerHTML = [
+                        '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
+                        '  <div>',
+                        '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">03 → Dimensión aproximada</span>',
+                        '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Cuál es la superficie aproximada o alcance del trabajo?</h2>',
+                        '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Una referencia orientativa alcanza para preparar la visita técnica:</p>',
+                        '  </div>',
+                        '  <div>',
+                        '    <input type="text" id="inp-escala-esp" class="tf-input" value="' + esc(state.escalaEspecial) + '" placeholder="Ej.: 2.500 m² de nave industrial, fachada vidriada de 8 pisos, 15 hectáreas...">',
+                        '  </div>',
+                        '  <div id="step3-warn" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
+                        '  <button type="button" id="btn-step3-next" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3.5 rounded-xl transition cursor-pointer">Continuar →</button>',
+                        '</div>'
+                    ].join('');
+                    var inpEsp = document.getElementById('inp-escala-esp');
+                    inpEsp.focus();
+                    document.getElementById('btn-step3-next').addEventListener('click', function () {
+                        var v = (inpEsp.value || '').trim();
+                        if (!v) {
+                            var w = document.getElementById('step3-warn');
+                            w.textContent = 'Indicá una superficie aproximada o escribí "A relevar en visita".';
+                            w.classList.remove('hidden');
+                            inpEsp.focus();
+                            return;
+                        }
+                        state.escalaEspecial = v;
+                        state.step = 4;
+                        render();
+                    });
+                    return;
+                }
+
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-5">',
+                    '  <div>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">03 → Esquema horario</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Qué carga horaria y frecuencia requiere la operación?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Operamos con esquemas corporativos desde 4 horas diarias corridas:</p>',
+                    '  </div>',
+                    '  <div class="space-y-2">',
+                    '    <label class="block text-xs font-extrabold text-[#111827]">Carga horaria por turno</label>',
+                    '    <div class="grid grid-cols-2 gap-2">',
+                    HORAS.map(function (h) {
+                        var sel = state.horas === h ? ' is-selected' : '';
+                        return '<button type="button" class="tf-pill js-pick-horas' + sel + '" data-val="' + esc(h) + '">' + esc(h) + '</button>';
+                    }).join(''),
+                    '    </div>',
+                    '  </div>',
+                    '  <div class="space-y-2">',
+                    '    <label class="block text-xs font-extrabold text-[#111827]">Frecuencia semanal</label>',
+                    '    <div class="grid grid-cols-3 gap-2">',
+                    DIAS.map(function (d) {
+                        var sel = state.dias === d ? ' is-selected' : '';
+                        return '<button type="button" class="tf-pill js-pick-dias' + sel + '" data-val="' + esc(d) + '">' + esc(d) + '</button>';
+                    }).join(''),
+                    '    </div>',
+                    '  </div>',
+                    '  <button type="button" id="btn-step3-next" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3.5 rounded-xl transition cursor-pointer">Continuar →</button>',
+                    '</div>'
+                ].join('');
+
+                activeSlot.querySelectorAll('.js-pick-horas').forEach(function (b) {
+                    b.addEventListener('click', function () {
+                        state.horas = b.getAttribute('data-val');
+                        render();
+                    });
+                });
+                activeSlot.querySelectorAll('.js-pick-dias').forEach(function (b) {
+                    b.addEventListener('click', function () {
+                        state.dias = b.getAttribute('data-val');
+                        render();
+                    });
+                });
+                document.getElementById('btn-step3-next').addEventListener('click', function () {
+                    state.step = 4;
+                    render();
+                });
+                return;
+            }
+
+            // PASO 4: LOCALIDAD Y MULTI-SEDE
+            if (state.step === 4) {
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
+                    '  <div>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">04 → Ubicación operativa</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿En qué localidad o sedes se presta el servicio?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Tocá una plaza activa o escribí el barrio, parque industrial o ciudad:</p>',
+                    '  </div>',
+                    '  <div class="flex flex-wrap gap-1.5">',
+                    PLAZAS.map(function (pl) {
+                        var sel = state.localidad === pl ? ' is-selected' : '';
+                        return '<button type="button" class="tf-pill js-pick-plaza !py-1.5 !px-3 !text-xs' + sel + '" data-val="' + esc(pl) + '">' + esc(pl) + '</button>';
+                    }).join(''),
+                    '  </div>',
+                    '  <div>',
+                    '    <input type="text" id="inp-localidad" class="tf-input" value="' + esc(state.localidad) + '" placeholder="Ej.: Parque Industrial Pilar, Microcentro CABA, Bahía Blanca...">',
+                    '  </div>',
+                    '  <div class="space-y-2">',
+                    '    <div class="flex items-center justify-between">',
+                    '      <span class="text-xs font-bold text-[#4b5563]">¿Operación en más de una sucursal o planta?</span>',
+                    '      <button type="button" id="btn-add-sede" class="text-xs font-extrabold text-brand underline cursor-pointer">+ Sumar otra sede</button>',
+                    '    </div>',
+                    '    <div id="sedes-extra-wrap" class="space-y-2">',
+                    state.sedesExtras.map(function (s, idx) {
+                        return '<div class="flex items-center gap-2">' +
+                            '<input type="text" data-idx="' + idx + '" class="tf-input js-sede-extra !py-2 !text-xs" value="' + esc(s) + '" placeholder="Sede adicional (localidad y dotación aproximada)">' +
+                            '<button type="button" data-idx="' + idx + '" class="js-del-sede shrink-0 text-xs font-bold text-gray-500 hover:text-[#111827] px-2.5 py-2 border border-gray-200 rounded-lg cursor-pointer">✕</button>' +
+                            '</div>';
+                    }).join(''),
+                    '    </div>',
+                    '  </div>',
+                    '  <div id="step4-warn" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
+                    '  <button type="button" id="btn-step4-next" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3.5 rounded-xl transition cursor-pointer">Continuar al último paso →</button>',
+                    '</div>'
+                ].join('');
+
+                function syncLocState() {
+                    var inp = document.getElementById('inp-localidad');
+                    if (inp) state.localidad = inp.value;
+                    activeSlot.querySelectorAll('.js-sede-extra').forEach(function (el) {
+                        var idx = parseInt(el.getAttribute('data-idx'), 10);
+                        state.sedesExtras[idx] = el.value;
+                    });
+                }
+
+                activeSlot.querySelectorAll('.js-pick-plaza').forEach(function (b) {
+                    b.addEventListener('click', function () {
+                        syncLocState();
+                        state.localidad = b.getAttribute('data-val');
+                        render();
+                    });
+                });
+
+                document.getElementById('btn-add-sede').addEventListener('click', function () {
+                    syncLocState();
+                    if (state.sedesExtras.length < 6) {
+                        state.sedesExtras.push('');
+                        render();
+                    }
+                });
+
+                activeSlot.querySelectorAll('.js-del-sede').forEach(function (b) {
+                    b.addEventListener('click', function () {
+                        syncLocState();
+                        var idx = parseInt(b.getAttribute('data-idx'), 10);
+                        state.sedesExtras.splice(idx, 1);
+                        render();
+                    });
+                });
+
+                document.getElementById('btn-step4-next').addEventListener('click', function () {
+                    syncLocState();
+                    if (!state.localidad.trim()) {
+                        var w = document.getElementById('step4-warn');
+                        w.textContent = 'Indicá la localidad o seleccioná una plaza operativa.';
+                        w.classList.remove('hidden');
+                        document.getElementById('inp-localidad').focus();
+                        return;
+                    }
+                    state.step = 5;
+                    render();
+                });
+                return;
+            }
+
+            // PASO 5: DATOS DE ENVÍO + OPCIÓN DISCRETA WHATSAPP
+            if (state.step === 5) {
+                activeSlot.innerHTML = [
+                    '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
+                    '  <div>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">05 → Datos para recibir propuesta</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿A quién enviamos la propuesta técnica y económica?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Dirección Comercial responderá en forma directa a tu correo corporativo o teléfono.</p>',
+                    '  </div>',
+                    '  <form id="tf-final-form" class="space-y-3">',
+                    '    <input type="text" name="website_url" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">',
+                    '    <div class="grid sm:grid-cols-2 gap-3">',
+                    '      <div>',
+                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Empresa, institución o consorcio *</label>',
+                    '        <input type="text" id="inp-empresa" required class="tf-input" value="' + esc(state.empresa) + '" placeholder="Nombre de tu organización">',
+                    '      </div>',
+                    '      <div>',
+                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Nombre, apellido y área *</label>',
+                    '        <input type="text" id="inp-nombre" required class="tf-input" value="' + esc(state.nombre) + '" placeholder="Ej.: Martín Gómez · Compras">',
+                    '      </div>',
+                    '    </div>',
+                    '    <div class="grid sm:grid-cols-2 gap-3">',
+                    '      <div>',
+                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Correo corporativo *</label>',
+                    '        <input type="email" id="inp-email" required class="tf-input" value="' + esc(state.email) + '" placeholder="nombre@empresa.com.ar">',
+                    '      </div>',
+                    '      <div>',
+                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Teléfono directo *</label>',
+                    '        <input type="tel" id="inp-tel" required class="tf-input" value="' + esc(state.telefono) + '" placeholder="Ej.: 011 4000-0000">',
+                    '      </div>',
+                    '    </div>',
+                    '    <div>',
+                    '      <label class="block text-xs font-extrabold text-[#111827] mb-1">Observaciones o disponibilidad para visita técnica (opcional)</label>',
+                    '      <input type="text" id="inp-obs" class="tf-input" value="' + esc(state.comentarios) + '" placeholder="Ej.: horario sugerido de visita, requisito de auditoría o fecha de inicio">',
+                    '    </div>',
+                    '    <div id="step5-err" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
+                    '    <button type="submit" id="btn-submit-final" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm sm:text-base py-3.5 rounded-xl shadow-sm transition cursor-pointer">',
+                    '      Enviar solicitud a Dirección Comercial →',
+                    '    </button>',
+                    '    <div class="pt-1 text-center">',
+                    '      <a href="#" id="btn-wa-handoff" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand underline decoration-brand/40 hover:decoration-brand">',
+                    '        O continuar por WhatsApp Comercial con este resumen cargado ↗',
+                    '      </a>',
+                    '    </div>',
+                    '  </form>',
+                    '</div>'
+                ].join('');
+
+                var waBtn = document.getElementById('btn-wa-handoff');
+                waBtn.addEventListener('click', function () {
+                    state.empresa = (document.getElementById('inp-empresa')?.value || '').trim();
+                    waBtn.setAttribute('href', buildWaSummaryUrl());
+                    if (typeof window.gtag === 'function') {
+                        window.gtag('event', 'cotizador_derivacion_wa_b2b', { rubro: state.rubro });
+                    }
+                });
+
+                document.getElementById('tf-final-form').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    state.empresa = document.getElementById('inp-empresa').value.trim();
+                    state.nombre = document.getElementById('inp-nombre').value.trim();
+                    state.email = document.getElementById('inp-email').value.trim();
+                    state.telefono = document.getElementById('inp-tel').value.trim();
+                    state.comentarios = document.getElementById('inp-obs').value.trim();
+
+                    var subBtn = document.getElementById('btn-submit-final');
+                    var errBox = document.getElementById('step5-err');
+                    errBox.classList.add('hidden');
+                    subBtn.disabled = true;
+                    subBtn.textContent = 'Registrando y enviando solicitud...';
+
+                    var fd = new FormData();
+                    var rubroFinal = isOtro() && state.otroDetalle ? ('Otro: ' + state.otroDetalle) : state.rubro;
+                    var alcanceFinal = state.files.length > 0
+                        ? ('Pliego adjunto (' + state.files.length + ' archivo/s)')
+                        : (isEspecial() ? state.especialidad : state.dotacion);
+                    var horasFinal = isEspecial() ? (state.escalaEspecial || 'A relevar') : state.horas;
+                    var diasFinal = isEspecial() ? '' : state.dias;
+                    var sedesClean = state.sedesExtras.map(function (x) { return x.trim(); }).filter(Boolean).join(' | ');
+
+                    var isStagingHost = window.location.hostname.indexOf('wajntraub.ar') !== -1 ||
+                                        window.location.hostname === 'localhost' ||
+                                        window.location.hostname === '127.0.0.1';
+
+                    fd.append('tipo_solicitud', state.files.length > 0 ? 'licitacion_pliego' : 'cotizacion');
+                    fd.append('entorno', isStagingHost ? 'staging' : 'produccion');
+                    fd.append('empresa', state.empresa);
+                    fd.append('nombre', state.nombre);
+                    fd.append('email', state.email);
+                    fd.append('telefono', state.telefono);
+                    fd.append('rubro', rubroFinal);
+                    fd.append('tipo_organizacion', state.rubro);
+                    fd.append('otro_rubro_detalle', state.otroDetalle);
+                    fd.append('alcance', alcanceFinal);
+                    fd.append('cantidad_personas', isEspecial() ? '' : state.dotacion);
+                    fd.append('especialidad_requerida', isEspecial() ? state.especialidad : '');
+                    fd.append('escala_especial', isEspecial() ? state.escalaEspecial : '');
+                    fd.append('horas_dia', horasFinal);
+                    fd.append('cantidad_horas', horasFinal);
+                    fd.append('dias_semana', diasFinal);
+                    fd.append('dias_servicio', diasFinal);
+                    fd.append('localidad', state.localidad);
+                    fd.append('ubicacion', state.localidad);
+                    fd.append('sedes_adicionales', sedesClean);
+                    fd.append('comentarios', state.comentarios);
+                    fd.append('escala', state.comentarios);
+                    fd.append('origen_pagina', origenParam || '/cotizar/');
+                    fd.append('canal_origen', 'Cotizador guiado /cotizar/');
+                    if (params.get('silent') === '1') fd.append('silent', '1');
+
+                    state.files.forEach(function (f, i) {
+                        fd.append('pliego_' + (i + 1), f);
+                    });
+
+                    // En producción en starunion.com.ar dispara además api/cotizar.php para envío directo de servidor
+                    if (!isStagingHost) {
+                        fetch(LOCAL_PHP_URL, { method: 'POST', body: fd }).catch(function () {});
+                    }
+
+                    fetch(CLOUD_API_URL, { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .then(function (j) {
+                            if (!j || !j.ok) {
+                                throw new Error((j && j.error) || 'Verificá los datos ingresados.');
+                            }
+                            state.previewUrl = j.preview_url || '';
+                            state.entorno = j.entorno || (isStagingHost ? 'staging' : 'produccion');
+
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push({
+                                event: 'lead_b2b_calificado_starunion',
+                                b2b_vertical: rubroFinal,
+                                b2b_location: state.localidad,
+                                b2b_has_rfp: state.files.length > 0 ? 'si' : 'no'
+                            });
+                            if (typeof window.gtag === 'function') {
+                                window.gtag('event', 'lead_b2b_calificado_starunion', {
+                                    event_category: 'Cotizador_Guiado',
+                                    b2b_vertical: rubroFinal
+                                });
+                            }
+
+                            state.subview = 'done';
+                            render();
+                        })
+                        .catch(function (err) {
+                            subBtn.disabled = false;
+                            subBtn.textContent = 'Enviar solicitud a Dirección Comercial →';
+                            errBox.textContent = (err && err.message) ? err.message : 'No pudimos completar el envío en este momento. Podés continuar por WhatsApp Comercial debajo.';
+                            errBox.classList.remove('hidden');
+                        });
+                });
+            }
+        }
+
+        // Atajos rápidos de teclado en escritorio (1-7 en Paso 1, A-E en Paso 2)
+        document.addEventListener('keydown', function (e) {
+            var tag = (e.target && e.target.tagName) || '';
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || state.subview) return;
+            var k = (e.key || '').toUpperCase();
+            if (state.step === 1 && k >= '1' && k <= '7') {
+                var idx = parseInt(k, 10) - 1;
+                if (RUBROS[idx]) {
+                    state.rubro = RUBROS[idx].val;
+                    state.step = 2;
+                    render();
+                }
+            }
+        });
+
+        render();
+    })();
+    </script>
+</body>
+</html>

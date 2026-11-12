@@ -403,7 +403,7 @@
                     var files = Array.prototype.slice.call(fileInput.files || []);
                     if (files.length > 3) {
                         alertBox.textContent = 'Seleccioná hasta un máximo de 3 archivos.';
-                        alertBox.className = 'rounded-xl px-4 py-3 text-xs font-semibold bg-red-50 text-red-800 border border-red-200';
+                        alertBox.className = 'rounded-xl px-4 py-3 text-xs font-semibold bg-gray-100 text-[#111827] border border-gray-300';
                         fileInput.value = '';
                         return;
                     }
@@ -426,22 +426,40 @@
                     submitBtn.textContent = 'Enviando documentación a Comercial...';
 
                     var fd = new FormData(form);
-                    var empresa = (fd.get('empresa') || '').toString().trim();
-                    var nombre = (fd.get('nombre') || '').toString().trim();
+                    var isStagingHost = window.location.hostname.indexOf('wajntraub.ar') !== -1 ||
+                                        window.location.hostname === 'localhost' ||
+                                        window.location.hostname === '127.0.0.1';
+                    fd.append('tipo_solicitud', 'licitacion_pliego');
+                    fd.append('entorno', isStagingHost ? 'staging' : 'produccion');
+                    fd.append('origen_pagina', '/licitaciones-y-pliegos/');
+                    fd.append('canal_origen', 'Portal Licitaciones y Pliegos');
+
+                    var empresa = (fd.get('empresa') || '').toString().replace(/[,\s]+$/, '').trim();
+                    var nombre = (fd.get('nombre') || '').toString().replace(/[,\s]+$/, '').trim();
                     var email = (fd.get('email') || '').toString().trim();
 
-                    function renderSuccess() {
+                    function renderSuccess(resData) {
                         window.dataLayer = window.dataLayer || [];
                         window.dataLayer.push({ event: 'lead_b2b_calificado_starunion', b2b_vertical: 'Licitacion_RFP' });
                         if (typeof window.gtag === 'function') {
                             window.gtag('event', 'envio_pliego_licitacion_b2b', { empresa: empresa });
                         }
+                        var safeNom = nombre.replace(/</g, '&lt;');
+                        var safeEmp = empresa.replace(/</g, '&lt;');
+                        var heading = (safeEmp && safeEmp.toLowerCase() !== safeNom.toLowerCase())
+                            ? ('Gracias, ' + safeNom + '. Registramos la invitación de ' + safeEmp + '.')
+                            : ('Gracias, ' + safeNom + '. Registramos tu documentación de licitación.');
+                        var previewBlock = (resData && resData.preview_url)
+                            ? '<div class="bg-[#f4f7f5] border border-brand/25 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs"><span class="font-semibold text-[#133522]">' + (isStagingHost ? 'Modo prueba activo (sin disparar correos a contacto@starunion.com.ar):' : 'Comprobante estructurado de recepción:') + '</span><a href="' + resData.preview_url + '" target="_blank" rel="noopener noreferrer" class="font-extrabold text-brand underline">Ver correo generado y archivos adjuntos ↗</a></div>'
+                            : '';
+
                         form.innerHTML = [
-                            '<div class="bg-[#f4f7f5] border-2 border-brand rounded-2xl p-6 space-y-3">',
-                            '  <span class="inline-block bg-brand text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">✓ Recibido por Dirección Comercial</span>',
-                            '  <h3 class="text-lg sm:text-xl font-extrabold text-[#111827]">Gracias, ' + nombre.replace(/</g, '&lt;') + '. Registramos la invitación de ' + empresa.replace(/</g, '&lt;') + '.</h3>',
-                            '  <p class="text-sm text-[#374151] leading-relaxed">Dirección Comercial recibió la documentación adjunta y te responderá en forma directa a <strong>' + email.replace(/</g, '&lt;') + '</strong> para confirmar recepción y agendar el relevamiento técnico.</p>',
-                            '  <div class="pt-3 border-t border-brand/20 flex flex-wrap justify-between gap-2 text-xs text-[#4b5563]">',
+                            '<div class="bg-white border border-gray-200 border-t-4 border-t-brand rounded-2xl p-6 space-y-3 shadow-sm">',
+                            '  <span class="inline-block bg-[#eef6f1] text-brand text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">✓ Documentación recibida</span>',
+                            '  <h3 class="text-lg sm:text-xl font-extrabold text-[#111827]">' + heading + '</h3>',
+                            '  <p class="text-sm text-[#374151] leading-relaxed">Dirección Comercial recibió la documentación adjunta y responderá en forma directa a <strong>' + email.replace(/</g, '&lt;') + '</strong> para confirmar recepción y coordinar el relevamiento técnico.</p>',
+                            previewBlock,
+                            '  <div class="pt-3 border-t border-gray-200 flex flex-wrap justify-between gap-2 text-xs text-[#4b5563]">',
                             '    <span>Atención directa: <strong class="text-brand">0810-333-UNION (8646)</strong></span>',
                             '    <span>Base Central CABA (800 m²) · ISO 9001:2015</span>',
                             '  </div>',
@@ -449,35 +467,29 @@
                         ].join('');
                     }
 
-                    fetch('../api/cotizar.php', { method: 'POST', body: fd })
-                        .then(function (r) {
-                            if (r.ok) return r.json();
-                            if (window.location.hostname.indexOf('wajntraub.ar') !== -1 || window.location.hostname === 'localhost') {
-                                return { ok: true };
-                            }
-                            throw new Error('HTTP ' + r.status);
-                        })
+                    if (!isStagingHost) {
+                        fetch('../api/cotizar.php', { method: 'POST', body: fd }).catch(function () {});
+                    }
+
+                    fetch('https://cotizador-api-production-1166303f.up.railway.app/api/cotizar', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
                         .then(function (j) {
                             if (j && j.ok) {
-                                renderSuccess();
+                                renderSuccess(j);
                             } else {
                                 throw new Error((j && j.error) || 'Verificá los datos ingresados.');
                             }
                         })
                         .catch(function (err) {
-                            if (window.location.hostname.indexOf('wajntraub.ar') !== -1 || window.location.hostname === 'localhost') {
-                                renderSuccess();
-                                return;
-                            }
                             submitBtn.disabled = false;
                             submitBtn.textContent = 'Enviar invitación y pliegos a Dirección Comercial';
                             alertBox.textContent = (err && err.message) ? err.message : 'No pudimos completar el envío. Podés remitir el pliego a comercial@starunion.com.ar.';
-                            alertBox.className = 'rounded-xl px-4 py-3 text-xs font-semibold bg-red-50 text-red-800 border border-red-200';
+                            alertBox.className = 'rounded-xl px-4 py-3 text-xs font-semibold bg-gray-100 text-[#111827] border border-gray-300';
                         });
                 });
             }
         })();
     </script>
-    <script src="../assets/js/starunion-b2b.js?v=20261112g"></script>
+    <script src="../assets/js/starunion-b2b.js?v=20261112h"></script>
 </body>
 </html>
