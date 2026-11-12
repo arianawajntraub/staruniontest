@@ -1737,57 +1737,8 @@ class StarUnionAPIHandler(http.server.SimpleHTTPRequestHandler):
 
 
 def auto_publish_approved_worker():
-    import subprocess
-    while True:
-        try:
-            sched_path = os.path.join(WEB_ROOT, "redes-sociales", "calendario_programado.json")
-            if os.path.exists(sched_path):
-                with open(sched_path, "r", encoding="utf-8") as f:
-                    sched = json.load(f)
-                now_str = time.strftime("%Y-%m-%dT%H:%M")
-                changed = False
-                for pid, p in sched.items():
-                    if p.get("status") in ("aprobado", "programado") and p.get("scheduled_at") and p["scheduled_at"] <= now_str:
-                        print(f"[AUTO-SCHEDULER] Disparando pieza APROBADA #{pid} ({p.get('scheduled_at')})...")
-                        keys = load_keys()
-                        chs = p.get("channels") or ["ig_feed", "ig_story", "ig_reel", "fb_page", "fb_story", "fb_reel", "linkedin", "gmb", "youtube", "tiktok"]
-                        feed_f = (p.get("carousel_files") or [p.get("feed_file", "")])[0]
-                        story_f = p.get("story_video_file") or p.get("story_file", "")
-                        reel_f = p.get("reel_file", "")
-                        cap_ig = p.get("copy_ig_fb", "")
-                        cap_li = p.get("copy_linkedin", "")
-                        yt_t = p.get("yt_title", "")
-                        yt_d = p.get("yt_desc", cap_ig)
-                        yt_tags = p.get("yt_tags", "")
-                        title = f"{p.get('volanta', 'Star Union')} · {p.get('bajada', '').replace(chr(10), ' ')}"
-                        res = {}
-                        if "ig_feed" in chs: res["Instagram Feed (4:5)"] = publish_ig_feed(keys, feed_f, cap_ig)
-                        if "ig_story" in chs: res["Instagram Story Video c/Música (9:16)"] = publish_ig_story(keys, story_f, reel_f)
-                        if "ig_reel" in chs: res["Instagram Reel con Voz Varón + Funk (MP4)"] = publish_ig_reel(keys, reel_f, cap_ig)
-                        if "fb_page" in chs: res["Facebook Page"] = publish_fb_page(keys, p.get("fb_feed_file") or feed_f, cap_ig, "https://www.starunion.com.ar")
-                        if "fb_reel" in chs: res["Facebook Reel MP4"] = publish_fb_reel(keys, reel_f, cap_ig, "https://www.starunion.com.ar")
-                        if "linkedin" in chs: res["LinkedIn Página Empresa"] = publish_linkedin(keys, p.get("li_feed_file") or feed_f, cap_li, "https://www.starunion.com.ar", title)
-                        if "gmb" in chs: res["Google My Business (Maps)"] = publish_gmb(keys, p.get("gmb_feed_file") or feed_f, cap_ig, "https://www.starunion.com.ar")
-                        if "youtube" in chs: res["YouTube Shorts"] = publish_youtube_short(keys, reel_f, yt_t, yt_d, yt_tags)
-                        if "tiktok" in chs: res["TikTok Video"] = publish_tiktok(keys, reel_f, cap_ig)
-                        any_ok = any(isinstance(v, dict) and v.get("ok") for v in res.values())
-                        if any_ok:
-                            p["status"] = "publicado"
-                            p["published_at"] = now_str
-                            p["last_results"] = res
-                            changed = True
-                        else:
-                            print(f"[AUTO-SCHEDULER] #{pid} sin red/DNS disponible en este segundo; reintentando en 45s...")
-                if changed:
-                    with open(sched_path, "w", encoding="utf-8") as f:
-                        json.dump(sched, f, ensure_ascii=False, indent=2)
-                    subprocess.Popen(
-                        "cd /Users/arianawajntraub/Documents/antigravity/star-union && git add redes-sociales/calendario_programado.json && git commit -m 'chore(auto): sync published post status' && git push origin main",
-                        shell=True,
-                    )
-        except Exception as e:
-            print("[AUTO-SCHEDULER ERROR]", e)
-        time.sleep(45)
+    # DESACTIVADO PERMANENTEMENTE POR SEGURIDAD: Prohibido auto-disparar desde la Mac local.
+    return
 
 def tiktok_cloud_relay_worker():
     seen_ids = set()

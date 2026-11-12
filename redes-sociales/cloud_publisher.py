@@ -1,3 +1,5 @@
+# DESACTIVADO_POR_APROBALO: Prohibido publicar o pisar calendarios desde scripts locales.
+import sys; sys.exit(0)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """

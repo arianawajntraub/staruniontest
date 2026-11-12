@@ -93,9 +93,9 @@
    - Incorporar los posicionamientos de cotización ética y el bloque de alcance geográfico (CABA/GBA + Bahía Blanca + Neuquén/Vaca Muerta + Trelew + Puerto Madryn + acuerdos para nuevas sucursales).
    - **GUARDADO PARA CUANDO SE APRUEBE Y LANCE EL SITIO NUEVO (Filtro Técnico Anti-CVs y Anti-Proveedores en el Botón de WhatsApp):**
      - **Filtro Técnico #1 (En la Web Nueva antes de abrir WhatsApp):** Al tocar el botón flotante de WhatsApp en la web nueva, se despliega una mini-tarjeta de 3 botones:
-       1. 🟢 `Quiero presupuestar limpieza para mi empresa / edificio` → Abre el WhatsApp `+54 9 11 2275-9369` con el texto pre-escrito *"Hola Star Union, solicito cotización para la empresa..."*.
-       2. 🔵 `Busco empleo / Quiero enviar mi CV` → Bloquea el paso a WhatsApp y muestra únicamente la casilla de mail de RRHH (que se le pedirá a Mauro en la etapa del Sitio Nuevo).
-       3. 🟠 `Soy proveedor de insumos` → Bloquea el paso a WhatsApp y muestra únicamente la casilla de mail de Compras.
+       1. 🟢 `Quiero presupuestar limpieza para mi empresa / edificio` → Abre el WhatsApp `+54 9 11 2275-9369` con el texto pre-escrito *"Hola Star Union, solicito cotización para la empresa..."* (y en formulario web va a `contacto@starunion.com.ar` con `Reply-To` real del prospecto).
+       2. 🔵 `Busco empleo / Quiero enviar mi CV` → Bloquea el paso a WhatsApp y deriva exclusivamente a **`rrhh@starunion.com.ar`**.
+       3. 🟠 `Soy proveedor de insumos` → Bloquea el paso a WhatsApp y deriva exclusivamente a **`compras@starunion.com.ar`**.
      - **Filtro Técnico #2 (En el Saludo Automático de WhatsApp Business):** Configurar en `Herramientas para la empresa → Mensaje de bienvenida` el aviso expreso de que en esa línea comercial no se reciben ni abren CVs, derivando a las casillas de RRHH y Compras.
 2. **Paso 2 — Preparar en Segundo Plano el CRM Exclusivo de Mauro + Brochures con Métricas de Segundo Contacto:**
    - El CRM lo usa **únicamente Mauro**.

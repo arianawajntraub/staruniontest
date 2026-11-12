@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotizador corporativo paso a paso | Star Union S.R.L. · Limpieza Profesional</title>
-    <meta name="description" content="Solicitá una propuesta técnica y económica de limpieza profesional en 5 pasos breves: elegí tu tipo de establecimiento, dotación o pliego, carga horaria (mín. 4 hs corridas) y localidad.">
+    <title>Cotizar servicio de limpieza corporativa | Star Union S.R.L.</title>
+    <meta name="description" content="Cotizá online el servicio de limpieza profesional para tu planta industrial, edificio corporativo, institución educativa, clínica o consorcio, o subí tu pliego de licitación.">
     <link rel="canonical" href="https://www.starunion.com.ar/cotizar/" />
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Star Union S.R.L. | Sabemos de Limpieza">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:title" content="Cotizador corporativo paso a paso | Star Union S.R.L.">
-    <meta property="og:description" content="Configurá tu requerimiento de limpieza industrial, corporativa o institucional en menos de un minuto o adjuntá tu pliego de licitación.">
+    <meta property="og:title" content="Cotizar servicio de limpieza corporativa | Star Union S.R.L.">
+    <meta property="og:description" content="Armá tu pedido de cotización para una o varias sedes en menos de un minuto o adjuntá tu pliego técnico.">
     <meta property="og:url" content="https://www.starunion.com.ar/cotizar/">
     <meta property="og:image" content="https://www.starunion.com.ar/assets/img/cards-unificadas/card-limpieza-industrial.jpg">
     <link rel="llms-txt" href="/llms.txt" title="GEO & AI Context Profile - Star Union S.R.L.">
@@ -64,28 +64,28 @@
         .ig-seg.is-clickable { cursor: pointer; }
 
         .tf-dim-prev {
-            opacity: 0.32;
-            transform: scale(0.975);
+            opacity: 0.34;
+            transform: scale(0.98);
             transition: opacity 0.2s ease, transform 0.2s ease;
             cursor: pointer;
         }
         .tf-dim-prev:hover {
-            opacity: 0.78;
-            transform: scale(0.99);
+            opacity: 0.82;
+            transform: scale(0.992);
         }
         .tf-dim-next {
             opacity: 0.26;
-            transform: scale(0.975);
+            transform: scale(0.98);
             pointer-events: none;
             user-select: none;
             transition: opacity 0.2s ease;
         }
         @keyframes tfEnterUp {
-            from { opacity: 0; transform: translateY(14px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .tf-active-card {
-            animation: tfEnterUp 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+            animation: tfEnterUp 0.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .tf-opt-btn {
             width: 100%;
@@ -134,13 +134,17 @@
             border: 1.5px solid #d1d5db;
             background: #ffffff;
             border-radius: 11px;
-            padding: 9px 12px;
+            padding: 9px 13px;
             font-size: 13px;
             font-weight: 700;
             color: #1f2937;
             cursor: pointer;
             transition: all 0.14s ease;
             text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
         .tf-pill:hover { border-color: #03582d; color: #03582d; }
         .tf-pill.is-selected { background: #03582d; border-color: #03582d; color: #ffffff; }
@@ -170,20 +174,20 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.starunion.com.ar/" },
-            { "@type": "ListItem", "position": 2, "name": "Cotizador corporativo", "item": "https://www.starunion.com.ar/cotizar/" }
+            { "@type": "ListItem", "position": 2, "name": "Cotizar servicio", "item": "https://www.starunion.com.ar/cotizar/" }
           ]
         },
         {
           "@type": "WebPage",
           "@id": "https://www.starunion.com.ar/cotizar/#webpage",
-          "name": "Cotizador corporativo paso a paso | Star Union S.R.L.",
+          "name": "Cotizar servicio de limpieza corporativa | Star Union S.R.L.",
           "url": "https://www.starunion.com.ar/cotizar/",
           "inLanguage": "es-AR",
-          "description": "Cotizador guiado para presupuestar servicios de limpieza industrial, corporativa e institucional o adjuntar pliegos de licitación."
+          "description": "Cotizador corporativo para presupuestar servicios de limpieza industrial, de oficinas, instituciones educativas, salud o consorcios, con soporte multi-sede y carga de pliegos."
         },
         {
           "@type": "Service",
-          "name": "Presupuestos corporativos de limpieza integral y recepción de pliegos",
+          "name": "Cotización corporativa de limpieza integral y recepción de pliegos",
           "provider": {
             "@type": "Organization",
             "name": "Star Union S.R.L.",
@@ -201,12 +205,12 @@
     <!-- ENCABEZADO MINIMALISTA CON BARRAS DE PROGRESO SUTILES TIPO STORY DE IG -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-200">
         <div class="max-w-3xl mx-auto px-4 pt-2.5 pb-1">
-            <div id="ig-progress-bars" class="flex items-center gap-1.5" aria-label="Progreso del cotizador">
-                <div class="ig-seg is-active" data-step="1" title="Paso 1: Establecimiento"><div class="ig-seg-fill"></div></div>
-                <div class="ig-seg" data-step="2" title="Paso 2: Dotación o pliego"><div class="ig-seg-fill"></div></div>
-                <div class="ig-seg" data-step="3" title="Paso 3: Carga horaria"><div class="ig-seg-fill"></div></div>
-                <div class="ig-seg" data-step="4" title="Paso 4: Localidad"><div class="ig-seg-fill"></div></div>
-                <div class="ig-seg" data-step="5" title="Paso 5: Datos de envío"><div class="ig-seg-fill"></div></div>
+            <div id="ig-progress-bars" class="flex items-center gap-1.5" aria-label="Progreso de tu cotización">
+                <div class="ig-seg is-active" data-step="1" title="Paso 1: Rubro o servicio"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="2" title="Paso 2: Escala o pliego"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="3" title="Paso 3: Horario y días"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="4" title="Paso 4: Zonas o sedes"><div class="ig-seg-fill"></div></div>
+                <div class="ig-seg" data-step="5" title="Paso 5: Envío"><div class="ig-seg-fill"></div></div>
             </div>
         </div>
         <div class="max-w-3xl mx-auto px-4 h-13 py-2.5 flex items-center justify-between gap-3">
@@ -222,24 +226,24 @@
         </div>
     </header>
 
-    <!-- ESCENARIO CENTRAL TIPO TYPEFORM: ANTERIOR SEMI-TRANSPARENTE + ACTIVO NÍTIDO + SIGUIENTE SEMI-TRANSPARENTE -->
+    <!-- ESCENARIO CENTRAL PASO A PASO -->
     <main class="flex-1 flex flex-col justify-center py-5 sm:py-8 px-3.5 sm:px-6">
         <div class="w-full max-w-2xl mx-auto space-y-3.5 sm:space-y-4">
 
-            <h1 class="sr-only">Cotizador corporativo de servicios de limpieza profesional — Star Union S.R.L.</h1>
+            <h1 class="sr-only">Cotizar servicio de limpieza profesional — Star Union S.R.L.</h1>
 
-            <!-- RANURA SUPERIOR: PASO ANTERIOR APAGADO / SEMI-TRANSPARENTE (CLICABLE PARA VOLVER) -->
+            <!-- PASO ANTERIOR ATENUADO (CLICABLE PARA EDITAR) -->
             <div id="tf-prev-slot"></div>
 
-            <!-- RANURA CENTRAL: PREGUNTA ACTIVA (100% FOCO Y NITIDEZ) -->
+            <!-- PASO ACTIVO EN FOCO -->
             <div id="tf-active-slot"></div>
 
-            <!-- RANURA INFERIOR: PRÓXIMO PASO APAGADO / SEMI-TRANSPARENTE -->
+            <!-- SIGUIENTE PASO ATENUADO -->
             <div id="tf-next-slot"></div>
 
-            <!-- SELLO DISCRETO CONTEXTUAL DE RESPALDO (MANTIENE INTERLINKING EDITORIAL LIMPIO FUERA DE HEADER/FOOTER) -->
+            <!-- RESPALDO OPERATIVO CONTEXTUAL -->
             <div class="pt-3 text-center text-[11.5px] text-[#676b67] leading-relaxed">
-                Respaldo operativo propio:
+                Respaldo propio:
                 <a href="../la-empresa/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">base de 800 m² en CABA</a> ·
                 <a href="../certificacion-iso/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">Sistema de Gestión ISO 9001:2015</a> ·
                 <a href="../cobertura-y-operaciones-multi-sede/index.html" class="text-brand font-semibold underline decoration-brand/35 hover:decoration-brand">cobertura multi-plaza</a> ·
@@ -248,7 +252,7 @@
         </div>
     </main>
 
-    <!-- PIE DE PÁGINA COMPACTO CON AISLAMIENTO DE RRHH Y PROVEEDORES -->
+    <!-- PIE DE PÁGINA COMPACTO -->
     <footer class="border-t border-gray-200 bg-white py-4 px-4 text-[11.5px] text-[#676b67]">
         <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
             <span>Star Union S.R.L. · Atención comercial empresas: <a href="tel:08103338646" class="font-bold text-[#133522] hover:text-brand">0810-333-UNION (8646)</a></span>
@@ -262,26 +266,28 @@
 
     <script>
     (function () {
-        var CLOUD_API_URL = 'https://cotizador-api-production-1166303f.up.railway.app/api/cotizar';
+        var CLOUD_BASE = 'https://cotizador-api-production-1166303f.up.railway.app';
+        var CLOUD_API_URL = CLOUD_BASE + '/api/cotizar';
+        var PREUPLOAD_API_URL = CLOUD_BASE + '/api/preupload';
         var LOCAL_PHP_URL = '../api/cotizar.php';
         var WA_PHONE = '5491122759369';
         var RRHH_FORM = 'https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform';
 
         var RUBROS = [
-            { key: '1', slug: 'industrial', val: 'Plantas industriales, fábricas y centros logísticos', short: 'Plantas industriales y logística' },
-            { key: '2', slug: 'oficinas', val: 'Edificios corporativos de oficinas, bancos y sedes', short: 'Edificios de oficinas, bancos y sedes' },
+            { key: '1', slug: 'industrial', val: 'Plantas industriales, fábricas y centros logísticos', short: 'Plantas industriales, fábricas y logística' },
+            { key: '2', slug: 'oficinas', val: 'Edificios corporativos de oficinas, bancos y sedes', short: 'Oficinas corporativas, bancos y sedes' },
             { key: '3', slug: 'educacion', val: 'Universidades, colegios y clubes deportivos', short: 'Universidades, colegios y clubes' },
             { key: '4', slug: 'consorcios', val: 'Consorcios de vivienda y grandes torres', short: 'Consorcios y grandes torres' },
             { key: '5', slug: 'salud', val: 'Clínicas, sanatorios, hospitales y laboratorios', short: 'Clínicas, sanatorios y laboratorios' },
-            { key: '6', slug: 'especiales', val: 'Servicios especiales (altura, final de obra, predios y MIP)', short: 'Altura ARAA, final de obra, predios y MIP' },
-            { key: '7', slug: 'otro', val: 'Otro rubro o establecimiento corporativo', short: 'Otro establecimiento corporativo o comercial' }
+            { key: '6', slug: 'especiales', val: 'Servicios especiales (altura, final de obra, predios y MIP)', short: 'Trabajos en altura, final de obra y predios' },
+            { key: '7', slug: 'otro', val: 'Otro espacio empresarial o comercial', short: 'Otro espacio empresarial o comercial' }
         ];
 
         var DOTACIONES = [
             { key: 'A', val: '1 a 3 personas operativas' },
             { key: 'B', val: '4 a 10 personas operativas' },
             { key: 'C', val: 'Más de 10 personas / Operación de escala' },
-            { key: 'D', val: 'A definir en visita de relevamiento técnico' }
+            { key: 'D', val: 'Todavía no lo sé · Definir en visita técnica' }
         ];
 
         var ESPECIALIDADES = [
@@ -292,7 +298,7 @@
         ];
 
         var HORAS = [
-            '4 hs corridas (mín.)',
+            '4 hs diarias',
             '6 hs diarias',
             '8 hs diarias',
             'Turnos rotativos / 24 hs'
@@ -314,6 +320,19 @@
             'Trelew',
             'Puerto Madryn'
         ];
+
+        var EMAIL_SINGLE_RE = /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]{2,}$/;
+
+        function parseEmailList(raw) {
+            var parts = String(raw || '').split(/[,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+            if (!parts.length) return { valid: false, normalized: '' };
+            for (var i = 0; i < parts.length; i++) {
+                if (!EMAIL_SINGLE_RE.test(parts[i])) {
+                    return { valid: false, bad: parts[i], normalized: '' };
+                }
+            }
+            return { valid: true, normalized: parts.join(', ') };
+        }
 
         var params = new URLSearchParams(window.location.search);
         var origenParam = params.get('origen') || '';
@@ -347,24 +366,46 @@
             if (ql.indexOf('consorcio') !== -1) return RUBROS[3].val;
             if (ql.indexOf('clínica') !== -1 || ql.indexOf('clinica') !== -1 || ql.indexOf('salud') !== -1) return RUBROS[4].val;
             if (ql.indexOf('altura') !== -1 || ql.indexOf('especial') !== -1) return RUBROS[5].val;
+            if (ql.indexOf('otro') !== -1) return RUBROS[6].val;
             return '';
         }
 
+        function initPlazasFromParam(lp) {
+            if (!lp) return { plazas: [], detalle: '' };
+            var matched = [];
+            for (var i = 0; i < PLAZAS.length; i++) {
+                if (lp.toLowerCase().indexOf(PLAZAS[i].toLowerCase().split(' ')[0]) !== -1) {
+                    if (PLAZAS[i] === 'GBA Norte' && lp.toLowerCase().indexOf('norte') === -1) continue;
+                    if (PLAZAS[i] === 'GBA Oeste / Sur' && lp.toLowerCase().indexOf('oeste') === -1 && lp.toLowerCase().indexOf('sur') === -1) continue;
+                    matched.push(PLAZAS[i]);
+                }
+            }
+            return matched.length ? { plazas: matched, detalle: '' } : { plazas: [], detalle: lp };
+        }
+
         var initialRubro = matchRubro(rubroParam);
+        var initialLoc = initPlazasFromParam(locParam);
 
         var state = {
             step: initialRubro ? 2 : 1,
-            subview: '', // '' | 'compras' | 'particular' | 'done'
+            subview: '',
             rubro: initialRubro,
             otroDetalle: '',
             modoPliego: params.get('pliego') === '1',
             files: [],
+            uploadingFiles: false,
+            uploadPromise: null,
+            bundleId: '',
+            bundleToken: '',
+            docBundleUrl: '',
+            waLogged: false,
             dotacion: '4 a 10 personas operativas',
             especialidad: ESPECIALIDADES[0].val,
             escalaEspecial: '',
             horas: '8 hs diarias',
             dias: 'Lunes a viernes',
-            localidad: locParam || '',
+            plazasSeleccionadas: initialLoc.plazas,
+            detalleUbicacion: initialLoc.detalle,
             sedesExtras: [],
             empresa: '',
             nombre: '',
@@ -394,15 +435,59 @@
         }
 
         function isOtro() {
-            return state.rubro.indexOf('Otro rubro') !== -1;
+            return state.rubro.indexOf('Otro espacio') !== -1;
+        }
+
+        function buildLocalidadResumen() {
+            var chunks = [];
+            if (state.plazasSeleccionadas.length > 0) {
+                chunks.push(state.plazasSeleccionadas.join(', '));
+            }
+            if (state.detalleUbicacion && state.detalleUbicacion.trim()) {
+                chunks.push(state.detalleUbicacion.trim());
+            }
+            return chunks.join(' · ');
+        }
+
+        function uploadSelectedFilesToCloud(fileArr) {
+            if (!fileArr || !fileArr.length) {
+                state.bundleId = '';
+                state.bundleToken = '';
+                state.docBundleUrl = '';
+                state.uploadingFiles = false;
+                state.uploadPromise = null;
+                return Promise.resolve();
+            }
+            state.uploadingFiles = true;
+            var fd = new FormData();
+            fileArr.forEach(function (f, i) {
+                fd.append('pliego_' + (i + 1), f);
+            });
+            var p = fetch(PREUPLOAD_API_URL, { method: 'POST', body: fd })
+                .then(function (r) { return r.json(); })
+                .then(function (j) {
+                    state.uploadingFiles = false;
+                    if (j && j.ok) {
+                        state.bundleId = j.bundle_id || '';
+                        state.bundleToken = j.bundle_token || '';
+                        state.docBundleUrl = j.doc_url || '';
+                    }
+                    var statusEls = document.querySelectorAll('.js-file-cloud-status');
+                    statusEls.forEach(function (el) {
+                        el.textContent = state.docBundleUrl ? '✓ Listo para adjuntar' : 'Cargado';
+                    });
+                })
+                .catch(function () {
+                    state.uploadingFiles = false;
+                });
+            state.uploadPromise = p;
+            return p;
         }
 
         function updateTopBars() {
             if (state.subview === 'done') {
-                stepCounter.textContent = 'Solicitud registrada';
-                igBars.forEach(function (b) {
-                    b.className = 'ig-seg is-done';
-                });
+                stepCounter.textContent = 'Solicitud enviada';
+                igBars.forEach(function (b) { b.className = 'ig-seg is-done'; });
                 return;
             }
             if (state.subview) {
@@ -435,21 +520,61 @@
         });
 
         function buildWaSummaryUrl() {
-            var parts = ['Hola Star Union, nos interesa evaluar una propuesta comercial.'];
-            if (state.empresa) parts.push('Empresa: ' + state.empresa + '.');
-            if (state.rubro) parts.push('Establecimiento: ' + (isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro) + '.');
-            if (state.files.length > 0) {
-                parts.push('Contamos con pliego / documentación (' + state.files.length + ' archivo/s).');
+            var rubroTxt = isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro;
+            var locTxt = buildLocalidadResumen();
+            var sedesStr = state.sedesExtras.map(function (x) { return x.trim(); }).filter(Boolean).join(', ');
+
+            var parts = ['Hola Star Union, quiero cotizar un servicio de limpieza.'];
+            if (state.empresa) parts.push('Empresa: ' + state.empresa.replace(/\.+$/, '') + '.');
+            if (rubroTxt) parts.push('Rubro: ' + rubroTxt.replace(/\.+$/, '') + '.');
+            if (state.files.length > 0 && state.docBundleUrl) {
+                parts.push('Documentación / pliego cargado online (' + state.files.length + ' archivo/s): ' + state.docBundleUrl);
             } else if (isEspecial()) {
-                parts.push('Intervención: ' + state.especialidad + (state.escalaEspecial ? ' (' + state.escalaEspecial + ')' : '') + '.');
+                parts.push('Servicio: ' + state.especialidad + (state.escalaEspecial ? ' (' + state.escalaEspecial + ')' : '') + '.');
             } else {
                 parts.push('Esquema: ' + state.dotacion + ' · ' + state.horas + ' · ' + state.dias + '.');
             }
-            if (state.localidad) {
-                var sedesStr = state.sedesExtras.filter(Boolean).join(', ');
-                parts.push('Localidad: ' + state.localidad + (sedesStr ? ' (+ ' + sedesStr + ')' : '') + '.');
+            if (locTxt) {
+                parts.push('Zonas / sedes: ' + locTxt + (sedesStr ? ' (+ ' + sedesStr + ')' : '') + '.');
             }
             return 'https://api.whatsapp.com/send?phone=' + WA_PHONE + '&text=' + encodeURIComponent(parts.join(' '));
+        }
+
+        function logWhatsAppHandoffToCloud() {
+            if (state.waLogged) return;
+            state.waLogged = true;
+            var isStagingHost = window.location.hostname.indexOf('wajntraub.ar') !== -1 ||
+                                window.location.hostname === 'localhost' ||
+                                window.location.hostname === '127.0.0.1';
+            var rubroFinal = isOtro() && state.otroDetalle ? ('Otro: ' + state.otroDetalle) : state.rubro;
+            var alcanceFinal = state.files.length > 0
+                ? ('Pliego adjunto (' + state.files.length + ' archivo/s)')
+                : (isEspecial() ? state.especialidad : state.dotacion);
+            var payload = {
+                tipo_solicitud: 'derivacion_whatsapp',
+                entorno: isStagingHost ? 'staging' : 'produccion',
+                empresa: state.empresa,
+                nombre: state.nombre || 'Continuó por WhatsApp',
+                email: state.email,
+                telefono: state.telefono,
+                rubro: rubroFinal,
+                alcance: alcanceFinal,
+                horas_dia: isEspecial() ? (state.escalaEspecial || 'A relevar') : state.horas,
+                dias_semana: isEspecial() ? '' : state.dias,
+                localidad: buildLocalidadResumen(),
+                sedes_adicionales: state.sedesExtras.map(function (x) { return x.trim(); }).filter(Boolean).join(' | '),
+                comentarios: state.comentarios,
+                bundle_id: state.bundleId,
+                bundle_token: state.bundleToken,
+                origen_pagina: origenParam || '/cotizar/',
+                canal_origen: 'Pasó a WhatsApp desde /cotizar/'
+            };
+            fetch(CLOUD_API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                keepalive: true
+            }).catch(function () {});
         }
 
         function renderPrevDimmed() {
@@ -459,9 +584,8 @@
             }
             if (state.step === 1) {
                 prevSlot.innerHTML = [
-                    '<div class="rounded-2xl border border-gray-200/80 bg-white/60 px-4 py-2.5 flex items-center justify-between text-xs text-[#676b67]">',
-                    '  <span>Atención exclusiva para empresas, industrias, instituciones y consorcios</span>',
-                    '  <span class="font-bold text-brand hidden sm:inline">Mín. 4 hs corridas</span>',
+                    '<div class="rounded-2xl border border-gray-200/80 bg-white/60 px-4 py-2.5 text-center sm:text-left text-xs text-[#676b67]">',
+                    '  <span>Cotización exclusiva para empresas, industrias, instituciones educativas, salud y consorcios</span>',
                     '</div>'
                 ].join('');
                 return;
@@ -472,24 +596,24 @@
             var prevVal = '';
 
             if (state.step === 2) {
-                prevLabel = 'Tipo de establecimiento';
+                prevLabel = 'Rubro o servicio';
                 prevVal = isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro;
             } else if (state.step === 3) {
-                prevLabel = isEspecial() ? 'Intervención requerida' : 'Dotación / Alcance';
+                prevLabel = isEspecial() ? 'Servicio especial' : 'Escala o documentación';
                 if (state.files.length > 0) {
-                    prevVal = 'Pliego adjunto (' + state.files.map(function (f) { return f.name; }).join(', ') + ')';
+                    prevVal = 'Documentación adjunta (' + state.files.map(function (f) { return f.name; }).join(', ') + ')';
                 } else {
                     prevVal = isEspecial() ? state.especialidad : state.dotacion;
                 }
             } else if (state.step === 4) {
-                prevLabel = isEspecial() ? 'Superficie o plazo estimado' : 'Carga horaria y frecuencia';
+                prevLabel = isEspecial() ? 'Superficie o alcance' : 'Horario y días';
                 prevVal = isEspecial()
-                    ? (state.escalaEspecial || 'Según pliego / relevamiento técnico')
-                    : (state.horas + ' · ' + state.dias);
+                    ? (state.escalaEspecial || 'A relevar en visita técnica')
+                    : (state.files.length > 0 ? ('Pliego cargado (' + state.files.length + ' archivo/s)') : (state.horas + ' · ' + state.dias));
             } else if (state.step === 5) {
-                prevLabel = 'Localidad operativa';
-                var extras = state.sedesExtras.filter(Boolean);
-                prevVal = state.localidad + (extras.length ? ' + ' + extras.length + ' sede(s)' : '');
+                prevLabel = 'Zonas y sedes';
+                var extras = state.sedesExtras.map(function (x) { return x.trim(); }).filter(Boolean);
+                prevVal = buildLocalidadResumen() + (extras.length ? ' + ' + extras.length + ' sede(s) detallada(s)' : '');
             }
 
             prevSlot.innerHTML = [
@@ -505,7 +629,11 @@
             var jumpBtn = document.getElementById('btn-jump-prev');
             if (jumpBtn) {
                 jumpBtn.addEventListener('click', function () {
-                    state.step -= 1;
+                    if (state.step === 4 && state.files.length > 0) {
+                        state.step = 2;
+                    } else {
+                        state.step -= 1;
+                    }
                     render();
                 });
             }
@@ -519,7 +647,7 @@
             if (state.step === 5) {
                 nextSlot.innerHTML = [
                     '<div class="tf-dim-next bg-white rounded-2xl border border-gray-200 px-5 py-3.5 flex items-center justify-between gap-3 text-xs">',
-                    '  <span class="font-bold text-[#111827]">Confirmación inmediata · Respuesta directa al correo corporativo</span>',
+                    '  <span class="font-bold text-[#111827]">Confirmación en pantalla · Respuesta directa al correo corporativo</span>',
                     '  <span class="font-extrabold text-brand">ISO 9001:2015</span>',
                     '</div>'
                 ].join('');
@@ -531,21 +659,21 @@
             var nextPills = [];
 
             if (state.step === 1) {
-                nextTitle = '¿Qué dotación estimada buscás cubrir o contás con pliego?';
-                nextPills = ['1 a 3 personas', '4 a 10 personas', '+10 personas', 'Adjuntar pliego PDF/Excel'];
+                nextTitle = '¿Cuántas personas operativas estimás o tenés pliego?';
+                nextPills = ['1 a 3 personas', '4 a 10 personas', '+10 personas', 'Subir pliego PDF/Excel'];
             } else if (state.step === 2) {
                 nextTitle = isEspecial()
-                    ? '¿Cuál es la superficie aproximada o alcance a relevar?'
-                    : '¿Qué carga horaria y frecuencia requiere la operación?';
+                    ? '¿Qué superficie aproximada tiene el lugar?'
+                    : '¿En qué horario y días necesitás el servicio?';
                 nextPills = isEspecial()
-                    ? ['m² de nave o fachada', 'Hectáreas de predio', 'A relevar en visita']
-                    : ['4 hs corridas (mín.)', '6 hs diarias', '8 hs diarias', 'Turnos 24 hs'];
+                    ? ['m² de nave o vidrios', 'Hectáreas de predio', 'A relevar en visita']
+                    : ['4 hs diarias', '6 hs diarias', '8 hs diarias', 'Turnos 24 hs'];
             } else if (state.step === 3) {
-                nextTitle = '¿En qué localidad o sedes se presta el servicio?';
+                nextTitle = '¿Dónde queda el lugar (o las sedes)?';
                 nextPills = ['CABA', 'GBA', 'Bahía Blanca', 'Neuquén', 'Trelew', 'Puerto Madryn'];
             } else if (state.step === 4) {
-                nextTitle = '¿A quién enviamos la propuesta técnica y económica?';
-                nextPills = ['Empresa u organización', 'Correo corporativo', 'Teléfono directo'];
+                nextTitle = '¿A dónde te enviamos la cotización?';
+                nextPills = ['Empresa u organización', 'Uno o más correos', 'Teléfono directo'];
             }
 
             nextSlot.innerHTML = [
@@ -568,18 +696,17 @@
             renderPrevDimmed();
             renderNextDimmed();
 
-            // SUBVISTAS DE FILTRO LIMPIO (PROVEEDORES / PARTICULAR)
             if (state.subview === 'compras') {
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-6 sm:p-8 space-y-4">',
                     '  <span class="text-xs font-extrabold uppercase tracking-wider text-brand">Área de Compras · Proveedores</span>',
                     '  <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827]">Recepción de propuestas de proveedores</h2>',
-                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Este cotizador es exclusivo para organizaciones que contratan servicios de limpieza. Enviá tu presentación o catálogo por correo a Compras:</p>',
+                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Este cotizador es para organizaciones que contratan servicios de limpieza. Enviá tu presentación o catálogo por correo a Compras:</p>',
                     '  <div class="flex flex-wrap items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">',
                     '    <span class="font-extrabold text-sm sm:text-base text-[#111827] select-all">compras@starunion.com.ar</span>',
                     '    <button type="button" id="btn-copy-compras" class="bg-brand hover:bg-brand-dark text-white font-bold text-xs px-4 py-2 rounded-lg transition cursor-pointer">Copiar correo</button>',
                     '  </div>',
-                    '  <button type="button" id="btn-back-from-sub" class="text-xs font-bold text-brand underline cursor-pointer">← Volver al cotizador comercial</button>',
+                    '  <button type="button" id="btn-back-from-sub" class="text-xs font-bold text-brand underline cursor-pointer">← Volver al cotizador</button>',
                     '</div>'
                 ].join('');
                 document.getElementById('btn-copy-compras').addEventListener('click', function () {
@@ -599,8 +726,8 @@
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-6 sm:p-8 space-y-4">',
                     '  <span class="text-xs font-extrabold uppercase tracking-wider text-brand">Alcance corporativo</span>',
                     '  <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827]">Servicio exclusivo para empresas, consorcios e instituciones</h2>',
-                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Star Union S.R.L. opera en plantas industriales, edificios corporativos, universidades, colegios, clubes, clínicas y grandes consorcios bajo esquemas desde 4 hs diarias corridas.</p>',
-                    '  <button type="button" id="btn-back-from-part" class="text-xs font-bold text-brand underline cursor-pointer">← Volver al cotizador comercial</button>',
+                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Star Union S.R.L. brinda servicios para plantas industriales, oficinas corporativas, universidades, colegios, clubes, clínicas y consorcios.</p>',
+                    '  <button type="button" id="btn-back-from-part" class="text-xs font-bold text-brand underline cursor-pointer">← Volver al cotizador</button>',
                     '</div>'
                 ].join('');
                 document.getElementById('btn-back-from-part').addEventListener('click', function () {
@@ -610,34 +737,33 @@
                 return;
             }
 
-            // PANTALLA DE CONFIRMACIÓN LIMPIA (CERO DOBLE BORDE, CERO REPETICIÓN DE NOMBRE)
             if (state.subview === 'done') {
-                var cleanNombre = state.nombre.replace(/[,\s]+$/, '').trim();
-                var cleanEmpresa = state.empresa.replace(/[,\s]+$/, '').trim();
+                var cleanNombre = state.nombre.replace(/[.,\s]+$/, '').trim();
+                var cleanEmpresa = state.empresa.replace(/[.,\s]+$/, '').trim();
                 var headline = (cleanEmpresa && cleanEmpresa.toLowerCase() !== cleanNombre.toLowerCase())
-                    ? ('Gracias, ' + esc(cleanNombre) + '. Registramos la solicitud de ' + esc(cleanEmpresa) + '.')
-                    : ('Gracias, ' + esc(cleanNombre) + '. Registramos tu solicitud comercial.');
+                    ? ('Gracias, ' + esc(cleanNombre) + '. Recibimos el pedido de cotización de ' + esc(cleanEmpresa) + '.')
+                    : ('Gracias, ' + esc(cleanNombre) + '. Recibimos tu pedido de cotización.');
 
                 var alcanceResumen = state.files.length > 0
-                    ? ('Pliego adjunto (' + state.files.length + ' archivo/s)')
+                    ? ('Documentación adjunta (' + state.files.length + ' archivo/s)')
                     : (isEspecial() ? state.especialidad : (state.dotacion + ' · ' + state.horas + ' · ' + state.dias));
 
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.14)] border border-gray-200 border-t-4 border-t-brand p-6 sm:p-9 space-y-5">',
                     '  <div class="inline-flex items-center gap-2 bg-[#eef6f1] text-brand text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">',
-                    '    <span>✓ Solicitud recibida</span>',
+                    '    <span>✓ Pedido de cotización recibido</span>',
                     '  </div>',
                     '  <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] leading-snug">' + headline + '</h2>',
-                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Dirección Comercial evaluará el requerimiento y responderá en forma directa a <strong class="text-[#111827]">' + esc(state.email) + '</strong> o al <strong class="text-[#111827]">' + esc(state.telefono) + '</strong>.</p>',
+                    '  <p class="text-sm text-[#4b5563] leading-relaxed">Dirección Comercial responderá en forma directa a <strong class="text-[#111827]">' + esc(state.email) + '</strong> o al <strong class="text-[#111827]">' + esc(state.telefono) + '</strong>.</p>',
                     '  <div class="bg-gray-50 rounded-2xl border border-gray-200 p-4 grid sm:grid-cols-2 gap-3 text-xs">',
-                    '    <div><span class="text-[#676b67] block">Establecimiento</span><strong class="text-[#111827]">' + esc(isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro) + '</strong></div>',
-                    '    <div><span class="text-[#676b67] block">Esquema / Alcance</span><strong class="text-[#111827]">' + esc(alcanceResumen) + '</strong></div>',
-                    '    <div class="sm:col-span-2"><span class="text-[#676b67] block">Localidad operativa</span><strong class="text-[#111827]">' + esc(state.localidad) + (state.sedesExtras.filter(Boolean).length ? ' · + ' + esc(state.sedesExtras.filter(Boolean).join(', ')) : '') + '</strong></div>',
+                    '    <div><span class="text-[#676b67] block">Rubro o servicio</span><strong class="text-[#111827]">' + esc(isOtro() && state.otroDetalle ? state.otroDetalle : state.rubro) + '</strong></div>',
+                    '    <div><span class="text-[#676b67] block">Alcance y horario</span><strong class="text-[#111827]">' + esc(alcanceResumen) + '</strong></div>',
+                    '    <div class="sm:col-span-2"><span class="text-[#676b67] block">Zonas / sedes operativas</span><strong class="text-[#111827]">' + esc(buildLocalidadResumen()) + (state.sedesExtras.filter(Boolean).length ? ' · + ' + esc(state.sedesExtras.filter(Boolean).join(', ')) : '') + '</strong></div>',
                     '  </div>',
                     (state.previewUrl ? [
                         '  <div class="bg-[#f4f7f5] border border-brand/25 rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-2 text-xs">',
-                        '    <span class="text-[#133522] font-semibold">' + (state.entorno === 'staging' ? 'Entorno de prueba activo (sin disparar correos a contacto@starunion.com.ar):' : 'Comprobante estructurado de tu solicitud:') + '</span>',
-                        '    <a href="' + esc(state.previewUrl) + '" target="_blank" rel="noopener noreferrer" class="font-extrabold text-brand underline">Ver correo generado y adjuntos ↗</a>',
+                        '    <span class="text-[#133522] font-semibold">' + (state.entorno === 'staging' ? 'Modo prueba activo (sin disparar correos a contacto@starunion.com.ar):' : 'Comprobante estructurado de tu pedido:') + '</span>',
+                        '    <a href="' + esc(state.previewUrl) + '" target="_blank" rel="noopener noreferrer" class="font-extrabold text-brand underline">Ver ficha generada y adjuntos ↗</a>',
                         '  </div>'
                     ].join('') : ''),
                     '  <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">',
@@ -649,14 +775,14 @@
                 return;
             }
 
-            // PASO 1: ESTABLECIMIENTO
+            // PASO 1: ¿QUÉ NECESITÁS COTIZAR?
             if (state.step === 1) {
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
                     '  <div>',
-                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">01 → Tipo de establecimiento</span>',
-                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Para qué tipo de establecimiento necesitás propuesta?</h2>',
-                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Tocá una opción para avanzar al siguiente paso:</p>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">01 → Rubro o servicio</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Qué necesitás cotizar?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Elegí el sector o tipo de servicio para avanzar:</p>',
                     '  </div>',
                     '  <div class="grid grid-cols-1 gap-2">',
                     RUBROS.map(function (r) {
@@ -698,7 +824,7 @@
                 return;
             }
 
-            // PASO 2: DOTACIÓN / ESPECIALIDAD O SUBIDA DE PLIEGO
+            // PASO 2: DOTACIÓN / SERVICIO ESPECIAL O SUBIDA DE PLIEGO CON RESGUARDO INSTANTÁNEO
             if (state.step === 2) {
                 var esp = isEspecial();
                 var otro = isOtro();
@@ -707,14 +833,14 @@
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
                     '  <div>',
-                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">02 → ' + (esp ? 'Especialidad corporativa' : 'Alcance o pliego') + '</span>',
-                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">' + (esp ? '¿Qué intervención técnica necesitás en tu empresa o predio?' : '¿Qué dotación estimada buscás cubrir?') + '</h2>',
-                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">' + (esp ? 'Seleccioná una de nuestras 4 divisiones operativas o adjuntá pliego:' : 'Elegí una referencia rápida o adjuntá tu pliego / especificaciones:') + '</p>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">02 → ' + (esp ? 'Servicio especial' : 'Escala o documentación') + '</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">' + (esp ? '¿Qué servicio especial necesitás cotizar?' : '¿Cuántas personas operativas estimás?') + '</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">' + (esp ? 'Elegí la especialidad o subí el pliego técnico:' : 'Elegí una referencia aproximada o subí tu pliego / especificaciones:') + '</p>',
                     '  </div>',
                     (otro ? [
                         '  <div>',
-                        '    <label class="block text-xs font-extrabold text-[#111827] mb-1.5">Especificá tu rubro o tipo de establecimiento *</label>',
-                        '    <input type="text" id="inp-otro-rubro" class="tf-input" value="' + esc(state.otroDetalle) + '" placeholder="Ej.: Centro comercial, cadena de sucursales, predio ferial fijo...">',
+                        '    <label class="block text-xs font-extrabold text-[#111827] mb-1.5">Contanos qué espacio necesitás cubrir *</label>',
+                        '    <input type="text" id="inp-otro-rubro" class="tf-input" value="' + esc(state.otroDetalle) + '" placeholder="Ej.: Centro comercial, red de sucursales, predio ferial fijo...">',
                         '  </div>'
                     ].join('') : ''),
                     '  <div class="grid grid-cols-1 gap-2">',
@@ -732,15 +858,16 @@
                     '    <button type="button" id="btn-toggle-pliego" class="tf-opt-btn' + (state.modoPliego ? ' is-selected' : '') + '">',
                     '      <div class="flex items-center gap-3 min-w-0">',
                     '        <span class="tf-key-badge">E</span>',
-                    '        <span class="text-[13.5px] sm:text-sm font-bold text-brand leading-snug">📎 Adjuntar pliego o especificaciones (PDF, Word o Excel)</span>',
+                    '        <span class="text-[13.5px] sm:text-sm font-bold text-brand leading-snug">📎 Subir pliego o especificaciones (PDF, Word o Excel)</span>',
                     '      </div>',
                     '      <span class="text-[11px] font-bold text-[#676b67] shrink-0">Hasta 3 archivos</span>',
                     '    </button>',
                     '  </div>',
                     '  <div id="pliego-drop-wrap" class="' + (state.modoPliego ? 'block' : 'hidden') + ' bg-[#f4f7f5] border border-brand/30 rounded-2xl p-4 space-y-3">',
                     '    <input type="file" id="inp-pliego-files" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" class="block w-full text-xs text-[#374151] file:mr-3 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-extrabold file:bg-brand file:text-white hover:file:bg-brand-dark cursor-pointer">',
-                    '    <div id="pliego-files-list" class="space-y-1 text-xs"></div>',
-                    '    <button type="button" id="btn-continue-pliego" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3 rounded-xl transition cursor-pointer">Continuar con este pliego →</button>',
+                    '    <div id="pliego-files-list" class="space-y-1.5 text-xs"></div>',
+                    '    <p class="text-[11px] text-[#4b5563]">El archivo queda resguardado al subirlo: llega adjunto tanto si enviás por acá como si al final preferís seguir por WhatsApp.</p>',
+                    '    <button type="button" id="btn-continue-pliego" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3 rounded-xl transition cursor-pointer">Continuar con esta documentación →</button>',
                     '  </div>',
                     '  <div id="step2-warn" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
                     '</div>'
@@ -750,7 +877,11 @@
                     var listEl = document.getElementById('pliego-files-list');
                     if (!listEl) return;
                     listEl.innerHTML = state.files.map(function (f) {
-                        return '<div class="flex items-center justify-between bg-white border border-brand/20 rounded-lg px-3 py-1.5 font-semibold"><span class="truncate text-brand">✓ ' + esc(f.name) + '</span><span class="text-[#676b67] shrink-0 ml-2">' + Math.max(1, Math.round(f.size / 1024)) + ' KB</span></div>';
+                        var stTxt = state.uploadingFiles ? 'Subiendo...' : (state.docBundleUrl ? '✓ Listo para adjuntar' : 'Seleccionado');
+                        return '<div class="flex items-center justify-between bg-white border border-brand/20 rounded-lg px-3 py-1.5 font-semibold gap-2">' +
+                            '<span class="truncate text-brand">' + esc(f.name) + ' (' + Math.max(1, Math.round(f.size / 1024)) + ' KB)</span>' +
+                            '<span class="js-file-cloud-status text-[11px] text-[#133522] shrink-0">' + stTxt + '</span>' +
+                            '</div>';
                     }).join('');
                 }
                 renderSelectedFiles();
@@ -761,7 +892,7 @@
                             var oVal = (document.getElementById('inp-otro-rubro').value || '').trim();
                             if (!oVal) {
                                 var w = document.getElementById('step2-warn');
-                                w.textContent = 'Indicá en pocas palabras tu tipo de establecimiento.';
+                                w.textContent = 'Contanos en pocas palabras qué espacio necesitás cubrir.';
                                 w.classList.remove('hidden');
                                 document.getElementById('inp-otro-rubro').focus();
                                 return;
@@ -788,6 +919,7 @@
                         var arr = Array.prototype.slice.call(fileInp.files || []).slice(0, 3);
                         state.files = arr;
                         renderSelectedFiles();
+                        uploadSelectedFilesToCloud(arr);
                     });
                 }
 
@@ -798,31 +930,46 @@
                             var oVal2 = (document.getElementById('inp-otro-rubro')?.value || '').trim();
                             if (!oVal2) {
                                 var w2 = document.getElementById('step2-warn');
-                                w2.textContent = 'Indicá tu tipo de establecimiento antes de avanzar.';
+                                w2.textContent = 'Contanos qué espacio necesitás cubrir antes de avanzar.';
                                 w2.classList.remove('hidden');
                                 return;
                             }
                             state.otroDetalle = oVal2;
                         }
-                        state.step = 4; // Con pliego adjunto salta directo a Localidad
+                        if (!state.files.length) {
+                            var w3 = document.getElementById('step2-warn');
+                            w3.textContent = 'Seleccioná al menos un archivo PDF, Word o Excel, o elegí una de las opciones de arriba.';
+                            w3.classList.remove('hidden');
+                            return;
+                        }
+                        if (state.uploadingFiles && state.uploadPromise) {
+                            contPliego.disabled = true;
+                            contPliego.textContent = 'Guardando documento...';
+                            state.uploadPromise.finally(function () {
+                                state.step = 4;
+                                render();
+                            });
+                            return;
+                        }
+                        state.step = 4;
                         render();
                     });
                 }
                 return;
             }
 
-            // PASO 3: CARGA HORARIA Y DÍAS (O ESCALA EN SERVICIOS ESPECIALES)
+            // PASO 3: HORARIO Y DÍAS (SIN MACHACAR MÍNIMOS)
             if (state.step === 3) {
                 if (isEspecial()) {
                     activeSlot.innerHTML = [
                         '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
                         '  <div>',
-                        '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">03 → Dimensión aproximada</span>',
-                        '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Cuál es la superficie aproximada o alcance del trabajo?</h2>',
-                        '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Una referencia orientativa alcanza para preparar la visita técnica:</p>',
+                        '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">03 → Superficie aproximada</span>',
+                        '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Qué dimensión aproximada tiene el trabajo?</h2>',
+                        '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Una referencia orientativa alcanza para organizar el relevamiento:</p>',
                         '  </div>',
                         '  <div>',
-                        '    <input type="text" id="inp-escala-esp" class="tf-input" value="' + esc(state.escalaEspecial) + '" placeholder="Ej.: 2.500 m² de nave industrial, fachada vidriada de 8 pisos, 15 hectáreas...">',
+                        '    <input type="text" id="inp-escala-esp" class="tf-input" value="' + esc(state.escalaEspecial) + '" placeholder="Ej.: 2.500 m² de nave, fachada vidriada de 8 pisos, 15 hectáreas...">',
                         '  </div>',
                         '  <div id="step3-warn" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
                         '  <button type="button" id="btn-step3-next" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3.5 rounded-xl transition cursor-pointer">Continuar →</button>',
@@ -849,12 +996,12 @@
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-5">',
                     '  <div>',
-                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">03 → Esquema horario</span>',
-                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Qué carga horaria y frecuencia requiere la operación?</h2>',
-                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Operamos con esquemas corporativos desde 4 horas diarias corridas:</p>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">03 → Horario y frecuencia</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿En qué horario y días necesitás el servicio?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Elegí la jornada operativa y los días de cobertura:</p>',
                     '  </div>',
                     '  <div class="space-y-2">',
-                    '    <label class="block text-xs font-extrabold text-[#111827]">Carga horaria por turno</label>',
+                    '    <label class="block text-xs font-extrabold text-[#111827]">Jornada por turno</label>',
                     '    <div class="grid grid-cols-2 gap-2">',
                     HORAS.map(function (h) {
                         var sel = state.horas === h ? ' is-selected' : '';
@@ -863,7 +1010,7 @@
                     '    </div>',
                     '  </div>',
                     '  <div class="space-y-2">',
-                    '    <label class="block text-xs font-extrabold text-[#111827]">Frecuencia semanal</label>',
+                    '    <label class="block text-xs font-extrabold text-[#111827]">Días de cobertura</label>',
                     '    <div class="grid grid-cols-3 gap-2">',
                     DIAS.map(function (d) {
                         var sel = state.dias === d ? ' is-selected' : '';
@@ -894,33 +1041,41 @@
                 return;
             }
 
-            // PASO 4: LOCALIDAD Y MULTI-SEDE
+            // PASO 4: MULTI-SELECCIÓN DE ZONAS EN SIMULTÁNEO + CAMPO LIBRE SIN PISARSE
             if (state.step === 4) {
+                var cantZonas = state.plazasSeleccionadas.length;
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
-                    '  <div>',
-                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">04 → Ubicación operativa</span>',
-                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿En qué localidad o sedes se presta el servicio?</h2>',
-                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Tocá una plaza activa o escribí el barrio, parque industrial o ciudad:</p>',
+                    '  <div class="flex flex-wrap items-start justify-between gap-2">',
+                    '    <div>',
+                    '      <span class="text-xs font-extrabold uppercase tracking-wider text-brand">04 → Zonas o sedes</span>',
+                    '      <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿Dónde queda el lugar (o las sedes)?</h2>',
+                    '      <p class="text-xs sm:text-sm text-[#676b67] mt-1">Podés tocar <strong>una o varias zonas a la vez</strong>, y sumar barrio, parque industrial u otras ciudades abajo:</p>',
+                    '    </div>',
+                    (cantZonas > 0 ? '<span class="text-[11px] font-extrabold text-brand bg-[#eef6f1] px-2.5 py-1 rounded-full shrink-0">' + cantZonas + (cantZonas === 1 ? ' zona marcada' : ' zonas marcadas') + '</span>' : ''),
                     '  </div>',
-                    '  <div class="flex flex-wrap gap-1.5">',
+                    '  <div class="flex flex-wrap gap-2">',
                     PLAZAS.map(function (pl) {
-                        var sel = state.localidad === pl ? ' is-selected' : '';
-                        return '<button type="button" class="tf-pill js-pick-plaza !py-1.5 !px-3 !text-xs' + sel + '" data-val="' + esc(pl) + '">' + esc(pl) + '</button>';
+                        var isOn = state.plazasSeleccionadas.indexOf(pl) !== -1;
+                        return '<button type="button" aria-pressed="' + (isOn ? 'true' : 'false') + '" class="tf-pill js-toggle-plaza !py-2 !px-3.5 !text-xs' + (isOn ? ' is-selected' : '') + '" data-val="' + esc(pl) + '">' +
+                            (isOn ? '<span>✓</span>' : '') +
+                            '<span>' + esc(pl) + '</span>' +
+                            '</button>';
                     }).join(''),
                     '  </div>',
                     '  <div>',
-                    '    <input type="text" id="inp-localidad" class="tf-input" value="' + esc(state.localidad) + '" placeholder="Ej.: Parque Industrial Pilar, Microcentro CABA, Bahía Blanca...">',
+                    '    <label for="inp-detalle-ubicacion" class="block text-xs font-bold text-[#374151] mb-1.5">Barrios, parques industriales, direcciones u otras ciudades <span class="font-normal text-[#676b67]">(podés escribir varias separadas por coma)</span></label>',
+                    '    <input type="text" id="inp-detalle-ubicacion" class="tf-input" value="' + esc(state.detalleUbicacion) + '" placeholder="Ej.: Parque Industrial Pilar, Microcentro, sucursal Rosario...">',
                     '  </div>',
                     '  <div class="space-y-2">',
                     '    <div class="flex items-center justify-between">',
-                    '      <span class="text-xs font-bold text-[#4b5563]">¿Operación en más de una sucursal o planta?</span>',
-                    '      <button type="button" id="btn-add-sede" class="text-xs font-extrabold text-brand underline cursor-pointer">+ Sumar otra sede</button>',
+                    '      <span class="text-xs text-[#676b67]">¿Querés desglosar dotación u horario distinto por sede?</span>',
+                    '      <button type="button" id="btn-add-sede" class="text-xs font-extrabold text-brand underline cursor-pointer">+ Desglosar sede</button>',
                     '    </div>',
                     '    <div id="sedes-extra-wrap" class="space-y-2">',
                     state.sedesExtras.map(function (s, idx) {
                         return '<div class="flex items-center gap-2">' +
-                            '<input type="text" data-idx="' + idx + '" class="tf-input js-sede-extra !py-2 !text-xs" value="' + esc(s) + '" placeholder="Sede adicional (localidad y dotación aproximada)">' +
+                            '<input type="text" data-idx="' + idx + '" class="tf-input js-sede-extra !py-2 !text-xs" value="' + esc(s) + '" placeholder="Ej.: Sede 2 — Pacheco (4 personas · 8 hs)">' +
                             '<button type="button" data-idx="' + idx + '" class="js-del-sede shrink-0 text-xs font-bold text-gray-500 hover:text-[#111827] px-2.5 py-2 border border-gray-200 rounded-lg cursor-pointer">✕</button>' +
                             '</div>';
                     }).join(''),
@@ -932,25 +1087,31 @@
                 ].join('');
 
                 function syncLocState() {
-                    var inp = document.getElementById('inp-localidad');
-                    if (inp) state.localidad = inp.value;
+                    var inp = document.getElementById('inp-detalle-ubicacion');
+                    if (inp) state.detalleUbicacion = inp.value;
                     activeSlot.querySelectorAll('.js-sede-extra').forEach(function (el) {
                         var idx = parseInt(el.getAttribute('data-idx'), 10);
                         state.sedesExtras[idx] = el.value;
                     });
                 }
 
-                activeSlot.querySelectorAll('.js-pick-plaza').forEach(function (b) {
+                activeSlot.querySelectorAll('.js-toggle-plaza').forEach(function (b) {
                     b.addEventListener('click', function () {
                         syncLocState();
-                        state.localidad = b.getAttribute('data-val');
+                        var val = b.getAttribute('data-val');
+                        var pos = state.plazasSeleccionadas.indexOf(val);
+                        if (pos === -1) {
+                            state.plazasSeleccionadas.push(val);
+                        } else {
+                            state.plazasSeleccionadas.splice(pos, 1);
+                        }
                         render();
                     });
                 });
 
                 document.getElementById('btn-add-sede').addEventListener('click', function () {
                     syncLocState();
-                    if (state.sedesExtras.length < 6) {
+                    if (state.sedesExtras.length < 8) {
                         state.sedesExtras.push('');
                         render();
                     }
@@ -967,11 +1128,11 @@
 
                 document.getElementById('btn-step4-next').addEventListener('click', function () {
                     syncLocState();
-                    if (!state.localidad.trim()) {
+                    if (!buildLocalidadResumen()) {
                         var w = document.getElementById('step4-warn');
-                        w.textContent = 'Indicá la localidad o seleccioná una plaza operativa.';
+                        w.textContent = 'Marcá una o más zonas arriba, o escribí la localidad en el campo de texto.';
                         w.classList.remove('hidden');
-                        document.getElementById('inp-localidad').focus();
+                        document.getElementById('inp-detalle-ubicacion').focus();
                         return;
                     }
                     state.step = 5;
@@ -980,58 +1141,82 @@
                 return;
             }
 
-            // PASO 5: DATOS DE ENVÍO + OPCIÓN DISCRETA WHATSAPP
+            // PASO 5: ENVÍO MULTI-CORREO (SEPARADOS CON COMA) + DERIVACIÓN WHATSAPP CON LINK REAL DEL ARCHIVO
             if (state.step === 5) {
                 activeSlot.innerHTML = [
                     '<div class="tf-active-card bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_-15px_rgba(3,88,45,0.13)] border border-gray-200 border-l-4 border-l-brand p-5 sm:p-8 space-y-4">',
                     '  <div>',
-                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">05 → Datos para recibir propuesta</span>',
-                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿A quién enviamos la propuesta técnica y económica?</h2>',
-                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Dirección Comercial responderá en forma directa a tu correo corporativo o teléfono.</p>',
+                    '    <span class="text-xs font-extrabold uppercase tracking-wider text-brand">05 → Datos de envío</span>',
+                    '    <h2 class="text-xl sm:text-2xl font-extrabold text-[#111827] mt-1 leading-snug">¿A dónde te enviamos la cotización?</h2>',
+                    '    <p class="text-xs sm:text-sm text-[#676b67] mt-1">Dirección Comercial responde en forma directa a tu correo corporativo o teléfono.</p>',
                     '  </div>',
-                    '  <form id="tf-final-form" class="space-y-3">',
+                    '  <form id="tf-final-form" class="space-y-3" novalidate>',
                     '    <input type="text" name="website_url" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">',
                     '    <div class="grid sm:grid-cols-2 gap-3">',
                     '      <div>',
-                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Empresa, institución o consorcio *</label>',
+                    '        <label for="inp-empresa" class="block text-xs font-extrabold text-[#111827] mb-1">Empresa, institución o consorcio *</label>',
                     '        <input type="text" id="inp-empresa" required class="tf-input" value="' + esc(state.empresa) + '" placeholder="Nombre de tu organización">',
                     '      </div>',
                     '      <div>',
-                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Nombre, apellido y área *</label>',
+                    '        <label for="inp-nombre" class="block text-xs font-extrabold text-[#111827] mb-1">Nombre, apellido y área *</label>',
                     '        <input type="text" id="inp-nombre" required class="tf-input" value="' + esc(state.nombre) + '" placeholder="Ej.: Martín Gómez · Compras">',
                     '      </div>',
                     '    </div>',
                     '    <div class="grid sm:grid-cols-2 gap-3">',
                     '      <div>',
-                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Correo corporativo *</label>',
-                    '        <input type="email" id="inp-email" required class="tf-input" value="' + esc(state.email) + '" placeholder="nombre@empresa.com.ar">',
+                    '        <label for="inp-email" class="block text-xs font-extrabold text-[#111827] mb-1">Correo corporativo * <span class="font-normal text-[#676b67]">(varios con coma)</span></label>',
+                    '        <input type="text" inputmode="email" autocomplete="email" id="inp-email" required class="tf-input" value="' + esc(state.email) + '" placeholder="nombre@empresa.com.ar, otro@empresa.com.ar">',
                     '      </div>',
                     '      <div>',
-                    '        <label class="block text-xs font-extrabold text-[#111827] mb-1">Teléfono directo *</label>',
+                    '        <label for="inp-tel" class="block text-xs font-extrabold text-[#111827] mb-1">Teléfono directo *</label>',
                     '        <input type="tel" id="inp-tel" required class="tf-input" value="' + esc(state.telefono) + '" placeholder="Ej.: 011 4000-0000">',
                     '      </div>',
                     '    </div>',
                     '    <div>',
-                    '      <label class="block text-xs font-extrabold text-[#111827] mb-1">Observaciones o disponibilidad para visita técnica (opcional)</label>',
-                    '      <input type="text" id="inp-obs" class="tf-input" value="' + esc(state.comentarios) + '" placeholder="Ej.: horario sugerido de visita, requisito de auditoría o fecha de inicio">',
+                    '      <label for="inp-obs" class="block text-xs font-extrabold text-[#111827] mb-1">Comentarios o disponibilidad para visita técnica (opcional)</label>',
+                    '      <input type="text" id="inp-obs" class="tf-input" value="' + esc(state.comentarios) + '" placeholder="Ej.: horario sugerido para visita, requisito de auditoría o fecha de inicio">',
                     '    </div>',
+                    (state.files.length > 0 ? [
+                        '    <div class="bg-[#f4f7f5] border border-brand/25 rounded-xl px-3.5 py-2.5 text-xs text-[#133522] flex items-center justify-between gap-2">',
+                        '      <span class="font-bold truncate">📎 ' + state.files.length + (state.files.length === 1 ? ' documento listo para enviar: ' : ' documentos listos para enviar: ') + esc(state.files.map(function (f) { return f.name; }).join(', ')) + '</span>',
+                        '      <span class="text-brand font-extrabold shrink-0">✓ Cargado</span>',
+                        '    </div>'
+                    ].join('') : ''),
                     '    <div id="step5-err" class="hidden bg-gray-100 border border-gray-300 text-[#111827] rounded-xl px-3.5 py-2.5 text-xs font-bold"></div>',
                     '    <button type="submit" id="btn-submit-final" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm sm:text-base py-3.5 rounded-xl shadow-sm transition cursor-pointer">',
-                    '      Enviar solicitud a Dirección Comercial →',
+                    '      Enviar pedido de cotización →',
                     '    </button>',
                     '    <div class="pt-1 text-center">',
-                    '      <a href="#" id="btn-wa-handoff" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand underline decoration-brand/40 hover:decoration-brand">',
-                    '        O continuar por WhatsApp Comercial con este resumen cargado ↗',
+                    '      <a href="' + esc(buildWaSummaryUrl()) + '" id="btn-wa-handoff" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand underline decoration-brand/40 hover:decoration-brand">',
+                    (state.files.length > 0
+                        ? 'O seguir por WhatsApp Comercial (incluye el link a tu documento cargado) ↗'
+                        : 'O seguir por WhatsApp Comercial con este resumen cargado ↗'),
                     '      </a>',
                     '    </div>',
                     '  </form>',
                     '</div>'
                 ].join('');
 
+                function syncContactInputs() {
+                    state.empresa = (document.getElementById('inp-empresa')?.value || '').trim();
+                    state.nombre = (document.getElementById('inp-nombre')?.value || '').trim();
+                    state.email = (document.getElementById('inp-email')?.value || '').trim();
+                    state.telefono = (document.getElementById('inp-tel')?.value || '').trim();
+                    state.comentarios = (document.getElementById('inp-obs')?.value || '').trim();
+                    var waEl = document.getElementById('btn-wa-handoff');
+                    if (waEl) waEl.setAttribute('href', buildWaSummaryUrl());
+                }
+
+                ['inp-empresa', 'inp-nombre', 'inp-email', 'inp-tel', 'inp-obs'].forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (el) el.addEventListener('input', syncContactInputs);
+                });
+
                 var waBtn = document.getElementById('btn-wa-handoff');
                 waBtn.addEventListener('click', function () {
-                    state.empresa = (document.getElementById('inp-empresa')?.value || '').trim();
+                    syncContactInputs();
                     waBtn.setAttribute('href', buildWaSummaryUrl());
+                    logWhatsAppHandoffToCloud();
                     if (typeof window.gtag === 'function') {
                         window.gtag('event', 'cotizador_derivacion_wa_b2b', { rubro: state.rubro });
                     }
@@ -1039,25 +1224,40 @@
 
                 document.getElementById('tf-final-form').addEventListener('submit', function (e) {
                     e.preventDefault();
-                    state.empresa = document.getElementById('inp-empresa').value.trim();
-                    state.nombre = document.getElementById('inp-nombre').value.trim();
-                    state.email = document.getElementById('inp-email').value.trim();
-                    state.telefono = document.getElementById('inp-tel').value.trim();
-                    state.comentarios = document.getElementById('inp-obs').value.trim();
+                    syncContactInputs();
 
-                    var subBtn = document.getElementById('btn-submit-final');
                     var errBox = document.getElementById('step5-err');
                     errBox.classList.add('hidden');
+
+                    if (!state.empresa || !state.nombre || !state.telefono) {
+                        errBox.textContent = 'Completá organización, nombre y teléfono directo.';
+                        errBox.classList.remove('hidden');
+                        return;
+                    }
+
+                    var emailCheck = parseEmailList(state.email);
+                    if (!emailCheck.valid) {
+                        errBox.textContent = emailCheck.bad
+                            ? ('Revisá el formato del correo "' + emailCheck.bad + '". Podés ingresar varios separados con coma.')
+                            : 'Ingresá al menos un correo corporativo válido (podés separar varios con coma).';
+                        errBox.classList.remove('hidden');
+                        document.getElementById('inp-email').focus();
+                        return;
+                    }
+                    state.email = emailCheck.normalized;
+
+                    var subBtn = document.getElementById('btn-submit-final');
                     subBtn.disabled = true;
-                    subBtn.textContent = 'Registrando y enviando solicitud...';
+                    subBtn.textContent = 'Enviando cotización...';
 
                     var fd = new FormData();
                     var rubroFinal = isOtro() && state.otroDetalle ? ('Otro: ' + state.otroDetalle) : state.rubro;
                     var alcanceFinal = state.files.length > 0
-                        ? ('Pliego adjunto (' + state.files.length + ' archivo/s)')
+                        ? ('Documentación adjunta (' + state.files.length + ' archivo/s)')
                         : (isEspecial() ? state.especialidad : state.dotacion);
                     var horasFinal = isEspecial() ? (state.escalaEspecial || 'A relevar') : state.horas;
                     var diasFinal = isEspecial() ? '' : state.dias;
+                    var locFinal = buildLocalidadResumen();
                     var sedesClean = state.sedesExtras.map(function (x) { return x.trim(); }).filter(Boolean).join(' | ');
 
                     var isStagingHost = window.location.hostname.indexOf('wajntraub.ar') !== -1 ||
@@ -1081,29 +1281,35 @@
                     fd.append('cantidad_horas', horasFinal);
                     fd.append('dias_semana', diasFinal);
                     fd.append('dias_servicio', diasFinal);
-                    fd.append('localidad', state.localidad);
-                    fd.append('ubicacion', state.localidad);
+                    fd.append('localidad', locFinal);
+                    fd.append('ubicacion', locFinal);
                     fd.append('sedes_adicionales', sedesClean);
                     fd.append('comentarios', state.comentarios);
                     fd.append('escala', state.comentarios);
                     fd.append('origen_pagina', origenParam || '/cotizar/');
-                    fd.append('canal_origen', 'Cotizador guiado /cotizar/');
+                    fd.append('canal_origen', 'Cotizador /cotizar/');
+                    if (state.bundleId && state.bundleToken) {
+                        fd.append('bundle_id', state.bundleId);
+                        fd.append('bundle_token', state.bundleToken);
+                    }
                     if (params.get('silent') === '1') fd.append('silent', '1');
 
-                    state.files.forEach(function (f, i) {
-                        fd.append('pliego_' + (i + 1), f);
-                    });
-
-                    // En producción en starunion.com.ar dispara además api/cotizar.php para envío directo de servidor
+                    // Para PHP en producción adjunta los archivos binarios; en Cloud usa bundle_id si ya están resguardados
                     if (!isStagingHost) {
-                        fetch(LOCAL_PHP_URL, { method: 'POST', body: fd }).catch(function () {});
+                        var phpFd = new FormData();
+                        fd.forEach(function (v, k) { phpFd.append(k, v); });
+                        state.files.forEach(function (f, i) { phpFd.append('pliego_' + (i + 1), f); });
+                        fetch(LOCAL_PHP_URL, { method: 'POST', body: phpFd }).catch(function () {});
+                    }
+                    if (!state.bundleId) {
+                        state.files.forEach(function (f, i) { fd.append('pliego_' + (i + 1), f); });
                     }
 
                     fetch(CLOUD_API_URL, { method: 'POST', body: fd })
                         .then(function (r) { return r.json(); })
                         .then(function (j) {
                             if (!j || !j.ok) {
-                                throw new Error((j && j.error) || 'Verificá los datos ingresados.');
+                                throw new Error((j && j.error) || 'Revisá los datos ingresados.');
                             }
                             state.previewUrl = j.preview_url || '';
                             state.entorno = j.entorno || (isStagingHost ? 'staging' : 'produccion');
@@ -1112,7 +1318,7 @@
                             window.dataLayer.push({
                                 event: 'lead_b2b_calificado_starunion',
                                 b2b_vertical: rubroFinal,
-                                b2b_location: state.localidad,
+                                b2b_location: locFinal,
                                 b2b_has_rfp: state.files.length > 0 ? 'si' : 'no'
                             });
                             if (typeof window.gtag === 'function') {
@@ -1127,7 +1333,7 @@
                         })
                         .catch(function (err) {
                             subBtn.disabled = false;
-                            subBtn.textContent = 'Enviar solicitud a Dirección Comercial →';
+                            subBtn.textContent = 'Enviar pedido de cotización →';
                             errBox.textContent = (err && err.message) ? err.message : 'No pudimos completar el envío en este momento. Podés continuar por WhatsApp Comercial debajo.';
                             errBox.classList.remove('hidden');
                         });
@@ -1135,7 +1341,6 @@
             }
         }
 
-        // Atajos rápidos de teclado en escritorio (1-7 en Paso 1, A-E en Paso 2)
         document.addEventListener('keydown', function (e) {
             var tag = (e.target && e.target.tagName) || '';
             if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || state.subview) return;

@@ -214,7 +214,7 @@
                                 <div>
                                     <dt class="font-extrabold text-[#111827]">Infraestructura propia en CABA</dt>
                                     <dd class="text-[#4b5563] mt-0.5">
-                                        <a href="../la-empresa/index.html" class="text-brand font-bold underline">Base central de 800 m²</a> (Guaminí 5657, CABA), taller electromecánico interno desde 2010, flota propia y escuela de 6 superficies.
+                                        <a href="../la-empresa/index.html" class="text-brand font-bold underline">Base central de 800 m²</a> (Guaminí 5657, CABA), taller electromecánico interno desde 2010, flota propia y aula práctica sobre 6 superficies reales.
                                     </dd>
                                 </div>
                                 <div>
@@ -239,7 +239,7 @@
                                 <p class="text-xs sm:text-sm text-[#676b67] mt-1">Adjuntá las bases del concurso (PDF, Word o Excel) o indicá disponibilidad para agendar visita de relevamiento en tus instalaciones.</p>
                             </div>
 
-                            <form id="rfp-upload-form" class="space-y-4" enctype="multipart/form-data">
+                            <form id="rfp-upload-form" class="space-y-4" enctype="multipart/form-data" novalidate>
                                 <input type="hidden" name="es_licitacion" value="1">
                                 <input type="hidden" name="pagina_origen" value="/licitaciones-y-pliegos/">
                                 <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
@@ -257,8 +257,8 @@
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="rfp-email" class="block text-xs font-bold text-[#111827] mb-1">Correo corporativo *</label>
-                                        <input type="email" id="rfp-email" name="email" required placeholder="nombre@empresa.com.ar" class="w-full bg-white border border-gray-300 focus:border-brand rounded-xl px-3.5 py-2.5 text-sm text-[#111827] outline-none transition">
+                                        <label for="rfp-email" class="block text-xs font-bold text-[#111827] mb-1">Correo corporativo * <span class="font-normal text-[#676b67]">(varios con coma)</span></label>
+                                        <input type="text" inputmode="email" autocomplete="email" id="rfp-email" name="email" required placeholder="compras@empresa.com.ar, otro@empresa.com.ar" class="w-full bg-white border border-gray-300 focus:border-brand rounded-xl px-3.5 py-2.5 text-sm text-[#111827] outline-none transition">
                                     </div>
                                     <div>
                                         <label for="rfp-tel" class="block text-xs font-bold text-[#111827] mb-1">Teléfono directo *</label>
@@ -301,7 +301,7 @@
                                 </button>
 
                                 <div class="pt-2 text-center text-xs text-[#676b67]">
-                                    ¿Consulta sin pliego adjunto? <button type="button" data-open-cotizador="1" class="text-brand font-bold underline cursor-pointer">Usar el cotizador rápido en 3 pasos</button>
+                                    ¿Consulta sin pliego adjunto? <button type="button" data-open-cotizador="1" class="text-brand font-bold underline cursor-pointer">Ir al cotizador online paso a paso</button>
                                 </div>
                             </form>
                         </div>
@@ -436,7 +436,25 @@
 
                     var empresa = (fd.get('empresa') || '').toString().replace(/[,\s]+$/, '').trim();
                     var nombre = (fd.get('nombre') || '').toString().replace(/[,\s]+$/, '').trim();
-                    var email = (fd.get('email') || '').toString().trim();
+                    var emailRaw = (fd.get('email') || '').toString().trim();
+                    var telRaw = (fd.get('telefono') || '').toString().trim();
+                    var ubicRaw = (fd.get('ubicacion') || '').toString().trim();
+
+                    var emailRe = /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]{2,}$/;
+                    var emailList = emailRaw.split(/[,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+                    var allEmailsOk = emailList.length > 0 && emailList.every(function (em) { return emailRe.test(em); });
+
+                    if (!empresa || !nombre || !telRaw || !ubicRaw || !allEmailsOk) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Enviar invitación y pliegos a Dirección Comercial';
+                        alertBox.textContent = !allEmailsOk
+                            ? 'Revisá el correo ingresado (podés escribir uno o varios separados con coma).'
+                            : 'Completá organización, contacto, teléfono directo y localidad.';
+                        alertBox.className = 'rounded-xl px-4 py-3 text-xs font-semibold bg-gray-100 text-[#111827] border border-gray-300';
+                        return;
+                    }
+                    var email = emailList.join(', ');
+                    fd.set('email', email);
 
                     function renderSuccess(resData) {
                         window.dataLayer = window.dataLayer || [];
@@ -490,6 +508,6 @@
             }
         })();
     </script>
-    <script src="../assets/js/starunion-b2b.js?v=20261112h"></script>
+    <script src="../assets/js/starunion-b2b.js?v=20261112i"></script>
 </body>
 </html>

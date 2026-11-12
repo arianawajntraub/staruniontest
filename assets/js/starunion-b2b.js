@@ -65,7 +65,7 @@
     } else if (p.indexOf('/servicios-especiales') !== -1) {
       res.rubro = 'Servicios especiales (altura, final de obra, predios y MIP)';
     } else if (p.indexOf('/grandes-superficies') !== -1) {
-      res.rubro = 'Otro rubro o establecimiento (especificar)';
+      res.rubro = 'Otro espacio empresarial o comercial';
       res.otroDetalle = 'Grandes superficies / centro comercial / red de sucursales';
     }
 
@@ -415,12 +415,12 @@
 
     var RUBROS = [
       { val: 'Plantas industriales, fábricas y centros logísticos', label: '1. Plantas industriales, fábricas y logística' },
-      { val: 'Edificios corporativos de oficinas, bancos y sedes', label: '2. Edificios de oficinas, bancos y sedes' },
+      { val: 'Edificios corporativos de oficinas, bancos y sedes', label: '2. Oficinas corporativas, bancos y sedes' },
       { val: 'Universidades, colegios y clubes deportivos', label: '3. Universidades, colegios y clubes' },
-      { val: 'Consorcios de vivienda y grandes torres', label: '4. Consorcios de vivienda y grandes torres' },
+      { val: 'Consorcios de vivienda y grandes torres', label: '4. Consorcios y grandes torres' },
       { val: 'Clínicas, sanatorios, hospitales y laboratorios', label: '5. Clínicas, sanatorios y laboratorios' },
-      { val: 'Servicios especiales (altura, final de obra, predios y MIP)', label: '6. Servicios especiales (altura, final de obra, predios)' },
-      { val: 'Otro rubro o establecimiento (especificar)', label: 'Otro establecimiento corporativo o comercial' }
+      { val: 'Servicios especiales (altura, final de obra, predios y MIP)', label: '6. Trabajos en altura, final de obra y predios' },
+      { val: 'Otro espacio empresarial o comercial', label: 'Otro espacio empresarial o comercial' }
     ];
 
     function escHtml(str) {
@@ -457,7 +457,7 @@
         bodyEl.innerHTML = [
           '<div style="background:#f9fafb;border:1.5px solid #d1d5db;border-radius:14px;padding:18px;">',
           '  <h3 id="su-wiz-title" style="font-size:18px;font-weight:800;color:#111827;margin:0 0 8px;">Atención exclusiva para empresas, consorcios e instituciones</h3>',
-          '  <p style="font-size:13.5px;color:#4b5563;margin:0;line-height:1.55;">Star Union S.R.L. presta servicios exclusivos para plantas industriales, edificios corporativos, instituciones educativas, clínicas, grandes superficies y consorcios (esquemas desde 4 hs diarias corridas).</p>',
+          '  <p style="font-size:13.5px;color:#4b5563;margin:0;line-height:1.55;">Star Union S.R.L. presta servicios para plantas industriales, oficinas corporativas, instituciones educativas, clínicas, grandes superficies y consorcios.</p>',
           '</div>'
         ].join('');
         return;
@@ -491,7 +491,7 @@
       // PASO 1
       if (state.step === 1) {
         backBtn.style.display = 'none';
-        stepLabel.textContent = 'Paso 1 de 3 · Tipo de establecimiento';
+        stepLabel.textContent = 'Paso 1 de 3 · Rubro o servicio';
         barEl.style.width = '33%';
 
         var btnsHtml = RUBROS.map(function (r) {
@@ -503,8 +503,8 @@
         }).join('');
 
         bodyEl.innerHTML = [
-          '<h3 id="su-wiz-title" style="font-size:19px;font-weight:800;color:#000;margin:0 0 4px;line-height:1.25;">¿Para qué tipo de establecimiento buscás cotizar?</h3>',
-          '<p style="font-size:13px;color:#676b67;margin:0 0 14px;line-height:1.45;">Tocá una opción para configurar tu esquema en menos de un minuto:</p>',
+          '<h3 id="su-wiz-title" style="font-size:19px;font-weight:800;color:#000;margin:0 0 4px;line-height:1.25;">¿Qué necesitás cotizar?</h3>',
+          '<p style="font-size:13px;color:#676b67;margin:0 0 14px;line-height:1.45;">Elegí el sector o tipo de servicio para avanzar:</p>',
           '<div style="display:flex;flex-direction:column;gap:8px;">' + btnsHtml + '</div>',
           '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #f3f4f6;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px;font-size:11.5px;color:#6b7280;">',
           '  <a href="' + RRHH_GOOGLE_FORM_URL + '" target="_blank" rel="noopener noreferrer" id="su-wiz-rrhh-link" style="color:#03582d;font-weight:700;text-decoration:underline;">Busco empleo (RRHH) ↗</a>',
@@ -544,11 +544,11 @@
         barEl.style.width = '66%';
 
         var isEspecial = state.rubro.indexOf('Servicios especiales') !== -1;
-        var isOtro = state.rubro.indexOf('Otro rubro') === 0;
+        var isOtro = state.rubro.indexOf('Otro espacio') === 0 || state.rubro.indexOf('Otro rubro') === 0;
 
         var otroHtml = isOtro ? (
           '<div style="margin-bottom:12px;">' +
-            '<label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:5px;">Especificá tu rubro o tipo de establecimiento *</label>' +
+            '<label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:5px;">Contanos qué espacio necesitás cubrir *</label>' +
             '<input type="text" id="su-wiz-otro" class="su-wiz-input" value="' + escHtml(state.otroDetalle) + '" placeholder="Ej.: centro comercial, puerto, concesionario, red de sucursales...">' +
           '</div>'
         ) : '';
@@ -602,32 +602,30 @@
         } else {
           var pOpts = [
             { v: 'A definir en relevamiento técnico', l: 'A definir en relevamiento' },
-            { v: '1 a 2 personas (jornada mínima 4 hs corridas)', l: '1 a 2 personas' },
-            { v: '3 a 5 personas en servicio', l: '3 a 5 personas' },
-            { v: '6 a 12 personas en servicio', l: '6 a 12 personas' },
-            { v: 'Más de 12 personas / turnos rotativos', l: '+12 personas' }
+            { v: '1 a 3 personas operativas', l: '1 a 3 personas' },
+            { v: '4 a 10 personas operativas', l: '4 a 10 personas' },
+            { v: 'Más de 10 personas operativas', l: '+10 personas' }
           ];
           var hOpts = [
-            { v: 'Media jornada (4 hs diarias corridas)', l: '4 hs corridas (mín.)' },
-            { v: 'Jornada de 6 hs diarias corridas', l: '6 hs diarias' },
-            { v: 'Jornada completa (8 hs diarias)', l: '8 hs diarias' },
-            { v: 'Cobertura multi-turno o 24/7', l: 'Turnos / 24 hs' }
+            { v: '4 hs diarias', l: '4 hs diarias' },
+            { v: '6 hs diarias', l: '6 hs diarias' },
+            { v: '8 hs diarias', l: '8 hs diarias' },
+            { v: 'Turnos rotativos / 24 hs', l: 'Turnos / 24 hs' }
           ];
-          var dOpts = ['Lunes a viernes', 'Lunes a sábado', 'Lunes a lunes (cobertura continua)'];
+          var dOpts = ['Lunes a viernes', 'Lunes a sábado', 'Lunes a lunes'];
 
           middleHtml = [
             '<div style="margin-bottom:12px;">',
-            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Dotación estimada de personas *</label>',
+            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Personas operativas estimadas *</label>',
             '  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;">',
-            pOpts.map(function (o, idx) {
-              var span2 = idx === 0 ? 'grid-column:span 2;' : '';
+            pOpts.map(function (o) {
               var sel = state.personas === o.v ? ' is-selected' : '';
-              return '<button type="button" class="su-pill-opt js-wiz-personas' + sel + '" data-val="' + escHtml(o.v) + '" style="' + span2 + '">' + escHtml(o.l) + '</button>';
+              return '<button type="button" class="su-pill-opt js-wiz-personas' + sel + '" data-val="' + escHtml(o.v) + '">' + escHtml(o.l) + '</button>';
             }).join(''),
             '  </div>',
             '</div>',
             '<div style="margin-bottom:12px;">',
-            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Carga horaria diaria (mínimo 4 hs corridas) *</label>',
+            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Jornada por turno *</label>',
             '  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;">',
             hOpts.map(function (o) {
               var sel = state.horas === o.v ? ' is-selected' : '';
@@ -663,7 +661,7 @@
           '</div>',
           otroHtml,
           middleHtml,
-          '<div id="su-wiz-step2-warn" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:600;color:#991b1b;margin-bottom:12px;line-height:1.45;"></div>',
+          '<div id="su-wiz-step2-warn" style="display:none;background:#f3f4f6;border:1px solid #d1d5db;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:600;color:#111827;margin-bottom:12px;line-height:1.45;"></div>',
           '<div style="margin-bottom:14px;">',
           '  <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px;">',
           '    <label style="font-size:12.5px;font-weight:700;color:#111827;">Localidad del servicio *</label>',
@@ -762,7 +760,7 @@
           syncStep2Inputs();
           var warn = document.getElementById('su-wiz-step2-warn');
           if (isOtro && !state.otroDetalle.trim()) {
-            warn.textContent = 'Especificá en pocas palabras tu rubro o tipo de establecimiento.';
+            warn.textContent = 'Contanos en pocas palabras qué espacio necesitás cubrir.';
             warn.style.display = 'block';
             document.getElementById('su-wiz-otro').focus();
             return;
@@ -793,9 +791,9 @@
         var rfpUrl = resolveBaseRoot() + 'licitaciones-y-pliegos/index.html';
 
         bodyEl.innerHTML = [
-          '<h3 id="su-wiz-title" style="font-size:18.5px;font-weight:800;color:#000;margin:0 0 4px;line-height:1.25;">¿A quién enviamos la propuesta técnica y económica?</h3>',
-          '<p style="font-size:12.5px;color:#676b67;margin:0 0 14px;">Dirección Comercial responderá directo a tu correo o teléfono corporativo.</p>',
-          '<form id="su-wiz-final-form" style="display:flex;flex-direction:column;gap:10px;">',
+          '<h3 id="su-wiz-title" style="font-size:18.5px;font-weight:800;color:#000;margin:0 0 4px;line-height:1.25;">¿A dónde te enviamos la cotización?</h3>',
+          '<p style="font-size:12.5px;color:#676b67;margin:0 0 14px;">Dirección Comercial responde directo a tu correo corporativo o teléfono.</p>',
+          '<form id="su-wiz-final-form" novalidate style="display:flex;flex-direction:column;gap:10px;">',
           '  <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" style="display:none;" aria-hidden="true">',
           '  <div>',
           '    <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:4px;">Empresa, institución o consorcio *</label>',
@@ -807,8 +805,8 @@
           '  </div>',
           '  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">',
           '    <div>',
-          '      <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:4px;">Correo corporativo *</label>',
-          '      <input type="email" id="su-wiz-email" required class="su-wiz-input" value="' + escHtml(state.email) + '" placeholder="nombre@tuempresa.com.ar">',
+          '      <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:4px;">Correo corporativo * <span style="font-weight:400;color:#676b67;">(varios con coma)</span></label>',
+          '      <input type="text" inputmode="email" id="su-wiz-email" required class="su-wiz-input" value="' + escHtml(state.email) + '" placeholder="nombre@empresa.com.ar, otro@empresa.com.ar">',
           '    </div>',
           '    <div>',
           '      <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:4px;">Teléfono o WhatsApp *</label>',
@@ -1040,9 +1038,9 @@
 
         var blockedMsg = '';
         if (val.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Star Union S.R.L. presta servicios exclusivos para empresas, industrias, edificios corporativos, consorcios e instituciones (esquemas desde 4 hs diarias corridas).';
+          blockedMsg = 'Star Union S.R.L. presta servicios exclusivos para empresas, industrias, edificios corporativos, consorcios e instituciones.';
         } else if (!isEspecial && horasVal.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Para sostener supervisión activa, control biométrico y cobertura de ausencias bajo ISO 9001:2015, nuestros esquemas operativos parten de jornadas mínimas de 4 horas diarias corridas.';
+          blockedMsg = 'Nuestros esquemas corporativos se organizan en jornadas de 4, 6 u 8 horas diarias o turnos rotativos.';
         } else if (isEspecial && espVal.indexOf('NO_CALIFICA') === 0) {
           blockedMsg = 'Nuestra división de Servicios Especiales opera en forma exclusiva para plantas industriales, edificios corporativos, grandes predios y centros comerciales.';
         }

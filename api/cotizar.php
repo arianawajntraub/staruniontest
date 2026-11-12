@@ -45,7 +45,20 @@ if (!empty($data['website_hp'])) {
 
 $empresa = clean_field($data['empresa'] ?? '', 200);
 $nombre = clean_field($data['nombre'] ?? '', 160);
-$email = filter_var(trim((string)($data['email'] ?? '')), FILTER_SANITIZE_EMAIL);
+$rawEmailField = clean_field($data['email'] ?? '', 340);
+$emailParts = preg_split('/[,;]+/', $rawEmailField) ?: [];
+$validEmails = [];
+foreach ($emailParts as $ep) {
+    $epClean = filter_var(trim($ep), FILTER_SANITIZE_EMAIL);
+    if ($epClean !== '') {
+        if (!filter_var($epClean, FILTER_VALIDATE_EMAIL)) {
+            $validEmails = [];
+            break;
+        }
+        $validEmails[] = $epClean;
+    }
+}
+$email = implode(', ', $validEmails);
 $telefono = clean_field($data['telefono'] ?? '', 80);
 $tipo = clean_field($data['tipo_organizacion'] ?? '', 200);
 $otroDetalle = clean_field($data['otro_rubro_detalle'] ?? '', 200);
@@ -75,11 +88,11 @@ if (
     exit;
 }
 
-if ($empresa === '' || $nombre === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || $telefono === '') {
+if ($empresa === '' || $nombre === '' || count($validEmails) === 0 || $telefono === '') {
     http_response_code(400);
     echo json_encode([
         'ok' => false,
-        'error' => 'Por favor completá razón social, nombre, correo corporativo válido y teléfono directo.'
+        'error' => 'Por favor completá razón social, nombre, teléfono directo y uno o más correos corporativos válidos (separados por coma).'
     ]);
     exit;
 }
@@ -91,12 +104,28 @@ $allowedExts = ['pdf', 'doc', 'docx', 'xls', 'xlsx'];
 $maxTotalBytes = 15 * 1024 * 1024;
 $totalBytes = 0;
 
+$incomingFiles = [];
 if (!empty($_FILES['pliego_archivos'])) {
     $filesArr = $_FILES['pliego_archivos'];
     $names = is_array($filesArr['name']) ? $filesArr['name'] : [$filesArr['name']];
     $tmpNames = is_array($filesArr['tmp_name']) ? $filesArr['tmp_name'] : [$filesArr['tmp_name']];
     $errors = is_array($filesArr['error']) ? $filesArr['error'] : [$filesArr['error']];
     $sizes = is_array($filesArr['size']) ? $filesArr['size'] : [$filesArr['size']];
+    for ($i = 0; $i < count($names); $i++) {
+        $incomingFiles[] = ['name' => $names[$i], 'tmp_name' => $tmpNames[$i], 'error' => $errors[$i], 'size' => $sizes[$i]];
+    }
+}
+foreach (['pliego_1', 'pliego_2', 'pliego_3'] as $fKey) {
+    if (!empty($_FILES[$fKey])) {
+        $incomingFiles[] = $_FILES[$fKey];
+    }
+}
+
+if (count($incomingFiles) > 0) {
+    $names = array_column($incomingFiles, 'name');
+    $tmpNames = array_column($incomingFiles, 'tmp_name');
+    $errors = array_column($incomingFiles, 'error');
+    $sizes = array_column($incomingFiles, 'size');
 
     $uploadDir = __DIR__ . '/uploads_pliegos';
     if (!is_dir($uploadDir)) {
@@ -239,14 +268,17 @@ $lineas[] = "Al tocar 'Responder' en este correo, tu respuesta va directo a {$em
 
 $plainTextBody = implode("\r\n", $lineas);
 $safeReplyName = preg_replace('/["\r\n<>]/', '', $nombre);
+$replyToHeaderVal = (count($validEmails) === 1)
+    ? "\"{$safeReplyName}\" <{$validEmails[0]}>"
+    : implode(', ', $validEmails);
 
 if (count($attachments) === 0) {
     $headers = [
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
         'From: Sitio Web Star Union <no-reply@starunion.com.ar>',
-        "Reply-To: \"{$safeReplyName}\" <{$email}>",
-        'X-Mailer: StarUnion-Web/2.1'
+        "Reply-To: {$replyToHeaderVal}",
+        'X-Mailer: StarUnion-Web/2.2'
     ];
     $sent = @mail($to, $subject, $plainTextBody, implode("\r\n", $headers));
 } else {
@@ -255,8 +287,8 @@ if (count($attachments) === 0) {
         'MIME-Version: 1.0',
         "Content-Type: multipart/mixed; boundary=\"{$boundary}\"",
         'From: Sitio Web Star Union <no-reply@starunion.com.ar>',
-        "Reply-To: \"{$safeReplyName}\" <{$email}>",
-        'X-Mailer: StarUnion-Web/2.1'
+        "Reply-To: {$replyToHeaderVal}",
+        'X-Mailer: StarUnion-Web/2.2'
     ];
 
     $mimeBody = "--{$boundary}\r\n";
