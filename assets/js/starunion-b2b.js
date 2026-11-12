@@ -120,6 +120,28 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    // Foco directo al primer campo del formulario de cotización al tocar cualquier botón de Cotizar
+    var quoteAnchors = document.querySelectorAll('a[href="#cotizar-form"], a[href="#formulario-cotizacion"], a[href="#contacto"]');
+    quoteAnchors.forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = (anchor.getAttribute('href') || '').slice(1);
+        var targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+        e.preventDefault();
+        var mobileDrawer = document.getElementById('mobile-nav-drawer');
+        if (mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
+          mobileDrawer.classList.add('hidden');
+        }
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function () {
+          var firstInput = targetEl.querySelector('input[name="empresa"]');
+          if (firstInput) {
+            try { firstInput.focus({ preventScroll: true }); } catch (err) { firstInput.focus(); }
+          }
+        }, 420);
+      });
+    });
+
     var b2bForms = document.querySelectorAll('.js-b2b-quote-form');
 
     b2bForms.forEach(function (form) {
@@ -421,25 +443,25 @@
               "<a id='su-wa-go-b2b' href='#' target='_blank' rel='noopener noreferrer' style='display:block;background:#03582d;color:#ffffff;padding:14px 16px;border-radius:10px;text-decoration:none;border:1px solid #03582d;transition:background 0.15s;'>",
                 "<span style='display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:13.5px;'>",
                   "<span>Solicitar cotización para mi empresa o institución</span>",
-                  "<span>↗</span>",
+                  "<svg width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>",
                 "</span>",
                 "<span style='display:block;font-size:11.5px;font-weight:400;color:rgba(255,255,255,0.88);margin-top:3px;'>Exclusivo empresas, industrias, instituciones y consorcios (sin viviendas particulares).</span>",
               "</a>",
 
               "<a id='su-wa-go-rrhh' href='" + RRHH_GOOGLE_FORM_URL + "' target='_blank' rel='noopener noreferrer' style='display:flex;align-items:center;justify-content:space-between;background:#f9fafb;color:#111827;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #d1d5db;text-decoration:none;'>",
                 "<span>Busco trabajo / Cargar CV en Recursos Humanos</span>",
-                "<span style='color:#03582d;font-weight:800;'>↗</span>",
+                "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#03582d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17L17 7M9 7h8v8'/></svg>",
               "</a>",
 
               "<button type='button' id='su-wa-open-compras' style='display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;background:#ffffff;color:#374151;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #e5e7eb;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>",
                 "<span>Soy proveedor de insumos o servicios</span>",
-                "<span style='color:#6b7280;'>→</span>",
+                "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#6b7280' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>",
               "</button>",
             "</div>",
           "</div>",
 
           "<div id='su-wa-compras-view' style='display:none;'>",
-            "<button type='button' id='su-wa-back-main' style='background:none;border:none;padding:0;margin:0 0 12px 0;font-size:12px;font-weight:700;color:#03582d;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>← Volver</button>",
+            "<button type='button' id='su-wa-back-main' style='display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;margin:0 0 12px 0;font-size:12px;font-weight:700;color:#03582d;cursor:pointer;font-family:\"Open Sans\",sans-serif;'><svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 19l-7-7 7-7'/></svg><span>Volver</span></button>",
             "<h3 style='font-size:17px;font-weight:800;color:#000000;margin:0 0 8px 0;line-height:1.3;'>Recepción de propuestas de proveedores</h3>",
             "<p style='font-size:13px;color:#374151;margin:0 0 14px 0;line-height:1.5;'>Copiá la casilla de Compras y envianos tu presentación o catálogo por correo:</p>",
             "<div style='display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f9fafb;border:1px solid #d1d5db;border-radius:10px;padding:11px 14px;'>",

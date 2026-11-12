@@ -271,12 +271,12 @@ class TestTier1FeatureCoverage(unittest.TestCase):
         self.assertNotIn("bg-accent text-[#000000] font-extrabold px-8 py-4", hero, "Primary CTA is still yellow bg-accent")
 
     def test_t1_f4_04_home_hero_secondary_cta_white(self):
-        """F4: index.html Hero secondary CTA must link to altura with clean styling."""
+        """F4: index.html Hero secondary CTA must link to #donde-limpiamos with clean corporate styling."""
         content = get_page_content("index.html")
         self.assertIsNotNone(content)
         hero = get_home_hero_section(content)
         self.assertTrue(hero, "Hero section not found")
-        self.assertIn("limpieza-en-altura/index.html", hero, "Hero secondary CTA link missing")
+        self.assertIn("#donde-limpiamos", hero, "Hero secondary CTA link missing")
 
     def test_t1_f4_05_home_hero_micro_accent_star(self):
         """F4: index.html Hero upper badge must feature micro yellow star accent."""
@@ -739,7 +739,8 @@ class TestTier2BoundaryCases(unittest.TestCase):
         self.assertIsNotNone(content)
         hero = get_home_hero_section(content)
         self.assertTrue(hero)
-        self.assertIn("limpieza-en-altura/index.html", hero)
+        self.assertIn("#donde-limpiamos", hero)
+        self.assertIn("border", hero)
 
     def test_t2_b15_hero_accent_star_inline_flex(self):
         """B15: Yellow star glyph container uses inline-flex for alignment."""
@@ -1189,6 +1190,76 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
             self.assertIn("la-empresa/index.html", namelist)
             self.assertIn("certificacion-iso/index.html", namelist)
             self.assertIn("limpieza-industrial/index.html", namelist)
+
+    def test_t4_s13_zero_empty_or_corrupted_hrefs(self):
+        """S13: 0 empty href=\"\" or corrupted \"utm_source= across all 17 site pages + footer.html + dossier."""
+        all_pages = PUBLIC_PAGES + [
+            "oficinas-corporativas/index.html",
+            "cobertura-y-operaciones-multi-sede/index.html",
+            "bahia-blanca/index.html",
+            "neuquen-vaca-muerta/index.html",
+            "trelew/index.html",
+            "puerto-madryn/index.html",
+            "cobertura-regional-unificada/index.html",
+            "footer.html",
+        ]
+        for p in all_pages:
+            content = get_page_content(p)
+            self.assertIsNotNone(content, f"Missing {p}")
+            self.assertNotIn('href=""', content, f"Empty href found in {p}")
+            self.assertNotIn('"utm_source=', content, f"Corrupted utm_source attribute found in {p}")
+
+    def test_t4_s14_home_commercial_section_order_and_seo(self):
+        """S14: Home displays #donde-limpiamos BEFORE #casos-de-exito and includes primary keyword in H1 + P1."""
+        home = get_page_content("index.html")
+        self.assertIsNotNone(home)
+        pos_donde = home.find('id="donde-limpiamos"')
+        pos_casos = home.find('id="casos-de-exito"')
+        self.assertGreater(pos_donde, 0)
+        self.assertGreater(pos_casos, pos_donde, "#donde-limpiamos must precede #casos-de-exito")
+        h1_m = re.search(r"<h1[^>]*>(.*?)</h1>", home, re.S | re.I)
+        self.assertIsNotNone(h1_m)
+        self.assertIn("empresa de limpieza profesional", re.sub(r"<[^>]+>", "", h1_m.group(1)).lower())
+        p1_m = re.search(r"<h1.*?</h1>\s*(?:</div>\s*)?<p[^>]*>(.*?)</p>", home, re.S | re.I)
+        self.assertIsNotNone(p1_m)
+        self.assertIn("empresa de limpieza profesional", re.sub(r"<[^>]+>", "", p1_m.group(1)).lower())
+
+    def test_t4_s15_contact_form_first_on_mobile(self):
+        """S15: All 17 site pages render #formulario-cotizacion with order-1 lg:order-2 so mobile CTA never lands above fold without form."""
+        site_pages = PUBLIC_PAGES_NO_DOSSIER + [
+            "oficinas-corporativas/index.html",
+            "cobertura-y-operaciones-multi-sede/index.html",
+            "bahia-blanca/index.html",
+            "neuquen-vaca-muerta/index.html",
+            "trelew/index.html",
+            "puerto-madryn/index.html",
+            "cobertura-regional-unificada/index.html",
+        ]
+        home = get_page_content("index.html")
+        self.assertIn('id="cotizar-form"', home)
+        self.assertIn("lg:grid-cols-12", get_home_hero_section(home))
+        for p in site_pages:
+            content = get_page_content(p)
+            self.assertIsNotNone(content, f"Missing {p}")
+            self.assertIn('id="formulario-cotizacion"', content, f"{p} missing #formulario-cotizacion")
+            self.assertIn("order-1 lg:order-2", content, f"{p} missing mobile form-first ordering")
+
+    def test_t4_s16_zero_ascii_blog_arrows_and_sin_cargo(self):
+        """S16: 0 ugly ASCII blog arrows (→, ↓, ↗) and 0 'sin cargo' across all 17 site pages."""
+        site_pages = PUBLIC_PAGES_NO_DOSSIER + [
+            "oficinas-corporativas/index.html",
+            "cobertura-y-operaciones-multi-sede/index.html",
+            "bahia-blanca/index.html",
+            "neuquen-vaca-muerta/index.html",
+            "trelew/index.html",
+            "puerto-madryn/index.html",
+            "cobertura-regional-unificada/index.html",
+        ]
+        for p in site_pages:
+            content = strip_html_comments(get_page_content(p))
+            for arrow in ("→", "↓", "↗"):
+                self.assertNotIn(arrow, content, f"ASCII arrow {arrow} found in {p}")
+            self.assertNotIn("sin cargo", content.lower(), f"Forbidden 'sin cargo' found in {p}")
 
 
 if __name__ == "__main__":
