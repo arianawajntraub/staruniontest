@@ -85,16 +85,20 @@
         if (qIndex !== -1) {
           var rawText = decodeURIComponent(rawHref.slice(qIndex + 5).split('&')[0].replace(/\+/g, ' '));
           var lowerRaw = rawText.toLowerCase();
-          var isSpecificIntent =
-            lowerRaw.indexOf('brochure interactivo') !== -1 ||
-            lowerRaw.indexOf('final de obra') !== -1 ||
-            lowerRaw.indexOf('espacios verdes') !== -1 ||
-            lowerRaw.indexOf('control de plagas') !== -1;
-          if (isSpecificIntent) {
+          if (lowerRaw.indexOf('brochure interactivo') !== -1) {
             return rawText
               .replace(/\s+sin\s+cargo/gi, '')
               .replace(/\s+B2B/gi, '')
               .trim();
+          }
+          if (lowerRaw.indexOf('final de obra') !== -1) {
+            return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza de final de obra para nuestra empresa o predio. Les comparto localidad y superficie aproximada: ';
+          }
+          if (lowerRaw.indexOf('espacios verdes') !== -1) {
+            return 'Hola Star Union, nos interesa evaluar una propuesta de corte mecanizado y mantenimiento de grandes predios. Les comparto empresa, localidad y superficie aproximada: ';
+          }
+          if (lowerRaw.indexOf('control de plagas') !== -1) {
+            return 'Hola Star Union, nos interesa evaluar una propuesta de fumigación certificada y manejo integrado de plagas (MIP) para nuestra empresa. Les comparto localidad y rubro: ';
           }
         }
       } catch (err) {}
@@ -102,51 +106,51 @@
 
     var p = (pathname || '').toLowerCase();
     if (p.indexOf('/limpieza-industrial') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestra planta industrial o centro logístico.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza industrial a medida para nuestra planta o centro logístico. Les comparto empresa, localidad y esquema que buscamos cubrir: ';
     }
     if (p.indexOf('/oficinas-corporativas') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestras oficinas o edificio corporativo.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestras oficinas o edificio corporativo. Les comparto empresa, localidad y esquema horario: ';
     }
     if (p.indexOf('/universidades-y-clubes') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestra institución educativa o club.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestra institución educativa o club. Les comparto institución, localidad y esquema a cubrir: ';
     }
     if (p.indexOf('/consorcios') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestro consorcio o edificio.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional para nuestro consorcio o edificio. Les comparto dirección o barrio y carga horaria buscada: ';
     }
     if (p.indexOf('/clinicas-y-hospitales') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestra clínica, sanatorio o laboratorio.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de higiene institucional para nuestra clínica, sanatorio o laboratorio. Les comparto institución, localidad y áreas a cubrir: ';
     }
     if (p.indexOf('/limpieza-en-altura') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza de vidrios y trabajos en altura.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza de vidrios o trabajos en altura con cuadrillas propias ARAA. Les comparto edificio o planta, localidad y alcance estimado: ';
     }
     if (p.indexOf('/servicios-especiales') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza de final de obra o servicios especiales para nuestra empresa.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de servicios especiales (altura, final de obra, predios o MIP) para nuestra empresa. Les comparto localidad y superficie aproximada: ';
     }
     if (p.indexOf('/grandes-superficies') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza para grandes superficies o sucursales comerciales.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional para grandes superficies o red de sucursales. Les comparto empresa, localidades y esquema buscado: ';
     }
     if (p.indexOf('/cobertura-y-operaciones-multi-sede') !== -1 || p.indexOf('/cobertura-regional-unificada') !== -1) {
-      return 'Hola Star Union, quiero consultar por operaciones de limpieza multi-sede o cobertura regional para nuestra organización.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza multi-sede para nuestra organización. Les comparto empresa y localidades donde operamos: ';
     }
     if (p.indexOf('/bahia-blanca') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Bahía Blanca.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestras instalaciones en Bahía Blanca. Les comparto empresa, rubro y carga horaria buscada: ';
     }
     if (p.indexOf('/neuquen-vaca-muerta') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Neuquén / Vaca Muerta.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestras instalaciones en Neuquén / Vaca Muerta. Les comparto empresa, rubro y esquema buscado: ';
     }
     if (p.indexOf('/trelew') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Trelew.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestras instalaciones en Trelew. Les comparto empresa, rubro y carga horaria buscada: ';
     }
     if (p.indexOf('/puerto-madryn') !== -1) {
-      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Puerto Madryn.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestras instalaciones en Puerto Madryn. Les comparto empresa, rubro y carga horaria buscada: ';
     }
     if (p.indexOf('/la-empresa') !== -1) {
-      return 'Hola Star Union, quisiera coordinar una visita o relevamiento corporativo.';
+      return 'Hola Star Union, nos interesa coordinar un relevamiento técnico y evaluar una propuesta a medida para nuestra organización. Les comparto empresa, localidad y rubro: ';
     }
     if (p.indexOf('/certificacion-iso') !== -1) {
-      return 'Hola Star Union, quiero consultar por servicios de limpieza bajo Sistema de Gestión certificado ISO 9001:2015.';
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional bajo Sistema de Gestión certificado ISO 9001:2015. Les comparto empresa, localidad y alcance buscado: ';
     }
-    return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional para nuestra empresa o institución.';
+    return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestra organización. Les comparto empresa, localidad y esquema que buscamos cubrir: ';
   }
 
   function buildWaEndpoint(msg) {
