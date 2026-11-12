@@ -1210,7 +1210,7 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
             self.assertNotIn('"utm_source=', content, f"Corrupted utm_source attribute found in {p}")
 
     def test_t4_s14_home_commercial_section_order_and_seo(self):
-        """S14: Home displays #donde-limpiamos BEFORE #casos-de-exito and includes primary keyword in H1 + P1."""
+        """S14: Home displays #donde-limpiamos BEFORE #casos-de-exito and all 17 site pages include primary keyword in visible P1 with clean <head>."""
         home = get_page_content("index.html")
         self.assertIsNotNone(home)
         pos_donde = home.find('id="donde-limpiamos"')
@@ -1220,9 +1220,22 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
         h1_m = re.search(r"<h1[^>]*>(.*?)</h1>", home, re.S | re.I)
         self.assertIsNotNone(h1_m)
         self.assertIn("empresa de limpieza profesional", re.sub(r"<[^>]+>", "", h1_m.group(1)).lower())
-        p1_m = re.search(r"<h1.*?</h1>\s*(?:</div>\s*)?<p[^>]*>(.*?)</p>", home, re.S | re.I)
-        self.assertIsNotNone(p1_m)
-        self.assertIn("empresa de limpieza profesional", re.sub(r"<[^>]+>", "", p1_m.group(1)).lower())
+        site_pages = PUBLIC_PAGES_NO_DOSSIER + [
+            "oficinas-corporativas/index.html",
+            "cobertura-y-operaciones-multi-sede/index.html",
+            "bahia-blanca/index.html",
+            "neuquen-vaca-muerta/index.html",
+            "trelew/index.html",
+            "puerto-madryn/index.html",
+            "cobertura-regional-unificada/index.html",
+        ]
+        for p in site_pages:
+            raw = get_page_content(p)
+            head, body = raw.split("</head>", 1)
+            self.assertNotIn("<strong>", head, f"HTML <strong> leaked into <head> of {p}")
+            p1_m = re.search(r"<h1.*?</h1>\s*(?:</div>\s*)?<p[^>]*>(.*?)</p>", body, re.S | re.I)
+            self.assertIsNotNone(p1_m, f"Missing Hero P1 in {p}")
+            self.assertIn("empresa de limpieza profesional", re.sub(r"<[^>]+>", "", p1_m.group(1)).lower(), f"Missing primary keyword in P1 of {p}")
 
     def test_t4_s15_contact_form_first_on_mobile(self):
         """S15: All 17 site pages render #formulario-cotizacion with order-1 lg:order-2 so mobile CTA never lands above fold without form."""
