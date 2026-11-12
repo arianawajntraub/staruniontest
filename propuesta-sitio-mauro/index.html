@@ -50,12 +50,17 @@
     <div id="private-edit-bar" class="hidden no-print max-w-4xl mx-auto bg-[#133522] text-white rounded-2xl px-5 py-3.5 shadow-lg flex flex-wrap items-center justify-between gap-3 text-xs">
         <div class="flex items-center gap-2.5">
             <span class="bg-[#ffcc29] text-[#111827] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Modo edición activo</span>
-            <span>Hacé clic sobre cualquier título o texto para editarlo. Se guarda en este navegador y exporta un PDF limpio.</span>
+            <span id="edit-status-msg">Hacé clic sobre cualquier texto para editarlo. Tocá "Generar link vivo con mis cambios" para compartirlo con links activos.</span>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="btn-share-live" class="bg-[#ffcc29] hover:bg-[#f2bf18] text-[#111827] font-extrabold px-3.5 py-2 rounded-lg transition cursor-pointer">Generar link vivo con mis cambios</button>
             <button type="button" id="btn-reset-doc" class="bg-white/10 hover:bg-white/20 text-white font-bold px-3.5 py-2 rounded-lg transition cursor-pointer">Restaurar original</button>
             <button type="button" onclick="window.print()" class="bg-white text-[#03582d] hover:bg-gray-100 font-extrabold px-4 py-2 rounded-lg transition cursor-pointer">Exportar PDF limpio</button>
         </div>
+    </div>
+    <div id="live-link-box" class="hidden no-print max-w-4xl mx-auto bg-white border-2 border-brand rounded-2xl p-4 shadow-md space-y-2 text-xs">
+        <div class="font-extrabold text-brand">Link vivo listo para enviar a Mauro (sin barras de edición y con todos tus cambios y links activos):</div>
+        <input id="live-link-input" type="text" readonly class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 font-mono text-xs text-[#111827]" onclick="this.select()">
     </div>
 
     <!-- ACCESOS RÁPIDOS SUPERIORES (OCULTOS AL IMPRIMIR) -->
@@ -91,7 +96,7 @@
                         Justificación comercial del sitio, árbol de recorrido, uso de cada landing y conclusiones para campañas
                     </h1>
                     <p class="js-edit text-sm text-[#4b5563] leading-relaxed">
-                        Mauro: acá tenés ordenado por qué estructuramos así el sitio, el árbol completo con links para recorrerlo sabiendo qué mirar en cada parte, las preguntas frecuentes para validar por SÍ o NO, cómo funciona cada landing en tu día a día comercial y qué conclusiones sacamos al cruzar tu material con Google Analytics para pasarle a Mariel.
+                        Comparto justificaciones de la estructura propuesta, el árbol completo con links para recorrerlo sabiendo qué mirar en cada parte, las preguntas frecuentes para validar por SÍ o NO, cómo funciona cada landing en tu día a día comercial y qué conclusiones sacamos al cruzar tu material con Google Analytics para pasarle a Mariel.
                     </p>
                 </div>
                 <img src="../assets/img/logo-star-union.png?v=20261028" alt="Star Union S.R.L." class="h-11 w-auto object-contain shrink-0 self-start sm:self-center">
@@ -116,7 +121,7 @@
                     <li class="js-edit avoid-break bg-[#f4f7f5] p-3.5 rounded-xl border border-brand/25">
                         <strong class="text-[#133522]">Dos ajustes de palabras que cuidan tanto el sitio como las piezas de redes:</strong>
                         <br>1) <strong>Retiro de la sigla ARAA:</strong> en <em>Divisiones técnicas</em> y en <a href="../limpieza-en-altura/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">/limpieza-en-altura/ ↗</a> sacamos toda mención a <em>ARAA</em> para que no figure en la web ni se arrastre a redes sociales.
-                        <br>2) <strong>Cifra de personal en nómina (para confirmar):</strong> antes figuraba <em>"más de 450 personas en nómina"</em>; por prudencia dejamos puesto en el sitio <strong>"100% personal en nómina directa (Art. 30 LCT)"</strong> sin número fijo. Confirmame cuál es la cifra oficial actual si querés que la pongamos en el sitio o en una placa gráfica, o si preferís dejarlo así sin número fijo.
+                        <br>2) <strong>Cifra de personal en nómina (para confirmar):</strong> antes figuraba <em>"más de 450 personas en nómina"</em>; el otro día mencionaste 430... puse <strong>"100% personal en nómina directa (Art. 30 LCT)"</strong> sin número fijo. Confirmame cuál es la cifra oficial actual si querés que la pongamos en el sitio o en una placa gráfica, o si preferís +450 o +400, que en números siempre está bueno.
                     </li>
                 </ul>
             </section>
@@ -131,14 +136,14 @@
                     <span class="text-[11px] font-extrabold bg-[#f4f7f5] text-brand border border-brand/20 px-2.5 py-0.5 rounded-full">Tocá cada link para abrir la página</span>
                 </div>
                 <p class="js-edit text-xs sm:text-[13.5px] text-[#4b5563] leading-relaxed">
-                    Para que no tengas que buscar página por página, este es el esquema completo del sitio ordenado por función:
+                    Para revisión, este es el esquema del sitio ordenado por función:
                 </p>
 
                 <div class="grid sm:grid-cols-2 gap-3.5 text-xs sm:text-[13px] text-[#374151]">
                     <!-- R1 -->
                     <div class="bg-[#f4f7f5] rounded-xl p-4 border border-brand/20 space-y-2">
                         <div class="font-extrabold text-[#133522] uppercase tracking-wider text-[11px]">Nivel 1 · Portada y conversión comercial</div>
-                        <p class="js-edit text-[#4b5563] text-xs">Qué enfocar: primera impresión ejecutiva, video de 35s de Base Guaminí, paso a paso para cotizar y carga de pliegos.</p>
+                        <p class="js-edit text-[#4b5563] text-xs">Qué enfocar: primera impresión ejecutiva, Base Guaminí, paso a paso para cotizar y carga de pliegos.</p>
                         <ul class="space-y-1.5 font-semibold">
                             <li>├─ <a href="../index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Portada principal (/index.html) ↗</a></li>
                             <li>├─ <a href="../cotizar/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Cotizador guiado paso a paso (/cotizar/) ↗</a></li>
@@ -170,7 +175,7 @@
                             <li>└─ <a href="../trelew/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Trelew ↗</a> · <a href="../puerto-madryn/index.html" target="_blank" rel="noopener noreferrer" class="text-brand underline">Puerto Madryn ↗</a></li>
                         </ul>
                         <p class="js-edit text-[11px] text-[#6b7280] pt-1 border-t border-gray-200">
-                            <em>Nota:</em> además dejamos creada una página específica de posicionamiento para búsquedas en Buenos Aires / AMBA sin sumarla al menú principal para no recargarlo.
+                            <em>Nota:</em> además dejamos creada una página específica de posicionamiento para búsquedas en Buenos Aires / AMBA sin sumarla al menú principal para no recargarlo (la justificación es que la IA la necesita para encontrar toda respuesta).
                         </p>
                     </div>
 
@@ -194,7 +199,7 @@
                     <h2 class="js-edit text-lg sm:text-xl font-extrabold text-[#111827]">Próximo paso: brochures comerciales alimentados con todo el análisis</h2>
                 </div>
                 <p class="js-edit text-xs sm:text-[13.5px] text-[#374151] leading-relaxed pl-9">
-                    Una vez validado este cierre del sitio, el paso inmediato siguiente son los <strong>brochures por rubro</strong> alimentados con todas las conclusiones de este relevamiento: mismo orden de prioridades, diferenciales frente a los competidores analizados, cobertura multi-plaza y conexión directa a las nuevas landings de cotización y pliegos para enviar por WhatsApp, correo o reuniones comerciales.
+                    Una vez validado este cierre del sitio, vamos con <strong>brochures por rubro</strong> alimentados con todas las conclusiones de este relevamiento: mismo orden de prioridades, diferenciales frente a los competidores analizados, cobertura multi-plaza y conexión directa a las nuevas landings de cotización y pliegos para enviar por WhatsApp, correo o reuniones comerciales.
                 </p>
             </section>
 
@@ -359,7 +364,7 @@
                     <div class="avoid-break bg-gray-50 rounded-2xl p-4 sm:p-5 border border-gray-200 space-y-1.5 leading-relaxed">
                         <div class="text-[11px] font-extrabold uppercase tracking-wider text-brand">1. Caída de visitas pagas y desvío del gasto</div>
                         <p class="js-edit">
-                            En Google Analytics vimos que las visitas desde Google Ads bajaron un <strong>90% en 5 meses</strong> (de <strong>2.040 visitas en mayo</strong> a <strong>205 en octubre</strong>). En los últimos 90 días, el <strong>85% del presupuesto</strong> se fue en dos bolsas que no traen cuentas nuevas: <strong>44,5%</strong> en gente que escribió <em>"Star Union"</em> en el buscador (postulantes o empleados buscando dirección, cuando la empresa ya sale primera sin pagar) y <strong>34,6%</strong> en frases amplias (<em>"agencia de limpieza"</em>) donde se colaron búsquedas de casas particulares, empleadas por hora (<em>Zolvers</em>), sillones, colchones, eventos, compra de insumos y hasta boletas municipales de ABL.
+                            En Google Analytics vimos que las visitas desde Google Ads bajaron en <strong>5 meses</strong> (de <strong>2.040 visitas en mayo</strong> a <strong>205 en octubre</strong>). En los últimos 90 días, el <strong>85% del presupuesto</strong> se fue en dos bolsas que no traen cuentas nuevas: <strong>44,5%</strong> en gente que escribió <em>"Star Union"</em> en el buscador (postulantes o empleados buscando dirección, cuando la empresa ya sale primera sin pagar) y <strong>34,6%</strong> en frases amplias (<em>"agencia de limpieza"</em>) donde se colaron búsquedas de casas particulares, empleadas por hora (<em>Zolvers</em>), sillones, colchones, eventos, compra de insumos y hasta boletas municipales de ABL.
                         </p>
                     </div>
 
@@ -513,15 +518,27 @@ Indicanos por favor: <strong>empresa, localidad, dotación estimada, días y hor
         (function () {
             var params = new URLSearchParams(window.location.search);
             var isEdit = params.get('edit') === '1';
-            var STORAGE_KEY = 'su_propuesta_mauro_edits_v8';
+            var STORAGE_KEY = 'su_propuesta_mauro_edits_v9';
             var root = document.getElementById('editable-doc-root');
             var nodes = root ? root.querySelectorAll('.js-edit') : [];
+            var defaults = [];
+            nodes.forEach(function (el) { defaults.push(el.innerHTML); });
 
+            // 1. Si viene un link vivo compartido con #d=..., aplicarlo en cualquier dispositivo
             try {
-                var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-                nodes.forEach(function (el, idx) {
-                    if (saved[idx]) el.innerHTML = saved[idx];
-                });
+                var hash = window.location.hash || '';
+                if (hash.indexOf('#d=') === 0) {
+                    var encoded = hash.slice(3);
+                    var shared = JSON.parse(decodeURIComponent(escape(atob(encoded))));
+                    nodes.forEach(function (el, idx) {
+                        if (shared[idx] !== undefined) el.innerHTML = shared[idx];
+                    });
+                } else {
+                    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+                    nodes.forEach(function (el, idx) {
+                        if (saved[idx]) el.innerHTML = saved[idx];
+                    });
+                }
             } catch (e) {}
 
             if (isEdit) {
@@ -537,6 +554,31 @@ Indicanos por favor: <strong>empresa, localidad, dotación estimada, días y hor
                         } catch (err) {}
                     });
                 });
+                var shareBtn = document.getElementById('btn-share-live');
+                var linkBox = document.getElementById('live-link-box');
+                var linkInput = document.getElementById('live-link-input');
+                if (shareBtn && linkBox && linkInput) {
+                    shareBtn.addEventListener('click', function () {
+                        var diff = {};
+                        var hasDiff = false;
+                        nodes.forEach(function (el, idx) {
+                            if (el.innerHTML !== defaults[idx]) {
+                                diff[idx] = el.innerHTML;
+                                hasDiff = true;
+                            }
+                        });
+                        var baseUrl = window.location.origin + window.location.pathname;
+                        if (hasDiff) {
+                            var b64 = btoa(unescape(encodeURIComponent(JSON.stringify(diff))));
+                            linkInput.value = baseUrl + '#d=' + b64;
+                        } else {
+                            linkInput.value = baseUrl;
+                        }
+                        linkBox.classList.remove('hidden');
+                        linkInput.focus();
+                        linkInput.select();
+                    });
+                }
                 var resetBtn = document.getElementById('btn-reset-doc');
                 if (resetBtn) {
                     resetBtn.addEventListener('click', function () {
