@@ -242,3 +242,5 @@ Prohibido usar un único tono plano para todo Star Union. El sistema distingue o
    - Poner la mosca de Star Union con fondo transparente (sin recuadro blanco).
    - Aplicar el sello de ISO 9001:2015 con el mismo criterio limpio y normativo.
    - Relevar todos los videos originales existentes en Drive (*Guaminí*, *Mudanza*, tomas de dron, placa de apertura) para integrar las mejores tomas reales.
+4. **Pase a Producción (www.starunion.com.ar en Hostgator) tras el OK de Mauro:**
+   - Congelar versión aprobada → reemplazar todas las URLs de staging (`wajntraub.ar/staruniontest`) por `www.starunion.com.ar` → subir a **Hostgator** → conectar formularios a casillas reales (contacto@ / comercial@) → re-correr auditoría clic por clic sobre producción hasta 0 links rotos → redirecciones 301 desde URLs del sitio viejo.

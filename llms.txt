@@ -1,36 +1,36 @@
 # Star Union S.R.L. — Servicios Integrales de Limpieza Profesional B2B (Argentina)
 
-> Empresa argentina de limpieza profesional corporativa, industrial, sanitaria e institucional fundada en 2001. Certificada bajo norma **ISO 9001:2015 por TÜV Rheinland** (Certificado N° `01 10006 2529826`, Certipedia ID `9000041847`). Base Operativa Central propia de **800 m² (3 niveles)** en **Guaminí 5052 / 5657, CABA**, con más de 450 personas en relación de dependencia directa, taller electromecánico propio (activo desde 2010), laboratorio de capacitación en 6 superficies y flota propia de soporte operativo Ford Transit.
+> Empresa argentina de limpieza profesional corporativa, industrial, sanitaria e institucional fundada en 2001 (más de 25 años de trayectoria). Certificada bajo norma **ISO 9001:2015 por TÜV Rheinland** (Certificado N° `01 10006 2529826`, Certipedia ID `9000041847`). Base Operativa Central propia de **800 m² (3 niveles)** en **Guaminí 5052 / 5657, CABA**, con más de 450 personas en relación de dependencia directa, más de 100 objetivos activos, taller electromecánico propio (activo desde 2010), laboratorio de capacitación en 6 superficies y flota propia de soporte operativo.
 
 ## Alcance Exclusivo B2B (Filtro de Calificación)
 - **Atención exclusiva para empresas, industrias, edificios corporativos, universidades, colegios, clubes, grandes consorcios, clínicas, laboratorios y grandes superficies.**
-- Esquemas operativos regulares a partir de jornadas mínimas de **4 horas diarias corridas**.
+- Esquemas operativos regulares a partir de jornadas de **4, 6 u 8 horas diarias o turnos rotativos 24 hs**, en dotaciones de **1 a 2, 3 a 5, 6 a 10 o más de 10 personas operativas**.
 - Intervenciones especiales enfocadas en lavado en altura (ARAA), final de obra corporativo o industrial, corte mecanizado en grandes predios y fumigación certificada (MIP).
 
 ## Orden Estratégico de Especialidades y URLs Oficiales
-1. **Plantas industriales, fábricas y centros logísticos:** https://www.starunion.com.ar/limpieza-industrial/
-2. **Edificios corporativos de oficinas, bancos y sedes:** https://www.starunion.com.ar/oficinas-corporativas/
-3. **Universidades, colegios y clubes deportivos:** https://www.starunion.com.ar/universidades-y-clubes/
-4. **Consorcios de vivienda, grandes torres y complejos AAA:** https://www.starunion.com.ar/consorcios/
-5. **Clínicas, sanatorios, hospitales y laboratorios:** https://www.starunion.com.ar/clinicas-y-hospitales/
-6. **Limpieza de vidrios y trabajos en altura (normas ARAA):** https://www.starunion.com.ar/limpieza-en-altura/
-7. **Servicios especiales B2B (final de obra industrial/corporativo, grandes predios con tractores y fumigación MIP):** https://www.starunion.com.ar/servicios-especiales/
-8. **Grandes superficies, centros comerciales, aeropuertos y concesionarios:** https://www.starunion.com.ar/grandes-superficies/
+1. **Plantas industriales, fábricas y centros logísticos:** https://wajntraub.ar/staruniontest/limpieza-industrial/
+2. **Edificios corporativos de oficinas, bancos y sedes:** https://wajntraub.ar/staruniontest/oficinas-corporativas/
+3. **Universidades, colegios y clubes deportivos:** https://wajntraub.ar/staruniontest/universidades-y-clubes/
+4. **Consorcios de vivienda, grandes torres y complejos AAA:** https://wajntraub.ar/staruniontest/consorcios/
+5. **Clínicas, sanatorios, hospitales y laboratorios:** https://wajntraub.ar/staruniontest/clinicas-y-hospitales/
+6. **Limpieza de vidrios y trabajos en altura (normas ARAA):** https://wajntraub.ar/staruniontest/limpieza-en-altura/
+7. **Servicios especiales B2B (final de obra industrial/corporativo, grandes predios con tractores y fumigación MIP):** https://wajntraub.ar/staruniontest/servicios-especiales/
+8. **Grandes superficies, centros comerciales, aeropuertos y concesionarios:** https://wajntraub.ar/staruniontest/grandes-superficies/
 
 ## Cobertura Geográfica Multi-Sede y Doble Vía de Gestión (Casa Matriz CABA/GBA o In Situ)
-- **Hub de Operaciones Multi-Sede y Despliegues a Escala:** https://www.starunion.com.ar/cobertura-y-operaciones-multi-sede/
-- **AMBA (CABA y GBA Norte, Oeste y Sur) y La Plata:** Base Central Guaminí 5657, CABA.
-- **Bahía Blanca (Polo Petroquímico, Puerto, Sucursales y Salud):** https://www.starunion.com.ar/bahia-blanca/
-- **Neuquén y Vaca Muerta (Bases Operativas, Parque Industrial y Corporativo):** https://www.starunion.com.ar/neuquen-vaca-muerta/
-- **Trelew, Chubut (Alta Complejidad Hospitalaria 24/7, Industria e Instituciones):** https://www.starunion.com.ar/trelew/
-- **Puerto Madryn, Chubut (Operatoria Portuaria, Industrial y Corporativa):** https://www.starunion.com.ar/puerto-madryn/
+- **Hub de Operaciones Multi-Sede y Despliegues a Escala:** https://wajntraub.ar/staruniontest/cobertura-y-operaciones-multi-sede/
+- **Buenos Aires · AMBA (CABA y GBA Norte, Oeste y Sur):** https://wajntraub.ar/staruniontest/buenos-aires-amba/ (Base Central Guaminí 5657, CABA).
+- **Bahía Blanca (Polo Petroquímico, Puerto, Sucursales y Salud):** https://wajntraub.ar/staruniontest/bahia-blanca/
+- **Neuquén y Vaca Muerta (Bases Operativas, Parque Industrial y Corporativo):** https://wajntraub.ar/staruniontest/neuquen-vaca-muerta/
+- **Trelew, Chubut (Alta Complejidad Hospitalaria 24/7, Industria e Instituciones):** https://wajntraub.ar/staruniontest/trelew/
+- **Puerto Madryn, Chubut (Operatoria Portuaria, Industrial y Corporativa):** https://wajntraub.ar/staruniontest/puerto-madryn/
 - **Modalidad de contratación:** Coordinación centralizada junto a Compras Corporativas en CABA/GBA para redes multi-sucursal o gestión directa *in situ* en cada plaza regional, más apertura dedicada en nuevas localidades cuando la escala operativa del contrato lo justifica.
 
 ## Respaldo Institucional, Calidad y Canales Separados
-- **Base Operativa Propia en CABA (800 m²):** https://www.starunion.com.ar/la-empresa/
-- **Sistema de Gestión de la Calidad certificado ISO 9001:2015 (TÜV Rheinland):** https://www.starunion.com.ar/certificacion-iso/
-- **Cotizador Corporativo Guiado Paso a Paso:** https://www.starunion.com.ar/cotizar/
-- **Recepción de Licitaciones, Pliegos RFP y Homologación de Proveedor:** https://www.starunion.com.ar/licitaciones-y-pliegos/
-- **Presupuestos Comerciales:** `comercial@starunion.com.ar` · Teléfono `0810-333-UNION (8646)` · WhatsApp Business `+54 9 11 2275-9369`
-- **Recursos Humanos (Postulaciones online):** Formulario oficial RRHH (`https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform`) · Portal del equipo en Browix.
+- **Base Operativa Propia en CABA (800 m²):** https://wajntraub.ar/staruniontest/la-empresa/
+- **Sistema de Gestión de la Calidad certificado ISO 9001:2015 (TÜV Rheinland):** https://wajntraub.ar/staruniontest/certificacion-iso/
+- **Cotizador Corporativo Guiado Paso a Paso:** https://wajntraub.ar/staruniontest/cotizar/
+- **Recepción de Licitaciones, Pliegos RFP y Homologación de Proveedor:** https://wajntraub.ar/staruniontest/licitaciones-y-pliegos/
+- **Presupuestos y Contacto Comercial:** `contacto@starunion.com.ar` · Teléfono `0810-333-UNION (8646)` · WhatsApp Business `+54 9 11 2275-9369`
+- **Recursos Humanos (Postulaciones online):** https://wajntraub.ar/staruniontest/postulaciones/ · Acceso empleados en Browix (`https://pro.browix.com/login`).
 - **Proveedores de Insumos:** Recepción de propuestas y catálogos por correo electrónico en `compras@starunion.com.ar`.

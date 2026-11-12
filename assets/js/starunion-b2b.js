@@ -6,9 +6,22 @@
  */
 
 (function () {
-  var RRHH_GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform';
   var EMAIL_COMPRAS = 'compras@starunion.com.ar';
+  var BROWIX_LOGIN_URL = 'https://pro.browix.com/login';
   var WA_PHONE = '5491122759369';
+
+  var utmSource = '';
+  var utmMedium = '';
+  var utmCampaign = '';
+  try {
+    var initParams = new URLSearchParams(window.location.search || '');
+    utmSource = initParams.get('utm_source') || sessionStorage.getItem('su_utm_source') || '';
+    utmMedium = initParams.get('utm_medium') || sessionStorage.getItem('su_utm_medium') || '';
+    utmCampaign = initParams.get('utm_campaign') || sessionStorage.getItem('su_utm_campaign') || '';
+    if (utmSource) sessionStorage.setItem('su_utm_source', utmSource);
+    if (utmMedium) sessionStorage.setItem('su_utm_medium', utmMedium);
+    if (utmCampaign) sessionStorage.setItem('su_utm_campaign', utmCampaign);
+  } catch (e) {}
 
   function resolveBaseRoot() {
     var scripts = document.querySelectorAll('script[src*="starunion-b2b.js"]');
@@ -17,6 +30,10 @@
       return src.split('assets/js/starunion-b2b.js')[0];
     }
     return '/';
+  }
+
+  function resolveRrhhFormUrl() {
+    return resolveBaseRoot() + 'postulaciones/index.html';
   }
 
   function resolveApiUrl() {
@@ -69,7 +86,9 @@
       res.otroDetalle = 'Grandes superficies / centro comercial / red de sucursales';
     }
 
-    if (p.indexOf('/bahia-blanca') !== -1) {
+    if (p.indexOf('/buenos-aires-amba') !== -1) {
+      res.localidad = 'CABA, GBA Norte, GBA Oeste / Sur';
+    } else if (p.indexOf('/bahia-blanca') !== -1) {
       res.localidad = 'Bahía Blanca';
     } else if (p.indexOf('/neuquen-vaca-muerta') !== -1) {
       res.localidad = 'Neuquén / Vaca Muerta';
@@ -134,6 +153,9 @@
     }
     if (p.indexOf('/cobertura-y-operaciones-multi-sede') !== -1 || p.indexOf('/cobertura-regional-unificada') !== -1) {
       return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza multi-sede para nuestra organización. Les comparto empresa y localidades donde operamos: ';
+    }
+    if (p.indexOf('/buenos-aires-amba') !== -1) {
+      return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida en CABA o Gran Buenos Aires. Les comparto empresa, rubro y esquema buscado: ';
     }
     if (p.indexOf('/bahia-blanca') !== -1) {
       return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestras instalaciones en Bahía Blanca. Les comparto empresa, rubro y carga horaria buscada: ';
@@ -227,11 +249,18 @@
     opts = opts || {};
     var defaults = detectPageDefaults();
     var rubro = opts.rubro || defaults.rubro || '';
+    var esp = opts.especialidad || (!opts.rubro && defaults.especialidad) || '';
+    var otro = opts.otroDetalle || (!opts.rubro && defaults.otroDetalle) || '';
     var loc = opts.localidad || defaults.localidad || '';
     var qp = [];
     if (rubro) qp.push('rubro=' + encodeURIComponent(rubro));
+    if (esp) qp.push('especialidad=' + encodeURIComponent(esp));
+    if (otro) qp.push('otro=' + encodeURIComponent(otro));
     if (loc) qp.push('localidad=' + encodeURIComponent(loc));
     qp.push('origen=' + encodeURIComponent(window.location.pathname || '/'));
+    if (utmSource) qp.push('utm_source=' + encodeURIComponent(utmSource));
+    if (utmMedium) qp.push('utm_medium=' + encodeURIComponent(utmMedium));
+    if (utmCampaign) qp.push('utm_campaign=' + encodeURIComponent(utmCampaign));
     return resolveBaseRoot() + 'cotizar/index.html' + (qp.length ? '?' + qp.join('&') : '');
   }
 
@@ -257,6 +286,9 @@
       comentarios: payload.escala || '',
       origen_pagina: payload.pagina_origen || window.location.pathname,
       canal_origen: 'Sitio web Star Union',
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
       website_url: payload.website_hp || ''
     };
 
@@ -507,7 +539,7 @@
           '<p style="font-size:13px;color:#676b67;margin:0 0 14px;line-height:1.45;">Elegí el sector o tipo de servicio para avanzar:</p>',
           '<div style="display:flex;flex-direction:column;gap:8px;">' + btnsHtml + '</div>',
           '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #f3f4f6;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px;font-size:11.5px;color:#6b7280;">',
-          '  <a href="' + RRHH_GOOGLE_FORM_URL + '" target="_blank" rel="noopener noreferrer" id="su-wiz-rrhh-link" style="color:#03582d;font-weight:700;text-decoration:underline;">Busco empleo (RRHH) ↗</a>',
+          '  <a href="' + resolveRrhhFormUrl() + '" id="su-wiz-rrhh-link" style="color:#03582d;font-weight:700;text-decoration:underline;">Busco empleo (RRHH) →</a>',
           '  <button type="button" id="su-wiz-compras-link" style="background:none;border:none;padding:0;color:#374151;font-weight:700;text-decoration:underline;cursor:pointer;font-family:\'Open Sans\',sans-serif;font-size:11.5px;">Soy proveedor</button>',
           '  <button type="button" id="su-wiz-particular-link" style="background:none;border:none;padding:0;color:#6b7280;text-decoration:underline;cursor:pointer;font-family:\'Open Sans\',sans-serif;font-size:11.5px;">Casa particular</button>',
           '</div>'
@@ -601,9 +633,9 @@
           ].join('');
         } else {
           var pOpts = [
-            { v: 'A definir en relevamiento técnico', l: 'A definir en relevamiento' },
-            { v: '1 a 3 personas operativas', l: '1 a 3 personas' },
-            { v: '4 a 10 personas operativas', l: '4 a 10 personas' },
+            { v: '1 a 2 personas operativas', l: '1 a 2 personas' },
+            { v: '3 a 5 personas operativas', l: '3 a 5 personas' },
+            { v: '6 a 10 personas operativas', l: '6 a 10 personas' },
             { v: 'Más de 10 personas operativas', l: '+10 personas' }
           ];
           var hOpts = [
@@ -895,7 +927,7 @@
             function () {
               subBtn.disabled = false;
               subBtn.textContent = 'Enviar solicitud a Comercial';
-              errBox.textContent = 'No pudimos registrar el envío en este instante. Por favor intentá otra vez o escribinos a comercial@starunion.com.ar.';
+              errBox.textContent = 'No pudimos registrar el envío en este instante. Por favor intentá otra vez o escribinos a contacto@starunion.com.ar.';
               errBox.style.display = 'block';
             }
           );
@@ -1177,7 +1209,7 @@
               submitBtn.textContent = origBtnText;
             }
             if (warningBox) {
-              warningBox.textContent = 'No pudimos registrar el envío en este instante. Por favor intentá otra vez o comunicate directo al 0810-333-UNION (8646) o a comercial@starunion.com.ar.';
+              warningBox.textContent = 'No pudimos registrar el envío en este instante. Por favor intentá otra vez o comunicate directo al 0810-333-UNION (8646) o a contacto@starunion.com.ar.';
               warningBox.classList.remove('hidden');
               warningBox.style.display = 'block';
             }
@@ -1228,9 +1260,14 @@
                 "<span style='display:block;font-size:11.5px;font-weight:400;color:rgba(255,255,255,0.88);margin-top:3px;'>Exclusivo empresas, industrias, instituciones y consorcios (sin viviendas particulares).</span>",
               "</a>",
 
-              "<a id='su-wa-go-rrhh' href='" + RRHH_GOOGLE_FORM_URL + "' target='_blank' rel='noopener noreferrer' style='display:flex;align-items:center;justify-content:space-between;background:#f9fafb;color:#111827;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #d1d5db;text-decoration:none;'>",
+              "<a id='su-wa-go-rrhh' href='" + resolveRrhhFormUrl() + "' style='display:flex;align-items:center;justify-content:space-between;background:#f9fafb;color:#111827;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #d1d5db;text-decoration:none;'>",
                 "<span>Busco trabajo / Cargar CV en Recursos Humanos</span>",
-                "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#03582d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17L17 7M9 7h8v8'/></svg>",
+                "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#03582d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>",
+              "</a>",
+
+              "<a id='su-wa-go-browix' href='" + BROWIX_LOGIN_URL + "' target='_blank' rel='noopener noreferrer' style='display:flex;align-items:center;justify-content:space-between;background:#ffffff;color:#374151;font-weight:700;font-size:13px;padding:11px 16px;border-radius:10px;border:1px solid #e5e7eb;text-decoration:none;'>",
+                "<span>Acceso empleados (Portal Browix)</span>",
+                "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='#6b7280' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17L17 7M9 7h8v8'/></svg>",
               "</a>",
 
               "<button type='button' id='su-wa-open-compras' style='display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;background:#ffffff;color:#374151;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #e5e7eb;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>",

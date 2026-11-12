@@ -19,12 +19,32 @@
       "category": "Sitio Público"
     },
     {
+      "title": "👥 NUEVA PÁGINA POSTULACIONES RRHH (/postulaciones/ · Réplica con estética Star Union + Acceso Empleados Browix + Carga directa a Google Sheet sin casilla rrhh@)",
+      "url": "https://wajntraub.ar/staruniontest/postulaciones/",
+      "category": "Sitio Público"
+    },
+    {
+      "title": "📊 PLANILLA GOOGLE SHEET EN VIVO DE RRHH (Recibe cada postulación + link directo al CV desde /postulaciones/)",
+      "url": "https://docs.google.com/spreadsheets/d/1XfYJgp5FEVITs2JmpQuZgt8vaZNQvjMY2QNJVXmAWBg/edit",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "📥 BANDEJA CLOUD DE POSTULACIONES RRHH (Respaldo web con descarga de CVs y exportación CSV)",
+      "url": "https://cotizador-api-production-1166303f.up.railway.app/rrhh-bandeja?k=su-ariana-2026",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "🏙️ NUEVA PÁGINA PILAR BUENOS AIRES Y AMBA (/buenos-aires-amba/ · CABA, Zona Norte, Zona Oeste y Zona Sur)",
+      "url": "https://wajntraub.ar/staruniontest/buenos-aires-amba/",
+      "category": "Sitio Público"
+    },
+    {
       "title": "📥 BANDEJA CLOUD Y PRE-CRM EN VIVO (Privado Ariana: todas las pruebas y pliegos PDF/Excel enviados desde /cotizar/ y /licitaciones-y-pliegos/)",
       "url": "https://cotizador-api-production-1166303f.up.railway.app/bandeja?k=su-ariana-2026",
       "category": "Stakeholders"
     },
     {
-      "title": "🌐 SITIO WEB PROPUESTO CERRADO (18 Páginas · Cotizador guiado + mínimos claros + pliegos RFP + RRHH al pie)",
+      "title": "🌐 SITIO WEB PROPUESTO CERRADO (19 Páginas · Cotizador guiado + mínimos claros + pliegos RFP + RRHH en /postulaciones/)",
       "url": "https://wajntraub.ar/staruniontest/",
       "category": "Sitio Público"
     },

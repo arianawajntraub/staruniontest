@@ -1,93 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.starunion.com.ar/</loc>
+    <loc>https://wajntraub.ar/staruniontest/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/limpieza-industrial/</loc>
+    <loc>https://wajntraub.ar/staruniontest/limpieza-industrial/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/oficinas-corporativas/</loc>
+    <loc>https://wajntraub.ar/staruniontest/oficinas-corporativas/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/universidades-y-clubes/</loc>
+    <loc>https://wajntraub.ar/staruniontest/universidades-y-clubes/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/consorcios/</loc>
+    <loc>https://wajntraub.ar/staruniontest/consorcios/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/clinicas-y-hospitales/</loc>
+    <loc>https://wajntraub.ar/staruniontest/clinicas-y-hospitales/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/limpieza-en-altura/</loc>
+    <loc>https://wajntraub.ar/staruniontest/limpieza-en-altura/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/servicios-especiales/</loc>
+    <loc>https://wajntraub.ar/staruniontest/servicios-especiales/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/grandes-superficies/</loc>
+    <loc>https://wajntraub.ar/staruniontest/grandes-superficies/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/cobertura-y-operaciones-multi-sede/</loc>
+    <loc>https://wajntraub.ar/staruniontest/cobertura-y-operaciones-multi-sede/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/bahia-blanca/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.starunion.com.ar/neuquen-vaca-muerta/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.starunion.com.ar/trelew/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.starunion.com.ar/puerto-madryn/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.starunion.com.ar/la-empresa/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.starunion.com.ar/certificacion-iso/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.starunion.com.ar/cotizar/</loc>
+    <loc>https://wajntraub.ar/staruniontest/buenos-aires-amba/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.starunion.com.ar/licitaciones-y-pliegos/</loc>
+    <loc>https://wajntraub.ar/staruniontest/bahia-blanca/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/neuquen-vaca-muerta/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/trelew/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/puerto-madryn/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/la-empresa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/certificacion-iso/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/cotizar/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/licitaciones-y-pliegos/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wajntraub.ar/staruniontest/postulaciones/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

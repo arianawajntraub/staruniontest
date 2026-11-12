@@ -1,0 +1,23 @@
+# ============================================================================
+# STAR UNION S.R.L. — REDIRECCIONES 301 DESDE EL SITIO HISTÓRICO (.php) EN HOSTGATOR
+# Garantiza 0 errores 404 y conserva el 100% de la autoridad SEO en Google.
+# ============================================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Forzar HTTPS en dominio productivo
+    RewriteCond %{HTTP_HOST} ^(www\.)?starunion\.com\.ar$ [NC]
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://www.starunion.com.ar%{REQUEST_URI} [L,R=301]
+
+    # Redirecciones 301 de páginas históricas PHP a las nuevas URLs limpias
+    RewriteRule ^index\.php$ / [L,R=301]
+    RewriteRule ^empresa\.php$ /la-empresa/ [L,R=301]
+    RewriteRule ^servicios\.php$ /#donde-limpiamos [L,R=301,NE]
+    RewriteRule ^clientes\.php$ /#casos-de-exito [L,R=301,NE]
+    RewriteRule ^contacto\.php$ /cotizar/ [L,R=301]
+    RewriteRule ^presupuesto\.php$ /cotizar/ [L,R=301]
+    RewriteRule ^interesados\.php$ /postulaciones/ [L,R=301]
+    RewriteRule ^rrhh\.php$ /postulaciones/ [L,R=301]
+    RewriteRule ^calidad\.php$ /certificacion-iso/ [L,R=301]
+</IfModule>
