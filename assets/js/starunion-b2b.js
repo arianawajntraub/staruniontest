@@ -1,14 +1,14 @@
 /**
- * STAR UNION S.R.L. — MOTOR DE CONVERSIÓN B2B, FILTRO DE ALCANCE Y SEPARACIÓN DE LAS 3 PUERTAS
- * 1) Presupuestos B2B -> envío directo en página a contacto@starunion.com.ar con Reply-To al cliente + respaldo.
- * 2) Recursos Humanos -> formulario online oficial de RRHH + rrhh@starunion.com.ar + Portal del equipo (Browix).
- * 3) Proveedores -> compras@starunion.com.ar visible para copiar en 1 clic (cero mailto, cero WhatsApp comercial).
+ * STAR UNION S.R.L. — MOTOR CORPORATIVO DE COTIZACIONES Y DERIVACIÓN DE LAS 3 PUERTAS
+ * 1) Presupuestos corporativos -> envío directo a Comercial con Reply-To real del cliente + respaldo.
+ * 2) Recursos Humanos -> derivación directa en pestaña nueva al formulario online oficial de RRHH (cero rrhh@).
+ * 3) Proveedores -> vista aislada limpia con compras@starunion.com.ar (cero mailto).
  */
 
 (function () {
   var RRHH_GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform';
-  var EMAIL_RRHH = 'rrhh@starunion.com.ar';
   var EMAIL_COMPRAS = 'compras@starunion.com.ar';
+  var WA_PHONE = '5491122759369';
 
   function resolveApiUrl() {
     var scripts = document.querySelectorAll('script[src*="starunion-b2b.js"]');
@@ -36,17 +36,88 @@
     if (btn) {
       var orig = btn.getAttribute('data-orig-label') || btn.textContent;
       btn.setAttribute('data-orig-label', orig);
-      btn.textContent = feedbackText || '✓ Correo copiado';
+      btn.textContent = feedbackText || '✓ Copiado';
       setTimeout(function () {
         btn.textContent = orig;
       }, 2200);
     }
   }
 
-  // Exponer utilidad global para botones "Copiar correo" en #contacto / #postularse
-  window.suCopyEmail = function (emailStr, btnEl) {
-    copyPlainText(emailStr, btnEl, '✓ Copiado: ' + emailStr);
-  };
+  function buildContextualWaMessage(pathname, rawHref) {
+    // Si viene desde el Dossier Interactivo o una pestaña específica de especialidad (Final de obra / Espacios verdes / Plagas), respetar esa intención limpiando jerga
+    if (rawHref) {
+      try {
+        var qIndex = rawHref.indexOf('text=');
+        if (qIndex !== -1) {
+          var rawText = decodeURIComponent(rawHref.slice(qIndex + 5).split('&')[0].replace(/\+/g, ' '));
+          var lowerRaw = rawText.toLowerCase();
+          var isSpecificIntent =
+            lowerRaw.indexOf('brochure interactivo') !== -1 ||
+            lowerRaw.indexOf('final de obra') !== -1 ||
+            lowerRaw.indexOf('espacios verdes') !== -1 ||
+            lowerRaw.indexOf('control de plagas') !== -1;
+          if (isSpecificIntent) {
+            return rawText
+              .replace(/\s+sin\s+cargo/gi, '')
+              .replace(/\s+B2B/gi, '')
+              .trim();
+          }
+        }
+      } catch (err) {}
+    }
+
+    var p = (pathname || '').toLowerCase();
+    if (p.indexOf('/limpieza-industrial') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestra planta industrial o centro logístico.';
+    }
+    if (p.indexOf('/oficinas-corporativas') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestras oficinas o edificio corporativo.';
+    }
+    if (p.indexOf('/universidades-y-clubes') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestra institución educativa o club.';
+    }
+    if (p.indexOf('/consorcios') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestro consorcio o edificio.';
+    }
+    if (p.indexOf('/clinicas-y-hospitales') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza para nuestra clínica, sanatorio o laboratorio.';
+    }
+    if (p.indexOf('/limpieza-en-altura') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza de vidrios y trabajos en altura.';
+    }
+    if (p.indexOf('/servicios-especiales') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza de final de obra o servicios especiales para nuestra empresa.';
+    }
+    if (p.indexOf('/grandes-superficies') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza para grandes superficies o sucursales comerciales.';
+    }
+    if (p.indexOf('/cobertura-y-operaciones-multi-sede') !== -1 || p.indexOf('/cobertura-regional-unificada') !== -1) {
+      return 'Hola Star Union, quiero consultar por operaciones de limpieza multi-sede o cobertura regional para nuestra organización.';
+    }
+    if (p.indexOf('/bahia-blanca') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Bahía Blanca.';
+    }
+    if (p.indexOf('/neuquen-vaca-muerta') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Neuquén / Vaca Muerta.';
+    }
+    if (p.indexOf('/trelew') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Trelew.';
+    }
+    if (p.indexOf('/puerto-madryn') !== -1) {
+      return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional en Puerto Madryn.';
+    }
+    if (p.indexOf('/la-empresa') !== -1) {
+      return 'Hola Star Union, quisiera coordinar una visita o relevamiento corporativo.';
+    }
+    if (p.indexOf('/certificacion-iso') !== -1) {
+      return 'Hola Star Union, quiero consultar por servicios de limpieza certificados bajo norma ISO 9001:2015.';
+    }
+    return 'Hola Star Union, quiero solicitar una cotización de limpieza profesional para nuestra empresa o institución.';
+  }
+
+  function buildWaEndpoint(msg) {
+    return 'https://api.whatsapp.com/send?phone=' + WA_PHONE + '&text=' + encodeURIComponent(msg);
+  }
 
   document.addEventListener('DOMContentLoaded', function () {
     var b2bForms = document.querySelectorAll('.js-b2b-quote-form');
@@ -65,7 +136,6 @@
       var warningBox = form.querySelector('.b2b-warning-alert');
       var submitBtn = form.querySelector('button[type="submit"]');
 
-      // Multi-sede dinámico (oculto por defecto para el 80%+ de consultas de 1 sola ubicación)
       var addSedeBtn = form.querySelector('.js-add-sede-btn');
       var sedesList = form.querySelector('.js-multi-sede-list');
 
@@ -78,7 +148,7 @@
           row.innerHTML = [
             '<input type="text" placeholder="Sede adicional (localidad / dirección)" class="js-sede-loc sm:col-span-6 w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-xs focus:border-brand outline-none">',
             '<input type="text" placeholder="Dotación u horario estimado en esa sede" class="js-sede-dot sm:col-span-5 w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-xs focus:border-brand outline-none">',
-            '<button type="button" title="Quitar sede" class="js-remove-sede sm:col-span-1 text-gray-400 hover:text-gray-800 font-bold text-sm py-1">✕</button>'
+            '<button type="button" title="Quitar sede" class="js-remove-sede sm:col-span-1 text-gray-400 hover:text-gray-800 font-bold text-sm py-1 cursor-pointer">✕</button>'
           ].join('');
           row.querySelector('.js-remove-sede').addEventListener('click', function () {
             row.remove();
@@ -93,7 +163,6 @@
         var espVal = especialidadSelect ? especialidadSelect.value : '';
         var isEspecial = val.indexOf('Servicios especiales') !== -1;
 
-        // Mostrar u ocultar campo "Otro rubro"
         if (otroWrap && otroInput) {
           if (val === 'Otro rubro o establecimiento (especificar)') {
             otroWrap.classList.remove('hidden');
@@ -105,7 +174,6 @@
           }
         }
 
-        // Alternar unidad de medida: Dotación/Horas semanales (1° a 5°) vs. Especialidad/Alcance (6° Servicios especiales)
         if (regularWrap && especialWrap) {
           if (isEspecial) {
             regularWrap.classList.add('hidden');
@@ -132,14 +200,13 @@
           }
         }
 
-        // Evaluar bloqueos corteses (viviendas, mudanzas, pocas horas aisladas o eventos/tanques)
         var blockedMsg = '';
         if (val.indexOf('NO_CALIFICA') === 0) {
           blockedMsg = 'Star Union S.R.L. brinda servicios exclusivamente a empresas, industrias, edificios corporativos, consorcios e instituciones. No realizamos viviendas particulares, mudanzas ni limpiezas domésticas.';
         } else if (!isEspecial && horasVal.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Para garantizar supervisión activa, control biométrico y reemplazo de ausencias bajo norma ISO 9001:2015, nuestros esquemas operativos regulares parten de jornadas mínimas de 4 horas diarias corridas.';
+          blockedMsg = 'Para garantizar supervisión activa, control biométrico y cobertura de ausencias bajo norma ISO 9001:2015, nuestros esquemas operativos regulares parten de jornadas mínimas de 4 horas diarias corridas.';
         } else if (isEspecial && espVal.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Nuestra división de Servicios Especiales opera en plantas industriales, edificios corporativos, grandes predios y centros comerciales. No realizamos eventos o stands puntuales, mudanzas, limpieza de tanques domiciliarios ni viviendas.';
+          blockedMsg = 'Nuestra división de Servicios Especiales opera en plantas industriales, edificios corporativos, grandes predios y centros comerciales. No realizamos eventos o stands puntuales, mudanzas, limpieza de tanques de agua ni viviendas.';
         }
 
         if (warningBox) {
@@ -193,6 +260,7 @@
         var hp = (form.querySelector('[name="website_hp"]')?.value || '').trim();
 
         if (
+          !tipoBase ||
           tipoBase.indexOf('NO_CALIFICA') === 0 ||
           cantidadHoras.indexOf('NO_CALIFICA') === 0 ||
           especialidad.indexOf('NO_CALIFICA') === 0
@@ -201,7 +269,6 @@
           return;
         }
 
-        // Recolectar sedes adicionales si se cargaron
         var sedesExtras = [];
         if (sedesList) {
           sedesList.querySelectorAll('.js-sede-extra-row').forEach(function (r) {
@@ -240,7 +307,6 @@
         }
 
         function renderSuccessCard() {
-          // Disparar conversión primaria limpia para GA4 / Google Ads SOLO tras envío válido B2B
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             event: 'lead_b2b_calificado_starunion',
@@ -266,7 +332,7 @@
             '</div>',
             '<h4 class="text-lg font-extrabold text-[#000000]">Gracias, ' + nombre.replace(/</g, '&lt;') + '. Recibimos los datos de ' + empresa.replace(/</g, '&lt;') + '.</h4>',
             '<p class="text-sm text-[#676b67] leading-relaxed">',
-              'Nuestro equipo comercial analizará el esquema solicitado y te responderá de forma directa a <strong class="text-[#000000]">' + email.replace(/</g, '&lt;') + '</strong> o al <strong class="text-[#000000]">' + telefono.replace(/</g, '&lt;') + '</strong> para coordinar el relevamiento técnico.',
+              'Nuestro equipo comercial analizará el requerimiento y te responderá de forma directa a <strong class="text-[#000000]">' + email.replace(/</g, '&lt;') + '</strong> o al <strong class="text-[#000000]">' + telefono.replace(/</g, '&lt;') + '</strong> para coordinar el relevamiento técnico.',
             '</p>',
             '<div class="pt-2 border-t border-gray-200 text-xs text-[#676b67] flex flex-wrap items-center justify-between gap-2">',
               '<span>Atención telefónica directa: <strong class="text-brand">0810-333-UNION (8646)</strong></span>',
@@ -274,6 +340,18 @@
             '</div>'
           ].join('');
           form.replaceWith(confirmBox);
+        }
+
+        function showInlineNetworkError() {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = origBtnText;
+          }
+          if (warningBox) {
+            warningBox.textContent = 'No pudimos registrar el envío en este instante. Por favor intentá nuevamente o comunicate directo al 0810-333-UNION (8646) o a comercial@starunion.com.ar.';
+            warningBox.classList.remove('hidden');
+            warningBox.style.display = 'block';
+          }
         }
 
         fetch(resolveApiUrl(), {
@@ -291,7 +369,6 @@
                 }
               });
             }
-            // En entorno estático de previsualización (GitHub Pages sin motor PHP activo), mostrar confirmación visual de prueba
             if (window.location.hostname.indexOf('wajntraub.ar') !== -1 || window.location.hostname === 'localhost') {
               renderSuccessCard();
               return;
@@ -303,89 +380,109 @@
               renderSuccessCard();
               return;
             }
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.textContent = origBtnText;
-            }
-            alert('No pudimos conectar con el servidor en este instante. Podés comunicarte directo al 0810-333-UNION (8646) o escribir a contacto@starunion.com.ar.');
+            showInlineNetworkError();
           });
       });
     });
   });
 
-  // Micro-filtro tecnológico de 3 puertas en botones de WhatsApp (separa Empresas, RRHH y Proveedores)
+  // Modal de derivación de las 3 puertas en WhatsApp (sin emojis, sin rrhh@, RRHH directo en pestaña nueva y vista aislada para Compras)
   document.addEventListener('DOMContentLoaded', function () {
-    var waLinks = document.querySelectorAll('a[href*="api.whatsapp.com"], a[href*="wa.me"]');
+    var waLinks = document.querySelectorAll('a[href*="api.whatsapp.com"], a[href*="wa.me"], a[data-wa-trigger="1"]');
     if (!waLinks.length) return;
 
     var modal = document.getElementById('su-wa-filter-modal');
+    function resetModalToMain() {
+      var mainView = document.getElementById('su-wa-main-view');
+      var comprasView = document.getElementById('su-wa-compras-view');
+      if (mainView) mainView.style.display = 'block';
+      if (comprasView) comprasView.style.display = 'none';
+    }
+    function closeModal() {
+      if (modal) modal.style.display = 'none';
+      resetModalToMain();
+    }
+
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'su-wa-filter-modal';
-      modal.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;padding:16px;';
+      modal.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(17,24,39,0.6);backdrop-filter:blur(2px);align-items:center;justify-content:center;padding:16px;';
       modal.innerHTML = [
-        "<div style='background:#ffffff;max-width:440px;width:100%;border-radius:16px;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,0.25);border-top:5px solid #03582d;font-family:\"Open Sans\",sans-serif;'>",
-          "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;'>",
-            "<span style='font-size:11px;font-weight:800;text-transform:uppercase;color:#03582d;letter-spacing:0.05em;'>Atención directa Star Union</span>",
-            "<button type='button' id='su-wa-close' aria-label='Cerrar ventana' style='background:none;border:none;font-size:18px;cursor:pointer;color:#6b7280;'>✕</button>",
+        "<div role='dialog' aria-modal='true' style='background:#ffffff;max-width:440px;width:100%;border-radius:16px;padding:24px;box-shadow:0 24px 48px rgba(0,0,0,0.22);border-top:4px solid #03582d;font-family:\"Open Sans\",sans-serif;'>",
+          "<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;'>",
+            "<span style='font-size:11px;font-weight:800;text-transform:uppercase;color:#03582d;letter-spacing:0.06em;'>Atención directa · Star Union S.R.L.</span>",
+            "<button type='button' id='su-wa-close' aria-label='Cerrar ventana' style='background:none;border:none;font-size:18px;line-height:1;cursor:pointer;color:#6b7280;padding:4px;'>✕</button>",
           "</div>",
-          "<h3 style='font-size:18px;font-weight:800;color:#000000;margin:0 0 6px 0;'>¿Con qué área querés comunicarte?</h3>",
-          "<p style='font-size:13px;color:#4b5563;margin:0 0 16px 0;line-height:1.45;'>Seleccioná una opción para derivarte con el equipo correspondiente sin demoras:</p>",
-          "<div style='display:flex;flex-direction:column;gap:10px;'>",
-            "<a id='su-wa-go-b2b' href='#' target='_blank' rel='noopener' style='display:block;text-align:center;background:#03582d;color:#ffffff;font-weight:800;font-size:13.5px;padding:14px 16px;border-radius:10px;text-decoration:none;'>🏢 Solicitar cotización para mi empresa o institución →</a>",
-            "<button type='button' id='su-wa-toggle-rrhh' style='width:100%;text-align:center;background:#f3f4f6;color:#111827;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #d1d5db;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>👷 Busco trabajo / enviar CV a Recursos Humanos</button>",
-            "<div id='su-wa-rrhh-panel' style='display:none;background:#f9fafb;border:1px solid #d1d5db;border-radius:10px;padding:12px;font-size:12px;color:#374151;'>",
-              "<p style='margin:0 0 8px 0;line-height:1.4;'><strong>Canal exclusivo de Recursos Humanos:</strong> El WhatsApp comercial no recibe currículums. Cargá tus datos online o escribí a RRHH:</p>",
-              "<a href='" + RRHH_GOOGLE_FORM_URL + "' target='_blank' rel='noopener' style='display:block;text-align:center;background:#111827;color:#ffffff;font-weight:700;padding:10px 12px;border-radius:8px;text-decoration:none;margin-bottom:8px;'>📋 Completar formulario online de postulación ↗</a>",
-              "<div style='display:flex;align-items:center;justify-content:space-between;gap:8px;background:#ffffff;border:1px solid #e5e7eb;border-radius:8px;padding:7px 10px;margin-bottom:6px;'>",
-                "<span style='font-weight:700;color:#000000;'>" + EMAIL_RRHH + "</span>",
-                "<button type='button' id='su-copy-rrhh-btn' style='background:#f3f4f6;border:1px solid #d1d5db;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:700;cursor:pointer;color:#111827;'>Copiar correo</button>",
-              "</div>",
-              "<a href='https://browix.com' target='_blank' rel='noopener' style='display:block;text-align:center;color:#03582d;font-weight:700;text-decoration:underline;padding-top:2px;'>Ingresar al portal del equipo (Browix) ↗</a>",
+
+          "<div id='su-wa-main-view'>",
+            "<h3 style='font-size:18px;font-weight:800;color:#000000;margin:0 0 6px 0;line-height:1.25;'>¿Con qué área necesitás comunicarte?</h3>",
+            "<p style='font-size:13px;color:#4b5563;margin:0 0 16px 0;line-height:1.45;'>Seleccioná una opción para derivarte con el canal correspondiente en una pestaña nueva:</p>",
+            "<div style='display:flex;flex-direction:column;gap:10px;'>",
+              "<a id='su-wa-go-b2b' href='#' target='_blank' rel='noopener noreferrer' style='display:block;background:#03582d;color:#ffffff;padding:14px 16px;border-radius:10px;text-decoration:none;border:1px solid #03582d;transition:background 0.15s;'>",
+                "<span style='display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:13.5px;'>",
+                  "<span>Solicitar cotización para mi empresa o institución</span>",
+                  "<span>↗</span>",
+                "</span>",
+                "<span style='display:block;font-size:11.5px;font-weight:400;color:rgba(255,255,255,0.88);margin-top:3px;'>Exclusivo empresas, industrias, instituciones y consorcios (sin viviendas particulares).</span>",
+              "</a>",
+
+              "<a id='su-wa-go-rrhh' href='" + RRHH_GOOGLE_FORM_URL + "' target='_blank' rel='noopener noreferrer' style='display:flex;align-items:center;justify-content:space-between;background:#f9fafb;color:#111827;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #d1d5db;text-decoration:none;'>",
+                "<span>Busco trabajo / Cargar CV en Recursos Humanos</span>",
+                "<span style='color:#03582d;font-weight:800;'>↗</span>",
+              "</a>",
+
+              "<button type='button' id='su-wa-open-compras' style='display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;background:#ffffff;color:#374151;font-weight:700;font-size:13px;padding:12px 16px;border-radius:10px;border:1px solid #e5e7eb;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>",
+                "<span>Soy proveedor de insumos o servicios</span>",
+                "<span style='color:#6b7280;'>→</span>",
+              "</button>",
             "</div>",
-            "<button type='button' id='su-wa-toggle-compras' style='width:100%;text-align:center;background:#ffffff;color:#374151;font-weight:700;font-size:12.5px;padding:11px 16px;border-radius:10px;border:1px solid #e5e7eb;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>📦 Soy proveedor de insumos o servicios</button>",
-            "<div id='su-wa-compras-panel' style='display:none;background:#f9fafb;border:1px solid #d1d5db;border-radius:10px;padding:12px;font-size:12px;color:#374151;'>",
-              "<p style='margin:0 0 8px 0;line-height:1.4;'><strong>Recepción de propuestas de proveedores:</strong> Copiá la casilla de Compras y envianos tu presentación o catálogo por correo:</p>",
-              "<div style='display:flex;align-items:center;justify-content:space-between;gap:8px;background:#ffffff;border:1px solid #d1d5db;border-radius:8px;padding:8px 10px;'>",
-                "<span style='font-weight:800;color:#000000;font-size:12.5px;user-select:all;'>" + EMAIL_COMPRAS + "</span>",
-                "<button type='button' id='su-copy-compras-btn' style='background:#03582d;border:none;border-radius:6px;padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;color:#ffffff;'>Copiar correo</button>",
-              "</div>",
+          "</div>",
+
+          "<div id='su-wa-compras-view' style='display:none;'>",
+            "<button type='button' id='su-wa-back-main' style='background:none;border:none;padding:0;margin:0 0 12px 0;font-size:12px;font-weight:700;color:#03582d;cursor:pointer;font-family:\"Open Sans\",sans-serif;'>← Volver</button>",
+            "<h3 style='font-size:17px;font-weight:800;color:#000000;margin:0 0 8px 0;line-height:1.3;'>Recepción de propuestas de proveedores</h3>",
+            "<p style='font-size:13px;color:#374151;margin:0 0 14px 0;line-height:1.5;'>Copiá la casilla de Compras y envianos tu presentación o catálogo por correo:</p>",
+            "<div style='display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f9fafb;border:1px solid #d1d5db;border-radius:10px;padding:11px 14px;'>",
+              "<span style='font-weight:800;color:#000000;font-size:13.5px;user-select:all;'>" + EMAIL_COMPRAS + "</span>",
+              "<button type='button' id='su-copy-compras-btn' style='background:#03582d;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;color:#ffffff;font-family:\"Open Sans\",sans-serif;white-space:nowrap;'>Copiar correo</button>",
             "</div>",
           "</div>",
         "</div>"
       ].join('');
       document.body.appendChild(modal);
 
-      document.getElementById('su-wa-close').addEventListener('click', function () {
-        modal.style.display = 'none';
-      });
+      document.getElementById('su-wa-close').addEventListener('click', closeModal);
       modal.addEventListener('click', function (e) {
-        if (e.target === modal) modal.style.display = 'none';
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
       });
 
       document.getElementById('su-wa-go-b2b').addEventListener('click', function () {
         if (typeof window.gtag === 'function') {
-          window.gtag('event', 'contacto_wa_empresa_b2b', { event_category: 'B2B_Lead' });
+          window.gtag('event', 'contacto_wa_empresa_b2b', {
+            event_category: 'B2B_Lead',
+            source_page: window.location.pathname
+          });
         }
-        modal.style.display = 'none';
+        closeModal();
       });
 
-      document.getElementById('su-wa-toggle-rrhh').addEventListener('click', function () {
-        var rrhhP = document.getElementById('su-wa-rrhh-panel');
-        var compP = document.getElementById('su-wa-compras-panel');
-        compP.style.display = 'none';
-        rrhhP.style.display = rrhhP.style.display === 'none' ? 'block' : 'none';
+      document.getElementById('su-wa-go-rrhh').addEventListener('click', function () {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'salida_rrhh_form', { ubicacion: 'modal_whatsapp' });
+        }
+        closeModal();
       });
 
-      document.getElementById('su-wa-toggle-compras').addEventListener('click', function () {
-        var rrhhP = document.getElementById('su-wa-rrhh-panel');
-        var compP = document.getElementById('su-wa-compras-panel');
-        rrhhP.style.display = 'none';
-        compP.style.display = compP.style.display === 'none' ? 'block' : 'none';
+      document.getElementById('su-wa-open-compras').addEventListener('click', function () {
+        document.getElementById('su-wa-main-view').style.display = 'none';
+        document.getElementById('su-wa-compras-view').style.display = 'block';
       });
 
-      document.getElementById('su-copy-rrhh-btn').addEventListener('click', function () {
-        copyPlainText(EMAIL_RRHH, this, '✓ Copiado');
+      document.getElementById('su-wa-back-main').addEventListener('click', function () {
+        resetModalToMain();
       });
 
       document.getElementById('su-copy-compras-btn').addEventListener('click', function () {
@@ -394,13 +491,28 @@
     }
 
     waLinks.forEach(function (link) {
+      if (link.id === 'su-wa-go-b2b') return;
+      var origHref = link.getAttribute('href') || '';
+      if (origHref && origHref !== '#atencion-whatsapp') {
+        link.setAttribute('data-wa-orig-href', origHref);
+        // Evitar disparos prematuros de GTM por coincidencia de URL wa.me / whatsapp antes de pasar el filtro
+        if (link.id !== 'vBtnWa') {
+          link.setAttribute('href', '#atencion-whatsapp');
+          link.removeAttribute('target');
+        }
+      }
+
       link.addEventListener('click', function (e) {
         e.preventDefault();
-        var targetHref = link.getAttribute('href');
+        // En Dossier Interactivo el href cambia dinámicamente según el rubro activo
+        var currentDynamicHref = link.id === 'vBtnWa'
+          ? (link.getAttribute('href') || link.getAttribute('data-wa-orig-href') || '')
+          : (link.getAttribute('data-wa-orig-href') || '');
+        var cleanMsg = buildContextualWaMessage(window.location.pathname, currentDynamicHref);
+        var finalUrl = buildWaEndpoint(cleanMsg);
         var b2bBtn = document.getElementById('su-wa-go-b2b');
-        b2bBtn.setAttribute('href', targetHref);
-        document.getElementById('su-wa-rrhh-panel').style.display = 'none';
-        document.getElementById('su-wa-compras-panel').style.display = 'none';
+        if (b2bBtn) b2bBtn.setAttribute('href', finalUrl);
+        resetModalToMain();
         modal.style.display = 'flex';
       });
     });
