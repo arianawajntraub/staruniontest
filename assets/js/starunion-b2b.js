@@ -10,14 +10,17 @@
   var EMAIL_COMPRAS = 'compras@starunion.com.ar';
   var WA_PHONE = '5491122759369';
 
-  function resolveApiUrl() {
+  function resolveBaseRoot() {
     var scripts = document.querySelectorAll('script[src*="starunion-b2b.js"]');
     if (scripts.length) {
       var src = scripts[0].getAttribute('src') || '';
-      var base = src.split('assets/js/starunion-b2b.js')[0];
-      return base + 'api/cotizar.php';
+      return src.split('assets/js/starunion-b2b.js')[0];
     }
-    return '/api/cotizar.php';
+    return '/';
+  }
+
+  function resolveApiUrl() {
+    return resolveBaseRoot() + 'api/cotizar.php';
   }
 
   function copyPlainText(text, btn, feedbackText) {
@@ -149,6 +152,9 @@
     }
     if (p.indexOf('/certificacion-iso') !== -1) {
       return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional bajo Sistema de Gestión certificado ISO 9001:2015. Les comparto empresa, localidad y alcance buscado: ';
+    }
+    if (p.indexOf('/licitaciones-y-pliegos') !== -1) {
+      return 'Hola Star Union, les escribo desde Compras para invitarlos a participar en una licitación o coordinar visita técnica. Les comparto empresa y localidad: ';
     }
     return 'Hola Star Union, nos interesa evaluar una propuesta de limpieza profesional a medida para nuestra organización. Les comparto empresa, localidad y esquema que buscamos cubrir: ';
   }
@@ -298,7 +304,7 @@
       '  <div style="padding:14px 20px 12px;border-bottom:1px solid #f3f4f6;background:#ffffff;">',
       '    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;">',
       '      <div style="display:flex;align-items:center;gap:8px;">',
-      '        <button type="button" id="su-wiz-back" style="display:none;background:#f3f4f6;border:none;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:700;color:#111827;cursor:pointer;font-family:\'Open Sans\',sans-serif;">← Anterior</button>',
+      '        <button type="button" id="su-wiz-back" style="display:none;white-space:nowrap;flex-shrink:0;background:#f3f4f6;border:none;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:700;color:#111827;cursor:pointer;font-family:\'Open Sans\',sans-serif;">← Anterior</button>',
       '        <span id="su-wiz-step-label" style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#03582d;">Paso 1 de 3 · Cotización corporativa</span>',
       '      </div>',
       '      <button type="button" id="su-wiz-close" aria-label="Cerrar cotizador" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;width:34px;height:34px;font-size:16px;font-weight:700;color:#4b5563;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;">✕</button>',
@@ -418,7 +424,7 @@
         bodyEl.innerHTML = [
           '<div style="background:#f9fafb;border:1.5px solid #d1d5db;border-radius:14px;padding:18px;">',
           '  <h3 id="su-wiz-title" style="font-size:18px;font-weight:800;color:#111827;margin:0 0 8px;">Atención exclusiva para empresas, consorcios e instituciones</h3>',
-          '  <p style="font-size:13.5px;color:#4b5563;margin:0;line-height:1.55;">Star Union S.R.L. brinda servicios operativos en forma exclusiva a plantas industriales, edificios corporativos, instituciones educativas, clínicas, grandes superficies y consorcios. No realizamos viviendas particulares, mudanzas ni limpiezas domésticas.</p>',
+          '  <p style="font-size:13.5px;color:#4b5563;margin:0;line-height:1.55;">Star Union S.R.L. presta servicios exclusivos para plantas industriales, edificios corporativos, instituciones educativas, clínicas, grandes superficies y consorcios (esquemas desde 4 hs diarias corridas).</p>',
           '</div>'
         ].join('');
         return;
@@ -509,31 +515,50 @@
           '</div>'
         ) : '';
 
+        function buildWizardWaMessage() {
+          var parts = ['Hola Star Union, nos interesa evaluar una propuesta para nuestra organización.'];
+          if (state.empresa && state.empresa.trim()) parts.push('Empresa: ' + state.empresa.trim() + '.');
+          if (state.rubro) {
+            var rLabel = isOtro && state.otroDetalle.trim() ? state.otroDetalle.trim() : state.rubro;
+            parts.push('Sector: ' + rLabel + '.');
+          }
+          if (isEspecial) {
+            if (state.especialidad) parts.push('Intervención: ' + state.especialidad + '.');
+            if (state.escalaEspecial && state.escalaEspecial.trim()) parts.push('Alcance: ' + state.escalaEspecial.trim() + '.');
+          } else {
+            var sch = [];
+            if (state.personas) sch.push(state.personas);
+            if (state.horas) sch.push(state.horas);
+            if (state.dias) sch.push(state.dias);
+            if (sch.length) parts.push('Esquema: ' + sch.join(' · ') + '.');
+          }
+          if (state.ubicacion && state.ubicacion.trim()) {
+            parts.push('Localidad: ' + state.ubicacion.trim() + '.');
+          }
+          return parts.join(' ');
+        }
+
         var middleHtml = '';
         if (isEspecial) {
           var espOpts = [
             '1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)',
             '2. Final de obra industrial, corporativo o comercial de escala',
             '3. Corte mecanizado con tractores en grandes predios',
-            '4. Fumigación certificada y manejo integrado de plagas (MIP)',
-            'NO_CALIFICA_ESPECIAL'
+            '4. Fumigación certificada y manejo integrado de plagas (MIP)'
           ];
           middleHtml = [
             '<div style="margin-bottom:12px;">',
-            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Especialidad técnica requerida en empresa o predio *</label>',
+            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Intervención en planta, edificio o predio *</label>',
             '  <div style="display:flex;flex-direction:column;gap:6px;">',
             espOpts.map(function (op) {
-              var lbl = op === 'NO_CALIFICA_ESPECIAL'
-                ? 'Eventos, stands, mudanzas, tanques de agua o viviendas (no realizamos)'
-                : op;
               var sel = state.especialidad === op ? ' is-selected' : '';
-              return '<button type="button" class="su-choice-btn js-wiz-esp' + sel + '" data-val="' + escHtml(op) + '" style="padding:10px 12px;min-height:42px;font-size:12.5px;"><span>' + escHtml(lbl) + '</span></button>';
+              return '<button type="button" class="su-choice-btn js-wiz-esp' + sel + '" data-val="' + escHtml(op) + '" style="padding:10px 12px;min-height:42px;font-size:12.5px;"><span>' + escHtml(op) + '</span></button>';
             }).join(''),
             '  </div>',
             '</div>',
             '<div style="margin-bottom:12px;">',
-            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:5px;">Superficie aproximada o alcance del trabajo *</label>',
-            '  <input type="text" id="su-wiz-escala-esp" class="su-wiz-input" value="' + escHtml(state.escalaEspecial) + '" placeholder="Ej.: m² de nave o vidrios, hectáreas de predio o pliego">',
+            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:5px;">Superficie aproximada (m² / hectáreas) *</label>',
+            '  <input type="text" id="su-wiz-escala-esp" class="su-wiz-input" value="' + escHtml(state.escalaEspecial) + '" placeholder="Ej.: 1.800 m² de nave, 4 ha de predio o fachada vidriada">',
             '</div>'
           ].join('');
         } else {
@@ -545,11 +570,10 @@
             { v: 'Más de 12 personas / turnos rotativos', l: '+12 personas' }
           ];
           var hOpts = [
-            { v: 'Jornada completa (8 hs diarias)', l: '8 hs diarias' },
-            { v: 'Jornada de 6 hs diarias corridas', l: '6 hs diarias' },
             { v: 'Media jornada (4 hs diarias corridas)', l: '4 hs corridas (mín.)' },
-            { v: 'Cobertura multi-turno o 24/7', l: 'Turnos / 24 hs' },
-            { v: 'NO_CALIFICA_POCAS_HORAS', l: 'Menos de 4 hs / 1-2 días' }
+            { v: 'Jornada de 6 hs diarias corridas', l: '6 hs diarias' },
+            { v: 'Jornada completa (8 hs diarias)', l: '8 hs diarias' },
+            { v: 'Cobertura multi-turno o 24/7', l: 'Turnos / 24 hs' }
           ];
           var dOpts = ['Lunes a viernes', 'Lunes a sábado', 'Lunes a lunes (cobertura continua)'];
 
@@ -565,12 +589,11 @@
             '  </div>',
             '</div>',
             '<div style="margin-bottom:12px;">',
-            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Carga horaria diaria *</label>',
+            '  <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:6px;">Carga horaria diaria (mínimo 4 hs corridas) *</label>',
             '  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;">',
-            hOpts.map(function (o, idx) {
-              var span2 = idx === 4 ? 'grid-column:span 2;' : '';
+            hOpts.map(function (o) {
               var sel = state.horas === o.v ? ' is-selected' : '';
-              return '<button type="button" class="su-pill-opt js-wiz-horas' + sel + '" data-val="' + escHtml(o.v) + '" style="' + span2 + '">' + escHtml(o.l) + '</button>';
+              return '<button type="button" class="su-pill-opt js-wiz-horas' + sel + '" data-val="' + escHtml(o.v) + '">' + escHtml(o.l) + '</button>';
             }).join(''),
             '  </div>',
             '</div>',
@@ -602,16 +625,19 @@
           '</div>',
           otroHtml,
           middleHtml,
-          '<div id="su-wiz-step2-warn" style="display:none;background:#f3f4f6;border:1px solid #d1d5db;border-radius:10px;padding:11px 13px;font-size:12.5px;font-weight:600;color:#1f2937;margin-bottom:12px;line-height:1.45;"></div>',
+          '<div id="su-wiz-step2-warn" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:600;color:#991b1b;margin-bottom:12px;line-height:1.45;"></div>',
           '<div style="margin-bottom:14px;">',
           '  <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px;">',
-          '    <label style="font-size:12.5px;font-weight:700;color:#111827;">Localidad o dirección del servicio *</label>',
-          '    <button type="button" id="su-wiz-add-sede" style="background:none;border:none;padding:0;color:#03582d;font-size:12px;font-weight:800;cursor:pointer;text-decoration:underline;">+ Sumar otra sede</button>',
+          '    <label style="font-size:12.5px;font-weight:700;color:#111827;">Localidad del servicio *</label>',
+          '    <button type="button" id="su-wiz-add-sede" style="background:none;border:none;padding:0;color:#03582d;font-size:12px;font-weight:800;cursor:pointer;text-decoration:underline;white-space:nowrap;">+ Sumar otra sede</button>',
           '  </div>',
           '  <input type="text" id="su-wiz-ubicacion" class="su-wiz-input" value="' + escHtml(state.ubicacion) + '" placeholder="Ej.: CABA, GBA, Bahía Blanca, Neuquén, Trelew, Puerto Madryn...">',
           '  <div id="su-wiz-sedes-wrap">' + extraSedesHtml + '</div>',
           '</div>',
-          '<button type="button" id="su-wiz-to-step3" style="width:100%;background:#03582d;color:#ffffff;border:none;border-radius:12px;padding:13px 16px;font-size:14px;font-weight:800;cursor:pointer;min-height:48px;font-family:\'Open Sans\',sans-serif;">Continuar al último paso →</button>'
+          '<button type="button" id="su-wiz-to-step3" style="width:100%;background:#03582d;color:#ffffff;border:none;border-radius:12px;padding:13px 16px;font-size:14px;font-weight:800;cursor:pointer;min-height:48px;font-family:\'Open Sans\',sans-serif;">Continuar al último paso →</button>',
+          '<div style="margin-top:10px;text-align:center;">',
+          '  <a href="#" id="su-wiz-wa-step2" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#03582d;text-decoration:underline;">O enviar estos datos por WhatsApp Comercial ↗</a>',
+          '</div>'
         ].join('');
 
         function syncStep2Inputs() {
@@ -631,29 +657,17 @@
           });
         }
 
-        function checkStep2Block() {
-          var warn = document.getElementById('su-wiz-step2-warn');
-          var nextB = document.getElementById('su-wiz-to-step3');
-          var msg = '';
-          if (!isEspecial && state.horas === 'NO_CALIFICA_POCAS_HORAS') {
-            msg = 'Para garantizar supervisión activa, control biométrico y reemplazo de ausencias bajo nuestro Sistema de Gestión certificado ISO 9001:2015, nuestros esquemas operativos regulares parten de jornadas mínimas de 4 horas diarias corridas.';
-          } else if (isEspecial && state.especialidad === 'NO_CALIFICA_ESPECIAL') {
-            msg = 'Nuestra división de Servicios Especiales opera en plantas industriales, edificios corporativos, grandes predios y centros comerciales. No realizamos eventos o stands puntuales, mudanzas, limpieza de tanques de agua ni viviendas.';
-          }
-          if (msg) {
-            warn.textContent = msg;
-            warn.style.display = 'block';
-            nextB.disabled = true;
-            nextB.style.opacity = '0.45';
-            nextB.style.cursor = 'not-allowed';
-          } else {
-            warn.style.display = 'none';
-            nextB.disabled = false;
-            nextB.style.opacity = '1';
-            nextB.style.cursor = 'pointer';
-          }
+        var waStep2El = document.getElementById('su-wiz-wa-step2');
+        if (waStep2El) {
+          waStep2El.addEventListener('click', function () {
+            syncStep2Inputs();
+            waStep2El.setAttribute('href', buildWaEndpoint(buildWizardWaMessage()));
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'cotizador_derivacion_wa_b2b', { step: 2, rubro: state.rubro });
+            }
+            setTimeout(closeWizard, 120);
+          });
         }
-        checkStep2Block();
 
         document.getElementById('su-wiz-change-rubro').addEventListener('click', function () {
           syncStep2Inputs();
@@ -710,19 +724,19 @@
           syncStep2Inputs();
           var warn = document.getElementById('su-wiz-step2-warn');
           if (isOtro && !state.otroDetalle.trim()) {
-            warn.textContent = 'Por favor especificá en pocas palabras tu rubro o tipo de establecimiento.';
+            warn.textContent = 'Especificá en pocas palabras tu rubro o tipo de establecimiento.';
             warn.style.display = 'block';
             document.getElementById('su-wiz-otro').focus();
             return;
           }
           if (isEspecial && !state.escalaEspecial.trim()) {
-            warn.textContent = 'Por favor indicá una superficie aproximada o alcance del servicio especial.';
+            warn.textContent = 'Indicá una superficie aproximada o alcance del trabajo.';
             warn.style.display = 'block';
             document.getElementById('su-wiz-escala-esp').focus();
             return;
           }
           if (!state.ubicacion.trim()) {
-            warn.textContent = 'Por favor indicá la localidad o dirección donde se prestará el servicio.';
+            warn.textContent = 'Indicá la localidad o dirección donde se prestará el servicio.';
             warn.style.display = 'block';
             document.getElementById('su-wiz-ubicacion').focus();
             return;
@@ -738,6 +752,7 @@
         backBtn.style.display = 'inline-flex';
         stepLabel.textContent = 'Paso 3 de 3 · Datos de contacto';
         barEl.style.width = '100%';
+        var rfpUrl = resolveBaseRoot() + 'licitaciones-y-pliegos/index.html';
 
         bodyEl.innerHTML = [
           '<h3 id="su-wiz-title" style="font-size:18.5px;font-weight:800;color:#000;margin:0 0 4px;line-height:1.25;">¿A quién enviamos la propuesta técnica y económica?</h3>',
@@ -763,14 +778,36 @@
           '    </div>',
           '  </div>',
           '  <div>',
-          '    <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:4px;">Pliego, horarios o comentario adicional (opcional)</label>',
-          '    <textarea id="su-wiz-obs" rows="2" class="su-wiz-input" style="resize:none;" placeholder="Ej.: visita de relevamiento, licitación o requisito puntual">' + escHtml(state.observaciones) + '</textarea>',
-          '    <div style="font-size:11.5px;color:#676b67;margin-top:4px;">¿Tenés un pliego o RFP en PDF? También podés enviarlo a <strong style="color:#111827;user-select:all;">comercial@starunion.com.ar</strong></div>',
+          '    <label style="display:block;font-size:12.5px;font-weight:700;color:#111827;margin-bottom:4px;">Comentarios o horarios (opcional)</label>',
+          '    <textarea id="su-wiz-obs" rows="2" class="su-wiz-input" style="resize:none;" placeholder="Ej.: visita de relevamiento o requisito puntual">' + escHtml(state.observaciones) + '</textarea>',
+          '    <div style="font-size:11.5px;color:#676b67;margin-top:5px;">¿Invitación a licitar o pliego en PDF? <a href="' + escHtml(rfpUrl) + '" target="_blank" rel="noopener noreferrer" style="color:#03582d;font-weight:700;text-decoration:underline;">Subir pliego / RFP acá ↗</a></div>',
           '  </div>',
           '  <div id="su-wiz-step3-err" style="display:none;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:600;"></div>',
           '  <button type="submit" id="su-wiz-submit" style="margin-top:4px;width:100%;background:#03582d;color:#ffffff;border:none;border-radius:12px;padding:14px 16px;font-size:14.5px;font-weight:800;cursor:pointer;min-height:50px;font-family:\'Open Sans\',sans-serif;">Enviar solicitud a Comercial</button>',
+          '  <div style="margin-top:4px;text-align:center;">',
+          '    <a href="#" id="su-wiz-wa-step3" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#03582d;text-decoration:underline;">O enviar estos datos por WhatsApp Comercial ↗</a>',
+          '  </div>',
           '</form>'
         ].join('');
+
+        var waStep3El = document.getElementById('su-wiz-wa-step3');
+        if (waStep3El) {
+          waStep3El.addEventListener('click', function () {
+            var empVal = (document.getElementById('su-wiz-empresa')?.value || '').trim();
+            var isEsp3 = state.rubro.indexOf('Servicios especiales') !== -1;
+            var msgParts = ['Hola Star Union, nos interesa evaluar una propuesta para nuestra organización.'];
+            if (empVal) msgParts.push('Empresa: ' + empVal + '.');
+            if (state.rubro) msgParts.push('Sector: ' + state.rubro + '.');
+            if (!isEsp3 && state.horas) msgParts.push('Esquema: ' + state.personas + ' · ' + state.horas + ' · ' + state.dias + '.');
+            if (isEsp3 && state.especialidad) msgParts.push('Intervención: ' + state.especialidad + '.');
+            if (state.ubicacion) msgParts.push('Localidad: ' + state.ubicacion + '.');
+            waStep3El.setAttribute('href', buildWaEndpoint(msgParts.join(' ')));
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'cotizador_derivacion_wa_b2b', { step: 3, rubro: state.rubro });
+            }
+            setTimeout(closeWizard, 120);
+          });
+        }
 
         var finalForm = document.getElementById('su-wiz-final-form');
         finalForm.addEventListener('submit', function (e) {
@@ -966,11 +1003,11 @@
 
         var blockedMsg = '';
         if (val.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Star Union S.R.L. brinda servicios en forma exclusiva a empresas, industrias, edificios corporativos, consorcios e instituciones. No realizamos viviendas particulares, mudanzas ni limpiezas domésticas.';
+          blockedMsg = 'Star Union S.R.L. presta servicios exclusivos para empresas, industrias, edificios corporativos, consorcios e instituciones (esquemas desde 4 hs diarias corridas).';
         } else if (!isEspecial && horasVal.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Para garantizar supervisión activa, control biométrico y cobertura de ausencias bajo nuestro Sistema de Gestión certificado ISO 9001:2015, nuestros esquemas operativos regulares parten de jornadas mínimas de 4 horas diarias corridas.';
+          blockedMsg = 'Para sostener supervisión activa, control biométrico y cobertura de ausencias bajo ISO 9001:2015, nuestros esquemas operativos parten de jornadas mínimas de 4 horas diarias corridas.';
         } else if (isEspecial && espVal.indexOf('NO_CALIFICA') === 0) {
-          blockedMsg = 'Nuestra división de Servicios Especiales opera en plantas industriales, edificios corporativos, grandes predios y centros comerciales. No realizamos eventos o stands puntuales, mudanzas, limpieza de tanques de agua ni viviendas.';
+          blockedMsg = 'Nuestra división de Servicios Especiales opera en forma exclusiva para plantas industriales, edificios corporativos, grandes predios y centros comerciales.';
         }
 
         if (warningBox) {
