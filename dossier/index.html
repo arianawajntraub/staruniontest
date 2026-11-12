@@ -9,15 +9,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['"Open Sans"', 'sans-serif'],
-                        heading: ['"Montserrat"', 'sans-serif'],
-                        display: ['"Montserrat"', 'sans-serif']
+                        heading: ['"Open Sans"', 'sans-serif'],
+                        display: ['"Open Sans"', 'sans-serif']
                     },
                     colors: {
                         brand: { DEFAULT: '#0b6535', dark: '#084d27', light: '#1d8366', olive: '#8ab33e' },
@@ -31,12 +31,15 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            color: #374151;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #676b67;
             background-color: #ffffff;
             overflow-x: hidden;
         }
         h1, h2, h3, h4, .font-heading, .font-display {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            color: #000000;
         }
         .v-pill {
             transition: all 0.2s ease;
@@ -48,7 +51,7 @@
             box-shadow: 0 6px 16px rgba(11, 101, 53, 0.22);
         }
         .thin-display {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-weight: 200;
         }
     </style>
@@ -136,8 +139,11 @@
                 <a href="#blindaje-art30" class="px-2.5 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
                     4. Blindaje Art. 30 LCT
                 </a>
+                <a href="#cobertura-regional" class="px-2.5 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
+                    5. Multi-Sede y Plazas
+                </a>
                 <a href="#fichas-tecnicas" class="px-2.5 py-1.5 rounded-lg text-gray-800 hover:bg-gray-100 transition whitespace-nowrap">
-                    5. Los 16 PDFs
+                    6. Los 16 PDFs
                 </a>
                 <a href="#contacto-directo" class="px-3 py-1.5 rounded-lg bg-brand text-white hover:bg-brand-dark transition whitespace-nowrap">
                     Solicitar Visita
@@ -155,7 +161,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <!-- PANEL DE CONTROL INTERNO (OCULTO PARA CLIENTES; SOLO VISIBLE SI ENTRÁS CON ?modo=control) -->
-                <div id="internalControlBar" style="display:none;" class="bg-amber-50 rounded-2xl border-2 border-amber-400 p-4 mb-5 shadow-sm">
+                <div id="internalControlBar" style="display:none;" class="bg-gray-50 rounded-2xl border-2 border-brand p-4 mb-5 shadow-sm">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="text-xs font-bold text-gray-900">
                             🛠️ MODO CENTRO DE CONTROL COMERCIAL (Oculto para el cliente): Elegí una pestaña abajo y copiá el link limpio para ese cliente:
@@ -489,7 +495,7 @@
                             <div class="text-xs font-bold uppercase tracking-wider text-brand mb-1" id="bioTag">Etapa 1 · Minuto 00 (Inicio del Turno)</div>
                             <h3 class="text-base sm:text-lg font-extrabold text-gray-900 mb-1.5" id="bioTitle">Validación de Huella Dactilar en el Establecimiento</h3>
                             <p class="text-xs sm:text-sm text-gray-600 leading-relaxed" id="bioText">
-                                Al ingresar y retirarse del establecimiento del cliente, cada operario registra su huella dactilar en el terminal biométrico conectado en línea con nuestra Base Operativa en calle Guaminí. El cliente dispone de trazabilidad exacta de horas-hombre efectivamente cumplidas.
+                                Al ingresar y retirarse del establecimiento del cliente, cada integrante del equipo registra su huella dactilar en el terminal biométrico conectado en línea con nuestra Base Operativa en calle Guaminí. El cliente dispone de trazabilidad exacta de horas-hombre efectivamente cumplidas.
                             </p>
                         </div>
                     </div>
@@ -584,6 +590,50 @@
         <!-- =====================================================================
              SECCIÓN 5: BIBLIOTECA COMPLETA DE LOS 16 BROCHURES EN PDF A4 (#fichas-tecnicas)
              ===================================================================== -->
+        
+        <!-- =====================================================================
+             SECCIÓN REGIONAL Y MULTI-SEDE (CASA MATRIZ CABA/GBA O GESTIÓN IN SITU)
+             ===================================================================== -->
+        <section id="cobertura-regional" class="py-12 sm:py-16 bg-[#f4f7f5] border-t border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="max-w-3xl">
+                    <span class="inline-block bg-brand/10 text-brand text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                        Despliegue Federal · Doble Vía de Contratación
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000]">
+                        Operación multi-sede: coordinación centralizada en CABA/GBA o resolución in situ en cada plaza
+                    </h2>
+                    <p class="text-sm sm:text-base text-[#676b67] mt-2 leading-relaxed">
+                        Adaptamos la interlocución técnica y administrativa a la estructura de compras de cada organización: centralizamos licitaciones multi-sucursal junto a Casa Matriz en Buenos Aires o resolvemos el relevamiento, la supervisión y el servicio directamente in situ en la localidad operativa.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 border-t-4 border-t-brand shadow-sm">
+                        <span class="text-xs font-extrabold uppercase text-brand">Nivel 1 · Plazas con operación activa</span>
+                        <h3 class="text-lg font-extrabold text-[#000000] mt-1 mb-2">AMBA, La Plata, Bahía Blanca, Neuquén / Vaca Muerta, Trelew y Puerto Madryn</h3>
+                        <p class="text-xs sm:text-sm text-[#676b67] leading-relaxed">
+                            Equipos propios en nómina directa, supervisión zonal, control biométrico en objetivo y provisión estandarizada bajo norma ISO 9001:2015 (TÜV Rheinland).
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 border-t-4 border-t-brand shadow-sm">
+                        <span class="text-xs font-extrabold uppercase text-brand">Nivel 2 · Contratos multi-sucursal</span>
+                        <h3 class="text-lg font-extrabold text-[#000000] mt-1 mb-2">Un solo proveedor auditado para múltiples sedes y rubros</h3>
+                        <p class="text-xs sm:text-sm text-[#676b67] leading-relaxed">
+                            Unificamos pliegos de higiene diaria, vidrios en altura (ARAA), espacios verdes y manejo integrado de plagas (MIP) con legajo Art. 30 LCT consolidado por ubicación.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 border-t-4 border-t-brand shadow-sm">
+                        <span class="text-xs font-extrabold uppercase text-brand">Nivel 3 · Radicación por proyecto</span>
+                        <h3 class="text-lg font-extrabold text-[#000000] mt-1 mb-2">Apertura dedicada en nuevas localidades de Argentina</h3>
+                        <p class="text-xs sm:text-sm text-[#676b67] leading-relaxed">
+                            Cuando la envergadura y continuidad del contrato justifican montar estructura dedicada, radicamos supervisión, equipamiento propio y dotación habilitada desde Base Central Guaminí (800 m²).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="fichas-tecnicas" class="py-12 sm:py-16 bg-gray-50 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
@@ -792,7 +842,7 @@
                                 Solicite una Visita de Diagnóstico (Propuesta en 24 a 48 hs)
                             </h2>
                             <p class="text-sm text-gray-600 leading-relaxed mb-5">
-                                Relevamos sus instalaciones en CABA y GBA para dimensionar dotación, frecuencias y parque de maquinaria óptima, entregando propuesta técnica y económica a medida.
+                                Coordinamos relevamientos técnicos desde nuestra Base Central en CABA/GBA o directamente in situ en Bahía Blanca, Neuquén / Vaca Muerta, Trelew y Puerto Madryn para dimensionar dotación, frecuencias y parque de maquinaria óptima, entregando propuesta técnica y económica a medida.
                             </p>
                             <div class="space-y-2 text-xs sm:text-sm text-gray-700 bg-white p-4 rounded-2xl border border-gray-200">
                                 <div><strong>Base Operativa Propia:</strong> Guaminí 5052 / 5657 (C1439HAW), CABA (800 m² cubiertos)</div>
@@ -820,8 +870,9 @@
     </main>
 
     <!-- PIE DE PÁGINA INSTITUCIONAL VERDE BOSQUE (#0B6535) -->
-    <footer class="bg-brand text-white py-6 border-t border-brand-dark text-xs mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+    <footer class="bg-[#133522] text-white py-6 border-t border-[#024121] text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <a href="../index.html" class="shrink-0"><img src="../assets/img/logo-footer-blanco.png?v=20261028" alt="Star Union S.R.L." class="h-8 w-auto object-contain"></a>
             <div>
                 Guaminí 5052 / 5657 (C1439HAW) - CABA – <a href="mailto:comercial@starunion.com.ar" class="underline">comercial@starunion.com.ar</a> – <a href="https://www.starunion.com.ar/?utm_source=brochure_interactivo&utm_medium=footer_bar&utm_campaign=dossier_multivertical" target="_blank" rel="noopener" class="font-bold underline">www.starunion.com.ar</a>
             </div>
@@ -1139,7 +1190,7 @@
             {
                 tag: "Etapa 1 · Minuto 00 (Inicio del Turno)",
                 title: "Validación de Huella Dactilar en el Establecimiento",
-                text: "Al ingresar y retirarse del establecimiento del cliente, cada operario registra su huella dactilar en el terminal biométrico conectado en línea con nuestra Base Operativa en calle Guaminí. El cliente dispone de trazabilidad exacta de horas-hombre efectivamente cumplidas."
+                text: "Al ingresar y retirarse del establecimiento del cliente, cada integrante del equipo registra su huella dactilar en el terminal biométrico conectado en línea con nuestra Base Operativa en calle Guaminí. El cliente dispone de trazabilidad exacta de horas-hombre efectivamente cumplidas."
             },
             {
                 tag: "Etapa 2 · Minuto 15 (Detección Temprana Automática)",
@@ -1149,7 +1200,7 @@
             {
                 tag: "Etapa 3 · Menos de 2 Horas (Continuidad Garantizada)",
                 title: "Despacho de Guardia Móvil y Franquero Habilitado",
-                text: "Operaciones activa de inmediato al franquero de zona con legajo previsional, ART con Cláusula de No Repetición, SVO e indumentaria ARCIEL lista para cubrir la posición antes de que afecte la operatoria del edificio o planta."
+                text: "Operaciones activa al personal de relevo habilitado en zona con legajo previsional, ART con Cláusula de No Repetición, SVO e indumentaria ARCIEL lista para cubrir la posición antes de que afecte la operatoria del edificio o planta."
             }
         ];
 
@@ -1179,5 +1230,6 @@
             }
         });
     </script>
+    <script src="../assets/js/starunion-b2b.js"></script>
 </body>
 </html>

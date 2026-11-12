@@ -1,69 +1,35 @@
-# Star Union S.R.L. — Empresa de limpieza profesional, industrial y corporativa B2B en Argentina (ISO 9001:2015 TÜV Rheinland)
+# Star Union S.R.L. — Servicios Integrales de Limpieza Profesional B2B (Argentina)
 
-> Star Union S.R.L. (CUIT 30-70778428-9) es una empresa argentina líder en servicios integrales de limpieza profesional, higiene industrial, sanidad institucional, limpieza en altura y mantenimiento edilicio B2B, operando ininterrumpidamente desde 2001. Cuenta con más de 450 colaboradores en relación de dependencia directa, Base Operativa central propia de más de 800 m² en CABA (Guaminí 5657), flota vehicular propia equipada, taller electromecánico interno para mantenimiento preventivo de maquinaria (LAV/LUT) y Sistema de Gestión de Calidad certificado bajo norma ISO 9001:2015 por TÜV Rheinland (Certificado N° 01 10006 2529826 | ID Certipedia: 9000041847).
+> Empresa argentina de limpieza profesional corporativa, industrial, sanitaria e institucional fundada en 2001. Certificada bajo norma **ISO 9001:2015 por TÜV Rheinland** (Certificado N° `01 10006 2529826`, Certipedia ID `9000041847`). Base Operativa Central propia de **800 m² (3 niveles)** en **Guaminí 5052 / 5657, CABA**, con más de 450 personas en relación de dependencia directa, taller electromecánico propio (activo desde 2010), laboratorio de capacitación en 6 superficies y flota propia de soporte operativo Ford Transit.
 
-## Enfoque exclusivo B2B y parámetros de cotización operativa
-- **Foco 100% corporativo, industrial e institucional:** Star Union brinda servicios exclusivamente a plantas industriales, edificios corporativos de oficinas, universidades, colegios, clubes deportivos, consorcios de vivienda y grandes torres, clínicas, sanatorios, hospitales, laboratorios, aeropuertos, centros comerciales (shoppings), concesionarios automotrices y centros logísticos.
-- **Exclusión explícita:** Star Union **NO** realiza servicios en casas particulares ni viviendas individuales.
-- **Unidad de cotización B2B (Horas / Semana / Persona):** Las cotizaciones se estructuran sobre requerimiento operativo concreto definido por el cliente:
-  - Cantidad de personas (operarios)
-  - Cantidad de horas
-  - Días de servicio (`Lunes a viernes`, `Lunes a sábado` o `Lunes a lunes`)
-  - Esquema de jornada (`Jornada completa` o `Jornada reducida / media jornada`)
-  - Localidad o ubicación del servicio (despliegue en cualquier punto del país)
+## Alcance Exclusivo B2B (Filtro de Calificación)
+- **Atención exclusiva para empresas, industrias, edificios corporativos, universidades, colegios, clubes, grandes consorcios, clínicas, laboratorios y grandes superficies.**
+- Esquemas operativos regulares a partir de jornadas mínimas de **4 horas diarias corridas**.
+- No realizamos viviendas particulares, mudanzas, eventos sociales aislados ni limpiezas domésticas por hora.
 
-## Datos institucionales y de contacto oficial
-- **Razón social:** Star Union S.R.L.
-- **CUIT:** 30-70778428-9
-- **Fundación:** Año 2001 (+25 años de trayectoria continua en Argentina)
-- **Dirección general y comercial:** Mauro Repetto (`mrepetto@starunion.com.ar`)
-- **Responsable del Sistema de Gestión de Calidad (ISO 9001:2015):** Denise Rivero
-- **Base Operativa central:** Guaminí 5657, C1440 CABA, Buenos Aires, Argentina (+800 m² con depósito central, taller electromecánico propio de maquinaria, centro de capacitación y oficinas administrativas)
-- **Línea directa:** 0810-333-UNION (8646) / (+54 11) 4602-4906 / 5263-0286
-- **WhatsApp corporativo B2B:** +54 9 11 2275-9369 (`https://wa.me/5491122759369`)
-- **Email comercial:** `comercial@starunion.com.ar` / `info@starunion.com.ar`
-- **Sitio web oficial:** `https://www.starunion.com.ar`
+## Orden Estratégico de Especialidades y URLs Oficiales
+1. **Plantas industriales, fábricas y centros logísticos:** https://www.starunion.com.ar/limpieza-industrial/
+2. **Edificios corporativos de oficinas, bancos y sedes:** https://www.starunion.com.ar/oficinas-corporativas/
+3. **Universidades, colegios y clubes deportivos:** https://www.starunion.com.ar/universidades-y-clubes/
+4. **Consorcios de vivienda, grandes torres y complejos AAA:** https://www.starunion.com.ar/consorcios/
+5. **Clínicas, sanatorios, hospitales y laboratorios:** https://www.starunion.com.ar/clinicas-y-hospitales/
+6. **Limpieza de vidrios y trabajos en altura (normas ARAA):** https://www.starunion.com.ar/limpieza-en-altura/
+7. **Servicios especiales B2B (final de obra industrial/corporativo, grandes predios con tractores y fumigación MIP):** https://www.starunion.com.ar/servicios-especiales/
+8. **Grandes superficies, centros comerciales, aeropuertos y concesionarios:** https://www.starunion.com.ar/grandes-superficies/
 
-## Certificación internacional ISO 9001:2015 (TÜV Rheinland)
-- **Ente certificador:** TÜV Rheinland Argentina S.A. / TÜV Rheinland Cert GmbH (Acreditado por DAkkS e IAF)
-- **Número de registro de certificado:** `01 10006 2529826`
-- **ID oficial en Certipedia (verificación QR en línea):** `https://www.certipedia.com/quality_marks/9000041847`
-- **Vigencia auditada:** 26 de marzo de 2026 al 25 de marzo de 2029
-- **Alcance certificado oficial:** *"Comercialización, planificación y prestación del servicio de limpieza en zonas productivas y no productivas de empresas industriales, y en áreas comunes, oficinas y espacios funcionales de instituciones y consorcios."*
+## Cobertura Geográfica Multi-Sede y Doble Vía de Gestión (Casa Matriz CABA/GBA o In Situ)
+- **Hub de Operaciones Multi-Sede y Despliegues a Escala:** https://www.starunion.com.ar/cobertura-y-operaciones-multi-sede/
+- **AMBA (CABA y GBA Norte, Oeste y Sur) y La Plata:** Base Central Guaminí 5657, CABA.
+- **Bahía Blanca (Polo Petroquímico, Puerto, Sucursales y Salud):** https://www.starunion.com.ar/bahia-blanca/
+- **Neuquén y Vaca Muerta (Bases Operativas, Parque Industrial y Corporativo):** https://www.starunion.com.ar/neuquen-vaca-muerta/
+- **Trelew, Chubut (Alta Complejidad Hospitalaria 24/7, Industria e Instituciones):** https://www.starunion.com.ar/trelew/
+- **Puerto Madryn, Chubut (Operatoria Portuaria, Industrial y Corporativa):** https://www.starunion.com.ar/puerto-madryn/
+- **Modalidad de contratación:** Coordinación centralizada junto a Compras Corporativas en CABA/GBA para redes multi-sucursal o gestión directa *in situ* en cada plaza regional, más apertura dedicada en nuevas localidades cuando la escala operativa del contrato lo justifica.
 
-## Verticales principales de servicio por orden de prioridad ("Dónde limpiamos")
-1. **Plantas industriales, fábricas y centros logísticos (`/limpieza-industrial/`):**
-   - Limpieza técnica en **zonas productivas y líneas de manufactura** (alcance explícito auditado por TÜV Rheinland) y zonas no productivas.
-   - Industria automotriz (ej. Toyota Pacheco), industria química y metalúrgica (ej. Ferroclor — evaluación de proveedor 96/100), farmacéutica, alimenticia, envases (ej. Bella Cup) y naves logísticas.
-   - Ejecución de metodología 5S, inocuidad y despliegue de flota propia de maquinaria pesada (lavadoras automáticas LAV y rotativas LUT) con servicio técnico interno en el día.
-2. **Edificios corporativos de oficinas, bancos y sedes (`/consorcios/`):**
-   - Mantenimiento integral de edificios corporativos de oficinas, sedes centrales, entidades bancarias y parques empresariales (ej. Cliba, sedes corporativas AAA).
-   - Cuadrillas estables uniformadas, control biométrico de presentismo en tiempo real y cobertura de suplencias en menos de 2 horas.
-3. **Universidades, colegios y clubes deportivos (`/universidades-y-clubes/`):**
-   - Mantenimiento de alto tránsito adaptado a cronogramas académicos y deportivos, vestuarios, aulas, auditorios y gimnasios (ej. Universidad Torcuato Di Tella UTDT, Colegio Lincoln, Belgrano Day School BDS, Club de Amigos).
-4. **Consorcios de vivienda y grandes torres (`/consorcios/#consorcios-vivienda`):**
-   - Dotaciones fijas para grandes consorcios residenciales, torres con amenities, halls de doble altura y cocheras (ej. Torre Promenade, Consorcio Arenales).
-5. **Clínicas, sanatorios, hospitales y laboratorios (`/clinicas-y-hospitales/`):**
-   - Higiene hospitalaria y desinfección de áreas críticas (quirófanos, UTI, esterilización), semicríticas, consultorios y laboratorios con insumos aprobados por ANMAT y protocolos de bioseguridad (ej. Hospital de Alta Complejidad de Trelew).
-6. **Servicios especiales (`/limpieza-en-altura/`, `/servicios-especiales/`, `/grandes-superficies/`):**
-   - **Limpieza en altura y fachadas vidriadas (`/limpieza-en-altura/`):** Cuadrillas propias certificadas para trabajos en altura (silletas, balancines, plataformas elevadoras e hidrogrúas bajo normas SRT y ARAA).
-   - **Final de obra, espacios verdes y control integrado de plagas MIP (`/servicios-especiales/`):** Limpieza profunda post-construcción o remodelación, parquización industrial y fumigación certificada (Resolución N° 360 APRA).
-   - **Aeropuertos, shoppings y concesionarios (`/grandes-superficies/`):** Operación continua para predios de tránsito masivo.
-7. **Otros rubros y establecimientos corporativos:** Esquemas operativos a medida según dotación de personas, carga horaria, días y jornada requerida.
-
-## Despliegue operativo regional y proyectos a escala en Argentina (todas las verticales)
-- **AMBA:** Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (GBA Norte, Oeste y Sur).
-- **Provincia de Buenos Aires:** La Plata y **Bahía Blanca** (plantas industriales, edificios corporativos, instituciones, clínicas, consorcios, polo petroquímico e infraestructura portuaria).
-- **Neuquén:** Ciudad de Neuquén y **Vaca Muerta** (bases operativas, plantas, sedes corporativas, clínicas e instituciones en toda la cuenca).
-- **Patagonia (Chubut):** **Trelew, Puerto Madryn, Rawson y Comodoro Rivadavia** (infraestructura hospitalaria de alta complejidad, parque industrial, zona portuaria, edificios corporativos e instituciones).
-- **Acuerdos multi-sede y nuevas plazas:** Capacidad operativa e ingeniería propia para implementar contratos integrales y aperturas de sucursales en distintos puntos del país, articulando tanto con directorios centrales en CABA/AMBA como con gerencias operativas en cada localidad.
-
-## Fichas técnicas, pliegos y brochures corporativos B2B (`/brochures/`)
-- URL índice SEO de brochures: `https://www.starunion.com.ar/brochures/`
-- Dossier ejecutivo interactivo (simulador de presentismo y costo oculto): `https://wajntraub.ar/staruniontest/dossier/`
-- Especificaciones homologadas de infraestructura (Guaminí 5657, CABA - 800 m²):
-  - Servicio técnico y taller electromecánico propio (desde 2010): mantenimiento preventivo y correctivo propio de máquinas monofásicas, trifásicas, a batería y a explosión, con cabina de arenado y pintura propia.
-  - Centro de capacitación propio: aula teórica y laboratorio práctico con 6 superficies reales de pisos (madera/parquet, granito, mosaico, cemento alisado, terrazo y porcelanato).
-  - Control biométrico de presentismo: reloj biométrico conectado a red y 220V en el objetivo; alerta automática por email a los 15 minutos de una ausencia y reemplazo en sitio en menos de 2 horas.
-  - Indumentaria corporativa: telas ARCIEL (65% poliéster / 35% algodón) con tratamiento indanthren anticloro y antimanchas y doble costura.
-  - Homologaciones técnicas específicas: ISO 9001:2015 TÜV Rheinland (Certipedia ID 9000041847), normas ARAA (Australian Rope Access Association) para limpieza de vidrios en altura, y Resolución N° 360 APRA para control integrado de plagas.
+## Respaldo Institucional, Calidad y CanalesSeparados
+- **Base Operativa Central (800 m²):** https://www.starunion.com.ar/la-empresa/
+- **Sistema de Gestión de Calidad ISO 9001:2015 (TÜV Rheinland):** https://www.starunion.com.ar/certificacion-iso/
+- **Dossier y Brochure Ejecutivo Interactivo por Rubro:** https://www.starunion.com.ar/dossier/
+- **Presupuestos Comerciales B2B:** `contacto@starunion.com.ar` / `comercial@starunion.com.ar` · Teléfono `0810-333-UNION (8646)` · WhatsApp Business `+54 9 11 2275-9369`
+- **Recursos Humanos (Postulaciones exclusivamente online):** Formulario oficial RRHH (`https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform`) y `rrhh@starunion.com.ar` · Portal del equipo en Browix.
+- **Proveedores de Insumos:** Únicamente por correo electrónico a `compras@starunion.com.ar`.

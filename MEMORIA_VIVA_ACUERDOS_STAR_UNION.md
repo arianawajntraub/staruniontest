@@ -19,9 +19,10 @@
 4. **Filtro Tecnológico en WhatsApp y Medición de Conversiones en Google Ads:**
    - **Problema real:** Quien busca trabajo de limpieza no manda mail ni llena formularios largos; toca el botón de WhatsApp para mandar un audio. Y el cliente B2B también usa WhatsApp.
    - **Doble solución acordada:**
-     1. **En la Web (Delicadeza Tecnológica):** El botón de WhatsApp abre una mini-recepción de 1 clic con 2 botones claros:
-        - `🏢 Quiero cotizar para mi Empresa / Institución` $\rightarrow$ Abre el WhatsApp Comercial de Mauro.
-        - `👷 Busco Trabajo / Postularme en RRHH` $\rightarrow$ Desvía al canal de RRHH / Postulantes (sin contaminar el WhatsApp de ventas ni disparar conversión de Ads).
+     1. **En la Web (Delicadeza Tecnológica y Derivación de Casillas Confirmada):** El botón de WhatsApp y el formulario filtran y derivan en 3 carriles limpios:
+        - `🏢 Quiero cotizar para mi Empresa / Institución` $\rightarrow$ Abre el WhatsApp Comercial de Mauro (y en formulario web envía a **`contacto@starunion.com.ar`** con `Reply-To` real del cliente).
+        - `👷 Busco Trabajo / Postularme en RRHH` $\rightarrow$ Bloquea WhatsApp comercial y deriva exclusivamente a **`rrhh@starunion.com.ar`** (sin contaminar ventas ni disparar conversión de Ads).
+        - `📦 Soy Proveedor de Insumos` $\rightarrow$ Bloquea WhatsApp comercial y deriva exclusivamente a **`compras@starunion.com.ar`**.
      2. **En Google Ads (Objetivo de Gasto):** Para que el presupuesto de Ads no dependa de adivinar quién tocó WhatsApp, la **Conversión Primaria de Google Ads pasa a ser el Formulario de Cotización B2B** (y el clic en WhatsApp de Empresa queda registrado en Analytics para seguimiento interno sin desviar el algoritmo de puja).
 5. **Cómo Traquear los Brochures cuando Comercial envía el archivo `.pdf` adjunto por WhatsApp:**
    - Como Mauro/Comercial va a seguir enviando el archivo `.pdf` adjunto por WhatsApp (y un PDF adjunto no ejecuta scripts al abrirse solo), **el rastreo vive adentro de los botones interactivos del propio PDF**:
@@ -213,3 +214,17 @@ Prohibido usar un único tono plano para todo Star Union. El sistema distingue o
    - **Destino de los clics:** Cada bloque por rubro lleva a la **Landing específica de ese rubro** (asegurando que la landing tenga botones de contacto directo por WhatsApp y formulario arriba del pliegue para evitar mil clics sin conversión).
    - **Cobertura Geográfica Completa obligatoria en el diseño:** Prohibido reducir la cobertura a *"solo CABA y GBA"*; deben figurar explícitamente todas las zonas operativas reales definidas en las correcciones (CABA, Zona Norte, Zona Oeste, Zona Sur y corredores industriales/logísticos).
    - **Footer con Cuerpo Visual:** Aunque el diseño sea limpio (80–85% blanco), el footer **no puede quedar lavado ni flotando en blanco**: debe tener línea divisoria firme, sombra sutil o bloque de cierre institucional que enmarque los datos de Guaminí 5657, teléfonos, `ventas@starunion.com.ar` y sello TÜV Rheinland ISO 9001:2015.
+
+
+---
+
+## 14. ARQUITECTURA DE LAS 3 PUERTAS, FORMULARIO DINÁMICO, COBERTURA DUAL (HQ CABA / IN SITU) Y EVIDENCIA VIVA (11-NOV-2026)
+
+1. **Separación Operativa de las 3 Puertas + Monitoreo Interno de `info@starunion.com.ar`:**
+   - **Puerta 1 · Comercial (`contacto@starunion.com.ar` / `comercial@starunion.com.ar`):** Formulario B2B con campos separados de `email` y `telefono`, envío por `api/cotizar.php` con encabezado `Reply-To` real del cliente, piso de **4 horas diarias corridas** para abonos regulares, botón discreto `+ Sumar otra sede` (oculto por defecto para no cargar al 80%+ de consultas de una sola sede) y cambio automático de unidad de medida al elegir `6. Servicios especiales` (oculta dotación/horas semanales y pide especialidad cerrada + superficie/alcance).
+   - **Puerta 2 · Recursos Humanos (`rrhh@starunion.com.ar` + Formulario Online Oficial):** Deriva fuera del sitio al formulario oficial de RRHH (`https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform`), botón de copia de `rrhh@starunion.com.ar` y acceso al `Portal del equipo (Browix)`.
+   - **Puerta 3 · Proveedores (`compras@starunion.com.ar`):** Visible únicamente como texto plano con botón **"Copiar correo"** (cero enlace `mailto:`).
+   - **Regla Crítica sobre `info@starunion.com.ar` (Caso real PRÜNE / GAX S.A. del 11/11/2026 15:26 hs):** Aunque `info@` no se publica en botones comerciales ni mailings, **debe permanecer conectada/reenviada a la bandeja comercial y al futuro CRM**, porque departamentos de Compras Estratégicas de grandes empresas (ej. `lmaza@prune.com.ar`, licitación RFP planta + oficinas en CABA) la toman de registros históricos de proveedores y envían pliegos en `Cco: info@starunion.com.ar`.
+2. **Arquitectura Regional Dual (Opción 1 Visible + Opción 2 Oculta para Definir con Mariel) y Matriz de Brochures:**
+   - **Evidencia real verificada hoy (11/11/2026 15:28 hs — ASE / Medifé, Fila 3 de Solapa 2 WhatsApp):** Compras Corporativas desde CABA `(011) 2362-7943` ingresó primero por WhatsApp Business y luego envió por mail 2 pliegos PDF (*Limpieza + Fumigación 2026*) para su sucursal de **Donado 498, Bahía Blanca** (`1 persona x 6 hs lun a vie` + vidrios en altura + alfombras). Confirma: 1) la necesidad de **unificar WhatsApp + Mail en el CRM**, 2) el piso de 4+ hs diarias con servicios especiales integrados, y 3) por qué las landings regionales y la pauta con keyword geográfica deben contemplar **tanto al comprador sentado en Casa Matriz CABA/GBA como a quien decide y resuelve *in situ* en la plaza local**.
+   - **Matriz para los 15 Brochures restantes ("Don Brochure Design"):** Ya incorporada en `/dossier/index.html#cobertura-regional` con las 3 capas (plazas activas, contratos multi-sucursal y radicación por escala de proyecto) y doble vía simétrica (coordinación con Casa Matriz en CABA/GBA o resolución *in situ* en la localidad).
