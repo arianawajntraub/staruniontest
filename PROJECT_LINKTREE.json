@@ -4,6 +4,21 @@
   "local_linktree_url": "https://wajntraub.ar/staruniontest/accesos/",
   "links": [
     {
+      "title": "🟢 PARA ENVIAR A MAURO (Limpio + Exportar PDF): Documento Master de Justificación del Sitio Web + Alternativas 1, 2 y 3 + Conexión con Brochures y Mariel",
+      "url": "https://wajntraub.ar/staruniontest/propuesta-sitio-mauro/",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "✏️ TU EDITOR PRIVADO (?edit=1 solo para Ariana): Documento Master de Propuesta de Sitio para Mauro",
+      "url": "https://wajntraub.ar/staruniontest/propuesta-sitio-mauro/?edit=1",
+      "category": "Stakeholders"
+    },
+    {
+      "title": "🌐 SITIO WEB PROPUESTO CERRADO (16 Páginas · Cotizador en 3 pasos traslúcido + Cobertura Multiplaza arriba + ISO 9001:2015 TÜV)",
+      "url": "https://wajntraub.ar/staruniontest/",
+      "category": "Sitio Público"
+    },
+    {
       "title": "⚖️ PARA DEFINIR CON MARIEL: Comparador en Vivo Arquitectura Regional (Opción 1 Visible vs. Opción 2 Unificada + Evidencia CABA → Bahía Blanca)",
       "url": "https://wajntraub.ar/staruniontest/acuerdos/comparador-arquitectura-regional-mariel.html",
       "category": "Google Ads"

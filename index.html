@@ -116,32 +116,31 @@
         <span class="text-xs sm:text-sm tracking-wide">WhatsApp Comercial</span>
     </a>
 
-    <!-- BARRA SUPERIOR CORPORATIVA -->
-    <div class="bg-gray-50 border-b border-gray-200 text-[#676b67] py-2 px-4 sm:px-6 lg:px-8 text-xs">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+    <!-- BARRA SUPERIOR CORPORATIVA (SOLO ESCRITORIO, 100% COMERCIAL SIN EMPLEO ARRIBA DEL LOGO) -->
+    <div class="hidden lg:block bg-gray-50 border-b border-gray-200 text-[#676b67] py-2 px-4 sm:px-6 lg:px-8 text-xs">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
             <div class="flex items-center gap-3">
                 <a href="https://maps.app.goo.gl/EUh7uEF1q3T4dFTx9" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition font-medium">
                     Base operativa propia en CABA: <strong class="text-[#000000]">800 m² · Guaminí 5657</strong>
                 </a>
-                <span class="hidden md:inline text-gray-300">|</span>
-                <span class="hidden md:inline text-[#03582d] font-semibold">Exclusivo empresas, industrias e instituciones</span>
+                <span class="text-gray-300">|</span>
+                <span class="text-[#03582d] font-semibold">Exclusivo empresas, industrias, consorcios e instituciones</span>
             </div>
             <div class="flex items-center gap-4 font-semibold">
-                <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" class="text-brand hover:underline hidden sm:inline">
-                    TÜV Rheinland ISO 9001 (ID 9000041847)
+                <a href="certificacion-iso/index.html" class="text-brand hover:underline">
+                    Sistema de Gestión certificado ISO 9001:2015 · TÜV Rheinland
                 </a>
-                <span class="hidden sm:inline text-gray-300">|</span>
-                <a href="https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','salida_rrhh_form',{ubicacion:'topbar'});}" class="hover:text-brand transition">Trabajá con nosotros</a>
-                <a href="https://browix.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">Portal del equipo</a>
+                <span class="text-gray-300">|</span>
+                <a href="tel:08103338646" class="text-[#000000] hover:text-brand transition font-bold">0810-333-UNION (8646)</a>
             </div>
         </div>
     </div>
 
     <!-- HEADER PRINCIPAL UNIFICADO -->
     <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Star Union S.R.L. - Inicio">
-                <img src="assets/img/logo-star-union.png?v=20261028" alt="Star Union Servicios Integrales de Limpieza" class="h-11 sm:h-12 w-auto object-contain">
+                <img src="assets/img/logo-star-union.png?v=20261028" alt="Star Union Servicios Integrales de Limpieza" class="h-9 sm:h-12 w-auto object-contain">
             </a>
 
             <nav class="hidden xl:flex items-center gap-7 text-sm whitespace-nowrap">
@@ -184,16 +183,16 @@
                 </div>
 
                 <a href="la-empresa/index.html" class="text-[#000000] hover:text-brand font-semibold transition">La empresa</a>
-                <a href="certificacion-iso/index.html" class="text-[#000000] hover:text-brand font-semibold transition">Calidad ISO 9001</a>
+                <a href="certificacion-iso/index.html" class="text-[#000000] hover:text-brand font-semibold transition">Certificación ISO 9001:2015</a>
                 <a href="cobertura-y-operaciones-multi-sede/index.html" class="text-[#000000] hover:text-brand font-semibold transition">Cobertura regional</a>
                 <a href="#casos-de-exito" class="text-[#000000] hover:text-brand font-semibold transition">Clientes</a>
             </nav>
 
-            <div class="flex items-center gap-2.5 shrink-0">
-                <a href="#cotizar-form" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm transition whitespace-nowrap">
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="#cotizar-form" data-open-cotizador="1" class="bg-brand hover:bg-brand-dark text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg shadow-sm transition whitespace-nowrap">
                     Cotizá hoy
                 </a>
-                <button type="button" onclick="var d=document.getElementById('mobile-nav-drawer');if(d){d.classList.toggle('hidden');}" aria-label="Abrir menú de navegación" class="xl:hidden inline-flex items-center justify-center p-2.5 rounded-lg border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition">
+                <button type="button" onclick="var d=document.getElementById('mobile-nav-drawer');if(d){d.classList.toggle('hidden');}" aria-label="Abrir menú de navegación" class="xl:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200 text-[#000000] hover:border-brand hover:text-brand transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
@@ -204,9 +203,8 @@
                 <div class="flex flex-wrap gap-2 pb-3 border-b border-gray-100">
                     <a href="index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Inicio</a>
                     <a href="la-empresa/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">La empresa</a>
-                    <a href="certificacion-iso/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Calidad ISO 9001</a>
+                    <a href="certificacion-iso/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Certificación ISO 9001:2015</a>
                     <a href="cobertura-y-operaciones-multi-sede/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition">Cobertura regional</a>
-                    <a href="dossier/index.html" class="px-3.5 py-2 rounded-lg bg-gray-50 hover:bg-brand/10 text-sm font-bold text-[#000000] hover:text-brand transition" target="_blank" rel="noopener noreferrer">Dossier ejecutivo</a>
                 </div>
                 <div>
                     <div class="text-xs font-extrabold uppercase tracking-wider text-brand mb-2.5">Dónde limpiamos</div>
@@ -233,206 +231,155 @@
     </header>
 
     <main>
-        <!-- 1. HERO CORPORATIVO + FORMULARIO DE COTIZACIÓN LADO A LADO DESDE 1024px (lg:grid-cols-12) -->
-        <section class="bg-white pt-8 sm:pt-12 pb-14 sm:pb-16 border-b border-gray-100 relative overflow-hidden">
-            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-35"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-start">
+        <!-- 1. PORTADA CORPORATIVA LIMPIA (100% LEGIBLE EN CELULAR 375px Y SIMÉTRICA EN 1440px/1920px) -->
+        <section class="bg-white pt-6 sm:pt-12 pb-12 sm:pb-16 border-b border-gray-100 relative overflow-hidden">
+            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
                 <div class="lg:col-span-7">
-                    <div class="relative rounded-2xl border border-gray-200/90 bg-gradient-to-b from-white via-white to-gray-50/70 p-6 sm:p-9 shadow-[0_12px_36px_-16px_rgba(3,88,45,0.08)]">
-                        <div class="absolute top-0 left-8 right-8 h-[3px] bg-gradient-to-r from-brand via-brand/40 to-transparent rounded-b"></div>
+                    <!-- Pastilla ISO directa a la landing de Certificación ISO 9001:2015 -->
+                    <div class="mb-4">
+                        <a href="certificacion-iso/index.html" class="group inline-flex items-center gap-2 bg-[#f4f7f5] hover:bg-brand/10 border border-brand/20 hover:border-brand/50 text-[#133522] px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold uppercase tracking-wider transition">
+                            <span class="text-accent">★</span>
+                            <span>Certificación ISO 9001:2015 · TÜV Rheinland</span>
+                            <svg class="w-3.5 h-3.5 shrink-0 text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
 
-                        <!-- Badge ISO clicable directo a la sección #iso (sin flechas de blog) -->
-                        <div class="flex items-center gap-3 mb-5">
-                            <span class="h-[2px] w-6 bg-brand rounded-full shrink-0"></span>
-                            <a href="#iso" class="group inline-flex items-center gap-2 bg-white hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand/50 text-gray-800 hover:text-brand px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition shadow-2xs">
-                                <span class="text-accent">★</span>
-                                <span>ISO 9001:2015 TÜV Rheinland · Ver alcance auditado</span>
-                                <svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                            </a>
+                    <h1 class="text-[1.85rem] sm:text-4xl lg:text-[2.65rem] xl:text-[2.85rem] font-extrabold tracking-tight leading-[1.15] text-[#111827] mb-4">
+                        Empresa de limpieza profesional para <span class="text-brand">industrias, oficinas e instituciones</span>.
+                    </h1>
+
+                    <p class="text-[15px] sm:text-[1.06rem] text-[#4b5563] mb-6 leading-relaxed font-normal max-w-2xl">
+                        Desde 2001 brindamos servicios integrales para <a href="limpieza-industrial/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">plantas industriales y centros logísticos</a>, <a href="oficinas-corporativas/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">edificios corporativos de oficinas</a>, <a href="universidades-y-clubes/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">universidades, colegios y clubes</a>, <a href="consorcios/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">grandes consorcios</a> y <a href="clinicas-y-hospitales/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">clínicas y laboratorios</a>. Operamos con más de 450 personas en nómina directa desde nuestra <a href="la-empresa/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">base operativa propia de 800 m² en CABA</a> y <a href="cobertura-y-operaciones-multi-sede/index.html" class="text-[#03582d] font-semibold underline decoration-[#03582d]/40 underline-offset-4 hover:decoration-[#03582d] transition">despliegue activo multi-plaza</a>.
+                    </p>
+
+                    <!-- 3 Indicadores 100% simétricos (1 renglón arriba + 1 renglón abajo en cada columna) -->
+                    <div class="grid grid-cols-3 divide-x divide-gray-200 border-y border-gray-200 py-3.5 mb-6">
+                        <div class="pr-2 sm:pr-4">
+                            <div class="text-xs sm:text-sm font-extrabold text-brand leading-tight">Desde 2001</div>
+                            <div class="text-[11px] sm:text-xs text-[#676b67] mt-0.5 leading-snug whitespace-nowrap">+24 años activos</div>
                         </div>
-
-                        <div class="pl-4 sm:pl-5 border-l-[3px] border-brand/85 mb-5">
-                            <h1 class="text-3xl sm:text-4xl xl:text-[2.65rem] font-bold tracking-tight leading-[1.15] text-[#133522]">
-                                Empresa de limpieza profesional <span class="text-brand font-extrabold">sin interrumpir</span> tus procesos operativos.
-                            </h1>
-                        </div>
-
-                        <p class="text-base sm:text-[1.05rem] text-[#676b67] mb-6 leading-relaxed font-normal max-w-2xl">
-                            Somos una <strong class="font-semibold text-gray-900">empresa de limpieza profesional, industrial y corporativa</strong> con más de <strong class="font-semibold text-gray-900">450 personas en nómina directa</strong>, base operativa propia de 800 m² en ubicación estratégica de CABA, taller electromecánico interno y despliegue activo en <strong class="font-semibold text-gray-900">AMBA, La Plata, Bahía Blanca, Neuquén / Vaca Muerta, Trelew y Puerto Madryn</strong>.
-                        </p>
-
-                        <!-- 3 Indicadores claros y autoexplicativos -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 py-4 px-4 mb-6 rounded-xl bg-white border border-gray-200/80 shadow-2xs">
-                            <div class="sm:border-r border-gray-100 sm:pr-3">
-                                <div class="text-xs font-extrabold uppercase tracking-wider text-brand">Desde 2001</div>
-                                <div class="text-xs text-[#676b67] mt-0.5">+24 años de continuidad operativa</div>
-                            </div>
-                            <a href="#empresa" class="group sm:border-r border-gray-100 sm:px-3 block hover:text-brand transition">
-                                <div class="text-xs font-extrabold uppercase tracking-wider text-brand group-hover:underline">Base operativa propia en CABA</div>
-                                <div class="text-xs text-[#676b67] mt-0.5">800 m² en ubicación estratégica</div>
-                            </a>
-                            <div class="sm:pl-2">
-                                <div class="text-xs font-extrabold uppercase tracking-wider text-brand">100% nómina directa</div>
-                                <div class="text-xs text-[#676b67] mt-0.5">Sin subcontratación · Art. 30 LCT</div>
-                            </div>
-                        </div>
-
-                        <!-- Los 2 CTAs centrales alineados 100% al corazón comercial B2B -->
-                        <div class="flex flex-wrap gap-3.5 mb-6">
-                            <a href="#cotizar-form" class="text-center bg-brand hover:bg-brand-dark text-white text-sm font-bold px-7 py-3.5 rounded-xl shadow-sm transition">
-                                Cotizá tu servicio hoy
-                            </a>
-                            <a href="#donde-limpiamos" class="text-center bg-white text-[#133522] border border-gray-300 hover:border-brand hover:text-brand text-sm font-bold px-6 py-3.5 rounded-xl shadow-2xs transition">
-                                Ver dónde limpiamos
-                            </a>
-                        </div>
-
-                        <div class="pt-4 border-t border-gray-100 flex items-start sm:items-center gap-2 text-xs text-[#676b67] font-medium">
-                            <span class="text-brand font-bold shrink-0">✔</span>
-                            <span>Abonos integrales y divisiones técnicas para plantas industriales, edificios corporativos, instituciones educativas, consorcios, clínicas y grandes superficies.</span>
+                        <a href="la-empresa/index.html" class="group px-2 sm:px-4 block hover:text-brand transition">
+                            <div class="text-xs sm:text-sm font-extrabold text-brand group-hover:underline leading-tight">Base 800 m²</div>
+                            <div class="text-[11px] sm:text-xs text-[#676b67] mt-0.5 leading-snug whitespace-nowrap">Sede propia CABA</div>
+                        </a>
+                        <div class="pl-2 sm:pl-4">
+                            <div class="text-xs sm:text-sm font-extrabold text-brand leading-tight">Nómina directa</div>
+                            <div class="text-[11px] sm:text-xs text-[#676b67] mt-0.5 leading-snug whitespace-nowrap">+450 personas</div>
                         </div>
                     </div>
+
+                    <!-- CTAs centrales de Portada -->
+                    <div class="flex flex-col sm:flex-row gap-3 mb-5">
+                        <a href="#cotizar-form" data-open-cotizador="1" class="text-center bg-brand hover:bg-brand-dark text-white text-sm font-extrabold px-7 py-3.5 rounded-xl shadow-sm transition">
+                            Cotizá tu servicio hoy
+                        </a>
+                        <a href="#donde-limpiamos" class="text-center bg-white text-[#133522] border border-gray-300 hover:border-brand hover:text-brand text-sm font-bold px-6 py-3.5 rounded-xl transition">
+                            Ver dónde limpiamos
+                        </a>
+                    </div>
+
+                    <p class="text-xs text-[#676b67] leading-relaxed">
+                        <strong class="text-[#111827]">¿Evaluás renovar o sumar proveedor?</strong> Cotizamos sobre tu dotación, carga horaria y frecuencias actuales bajo nuestro <a href="certificacion-iso/index.html" class="text-brand font-semibold underline decoration-brand/40 hover:decoration-brand">Sistema de Gestión de la Calidad certificado ISO 9001:2015</a>.
+                    </p>
                 </div>
 
-                <!-- TARJETA DE COTIZACIÓN CORPORATIVA EN EL HERO (VISIBLE AL LADO DESDE 1024px Y DESTINO DIRECTO DE "COTIZÁ HOY") -->
-                <div id="cotizar-form" class="lg:col-span-5 scroll-mt-24">
-                    <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-lg border border-gray-200 border-t-4 border-t-brand text-[#000000]">
-                        <div class="flex items-start justify-between gap-4 pb-4 mb-4 border-b border-gray-100">
-                            <div>
-                                <span class="text-xs font-extrabold uppercase tracking-wider text-brand block">Atención exclusiva empresas e instituciones</span>
-                                <h2 class="text-xl sm:text-2xl font-extrabold text-[#000000] leading-tight mt-0.5">Cotización por dotación y esquema operativo</h2>
-                                <p class="text-xs text-[#676b67] mt-1.5 leading-relaxed">Completá los datos de tu operación para recibir una propuesta técnica y económica a medida.</p>
-                            </div>
-                            <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','click_iso_certipedia',{source_page:'home_hero'});}" title="Verificar QR en TÜV Rheinland Certipedia (ID 9000041847)" class="shrink-0 group">
-                                <img src="assets/img/tuv-iso-9001-qr.png?v=20261028" alt="TÜV Rheinland ISO 9001 QR 9000041847" class="h-14 w-auto object-contain rounded border border-gray-200 group-hover:border-brand p-1 transition">
-                            </a>
+                <!-- TARJETA LANZADORA RÁPIDA EN PORTADA (ABRE EL COTIZADOR PASO A PASO CON FONDO TRASLÚCIDO) -->
+                <div id="cotizar-form" class="lg:col-span-5">
+                    <div class="bg-white rounded-2xl p-5 sm:p-7 shadow-[0_18px_45px_-15px_rgba(3,88,45,0.12)] border border-gray-200 border-t-4 border-t-brand text-[#000000]">
+                        <div class="mb-4">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand block mb-1">Cotizador online · Paso 1 de 3</span>
+                            <h2 class="text-lg sm:text-xl font-extrabold text-[#000000] leading-snug">¿Para qué tipo de establecimiento buscás cotizar?</h2>
+                            <p class="text-xs text-[#676b67] mt-1 leading-relaxed">Tocá tu sector para indicar dotación, carga horaria y localidad en menos de un minuto:</p>
                         </div>
 
-                        <form class="space-y-3.5 text-sm js-b2b-quote-form">
-                                <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
-                                <div class="b2b-warning-alert hidden bg-gray-100 border border-gray-300 text-gray-800 p-3 rounded-lg text-xs font-semibold">
-                                    Star Union S.R.L. brinda servicios exclusivamente a empresas, industrias, edificios corporativos, consorcios e instituciones. No realizamos viviendas particulares.
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Empresa o razón social *</label>
-                                        <input type="text" name="empresa" required placeholder="Nombre de tu organización" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Nombre, apellido y área *</label>
-                                        <input type="text" name="nombre" required placeholder="Ej.: Martín Gómez · Compras / Facility" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Correo electrónico corporativo *</label>
-                                        <input type="email" name="email" required placeholder="nombre@tuempresa.com.ar" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Teléfono directo o celular *</label>
-                                        <input type="tel" name="telefono" required placeholder="Ej.: 011 4000-0000 / WhatsApp" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[#000000] font-semibold mb-1">Tipo de servicio o rubro *</label>
-                                    <select name="tipo_organizacion" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none font-semibold">
-                                        <option value="" disabled selected>Seleccioná el tipo de establecimiento...</option>
-                                        <option value="Plantas industriales, fábricas y centros logísticos">1. Plantas industriales, fábricas y centros logísticos</option>
-                                        <option value="Edificios corporativos de oficinas, bancos y sedes">2. Edificios corporativos de oficinas, bancos y sedes</option>
-                                        <option value="Universidades, colegios y clubes deportivos">3. Universidades, colegios y clubes deportivos</option>
-                                        <option value="Consorcios de vivienda y grandes torres">4. Consorcios de vivienda y grandes torres</option>
-                                        <option value="Clínicas, sanatorios, hospitales y laboratorios">5. Clínicas, sanatorios, hospitales y laboratorios</option>
-                                        <option value="Servicios especiales (altura, final de obra, predios y MIP)">6. Servicios especiales (altura, final de obra, predios y MIP)</option>
-                                        <option value="Otro rubro o establecimiento (especificar)">Otro rubro o establecimiento (especificar)</option>
-                                        <option value="NO_CALIFICA_PARTICULAR">Casa particular, mudanza o vivienda individual (no realizamos)</option>
-                                    </select>
-                                </div>
-                                <div class="js-otro-rubro-wrap hidden">
-                                    <label class="block text-[#000000] font-semibold mb-1">Especificá tu rubro o tipo de establecimiento *</label>
-                                    <input type="text" name="otro_rubro_detalle" placeholder="Ej.: cadena comercial, laboratorio, puerto, concesionario..." class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                </div>
-                                <div class="js-regular-dotacion-wrap space-y-3">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        <div>
-                                            <label class="block text-[#000000] font-semibold mb-1">Dotación estimada *</label>
-                                            <select name="cantidad_personas" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                                <option value="A definir en relevamiento técnico">A definir en relevamiento técnico</option>
-                                                <option value="1 a 2 personas (jornada mínima 4 hs corridas)">1 a 2 personas (mínimo 4 hs diarias)</option>
-                                                <option value="3 a 5 personas en servicio">3 a 5 personas en servicio</option>
-                                                <option value="6 a 12 personas en servicio">6 a 12 personas en servicio</option>
-                                                <option value="Más de 12 personas / turnos rotativos">Más de 12 personas / turnos rotativos</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="block text-[#000000] font-semibold mb-1">Carga horaria diaria *</label>
-                                            <select name="cantidad_horas" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                                <option value="Jornada completa (8 hs diarias)">Jornada completa (8 hs diarias)</option>
-                                                <option value="Jornada de 6 hs diarias corridas">Jornada de 6 hs diarias corridas</option>
-                                                <option value="Media jornada (4 hs diarias corridas)">Media jornada (4 hs diarias corridas)</option>
-                                                <option value="Cobertura multi-turno o 24/7">Cobertura multi-turno o 24/7</option>
-                                                <option value="NO_CALIFICA_POCAS_HORAS">Menos de 4 hs diarias o 1-2 veces por semana (no realizamos)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Frecuencia semanal *</label>
-                                        <select name="dias_servicio" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                            <option value="Lunes a viernes">Lunes a viernes</option>
-                                            <option value="Lunes a sábado">Lunes a sábado</option>
-                                            <option value="Lunes a lunes (cobertura continua)">Lunes a lunes (cobertura continua)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="js-especial-servicio-wrap hidden space-y-3 bg-white p-3.5 rounded-xl border border-brand/25">
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Especialidad técnica requerida en empresa o predio *</label>
-                                        <select name="especialidad_requerida" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none font-semibold">
-                                            <option value="">Seleccioná la especialidad...</option>
-                                            <option value="1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)">1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)</option>
-                                            <option value="2. Final de obra industrial, corporativo o comercial de escala">2. Final de obra industrial, corporativo o comercial de escala</option>
-                                            <option value="3. Corte mecanizado con tractores en grandes predios">3. Corte mecanizado con tractores en grandes predios</option>
-                                            <option value="4. Fumigación certificada y manejo integrado de plagas (MIP)">4. Fumigación certificada y manejo integrado de plagas (MIP)</option>
-                                            <option value="NO_CALIFICA_ESPECIAL">Eventos, stands, mudanzas, limpieza de tanques de agua o viviendas (no realizamos)</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Superficie estimada o alcance técnico del trabajo *</label>
-                                        <input type="text" name="escala_especial" placeholder="Ej.: m² de nave/vidrios, hectáreas de predio, altura o pliego de licitación" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
-                                        <label class="block text-[#000000] font-semibold">Localidad o dirección del servicio *</label>
-                                        <button type="button" class="js-add-sede-btn text-xs font-bold text-brand hover:underline cursor-pointer">+ Sumar otra sede o desglosar ubicaciones</button>
-                                    </div>
-                                    <input type="text" name="ubicacion" required placeholder="Ej.: CABA, GBA, Bahía Blanca, Neuquén, Trelew, Puerto Madryn..." class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    <div class="js-multi-sede-list space-y-1"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-[#000000] font-semibold mb-1">Pliego o detalle adicional (opcional)</label>
-                                    <textarea name="escala" rows="2" placeholder="Ej.: visita de relevamiento técnico, pliego de licitación, horarios o requerimientos específicos" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none resize-none"></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold py-3.5 rounded-lg shadow transition cursor-pointer">
-                                    Cotizá hoy el servicio para tu empresa
-                                </button>
-                            </form>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <button type="button" data-open-cotizador="1" data-rubro="Plantas industriales, fábricas y centros logísticos" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-3.5 py-3 flex items-center justify-between gap-2 transition cursor-pointer">
+                                <span class="text-xs sm:text-[13px] font-bold text-[#111827] group-hover:text-brand leading-snug">1. Plantas industriales y logística</span>
+                                <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                            <button type="button" data-open-cotizador="1" data-rubro="Edificios corporativos de oficinas, bancos y sedes" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-3.5 py-3 flex items-center justify-between gap-2 transition cursor-pointer">
+                                <span class="text-xs sm:text-[13px] font-bold text-[#111827] group-hover:text-brand leading-snug">2. Edificios de oficinas y sedes</span>
+                                <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                            <button type="button" data-open-cotizador="1" data-rubro="Universidades, colegios y clubes deportivos" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-3.5 py-3 flex items-center justify-between gap-2 transition cursor-pointer">
+                                <span class="text-xs sm:text-[13px] font-bold text-[#111827] group-hover:text-brand leading-snug">3. Universidades, colegios y clubes</span>
+                                <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                            <button type="button" data-open-cotizador="1" data-rubro="Consorcios de vivienda y grandes torres" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-3.5 py-3 flex items-center justify-between gap-2 transition cursor-pointer">
+                                <span class="text-xs sm:text-[13px] font-bold text-[#111827] group-hover:text-brand leading-snug">4. Consorcios y grandes torres</span>
+                                <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                            <button type="button" data-open-cotizador="1" data-rubro="Clínicas, sanatorios, hospitales y laboratorios" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-3.5 py-3 flex items-center justify-between gap-2 transition cursor-pointer">
+                                <span class="text-xs sm:text-[13px] font-bold text-[#111827] group-hover:text-brand leading-snug">5. Clínicas, salud y laboratorios</span>
+                                <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                            <button type="button" data-open-cotizador="1" data-rubro="Servicios especiales (altura, final de obra, predios y MIP)" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-3.5 py-3 flex items-center justify-between gap-2 transition cursor-pointer">
+                                <span class="text-xs sm:text-[13px] font-bold text-[#111827] group-hover:text-brand leading-snug">6. Altura, final de obra y predios</span>
+                                <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+
+                        <div class="mt-4 pt-3.5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                            <button type="button" data-open-cotizador="1" class="text-brand font-extrabold hover:underline cursor-pointer">
+                                ¿Otro establecimiento o licitación multi-sede? Iniciar acá →
+                            </button>
+                            <span class="text-[11px] text-[#676b67]">Exclusivo empresas e instituciones</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. DÓNDE LIMPIAMOS: INMEDIATAMENTE DEBAJO DEL HERO (ORDEN DE PRIORIDAD COMERCIAL 1° A 6°) -->
-        <section id="donde-limpiamos" class="py-20 bg-gray-50 border-b border-gray-200 scroll-mt-20">
+        <!-- 2. DÓNDE LIMPIAMOS: COBERTURA MULTIPLAZA ARRIBA + 6 ESPECIALIDADES EN ORDEN COMERCIAL 1° A 6° -->
+        <section id="donde-limpiamos" class="py-16 sm:py-20 bg-gray-50 border-b border-gray-200 scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
                     <div>
-                        <span class="text-brand font-extrabold text-xs uppercase tracking-wider block mb-2">Especialidades operativas por sector</span>
+                        <span class="text-brand font-extrabold text-xs uppercase tracking-wider block mb-2">Especialidades operativas y alcance territorial</span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-[#000000] tracking-tight">Dónde limpiamos</h2>
-                        <p class="text-lg text-neutral-custom font-light mt-2 max-w-2xl">Protocolos específicos, maquinaria pesada propia y certificación ISO 9001:2015 adaptados a la operatoria de cada rubro.</p>
+                        <p class="text-base sm:text-lg text-neutral-custom font-light mt-2 max-w-3xl">Protocolos específicos, maquinaria pesada propia y <a href="certificacion-iso/index.html" class="text-brand font-semibold underline decoration-brand/40 hover:decoration-brand">Sistema de Gestión certificado ISO 9001:2015</a> adaptados a cada rubro y plaza operativa.</p>
                     </div>
-                    <a href="#cotizar-form" class="inline-flex items-center justify-center bg-brand text-white font-extrabold px-6 py-3.5 rounded-lg hover:bg-brand-dark transition shadow-sm shrink-0 text-sm">
+                    <a href="#cotizar-form" data-open-cotizador="1" class="inline-flex items-center justify-center bg-brand text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-brand-dark transition shadow-sm shrink-0 text-sm">
                         Solicitar cotización por rubro
                     </a>
+                </div>
+
+                <!-- FRANJA SUPERIOR DE COBERTURA MULTIPLAZA Y CONTRATOS MULTI-SEDE (ARRIBA DE LAS TARJETAS) -->
+                <div class="mb-10 bg-white rounded-2xl p-5 sm:p-7 border border-gray-200 border-l-4 border-l-brand shadow-sm">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-gray-100">
+                        <div>
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand block mb-1">Cobertura multiplaza activa · Coordinación con casa matriz o en destino</span>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-[#111827]">Operaciones activas en polos productivos y contratos multi-sede</h3>
+                            <p class="text-xs sm:text-sm text-[#676b67] mt-1 max-w-3xl">Articulamos licitaciones y abonos tanto junto a direcciones de Compras en CABA y GBA como con gerencias operativas en cada localidad:</p>
+                        </div>
+                        <a href="cobertura-y-operaciones-multi-sede/index.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-brand hover:underline shrink-0">
+                            <span>Ver operatoria multi-sede y nuevas plazas</span>
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
+                        <a href="la-empresa/index.html" class="group rounded-xl bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand p-3 transition block">
+                            <span class="font-extrabold text-[#111827] group-hover:text-brand block">AMBA y La Plata</span>
+                            <span class="text-[#676b67] mt-0.5 block">CABA, GBA Norte, Oeste y Sur · Base central 800 m²</span>
+                        </a>
+                        <a href="bahia-blanca/index.html" class="group rounded-xl bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand p-3 transition block">
+                            <span class="font-extrabold text-[#111827] group-hover:text-brand flex items-center justify-between">Bahía Blanca <span class="text-brand">→</span></span>
+                            <span class="text-[#676b67] mt-0.5 block">Polo petroquímico, puerto, industria, salud y sucursales</span>
+                        </a>
+                        <a href="neuquen-vaca-muerta/index.html" class="group rounded-xl bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand p-3 transition block">
+                            <span class="font-extrabold text-[#111827] group-hover:text-brand flex items-center justify-between">Neuquén y Vaca Muerta <span class="text-brand">→</span></span>
+                            <span class="text-[#676b67] mt-0.5 block">Bases de energía, parque industrial, aeropuertos y sedes</span>
+                        </a>
+                        <a href="trelew/index.html" class="group rounded-xl bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand p-3 transition block">
+                            <span class="font-extrabold text-[#111827] group-hover:text-brand flex items-center justify-between">Trelew <span class="text-brand">→</span></span>
+                            <span class="text-[#676b67] mt-0.5 block">Alta complejidad hospitalaria 24/7, parque industrial y logística</span>
+                        </a>
+                        <a href="puerto-madryn/index.html" class="group rounded-xl bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand p-3 transition block">
+                            <span class="font-extrabold text-[#111827] group-hover:text-brand flex items-center justify-between">Puerto Madryn <span class="text-brand">→</span></span>
+                            <span class="text-[#676b67] mt-0.5 block">Polo aluminio, plantas pesqueras, puerto y corporativo</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -442,9 +389,9 @@
                             <img src="assets/img/vertical-industrial.png?v=20261028" alt="Limpieza industrial en zonas productivas con maquinaria propia Star Union" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <div class="p-7 flex flex-col flex-grow">
-                            <span class="inline-block self-start bg-brand/10 text-brand text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2.5">ISO 9001 en zona productiva</span>
+                            <span class="inline-block self-start bg-brand/10 text-brand text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2.5">ISO 9001:2015 · Zona productiva</span>
                             <h3 class="text-2xl font-bold text-[#024121] mb-3 group-hover:text-brand transition">Plantas industriales, fábricas y logística</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light text-base mb-6">Intervención auditada en líneas productivas y no productivas (automotriz, farmacéutica GMP, química, alimenticia, petrolera, portuaria y centros logísticos). Maquinaria LAV/LUT propia con taller interno.</p>
+                            <p class="text-neutral-custom leading-relaxed font-light text-base mb-6">Operación estandarizada en líneas productivas y no productivas (automotriz, farmacéutica GMP, química, alimenticia, energética, portuaria y centros logísticos). Maquinaria LAV/LUT propia con taller interno.</p>
                             <span class="mt-auto font-bold text-brand text-xs uppercase tracking-wider flex items-center gap-1.5">Ver solución industrial <svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
                         </div>
                     </a>
@@ -457,7 +404,7 @@
                         <div class="p-7 flex flex-col flex-grow">
                             <span class="inline-block self-start bg-[#024121]/10 text-[#024121] text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2.5">Sedes empresariales, oficinas y bancos</span>
                             <h3 class="text-2xl font-bold text-[#024121] mb-3 group-hover:text-brand transition">Edificios corporativos y oficinas</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light text-base mb-6">Mantenimiento integral para edificios corporativos, sedes centrales, bancos y redes de sucursales. Control biométrico de presentismo en tiempo real y cobertura ágil de ausencias con personal propio de relevo.</p>
+                            <p class="text-neutral-custom leading-relaxed font-light text-base mb-6">Mantenimiento integral para edificios corporativos, sedes centrales, bancos y redes de sucursales. Control biométrico de presentismo en tiempo real y reemplazo organizado con personal propio de relevo.</p>
                             <span class="mt-auto font-bold text-brand text-xs uppercase tracking-wider flex items-center gap-1.5">Ver solución corporativa <svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
                         </div>
                     </a>
@@ -509,37 +456,20 @@
                         <div class="p-7 flex flex-col flex-grow">
                             <span class="inline-block self-start bg-brand-dark/10 text-brand-dark text-xs font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2.5">Altura · Final de obra · Grandes superficies</span>
                             <h3 class="text-2xl font-bold text-[#024121] mb-3 group-hover:text-brand transition">Servicios especiales y grandes superficies</h3>
-                            <p class="text-neutral-custom leading-relaxed font-light text-base mb-6">Cuadrillas propias certificadas para limpieza de vidrios y estructuras en altura (normas ARAA), limpieza profunda de final de obra, parques industriales, centros comerciales, supermercados y concesionarios.</p>
+                            <p class="text-neutral-custom leading-relaxed font-light text-base mb-6">Cuadrillas propias habilitadas para limpieza de vidrios y estructuras en altura (normas ARAA), limpieza profunda de final de obra, parques industriales, centros comerciales, supermercados y concesionarios.</p>
                             <span class="mt-auto font-bold text-brand text-xs uppercase tracking-wider flex items-center gap-1.5">Ver servicios especiales <svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
                         </div>
                     </a>
                 </div>
-
-                <!-- BANNER HORIZONTAL DE DESPLIEGUE REGIONAL Y PROYECTOS A ESCALA -->
-                <div class="mt-10 bg-brand rounded-2xl p-8 md:p-10 shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-white">
-                    <div>
-                        <span class="bg-white/15 text-white border border-white/25 font-bold text-xs uppercase px-3 py-1 rounded-full inline-block mb-3 tracking-wider">Alcance geográfico y multi-sede</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Despliegue operativo regional y contratos multi-sede</h3>
-                        <p class="text-green-50 font-light text-base max-w-3xl">Operaciones activas en CABA, GBA, La Plata, Bahía Blanca, Neuquén / Vaca Muerta, Trelew y Puerto Madryn, integrando múltiples sucursales, plantas o sedes bajo un único estándar operativo.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-3 shrink-0">
-                        <a href="cobertura-y-operaciones-multi-sede/index.html" class="bg-white text-brand font-extrabold py-3.5 px-6 rounded-lg hover:bg-gray-100 transition text-sm shadow">
-                            Ver cobertura regional
-                        </a>
-                        <a href="#cotizar-form" class="bg-brand-dark border border-white/25 text-white font-bold py-3.5 px-6 rounded-lg hover:bg-[#012d17] transition text-sm">
-                            Cotizar operación
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- 3. ORGANIZACIONES LÍDERES Y CASOS AUDITADOS (SECCIÓN ÚNICA SIN DUPLICAR, 100% CLICABLE A CADA VERTICAL REAL) -->
+        <!-- 3. ORGANIZACIONES LÍDERES DONDE OPERAMOS A DIARIO (100% CLICABLE A CADA VERTICAL REAL) -->
         <section id="casos-de-exito" class="bg-white border-b border-gray-200 py-16 scroll-mt-20" aria-label="Organizaciones líderes atendidas">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
                     <div>
-                        <span class="text-xs font-extrabold text-brand uppercase tracking-widest block mb-1.5">Trayectoria comprobable · Casos activos y auditados</span>
+                        <span class="text-xs font-extrabold text-brand uppercase tracking-widest block mb-1.5">Trayectoria comprobable · Referencias activas por sector</span>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-[#000000] tracking-tight">Organizaciones líderes donde operamos a diario</h2>
                         <p class="text-sm sm:text-base text-neutral-custom mt-1">Seleccioná cada referencia para conocer el protocolo técnico aplicado en su sector:</p>
                     </div>
@@ -557,11 +487,11 @@
 
                     <a href="limpieza-industrial/index.html" class="group flex flex-col justify-between p-5 rounded-xl bg-gray-50 hover:bg-white border border-gray-200 hover:border-brand hover:shadow-md transition-all">
                         <div class="flex items-center justify-between gap-2 mb-2">
-                            <span class="text-xs font-extrabold uppercase tracking-wider text-white bg-brand px-2.5 py-0.5 rounded-full">Auditoría: 96/100</span>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-white bg-brand px-2.5 py-0.5 rounded-full">Evaluación: 96/100</span>
                             <span class="text-gray-400 group-hover:text-brand"><svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
                         </div>
                         <div class="font-extrabold text-base text-[#000000] group-hover:text-brand transition">Ferroclor (Industria química)</div>
-                        <div class="text-xs text-neutral-custom mt-1">Calificación sobresaliente en evaluación de planta</div>
+                        <div class="text-xs text-neutral-custom mt-1">Calificación sobresaliente en desempeño de planta</div>
                     </a>
 
                     <a href="universidades-y-clubes/index.html" class="group flex flex-col justify-between p-5 rounded-xl bg-gray-50 hover:bg-white border border-gray-200 hover:border-brand hover:shadow-md transition-all">
@@ -621,18 +551,18 @@
             </div>
         </section>
 
-        <!-- 4. INFRAESTRUCTURA PROPIA EN CABA (800 m²) Y COBERTURA GEOGRÁFICA -->
+        <!-- 4. INFRAESTRUCTURA PROPIA EN CABA (800 m²) -->
         <section id="empresa" class="py-20 bg-gray-50 border-b border-gray-200 scroll-mt-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row gap-14 items-start mb-16">
+                <div class="flex flex-col lg:flex-row gap-12 items-center mb-14">
                     <div class="lg:w-1/2">
                         <span class="text-brand font-extrabold text-xs uppercase tracking-wider block mb-2">Infraestructura propia en ubicación estratégica de CABA</span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-[#000000] mb-6 tracking-tight">Base operativa propia de 800 m², maquinaria en stock y gestión directa.</h2>
-                        <p class="text-lg text-neutral-custom mb-5 font-light leading-relaxed">
-                            Fundada en <strong>2001</strong>, en <strong>Star Union S.R.L.</strong> combinamos la conducción directa de sus socios con respaldo físico propio: acompañamos el crecimiento operativo mudando nuestra histórica sede de calle Pergamino a nuestra actual <strong>base operativa propia de 800 m² (3 niveles) en Guaminí 5052 / 5657, Ciudad de Buenos Aires</strong>.
+                        <p class="text-base sm:text-lg text-neutral-custom mb-5 font-light leading-relaxed">
+                            Fundada en <strong>2001</strong>, en <strong>Star Union S.R.L.</strong> combinamos la conducción directa de sus socios con respaldo físico real: tras operar en nuestra histórica sede de calle Pergamino, acompañamos el crecimiento mudándonos a nuestra actual <a href="la-empresa/index.html" class="text-brand font-semibold underline decoration-brand/40 hover:decoration-brand">base operativa propia de 800 m² (3 niveles) en Guaminí 5052 / 5657, CABA</a>.
                         </p>
-                        <p class="text-lg text-neutral-custom mb-8 font-light leading-relaxed">
-                            Desde allí centralizamos el acopio de insumos aprobados por ANMAT, nuestro <strong>taller electromecánico propio con cabina de arenado y pintura</strong> (activo desde 2010), nuestra Flota de utilitarios y nuestro <strong>centro de capacitación con laboratorio real de 6 tipos de pisos</strong>.
+                        <p class="text-base sm:text-lg text-neutral-custom mb-8 font-light leading-relaxed">
+                            Desde allí centralizamos el acopio de insumos aprobados por ANMAT, nuestro <strong>taller electromecánico propio con cabina de arenado y pintura</strong> (activo desde fines de 2010), nuestra flota de utilitarios y el <strong>laboratorio de capacitación con 6 superficies reales de pisos</strong>.
                         </p>
 
                         <div class="grid grid-cols-3 gap-6 py-6 border-t border-gray-200">
@@ -642,60 +572,36 @@
                             </div>
                             <div>
                                 <span class="block text-2xl sm:text-3xl font-extrabold text-brand mb-1">15 min</span>
-                                <span class="text-xs sm:text-sm text-gray-600 font-semibold">Alerta Reloj Biométrico</span>
+                                <span class="text-xs sm:text-sm text-gray-600 font-semibold">Alerta biométrica</span>
                             </div>
                             <div>
-                                <span class="block text-2xl sm:text-3xl font-extrabold text-brand mb-1">&lt; 2 hs</span>
-                                <span class="text-xs sm:text-sm text-gray-600 font-semibold">Reemplazo en sitio</span>
+                                <span class="block text-2xl sm:text-3xl font-extrabold text-brand mb-1">2010</span>
+                                <span class="text-xs sm:text-sm text-gray-600 font-semibold">Taller propio interno</span>
                             </div>
                         </div>
                         <div class="mt-4 flex flex-wrap gap-3">
                             <a href="la-empresa/index.html" class="inline-flex items-center gap-2 bg-brand text-white font-bold text-sm px-5 py-3 rounded-lg hover:bg-brand-dark transition">
                                 Conocer la base operativa por dentro
                             </a>
-                            <a href="dossier/index.html" class="inline-flex items-center gap-2 bg-white border border-gray-300 text-[#000000] font-bold text-sm px-5 py-3 rounded-lg hover:border-brand transition" target="_blank" rel="noopener noreferrer">
-                                Ver dossier ejecutivo interactivo
-                            </a>
                             <a href="cobertura-y-operaciones-multi-sede/index.html" class="inline-flex items-center gap-2 bg-white border border-brand/30 text-brand font-bold text-sm px-5 py-3 rounded-lg hover:bg-brand/5 transition">
-                                Cobertura multi-sede y plazas regionales
+                                Operaciones multi-sede y plazas
                             </a>
                         </div>
                     </div>
 
                     <div class="lg:w-1/2 w-full">
-                        <div class="bg-white border border-gray-200 p-7 sm:p-9 rounded-xl shadow-md">
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-[#000000] mb-3">Plazas regionales activas</h3>
-                            <p class="text-base text-neutral-custom mb-6 font-light leading-relaxed">Coordinamos contratos tanto in situ en cada plaza como de forma centralizada junto a casas matrices en Buenos Aires:</p>
-
-                            <div class="space-y-3 text-sm text-neutral-custom">
-                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                                    <strong class="text-brand-dark block mb-0.5">AMBA (CABA y GBA Norte, Oeste y Sur) y La Plata</strong>
-                                    <span>Plantas industriales, centros logísticos, edificios corporativos, universidades, colegios, consorcios, clínicas, grandes superficies y servicios en altura.</span>
-                                </div>
-                                <a href="bahia-blanca/index.html" class="group block bg-gray-50 hover:bg-white p-4 rounded-lg border border-gray-200 hover:border-brand transition">
-                                    <div class="flex items-center justify-between text-brand-dark group-hover:text-brand font-extrabold mb-0.5">
-                                        <span>Bahía Blanca</span>
-                                        <svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                    </div>
-                                    <span>Polo petroquímico, plantas industriales, logística portuaria y depósitos, bancos, oficinas, clínicas, instituciones educativas y grandes superficies.</span>
-                                </a>
-                                <a href="neuquen-vaca-muerta/index.html" class="group block bg-gray-50 hover:bg-white p-4 rounded-lg border border-gray-200 hover:border-brand transition">
-                                    <div class="flex items-center justify-between text-brand-dark group-hover:text-brand font-extrabold mb-0.5">
-                                        <span>Neuquén y Vaca Muerta</span>
-                                        <svg class="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                    </div>
-                                    <span>Bases petroleras y de energía, parque industrial y logística, clínicas y sanatorios, bancos, sedes corporativas, consorcios y centros comerciales.</span>
-                                </a>
-                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                    <div class="flex flex-wrap items-center gap-3 mb-1">
-                                        <a href="trelew/index.html" class="text-brand-dark hover:text-brand font-extrabold underline decoration-brand/40">Trelew</a>
-                                        <span class="text-gray-300">·</span>
-                                        <a href="puerto-madryn/index.html" class="text-brand-dark hover:text-brand font-extrabold underline decoration-brand/40">Puerto Madryn</a>
-                                    </div>
-                                    <span>Hospitales y clínicas de alta complejidad, parque industrial, zona portuaria y logística, organismos oficiales, bancos, edificios corporativos y cadenas comerciales.</span>
-                                </div>
+                        <a href="la-empresa/index.html" class="group block bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:border-brand transition">
+                            <div class="aspect-[1200/628] w-full bg-gray-100 overflow-hidden">
+                                <img src="assets/img/base-guamini-hero-framed.png" alt="Base operativa propia de 800 m² y parque de maquinaria Star Union en calle Guaminí, CABA" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
                             </div>
-                        </div>
+                            <div class="p-5 sm:p-6 flex items-center justify-between gap-4">
+                                <div>
+                                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand block">Guaminí 5052 / 5657 · Ciudad de Buenos Aires</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-[#111827] group-hover:text-brand transition mt-0.5">3 niveles propios: depósito, taller electromecánico y aula escuela</h3>
+                                </div>
+                                <span class="text-brand font-extrabold text-sm shrink-0">Ver →</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -706,7 +612,7 @@
                         <div class="p-4">
                             <span class="text-xs font-extrabold uppercase text-brand">Base propia en CABA · Planta y flota</span>
                             <h4 class="font-extrabold text-base text-[#000000] mt-0.5">Edificio propio de 800 m² y flota de utilitarios</h4>
-                            <p class="text-xs text-neutral-custom mt-1">Ubicación estratégica en CABA (Guaminí 5657) con unidades propias para logística diaria y respuesta rápida.</p>
+                            <p class="text-xs text-neutral-custom mt-1">Ubicación estratégica en CABA (Guaminí 5657) con unidades propias para logística diaria y respuesta operativa.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
@@ -735,31 +641,31 @@
                 <div class="flex flex-col lg:flex-row gap-12 items-center">
                     <div class="lg:w-1/2">
                         <span class="bg-brand/10 text-brand font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-4 inline-block">TÜV Rheinland · Certificado Nº 01 10006 2529826</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#000000] mb-6 tracking-tight">Calidad de gestión auditada en zonas productivas e instituciones</h2>
-                        <p class="text-lg text-neutral-custom mb-6 font-light leading-relaxed">
-                            Nuestro Sistema de Gestión de Calidad está certificado bajo la norma <strong>ISO 9001:2015 por TÜV Rheinland</strong> con alcance explícito en la <em>comercialización, planificación y prestación del servicio de limpieza en zonas productivas y no productivas de empresas industriales, y en áreas comunes, oficinas y espacios funcionales de instituciones y consorcios</em>.
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#000000] mb-6 tracking-tight">Sistema de Gestión de la Calidad certificado bajo norma ISO 9001:2015</h2>
+                        <p class="text-base sm:text-lg text-neutral-custom mb-6 font-light leading-relaxed">
+                            Nuestro Sistema de Gestión de la Calidad se encuentra certificado bajo la norma <strong>ISO 9001:2015 por TÜV Rheinland</strong> (vigencia 2026–2029, ID Certipedia 9000041847), con ámbito de aplicación en la <em>comercialización y prestación de servicios de limpieza integral en organizaciones proveedoras de servicios, consorcios, instituciones sanitarias, educativas y deportivas; y en zonas productivas y no productivas en plantas industriales</em>.
                         </p>
 
                         <ul class="space-y-4 text-base sm:text-lg text-[#000000] mb-8 font-light">
                             <li class="flex items-start gap-3">
                                 <span class="text-brand mt-1 font-bold">✔</span>
-                                <span><strong class="font-bold">Taller electromecánico propio en CABA (desde 2010):</strong> Autosuficientes en mantenimiento preventivo y correctivo de máquinas monofásicas, trifásicas, a batería y a explosión, con <strong>cabina de arenado y pintura propia</strong> y reemplazo en el día.</span>
+                                <span><strong class="font-bold">Control biométrico en tiempo real (alerta a los 15 minutos):</strong> Controlamos el presentismo en tiempo real en el objetivo y, si alguien falta, organizamos el reemplazo con personal propio para sostener la cobertura del turno.</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="text-brand mt-1 font-bold">✔</span>
-                                <span><strong class="font-bold">Control biométrico con alerta a los 15 minutos:</strong> Reloj Biométrico conectado por red y 220V en el objetivo; si una persona del equipo no ficha al inicio del turno, a los 15 minutos envía alerta al supervisor activando el relevo en menos de 2 horas.</span>
+                                <span><strong class="font-bold">Taller electromecánico propio en CABA (desde 2010):</strong> Mantenimiento preventivo y correctivo interno de máquinas monofásicas, trifásicas, a batería y a explosión, con <strong>cabina de arenado y pintura propia</strong>.</span>
                             </li>
                             <li class="flex items-start gap-3">
                                 <span class="text-brand mt-1 font-bold">✔</span>
-                                <span><strong class="font-bold">Laboratorio de capacitación con 6 pisos reales y uniformes ARCIEL:</strong> Entrenamos al personal sobre 6 superficies reales en nuestra base y proveemos indumentaria en tela <strong>ARCIEL indanthren</strong> (anticloro y antimanchas).</span>
+                                <span><strong class="font-bold">Laboratorio de capacitación con 6 pisos reales y uniformes ARCIEL:</strong> Entrenamos al equipo sobre 6 superficies reales en nuestra base y proveemos indumentaria en tela <strong>ARCIEL indanthren</strong> (anticloro y antimanchas).</span>
                             </li>
                         </ul>
 
                         <div class="flex flex-wrap gap-4">
                             <a href="certificacion-iso/index.html" class="inline-flex items-center gap-2 bg-brand text-white font-extrabold px-7 py-3.5 rounded-lg hover:bg-brand-dark transition-colors shadow-sm text-sm sm:text-base">
-                                Conocé nuestro sistema ISO 9001
+                                Ver certificado y alcance ISO 9001:2015
                             </a>
-                            <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-gray-100 text-[#000000] font-bold px-6 py-3.5 rounded-lg hover:bg-gray-200 transition text-sm sm:text-base">
+                            <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=starunion_web&utm_medium=home_iso_btn&utm_campaign=certificacion_iso" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','click_iso_certipedia',{source_page:'home'});}" class="inline-flex items-center gap-1.5 bg-gray-100 text-[#000000] font-bold px-6 py-3.5 rounded-lg hover:bg-gray-200 transition text-sm sm:text-base">
                                 Validar QR en TÜV Certipedia <svg class="w-3.5 h-3.5 inline-block ml-1 -mt-0.5 opacity-75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></svg>
                             </a>
                         </div>
@@ -769,15 +675,17 @@
                         <div class="relative max-w-lg w-full bg-gray-50 rounded-2xl p-6 border border-gray-200 shadow-sm">
                             <div class="relative rounded-xl overflow-hidden border border-gray-200">
                                 <img src="assets/img/perfit-curadas/perfit-base-maquinas.jpg" alt="Parque de maquinaria propia Star Union en base operativa CABA" class="w-full h-72 object-cover object-center">
-                                <img src="assets/img/cleany-transparente.png" alt="Sello capacitación Star Union" class="absolute bottom-3 right-3 h-16 w-auto drop-shadow-lg bg-white/90 rounded-full p-1 border border-brand/20">
+                                <img src="assets/img/cleany-transparente.png" alt="Presentismo y capacitación Star Union" class="absolute bottom-3 right-3 h-16 w-auto drop-shadow-lg bg-white/95 rounded-full p-1 border border-brand/20">
                             </div>
 
-                            <a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" class="group mt-5 bg-white p-4 rounded-xl shadow-md border border-gray-200 flex items-center gap-4 hover:border-brand transition">
-                                <img src="assets/img/tuv-iso-9001-qr.png?v=20261028" alt="TÜV Rheinland QR 9000041847" class="h-16 w-auto object-contain">
+                            <a href="https://www.certipedia.com/quality_marks/9000041847?utm_source=starunion_web&utm_medium=home_iso_card&utm_campaign=certificacion_iso" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','click_iso_certipedia',{source_page:'home_card'});}" class="group mt-5 bg-white p-5 rounded-xl shadow-sm border border-gray-200 flex items-center gap-5 hover:border-brand transition">
+                                <div class="bg-white p-2 shrink-0">
+                                    <img src="assets/img/tuv-iso-9001-qr.png?v=20261028" alt="Marca de certificación TÜV Rheinland ISO 9001:2015 ID 9000041847" class="h-16 w-auto object-contain">
+                                </div>
                                 <div class="text-sm">
-                                    <p class="font-extrabold text-[#000000] group-hover:text-brand transition">Certificado TÜV Rheinland ISO 9001:2015</p>
+                                    <p class="font-extrabold text-[#000000] group-hover:text-brand transition">Sistema certificado ISO 9001:2015</p>
                                     <p class="text-neutral-custom text-xs">Reg. Nº 01 10006 2529826 · ID Certipedia 9000041847</p>
-                                    <span class="text-brand font-bold text-xs underline inline-flex items-center gap-1 mt-0.5">Ver validez oficial en línea <svg class="w-3.5 h-3.5 inline-block ml-1 -mt-0.5 opacity-75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></svg></span>
+                                    <span class="text-brand font-bold text-xs underline inline-flex items-center gap-1 mt-1">Verificar validez oficial en línea <svg class="w-3.5 h-3.5 inline-block ml-0.5 -mt-0.5 opacity-75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></svg></span>
                                 </div>
                             </a>
                         </div>
@@ -924,119 +832,48 @@
                         </div>
                     </div>
 
-                    <!-- COLUMNA FORMULARIO: PRIMERA EN MOBILE/TABLET (order-1 lg:order-2) PARA CERO BAJADA EN FALSO -->
+                    <!-- COLUMNA COTIZADOR GUIADO EN 3 PASOS + RECEPCIÓN DE PLIEGOS RFP -->
                     <div id="formulario-cotizacion" class="lg:col-span-7 order-1 lg:order-2 scroll-mt-24">
-                        <div class="bg-gray-50 rounded-2xl p-7 sm:p-8 shadow-md border border-gray-200 border-t-4 border-t-brand">
+                        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-[0_18px_45px_-15px_rgba(3,88,45,0.12)] border border-gray-200 border-t-4 border-t-brand">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand block mb-1">Cotizador guiado · 3 pasos rápidos</span>
                             <h3 class="text-2xl font-extrabold text-[#000000] mb-1.5">Solicitud de presupuesto y licitaciones</h3>
-                            <p class="text-sm text-neutral-custom mb-6">Presupuestamos sobre tu requerimiento concreto de horas, personal y turnos bajo estándar certificado ISO 9001:2015.</p>
-                            <form class="space-y-3.5 text-sm js-b2b-quote-form">
-                                <input type="text" name="website_hp" value="" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
-                                <div class="b2b-warning-alert hidden bg-gray-100 border border-gray-300 text-gray-800 p-3 rounded-lg text-xs font-semibold">
-                                    Star Union S.R.L. brinda servicios exclusivamente a empresas, industrias, edificios corporativos, consorcios e instituciones. No realizamos viviendas particulares.
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Empresa o razón social *</label>
-                                        <input type="text" name="empresa" required placeholder="Nombre de tu organización" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Nombre, apellido y área *</label>
-                                        <input type="text" name="nombre" required placeholder="Ej.: Martín Gómez · Compras / Facility" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Correo electrónico corporativo *</label>
-                                        <input type="email" name="email" required placeholder="nombre@tuempresa.com.ar" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Teléfono directo o celular *</label>
-                                        <input type="tel" name="telefono" required placeholder="Ej.: 011 4000-0000 / WhatsApp" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[#000000] font-semibold mb-1">Tipo de servicio o rubro *</label>
-                                    <select name="tipo_organizacion" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none font-semibold">
-                                        <option value="" disabled selected>Seleccioná el tipo de establecimiento...</option>
-                                        <option value="Plantas industriales, fábricas y centros logísticos">1. Plantas industriales, fábricas y centros logísticos</option>
-                                        <option value="Edificios corporativos de oficinas, bancos y sedes">2. Edificios corporativos de oficinas, bancos y sedes</option>
-                                        <option value="Universidades, colegios y clubes deportivos">3. Universidades, colegios y clubes deportivos</option>
-                                        <option value="Consorcios de vivienda y grandes torres">4. Consorcios de vivienda y grandes torres</option>
-                                        <option value="Clínicas, sanatorios, hospitales y laboratorios">5. Clínicas, sanatorios, hospitales y laboratorios</option>
-                                        <option value="Servicios especiales (altura, final de obra, predios y MIP)">6. Servicios especiales (altura, final de obra, predios y MIP)</option>
-                                        <option value="Otro rubro o establecimiento (especificar)">Otro rubro o establecimiento (especificar)</option>
-                                        <option value="NO_CALIFICA_PARTICULAR">Casa particular, mudanza o vivienda individual (no realizamos)</option>
-                                    </select>
-                                </div>
-                                <div class="js-otro-rubro-wrap hidden">
-                                    <label class="block text-[#000000] font-semibold mb-1">Especificá tu rubro o tipo de establecimiento *</label>
-                                    <input type="text" name="otro_rubro_detalle" placeholder="Ej.: cadena comercial, laboratorio, puerto, concesionario..." class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                </div>
-                                <div class="js-regular-dotacion-wrap space-y-3">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        <div>
-                                            <label class="block text-[#000000] font-semibold mb-1">Dotación estimada *</label>
-                                            <select name="cantidad_personas" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                                <option value="A definir en relevamiento técnico">A definir en relevamiento técnico</option>
-                                                <option value="1 a 2 personas (jornada mínima 4 hs corridas)">1 a 2 personas (mínimo 4 hs diarias)</option>
-                                                <option value="3 a 5 personas en servicio">3 a 5 personas en servicio</option>
-                                                <option value="6 a 12 personas en servicio">6 a 12 personas en servicio</option>
-                                                <option value="Más de 12 personas / turnos rotativos">Más de 12 personas / turnos rotativos</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="block text-[#000000] font-semibold mb-1">Carga horaria diaria *</label>
-                                            <select name="cantidad_horas" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                                <option value="Jornada completa (8 hs diarias)">Jornada completa (8 hs diarias)</option>
-                                                <option value="Jornada de 6 hs diarias corridas">Jornada de 6 hs diarias corridas</option>
-                                                <option value="Media jornada (4 hs diarias corridas)">Media jornada (4 hs diarias corridas)</option>
-                                                <option value="Cobertura multi-turno o 24/7">Cobertura multi-turno o 24/7</option>
-                                                <option value="NO_CALIFICA_POCAS_HORAS">Menos de 4 hs diarias o 1-2 veces por semana (no realizamos)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Frecuencia semanal *</label>
-                                        <select name="dias_servicio" required class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                            <option value="Lunes a viernes">Lunes a viernes</option>
-                                            <option value="Lunes a sábado">Lunes a sábado</option>
-                                            <option value="Lunes a lunes (cobertura continua)">Lunes a lunes (cobertura continua)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="js-especial-servicio-wrap hidden space-y-3 bg-white p-3.5 rounded-xl border border-brand/25">
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Especialidad técnica requerida en empresa o predio *</label>
-                                        <select name="especialidad_requerida" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none font-semibold">
-                                            <option value="">Seleccioná la especialidad...</option>
-                                            <option value="1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)">1. Lavado de naves, vidrios o cartelería en altura (norma ARAA)</option>
-                                            <option value="2. Final de obra industrial, corporativo o comercial de escala">2. Final de obra industrial, corporativo o comercial de escala</option>
-                                            <option value="3. Corte mecanizado con tractores en grandes predios">3. Corte mecanizado con tractores en grandes predios</option>
-                                            <option value="4. Fumigación certificada y manejo integrado de plagas (MIP)">4. Fumigación certificada y manejo integrado de plagas (MIP)</option>
-                                            <option value="NO_CALIFICA_ESPECIAL">Eventos, stands, mudanzas, limpieza de tanques de agua o viviendas (no realizamos)</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#000000] font-semibold mb-1">Superficie estimada o alcance técnico del trabajo *</label>
-                                        <input type="text" name="escala_especial" placeholder="Ej.: m² de nave/vidrios, hectáreas de predio, altura o pliego de licitación" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
-                                        <label class="block text-[#000000] font-semibold">Localidad o dirección del servicio *</label>
-                                        <button type="button" class="js-add-sede-btn text-xs font-bold text-brand hover:underline cursor-pointer">+ Sumar otra sede o desglosar ubicaciones</button>
-                                    </div>
-                                    <input type="text" name="ubicacion" required placeholder="Ej.: CABA, GBA, Bahía Blanca, Neuquén, Trelew, Puerto Madryn..." class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none">
-                                    <div class="js-multi-sede-list space-y-1"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-[#000000] font-semibold mb-1">Pliego o detalle adicional (opcional)</label>
-                                    <textarea name="escala" rows="2" placeholder="Ej.: visita de relevamiento técnico, pliego de licitación, horarios o requerimientos específicos" class="w-full bg-white border border-gray-300 rounded-lg px-3.5 py-2 focus:border-brand outline-none resize-none"></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold py-3.5 rounded-lg shadow transition cursor-pointer">
-                                    Enviar solicitud a Comercial
+                            <p class="text-sm text-neutral-custom mb-5 leading-relaxed">Elegí el tipo de establecimiento para indicar dotación, carga horaria y localidad sobre esta misma pantalla, bajo nuestro Sistema de Gestión de la Calidad certificado ISO 9001:2015:</p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
+                                <button type="button" data-open-cotizador="1" data-rubro="Plantas industriales, fábricas y centros logísticos" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-4 py-3.5 flex items-center justify-between gap-2 transition cursor-pointer">
+                                    <span class="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-brand leading-snug">1. Plantas industriales y logística</span>
+                                    <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                                 </button>
-                            </form>
+                                <button type="button" data-open-cotizador="1" data-rubro="Edificios corporativos de oficinas, bancos y sedes" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-4 py-3.5 flex items-center justify-between gap-2 transition cursor-pointer">
+                                    <span class="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-brand leading-snug">2. Edificios de oficinas y sedes</span>
+                                    <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                </button>
+                                <button type="button" data-open-cotizador="1" data-rubro="Universidades, colegios y clubes deportivos" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-4 py-3.5 flex items-center justify-between gap-2 transition cursor-pointer">
+                                    <span class="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-brand leading-snug">3. Universidades, colegios y clubes</span>
+                                    <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                </button>
+                                <button type="button" data-open-cotizador="1" data-rubro="Consorcios de vivienda y grandes torres" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-4 py-3.5 flex items-center justify-between gap-2 transition cursor-pointer">
+                                    <span class="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-brand leading-snug">4. Consorcios y grandes torres</span>
+                                    <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                </button>
+                                <button type="button" data-open-cotizador="1" data-rubro="Clínicas, sanatorios, hospitales y laboratorios" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-4 py-3.5 flex items-center justify-between gap-2 transition cursor-pointer">
+                                    <span class="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-brand leading-snug">5. Clínicas, salud y laboratorios</span>
+                                    <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                </button>
+                                <button type="button" data-open-cotizador="1" data-rubro="Servicios especiales (altura, final de obra, predios y MIP)" class="group text-left bg-gray-50 hover:bg-[#f4f7f5] border border-gray-200 hover:border-brand rounded-xl px-4 py-3.5 flex items-center justify-between gap-2 transition cursor-pointer">
+                                    <span class="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-brand leading-snug">6. Altura, final de obra y predios</span>
+                                    <svg class="w-4 h-4 shrink-0 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                </button>
+                            </div>
+
+                            <button type="button" data-open-cotizador="1" class="w-full bg-brand hover:bg-brand-dark text-white font-extrabold text-sm py-3.5 px-6 rounded-xl shadow-sm transition cursor-pointer">
+                                Iniciar cotización guiada en 3 pasos →
+                            </button>
+
+                            <div class="mt-5 pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#676b67]">
+                                <span><strong class="text-[#111827]">Licitaciones y pliegos en PDF (RFP):</strong> envío directo de bases y condiciones a <a href="mailto:comercial@starunion.com.ar" class="text-brand font-bold hover:underline select-all">comercial@starunion.com.ar</a></span>
+                                <span class="text-[11px] font-semibold text-[#133522] whitespace-nowrap">Exclusivo empresas · Mín. 4 hs</span>
+                            </div>
                         </div>
                     </div>
 
@@ -1100,7 +937,7 @@
                             <li><a href="https://www.certipedia.com/quality_marks/9000041847" target="_blank" rel="noopener noreferrer" class="hover:text-white transition duration-150">Validar certificado en TÜV Certipedia</a></li>
                             <li><a href="https://docs.google.com/forms/d/1DNqTP8ulFgupMDxXNAVVS9XWzghCX99wbGdbEYLCEVk/viewform" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag==='function'){gtag('event','salida_rrhh_form',{ubicacion:'footer'});}" class="hover:text-white transition duration-150">Trabajá con nosotros (RRHH)</a></li>
                         </ul>
-                        <a href="#cotizar-form" class="block text-center bg-white hover:bg-gray-100 text-brand font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-lg transition shadow-sm">
+                        <a href="#cotizar-form" data-open-cotizador="1" class="block text-center bg-white hover:bg-gray-100 text-brand font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-lg transition shadow-sm">
                             Pedí tu presupuesto hoy
                         </a>
                     </div>
@@ -1137,6 +974,6 @@
             });
         });
     </script>
-    <script src="assets/js/starunion-b2b.js?v=20261112c"></script>
+    <script src="assets/js/starunion-b2b.js?v=20261112e"></script>
 </body>
 </html>
