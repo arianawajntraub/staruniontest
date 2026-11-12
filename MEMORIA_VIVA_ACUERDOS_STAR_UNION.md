@@ -228,3 +228,17 @@ Prohibido usar un único tono plano para todo Star Union. El sistema distingue o
 2. **Arquitectura Regional Dual (Opción 1 Visible + Opción 2 Oculta para Definir con Mariel) y Matriz de Brochures:**
    - **Evidencia real verificada hoy (11/11/2026 15:28 hs — ASE / Medifé, Fila 3 de Solapa 2 WhatsApp):** Compras Corporativas desde CABA `(011) 2362-7943` ingresó primero por WhatsApp Business y luego envió por mail 2 pliegos PDF (*Limpieza + Fumigación 2026*) para su sucursal de **Donado 498, Bahía Blanca** (`1 persona x 6 hs lun a vie` + vidrios en altura + alfombras). Confirma: 1) la necesidad de **unificar WhatsApp + Mail en el CRM**, 2) el piso de 4+ hs diarias con servicios especiales integrados, y 3) por qué las landings regionales y la pauta con keyword geográfica deben contemplar **tanto al comprador sentado en Casa Matriz CABA/GBA como a quien decide y resuelve *in situ* en la plaza local**.
    - **Matriz para los 15 Brochures restantes ("Don Brochure Design"):** Ya incorporada en `/dossier/index.html#cobertura-regional` con las 3 capas (plazas activas, contratos multi-sucursal y radicación por escala de proyecto) y doble vía simétrica (coordinación con Casa Matriz en CABA/GBA o resolución *in situ* en la localidad).
+
+---
+
+## 15. PENDIENTES DE CORTO PLAZO (POST-CIERRE Y ENVÍO DE PROPUESTA DE SITIO A MAURO — 12-NOV-2026)
+
+1. **Tablero Interno / Pre-CRM (Pulir con Ariana a continuación):**
+   - Definir cómo ven y gestionan las consultas en un tablero simple además del correo estructurado para evitar lo que hacen hoy (etiquetar en WhatsApp o reenviar mails a cotizar sin trazabilidad de estado).
+   - **Módulo 1 sugerido:** arrancar por lo que reciben de **Licitaciones / Pliegos y Cotizaciones web**, y prever una base donde clientes actuales o empresas registradas puedan cargarse sin tener que tipear todos sus datos de cero cada vez.
+2. **Revisión de Brochures (PDFs + Interactivo) y Punteo de Oferta Editable:**
+   - Revisar con Ariana los PDFs ya generados (`brochure-fabricas-e-industrias-version-b.pdf` carátula verde + las 16 fichas blancas A4 en `/brochures/pdf/`) y el Dossier Interactivo (`/dossier/index.html`), alinearles las conclusiones finales del sitio y recién después armar el punteo comercial para ofrecérselos editables a Mauro.
+3. **Edición del Video Institucional (Base Guaminí / Mudanza):**
+   - Poner la mosca de Star Union con fondo transparente (sin recuadro blanco).
+   - Aplicar el sello de ISO 9001:2015 con el mismo criterio limpio y normativo.
+   - Relevar todos los videos originales existentes en Drive (*Guaminí*, *Mudanza*, tomas de dron, placa de apertura) para integrar las mejores tomas reales.
