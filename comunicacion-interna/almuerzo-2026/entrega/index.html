@@ -219,112 +219,117 @@ Para organizar el encuentro, por favor <strong>confirmá tu asistencia antes del
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-3">
                     <div class="flex items-center justify-between gap-2">
-                        <h3 class="font-extrabold text-sm text-[#133522]">A. Vouchers Genéricos para Sorteos (Imprimir y completar)</h3>
+                        <h3 class="font-extrabold text-sm text-[#133522]">A. Vouchers Genéricos para Sorteos (Imprimir y completar a mano)</h3>
                         <a href="../pack2_vouchers_sorteo_imprimir_2026.pdf" download class="bg-brand hover:bg-brand-dark text-white font-extrabold text-xs px-3.5 py-2 rounded-xl transition">
                             ⬇ Descargar PDF A4
                         </a>
                     </div>
-                    <img src="../pack2_vouchers_sorteo_imprimir_2026.png?v=3" alt="Vouchers Sorteo" class="w-full rounded-xl border border-gray-200 shadow-sm">
+                    <img src="../pack2_vouchers_sorteo_imprimir_2026.png?v=4" alt="Vouchers Sorteo" class="w-full rounded-xl border border-gray-200 shadow-sm">
                 </div>
 
                 <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-3">
                     <div class="flex items-center justify-between gap-2">
-                        <h3 class="font-extrabold text-sm text-[#133522]">B. Plantilla Regalo Oficina Central (Nombre + Monto)</h3>
+                        <h3 class="font-extrabold text-sm text-[#133522]">B. Vouchers Regalo Oficina Central (Imprimir y completar a mano)</h3>
                         <a href="../pack2_vouchers_regalo_oficina_2026.pdf" download class="bg-[#133522] hover:bg-brand text-white font-extrabold text-xs px-3.5 py-2 rounded-xl transition">
-                            ⬇ Descargar Base PDF A4
+                            ⬇ Descargar PDF A4
                         </a>
                     </div>
-                    <img src="../pack2_vouchers_regalo_oficina_2026.png?v=3" alt="Vouchers Regalo Oficina" class="w-full rounded-xl border border-gray-200 shadow-sm">
-                </div>
-            </div>
-
-            <!-- EDITOR EN VIVO DE 4 CUADRANTES PARA CARGAR NOMBRES Y MONTOS E IMPRIMIR HOJA A4 LIMPIA -->
-            <div class="bg-[#f4f7f5] rounded-2xl p-5 border border-brand/25 space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand">Editor Rápido en Pantalla · 4 Vouchers por Hoja A4</span>
-                        <h3 class="text-base font-extrabold text-[#111827]">Hacé clic sobre cada nombre o monto abajo para escribirlo y tocá "Imprimir / Guardar PDF A4"</h3>
-                    </div>
-                    <button type="button" onclick="window.print()" class="bg-brand hover:bg-brand-dark text-white font-extrabold text-xs px-4 py-2.5 rounded-xl transition cursor-pointer shadow-sm">
-                        🖨 Imprimir / Guardar Hoja A4 con estos 4 Vouchers
-                    </button>
+                    <img src="../pack2_vouchers_regalo_oficina_2026.png?v=4" alt="Vouchers Regalo Oficina" class="w-full rounded-xl border border-gray-200 shadow-sm">
                 </div>
             </div>
         </section>
 
     </div>
 
-    <!-- HOJA A4 APAISADA EDITABLE EN PANTALLA E IMPRIMIBLE AL 100% LIMPIA -->
-    <div id="printable-vouchers-a4" class="max-w-5xl mx-auto mt-4 bg-white shadow-md border border-gray-300 grid grid-cols-2 grid-rows-2 divide-x divide-y divide-gray-300" style="aspect-ratio: 297 / 210;">
-        <!-- Cuadrante 1 -->
-        <div class="p-4 sm:p-6 flex flex-col justify-between">
-            <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
-                <div class="w-full flex items-start justify-between">
-                    <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
-                    <span class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2 py-0.5 rounded-full">✦ 2026 ✦</span>
-                </div>
-                <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
-                <div class="space-y-1 my-1">
-                    <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
-                    <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">NOMBRE Y APELLIDO</div>
-                </div>
-                <div class="space-y-0.5">
-                    <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 000.000</div>
-                    <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+    <!-- BLOQUE SEPARADO ABAJO: EDITOR RÁPIDO EN PANTALLA PEGADO A LA HOJA A4 -->
+    <div class="max-w-5xl mx-auto mt-8 bg-white rounded-3xl shadow-md border-2 border-brand overflow-hidden">
+        <!-- BARRA DE CONTROL DEL EDITOR RÁPIDO (NO SE IMPRIME) -->
+        <div class="no-print bg-[#f4f7f5] p-5 sm:p-6 border-b-2 border-brand/25 flex flex-wrap items-center justify-between gap-4">
+            <div class="space-y-1">
+                <span class="inline-block bg-brand text-white text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                    Opción Alternativa sin entrar a Canva · Editor Rápido en Pantalla (4 Vouchers por Hoja A4)
+                </span>
+                <h3 class="text-base sm:text-lg font-extrabold text-[#111827]">
+                    Hacé clic directo sobre cada Nombre o Monto en los 4 vouchers de acá abajo para escribirlo y tocá "Imprimir / Guardar PDF A4"
+                </h3>
+            </div>
+            <button type="button" onclick="window.print()" class="bg-brand hover:bg-brand-dark text-white font-extrabold text-xs sm:text-sm px-5 py-3 rounded-xl transition cursor-pointer shadow-sm">
+                🖨 Imprimir / Guardar Hoja A4 con estos 4 Vouchers
+            </button>
+        </div>
+
+        <!-- HOJA A4 APAISADA EDITABLE EN PANTALLA E IMPRIMIBLE AL 100% LIMPIA -->
+        <div id="printable-vouchers-a4" class="bg-white grid grid-cols-2 grid-rows-2 divide-x divide-y divide-gray-300" style="aspect-ratio: 297 / 210;">
+            <!-- Cuadrante 1 -->
+            <div class="p-4 sm:p-6 flex flex-col justify-between">
+                <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
+                    <div class="w-full flex items-start justify-between">
+                        <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
+                        <span contenteditable="true" class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2.5 py-0.5 rounded-full">✦ 2027 ✦</span>
+                    </div>
+                    <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
+                    <div class="space-y-1 my-1">
+                        <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
+                        <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">JOSE DOCARMO</div>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 370.080</div>
+                        <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Cuadrante 2 -->
-        <div class="p-4 sm:p-6 flex flex-col justify-between">
-            <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
-                <div class="w-full flex items-start justify-between">
-                    <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
-                    <span class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2 py-0.5 rounded-full">✦ 2026 ✦</span>
-                </div>
-                <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
-                <div class="space-y-1 my-1">
-                    <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
-                    <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">NOMBRE Y APELLIDO</div>
-                </div>
-                <div class="space-y-0.5">
-                    <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 000.000</div>
-                    <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
-                </div>
-            </div>
-        </div>
-        <!-- Cuadrante 3 -->
-        <div class="p-4 sm:p-6 flex flex-col justify-between">
-            <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
-                <div class="w-full flex items-start justify-between">
-                    <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
-                    <span class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2 py-0.5 rounded-full">✦ 2026 ✦</span>
-                </div>
-                <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
-                <div class="space-y-1 my-1">
-                    <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
-                    <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">NOMBRE Y APELLIDO</div>
-                </div>
-                <div class="space-y-0.5">
-                    <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 000.000</div>
-                    <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+            <!-- Cuadrante 2 -->
+            <div class="p-4 sm:p-6 flex flex-col justify-between">
+                <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
+                    <div class="w-full flex items-start justify-between">
+                        <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
+                        <span contenteditable="true" class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2.5 py-0.5 rounded-full">✦ 2027 ✦</span>
+                    </div>
+                    <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
+                    <div class="space-y-1 my-1">
+                        <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
+                        <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">ROBERTO BAUDIN</div>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 370.080</div>
+                        <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Cuadrante 4 -->
-        <div class="p-4 sm:p-6 flex flex-col justify-between">
-            <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
-                <div class="w-full flex items-start justify-between">
-                    <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
-                    <span class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2 py-0.5 rounded-full">✦ 2026 ✦</span>
+            <!-- Cuadrante 3 -->
+            <div class="p-4 sm:p-6 flex flex-col justify-between">
+                <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
+                    <div class="w-full flex items-start justify-between">
+                        <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
+                        <span contenteditable="true" class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2.5 py-0.5 rounded-full">✦ 2027 ✦</span>
+                    </div>
+                    <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
+                    <div class="space-y-1 my-1">
+                        <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
+                        <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">ROCIO CASTILLO</div>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 370.080</div>
+                        <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+                    </div>
                 </div>
-                <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
-                <div class="space-y-1 my-1">
-                    <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
-                    <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">NOMBRE Y APELLIDO</div>
-                </div>
-                <div class="space-y-0.5">
-                    <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 000.000</div>
-                    <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+            </div>
+            <!-- Cuadrante 4 -->
+            <div class="p-4 sm:p-6 flex flex-col justify-between">
+                <div class="flex-1 rounded-2xl bg-[#fcfbf7] border-2 border-[#03582d] p-4 sm:p-5 flex flex-col items-center justify-between text-center relative" style="box-shadow: inset 0 0 0 3px #ffffff, inset 0 0 0 4.5px #e6b422;">
+                    <div class="w-full flex items-start justify-between">
+                        <img src="../assets/logo-star-union.png" alt="Star Union" class="h-8 sm:h-9 w-auto object-contain">
+                        <span contenteditable="true" class="text-[11px] font-extrabold text-[#03582d] bg-[#fff8e1] border border-[#e6b422] px-2.5 py-0.5 rounded-full">✦ 2027 ✦</span>
+                    </div>
+                    <img src="../assets/cleany-navidad-2.png" alt="Cleany Navidad" class="h-20 sm:h-24 w-auto object-contain -mt-2">
+                    <div class="space-y-1 my-1">
+                        <div contenteditable="true" class="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-[#03582d]">REGALO STAR UNION PARA</div>
+                        <div contenteditable="true" class="text-lg sm:text-2xl font-extrabold text-[#d9a010] uppercase">OLGA BOYIAZAKIS</div>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div contenteditable="true" class="text-xs sm:text-sm font-bold text-[#03582d]">Equivale a $ 370.080</div>
+                        <div contenteditable="true" class="text-[11px] sm:text-xs italic text-[#4b5563]">Se acreditará en tu cuenta · ¡Felices Fiestas!</div>
+                    </div>
                 </div>
             </div>
         </div>
