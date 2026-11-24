@@ -244,3 +244,47 @@ Prohibido usar un único tono plano para todo Star Union. El sistema distingue o
    - Relevar todos los videos originales existentes en Drive (*Guaminí*, *Mudanza*, tomas de dron, placa de apertura) para integrar las mejores tomas reales.
 4. **Pase a Producción (www.starunion.com.ar en Hostgator) tras el OK de Mauro:**
    - Congelar versión aprobada → reemplazar todas las URLs de staging (`wajntraub.ar/staruniontest`) por `www.starunion.com.ar` → subir a **Hostgator** → conectar formularios a casillas reales (contacto@ / comercial@) → re-correr auditoría clic por clic sobre producción hasta 0 links rotos → redirecciones 301 desde URLs del sitio viejo.
+
+---
+
+## 16. ESTÁNDAR MAESTRO DE COMUNICACIÓN INTERNA (RRHH / EMILIANA ABAL) Y SISTEMA VISUAL FIESTAS 2026–2027 (24-NOV-2026)
+
+### A. Los 6 Bloques Innegociables de Redacción y Diseño en Comunicación Interna (Importados del Gem "Director de Arte Estratégico de Star Union")
+1. **Postura y Voz ("Nosotros" vs. "Vos"):**
+   - Se habla desde adentro del equipo en primera persona plural únicamente cuando la acción la ejecuta el área o la empresa (*"Abrimos las postulaciones"*, *"Evaluaremos los perfiles"*, *"Nos pondremos en contacto"*, *"Diseñamos programas de aprendizaje"*).
+   - **Prohibido el "nosotros" falso** cuando la acción la hace quien trabaja (ej. prohibido *"¿Qué aprenderemos?"*; se escribe **"¿Qué aprenderás en el programa?"**).
+   - Trato adulto, par a par, cero tono escolar ("maestra de jardín"), cero vender humo en convocatorias con filtro previo y cero frases empalagosas en efemérides.
+2. **Redacción 100% sin Marca de Género (y sin `-e`, `-x` ni `@`):**
+   - Saludos: **`¡Hola!`** (reemplaza a *"Hola a todos"*). Bienvenidas: **`Te damos la bienvenida`**.
+   - Foco en la función sin distorsionar el puesto real: **`Supervisión Zonal`** / **`Programa de Formación en Supervisión Zonal`**; **`Formación de líderes de equipo (rol de Encargado)`**; **`el personal que actualmente ejerce el rol de Encargado`** (jamás inventar *"personal que coordina servicios"* porque no equivale al puesto formal de Encargado); **`personal operario`**; **`quienes quieran desafiarse`**.
+3. **Economía Verbal y Eliminación de Burocracia de RRHH:**
+   - Prohibido repetir dos veces que hay vacantes o que se evaluará el perfil en el mismo párrafo.
+   - En los requisitos, no aclarar lo obvio (*"Aclarar nombre y servicio"*, *"Explicar brevemente"*); ir directo a la lista limpia: **Nombre y apellido / Servicio actual / Disponibilidad horaria / ¿Por qué te interesa sumarte?**.
+   - **Negritas selectivas:** Poner negritas únicamente en los datos duros accionables (fecha, hora, lugar, fecha límite de confirmación, correo y restricción alimentaria), jamás párrafos enteros en negrita.
+4. **Criterio Visual de `Cleany` en Comunicación Interna:**
+   - **`Cleany` jamás modifica su estructura, su carita ni su ropa de trabajo (guantes y borcegos siempre puestos).** Solo puede variar levemente la posición de brazos o sumar el accesorio del sistema elegido (ej. el gorrito de Navidad rojo con franja blanca y logo `Star Union` de los 2 activos oficiales del Kit de Marca en Canva: `MAF43uK52bA` y `MAF43mgca38`).
+   - Prohibido poner el logo corporativo de Star Union flotando adentro de `Cleany` como parche; la pertenencia la da el marco institucional con logo oficial arriba y tipografía `Open Sans`.
+   - Cero fotos de banco: o diseño gráfico limpio + `Cleany` oficial, o fotografía real verificada de la operación.
+5. **Segmentación por Canal según la Pirámide Organizacional:**
+   - **Base operativa (personal operario en objetivos):** No trabaja frente a una PC $\rightarrow$ piezas móviles verticales (`1080x1920`), video corto `.MP4` para WhatsApp o placa fija para **Browix** + texto corto nativo de WhatsApp.
+   - **Franja media y oficina central (personal que trabaja con computadora: administración, gestión, mandos medios, referentes):** Recibe tanto por **WhatsApp** (video vertical `.MP4` + texto con asteriscos) como por **Mail** (donde RRHH prefiere **tarjeta horizontal `.JPG`**, acompañada además por versión vertical `.JPG` y opción de **Mail Visual Armado `.HTML` para copiar y pegar en 1 clic con `Ctrl+V`**).
+
+### B. Sistema Visual Elegido para Fin de Año 2026 / Inicio 2027 ("PACK 2 · Burbujas Doradas + Emblema Pino Estrella + Cleany Navidad Oficial · Cero Alcohol")
+- **Por qué este sistema es la matriz de toda la campaña de Fiestas 2026–2027:**
+  - En lugar de cambiar una frase suelta sobre el diseño del año anterior, se definió un **pack de elementos rectores sin alcohol** (se descartaron las copas de brindis por tratarse de un ámbito laboral): **burbujas doradas ascendentes + marco doble verde Star Union (`#03582d`) y dorado (`#e6b422`) sobre fondo cálido (`#fcfbf7`) + emblema del Pino geométrico con estrella dorada arriba + `Cleany Navidad Oficial` con gorrito rojo y franja blanca Star Union**.
+  - Este mismo sistema visual enmarca: **1) Invitaciones al Almuerzo (18/12 y próximas fechas operativas)**, **2) Vouchers de Regalo Oficina Central y Vouchers de Sorteos (con pastilla `✦ 2027 ✦`)**, **3) Saludo de Fin de Año al equipo interno**, y **4) Saludo de Fin de Año a Clientes**.
+- **Fórmula de Entrega para RRHH (Emiliana Abal — `https://wajntraub.ar/staruniontest/comunicacion-interna/almuerzo-2026/entrega/`):**
+  1. **Piezas Gráficas y Video (Bloque 1):**
+     - **A. Video Vertical Animado para WhatsApp con Música de Navidad (`.MP4`, `1080x1920`, 8 seg, celesta y cascabeles con `fade-in/out`):** `https://wajntraub.ar/staruniontest/comunicacion-interna/almuerzo-2026/pack2_whatsapp_invitacion_2026.mp4`
+     - **B. Tarjeta Horizontal para Cuerpo de Mail (`.JPG`, `1600x1050`):** `https://wajntraub.ar/staruniontest/comunicacion-interna/almuerzo-2026/pack2_horizontal_mail_2026.jpg`
+     - **C. Tarjeta Vertical Fija (`.JPG`, `1080x1920`):** `https://wajntraub.ar/staruniontest/comunicacion-interna/almuerzo-2026/pack2_brindis_invitacion_2026.jpg`
+  2. **Escritos para Copiar en 1 Clic + Mail Visual Autocontenido (Bloque 2):**
+     - Escrito WhatsApp (`*Este es un mensaje de Recursos Humanos*` + dirección corregida **`Guaminí 5657`** + link Google Maps + confirmación con restricciones alimentarias a `rrhh@starunion.com.ar`).
+     - Escrito Mail (Asunto + Cuerpo con negritas selectivas) + **Botón `📋 Copiar Mail Visual Armado (Pegar con Ctrl+V)`** para Gmail/Outlook.
+  3. **Vouchers 4 por Hoja A4 Apaisada (Bloque 3 + Editor A4 inferior — Prohibido dejar PDFs con `[NOMBRE]` o `$ 000.000`):**
+     - **Opción Principal · Plantilla Editable en Canva (`DAHb2crsDLc`, 2 páginas exactas, abierta a *"Cualquier persona con el enlace puede editar"*):** `https://canva.link/xn2f6lf3joe95bp`
+       - *Regla técnica de Canva para RRHH:* Todo el fondo de 4 cuadrantes (`pack2_canva_bg_regalo.png` -> asset `MAHb2b6IRck`, y `pack2_canva_bg_sorteo.png` -> asset `MAHb2bDb9tc`) se sube como **una sola imagen fija de `2246x1588` (`1123x794` A4 landscape)** con los marcos, logos, Cleany Navidad, pino estrella, líneas de corte y rótulos fijos ya fundidos, y **únicamente se agregan encima las cajitas de texto sueltas de Nombres y Montos** para que RRHH edite nombres/montos en Canva y baje su PDF sin desarmar el diseño.
+     - **PDFs A4 para Imprimir Directo y Completar a Mano (sin placeholders falsos):**
+       - **A. Sorteos (`pack2_vouchers_sorteo_imprimir_2026.pdf`):** Recuadro blanco limpio para escribir el monto a mano.
+       - **B. Regalo Oficina Central (`pack2_vouchers_regalo_oficina_2026.pdf`):** Recuadro blanco limpio para escribir el nombre a mano + línea `Equivale a $ _______________________` (jamás `[NOMBRE Y APELLIDO]` ni `$ 000.000`).
+     - **Editor Rápido en Pantalla (Recuadro independiente abajo con su propia barra de cabecera pegada al A4 y pastillas `✦ 2027 ✦`):** Permite tipear los 4 nombres y montos directo en el navegador y tocar `🖨 Imprimir / Guardar Hoja A4` saliendo 100% limpio sin bordes ni botones.
