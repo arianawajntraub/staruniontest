@@ -288,3 +288,36 @@ Prohibido usar un único tono plano para todo Star Union. El sistema distingue o
        - **A. Sorteos (`pack2_vouchers_sorteo_imprimir_2026.pdf`):** Recuadro blanco limpio para escribir el monto a mano.
        - **B. Regalo Oficina Central (`pack2_vouchers_regalo_oficina_2026.pdf`):** Recuadro blanco limpio para escribir el nombre a mano + línea `Equivale a $ _______________________` (jamás `[NOMBRE Y APELLIDO]` ni `$ 000.000`).
      - **Editor Rápido en Pantalla (Recuadro independiente abajo con su propia barra de cabecera pegada al A4 y pastillas `✦ 2027 ✦`):** Permite tipear los 4 nombres y montos directo en el navegador y tocar `🖨 Imprimir / Guardar Hoja A4` saliendo 100% limpio sin bordes ni botones.
+
+---
+
+## 17. REGLAS INNEGOCIABLES DE CANVA (`OPEN SANS`), LECTURA OBRERA EN CELULAR, SOMBRA DE CLEANY Y ARCHIVO EN DRIVE (CORRECCIÓN DIRECTA DE ARIANA — 24-NOV-2026)
+
+1. **Tipografía Oficial en Canva (`Kit de Marca SU` ID `kAEzynfV2TU`) = `Open Sans` (`fontRef: "YAFdJt8dAY0,1"`):**
+   - Prohibido dejar la fuente genérica por defecto de Canva (`YACgEZ1cb1Q,0`). Todo diseño de Star Union en Canva debe salir con **`Open Sans`** (`YAFdJt8dAY0,1`), usando `brand_kit_id: "kAEzynfV2TU"` al crear diseños nuevos o duplicando diseños base de `Open Sans` como `DAHb2hn2gXs`.
+2. **Escala Tipográfica para Personal Operario en Celular (`1080×1920`, Browix / WhatsApp):**
+   - La persona trabajadora abre el comunicado en su celular en casa o en el objetivo: las letras chicas no se leen.
+   - Escala validada por Ariana sobre `DAHb2hn2gXs`: título **`68 px` Bold**, bajada **`40 px`**, títulos de tarjetas **`35 px` Bold**, cuerpo de tarjetas **`32 px`**, pie de acción **`25 px` Bold**.
+3. **Sombra de Cleany Siempre Apoyada en el Piso Bajo los Borcegos:**
+   - La sombra de Cleany vive **únicamente como elipse de apoyo en el piso debajo de las suelas de sus borcegos** (como en `cleany_anteojos_lupa.png`), jamás como sombra difusa flotando alrededor del cuerpo estrella.
+4. **Doble Guardado Obligatorio para Comodidad de Ariana y RRHH (Web de Entrega + Carpeta Ordenada en Google Drive):**
+   - Además de publicar los entregables en la web (`wajntraub.ar/staruniontest/...`), **todo archivo generado (`.mp4`, `.jpg`, `.png`, `.pdf`) + un `.txt` con los links editables de Canva, URLs y escritos finales** debe guardarse agrupado por campaña dentro de Google Drive:
+     `/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/su para AG/COMUNICACION_INTERNA_RRHH_2026/`
+5. **Encuesta Anual de Satisfacción 2026 (Browix + Header Google Forms `1600×400 px`) — Escrito y Placa Modelo Aprobados por Ariana:**
+   - **Texto modelo definitivo aprobado para pegar en Browix (limpio, sin asteriscos, tono directo y humano):**
+     > `¡Hola!`
+     > `Abrimos la encuesta anual de satisfacción 2026 de Star Union. Queremos conocer tu opinión sincera y tus ideas sobre las condiciones de tu trabajo, para mejorar día a día.`
+     > `Son 5 preguntas cortas y la completás rápido.`
+     > `¿Por qué es anónima y obligatoria?`
+     > `• Anónima: aunque entrás desde Browix, el link de este anuncio abre un formulario externo que no pide ni guarda tu nombre, DNI ni usuario de Browix. Tus respuestas llegan sin datos personales y podés contestar con total confianza.`
+     > `• Obligatoria: necesitamos que participe todo el equipo para conocer la realidad de todos los servicios.`
+     > `Tenés tiempo hasta el miércoles 9 de diciembre.`
+     > `Entrá acá para completar la encuesta: https://docs.google.com/forms/d/e/1FAIpQLSckj4EjAdYCrdfdVEqyQeXIo_aX41urCfj5IfLlP4_i-XYlig/viewform?usp=dialog`
+     > `Muchas gracias por tu tiempo y por tu dedicación.`
+     > `Recursos Humanos · Star Union`
+   - **Microcopy definitivo aprobado en la placa vertical (`DAHb2hn2gXs`):**
+     - Bajada: `Queremos conocer tu opinión sobre las condiciones de los servicios en los que trabajás.`
+     - Tarjeta 1 (`Es anónima`): `No pide ni guarda tu nombre, DNI ni tu usuario de Browix.`
+     - Tarjeta 2 (`Es rápida`): `Son solo preguntas simples desde tu celular.`
+     - Tarjeta 3 (`Es obligatoria`): `Completala hasta el miércoles 9 de diciembre.`
+   - **Medida exacta oficial para Google Forms Header:** **`1600 × 400 px`** (`4:1` horizontal), llevando el logo a la izquierda, pastilla/título/bajada en el centro y **Mini Cleany con anteojos lupa y su sombra en el piso** a la derecha.
